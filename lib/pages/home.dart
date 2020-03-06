@@ -5,11 +5,12 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:transparent_image/transparent_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
+
+import 'package:transparent_image/transparent_image.dart';
+
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
