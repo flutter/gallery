@@ -8,6 +8,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 const fortnightlyTitle = 'Fortnightly';
 
@@ -48,8 +49,9 @@ class _FortnightlyHomeMobile extends StatelessWidget {
       appBar: AppBar(
         title: Semantics(
           label: fortnightlyTitle,
-          child: Image.asset(
-            'assets/fortnightly/fortnightly_title.png',
+          child: FadeInImage(
+            image: AssetImage('assets/fortnightly/fortnightly_title.png'),
+            placeholder: MemoryImage(kTransparentImage),
             excludeFromSemantics: true,
           ),
         ),
