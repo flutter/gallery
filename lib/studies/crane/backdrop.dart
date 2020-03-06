@@ -12,6 +12,7 @@ import 'package:meta/meta.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/studies/crane/border_tab_indicator.dart';
 import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/colors.dart';
@@ -258,8 +259,12 @@ class _CraneAppBarState extends State<CraneAppBar> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ExcludeSemantics(
-              child: Image.asset(
-                'assets/crane/logo/logo.png',
+              child: FadeInImagePlaceholder(
+                image: AssetImage('assets/crane/logo/logo.png'),
+                placeholder: SizedBox(
+                  width: 40,
+                  height: 60,
+                ),
                 fit: BoxFit.cover,
               ),
             ),

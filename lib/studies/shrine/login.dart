@@ -5,8 +5,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/colors.dart';
@@ -88,7 +90,13 @@ class _ShrineLogo extends StatelessWidget {
     return ExcludeSemantics(
       child: Column(
         children: [
-          Image.asset('packages/shrine_images/diamond.png'),
+          FadeInImagePlaceholder(
+            image: AssetImage('packages/shrine_images/diamond.png'),
+            placeholder: Container(
+              width: 34,
+              height: 34,
+            ),
+          ),
           const SizedBox(height: 16),
           Text(
             'SHRINE',

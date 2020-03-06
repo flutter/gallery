@@ -3,8 +3,10 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
@@ -48,8 +50,9 @@ class _FortnightlyHomeMobile extends StatelessWidget {
       appBar: AppBar(
         title: Semantics(
           label: fortnightlyTitle,
-          child: Image.asset(
-            'assets/fortnightly/fortnightly_title.png',
+          child: FadeInImagePlaceholder(
+            image: AssetImage('assets/fortnightly/fortnightly_title.png'),
+            placeholder: SizedBox.shrink(),
             excludeFromSemantics: true,
           ),
         ),
