@@ -13,9 +13,10 @@ import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
 
 class ArticleData {
-  ArticleData({this.imageUrl, this.category, this.title, this.snippet});
+  ArticleData({this.imageUrl, this.imageAspectRatio, this.category, this.title, this.snippet});
 
   final String imageUrl;
+  final double imageAspectRatio;
   final String category;
   final String title;
   final String snippet;
@@ -61,8 +62,8 @@ class HorizontalArticlePreview extends StatelessWidget {
           image: AssetImage(data.imageUrl),
           placeholder: Container(
             color: Colors.black.withOpacity(0.1),
-            width: 60,
-            height: 60,
+            width: 64 / ( 1 / data.imageAspectRatio),
+            height: 64,
           ),
           fit: BoxFit.cover,
           excludeFromSemantics: true,
@@ -103,7 +104,7 @@ class VerticalArticlePreview extends StatelessWidget {
                   return Container(
                     color: Colors.black.withOpacity(0.1),
                     width: constraints.maxWidth,
-                    height: constraints.maxWidth / 1.6,
+                    height: constraints.maxWidth / data.imageAspectRatio,
                   );
                 }
               ),
@@ -152,6 +153,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     VerticalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_healthcare.jpg',
+        imageAspectRatio: 391 / 248,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
         title: GalleryLocalizations.of(context).fortnightlyHeadlineHealthcare,
@@ -162,6 +164,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_war.png',
+        imageAspectRatio: 1,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
             .toUpperCase(),
@@ -172,6 +175,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_gas.png',
+        imageAspectRatio: 1,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
         title: GalleryLocalizations.of(context).fortnightlyHeadlineGasoline,
@@ -186,6 +190,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_army.png',
+        imageAspectRatio: 1,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
             .toUpperCase(),
@@ -197,6 +202,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_stocks.png',
+        imageAspectRatio: 77 / 64,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
         title: GalleryLocalizations.of(context).fortnightlyHeadlineStocks,
@@ -207,6 +213,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     HorizontalArticlePreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_fabrics.png',
+        imageAspectRatio: 76 / 64,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
         title: GalleryLocalizations.of(context).fortnightlyHeadlineFabrics,
@@ -407,12 +414,23 @@ List<Widget> buildStockItems(BuildContext context) {
     color: Colors.black.withOpacity(0.07),
     height: 1,
   );
+  double imageAspectRatio = 165 / 55;
 
   return <Widget>[
     SizedBox(
       width: double.infinity,
-      child: Image.asset(
-        'assets/fortnightly/fortnightly_chart.png',
+      child: FadeInImagePlaceholder(
+        image: AssetImage('assets/fortnightly/fortnightly_chart.png'),
+        placeholder: LayoutBuilder(
+          builder: (context, constraints) {
+            return Container(
+              color: Colors.black.withOpacity(0.1),
+              width: constraints.maxWidth,
+              height: constraints.maxWidth / imageAspectRatio,
+            );
+          }
+        ),
+        width: double.infinity,
         fit: BoxFit.contain,
         excludeFromSemantics: true,
       ),
@@ -473,7 +491,7 @@ class VideoPreview extends StatelessWidget {
                 return Container(
                   color: Colors.black.withOpacity(0.1),
                   width: constraints.maxWidth,
-                  height: constraints.maxWidth / 1.6,
+                  height: constraints.maxWidth / data.imageAspectRatio,
                 );
               }
             ),
@@ -503,6 +521,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
     VideoPreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_feminists.jpg',
+        imageAspectRatio: 148 / 88,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
             .toUpperCase(),
@@ -514,6 +533,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
     VideoPreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_bees.jpg',
+        imageAspectRatio: 148 / 88,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuUS.toUpperCase(),
         title: GalleryLocalizations.of(context).fortnightlyHeadlineBees,
