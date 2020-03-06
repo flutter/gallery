@@ -26,6 +26,7 @@ dependencies:
   flutter_gallery_assets: ^0.1.9+2
   package_info: ^0.4.0+13
   google_fonts: ^0.3.5
+  transparent_image: ^1.0.0
 
 dev_dependencies:
   flutter_test:

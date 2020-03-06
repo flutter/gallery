@@ -296,8 +296,10 @@ class TravelDestinationContent extends StatelessWidget {
                 // part of the Material and display ink effects above it. Using
                 // a standard Image will obscure the ink splash.
                 child: Ink.image(
-                  image: AssetImage(destination.assetName,
-                      package: destination.assetPackage),
+                  image: AssetImage(
+                    destination.assetName,
+                    package: destination.assetPackage,
+                  ),
                   fit: BoxFit.cover,
                   child: Container(),
                 ),

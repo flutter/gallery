@@ -5,6 +5,8 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:transparent_image/transparent_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
@@ -13,6 +15,7 @@ import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/category_list_item.dart';
 import 'package:gallery/pages/settings.dart';
@@ -57,8 +60,10 @@ class HomePage extends StatelessWidget {
       _CarouselCard(
         title: _shrineTitle,
         subtitle: GalleryLocalizations.of(context).shrineDescription,
-        asset: 'assets/studies/shrine_card.png',
-        assetDark: 'assets/studies/shrine_card_dark.png',
+        asset: AssetImage('assets/studies/shrine_card.png'),
+        assetColor: const Color(0xFFFEDBD0),
+        assetDark: AssetImage('assets/studies/shrine_card_dark.png'),
+        assetDarkColor: const Color(0xFF543B3C),
         textColor: shrineBrown900,
         study: ShrineApp(navigatorKey: NavigatorKeys.shrine),
         navigatorKey: NavigatorKeys.shrine,
@@ -67,16 +72,20 @@ class HomePage extends StatelessWidget {
         title: _rallyTitle,
         subtitle: GalleryLocalizations.of(context).rallyDescription,
         textColor: RallyColors.accountColors[0],
-        asset: 'assets/studies/rally_card.png',
-        assetDark: 'assets/studies/rally_card_dark.png',
+        asset: AssetImage('assets/studies/rally_card.png'),
+        assetColor: const Color(0xFFD1F2E6),
+        assetDark: AssetImage('assets/studies/rally_card_dark.png'),
+        assetDarkColor: const Color(0xFF253538),
         study: RallyApp(navigatorKey: NavigatorKeys.rally),
         navigatorKey: NavigatorKeys.rally,
       ),
       _CarouselCard(
         title: _craneTitle,
         subtitle: GalleryLocalizations.of(context).craneDescription,
-        asset: 'assets/studies/crane_card.png',
-        assetDark: 'assets/studies/crane_card_dark.png',
+        asset: AssetImage('assets/studies/crane_card.png'),
+        assetColor: const Color(0xFFFBF6F8),
+        assetDark: AssetImage('assets/studies/crane_card_dark.png'),
+        assetDarkColor: const Color(0xFF591946),
         textColor: cranePurple700,
         study: CraneApp(navigatorKey: NavigatorKeys.crane),
         navigatorKey: NavigatorKeys.crane,
@@ -84,16 +93,20 @@ class HomePage extends StatelessWidget {
       _CarouselCard(
         title: fortnightlyTitle,
         subtitle: GalleryLocalizations.of(context).fortnightlyDescription,
-        asset: 'assets/studies/fortnightly_card.png',
-        assetDark: 'assets/studies/fortnightly_card_dark.png',
+        asset: AssetImage('assets/studies/fortnightly_card.png'),
+        assetColor: Colors.white,
+        assetDark: AssetImage('assets/studies/fortnightly_card_dark.png'),
+        assetDarkColor: const Color(0xFF1F1F1F),
         study: FortnightlyApp(navigatorKey: NavigatorKeys.fortnightly),
         navigatorKey: NavigatorKeys.fortnightly,
       ),
       _CarouselCard(
         title: GalleryLocalizations.of(context).starterAppTitle,
         subtitle: GalleryLocalizations.of(context).starterAppDescription,
-        asset: 'assets/studies/starter_card.png',
-        assetDark: 'assets/studies/starter_card_dark.png',
+        asset: AssetImage('assets/studies/starter_card.png'),
+        assetColor: const Color(0xFFFAF6FE),
+        assetDark: AssetImage('assets/studies/starter_card_dark.png'),
+        assetDarkColor: const Color(0xFF3F3D45),
         textColor: Colors.black,
         study: StarterApp(navigatorKey: NavigatorKeys.starter),
         navigatorKey: NavigatorKeys.starter,
@@ -104,17 +117,17 @@ class HomePage extends StatelessWidget {
       final desktopCategoryItems = <_DesktopCategoryItem>[
         _DesktopCategoryItem(
           title: _homeCategoryMaterial,
-          imageString: 'assets/icons/material/material.png',
+          asset: AssetImage('assets/icons/material/material.png'),
           demos: materialDemos(context),
         ),
         _DesktopCategoryItem(
           title: _homeCategoryCupertino,
-          imageString: 'assets/icons/cupertino/cupertino.png',
+          asset: AssetImage('assets/icons/cupertino/cupertino.png'),
           demos: cupertinoDemos(context),
         ),
         _DesktopCategoryItem(
           title: GalleryLocalizations.of(context).homeCategoryReference,
-          imageString: 'assets/icons/reference/reference.png',
+          asset: AssetImage('assets/icons/reference/reference.png'),
           demos: referenceDemos(context),
         ),
       ];
@@ -176,10 +189,11 @@ class HomePage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Image.asset(
-                    Theme.of(context).colorScheme.brightness == Brightness.dark
-                        ? 'assets/logo/flutter_logo.png'
-                        : 'assets/logo/flutter_logo_color.png',
+                  FadeInImage(
+                    image: Theme.of(context).colorScheme.brightness == Brightness.dark
+                        ? AssetImage('assets/logo/flutter_logo.png')
+                        : AssetImage('assets/logo/flutter_logo_color.png'),
+                    placeholder: MemoryImage(kTransparentImage),
                     excludeFromSemantics: true,
                   ),
                   Expanded(
@@ -393,12 +407,12 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
 class _DesktopCategoryItem extends StatelessWidget {
   const _DesktopCategoryItem({
     this.title,
-    this.imageString,
+    this.asset,
     this.demos,
   });
 
   final String title;
-  final String imageString;
+  final ImageProvider asset;
   final List<GalleryDemo> demos;
 
   @override
@@ -416,7 +430,7 @@ class _DesktopCategoryItem extends StatelessWidget {
             children: [
               _DesktopCategoryHeader(
                 title: title,
-                imageString: imageString,
+                asset: asset,
               ),
               Divider(
                 height: 2,
@@ -451,10 +465,10 @@ class _DesktopCategoryItem extends StatelessWidget {
 class _DesktopCategoryHeader extends StatelessWidget {
   const _DesktopCategoryHeader({
     this.title,
-    this.imageString,
+    this.asset,
   });
   final String title;
-  final String imageString;
+  final ImageProvider asset;
 
   @override
   Widget build(BuildContext context) {
@@ -465,8 +479,9 @@ class _DesktopCategoryHeader extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(10),
-            child: Image.asset(
-              imageString,
+            child: FadeInImage(
+              image: asset,
+              placeholder: MemoryImage(kTransparentImage),
               width: 64,
               height: 64,
               excludeFromSemantics: true,
@@ -932,6 +947,8 @@ class _CarouselCard extends StatelessWidget {
     this.subtitle,
     this.asset,
     this.assetDark,
+    this.assetColor,
+    this.assetDarkColor,
     this.textColor,
     this.study,
     this.navigatorKey,
@@ -939,8 +956,10 @@ class _CarouselCard extends StatelessWidget {
 
   final String title;
   final String subtitle;
-  final String asset;
-  final String assetDark;
+  final ImageProvider asset;
+  final ImageProvider assetDark;
+  final Color assetColor;
+  final Color assetDarkColor;
   final Color textColor;
   final Widget study;
   final GlobalKey<NavigatorState> navigatorKey;
@@ -948,11 +967,9 @@ class _CarouselCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    // TODO: Update with newer assets when we have them. For now, always use the
-    //  dark assets.
-    // Theme.of(context).colorScheme.brightness == Brightness.dark;
-    final isDark = true;
+    final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     final asset = isDark ? assetDark : this.asset;
+    final assetColor = isDark ? assetDarkColor : this.assetColor;
     final textColor = isDark ? Colors.white.withOpacity(0.87) : this.textColor;
 
     return Container(
@@ -978,9 +995,15 @@ class _CarouselCard extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               if (asset != null)
-                Ink.image(
-                  image: AssetImage(asset),
-                  fit: BoxFit.cover,
+                FadeInImagePlaceholder(
+                  image: asset,
+                  child: Ink.image(
+                    image: asset,
+                    fit: BoxFit.cover,
+                  ),
+                  placeholder: Container(
+                    color: assetColor,
+                  ),
                 ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),

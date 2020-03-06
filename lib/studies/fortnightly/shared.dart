@@ -3,11 +3,14 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:gallery/layout/image_placeholder.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 
 class ArticleData {
   ArticleData({this.imageUrl, this.category, this.title, this.snippet});
@@ -54,8 +57,13 @@ class HorizontalArticlePreview extends StatelessWidget {
           ),
           SizedBox(width: 8),
         ],
-        Image.asset(
-          data.imageUrl,
+        FadeInImagePlaceholder(
+          image: AssetImage(data.imageUrl),
+          placeholder: Container(
+            color: Colors.black.withOpacity(0.1),
+            width: 60,
+            height: 60,
+          ),
           fit: BoxFit.cover,
           excludeFromSemantics: true,
         ),
@@ -88,9 +96,19 @@ class VerticalArticlePreview extends StatelessWidget {
         children: [
           SizedBox(
             width: double.infinity,
-            child: Image.asset(
-              data.imageUrl,
+            child: FadeInImagePlaceholder(
+              image: AssetImage(data.imageUrl),
+              placeholder: LayoutBuilder(
+                builder: (context, constraints) {
+                  return Container(
+                    color: Colors.black.withOpacity(0.1),
+                    width: constraints.maxWidth,
+                    height: constraints.maxWidth / 1.6,
+                  );
+                }
+              ),
               fit: BoxFit.fitWidth,
+              width: double.infinity,
               excludeFromSemantics: true,
             ),
           ),
@@ -448,9 +466,19 @@ class VideoPreview extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          child: Image.asset(
-            data.imageUrl,
+          child: FadeInImagePlaceholder(
+            image: AssetImage(data.imageUrl),
+            placeholder: LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  color: Colors.black.withOpacity(0.1),
+                  width: constraints.maxWidth,
+                  height: constraints.maxWidth / 1.6,
+                );
+              }
+            ),
             fit: BoxFit.contain,
+            width: double.infinity,
             excludeFromSemantics: true,
           ),
         ),
