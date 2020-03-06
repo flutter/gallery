@@ -8,6 +8,27 @@ wild.
 
 ![Flutter Gallery](https://user-images.githubusercontent.com/6655696/73928238-0d7fcc80-48d3-11ea-8a7e-ea7dc5d6e713.png)
 
+## Running Flutter Gallery on Flutter's master channel
+
+The Flutter Gallery targets Flutter's master channel. As such, it can take advantage
+of new SDK features that haven't landed in the stable channel.
+
+If you'd like to run the Flutter Gallery, make sure to switch to the master channel
+first:
+
+```bash
+flutter channel master
+flutter upgrade
+```
+
+When you're done, use this command to return to the safety of the stable
+channel:
+
+```bash
+flutter channel stable
+flutter upgrade
+```
+
 ## Supported Platforms
 
 Flutter Gallery has been built to support multiple platforms.
