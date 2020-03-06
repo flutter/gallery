@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:meta/meta.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -258,8 +259,9 @@ class _CraneAppBarState extends State<CraneAppBar> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ExcludeSemantics(
-              child: Image.asset(
-                'assets/crane/logo/logo.png',
+              child: FadeInImage(
+                image: AssetImage('assets/crane/logo/logo.png'),
+                placeholder: MemoryImage(kTransparentImage),
                 fit: BoxFit.cover,
               ),
             ),

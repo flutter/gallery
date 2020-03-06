@@ -121,8 +121,8 @@ class _DestinationCard extends StatelessWidget {
             builder: (context, constraints) {
               return Container(
                 color: Colors.black.withOpacity(0.1),
-                height: constraints.maxWidth,
                 width: constraints.maxWidth,
+                height: constraints.maxWidth / destination.imageAspectRatio,
               );
             }
           ),

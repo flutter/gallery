@@ -15,12 +15,14 @@ abstract class Destination {
     @required this.id,
     @required this.destination,
     @required this.assetSemanticLabel,
+    @required this.imageAspectRatio,
   })  : assert(id != null),
         assert(destination != null);
 
   final int id;
   final String destination;
   final String assetSemanticLabel;
+  final double imageAspectRatio;
 
   String get assetName;
 
@@ -37,6 +39,7 @@ class FlyDestination extends Destination {
     @required String destination,
     @required String assetSemanticLabel,
     @required this.stops,
+    double imageAspectRatio = 1,
     this.duration,
   })  : assert(stops != null),
         assert(destination != null),
@@ -44,6 +47,7 @@ class FlyDestination extends Destination {
           id: id,
           destination: destination,
           assetSemanticLabel: assetSemanticLabel,
+          imageAspectRatio: imageAspectRatio,
         );
 
   final int stops;
@@ -86,12 +90,14 @@ class SleepDestination extends Destination {
     @required String destination,
     @required String assetSemanticLabel,
     @required this.total,
+    double imageAspectRatio = 1,
   })  : assert(total != null),
         assert(destination != null),
         super(
           id: id,
           destination: destination,
           assetSemanticLabel: assetSemanticLabel,
+          imageAspectRatio: imageAspectRatio,
         );
 
   final int total;
@@ -109,12 +115,14 @@ class EatDestination extends Destination {
     @required String destination,
     @required String assetSemanticLabel,
     @required this.total,
+    double imageAspectRatio = 1,
   })  : assert(total != null),
         assert(destination != null),
         super(
           id: id,
           destination: destination,
           assetSemanticLabel: assetSemanticLabel,
+          imageAspectRatio: imageAspectRatio,
         );
 
   final int total;

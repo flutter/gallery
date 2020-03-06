@@ -25,6 +25,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 13, minutes: 30),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly1SemanticLabel,
+        imageAspectRatio: 400 / 410,
       ),
       FlyDestination(
         id: 2,
@@ -33,6 +34,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 5, minutes: 16),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly2SemanticLabel,
+        imageAspectRatio: 400 / 394,
       ),
       FlyDestination(
         id: 3,
@@ -41,6 +43,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 19, minutes: 40),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly3SemanticLabel,
+        imageAspectRatio: 400 / 377,
       ),
       FlyDestination(
         id: 4,
@@ -49,6 +52,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 8, minutes: 24),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly4SemanticLabel,
+        imageAspectRatio: 400 / 308,
       ),
       FlyDestination(
         id: 5,
@@ -57,6 +61,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 14, minutes: 12),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly5SemanticLabel,
+        imageAspectRatio: 400 / 418,
       ),
       FlyDestination(
         id: 6,
@@ -65,6 +70,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 5, minutes: 24),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly6SemanticLabel,
+        imageAspectRatio: 400 / 345,
       ),
       FlyDestination(
         id: 7,
@@ -73,6 +79,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 5, minutes: 43),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly7SemanticLabel,
+        imageAspectRatio: 400 / 408,
       ),
       FlyDestination(
         id: 8,
@@ -81,6 +88,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 8, minutes: 25),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly8SemanticLabel,
+        imageAspectRatio: 400 / 399,
       ),
       FlyDestination(
         id: 9,
@@ -89,6 +97,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 15, minutes: 52),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly9SemanticLabel,
+        imageAspectRatio: 400 / 379,
       ),
       FlyDestination(
         id: 10,
@@ -97,6 +106,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 5, minutes: 57),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly10SemanticLabel,
+        imageAspectRatio: 400 / 307,
       ),
       FlyDestination(
         id: 11,
@@ -105,6 +115,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 13, minutes: 24),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly11SemanticLabel,
+        imageAspectRatio: 400 / 369,
       ),
       FlyDestination(
         id: 12,
@@ -113,6 +124,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 10, minutes: 20),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly12SemanticLabel,
+        imageAspectRatio: 400 / 394,
       ),
       FlyDestination(
         id: 13,
@@ -121,6 +133,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: Duration(hours: 7, minutes: 15),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly13SemanticLabel,
+        imageAspectRatio: 400 / 433,
       ),
     ];
 
@@ -132,6 +145,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 2241,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep0SemanticLabel,
+        imageAspectRatio: 400 / 308,
       ),
       SleepDestination(
         id: 1,
@@ -146,6 +160,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 1286,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep2SemanticLabel,
+        imageAspectRatio: 400 / 377,
       ),
       SleepDestination(
         id: 3,
@@ -153,6 +168,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 496,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep3SemanticLabel,
+        imageAspectRatio: 400 / 379,
       ),
       SleepDestination(
         id: 4,
@@ -160,6 +176,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 390,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep4SemanticLabel,
+        imageAspectRatio: 400 / 418,
       ),
       SleepDestination(
         id: 5,
@@ -167,6 +184,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 876,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep5SemanticLabel,
+        imageAspectRatio: 400 / 410,
       ),
       SleepDestination(
         id: 6,
@@ -174,6 +192,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 989,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep6SemanticLabel,
+        imageAspectRatio: 400 / 394,
       ),
       SleepDestination(
         id: 7,
@@ -181,6 +200,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 306,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep7SemanticLabel,
+        imageAspectRatio: 400 / 266,
       ),
       SleepDestination(
         id: 8,
@@ -188,6 +208,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 385,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep8SemanticLabel,
+        imageAspectRatio: 400 / 376,
       ),
       SleepDestination(
         id: 9,
@@ -195,6 +216,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 989,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep9SemanticLabel,
+        imageAspectRatio: 400 / 369,
       ),
       SleepDestination(
         id: 10,
@@ -202,6 +224,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 1380,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep10SemanticLabel,
+        imageAspectRatio: 400 / 307,
       ),
       SleepDestination(
         id: 11,
@@ -209,6 +232,7 @@ List<SleepDestination> getSleepDestinations(BuildContext context) =>
         total: 1109,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneSleep11SemanticLabel,
+        imageAspectRatio: 400 / 456,
       ),
     ];
 
@@ -220,6 +244,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 354,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat0SemanticLabel,
+        imageAspectRatio: 400 / 444,
       ),
       EatDestination(
         id: 1,
@@ -227,6 +252,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 623,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat1SemanticLabel,
+        imageAspectRatio: 400 / 340,
       ),
       EatDestination(
         id: 2,
@@ -234,6 +260,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 124,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat2SemanticLabel,
+        imageAspectRatio: 400 / 406,
       ),
       EatDestination(
         id: 3,
@@ -241,6 +268,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 495,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat3SemanticLabel,
+        imageAspectRatio: 400 / 323,
       ),
       EatDestination(
         id: 4,
@@ -248,6 +276,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 683,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat4SemanticLabel,
+        imageAspectRatio: 400 / 404,
       ),
       EatDestination(
         id: 5,
@@ -255,6 +284,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 786,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat5SemanticLabel,
+        imageAspectRatio: 400 / 407,
       ),
       EatDestination(
         id: 6,
@@ -262,6 +292,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 323,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat6SemanticLabel,
+        imageAspectRatio: 400 / 431,
       ),
       EatDestination(
         id: 7,
@@ -269,6 +300,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 285,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat7SemanticLabel,
+        imageAspectRatio: 400 / 422,
       ),
       EatDestination(
         id: 8,
@@ -276,6 +308,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 323,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat8SemanticLabel,
+        imageAspectRatio: 400 / 300,
       ),
       EatDestination(
         id: 9,
@@ -283,6 +316,7 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 1406,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat9SemanticLabel,
+        imageAspectRatio: 400 / 451,
       ),
       EatDestination(
         id: 10,
@@ -290,5 +324,6 @@ List<EatDestination> getEatDestinations(BuildContext context) =>
         total: 849,
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneEat10SemanticLabel,
+        imageAspectRatio: 400 / 266,
       ),
     ];
