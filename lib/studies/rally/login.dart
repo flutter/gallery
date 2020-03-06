@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     final backButtonFocusNode =
         InheritedFocusNodes.of(context).backButtonFocusNode;
 
-    return DefaultFocusTraversal(
+    return FocusTraversalGroup(
       policy: EdgeChildrenFocusTraversalPolicy(
         firstFocusNodeOutsideScope: backButtonFocusNode,
         lastFocusNodeOutsideScope: backButtonFocusNode,
@@ -157,7 +157,7 @@ class _TopBar extends StatelessWidget {
               spacing,
               Text(
                 GalleryLocalizations.of(context).rallyLoginLoginToRally,
-                style: Theme.of(context).textTheme.body2.copyWith(
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
                       fontSize: 35 / reducedTextScale(context),
                       fontWeight: FontWeight.w600,
                     ),
@@ -169,7 +169,7 @@ class _TopBar extends StatelessWidget {
             children: [
               Text(
                 GalleryLocalizations.of(context).rallyLoginNoAccount,
-                style: Theme.of(context).textTheme.subhead,
+                style: Theme.of(context).textTheme.subtitle1,
               ),
               spacing,
               _BorderButton(

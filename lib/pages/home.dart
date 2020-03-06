@@ -257,7 +257,7 @@ class Header extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.display1.apply(
+        style: Theme.of(context).textTheme.headline4.apply(
               color: color,
               fontSizeDelta:
                   isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -410,8 +410,8 @@ class _DesktopCategoryItem extends StatelessWidget {
       color: colorScheme.surface,
       child: Semantics(
         container: true,
-        child: DefaultFocusTraversal(
-          policy: WidgetOrderFocusTraversalPolicy(),
+        child: FocusTraversalGroup(
+          policy: WidgetOrderTraversalPolicy(),
           child: Column(
             children: [
               _DesktopCategoryHeader(
@@ -479,7 +479,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
                 header: true,
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.headline.apply(
+                  style: Theme.of(context).textTheme.headline5.apply(
                         color: colorScheme.onSurface,
                       ),
                   maxLines: 4,
@@ -1053,7 +1053,7 @@ class _StudyWrapperState extends State<_StudyWrapper> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return ApplyTextOptions(
-      child: DefaultFocusTraversal(
+      child: FocusTraversalGroup(
         policy: StudyWrapperFocusTraversalPolicy(
           backButtonFocusNode: backButtonFocusNode,
           studyNavigatorKey: widget.navigatorKey,
@@ -1118,7 +1118,7 @@ class InheritedFocusNodes extends InheritedWidget {
   bool updateShouldNotify(InheritedFocusNodes old) => true;
 }
 
-class StudyWrapperFocusTraversalPolicy extends WidgetOrderFocusTraversalPolicy {
+class StudyWrapperFocusTraversalPolicy extends WidgetOrderTraversalPolicy {
   StudyWrapperFocusTraversalPolicy({
     @required this.backButtonFocusNode,
     @required this.studyNavigatorKey,
