@@ -4,8 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/highlight_focus.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/studies/crane/model/data.dart';
 import 'package:gallery/studies/crane/model/destination.dart';
 
@@ -109,17 +111,25 @@ class _DestinationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
     final imageWidget = Semantics(
       child: ExcludeSemantics(
-        child: Image.asset(
-          destination.assetName,
+        child: FadeInImagePlaceholder(
+          image: AssetImage(destination.assetName),
           fit: BoxFit.cover,
+          placeholder: LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                color: Colors.black.withOpacity(0.1),
+                width: constraints.maxWidth,
+                height: constraints.maxWidth / destination.imageAspectRatio,
+              );
+            }
+          ),
         ),
       ),
       label: destination.assetSemanticLabel,
     );
-
-    final isDesktop = isDisplayDesktop(context);
     final textTheme = Theme.of(context).textTheme;
 
     if (isDesktop) {

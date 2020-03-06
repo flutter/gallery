@@ -4,13 +4,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/focus_traversal_policy.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/studies/rally/colors.dart';
-import 'package:gallery/layout/focus_traversal_policy.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -148,9 +150,16 @@ class _TopBar extends StatelessWidget {
               ExcludeSemantics(
                 child: SizedBox(
                   height: 80,
-                  child: Image.asset(
-                    'logo.png',
-                    package: 'rally_assets',
+                  child: FadeInImagePlaceholder(
+                    image: AssetImage('logo.png', package: 'rally_assets'),
+                    placeholder: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return SizedBox(
+                          width: constraints.maxHeight,
+                          height: constraints.maxHeight,
+                        );
+                      }
+                    ),
                   ),
                 ),
               ),
@@ -195,9 +204,9 @@ class _SmallLogo extends StatelessWidget {
       child: SizedBox(
         height: 160,
         child: ExcludeSemantics(
-          child: Image.asset(
-            'logo.png',
-            package: 'rally_assets',
+          child: FadeInImagePlaceholder(
+            image: AssetImage('logo.png', package: 'rally_assets'),
+            placeholder: SizedBox.shrink(),
           ),
         ),
       ),
