@@ -69,10 +69,11 @@ Widget _buildProductCard({
     placeholder: Container(
       color: Colors.black.withOpacity(0.1),
       width: imageWidth,
-      height: imageWidth / product.assetAspectRatio,
+      height: imageWidth == null ? null : imageWidth / product.assetAspectRatio,
     ),
     fit: BoxFit.cover,
     width: isDesktop ? imageWidth : null,
+    height: isDesktop ? null : double.infinity,
     excludeFromSemantics: true,
   );
 
