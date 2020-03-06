@@ -1,6 +1,7 @@
 // Copyright 2020 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// An image that shows a [placeholder] widget while the target [image] is
@@ -63,7 +64,9 @@ class FadeInImagePlaceholder extends StatelessWidget {
       height: height,
       fit: fit,
       frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-        if (wasSynchronouslyLoaded) {
+        // We only need to animate the loading of images on the web. We can
+        // also return early if the images are already in the cache.
+        if (wasSynchronouslyLoaded || !kIsWeb) {
           return this.child ?? child;
         } else {
           return AnimatedSwitcher(

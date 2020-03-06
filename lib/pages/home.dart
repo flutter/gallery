@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
 
-import 'package:transparent_image/transparent_image.dart';
-
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -190,11 +188,11 @@ class HomePage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  FadeInImage(
+                  FadeInImagePlaceholder(
                     image: Theme.of(context).colorScheme.brightness == Brightness.dark
                         ? AssetImage('assets/logo/flutter_logo.png')
                         : AssetImage('assets/logo/flutter_logo_color.png'),
-                    placeholder: MemoryImage(kTransparentImage),
+                    placeholder: SizedBox.shrink(),
                     excludeFromSemantics: true,
                   ),
                   Expanded(
@@ -480,9 +478,12 @@ class _DesktopCategoryHeader extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(10),
-            child: FadeInImage(
+            child: FadeInImagePlaceholder(
               image: asset,
-              placeholder: MemoryImage(kTransparentImage),
+              placeholder: SizedBox(
+                height: 64,
+                width: 64,
+              ),
               width: 64,
               height: 64,
               excludeFromSemantics: true,
