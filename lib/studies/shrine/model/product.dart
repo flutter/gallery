@@ -49,15 +49,18 @@ class Product {
     @required this.isFeatured,
     @required this.name,
     @required this.price,
+    this.assetAspectRatio = 1,
   })  : assert(category != null),
         assert(id != null),
         assert(isFeatured != null),
         assert(name != null),
-        assert(price != null);
+        assert(price != null),
+        assert(assetAspectRatio != null);
 
   final Category category;
   final int id;
   final bool isFeatured;
+  final double assetAspectRatio;
 
   // A function taking a BuildContext as input and
   // returns the internationalized name of the product.

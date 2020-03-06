@@ -5,6 +5,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
+import 'package:transparent_image/transparent_image.dart';
+
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
@@ -88,7 +91,10 @@ class _ShrineLogo extends StatelessWidget {
     return ExcludeSemantics(
       child: Column(
         children: [
-          Image.asset('packages/shrine_images/diamond.png'),
+          FadeInImage(
+            image: AssetImage('packages/shrine_images/diamond.png'),
+            placeholder: MemoryImage(kTransparentImage),
+          ),
           const SizedBox(height: 16),
           Text(
             'SHRINE',
