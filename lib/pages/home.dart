@@ -737,6 +737,7 @@ class _CarouselState extends State<_Carousel>
         controller: _controller,
         itemCount: widget.children.length,
         itemBuilder: (context, index) => builder(index),
+        allowImplicitScrolling: true,
       ),
       controller: widget.animationController,
     );
