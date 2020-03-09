@@ -34,9 +34,6 @@ const _horizontalDesktopPadding = 81.0;
 const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
 const _desktopCardsPerPage = 4;
 
-const _shrineTitle = 'Shrine';
-const _rallyTitle = 'Rally';
-const _craneTitle = 'Crane';
 const _homeCategoryMaterial = 'MATERIAL';
 const _homeCategoryCupertino = 'CUPERTINO';
 
@@ -55,10 +52,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
+    final localizations = GalleryLocalizations.of(context);
     final carouselCards = <Widget>[
       _CarouselCard(
-        title: _shrineTitle,
-        subtitle: GalleryLocalizations.of(context).shrineDescription,
+        title: shrineTitle,
+        subtitle: localizations.shrineDescription,
         asset: AssetImage('assets/studies/shrine_card.png'),
         assetColor: const Color(0xFFFEDBD0),
         assetDark: AssetImage('assets/studies/shrine_card_dark.png'),
@@ -68,8 +66,8 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.shrine,
       ),
       _CarouselCard(
-        title: _rallyTitle,
-        subtitle: GalleryLocalizations.of(context).rallyDescription,
+        title: rallyTitle,
+        subtitle: localizations.rallyDescription,
         textColor: RallyColors.accountColors[0],
         asset: AssetImage('assets/studies/rally_card.png'),
         assetColor: const Color(0xFFD1F2E6),
@@ -79,8 +77,8 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.rally,
       ),
       _CarouselCard(
-        title: _craneTitle,
-        subtitle: GalleryLocalizations.of(context).craneDescription,
+        title: craneTitle,
+        subtitle: localizations.craneDescription,
         asset: AssetImage('assets/studies/crane_card.png'),
         assetColor: const Color(0xFFFBF6F8),
         assetDark: AssetImage('assets/studies/crane_card_dark.png'),
@@ -91,7 +89,7 @@ class HomePage extends StatelessWidget {
       ),
       _CarouselCard(
         title: fortnightlyTitle,
-        subtitle: GalleryLocalizations.of(context).fortnightlyDescription,
+        subtitle: localizations.fortnightlyDescription,
         asset: AssetImage('assets/studies/fortnightly_card.png'),
         assetColor: Colors.white,
         assetDark: AssetImage('assets/studies/fortnightly_card_dark.png'),
@@ -100,8 +98,8 @@ class HomePage extends StatelessWidget {
         navigatorKey: NavigatorKeys.fortnightly,
       ),
       _CarouselCard(
-        title: GalleryLocalizations.of(context).starterAppTitle,
-        subtitle: GalleryLocalizations.of(context).starterAppDescription,
+        title: localizations.starterAppTitle,
+        subtitle: localizations.starterAppDescription,
         asset: AssetImage('assets/studies/starter_card.png'),
         assetColor: const Color(0xFFFAF6FE),
         assetDark: AssetImage('assets/studies/starter_card_dark.png'),
@@ -117,17 +115,17 @@ class HomePage extends StatelessWidget {
         _DesktopCategoryItem(
           title: _homeCategoryMaterial,
           asset: AssetImage('assets/icons/material/material.png'),
-          demos: materialDemos(context),
+          demos: materialDemos(localizations),
         ),
         _DesktopCategoryItem(
           title: _homeCategoryCupertino,
           asset: AssetImage('assets/icons/cupertino/cupertino.png'),
-          demos: cupertinoDemos(context),
+          demos: cupertinoDemos(localizations),
         ),
         _DesktopCategoryItem(
-          title: GalleryLocalizations.of(context).homeCategoryReference,
+          title: localizations.homeCategoryReference,
           asset: AssetImage('assets/icons/reference/reference.png'),
-          demos: referenceDemos(context),
+          demos: referenceDemos(localizations),
         ),
       ];
 
@@ -189,7 +187,8 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: [
                   FadeInImagePlaceholder(
-                    image: Theme.of(context).colorScheme.brightness == Brightness.dark
+                    image: Theme.of(context).colorScheme.brightness ==
+                            Brightness.dark
                         ? AssetImage('assets/logo/flutter_logo.png')
                         : AssetImage('assets/logo/flutter_logo_color.png'),
                     placeholder: SizedBox.shrink(),
@@ -335,6 +334,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
     return Stack(
       children: [
         ListView(
@@ -358,7 +358,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               child: CategoryListItem(
                 title: _homeCategoryMaterial,
                 imageString: 'assets/icons/material/material.png',
-                demos: materialDemos(context),
+                demos: materialDemos(localizations),
               ),
             ),
             _AnimatedCategoryItem(
@@ -367,7 +367,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               child: CategoryListItem(
                 title: _homeCategoryCupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
-                demos: cupertinoDemos(context),
+                demos: cupertinoDemos(localizations),
               ),
             ),
             _AnimatedCategoryItem(
@@ -376,7 +376,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               child: CategoryListItem(
                 title: GalleryLocalizations.of(context).homeCategoryReference,
                 imageString: 'assets/icons/reference/reference.png',
-                demos: referenceDemos(context),
+                demos: referenceDemos(localizations),
               ),
             ),
           ],

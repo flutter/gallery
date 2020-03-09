@@ -11,7 +11,7 @@ import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
 
-const fortnightlyTitle = 'Fortnightly';
+const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
   const FortnightlyApp({Key key, this.navigatorKey}) : super(key: key);
@@ -49,7 +49,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Semantics(
-          label: fortnightlyTitle,
+          label: _fortnightlyTitle,
           child: FadeInImagePlaceholder(
             image: AssetImage('assets/fortnightly/fortnightly_title.png'),
             placeholder: SizedBox.shrink(),
@@ -101,7 +101,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     alignment: AlignmentDirectional.centerStart,
                     margin: EdgeInsets.only(left: 12),
                     child: Semantics(
-                      label: fortnightlyTitle,
+                      label: _fortnightlyTitle,
                       child: Image.asset(
                         'assets/fortnightly/fortnightly_title.png',
                         excludeFromSemantics: true,
