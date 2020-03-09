@@ -4,13 +4,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
-import 'package:gallery/layout/adaptive.dart';
 
 class MobileProductCard extends StatelessWidget {
   const MobileProductCard({this.imageAspectRatio = 33 / 49, this.product})
@@ -58,19 +59,21 @@ Widget _buildProductCard({
   double imageAspectRatio,
 }) {
   final bool isDesktop = isDisplayDesktop(context);
-
   final NumberFormat formatter = NumberFormat.simpleCurrency(
     decimalDigits: 0,
     locale: Localizations.localeOf(context).toString(),
   );
-
   final ThemeData theme = Theme.of(context);
-
-  final Image imageWidget = Image.asset(
-    product.assetName,
-    package: product.assetPackage,
+  final imageWidget = FadeInImagePlaceholder(
+    image: AssetImage(product.assetName, package: product.assetPackage),
+    placeholder: Container(
+      color: Colors.black.withOpacity(0.1),
+      width: imageWidth,
+      height: imageWidth == null ? null : imageWidth / product.assetAspectRatio,
+    ),
     fit: BoxFit.cover,
     width: isDesktop ? imageWidth : null,
+    height: isDesktop ? null : double.infinity,
     excludeFromSemantics: true,
   );
 
