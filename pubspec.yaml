@@ -30,6 +30,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test:
   grinder: ^0.8.0
   string_scanner: ^1.0.5
 
