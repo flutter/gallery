@@ -7,6 +7,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import 'package:gallery/data/gallery_options.dart';
+import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
@@ -144,7 +145,7 @@ class _AnimatedRallyPieChart extends AnimatedWidget {
     final textTheme = Theme.of(context).textTheme;
     final labelTextStyle = textTheme.bodyText2.copyWith(
       fontSize: 14,
-      letterSpacing: 0.5,
+      letterSpacing: letterSpacingOrNone(0.5),
     );
 
     return LayoutBuilder(builder: (context, constraints) {

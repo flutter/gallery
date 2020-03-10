@@ -117,15 +117,13 @@ class _DestinationCard extends StatelessWidget {
         child: FadeInImagePlaceholder(
           image: AssetImage(destination.assetName),
           fit: BoxFit.cover,
-          placeholder: LayoutBuilder(
-            builder: (context, constraints) {
-              return Container(
-                color: Colors.black.withOpacity(0.1),
-                width: constraints.maxWidth,
-                height: constraints.maxWidth / destination.imageAspectRatio,
-              );
-            }
-          ),
+          placeholder: LayoutBuilder(builder: (context, constraints) {
+            return Container(
+              color: Colors.black.withOpacity(0.1),
+              width: constraints.maxWidth,
+              height: constraints.maxWidth / destination.imageAspectRatio,
+            );
+          }),
         ),
       ),
       label: destination.assetSemanticLabel,

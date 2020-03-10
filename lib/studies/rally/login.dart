@@ -152,14 +152,12 @@ class _TopBar extends StatelessWidget {
                   height: 80,
                   child: FadeInImagePlaceholder(
                     image: AssetImage('logo.png', package: 'rally_assets'),
-                    placeholder: LayoutBuilder(
-                      builder: (context, constraints) {
-                        return SizedBox(
-                          width: constraints.maxHeight,
-                          height: constraints.maxHeight,
-                        );
-                      }
-                    ),
+                    placeholder: LayoutBuilder(builder: (context, constraints) {
+                      return SizedBox(
+                        width: constraints.maxHeight,
+                        height: constraints.maxHeight,
+                      );
+                    }),
                   ),
                 ),
               ),

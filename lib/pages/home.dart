@@ -189,7 +189,8 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: [
                   FadeInImagePlaceholder(
-                    image: Theme.of(context).colorScheme.brightness == Brightness.dark
+                    image: Theme.of(context).colorScheme.brightness ==
+                            Brightness.dark
                         ? AssetImage('assets/logo/flutter_logo.png')
                         : AssetImage('assets/logo/flutter_logo_color.png'),
                     placeholder: SizedBox.shrink(),
