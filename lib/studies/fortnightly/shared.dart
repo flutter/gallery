@@ -13,7 +13,12 @@ import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
 
 class ArticleData {
-  ArticleData({this.imageUrl, this.imageAspectRatio, this.category, this.title, this.snippet});
+  ArticleData(
+      {this.imageUrl,
+      this.imageAspectRatio,
+      this.category,
+      this.title,
+      this.snippet});
 
   final String imageUrl;
   final double imageAspectRatio;
@@ -62,7 +67,7 @@ class HorizontalArticlePreview extends StatelessWidget {
           image: AssetImage(data.imageUrl),
           placeholder: Container(
             color: Colors.black.withOpacity(0.1),
-            width: 64 / ( 1 / data.imageAspectRatio),
+            width: 64 / (1 / data.imageAspectRatio),
             height: 64,
           ),
           fit: BoxFit.cover,
@@ -99,15 +104,13 @@ class VerticalArticlePreview extends StatelessWidget {
             width: double.infinity,
             child: FadeInImagePlaceholder(
               image: AssetImage(data.imageUrl),
-              placeholder: LayoutBuilder(
-                builder: (context, constraints) {
-                  return Container(
-                    color: Colors.black.withOpacity(0.1),
-                    width: constraints.maxWidth,
-                    height: constraints.maxWidth / data.imageAspectRatio,
-                  );
-                }
-              ),
+              placeholder: LayoutBuilder(builder: (context, constraints) {
+                return Container(
+                  color: Colors.black.withOpacity(0.1),
+                  width: constraints.maxWidth,
+                  height: constraints.maxWidth / data.imageAspectRatio,
+                );
+              }),
               fit: BoxFit.fitWidth,
               width: double.infinity,
               excludeFromSemantics: true,
@@ -421,15 +424,13 @@ List<Widget> buildStockItems(BuildContext context) {
       width: double.infinity,
       child: FadeInImagePlaceholder(
         image: AssetImage('assets/fortnightly/fortnightly_chart.png'),
-        placeholder: LayoutBuilder(
-          builder: (context, constraints) {
-            return Container(
-              color: Colors.black.withOpacity(0.1),
-              width: constraints.maxWidth,
-              height: constraints.maxWidth / imageAspectRatio,
-            );
-          }
-        ),
+        placeholder: LayoutBuilder(builder: (context, constraints) {
+          return Container(
+            color: Colors.black.withOpacity(0.1),
+            width: constraints.maxWidth,
+            height: constraints.maxWidth / imageAspectRatio,
+          );
+        }),
         width: double.infinity,
         fit: BoxFit.contain,
         excludeFromSemantics: true,
@@ -486,15 +487,13 @@ class VideoPreview extends StatelessWidget {
           width: double.infinity,
           child: FadeInImagePlaceholder(
             image: AssetImage(data.imageUrl),
-            placeholder: LayoutBuilder(
-              builder: (context, constraints) {
-                return Container(
-                  color: Colors.black.withOpacity(0.1),
-                  width: constraints.maxWidth,
-                  height: constraints.maxWidth / data.imageAspectRatio,
-                );
-              }
-            ),
+            placeholder: LayoutBuilder(builder: (context, constraints) {
+              return Container(
+                color: Colors.black.withOpacity(0.1),
+                width: constraints.maxWidth,
+                height: constraints.maxWidth / data.imageAspectRatio,
+              );
+            }),
             fit: BoxFit.contain,
             width: double.infinity,
             excludeFromSemantics: true,

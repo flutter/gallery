@@ -59,8 +59,8 @@ class DialogDemo extends StatelessWidget {
 
   void _showAlertDialog(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final TextStyle dialogTextStyle =
-        theme.textTheme.subtitle1.copyWith(color: theme.textTheme.caption.color);
+    final TextStyle dialogTextStyle = theme.textTheme.subtitle1
+        .copyWith(color: theme.textTheme.caption.color);
     _showDemoDialog<String>(
       context: context,
       child: AlertDialog(
@@ -78,8 +78,8 @@ class DialogDemo extends StatelessWidget {
 
   void _showAlertDialogWithTitle(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final TextStyle dialogTextStyle =
-        theme.textTheme.subtitle1.copyWith(color: theme.textTheme.caption.color);
+    final TextStyle dialogTextStyle = theme.textTheme.subtitle1
+        .copyWith(color: theme.textTheme.caption.color);
     _showDemoDialog<String>(
       context: context,
       child: AlertDialog(
