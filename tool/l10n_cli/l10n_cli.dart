@@ -13,7 +13,7 @@ const _intlHeader = '''
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on gallery/lib/src/l10n/intl_en_US.arb.
+  It was based on gallery/lib/src/l10n/intl_en.arb.
 -->
 <resources>
 ''';
@@ -41,7 +41,7 @@ Future<void> englishArbsToXmls({bool isDryRun = false}) async {
   IOSink output =
       isDryRun ? stdout : File('$_l10nDir/intl_en_US.xml').openWrite();
   await generateXmlFromArb(
-    inputArb: File('$_l10nDir/intl_en_US.arb'),
+    inputArb: File('$_l10nDir/intl_en.arb'),
     outputXml: output,
     xmlHeader: _intlHeader,
   );

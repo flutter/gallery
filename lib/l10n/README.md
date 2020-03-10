@@ -2,7 +2,7 @@
 
 ## Creating New Locale Messages
 
-When adding new strings to be localized, update `intl_en_US.arb`, which
+When adding new strings to be localized, update `intl_en.arb`, which
 is used by this project as the template. When creating new entries, they
 have to be in the following format:
 
@@ -16,7 +16,7 @@ have to be in the following format:
 In this example, `dartGetterVariableName` should be the Dart method/property
 name that you will be using in your localizations delegate.
 
-After adding the new message in `intl_en_US.arb`, it can be used in the app by
+After adding the new message in `intl_en.arb`, it can be used in the app by
 regenerating the GalleryLocalizations delegate and the `messages_*.dart` files.
 This allows use of the English message through your localizations delegate in
 the application code immediately without having to wait for the translations
@@ -32,20 +32,20 @@ running `flutter pub get`.
 For more details on what `flutter pub run grinder l10n` runs, you can read below
 under *How to Generate GalleryLocalizations with l10n scripts*. The current
 supported locales list is sorted alphabetically. This means that after running
-the script, you have to update `gallery_localizations.dart` and move the `en_US`
+the script, you have to update `gallery_localizations.dart` and move the `en`
 locale to the top of the list.
 
 ## How to Generate GalleryLocalizations with l10n scripts
-To generate GalleryLocalizations, from `samples/gallery/` run:
+To generate GalleryLocalizations, from the root directory, run:
 
 ```dart
 dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
-    --template-arb-file=intl_en_US.arb \
+    --template-arb-file=intl_en.arb \
     --output-localization-file=gallery_localizations.dart \
     --output-class=GalleryLocalizations
 ```
 
-From `samples/gallery/`, run `dart tool/l10n_cli/main.dart`, which
+From the root directory, run `dart tool/l10n_cli/main.dart`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 
@@ -73,7 +73,7 @@ which is equal to
 
 ```dart
 dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
-    --template-arb-file=intl_en_US.arb \
+    --template-arb-file=intl_en.arb \
     --output-localization-file=gallery_localizations.dart \
     --output-class=GalleryLocalizations
 
