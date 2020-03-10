@@ -28,22 +28,22 @@ enum _ExpandableSetting {
 class SettingsPage extends StatefulWidget {
   SettingsPage({
     Key key,
-    @required this.openSettingsAnimation,
-    @required this.staggerSettingsItemsAnimation,
     @required this.isSettingsOpenNotifier,
   }) : super(key: key);
 
-  final Animation<double> openSettingsAnimation;
-  final Animation<double> staggerSettingsItemsAnimation;
   final ValueNotifier<bool> isSettingsOpenNotifier;
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderStateMixin {
   _ExpandableSetting expandedSettingId;
   Map<String, String> _localeNativeNames;
+
+  AnimationController _animationController;
+  Animation<double> _openSettingsAnimation;
+  Animation<double> _staggerSettingsItemsAnimation;
 
   void onTapSetting(_ExpandableSetting settingId) {
     setState(() {
@@ -69,11 +69,39 @@ class _SettingsPageState extends State<SettingsPage> {
     // When closing settings, also shrink expanded setting.
     widget.isSettingsOpenNotifier.addListener(() {
       if (!widget.isSettingsOpenNotifier.value) {
+        _animationController.reverse();
         setState(() {
           expandedSettingId = null;
         });
+      } else {
+        _animationController.forward();
       }
     });
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    )..addListener(() {
+      setState(() {
+        // The animation is the state.
+      });
+    });
+    _openSettingsAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Interval(
+        0.0,
+        0.4,
+        curve: Curves.ease,
+      ),
+    );
+    _staggerSettingsItemsAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Interval(
+        0.5,
+        1.0,
+        curve: Curves.easeIn,
+      ),
+    );
   }
 
   /// Given a [Locale], returns a [DisplayOption] with its native name for a
@@ -254,7 +282,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Material(
       color: colorScheme.secondaryVariant,
       child: _AnimatedSettingsPage(
-        animation: widget.openSettingsAnimation,
+        animation: _openSettingsAnimation,
         child: Padding(
           padding: isDesktop
               ? EdgeInsets.zero
@@ -285,7 +313,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ...settingsListItems
                 else ...[
                   _AnimateSettingsListItems(
-                    animation: widget.staggerSettingsItemsAnimation,
+                    animation: _staggerSettingsItemsAnimation,
                     children: settingsListItems,
                   ),
                   SizedBox(height: 16),

@@ -25,8 +25,6 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
     with SingleTickerProviderStateMixin {
   AnimationController backdropController;
   ValueNotifier<bool> isSettingsOpenNotifier;
-  Animation<double> openSettingsAnimation;
-  Animation<double> staggerSettingsItemsAnimation;
 
   @override
   void initState() {
@@ -40,22 +38,6 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
         });
       });
     isSettingsOpenNotifier = ValueNotifier(false);
-    openSettingsAnimation = CurvedAnimation(
-      parent: backdropController,
-      curve: Interval(
-        0.0,
-        0.4,
-        curve: Curves.ease,
-      ),
-    );
-    staggerSettingsItemsAnimation = CurvedAnimation(
-      parent: backdropController,
-      curve: Interval(
-        0.5,
-        1.0,
-        curve: Curves.easeIn,
-      ),
-    );
   }
 
   @override
@@ -72,8 +54,6 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
       isSettingsOpenNotifier: isSettingsOpenNotifier,
       openSettingsAnimation: openSettingsAnimation,
       frontLayer: SettingsPage(
-        openSettingsAnimation: openSettingsAnimation,
-        staggerSettingsItemsAnimation: staggerSettingsItemsAnimation,
         isSettingsOpenNotifier: isSettingsOpenNotifier,
       ),
       backLayer: HomePage(),
@@ -264,9 +244,7 @@ class _BackdropState extends State<Backdrop>
                       ? Alignment.topRight
                       : Alignment.topLeft,
                   scale: CurvedAnimation(
-                    parent: isDesktop
-                        ? widget.controller
-                        : widget.openSettingsAnimation,
+                    parent: widget.controller,
                     curve: Curves.easeIn,
                     reverseCurve: Curves.easeOut,
                   ),
