@@ -65,25 +65,6 @@ List<List<Product>> _generateLayout({
   ];
 }
 
-/// Returns the size of an [Image] widget.
-Size _imageSize(Image imageWidget) {
-  Size result;
-
-  imageWidget.image.resolve(ImageConfiguration()).addListener(
-    ImageStreamListener(
-      (info, synchronousCall) {
-        final finalImage = info.image;
-        result = Size(
-          finalImage.width.toDouble(),
-          finalImage.height.toDouble(),
-        );
-      },
-    ),
-  );
-
-  return result;
-}
-
 /// Given [columnObjects], list of the set of objects in each column,
 /// and [columnHeights], list of heights of each column,
 /// [_iterateUntilBalanced] moves and swaps objects between columns
@@ -226,7 +207,6 @@ List<List<Product>> balancedLayout({
   );
 
   // Check if this layout is cached.
-
   if (LayoutCache.of(context).containsKey(encodedParameters)) {
     return _generateLayout(
       products: products,
@@ -234,45 +214,9 @@ List<List<Product>> balancedLayout({
     );
   }
 
-  final List<Size> productSizes = [
-    for (var product in products)
-      _imageSize(
-        Image.asset(
-          product.assetName,
-          package: product.assetPackage,
-        ),
-      ),
-  ];
-
-  bool hasNullSize = false;
-  for (final productSize in productSizes) {
-    if (productSize == null) {
-      hasNullSize = true;
-      break;
-    }
-  }
-
-  if (hasNullSize) {
-    // If some image sizes are not read, return default layout.
-    // Default layout is not cached.
-
-    List<List<Product>> result =
-        List<List<Product>>.generate(columnCount, (columnIndex) => []);
-    for (var index = 0; index < products.length; ++index) {
-      result[index % columnCount].add(products[index]);
-    }
-
-    return result;
-  }
-
-  // All images have sizes. Use tailored layout.
-
   final List<double> productHeights = [
-    for (final productSize in productSizes)
-      productSize.height /
-              productSize.width *
-              (largeImageWidth + smallImageWidth) /
-              2 +
+    for (final product in products)
+      1 / product.assetAspectRatio * (largeImageWidth + smallImageWidth) / 2 +
           productCardAdditionalHeight,
   ];
 

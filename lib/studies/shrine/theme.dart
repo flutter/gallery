@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
 
@@ -51,35 +52,35 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
       .copyWith(
         headline5: base.headline5.copyWith(
           fontWeight: FontWeight.w500,
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         headline6: base.headline6.copyWith(
           fontSize: 18,
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         caption: base.caption.copyWith(
           fontWeight: FontWeight.w400,
           fontSize: 14,
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         bodyText1: base.bodyText1.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 16,
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         bodyText2: base.bodyText2.copyWith(
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         subtitle1: base.subtitle1.copyWith(
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         headline4: base.headline4.copyWith(
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
         button: base.button.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 14,
-          letterSpacing: defaultLetterSpacing,
+          letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
       )
       .apply(

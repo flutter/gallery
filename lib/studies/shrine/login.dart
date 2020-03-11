@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
+import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/colors.dart';
@@ -126,7 +127,8 @@ class _UsernameTextField extends StatelessWidget {
           decoration: InputDecoration(
             labelText:
                 GalleryLocalizations.of(context).shrineLoginUsernameLabel,
-            labelStyle: TextStyle(letterSpacing: mediumLetterSpacing),
+            labelStyle: TextStyle(
+                letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
           ),
         ),
       ),
@@ -153,7 +155,8 @@ class _PasswordTextField extends StatelessWidget {
           decoration: InputDecoration(
             labelText:
                 GalleryLocalizations.of(context).shrineLoginPasswordLabel,
-            labelStyle: TextStyle(letterSpacing: mediumLetterSpacing),
+            labelStyle: TextStyle(
+                letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
           ),
         ),
       ),
@@ -203,7 +206,8 @@ class _CancelAndNextButtons extends StatelessWidget {
                 padding: buttonTextPadding,
                 child: Text(
                   GalleryLocalizations.of(context).shrineNextButtonCaption,
-                  style: TextStyle(letterSpacing: largeLetterSpacing),
+                  style: TextStyle(
+                      letterSpacing: letterSpacingOrNone(largeLetterSpacing)),
                 ),
               ),
               elevation: 8,
