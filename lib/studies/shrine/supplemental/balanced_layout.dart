@@ -216,8 +216,7 @@ List<List<Product>> balancedLayout({
 
   final List<double> productHeights = [
     for (final product in products)
-      ((1 / product.assetAspectRatio) *
-              ((largeImageWidth + smallImageWidth) / 2)) +
+      1 / product.assetAspectRatio * (largeImageWidth + smallImageWidth) / 2 +
           productCardAdditionalHeight,
   ];
 
