@@ -38,9 +38,9 @@ String _escapeXml(String xml) {
 
 /// Processes the XML files.
 ///
-/// Note that changing the filename for `intl_en_US.xml` will confuse the
-/// internal translation console and require manually updating already
-/// translated messages to point to the new file. Therefore, avoid doing so
+/// Note that the filename for `intl_en_US.xml` is used by the internal
+/// translation console and changing the filename may require manually updating
+/// already translated messages to point to the new file. Therefore, avoid doing so
 /// unless necessary.
 Future<void> englishArbsToXmls({bool isDryRun = false}) async {
   IOSink output =

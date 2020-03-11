@@ -49,9 +49,9 @@ From the root directory, run `dart tool/l10n_cli/main.dart`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 
-Note that changing the filename for `intl_en_US.xml` will confuse the internal
-translation console and require manually updating already
-translated messages to point to the new file. Therefore, avoid doing so
+Note that the filename for `intl_en_US.xml` is used by the internal
+translation console and changing the filename may require manually updating
+already translated messages to point to the new file. Therefore, avoid doing so
 unless necessary.
 
 Run the formatter to make the Flutter analyzer happy:
