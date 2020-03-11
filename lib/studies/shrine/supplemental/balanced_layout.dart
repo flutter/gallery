@@ -65,25 +65,6 @@ List<List<Product>> _generateLayout({
   ];
 }
 
-/// Returns the size of an [Image] widget.
-Size _imageSize(Image imageWidget) {
-  Size result;
-
-  imageWidget.image.resolve(ImageConfiguration()).addListener(
-    ImageStreamListener(
-      (info, synchronousCall) {
-        final finalImage = info.image;
-        result = Size(
-          finalImage.width.toDouble(),
-          finalImage.height.toDouble(),
-        );
-      },
-    ),
-  );
-
-  return result;
-}
-
 /// Given [columnObjects], list of the set of objects in each column,
 /// and [columnHeights], list of heights of each column,
 /// [_iterateUntilBalanced] moves and swaps objects between columns
