@@ -7,12 +7,13 @@ import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 import 'package:scoped_model/scoped_model.dart';
 
+import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/theme.dart';
-import 'package:gallery/l10n/gallery_localizations.dart';
 
 const _startColumnWidth = 60.0;
 const _ordinalSortKeyName = 'shopping_cart';
@@ -111,7 +112,9 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           child: Text(
                             GalleryLocalizations.of(context)
                                 .shrineCartClearButtonCaption,
-                            style: TextStyle(letterSpacing: largeLetterSpacing),
+                            style: TextStyle(
+                                letterSpacing:
+                                    letterSpacingOrNone(largeLetterSpacing)),
                           ),
                         ),
                         onPressed: () {
@@ -143,7 +146,7 @@ class ShoppingCartSummary extends StatelessWidget {
     final TextStyle largeAmountStyle = Theme.of(context)
         .textTheme
         .headline4
-        .copyWith(letterSpacing: mediumLetterSpacing);
+        .copyWith(letterSpacing: letterSpacingOrNone(mediumLetterSpacing));
     final NumberFormat formatter = NumberFormat.simpleCurrency(
       decimalDigits: 2,
       locale: Localizations.localeOf(context).toString(),
