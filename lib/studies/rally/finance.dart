@@ -428,8 +428,10 @@ class _EventAmount extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Text(
       usdWithSignFormat(context).format(amount),
-      style:
-          textTheme.bodyText1.copyWith(fontSize: 20, color: RallyColors.gray),
+      style: textTheme.bodyText1.copyWith(
+        fontSize: 20,
+        color: RallyColors.gray,
+      ),
     );
   }
 }
