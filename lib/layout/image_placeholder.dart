@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 /// It also lets you override the [child] argument, in case you want to wrap
 /// the image with another widget, for example an [Ink.image].
 class FadeInImagePlaceholder extends StatelessWidget {
-
   const FadeInImagePlaceholder({
     Key key,
     @required this.image,
@@ -23,9 +22,9 @@ class FadeInImagePlaceholder extends StatelessWidget {
     this.width,
     this.height,
     this.fit,
-  }) : assert(placeholder != null),
-       assert(image != null),
-       super(key: key);
+  })  : assert(placeholder != null),
+        assert(image != null),
+        super(key: key);
 
   /// The target image that we are loading into memory.
   final ImageProvider image;
@@ -77,5 +76,4 @@ class FadeInImagePlaceholder extends StatelessWidget {
       },
     );
   }
-
 }

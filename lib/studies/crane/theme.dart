@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/crane/colors.dart';
 
 final ThemeData craneTheme = _buildCraneTheme();
@@ -72,7 +73,7 @@ TextTheme _buildCraneTextTheme(TextTheme base) {
       subtitle1: base.subtitle1.copyWith(
         fontWeight: FontWeight.w500,
         fontSize: 16,
-        letterSpacing: 0.5,
+        letterSpacing: letterSpacingOrNone(0.5),
       ),
       subtitle2: base.subtitle2.copyWith(
         fontWeight: FontWeight.w600,
@@ -90,7 +91,7 @@ TextTheme _buildCraneTextTheme(TextTheme base) {
       button: base.button.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 13,
-        letterSpacing: 0.8,
+        letterSpacing: letterSpacingOrNone(0.8),
       ),
       caption: base.caption.copyWith(
         fontWeight: FontWeight.w500,
