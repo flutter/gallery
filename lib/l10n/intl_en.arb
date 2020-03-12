@@ -555,15 +555,7 @@
   },
   "settingsPlatformMechanics": "Platform mechanics",
   "@settingsPlatformMechanics": {
-    "description": "Title for platform mechanics (iOS/Android) setting."
-  },
-  "settingsPlatformAndroid": "Android",
-  "@settingsPlatformAndroid": {
-    "description": "Title for Android platform setting."
-  },
-  "settingsPlatformIOS": "iOS",
-  "@settingsPlatformIOS": {
-    "description": "Title for iOS platform setting."
+    "description": "Title for platform mechanics (iOS, Android, macOS, etc.) setting."
   },
   "settingsTheme": "Theme",
   "@settingsTheme": {

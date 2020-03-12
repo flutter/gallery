@@ -213,12 +213,11 @@ class _SettingsPageState extends State<SettingsPage> {
         title: GalleryLocalizations.of(context).settingsPlatformMechanics,
         selectedOption: options.platform,
         options: LinkedHashMap.of({
-          TargetPlatform.android: DisplayOption(
-            GalleryLocalizations.of(context).settingsPlatformAndroid,
-          ),
-          TargetPlatform.iOS: DisplayOption(
-            GalleryLocalizations.of(context).settingsPlatformIOS,
-          ),
+          TargetPlatform.android: DisplayOption('Android'),
+          TargetPlatform.iOS: DisplayOption('iOS'),
+          TargetPlatform.macOS: DisplayOption('macOS'),
+          TargetPlatform.linux: DisplayOption('Linux'),
+          TargetPlatform.windows: DisplayOption('Windows'),
         }),
         onOptionChanged: (newPlatform) => GalleryOptions.update(
           context,
