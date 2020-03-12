@@ -17,7 +17,7 @@ In this example, `dartGetterVariableName` should be the Dart method/property
 name that you will be using in your localizations delegate.
 
 After adding the new message in `intl_en.arb`, it can be used in the app by
-regenerating the GalleryLocalizations delegate and the `messages_<locale>.dart` files.
+regenerating the GalleryLocalizations delegate.
 This allows use of the English message through your localizations delegate in
 the application code immediately without having to wait for the translations
 to be completed.
