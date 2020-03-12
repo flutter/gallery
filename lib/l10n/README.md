@@ -59,9 +59,9 @@ Run the formatter to make the Flutter analyzer happy:
 flutter format .
 ```
 
-## Importing translations
+## Importing translations (for Flutter org members)
 
 Once the translations are ready:
 
-1. Use the internal tool (`push_l10n`) to push the updated `intl_<locale>.arb` files to this repo.
+1. Use the internal tool (`push_l10n`) to push the updated `intl_<locale>.arb` files to this repo. For more information, see `/third_party/dart/flutter_gallery/README.md`
 2. Generate GalleryLocalizations with the updated .arb files by running `flutter pub run grinder l10n`.
