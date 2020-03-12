@@ -4,9 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-
+import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/home.dart';
 import 'package:gallery/studies/rally/login.dart';
@@ -71,19 +72,19 @@ class RallyApp extends StatelessWidget {
           bodyText1: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w400,
-            letterSpacing: 1.4,
+            letterSpacing: letterSpacingOrNone(1.4),
             textStyle: base.bodyText1,
           ),
           // TODO: Use GoogleFonts.robotoCondensed when available
           button: base.button.copyWith(
             fontFamily: 'Roboto Condensed',
             fontWeight: FontWeight.w700,
-            letterSpacing: 2.8,
+            letterSpacing: letterSpacingOrNone(2.8),
           ),
           headline5: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w600,
-            letterSpacing: 1.4,
+            letterSpacing: letterSpacingOrNone(1.4),
             textStyle: base.bodyText1,
           ),
         )
