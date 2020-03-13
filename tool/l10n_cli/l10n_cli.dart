@@ -7,13 +7,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:meta/meta.dart';
 
-const _l10nDir = '../gallery/lib/l10n';
+const _l10nDir = 'lib/l10n';
 const _intlHeader = '''
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on gallery/lib/src/l10n/intl_en.arb.
+  It was based on lib/l10n/intl_en.arb.
 -->
 <resources>
 ''';
