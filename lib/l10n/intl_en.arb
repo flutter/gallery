@@ -1,15 +1,20 @@
 {
   "@@last_modified": "2019-11-06T15:50:09.076419",
-  "aboutFlutterSamplesRepo": "Flutter samples Github repo",
-  "@aboutFlutterSamplesRepo": {
-    "description": "Represents a link to the Flutter samples github repository."
+  "githubRepo": "{value} GitHub repository",
+  "@githubRepo": {
+    "description": "Represents a link to a GitHub repository.",
+    "placeholders": {
+      "value": {
+        "example": "Flutter Gallery"
+      }
+    }
   },
   "aboutDialogDescription": "To see the source code for this app, please visit the {value}.",
   "@aboutDialogDescription": {
     "description": "A description about how to view the source code for this app.",
     "placeholders": {
       "value": {
-        "example": "Flutter samples Github repo"
+        "example": "Flutter Gallery GitHub repository"
       }
     }
   },
