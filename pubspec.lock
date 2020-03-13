@@ -155,7 +155,7 @@ packages:
       name: flutter_localized_locales
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
