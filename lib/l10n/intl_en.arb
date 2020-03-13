@@ -1,19 +1,19 @@
 {
   "@@last_modified": "2019-11-06T15:50:09.076419",
-  "githubRepo": "{value} GitHub repository",
+  "githubRepo": "{repoName} GitHub repository",
   "@githubRepo": {
     "description": "Represents a link to a GitHub repository.",
     "placeholders": {
-      "value": {
+      "repoName": {
         "example": "Flutter Gallery"
       }
     }
   },
-  "aboutDialogDescription": "To see the source code for this app, please visit the {value}.",
+  "aboutDialogDescription": "To see the source code for this app, please visit the {repoLink}.",
   "@aboutDialogDescription": {
     "description": "A description about how to view the source code for this app.",
     "placeholders": {
-      "value": {
+      "repoLink": {
         "example": "Flutter Gallery GitHub repository"
       }
     }

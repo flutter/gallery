@@ -8,11 +8,11 @@
   <string
     name="githubRepo"
     description="Represents a link to a GitHub repository."
-    >{value} GitHub repository</string>
+    >{repoName} GitHub repository</string>
   <string
     name="aboutDialogDescription"
     description="A description about how to view the source code for this app."
-    >To see the source code for this app, please visit the {value}.</string>
+    >To see the source code for this app, please visit the {repoLink}.</string>
   <string
     name="signIn"
     description="Sign in label to sign into website."
