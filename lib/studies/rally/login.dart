@@ -66,7 +66,7 @@ class _MainView extends StatelessWidget {
   final TextEditingController passwordController;
 
   void _login(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, '/rally');
   }
 
   @override
@@ -384,7 +384,7 @@ class _BorderButton extends StatelessWidget {
       ),
       textColor: Colors.white,
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.pushNamed(context, '/rally');
       },
       child: Text(text),
     );

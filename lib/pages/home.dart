@@ -985,14 +985,7 @@ class _CarouselCard extends StatelessWidget {
         color: Colors.grey,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).push<void>(
-              MaterialPageRoute(
-                builder: (context) => _StudyWrapper(
-                  study: study,
-                  navigatorKey: navigatorKey,
-                ),
-              ),
-            );
+            Navigator.pushNamed(context, '/rally/login');
           },
           child: Stack(
             fit: StackFit.expand,
@@ -1045,8 +1038,8 @@ double _carouselHeight(double scaleFactor, BuildContext context) => math.max(
 
 /// Wrap the studies with this to display a back button and allow the user to
 /// exit them at any time.
-class _StudyWrapper extends StatefulWidget {
-  const _StudyWrapper({
+class StudyWrapper extends StatefulWidget {
+  const StudyWrapper({
     Key key,
     this.study,
     this.navigatorKey,
@@ -1056,10 +1049,10 @@ class _StudyWrapper extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
 
   @override
-  _StudyWrapperState createState() => _StudyWrapperState();
+  StudyWrapperState createState() => StudyWrapperState();
 }
 
-class _StudyWrapperState extends State<_StudyWrapper> {
+class StudyWrapperState extends State<StudyWrapper> {
   FocusNode backButtonFocusNode;
 
   @override

@@ -50,10 +50,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(builder: (context) => LoginPage()),
-        );
+        Navigator.pushNamed(context, '/rally/login');
       },
     );
   }

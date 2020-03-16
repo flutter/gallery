@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
@@ -50,6 +52,7 @@ const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 class GalleryDemo {
   GalleryDemo({
     @required this.title,
+    @required this.slug,
     @required this.icon,
     @required this.subtitle,
     @required this.configurations,
@@ -58,6 +61,7 @@ class GalleryDemo {
         assert(configurations != null && configurations.isNotEmpty);
 
   final String title;
+  final String slug;
   final IconData icon;
   final String subtitle;
   final List<GalleryDemoConfiguration> configurations;
@@ -85,6 +89,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoBannerTitle,
       icon: GalleryIcons.listsLeaveBehind,
+      slug: 'banner',
       subtitle: localizations.demoBannerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -99,6 +104,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoBottomAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
+      slug: 'bottom-app-bar',
       subtitle: localizations.demoBottomAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -113,6 +119,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoBottomNavigationTitle,
       icon: GalleryIcons.bottomNavigation,
+      slug: 'bottom-navigation',
       subtitle: localizations.demoBottomNavigationSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -138,6 +145,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoBottomSheetTitle,
       icon: GalleryIcons.bottomSheets,
+      slug: 'bottom-sheet',
       subtitle: localizations.demoBottomSheetSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -160,6 +168,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoButtonTitle,
       icon: GalleryIcons.genericButtons,
+      slug: 'button',
       subtitle: localizations.demoButtonSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -203,6 +212,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: GalleryLocalizations.of(context).demoCardTitle,
       icon: GalleryIcons.cards,
+      slug: 'card',
       subtitle: GalleryLocalizations.of(context).demoCardSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -217,6 +227,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoChipTitle,
       icon: GalleryIcons.chips,
+      slug: 'chip',
       subtitle: localizations.demoChipSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -252,6 +263,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoDataTableTitle,
       icon: GalleryIcons.dataTable,
+      slug: 'data-table',
       subtitle: localizations.demoDataTableSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -266,6 +278,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoDialogTitle,
       icon: GalleryIcons.dialogs,
+      slug: 'dialog',
       subtitle: localizations.demoDialogSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -302,6 +315,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoGridListsTitle,
       icon: GalleryIcons.gridOn,
+      slug: 'grid-lists',
       subtitle: localizations.demoGridListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -331,6 +345,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoListsTitle,
       icon: GalleryIcons.listAlt,
+      slug: 'lists',
       subtitle: localizations.demoListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -352,6 +367,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoMenuTitle,
       icon: GalleryIcons.moreVert,
+      slug: 'menu',
       subtitle: localizations.demoMenuSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -396,6 +412,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoPickersTitle,
       icon: GalleryIcons.event,
+      slug: 'pickers',
       subtitle: localizations.demoPickersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -417,6 +434,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoProgressIndicatorTitle,
       icon: GalleryIcons.progressActivity,
+      slug: 'progress-indicator',
       subtitle: localizations.demoProgressIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -444,6 +462,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoSelectionControlsTitle,
       icon: GalleryIcons.checkBox,
+      slug: 'selection-controls',
       subtitle: localizations.demoSelectionControlsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -478,6 +497,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoSlidersTitle,
       icon: GalleryIcons.sliders,
+      slug: 'sliders',
       subtitle: localizations.demoSlidersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -508,6 +528,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoSnackbarsTitle,
       icon: GalleryIcons.snackbar,
+      slug: 'snackbars',
       subtitle: localizations.demoSnackbarsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -522,6 +543,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoTabsTitle,
       icon: GalleryIcons.tabs,
+      slug: 'tabs',
       subtitle: localizations.demoTabsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -543,6 +565,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
+      slug: 'text-field',
       subtitle: localizations.demoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -557,6 +580,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoTooltipTitle,
       icon: GalleryIcons.tooltip,
+      slug: 'tooltip',
       subtitle: localizations.demoTooltipSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -577,6 +601,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoActivityIndicatorTitle,
       icon: GalleryIcons.cupertinoProgress,
+      slug: 'cupertino-activity-indicator',
       subtitle: localizations.demoCupertinoActivityIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -592,6 +617,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoAlertsTitle,
       icon: GalleryIcons.dialogs,
+      slug: 'cupertino-alerts',
       subtitle: localizations.demoCupertinoAlertsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -642,6 +668,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoButtonsTitle,
       icon: GalleryIcons.genericButtons,
+      slug: 'cupertino-buttons',
       subtitle: localizations.demoCupertinoButtonsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -657,6 +684,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoNavigationBarTitle,
       icon: GalleryIcons.bottomSheetPersistent,
+      slug: 'cupertino-navigation-bar',
       subtitle: localizations.demoCupertinoNavigationBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -672,6 +700,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoPickerTitle,
       icon: GalleryIcons.event,
+      slug: 'cupertino-picker',
       subtitle: localizations.demoCupertinoPickerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -687,6 +716,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoPullToRefreshTitle,
       icon: GalleryIcons.cupertinoPullToRefresh,
+      slug: 'cupertino-pull-to-refresh',
       subtitle: localizations.demoCupertinoPullToRefreshSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -702,6 +732,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoSegmentedControlTitle,
       icon: GalleryIcons.tabs,
+      slug: 'cupertino-segmented-control',
       subtitle: localizations.demoCupertinoSegmentedControlSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -717,6 +748,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoSliderTitle,
       icon: GalleryIcons.sliders,
+      slug: 'cupertino-slider',
       subtitle: localizations.demoCupertinoSliderSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -732,6 +764,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoSelectionControlsSwitchTitle,
       icon: GalleryIcons.cupertinoSwitch,
+      slug: 'cupertino-switch',
       subtitle: localizations.demoCupertinoSwitchSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -747,6 +780,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoTabBarTitle,
       icon: GalleryIcons.bottomNavigation,
+      slug: 'cupertino-tab-bar',
       subtitle: localizations.demoCupertinoTabBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -762,6 +796,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoCupertinoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
+      slug: 'cupertino-text-field',
       subtitle: localizations.demoCupertinoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -783,6 +818,7 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoColorsTitle,
       icon: GalleryIcons.colors,
+      slug: 'colors',
       subtitle: localizations.demoColorsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -797,6 +833,7 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demoTypographyTitle,
       icon: GalleryIcons.customTypography,
+      slug: 'typography',
       subtitle: localizations.demoTypographySubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -811,6 +848,7 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
     GalleryDemo(
       title: localizations.demo2dTransformationsTitle,
       icon: GalleryIcons.gridOn,
+      slug: '2d-transformations',
       subtitle: localizations.demo2dTransformationsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -823,6 +861,14 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
       ],
     ),
   ];
+}
+
+Map<String, GalleryDemo> slugToDemo(BuildContext context) {
+  return LinkedHashMap<String, GalleryDemo>.fromIterable(
+      materialDemos(context) +
+          cupertinoDemos(context) +
+          referenceDemos(context),
+      key: (dynamic demo) => demo.slug as String);
 }
 
 class DemoWrapper extends StatelessWidget {

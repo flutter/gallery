@@ -31,8 +31,19 @@ enum _DemoState {
   fullscreen,
 }
 
-class DemoPage extends StatefulWidget {
-  const DemoPage({
+class DemoPage extends StatelessWidget {
+  const DemoPage({Key key, @required this.slug}) : super(key: key);
+
+  final String slug;
+
+  @override
+  Widget build(BuildContext context) {
+    return GalleryDemoPage(demo: slugToDemo(context)[slug]);
+  }
+}
+
+class GalleryDemoPage extends StatefulWidget {
+  const GalleryDemoPage({
     Key key,
     @required this.demo,
   }) : super(key: key);
@@ -40,10 +51,11 @@ class DemoPage extends StatefulWidget {
   final GalleryDemo demo;
 
   @override
-  _DemoPageState createState() => _DemoPageState();
+  _GalleryDemoPageState createState() => _GalleryDemoPageState();
 }
 
-class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
+class _GalleryDemoPageState extends State<GalleryDemoPage>
+    with TickerProviderStateMixin {
   _DemoState _state = _DemoState.normal;
   int _configIndex = 0;
   bool _isDesktop;

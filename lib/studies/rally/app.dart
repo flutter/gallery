@@ -33,10 +33,14 @@ class RallyApp extends StatelessWidget {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: HomePage(),
-      initialRoute: '/login',
+      onGenerateRoute: (settings) {
+        print(settings.name);
+        return null;
+      },
+      initialRoute: '/rally/login',
       routes: <String, WidgetBuilder>{
-        '/login': (context) => LoginPage(),
+        '/rally': (context) => HomePage(),
+        '/rally/login': (context) => LoginPage(),
       },
     );
   }
