@@ -8,10 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/layout/focus_traversal_policy.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
-import 'package:gallery/pages/home.dart';
+import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -56,7 +55,7 @@ class _MainView extends StatelessWidget {
   final TextEditingController passwordController;
 
   void _login(BuildContext context) {
-    Navigator.pushNamed(context, '/rally');
+    Navigator.pushNamed(context, RallyApp.homeRoute);
   }
 
   @override
@@ -374,7 +373,7 @@ class _BorderButton extends StatelessWidget {
       ),
       textColor: Colors.white,
       onPressed: () {
-        Navigator.pushNamed(context, '/rally');
+        Navigator.pushNamed(context, RallyApp.homeRoute);
       },
       child: Text(text),
     );

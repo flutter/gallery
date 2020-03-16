@@ -19,6 +19,8 @@ import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ShrineApp extends StatefulWidget {
+  static String loginRoute = '/shrine/login';
+
   const ShrineApp({Key key, this.navigatorKey}) : super(key: key);
 
   final GlobalKey<NavigatorState> navigatorKey;
@@ -119,7 +121,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
               ),
             ),
           ),
-          initialRoute: '/login',
+          initialRoute: ShrineApp.loginRoute,
           onGenerateRoute: _getRoute,
           theme: shrineTheme.copyWith(
             platform: GalleryOptions.of(context).platform,
@@ -135,7 +137,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 }
 
 Route<dynamic> _getRoute(RouteSettings settings) {
-  if (settings.name != '/login') {
+  if (settings.name != ShrineApp.loginRoute) {
     return null;
   }
 

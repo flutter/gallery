@@ -5,54 +5,28 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/layout/focus_traversal_policy.dart';
-import 'package:gallery/pages/home.dart' as home;
 import 'package:gallery/studies/starter/home.dart';
 
 const _primaryColor = Color(0xFF6200EE);
 
-class StarterApp extends StatefulWidget {
-  const StarterApp({Key key, this.navigatorKey}) : super(key: key);
-
-  final GlobalKey<NavigatorState> navigatorKey;
-
-  @override
-  _StarterAppState createState() => _StarterAppState();
-}
-
-class _StarterAppState extends State<StarterApp> {
-  FocusNode firstFocusNode;
-  FocusNode lastFocusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    firstFocusNode = FocusNode();
-    lastFocusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    firstFocusNode.dispose();
-    lastFocusNode.dispose();
-    super.dispose();
-  }
+class StarterApp extends StatelessWidget {
+  static String defaultRoute = '/starter';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: widget.navigatorKey,
       title: GalleryLocalizations.of(context).starterAppTitle,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: ApplyTextOptions(
-        child: HomePage(
-          firstFocusNode: firstFocusNode,
-          lastFocusNode: lastFocusNode,
-        ),
-      ),
+      initialRoute: StarterApp.defaultRoute,
+      routes: {
+        StarterApp.defaultRoute: (context) => _Home(),
+      },
+      onGenerateRoute: (settings) {
+        return null;
+      },
       theme: ThemeData(
         primaryColor: _primaryColor,
         highlightColor: Colors.transparent,
@@ -77,6 +51,15 @@ class _StarterAppState extends State<StarterApp> {
         ),
         platform: GalleryOptions.of(context).platform,
       ),
+    );
+  }
+}
+
+class _Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ApplyTextOptions(
+      child: HomePage(),
     );
   }
 }

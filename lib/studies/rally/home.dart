@@ -7,8 +7,6 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
-import 'package:gallery/pages/home.dart';
-import 'package:gallery/layout/focus_traversal_policy.dart';
 import 'package:gallery/studies/rally/tabs/accounts.dart';
 import 'package:gallery/studies/rally/tabs/bills.dart';
 import 'package:gallery/studies/rally/tabs/budgets.dart';

@@ -12,9 +12,7 @@ import 'package:gallery/studies/crane/sleep_form.dart';
 import 'package:gallery/studies/crane/theme.dart';
 
 class CraneApp extends StatefulWidget {
-  const CraneApp({Key key, this.navigatorKey}) : super(key: key);
-
-  final GlobalKey<NavigatorState> navigatorKey;
+  static String defaultRoute = '/crane';
 
   @override
   _CraneAppState createState() => _CraneAppState();
@@ -24,44 +22,42 @@ class _CraneAppState extends State<CraneApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: widget.navigatorKey,
       title: 'Crane',
       debugShowCheckedModeBanner: false,
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      initialRoute: '/',
-      onGenerateRoute: _getRoute,
+      initialRoute: CraneApp.defaultRoute,
+      routes: {
+        CraneApp.defaultRoute: (context) => _Home(),
+      },
+      onGenerateRoute: (settings) {
+        return null;
+      },
       theme: craneTheme.copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
       darkTheme: craneTheme.copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
-      home: ApplyTextOptions(
-        child: Backdrop(
-          frontLayer: Container(),
-          backLayerItems: [
-            FlyForm(index: 0),
-            SleepForm(index: 1),
-            EatForm(index: 2),
-          ],
-          frontTitle: Text('CRANE'),
-          backTitle: Text('MENU'),
-        ),
-      ),
     );
   }
 }
 
-Route<dynamic> _getRoute(RouteSettings settings) {
-  if (settings.name != '/') {
-    return null;
+class _Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ApplyTextOptions(
+      child: Backdrop(
+        frontLayer: Container(),
+        backLayerItems: [
+          FlyForm(index: 0),
+          SleepForm(index: 1),
+          EatForm(index: 2),
+        ],
+        frontTitle: Text('CRANE'),
+        backTitle: Text('MENU'),
+      ),
+    );
   }
-
-  return MaterialPageRoute<void>(
-    settings: settings,
-    builder: (context) => CraneApp(),
-    fullscreenDialog: true,
-  );
 }

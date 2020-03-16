@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
         assetDark: AssetImage('assets/studies/shrine_card_dark.png'),
         assetDarkColor: const Color(0xFF543B3C),
         textColor: shrineBrown900,
-        study: ShrineApp(),
+        studyRoute: ShrineApp.loginRoute,
       ),
       _CarouselCard(
         title: _rallyTitle,
@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
         assetColor: const Color(0xFFD1F2E6),
         assetDark: AssetImage('assets/studies/rally_card_dark.png'),
         assetDarkColor: const Color(0xFF253538),
-        study: RallyApp(),
+        studyRoute: RallyApp.loginRoute,
       ),
       _CarouselCard(
         title: _craneTitle,
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
         assetDark: AssetImage('assets/studies/crane_card_dark.png'),
         assetDarkColor: const Color(0xFF591946),
         textColor: cranePurple700,
-        study: CraneApp(),
+        studyRoute: CraneApp.defaultRoute,
       ),
       _CarouselCard(
         title: fortnightlyTitle,
@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
         assetColor: Colors.white,
         assetDark: AssetImage('assets/studies/fortnightly_card_dark.png'),
         assetDarkColor: const Color(0xFF1F1F1F),
-        study: FortnightlyApp(),
+        studyRoute: FortnightlyApp.defaultRoute,
       ),
       _CarouselCard(
         title: GalleryLocalizations.of(context).starterAppTitle,
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
         assetDark: AssetImage('assets/studies/starter_card_dark.png'),
         assetDarkColor: const Color(0xFF3F3D45),
         textColor: Colors.black,
-        study: StarterApp(),
+        studyRoute: StarterApp.defaultRoute,
       ),
     ];
 
@@ -940,7 +940,7 @@ class _CarouselCard extends StatelessWidget {
     this.assetColor,
     this.assetDarkColor,
     this.textColor,
-    this.study,
+    this.studyRoute,
   }) : super(key: key);
 
   final String title;
@@ -950,7 +950,7 @@ class _CarouselCard extends StatelessWidget {
   final Color assetColor;
   final Color assetDarkColor;
   final Color textColor;
-  final Widget study;
+  final String studyRoute;
 
   @override
   Widget build(BuildContext context) {
@@ -970,7 +970,7 @@ class _CarouselCard extends StatelessWidget {
         color: Colors.grey,
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/rally/login');
+            Navigator.pushNamed(context, studyRoute);
           },
           child: Stack(
             fit: StackFit.expand,
@@ -1058,7 +1058,8 @@ class StudyWrapperState extends State<StudyWrapper> {
                 excludeSemantics: true,
                 child: FloatingActionButton.extended(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context)
+                        .popUntil((route) => route.settings.name == '/');
                   },
                   icon: IconTheme(
                     data: IconThemeData(color: colorScheme.onPrimary),

@@ -1,16 +1,14 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
-import 'package:gallery/data/demos.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
 import 'package:gallery/pages/home.dart';
+import 'package:gallery/studies/crane/app.dart';
+import 'package:gallery/studies/fortnightly/app.dart';
 import 'package:gallery/studies/rally/app.dart';
+import 'package:gallery/studies/shrine/app.dart';
+import 'package:gallery/studies/starter/app.dart';
 
-const String rootRoute = '/';
-const String demoRoute = 'demo';
-
-typedef WidgetBuilder = Widget Function(BuildContext, Map<String, String>);
+typedef PathWidgetBuilder = Widget Function(BuildContext, Map<String, String>);
 
 /// TODO: Make it so that you can create URLS from these routes.
 ///
@@ -19,7 +17,7 @@ class Path {
   const Path(this.pattern, this.builder);
 
   final String pattern;
-  final WidgetBuilder builder;
+  final PathWidgetBuilder builder;
 
   String route(Map<String, String> args) {
     // TODO: implement
@@ -36,8 +34,24 @@ class RouteConfiguration {
       (context, matches) => DemoPage(slug: matches['slug']),
     ),
     Path(
-      r'^/rally/login',
+      r'^/rally',
       (context, matches) => StudyWrapper(study: RallyApp()),
+    ),
+    Path(
+      r'^/shrine',
+      (context, matches) => StudyWrapper(study: ShrineApp()),
+    ),
+    Path(
+      r'^/crane',
+      (context, matches) => StudyWrapper(study: CraneApp()),
+    ),
+    Path(
+      r'^/fortnightly',
+      (context, matches) => StudyWrapper(study: FortnightlyApp()),
+    ),
+    Path(
+      r'^/starter',
+      (context, matches) => StudyWrapper(study: StarterApp()),
     ),
     Path(
       r'^/',
