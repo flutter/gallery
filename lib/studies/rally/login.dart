@@ -25,22 +25,12 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final backButtonFocusNode =
-        InheritedFocusNodes.of(context).backButtonFocusNode;
-
-    return FocusTraversalGroup(
-      policy: EdgeChildrenFocusTraversalPolicy(
-        firstFocusNodeOutsideScope: backButtonFocusNode,
-        lastFocusNodeOutsideScope: backButtonFocusNode,
-        focusScope: FocusScope.of(context),
-      ),
-      child: ApplyTextOptions(
-        child: Scaffold(
-          body: SafeArea(
-            child: _MainView(
-              usernameController: _usernameController,
-              passwordController: _passwordController,
-            ),
+    return ApplyTextOptions(
+      child: Scaffold(
+        body: SafeArea(
+          child: _MainView(
+            usernameController: _usernameController,
+            passwordController: _passwordController,
           ),
         ),
       ),

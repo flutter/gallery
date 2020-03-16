@@ -36,11 +36,8 @@ class RouteConfiguration {
       (context, matches) => DemoPage(slug: matches['slug']),
     ),
     Path(
-      r'^/rally',
-      (context, matches) => StudyWrapper(
-        study: RallyApp(navigatorKey: NavigatorKeys.rally),
-        navigatorKey: NavigatorKeys.rally,
-      ),
+      r'^/rally/login',
+      (context, matches) => StudyWrapper(study: RallyApp()),
     ),
     Path(
       r'^/',

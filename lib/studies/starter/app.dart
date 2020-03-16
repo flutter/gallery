@@ -40,9 +40,6 @@ class _StarterAppState extends State<StarterApp> {
 
   @override
   Widget build(BuildContext context) {
-    final backButtonFocusNode =
-        home.InheritedFocusNodes.of(context).backButtonFocusNode;
-
     return MaterialApp(
       navigatorKey: widget.navigatorKey,
       title: GalleryLocalizations.of(context).starterAppTitle,
@@ -50,18 +47,10 @@ class _StarterAppState extends State<StarterApp> {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: FocusTraversalGroup(
-        policy: EdgeChildrenFocusTraversalPolicy(
-          firstFocusNodeOutsideScope: backButtonFocusNode,
-          lastFocusNodeOutsideScope: backButtonFocusNode,
-          firstFocusNodeInsideScope: firstFocusNode,
-          lastFocusNodeInsideScope: lastFocusNode,
-        ),
-        child: ApplyTextOptions(
-          child: HomePage(
-            firstFocusNode: firstFocusNode,
-            lastFocusNode: lastFocusNode,
-          ),
+      home: ApplyTextOptions(
+        child: HomePage(
+          firstFocusNode: firstFocusNode,
+          lastFocusNode: lastFocusNode,
         ),
       ),
       theme: ThemeData(
