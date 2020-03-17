@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/pages/demo.dart';
 
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
@@ -254,7 +255,9 @@ class CategoryDemoItem extends StatelessWidget {
       child: MergeSemantics(
         child: InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed('/demo/${demo.slug}');
+            Navigator.of(context).pushNamed(
+              '${DemoPage.baseRoute}/${demo.slug}',
+            );
           },
           child: Padding(
             padding: EdgeInsetsDirectional.only(

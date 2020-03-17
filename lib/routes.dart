@@ -37,27 +37,27 @@ class RouteConfiguration {
   /// take priority.
   static List<Path> paths = [
     Path(
-      r'^/demo/(?<slug>[\w-]+)$',
+      r'^' + DemoPage.baseRoute + r'/(?<slug>[\w-]+)$',
       (context, matches) => DemoPage(slug: matches['slug']),
     ),
     Path(
-      r'^/rally',
+      r'^' + RallyApp.homeRoute,
       (context, matches) => StudyWrapper(study: RallyApp()),
     ),
     Path(
-      r'^/shrine',
+      r'^' + ShrineApp.homeRoute,
       (context, matches) => StudyWrapper(study: ShrineApp()),
     ),
     Path(
-      r'^/crane',
+      r'^' + CraneApp.defaultRoute,
       (context, matches) => StudyWrapper(study: CraneApp()),
     ),
     Path(
-      r'^/fortnightly',
+      r'^' + FortnightlyApp.defaultRoute,
       (context, matches) => StudyWrapper(study: FortnightlyApp()),
     ),
     Path(
-      r'^/starter',
+      r'^' + StarterApp.defaultRoute,
       (context, matches) => StudyWrapper(study: StarterApp()),
     ),
     Path(

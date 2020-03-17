@@ -36,6 +36,8 @@ class DemoPage extends StatelessWidget {
 
   final String slug;
 
+  static String baseRoute = '/demo';
+
   @override
   Widget build(BuildContext context) {
     return GalleryDemoPage(demo: slugToDemo(context)[slug]);
