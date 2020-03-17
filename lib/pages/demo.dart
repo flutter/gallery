@@ -31,16 +31,39 @@ enum _DemoState {
   fullscreen,
 }
 
-class DemoPage extends StatelessWidget {
-  const DemoPage({Key key, @required this.slug}) : super(key: key);
-
-  final String slug;
+class DemoPage extends StatefulWidget {
+  const DemoPage({
+    Key key,
+    @required this.slug,
+  }) : super(key: key);
 
   static String baseRoute = '/demo';
+  final String slug;
+
+  @override
+  _DemoPageState createState() => _DemoPageState();
+}
+
+class _DemoPageState extends State<DemoPage> {
+  Map<String, GalleryDemo> slugToDemoMap;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // To make sure that we do not rebuild the map for every update to the demo
+    // page, we save it in a variable. The cost of running `slugToDemo` is
+    // still only close to constant, as it's just iterating over all of the
+    // demos.
+    slugToDemoMap = slugToDemo(context);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GalleryDemoPage(demo: slugToDemo(context)[slug]);
+    if (widget.slug == null || !slugToDemoMap.containsKey(widget.slug)) {
+      // Return to root if invalid slug.
+      Navigator.of(context).pop();
+    }
+    return GalleryDemoPage(demo: slugToDemoMap[widget.slug]);
   }
 }
 
