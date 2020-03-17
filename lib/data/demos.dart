@@ -865,10 +865,9 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
 
 Map<String, GalleryDemo> slugToDemo(BuildContext context) {
   return LinkedHashMap<String, GalleryDemo>.fromIterable(
-      materialDemos(context) +
-          cupertinoDemos(context) +
-          referenceDemos(context),
-      key: (dynamic demo) => demo.slug as String);
+    materialDemos(context) + cupertinoDemos(context) + referenceDemos(context),
+    key: (dynamic demo) => demo.slug as String,
+  );
 }
 
 class DemoWrapper extends StatelessWidget {
