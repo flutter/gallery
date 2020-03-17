@@ -14,9 +14,7 @@ import 'package:gallery/studies/fortnightly/shared.dart';
 const fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  const FortnightlyApp({Key key, this.navigatorKey}) : super(key: key);
-
-  final GlobalKey<NavigatorState> navigatorKey;
+  static String defaultRoute = '/fortnightly';
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +22,15 @@ class FortnightlyApp extends StatelessWidget {
         ? _FortnightlyHomeDesktop()
         : _FortnightlyHomeMobile();
     return MaterialApp(
-      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context).copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
       home: ApplyTextOptions(child: home),
+      routes: {
+        FortnightlyApp.defaultRoute: (context) => ApplyTextOptions(child: home),
+      },
+      initialRoute: FortnightlyApp.defaultRoute,
       // L10n settings.
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
@@ -48,6 +49,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Semantics(
           label: fortnightlyTitle,
           child: FadeInImagePlaceholder(

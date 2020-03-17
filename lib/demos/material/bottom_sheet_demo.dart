@@ -47,7 +47,7 @@ class BottomSheetDemo extends StatelessWidget {
       // changing type.
       key: ValueKey(type),
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<Widget>(
+        return MaterialPageRoute<void>(
           builder: (context) => Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -64,7 +64,6 @@ class BottomSheetDemo extends StatelessWidget {
             ),
             body: _bottomSheetDemo(context),
           ),
-          settings: settings,
         );
       },
     );
