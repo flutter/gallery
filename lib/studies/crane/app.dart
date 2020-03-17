@@ -27,12 +27,10 @@ class _CraneAppState extends State<CraneApp> {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
+      home: _Home(),
       initialRoute: CraneApp.defaultRoute,
       routes: {
         CraneApp.defaultRoute: (context) => _Home(),
-      },
-      onGenerateRoute: (settings) {
-        return null;
       },
       theme: craneTheme.copyWith(
         platform: GalleryOptions.of(context).platform,

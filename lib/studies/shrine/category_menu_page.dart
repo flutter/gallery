@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:gallery/studies/shrine/app.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:gallery/data/gallery_options.dart';
@@ -133,12 +134,7 @@ class CategoryMenuPage extends StatelessWidget {
                     button: true,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push<void>(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (context) => LoginPage(),
-                          ),
-                        );
+                        Navigator.of(context).pushNamed(ShrineApp.loginRoute);
                       },
                       child: _buttonText(
                         GalleryLocalizations.of(context)
@@ -186,11 +182,7 @@ class CategoryMenuPage extends StatelessWidget {
                           if (onCategoryTap != null) {
                             onCategoryTap();
                           }
-                          Navigator.push<void>(
-                            context,
-                            MaterialPageRoute<void>(
-                                builder: (context) => LoginPage()),
-                          );
+                          Navigator.of(context).pushNamed(ShrineApp.loginRoute);
                         },
                         child: _buttonText(
                           GalleryLocalizations.of(context)

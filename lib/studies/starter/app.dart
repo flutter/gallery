@@ -24,9 +24,7 @@ class StarterApp extends StatelessWidget {
       routes: {
         StarterApp.defaultRoute: (context) => _Home(),
       },
-      onGenerateRoute: (settings) {
-        return null;
-      },
+      home: _Home(),
       theme: ThemeData(
         primaryColor: _primaryColor,
         highlightColor: Colors.transparent,

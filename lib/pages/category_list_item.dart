@@ -254,7 +254,7 @@ class CategoryDemoItem extends StatelessWidget {
       child: MergeSemantics(
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/demo/${demo.slug}');
+            Navigator.of(context).pushNamed('/demo/${demo.slug}');
           },
           child: Padding(
             padding: EdgeInsetsDirectional.only(

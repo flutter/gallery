@@ -26,13 +26,11 @@ class FortnightlyApp extends StatelessWidget {
       theme: buildTheme(context).copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
+      home: ApplyTextOptions(child: home),
       routes: {
         FortnightlyApp.defaultRoute: (context) => ApplyTextOptions(child: home),
       },
       initialRoute: FortnightlyApp.defaultRoute,
-      onGenerateRoute: (settings) {
-        return null;
-      },
       // L10n settings.
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,

@@ -10,20 +10,11 @@ import 'package:gallery/studies/starter/app.dart';
 
 typedef PathWidgetBuilder = Widget Function(BuildContext, Map<String, String>);
 
-/// TODO: Make it so that you can create URLS from these routes.
-///
-
 class Path {
   const Path(this.pattern, this.builder);
 
   final String pattern;
   final PathWidgetBuilder builder;
-
-  String route(Map<String, String> args) {
-    // TODO: implement
-    // TODO: Find all groups
-    return '';
-  }
 }
 
 class RouteConfiguration {

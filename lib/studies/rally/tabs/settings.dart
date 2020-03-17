@@ -50,7 +50,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.popAndPushNamed(context, RallyApp.loginRoute);
+        Navigator.of(context).popAndPushNamed(RallyApp.loginRoute);
       },
     );
   }

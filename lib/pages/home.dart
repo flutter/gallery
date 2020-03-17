@@ -970,7 +970,7 @@ class _CarouselCard extends StatelessWidget {
         color: Colors.grey,
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, studyRoute);
+            Navigator.of(context).pushNamed(studyRoute);
           },
           child: Stack(
             fit: StackFit.expand,
@@ -1032,10 +1032,10 @@ class StudyWrapper extends StatefulWidget {
   final Widget study;
 
   @override
-  StudyWrapperState createState() => StudyWrapperState();
+  _StudyWrapperState createState() => _StudyWrapperState();
 }
 
-class StudyWrapperState extends State<StudyWrapper> {
+class _StudyWrapperState extends State<StudyWrapper> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
