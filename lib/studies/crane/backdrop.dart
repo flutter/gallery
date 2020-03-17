@@ -150,6 +150,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
           child: Scaffold(
             backgroundColor: cranePurple800,
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               brightness: Brightness.dark,
               elevation: 0,
               titleSpacing: 0,
