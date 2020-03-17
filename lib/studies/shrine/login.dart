@@ -216,7 +216,7 @@ class _CancelAndNextButtons extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(7)),
               ),
               onPressed: () {
-                Navigator.of(context).popAndPushNamed(ShrineApp.homeRoute);
+                Navigator.of(context).pushNamed(ShrineApp.homeRoute);
               },
             ),
           ],

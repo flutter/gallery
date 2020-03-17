@@ -49,6 +49,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Semantics(
           label: fortnightlyTitle,
           child: FadeInImagePlaceholder(

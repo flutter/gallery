@@ -117,22 +117,14 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
         child: MaterialApp(
           title: 'Shrine',
           debugShowCheckedModeBanner: false,
-          home: LayoutCache(
-            layouts: _layouts,
-            child: PageStatus(
-              menuController: _controller,
-              cartController: _expandingController,
-              child: HomePage(
-                backdrop: backdrop,
-                scrim: Scrim(controller: _expandingController),
-                expandingBottomSheet: ExpandingBottomSheet(
-                  hideController: _controller,
-                  expandingController: _expandingController,
-                ),
-              ),
-            ),
-          ),
           initialRoute: ShrineApp.loginRoute,
+          onGenerateInitialRoutes: (_) {
+            return [
+              MaterialPageRoute<void>(
+                builder: (context) => LoginPage(),
+              ),
+            ];
+          },
           routes: {
             ShrineApp.loginRoute: (context) => LoginPage(),
             ShrineApp.homeRoute: (context) => home,

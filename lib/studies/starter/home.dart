@@ -106,6 +106,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return AppBar(
+      automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
           : Text(GalleryLocalizations.of(context).starterAppGenericTitle),
