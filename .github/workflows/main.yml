@@ -1,11 +1,5 @@
 name: Flutter Gallery
-
-# Controls when the action will run.
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
