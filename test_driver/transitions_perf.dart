@@ -13,6 +13,7 @@ import 'package:gallery/main.dart' as gallery;
 Future<String> _handleMessages(String message) async {
   assert(message == 'demoDescriptions');
 
+  // ignore: invalid_use_of_visible_for_testing_member
   final demoDescriptions = allGalleryDemos(GalleryLocalizationsEn())
       .map((demo) => demo.describe)
       .toList();

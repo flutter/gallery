@@ -49,10 +49,6 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
-const shrineTitle = 'Shrine';
-const rallyTitle = 'Rally';
-const craneTitle = 'Crane';
-const fortnightlyTitle = 'Fortnightly';
 
 enum GalleryDemoCategory {
   study,
@@ -82,22 +78,25 @@ class GalleryDemo {
   GalleryDemo({
     @required this.title,
     @required this.category,
-    @required this.slug,
-    @required this.icon,
     @required this.subtitle,
-    @required this.configurations,
+    // Parameters below are required for non-study demos.
+    this.slug,
+    this.icon,
+    this.configurations,
   })  : assert(title != null),
         assert(category != null),
+        assert(subtitle != null),
         assert(category == GalleryDemoCategory.study ||
-            (icon != null &&
+            (slug != null &&
+                icon != null &&
                 configurations != null &&
                 configurations.isNotEmpty));
 
   final String title;
   final GalleryDemoCategory category;
+  final String subtitle;
   final String slug;
   final IconData icon;
-  final String subtitle;
   final List<GalleryDemoConfiguration> configurations;
 
   String get describe => '${this.title}@${this.category.name}';
@@ -119,35 +118,41 @@ class GalleryDemoConfiguration {
   final CodeDisplayer code;
 }
 
+@visibleForTesting
 List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
-    studies(localizations) +
+    studies(localizations).values.toList() +
     materialDemos(localizations) +
     cupertinoDemos(localizations) +
     referenceDemos(localizations);
 
-List<GalleryDemo> studies(GalleryLocalizations localizations) {
-  return [
-    GalleryDemo(
-      title: shrineTitle,
+Map<Symbol, GalleryDemo> studies(GalleryLocalizations localizations) {
+  return <Symbol, GalleryDemo>{
+    #shrine: GalleryDemo(
+      title: 'Shrine',
+      subtitle: localizations.shrineDescription,
       category: GalleryDemoCategory.study,
     ),
-    GalleryDemo(
-      title: rallyTitle,
+    #rally: GalleryDemo(
+      title: 'Rally',
+      subtitle: localizations.rallyDescription,
       category: GalleryDemoCategory.study,
     ),
-    GalleryDemo(
-      title: craneTitle,
+    #crane: GalleryDemo(
+      title: 'Crane',
+      subtitle: localizations.craneDescription,
       category: GalleryDemoCategory.study,
     ),
-    GalleryDemo(
-      title: fortnightlyTitle,
+    #fortnightly: GalleryDemo(
+      title: 'Fortnightly',
+      subtitle: localizations.fortnightlyDescription,
       category: GalleryDemoCategory.study,
     ),
-    GalleryDemo(
+    #starterApp: GalleryDemo(
       title: localizations.starterAppTitle,
+      subtitle: localizations.starterAppDescription,
       category: GalleryDemoCategory.study,
     ),
-  ];
+  };
 }
 
 List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {

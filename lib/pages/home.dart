@@ -42,10 +42,10 @@ class HomePage extends StatelessWidget {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
     final localizations = GalleryLocalizations.of(context);
+    final studyDemos = studies(localizations);
     final carouselCards = <Widget>[
       _CarouselCard(
-        title: shrineTitle,
-        subtitle: localizations.shrineDescription,
+        demo: studyDemos[#shrine],
         asset: AssetImage('assets/studies/shrine_card.png'),
         assetColor: const Color(0xFFFEDBD0),
         assetDark: AssetImage('assets/studies/shrine_card_dark.png'),
@@ -54,8 +54,7 @@ class HomePage extends StatelessWidget {
         studyRoute: ShrineApp.loginRoute,
       ),
       _CarouselCard(
-        title: rallyTitle,
-        subtitle: localizations.rallyDescription,
+        demo: studyDemos[#rally],
         textColor: RallyColors.accountColors[0],
         asset: AssetImage('assets/studies/rally_card.png'),
         assetColor: const Color(0xFFD1F2E6),
@@ -64,8 +63,7 @@ class HomePage extends StatelessWidget {
         studyRoute: RallyApp.loginRoute,
       ),
       _CarouselCard(
-        title: craneTitle,
-        subtitle: localizations.craneDescription,
+        demo: studyDemos[#crane],
         asset: AssetImage('assets/studies/crane_card.png'),
         assetColor: const Color(0xFFFBF6F8),
         assetDark: AssetImage('assets/studies/crane_card_dark.png'),
@@ -74,8 +72,7 @@ class HomePage extends StatelessWidget {
         studyRoute: CraneApp.defaultRoute,
       ),
       _CarouselCard(
-        title: fortnightlyTitle,
-        subtitle: localizations.fortnightlyDescription,
+        demo: studyDemos[#fortnightly],
         asset: AssetImage('assets/studies/fortnightly_card.png'),
         assetColor: Colors.white,
         assetDark: AssetImage('assets/studies/fortnightly_card_dark.png'),
@@ -83,8 +80,7 @@ class HomePage extends StatelessWidget {
         studyRoute: FortnightlyApp.defaultRoute,
       ),
       _CarouselCard(
-        title: localizations.starterAppTitle,
-        subtitle: localizations.starterAppDescription,
+        demo: studyDemos[#starterApp],
         asset: AssetImage('assets/studies/starter_card.png'),
         assetColor: const Color(0xFFFAF6FE),
         assetDark: AssetImage('assets/studies/starter_card_dark.png'),
@@ -931,25 +927,21 @@ class _DesktopPageButton extends StatelessWidget {
 class _CarouselCard extends StatelessWidget {
   const _CarouselCard({
     Key key,
-    this.title,
-    this.subtitle,
+    this.demo,
     this.asset,
     this.assetDark,
     this.assetColor,
     this.assetDarkColor,
     this.textColor,
-    this.demo,
     this.studyRoute,
   }) : super(key: key);
 
-  final String title;
-  final String subtitle;
+  final GalleryDemo demo;
   final ImageProvider asset;
   final ImageProvider assetDark;
   final Color assetColor;
   final Color assetDarkColor;
   final Color textColor;
-  final GalleryDemo demo;
   final String studyRoute;
 
   @override
@@ -995,13 +987,13 @@ class _CarouselCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      title,
+                      demo.title,
                       style: textTheme.caption.apply(color: textColor),
                       maxLines: 3,
                       overflow: TextOverflow.visible,
                     ),
                     Text(
-                      subtitle,
+                      demo.subtitle,
                       style: textTheme.overline.apply(color: textColor),
                       maxLines: 5,
                       overflow: TextOverflow.visible,
