@@ -111,6 +111,10 @@ Future<void> verifyCodeSegments() async {
       'codeviewer_cli. Did you forget to run `flutter pub run grinder '
       'update-code-segments` after updating a demo?',
     );
+    stderr.writeln('\n\n$codeSegmentsPath:');
+    stderr.writeln(codeSegmentsFormatted.trim());
+    stderr.writeln('\n\nGenerated output:');
+    stderr.writeln(expectedCodeSegmentsOutput.trim());
     exit(1);
   }
 }
