@@ -439,6 +439,8 @@ class _DesktopCategoryItem extends StatelessWidget {
                   removeTop: true,
                   context: context,
                   child: ListView(
+                    // Makes integration tests possible.
+                    key: ValueKey('${category.name}DemoList'),
                     children: [
                       const SizedBox(height: 12),
                       for (GalleryDemo demo in demos)
@@ -1098,6 +1100,7 @@ class _StudyWrapperState extends State<_StudyWrapper> {
                     button: true,
                     excludeSemantics: true,
                     child: FloatingActionButton.extended(
+                      key: ValueKey('Back'),
                       focusNode: backButtonFocusNode,
                       onPressed: () {
                         Navigator.of(context).pop();
