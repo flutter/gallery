@@ -2,7 +2,11 @@ name: Flutter Gallery
 on: push
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
     # Set up Flutter and add it to the path.
     - name: Clone Flutter repository with master channel.
@@ -12,8 +16,12 @@ jobs:
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Add Flutter to the PATH.
+    - name: Add Flutter to the PATH for Unix.
       run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin"
+      if: runner.os != 'Windows'
+    - name: Add Flutter to the PATH for Windows.
+      run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
+      if: runner.os == 'Windows'
     - name: Run Flutter doctor.
       run: flutter doctor -v
 
@@ -33,10 +41,17 @@ jobs:
     - name: Run Flutter unit tests.
       run: flutter test
       working-directory: code
+    - name: Build apk.
+      run: flutter build apk
+      working-directory: code
+    - name: Build app for iOS.
+      run: flutter build ios
+      working-directory: code
+      if: runner.os == 'macOS'
     - name: Verify that localizations are up to date.
       run: flutter pub run grinder verify-l10n
       working-directory: code
-    # TODO: Enable verify-code-segments when it behaves the same Unix and macOS
+    # TODO: Enable verify-code-segments when it behaves the same on Unix and macOS
     # https://github.com/material-components/material-components-flutter-gallery/issues/565
     #- name: Verify that code segments are up to date.
     #  run: flutter pub run grinder verify-code-segments
