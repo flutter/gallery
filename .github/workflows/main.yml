@@ -12,10 +12,6 @@ jobs:
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Fetch tags for Flutter.
-      working-directory: flutter
-      run: |
-        git fetch origin +refs/tags/*:refs/tags/*
     - name: Add Flutter to the PATH.
       run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin"
     - name: Run Flutter doctor.
