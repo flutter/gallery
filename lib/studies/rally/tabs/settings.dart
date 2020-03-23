@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
-import 'package:gallery/studies/rally/login.dart';
 
 class SettingsView extends StatefulWidget {
   @override
@@ -50,10 +50,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(builder: (context) => LoginPage()),
-        );
+        Navigator.of(context).pushNamed(RallyApp.loginRoute);
       },
     );
   }

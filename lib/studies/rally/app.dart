@@ -17,14 +17,12 @@ import 'package:gallery/studies/rally/login.dart';
 /// The home route is the main page with tabs for sub pages.
 /// The login route is the initial route.
 class RallyApp extends StatelessWidget {
-  const RallyApp({Key key, this.navigatorKey}) : super(key: key);
-
-  final GlobalKey<NavigatorState> navigatorKey;
+  static String loginRoute = '/rally/login';
+  static String homeRoute = '/rally';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigatorKey,
       title: 'Rally',
       debugShowCheckedModeBanner: false,
       theme: _buildRallyTheme().copyWith(
@@ -34,9 +32,10 @@ class RallyApp extends StatelessWidget {
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
       home: HomePage(),
-      initialRoute: '/login',
+      initialRoute: loginRoute,
       routes: <String, WidgetBuilder>{
-        '/login': (context) => LoginPage(),
+        homeRoute: (context) => HomePage(),
+        loginRoute: (context) => LoginPage(),
       },
     );
   }

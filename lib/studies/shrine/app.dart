@@ -19,9 +19,8 @@ import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ShrineApp extends StatefulWidget {
-  const ShrineApp({Key key, this.navigatorKey}) : super(key: key);
-
-  final GlobalKey<NavigatorState> navigatorKey;
+  static String loginRoute = '/shrine/login';
+  static String homeRoute = '/shrine';
 
   @override
   _ShrineAppState createState() => _ShrineAppState();
@@ -95,32 +94,41 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
     final bool isDesktop = isDisplayDesktop(context);
 
     final Widget backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
+    final Widget home = LayoutCache(
+      layouts: _layouts,
+      child: PageStatus(
+        menuController: _controller,
+        cartController: _expandingController,
+        child: HomePage(
+          backdrop: backdrop,
+          scrim: Scrim(controller: _expandingController),
+          expandingBottomSheet: ExpandingBottomSheet(
+            hideController: _controller,
+            expandingController: _expandingController,
+          ),
+        ),
+      ),
+    );
 
     return ScopedModel<AppStateModel>(
       model: _model,
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: MaterialApp(
-          navigatorKey: widget.navigatorKey,
           title: 'Shrine',
           debugShowCheckedModeBanner: false,
-          home: LayoutCache(
-            layouts: _layouts,
-            child: PageStatus(
-              menuController: _controller,
-              cartController: _expandingController,
-              child: HomePage(
-                backdrop: backdrop,
-                scrim: Scrim(controller: _expandingController),
-                expandingBottomSheet: ExpandingBottomSheet(
-                  hideController: _controller,
-                  expandingController: _expandingController,
-                ),
+          initialRoute: ShrineApp.loginRoute,
+          onGenerateInitialRoutes: (_) {
+            return [
+              MaterialPageRoute<void>(
+                builder: (context) => LoginPage(),
               ),
-            ),
-          ),
-          initialRoute: '/login',
-          onGenerateRoute: _getRoute,
+            ];
+          },
+          routes: {
+            ShrineApp.loginRoute: (context) => LoginPage(),
+            ShrineApp.homeRoute: (context) => home,
+          },
           theme: shrineTheme.copyWith(
             platform: GalleryOptions.of(context).platform,
           ),
@@ -132,16 +140,4 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
       ),
     );
   }
-}
-
-Route<dynamic> _getRoute(RouteSettings settings) {
-  if (settings.name != '/login') {
-    return null;
-  }
-
-  return MaterialPageRoute<void>(
-    settings: settings,
-    builder: (context) => LoginPage(),
-    fullscreenDialog: true,
-  );
 }
