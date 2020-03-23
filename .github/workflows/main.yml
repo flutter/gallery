@@ -41,17 +41,12 @@ jobs:
     - name: Run Flutter unit tests.
       run: flutter test
       working-directory: code
-    - name: Build apk.
-      run: flutter build apk
-      working-directory: code
-    - name: Build app for iOS.
-      run: flutter build ios
-      working-directory: code
-      if: runner.os == 'macOS'
+
+    # Run custom scripts defined in `tool/grind.dart`.
     - name: Verify that localizations are up to date.
       run: flutter pub run grinder verify-l10n
       working-directory: code
-    # TODO: Enable verify-code-segments when it behaves the same on Unix and macOS
+    # TODO: Enable verify-code-segments when it behaves the same on Unix and macOS:
     # https://github.com/material-components/material-components-flutter-gallery/issues/565
     #- name: Verify that code segments are up to date.
     #  run: flutter pub run grinder verify-code-segments
