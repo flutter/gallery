@@ -952,6 +952,7 @@ class _CarouselCard extends StatelessWidget {
     this.assetDarkColor,
     this.textColor,
     this.study,
+    this.demo,
     this.navigatorKey,
   }) : super(key: key);
 
@@ -963,6 +964,7 @@ class _CarouselCard extends StatelessWidget {
   final Color assetDarkColor;
   final Color textColor;
   final Widget study;
+  final GalleryDemo demo;
   final GlobalKey<NavigatorState> navigatorKey;
 
   @override
@@ -974,6 +976,8 @@ class _CarouselCard extends StatelessWidget {
     final textColor = isDark ? Colors.white.withOpacity(0.87) : this.textColor;
 
     return Container(
+      // Makes integration tests possible.
+      key: ValueKey(demo.describe),
       margin:
           EdgeInsets.all(isDisplayDesktop(context) ? 0 : _carouselItemMargin),
       child: Material(

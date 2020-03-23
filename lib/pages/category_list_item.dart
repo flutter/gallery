@@ -263,6 +263,8 @@ class CategoryDemoItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     return Material(
+      // Makes integration tests possible.
+      key: ValueKey(demo.describe),
       color: Theme.of(context).colorScheme.surface,
       child: MergeSemantics(
         child: InkWell(
