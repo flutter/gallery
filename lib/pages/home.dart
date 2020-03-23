@@ -34,9 +34,6 @@ const _horizontalDesktopPadding = 81.0;
 const _carouselHeightMin = 200.0 + 2 * _carouselItemMargin;
 const _desktopCardsPerPage = 4;
 
-const _homeCategoryMaterial = 'MATERIAL';
-const _homeCategoryCupertino = 'CUPERTINO';
-
 class ToggleSplashNotification extends Notification {}
 
 class NavigatorKeys {
@@ -113,17 +110,17 @@ class HomePage extends StatelessWidget {
     if (isDesktop) {
       final desktopCategoryItems = <_DesktopCategoryItem>[
         _DesktopCategoryItem(
-          title: _homeCategoryMaterial,
+          category: GalleryDemoCategory.material,
           asset: AssetImage('assets/icons/material/material.png'),
           demos: materialDemos(localizations),
         ),
         _DesktopCategoryItem(
-          title: _homeCategoryCupertino,
+          category: GalleryDemoCategory.cupertino,
           asset: AssetImage('assets/icons/cupertino/cupertino.png'),
           demos: cupertinoDemos(localizations),
         ),
         _DesktopCategoryItem(
-          title: localizations.homeCategoryReference,
+          category: GalleryDemoCategory.other,
           asset: AssetImage('assets/icons/reference/reference.png'),
           demos: referenceDemos(localizations),
         ),
@@ -356,7 +353,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
-                title: _homeCategoryMaterial,
+                category: GalleryDemoCategory.material,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(localizations),
               ),
@@ -365,7 +362,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
-                title: _homeCategoryCupertino,
+                category: GalleryDemoCategory.cupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(localizations),
               ),
@@ -374,7 +371,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.10,
               controller: _animationController,
               child: CategoryListItem(
-                title: GalleryLocalizations.of(context).homeCategoryReference,
+                category: GalleryDemoCategory.other,
                 imageString: 'assets/icons/reference/reference.png',
                 demos: referenceDemos(localizations),
               ),
@@ -405,12 +402,12 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
 
 class _DesktopCategoryItem extends StatelessWidget {
   const _DesktopCategoryItem({
-    this.title,
+    this.category,
     this.asset,
     this.demos,
   });
 
-  final String title;
+  final GalleryDemoCategory category;
   final ImageProvider asset;
   final List<GalleryDemo> demos;
 
@@ -428,7 +425,7 @@ class _DesktopCategoryItem extends StatelessWidget {
           child: Column(
             children: [
               _DesktopCategoryHeader(
-                title: title,
+                category: category,
                 asset: asset,
               ),
               Divider(
@@ -463,10 +460,10 @@ class _DesktopCategoryItem extends StatelessWidget {
 
 class _DesktopCategoryHeader extends StatelessWidget {
   const _DesktopCategoryHeader({
-    this.title,
+    this.category,
     this.asset,
   });
-  final String title;
+  final GalleryDemoCategory category;
   final ImageProvider asset;
 
   @override
@@ -495,7 +492,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
               child: Semantics(
                 header: true,
                 child: Text(
-                  title,
+                  category.displayTitle(GalleryLocalizations.of(context)),
                   style: Theme.of(context).textTheme.headline5.apply(
                         color: colorScheme.onSurface,
                       ),
