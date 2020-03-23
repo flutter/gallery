@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
@@ -57,6 +58,22 @@ enum GalleryDemoCategory {
   cupertino,
   other,
 }
+
+extension CategoryExtension on GalleryDemoCategory {
+  String get name => describeEnum(this);
+
+  String displayTitle(GalleryLocalizations localizations) {
+    switch (this) {
+      case GalleryDemoCategory.material:
+        return 'MATERIAL';
+      case GalleryDemoCategory.cupertino:
+        return 'CUPERTINO';
+      case GalleryDemoCategory.other:
+        return localizations.homeCategoryReference;
+      case GalleryDemoCategory.study:
+    }
+    return null;
+  }
 }
 
 class GalleryDemo {
