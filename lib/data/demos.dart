@@ -55,7 +55,8 @@ enum GalleryDemoCategory {
   study,
   material,
   cupertino,
-  reference,
+  other,
+}
 }
 
 class GalleryDemo {
@@ -868,7 +869,7 @@ List<GalleryDemo> referenceDemos(GalleryLocalizations localizations) {
           code: CodeSegments.colorsDemo,
         ),
       ],
-      category: GalleryDemoCategory.reference,
+      category: GalleryDemoCategory.other,
     ),
     GalleryDemo(
       title: localizations.demoTypographyTitle,
@@ -883,7 +884,7 @@ List<GalleryDemo> referenceDemos(GalleryLocalizations localizations) {
           code: CodeSegments.typographyDemo,
         ),
       ],
-      category: GalleryDemoCategory.reference,
+      category: GalleryDemoCategory.other,
     ),
     GalleryDemo(
       title: localizations.demo2dTransformationsTitle,
@@ -898,7 +899,7 @@ List<GalleryDemo> referenceDemos(GalleryLocalizations localizations) {
           code: CodeSegments.transformationsDemo,
         ),
       ],
-      category: GalleryDemoCategory.reference,
+      category: GalleryDemoCategory.other,
     ),
   ];
 }
