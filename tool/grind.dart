@@ -103,7 +103,7 @@ Future<void> verifyCodeSegments() async {
   final codeSegmentsPath = path.join(
       Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart');
   final expectedCodeSegmentsOutput =
-      await File(codeSegmentsPath).readAsString();
+      utf8.decoder.convert(await File(codeSegmentsPath).readAsBytes());
 
   if (codeSegmentsFormatted.trim() != expectedCodeSegmentsOutput.trim()) {
     stderr.writeln(
