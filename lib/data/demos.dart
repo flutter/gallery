@@ -95,6 +95,8 @@ class GalleryDemo {
   final IconData icon;
   final String subtitle;
   final List<GalleryDemoConfiguration> configurations;
+
+  String get describe => '${this.title}@${this.category.name}';
 }
 
 class GalleryDemoConfiguration {
