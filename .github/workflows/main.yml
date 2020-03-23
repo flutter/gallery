@@ -15,6 +15,7 @@ jobs:
         repository: 'flutter/flutter'
         ref: 'master'
         path: 'flutter'
+        fetch-depth: 3
     - name: Add Flutter to the PATH.
       run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin"
     - name: Run Flutter doctor.
