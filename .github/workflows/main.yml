@@ -15,10 +15,10 @@ jobs:
         repository: 'flutter/flutter'
         ref: 'master'
         path: 'flutter'
-        fetch-depth: 3
+        fetch-depth: 0
     - name: Fetch tags for Flutter.
+      working-directory: $GITHUB_WORKSPACE/flutter
       run: |
-        cd $GITHUB_WORKSPACE/flutter
         git fetch --depth=3 origin +refs/tags/*:refs/tags/*
     - name: Add Flutter to the PATH.
       run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin"
