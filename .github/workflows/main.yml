@@ -46,8 +46,12 @@ jobs:
     - name: Verify that localizations are up to date.
       run: flutter pub run grinder verify-l10n
       working-directory: code
-    # TODO: Enable verify-code-segments when it behaves the same on Unix and macOS:
-    # https://github.com/material-components/material-components-flutter-gallery/issues/565
-    #- name: Verify that code segments are up to date.
-    #  run: flutter pub run grinder verify-code-segments
-    #  working-directory: code
+      # TODO: Enable verify-l10n for Windows when it behaves the same as on macOS/Ubuntu:
+      # https://github.com/material-components/material-components-flutter-gallery/issues/565
+      if: runner.os != 'Windows'
+    - name: Verify that code segments are up to date.
+      run: flutter pub run grinder verify-code-segments
+      working-directory: code
+      # TODO: Enable verify-code-segments for Unix and Windows when it behaves the same as on macOS:
+      # https://github.com/material-components/material-components-flutter-gallery/issues/565
+      if: runner.os == 'macOS'
