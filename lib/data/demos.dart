@@ -57,7 +57,7 @@ enum GalleryDemoCategory {
   other,
 }
 
-extension CategoryExtension on GalleryDemoCategory {
+extension on GalleryDemoCategory {
   String get name => describeEnum(this);
 
   String displayTitle(GalleryLocalizations localizations) {
