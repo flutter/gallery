@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
         _DesktopCategoryItem(
           category: GalleryDemoCategory.other,
           asset: AssetImage('assets/icons/reference/reference.png'),
-          demos: referenceDemos(localizations),
+          demos: otherDemos(localizations),
         ),
       ];
 
@@ -340,6 +340,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
+                key: PageStorageKey<GalleryDemoCategory>(
+                  GalleryDemoCategory.material,
+                ),
                 category: GalleryDemoCategory.material,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(localizations),
@@ -349,6 +352,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
+                key: PageStorageKey<GalleryDemoCategory>(
+                  GalleryDemoCategory.cupertino,
+                ),
                 category: GalleryDemoCategory.cupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(localizations),
@@ -358,9 +364,12 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.10,
               controller: _animationController,
               child: CategoryListItem(
+                key: PageStorageKey<GalleryDemoCategory>(
+                  GalleryDemoCategory.other,
+                ),
                 category: GalleryDemoCategory.other,
                 imageString: 'assets/icons/reference/reference.png',
-                demos: referenceDemos(localizations),
+                demos: otherDemos(localizations),
               ),
             ),
           ],

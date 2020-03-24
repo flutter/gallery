@@ -66,6 +66,7 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: BorderRadius.zero,
     ).animate(_controller);
 
+    _isExpanded = PageStorage.of(context)?.readState(context) as bool ?? false;
     if (_isExpanded) {
       _controller.value = 1.0;
     }
@@ -88,10 +89,11 @@ class _CategoryListItemState extends State<CategoryListItem>
             return;
           }
           setState(() {
-            // Rebuild.
+            // Rebuild without widget.demos.
           });
         });
       }
+      PageStorage.of(context)?.writeState(context, _isExpanded);
     });
   }
 
