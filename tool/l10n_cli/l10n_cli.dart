@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:meta/meta.dart';
 
-const _l10nDir = '../gallery/lib/l10n';
+const _l10nDir = 'lib/l10n';
 const _intlHeader = '''
 <?xml version="1.0" encoding="utf-8"?>
 <!--
