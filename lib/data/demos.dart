@@ -118,7 +118,6 @@ class GalleryDemoConfiguration {
   final CodeDisplayer code;
 }
 
-@visibleForTesting
 List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
     studies(localizations).values.toList() +
     materialDemos(localizations) +
@@ -969,9 +968,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
 Map<String, GalleryDemo> slugToDemo(BuildContext context) {
   final localizations = GalleryLocalizations.of(context);
   return LinkedHashMap<String, GalleryDemo>.fromIterable(
-    materialDemos(localizations) +
-        cupertinoDemos(localizations) +
-        otherDemos(localizations),
+    allGalleryDemos(localizations),
     key: (dynamic demo) => demo.slug as String,
   );
 }
