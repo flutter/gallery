@@ -123,7 +123,7 @@ List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
     studies(localizations).values.toList() +
     materialDemos(localizations) +
     cupertinoDemos(localizations) +
-    referenceDemos(localizations);
+    otherDemos(localizations);
 
 Map<Symbol, GalleryDemo> studies(GalleryLocalizations localizations) {
   return <Symbol, GalleryDemo>{
@@ -913,7 +913,7 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
   ];
 }
 
-List<GalleryDemo> referenceDemos(GalleryLocalizations localizations) {
+List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoColorsTitle,
@@ -971,7 +971,7 @@ Map<String, GalleryDemo> slugToDemo(BuildContext context) {
   return LinkedHashMap<String, GalleryDemo>.fromIterable(
     materialDemos(localizations) +
         cupertinoDemos(localizations) +
-        referenceDemos(localizations),
+        otherDemos(localizations),
     key: (dynamic demo) => demo.slug as String,
   );
 }
