@@ -76,8 +76,10 @@ class RouteConfiguration {
       if (regExpPattern.hasMatch(settings.name)) {
         final match = regExpPattern.firstMatch(settings.name);
         Map<String, String> groupNameToMatch = {};
-        for (String groupName in match.groupNames) {
-          groupNameToMatch[groupName] = match.namedGroup(groupName);
+        if (match.groupCount > 0) {
+          for (String groupName in match.groupNames) {
+            groupNameToMatch[groupName] = match.namedGroup(groupName);
+          }
         }
         return MaterialPageRoute<void>(
           builder: (context) => path.builder(context, groupNameToMatch),
