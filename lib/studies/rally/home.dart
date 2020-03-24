@@ -145,7 +145,10 @@ class _HomePageState extends State<HomePage>
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
             ),
-            child: tabBarView,
+            child: FocusTraversalGroup(
+              policy: OrderedTraversalPolicy(),
+              child: tabBarView,
+            ),
           ),
         ),
       ),
@@ -218,16 +221,19 @@ class _RallyTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      // Setting isScrollable to true prevents the tabs from being
-      // wrapped in [Expanded] widgets, which allows for more
-      // flexible sizes and size animations among tabs.
-      isScrollable: true,
-      labelPadding: EdgeInsets.zero,
-      tabs: tabs,
-      controller: tabController,
-      // This hides the tab indicator.
-      indicatorColor: Colors.transparent,
+    return FocusTraversalOrder(
+      order: NumericFocusOrder(0),
+      child: TabBar(
+        // Setting isScrollable to true prevents the tabs from being
+        // wrapped in [Expanded] widgets, which allows for more
+        // flexible sizes and size animations among tabs.
+        isScrollable: true,
+        labelPadding: EdgeInsets.zero,
+        tabs: tabs,
+        controller: tabController,
+        // This hides the tab indicator.
+        indicatorColor: Colors.transparent,
+      ),
     );
   }
 }
