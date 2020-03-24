@@ -12,6 +12,7 @@ import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/studies/shrine/app.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/theme.dart';
 
@@ -215,7 +216,7 @@ class _CancelAndNextButtons extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(7)),
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pushNamed(ShrineApp.homeRoute);
               },
             ),
           ],

@@ -7,8 +7,6 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
-import 'package:gallery/pages/home.dart';
-import 'package:gallery/layout/focus_traversal_policy.dart';
 import 'package:gallery/studies/rally/tabs/accounts.dart';
 import 'package:gallery/studies/rally/tabs/bills.dart';
 import 'package:gallery/studies/rally/tabs/budgets.dart';
@@ -132,32 +130,22 @@ class _HomePageState extends State<HomePage>
         ],
       );
     }
-    final backButtonFocusNode =
-        InheritedFocusNodes.of(context).backButtonFocusNode;
-
-    return FocusTraversalGroup(
-      policy: EdgeChildrenFocusTraversalPolicy(
-        firstFocusNodeOutsideScope: backButtonFocusNode,
-        lastFocusNodeOutsideScope: backButtonFocusNode,
-        focusScope: FocusScope.of(context),
-      ),
-      child: ApplyTextOptions(
-        child: Scaffold(
-          body: SafeArea(
-            // For desktop layout we do not want to have SafeArea at the top and
-            // bottom to display 100% height content on the accounts view.
-            top: !isDesktop,
-            bottom: !isDesktop,
-            child: Theme(
-              // This theme effectively removes the default visual touch
-              // feedback for tapping a tab, which is replaced with a custom
-              // animation.
-              data: theme.copyWith(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-              ),
-              child: tabBarView,
+    return ApplyTextOptions(
+      child: Scaffold(
+        body: SafeArea(
+          // For desktop layout we do not want to have SafeArea at the top and
+          // bottom to display 100% height content on the accounts view.
+          top: !isDesktop,
+          bottom: !isDesktop,
+          child: Theme(
+            // This theme effectively removes the default visual touch
+            // feedback for tapping a tab, which is replaced with a custom
+            // animation.
+            data: theme.copyWith(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
             ),
+            child: tabBarView,
           ),
         ),
       ),

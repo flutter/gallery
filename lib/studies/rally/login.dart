@@ -8,10 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/layout/focus_traversal_policy.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
-import 'package:gallery/pages/home.dart';
+import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,22 +24,12 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final backButtonFocusNode =
-        InheritedFocusNodes.of(context).backButtonFocusNode;
-
-    return FocusTraversalGroup(
-      policy: EdgeChildrenFocusTraversalPolicy(
-        firstFocusNodeOutsideScope: backButtonFocusNode,
-        lastFocusNodeOutsideScope: backButtonFocusNode,
-        focusScope: FocusScope.of(context),
-      ),
-      child: ApplyTextOptions(
-        child: Scaffold(
-          body: SafeArea(
-            child: _MainView(
-              usernameController: _usernameController,
-              passwordController: _passwordController,
-            ),
+    return ApplyTextOptions(
+      child: Scaffold(
+        body: SafeArea(
+          child: _MainView(
+            usernameController: _usernameController,
+            passwordController: _passwordController,
           ),
         ),
       ),
@@ -66,7 +55,7 @@ class _MainView extends StatelessWidget {
   final TextEditingController passwordController;
 
   void _login(BuildContext context) {
-    Navigator.pop(context);
+    Navigator.of(context).pushNamed(RallyApp.homeRoute);
   }
 
   @override
@@ -384,7 +373,7 @@ class _BorderButton extends StatelessWidget {
       ),
       textColor: Colors.white,
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.of(context).pushNamed(RallyApp.homeRoute);
       },
       child: Text(text),
     );

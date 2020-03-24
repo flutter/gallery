@@ -2,12 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:gallery/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -16,20 +15,7 @@ import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 
-void setOverrideForDesktop() {
-  if (kIsWeb) return;
-
-  if (Platform.isMacOS) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.android;
-  } else if (Platform.isFuchsia) {
-    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  }
-}
-
 void main() {
-  setOverrideForDesktop();
   GoogleFonts.config.allowHttp = false;
   runApp(GalleryApp());
 }
@@ -69,13 +55,24 @@ class GalleryApp extends StatelessWidget {
               deviceLocale = locale;
               return locale;
             },
-            home: ApplyTextOptions(
-              child: SplashPage(
-                child: AnimatedBackdrop(),
-              ),
-            ),
+            onGenerateRoute: RouteConfiguration.onGenerateRoute,
           );
         },
+      ),
+    );
+  }
+}
+
+class RootPage extends StatelessWidget {
+  const RootPage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ApplyTextOptions(
+      child: SplashPage(
+        child: AnimatedBackdrop(),
       ),
     );
   }

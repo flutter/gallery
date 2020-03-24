@@ -36,10 +36,10 @@ Future<void> generateLocalizations() async {
   );
 
   Dart.run(l10nScriptFile, arguments: [
-    '--template-arb-file=intl_en_US.arb',
+    '--template-arb-file=intl_en.arb',
     '--output-localization-file=gallery_localizations.dart',
     '--output-class=GalleryLocalizations',
-    '--preferred-supported-locales=["en_US"]'
+    '--preferred-supported-locales=["en"]'
   ]);
   await format(path: path.join('lib', 'l10n'));
 }

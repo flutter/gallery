@@ -11,15 +11,6 @@ import 'package:gallery/layout/adaptive.dart';
 const appBarDesktopHeight = 128.0;
 
 class HomePage extends StatelessWidget {
-  const HomePage({
-    Key key,
-    this.firstFocusNode,
-    this.lastFocusNode,
-  }) : super(key: key);
-
-  final FocusNode firstFocusNode;
-  final FocusNode lastFocusNode;
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -57,18 +48,16 @@ class HomePage extends StatelessWidget {
     if (isDesktop) {
       return Row(
         children: [
-          ListDrawer(
-            lastFocusNode: lastFocusNode,
-          ),
+          ListDrawer(),
           VerticalDivider(width: 1),
           Expanded(
             child: Scaffold(
               appBar: AdaptiveAppBar(
-                firstFocusNode: firstFocusNode,
                 isDesktop: true,
               ),
               body: body,
               floatingActionButton: FloatingActionButton.extended(
+                heroTag: 'Extended Add',
                 onPressed: () {},
                 label: Text(
                   GalleryLocalizations.of(context).starterAppGenericButton,
@@ -83,19 +72,17 @@ class HomePage extends StatelessWidget {
       );
     } else {
       return Scaffold(
-        appBar: AdaptiveAppBar(
-          firstFocusNode: firstFocusNode,
-        ),
+        appBar: AdaptiveAppBar(),
         body: body,
         drawer: ListDrawer(),
         floatingActionButton: FloatingActionButton(
+          heroTag: 'Add',
           onPressed: () {},
           tooltip: GalleryLocalizations.of(context).starterAppTooltipAdd,
           child: Icon(
             Icons.add,
             color: Theme.of(context).colorScheme.onSecondary,
           ),
-          focusNode: lastFocusNode,
         ),
       );
     }
@@ -106,11 +93,9 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AdaptiveAppBar({
     Key key,
     this.isDesktop = false,
-    this.firstFocusNode,
   }) : super(key: key);
 
   final bool isDesktop;
-  final FocusNode firstFocusNode;
 
   @override
   Size get preferredSize => isDesktop
@@ -121,6 +106,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return AppBar(
+      automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
           : Text(GalleryLocalizations.of(context).starterAppGenericTitle),
@@ -144,7 +130,6 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.share),
           tooltip: GalleryLocalizations.of(context).starterAppTooltipShare,
           onPressed: () {},
-          focusNode: firstFocusNode,
         ),
         IconButton(
           icon: const Icon(Icons.favorite),
@@ -162,10 +147,6 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class ListDrawer extends StatefulWidget {
-  const ListDrawer({Key key, this.lastFocusNode}) : super(key: key);
-
-  final FocusNode lastFocusNode;
-
   @override
   _ListDrawerState createState() => _ListDrawerState();
 }
@@ -194,7 +175,7 @@ class _ListDrawerState extends State<ListDrawer> {
             ),
             Divider(),
             ...Iterable<int>.generate(numItems).toList().map((i) {
-              final listTile = ListTile(
+              return ListTile(
                 enabled: true,
                 selected: i == selectedItem,
                 leading: Icon(Icons.favorite),
@@ -207,15 +188,6 @@ class _ListDrawerState extends State<ListDrawer> {
                   });
                 },
               );
-
-              if (i == numItems - 1 && widget.lastFocusNode != null) {
-                return Focus(
-                  focusNode: widget.lastFocusNode,
-                  child: listTile,
-                );
-              } else {
-                return listTile;
-              }
             }),
           ],
         ),

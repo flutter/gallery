@@ -9,8 +9,8 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
+import 'package:gallery/studies/shrine/app.dart';
 import 'package:gallery/studies/shrine/colors.dart';
-import 'package:gallery/studies/shrine/login.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
@@ -133,12 +133,7 @@ class CategoryMenuPage extends StatelessWidget {
                     button: true,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push<void>(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (context) => LoginPage(),
-                          ),
-                        );
+                        Navigator.of(context).pushNamed(ShrineApp.loginRoute);
                       },
                       child: _buttonText(
                         GalleryLocalizations.of(context)
@@ -186,11 +181,7 @@ class CategoryMenuPage extends StatelessWidget {
                           if (onCategoryTap != null) {
                             onCategoryTap();
                           }
-                          Navigator.push<void>(
-                            context,
-                            MaterialPageRoute<void>(
-                                builder: (context) => LoginPage()),
-                          );
+                          Navigator.of(context).pushNamed(ShrineApp.loginRoute);
                         },
                         child: _buttonText(
                           GalleryLocalizations.of(context)

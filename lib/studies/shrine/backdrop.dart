@@ -333,6 +333,7 @@ class _BackdropState extends State<Backdrop>
   @override
   Widget build(BuildContext context) {
     final AppBar appBar = AppBar(
+      automaticallyImplyLeading: false,
       brightness: Brightness.light,
       elevation: 0,
       titleSpacing: 0,
