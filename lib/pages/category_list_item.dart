@@ -172,6 +172,8 @@ class _CategoryHeader extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width,
           child: InkWell(
+            // Makes integration tests possible.
+            key: ValueKey('${category.name}CategoryHeader'),
             onTap: onTap,
             child: Row(
               children: [

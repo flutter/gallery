@@ -111,6 +111,8 @@ class HomePage extends StatelessWidget {
 
       return Scaffold(
         body: ListView(
+          // Makes integration tests possible.
+          key: ValueKey('HomeListView'),
           padding: EdgeInsetsDirectional.only(
             top: isDesktop ? firstHeaderDesktopTopPadding : 21,
           ),
@@ -318,6 +320,8 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
     return Stack(
       children: [
         ListView(
+          // Makes integration tests possible.
+          key: ValueKey('HomeListView'),
           children: [
             SizedBox(height: 8),
             Container(
@@ -455,6 +459,8 @@ class _DesktopCategoryHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Material(
+      // Makes integration tests possible.
+      key: ValueKey('${category.name}CategoryHeader'),
       color: colorScheme.onBackground,
       child: Row(
         children: [
