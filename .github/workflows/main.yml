@@ -1,5 +1,5 @@
 name: Flutter Gallery
-on: push
+on: [push, pull_request]
 jobs:
   test:
     name: Test on ${{ matrix.os }}
@@ -37,6 +37,9 @@ jobs:
       working-directory: code
     - name: Analyze the project's Dart code.
       run: flutter analyze
+      working-directory: code
+    - name: Ensure the Dart code is formatted correctly.
+      run: flutter format --set-exit-if-changed --dry-run .
       working-directory: code
     - name: Run Flutter unit tests.
       run: flutter test
