@@ -976,7 +976,6 @@ class _CarouselCard extends StatelessWidget {
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         clipBehavior: Clip.antiAlias,
-        color: Colors.grey,
         child: InkWell(
           onTap: () {
             Navigator.of(context).pushNamed(studyRoute);
