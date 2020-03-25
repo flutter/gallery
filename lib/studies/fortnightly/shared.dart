@@ -572,10 +572,8 @@ ThemeData buildTheme(BuildContext context) {
         fontSize: 16,
         textStyle: textTheme.headline5,
       ),
-      // TODO: Use GoogleFonts.robotoCondensed when available
       // (caption 2), preview category, stock ticker
-      subtitle1: textTheme.subtitle1.copyWith(
-        fontFamily: 'Roboto Condensed',
+      subtitle1: GoogleFonts.robotoCondensed(
         fontWeight: FontWeight.w700,
         fontSize: 16,
       ),
