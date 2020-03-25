@@ -4,18 +4,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:gallery/data/demos.dart';
+import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/demo.dart';
 
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
     Key key,
-    this.title,
+    this.category,
     this.imageString,
     this.demos = const [],
   }) : super(key: key);
 
-  final String title;
+  final GalleryDemoCategory category;
   final String imageString;
   final List<GalleryDemo> demos;
 
@@ -65,6 +66,7 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: BorderRadius.zero,
     ).animate(_controller);
 
+    _isExpanded = PageStorage.of(context)?.readState(context) as bool ?? false;
     if (_isExpanded) {
       _controller.value = 1.0;
     }
@@ -87,10 +89,11 @@ class _CategoryListItemState extends State<CategoryListItem>
             return;
           }
           setState(() {
-            // Rebuild.
+            // Rebuild without widget.demos.
           });
         });
       }
+      PageStorage.of(context)?.writeState(context, _isExpanded);
     });
   }
 
@@ -105,7 +108,7 @@ class _CategoryListItemState extends State<CategoryListItem>
           height: _headerHeight.value,
           chevronOpacity: _headerChevronOpacity.value,
           imageString: widget.imageString,
-          title: widget.title,
+          category: widget.category,
           onTap: _handleTap,
         ),
         Padding(
@@ -127,7 +130,12 @@ class _CategoryListItemState extends State<CategoryListItem>
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
-      child: closed ? null : _ExpandedCategoryDemos(demos: widget.demos),
+      child: closed
+          ? null
+          : _ExpandedCategoryDemos(
+              category: widget.category,
+              demos: widget.demos,
+            ),
     );
   }
 }
@@ -141,7 +149,7 @@ class _CategoryHeader extends StatelessWidget {
     this.height,
     this.chevronOpacity,
     this.imageString,
-    this.title,
+    this.category,
     this.onTap,
   }) : super(key: key);
 
@@ -150,7 +158,7 @@ class _CategoryHeader extends StatelessWidget {
   final double height;
   final BorderRadiusGeometry borderRadius;
   final String imageString;
-  final String title;
+  final GalleryDemoCategory category;
   final double chevronOpacity;
   final GestureTapCallback onTap;
 
@@ -166,6 +174,8 @@ class _CategoryHeader extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width,
           child: InkWell(
+            // Makes integration tests possible.
+            key: ValueKey('${category.name}CategoryHeader'),
             onTap: onTap,
             child: Row(
               children: [
@@ -186,7 +196,9 @@ class _CategoryHeader extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsetsDirectional.only(start: 8),
                         child: Text(
-                          title,
+                          category.displayTitle(
+                            GalleryLocalizations.of(context),
+                          ),
                           style: Theme.of(context).textTheme.headline5.apply(
                                 color: colorScheme.onSurface,
                               ),
@@ -222,14 +234,18 @@ class _CategoryHeader extends StatelessWidget {
 class _ExpandedCategoryDemos extends StatelessWidget {
   const _ExpandedCategoryDemos({
     Key key,
+    this.category,
     this.demos,
   }) : super(key: key);
 
+  final GalleryDemoCategory category;
   final List<GalleryDemo> demos;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      // Makes integration tests possible.
+      key: ValueKey('${category.name}DemoList'),
       children: [
         for (final demo in demos)
           CategoryDemoItem(
@@ -251,6 +267,8 @@ class CategoryDemoItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     return Material(
+      // Makes integration tests possible.
+      key: ValueKey(demo.describe),
       color: Theme.of(context).colorScheme.surface,
       child: MergeSemantics(
         child: InkWell(

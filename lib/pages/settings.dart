@@ -43,7 +43,6 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   _ExpandableSetting expandedSettingId;
-  Map<String, String> _localeNativeNames;
 
   void onTapSetting(_ExpandableSetting settingId) {
     setState(() {
@@ -58,13 +57,6 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    LocaleNamesLocalizationsDelegate().allNativeNames().then(
-          (data) => setState(
-            () {
-              _localeNativeNames = data;
-            },
-          ),
-        );
 
     // When closing settings, also shrink expanded setting.
     widget.isSettingsOpenNotifier.addListener(() {
@@ -86,7 +78,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final localeName = LocaleNames.of(context).nameOf(localeCode);
     if (localeName != null) {
       final localeNativeName =
-          _localeNativeNames != null ? _localeNativeNames[localeCode] : null;
+          LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode];
       return localeNativeName != null
           ? DisplayOption(localeNativeName, subtitle: localeName)
           : DisplayOption(localeName);

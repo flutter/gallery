@@ -223,6 +223,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       leading: Padding(
         padding: EdgeInsetsDirectional.only(start: appBarPadding),
         child: IconButton(
+          key: ValueKey('Back'),
           icon: const BackButtonIcon(),
           tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () {
