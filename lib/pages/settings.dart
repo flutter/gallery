@@ -7,6 +7,7 @@ import 'dart:collection';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:flutter_localized_locales/native_locale_names.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -58,14 +59,12 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    LocaleNamesLocalizationsDelegate().allNativeNames().then(
-          (data) => setState(
-            () {
-              _localeNativeNames = data;
-            },
-          ),
-        );
 
+    setState(
+      () {
+        _localeNativeNames = all_native_names;
+      },
+    );
     // When closing settings, also shrink expanded setting.
     widget.isSettingsOpenNotifier.addListener(() {
       if (!widget.isSettingsOpenNotifier.value) {
