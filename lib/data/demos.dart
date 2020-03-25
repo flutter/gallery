@@ -124,29 +124,29 @@ List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
     cupertinoDemos(localizations) +
     otherDemos(localizations);
 
-Map<Symbol, GalleryDemo> studies(GalleryLocalizations localizations) {
-  return <Symbol, GalleryDemo>{
-    #shrine: GalleryDemo(
+Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
+  return <String, GalleryDemo>{
+    'shrine': GalleryDemo(
       title: 'Shrine',
       subtitle: localizations.shrineDescription,
       category: GalleryDemoCategory.study,
     ),
-    #rally: GalleryDemo(
+    'rally': GalleryDemo(
       title: 'Rally',
       subtitle: localizations.rallyDescription,
       category: GalleryDemoCategory.study,
     ),
-    #crane: GalleryDemo(
+    'crane': GalleryDemo(
       title: 'Crane',
       subtitle: localizations.craneDescription,
       category: GalleryDemoCategory.study,
     ),
-    #fortnightly: GalleryDemo(
+    'fortnightly': GalleryDemo(
       title: 'Fortnightly',
       subtitle: localizations.fortnightlyDescription,
       category: GalleryDemoCategory.study,
     ),
-    #starterApp: GalleryDemo(
+    'starterApp': GalleryDemo(
       title: localizations.starterAppTitle,
       subtitle: localizations.starterAppDescription,
       category: GalleryDemoCategory.study,

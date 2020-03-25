@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
     final studyDemos = studies(localizations);
     final carouselCards = <Widget>[
       _CarouselCard(
-        demo: studyDemos[#shrine],
+        demo: studyDemos['shrine'],
         asset: AssetImage('assets/studies/shrine_card.png'),
         assetColor: const Color(0xFFFEDBD0),
         assetDark: AssetImage('assets/studies/shrine_card_dark.png'),
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
         studyRoute: ShrineApp.loginRoute,
       ),
       _CarouselCard(
-        demo: studyDemos[#rally],
+        demo: studyDemos['rally'],
         textColor: RallyColors.accountColors[0],
         asset: AssetImage('assets/studies/rally_card.png'),
         assetColor: const Color(0xFFD1F2E6),
@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
         studyRoute: RallyApp.loginRoute,
       ),
       _CarouselCard(
-        demo: studyDemos[#crane],
+        demo: studyDemos['crane'],
         asset: AssetImage('assets/studies/crane_card.png'),
         assetColor: const Color(0xFFFBF6F8),
         assetDark: AssetImage('assets/studies/crane_card_dark.png'),
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
         studyRoute: CraneApp.defaultRoute,
       ),
       _CarouselCard(
-        demo: studyDemos[#fortnightly],
+        demo: studyDemos['fortnightly'],
         asset: AssetImage('assets/studies/fortnightly_card.png'),
         assetColor: Colors.white,
         assetDark: AssetImage('assets/studies/fortnightly_card_dark.png'),
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
         studyRoute: FortnightlyApp.defaultRoute,
       ),
       _CarouselCard(
-        demo: studyDemos[#starterApp],
+        demo: studyDemos['starterApp'],
         asset: AssetImage('assets/studies/starter_card.png'),
         assetColor: const Color(0xFFFAF6FE),
         assetDark: AssetImage('assets/studies/starter_card_dark.png'),
