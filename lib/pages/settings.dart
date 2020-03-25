@@ -39,7 +39,6 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderStateMixin {
   _ExpandableSetting expandedSettingId;
-  Map<String, String> _localeNativeNames;
 
   AnimationController _animationController;
   Animation<double> _openSettingsAnimation;
@@ -58,13 +57,6 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
-    LocaleNamesLocalizationsDelegate().allNativeNames().then(
-          (data) => setState(
-            () {
-              _localeNativeNames = data;
-            },
-          ),
-        );
 
     // When closing settings, also shrink expanded setting.
     widget.isSettingsOpenNotifier.addListener(() {
@@ -114,7 +106,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
     final localeName = LocaleNames.of(context).nameOf(localeCode);
     if (localeName != null) {
       final localeNativeName =
-          _localeNativeNames != null ? _localeNativeNames[localeCode] : null;
+          LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode];
       return localeNativeName != null
           ? DisplayOption(localeNativeName, subtitle: localeName)
           : DisplayOption(localeName);

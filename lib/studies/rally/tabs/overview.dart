@@ -50,7 +50,9 @@ class _OverviewViewState extends State<OverviewView> {
                   width: 400,
                   child: Semantics(
                     sortKey: const OrdinalSortKey(2, name: sortKeyName),
-                    child: _AlertsView(alerts: alerts),
+                    child: FocusTraversalGroup(
+                      child: _AlertsView(alerts: alerts),
+                    ),
                   ),
                 ),
               ),
@@ -112,6 +114,7 @@ class _OverviewGrid extends StatelessWidget {
                   buildAccountDataListViews(accountDataList, context),
               buttonSemanticsLabel:
                   GalleryLocalizations.of(context).rallySeeAllAccounts,
+              order: 1,
             ),
           ),
           if (hasMultipleColumns) SizedBox(width: spacing),
@@ -123,6 +126,7 @@ class _OverviewGrid extends StatelessWidget {
               financialItemViews: buildBillDataListViews(billDataList, context),
               buttonSemanticsLabel:
                   GalleryLocalizations.of(context).rallySeeAllBills,
+              order: 2,
             ),
           ),
           _FinancialView(
@@ -132,6 +136,7 @@ class _OverviewGrid extends StatelessWidget {
                 buildBudgetDataListViews(budgetDataList, context),
             buttonSemanticsLabel:
                 GalleryLocalizations.of(context).rallySeeAllBudgets,
+            order: 3,
           ),
         ],
       );
@@ -226,53 +231,58 @@ class _FinancialView extends StatelessWidget {
     this.total,
     this.financialItemViews,
     this.buttonSemanticsLabel,
+    this.order,
   });
 
   final String title;
   final String buttonSemanticsLabel;
   final double total;
   final List<FinancialEntityCategoryView> financialItemViews;
+  final double order;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      color: RallyColors.cardBackground,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          MergeSemantics(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(title),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16),
-                  child: Text(
-                    usdWithSignFormat(context).format(total),
-                    style: theme.textTheme.bodyText1.copyWith(
-                      fontSize: 44 / reducedTextScale(context),
-                      fontWeight: FontWeight.w600,
+    return FocusTraversalOrder(
+      order: NumericFocusOrder(order),
+      child: Container(
+        color: RallyColors.cardBackground,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            MergeSemantics(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(title),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16, right: 16),
+                    child: Text(
+                      usdWithSignFormat(context).format(total),
+                      style: theme.textTheme.bodyText1.copyWith(
+                        fontSize: 44 / reducedTextScale(context),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          ...financialItemViews.sublist(
-              0, math.min(financialItemViews.length, 3)),
-          FlatButton(
-            child: Text(
-              GalleryLocalizations.of(context).rallySeeAll,
-              semanticsLabel: buttonSemanticsLabel,
+            ...financialItemViews.sublist(
+                0, math.min(financialItemViews.length, 3)),
+            FlatButton(
+              child: Text(
+                GalleryLocalizations.of(context).rallySeeAll,
+                semanticsLabel: buttonSemanticsLabel,
+              ),
+              textColor: Colors.white,
+              onPressed: () {},
             ),
-            textColor: Colors.white,
-            onPressed: () {},
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
