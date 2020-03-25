@@ -4,7 +4,7 @@ description: A resource to help developers evaluate and use Flutter.
 version: 2.3.0+020300
 
 environment:
-  sdk: ">=2.3.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
   flutter: ^1.16.0
 
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   intl:
   intl_translation:
-  flutter_localized_locales:
+  flutter_localized_locales: ^1.1.0
   cupertino_icons: ^0.1.3
   rally_assets: ^1.0.0
   meta:
@@ -31,6 +31,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test:
   grinder: ^0.8.0
   string_scanner: ^1.0.5
 
