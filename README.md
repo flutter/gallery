@@ -45,7 +45,7 @@ That being said, extra steps must be taken to [enable Desktop support](
 https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). For
 example, to run the macOS app:
 
-```
+```bash
 cd gallery/
 flutter config --enable-macos-desktop
 flutter create .
@@ -76,20 +76,20 @@ platform it runs on. This is determined based on window size as outlined in
 
 To generate localized strings or highlighted code segments, make sure that you
 have [grinder](https://pub.dev/packages/grinder) installed by running 
-```
+```bash
 flutter pub get
 ```
 
 To generate localized strings (see separate [README](lib/l10n/README.md)
 for more details):
 
-```
+```bash
 flutter pub run grinder l10n
 ```
 
 To generate code segments (see separate [README](tool/codeviewer_cli/README.md) for
 more details):
-```
+```bash
 flutter pub run grinder update-code-segments
 ```
 

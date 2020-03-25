@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
-import 'package:gallery/studies/rally/login.dart';
 
 class SettingsView extends StatefulWidget {
   @override
@@ -17,19 +17,22 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: isDisplayDesktop(context) ? 24 : 0),
-      child: ListView(
-        shrinkWrap: true,
-        children: [
-          for (String title in DummyDataService.getSettingsTitles(context)) ...[
-            _SettingsItem(title),
-            Divider(
-              color: RallyColors.dividerColor,
-              height: 1,
-            )
-          ]
-        ],
+    return FocusTraversalGroup(
+      child: Container(
+        padding: EdgeInsets.only(top: isDisplayDesktop(context) ? 24 : 0),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            for (String title
+                in DummyDataService.getSettingsTitles(context)) ...[
+              _SettingsItem(title),
+              Divider(
+                color: RallyColors.dividerColor,
+                height: 1,
+              )
+            ]
+          ],
+        ),
       ),
     );
   }
@@ -50,10 +53,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(builder: (context) => LoginPage()),
-        );
+        Navigator.of(context).pushNamed(RallyApp.loginRoute);
       },
     );
   }

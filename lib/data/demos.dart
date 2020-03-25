@@ -2,7 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
@@ -47,20 +50,56 @@ import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 
+enum GalleryDemoCategory {
+  study,
+  material,
+  cupertino,
+  other,
+}
+
+extension GalleryDemoExtension on GalleryDemoCategory {
+  String get name => describeEnum(this);
+
+  String displayTitle(GalleryLocalizations localizations) {
+    switch (this) {
+      case GalleryDemoCategory.material:
+        return 'MATERIAL';
+      case GalleryDemoCategory.cupertino:
+        return 'CUPERTINO';
+      case GalleryDemoCategory.other:
+        return localizations.homeCategoryReference;
+      case GalleryDemoCategory.study:
+    }
+    return null;
+  }
+}
+
 class GalleryDemo {
   GalleryDemo({
     @required this.title,
-    @required this.icon,
+    @required this.category,
     @required this.subtitle,
-    @required this.configurations,
+    // Parameters below are required for non-study demos.
+    this.slug,
+    this.icon,
+    this.configurations,
   })  : assert(title != null),
-        assert(icon != null),
-        assert(configurations != null && configurations.isNotEmpty);
+        assert(category != null),
+        assert(subtitle != null),
+        assert(category == GalleryDemoCategory.study ||
+            (slug != null &&
+                icon != null &&
+                configurations != null &&
+                configurations.isNotEmpty));
 
   final String title;
-  final IconData icon;
+  final GalleryDemoCategory category;
   final String subtitle;
+  final String slug;
+  final IconData icon;
   final List<GalleryDemoConfiguration> configurations;
+
+  String get describe => '${this.title}@${this.category.name}';
 }
 
 class GalleryDemoConfiguration {
@@ -79,12 +118,48 @@ class GalleryDemoConfiguration {
   final CodeDisplayer code;
 }
 
-List<GalleryDemo> materialDemos(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
+List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
+    studies(localizations).values.toList() +
+    materialDemos(localizations) +
+    cupertinoDemos(localizations) +
+    otherDemos(localizations);
+
+Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
+  return <String, GalleryDemo>{
+    'shrine': GalleryDemo(
+      title: 'Shrine',
+      subtitle: localizations.shrineDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'rally': GalleryDemo(
+      title: 'Rally',
+      subtitle: localizations.rallyDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'crane': GalleryDemo(
+      title: 'Crane',
+      subtitle: localizations.craneDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'fortnightly': GalleryDemo(
+      title: 'Fortnightly',
+      subtitle: localizations.fortnightlyDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'starterApp': GalleryDemo(
+      title: localizations.starterAppTitle,
+      subtitle: localizations.starterAppDescription,
+      category: GalleryDemoCategory.study,
+    ),
+  };
+}
+
+List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoBannerTitle,
       icon: GalleryIcons.listsLeaveBehind,
+      slug: 'banner',
       subtitle: localizations.demoBannerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -95,10 +170,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.bannerDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoBottomAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
+      slug: 'bottom-app-bar',
       subtitle: localizations.demoBottomAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -109,10 +186,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.bottomAppBarDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoBottomNavigationTitle,
       icon: GalleryIcons.bottomNavigation,
+      slug: 'bottom-navigation',
       subtitle: localizations.demoBottomNavigationSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -134,10 +213,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.bottomNavigationDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoBottomSheetTitle,
       icon: GalleryIcons.bottomSheets,
+      slug: 'bottom-sheet',
       subtitle: localizations.demoBottomSheetSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -156,10 +237,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoButtonTitle,
       icon: GalleryIcons.genericButtons,
+      slug: 'button',
       subtitle: localizations.demoButtonSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -199,24 +282,28 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.buttonDemoFloating,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoCardTitle,
+      title: localizations.demoCardTitle,
       icon: GalleryIcons.cards,
-      subtitle: GalleryLocalizations.of(context).demoCardSubtitle,
+      slug: 'card',
+      subtitle: localizations.demoCardSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoCardTitle,
-          description: GalleryLocalizations.of(context).demoCardDescription,
+          title: localizations.demoCardTitle,
+          description: localizations.demoCardDescription,
           documentationUrl: '$_docsBaseUrl/material/Card-class.html',
           buildRoute: (context) => CardsDemo(),
           code: CodeSegments.cardsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoChipTitle,
       icon: GalleryIcons.chips,
+      slug: 'chip',
       subtitle: localizations.demoChipSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -248,10 +335,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.chipDemoInput,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoDataTableTitle,
       icon: GalleryIcons.dataTable,
+      slug: 'data-table',
       subtitle: localizations.demoDataTableSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -262,10 +351,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.dataTableDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoDialogTitle,
       icon: GalleryIcons.dialogs,
+      slug: 'dialog',
       subtitle: localizations.demoDialogSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -298,10 +389,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.dialogDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoGridListsTitle,
       icon: GalleryIcons.gridOn,
+      slug: 'grid-lists',
       subtitle: localizations.demoGridListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -327,10 +420,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.gridListsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoListsTitle,
       icon: GalleryIcons.listAlt,
+      slug: 'lists',
       subtitle: localizations.demoListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -348,10 +443,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.listDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoMenuTitle,
       icon: GalleryIcons.moreVert,
+      slug: 'menu',
       subtitle: localizations.demoMenuSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -392,10 +489,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.menuDemoSimple,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoPickersTitle,
       icon: GalleryIcons.event,
+      slug: 'pickers',
       subtitle: localizations.demoPickersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -413,10 +512,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.pickerDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoProgressIndicatorTitle,
       icon: GalleryIcons.progressActivity,
+      slug: 'progress-indicator',
       subtitle: localizations.demoProgressIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -440,10 +541,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.progressIndicatorsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoSelectionControlsTitle,
       icon: GalleryIcons.checkBox,
+      slug: 'selection-controls',
       subtitle: localizations.demoSelectionControlsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -474,10 +577,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.selectionControlsDemoSwitches,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoSlidersTitle,
       icon: GalleryIcons.sliders,
+      slug: 'sliders',
       subtitle: localizations.demoSlidersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -504,10 +609,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.customSlidersDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoSnackbarsTitle,
       icon: GalleryIcons.snackbar,
+      slug: 'snackbars',
       subtitle: localizations.demoSnackbarsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -518,10 +625,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.snackbarsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoTabsTitle,
       icon: GalleryIcons.tabs,
+      slug: 'tabs',
       subtitle: localizations.demoTabsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -539,10 +648,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.tabsNonScrollableDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
+      slug: 'text-field',
       subtitle: localizations.demoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -553,10 +664,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.textFieldDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoTooltipTitle,
       icon: GalleryIcons.tooltip,
+      slug: 'tooltip',
       subtitle: localizations.demoTooltipSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -567,16 +680,17 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.tooltipDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
   ];
 }
 
-List<GalleryDemo> cupertinoDemos(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
+List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoCupertinoActivityIndicatorTitle,
       icon: GalleryIcons.cupertinoProgress,
+      slug: 'cupertino-activity-indicator',
       subtitle: localizations.demoCupertinoActivityIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -588,10 +702,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoActivityIndicatorDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoAlertsTitle,
       icon: GalleryIcons.dialogs,
+      slug: 'cupertino-alerts',
       subtitle: localizations.demoCupertinoAlertsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -638,10 +754,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoAlertDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoButtonsTitle,
       icon: GalleryIcons.genericButtons,
+      slug: 'cupertino-buttons',
       subtitle: localizations.demoCupertinoButtonsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -653,10 +771,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoButtonDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoNavigationBarTitle,
       icon: GalleryIcons.bottomSheetPersistent,
+      slug: 'cupertino-navigation-bar',
       subtitle: localizations.demoCupertinoNavigationBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -668,10 +788,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoNavigationBarDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoPickerTitle,
       icon: GalleryIcons.event,
+      slug: 'cupertino-picker',
       subtitle: localizations.demoCupertinoPickerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -683,10 +805,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoPickersDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoPullToRefreshTitle,
       icon: GalleryIcons.cupertinoPullToRefresh,
+      slug: 'cupertino-pull-to-refresh',
       subtitle: localizations.demoCupertinoPullToRefreshSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -698,10 +822,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoRefreshDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoSegmentedControlTitle,
       icon: GalleryIcons.tabs,
+      slug: 'cupertino-segmented-control',
       subtitle: localizations.demoCupertinoSegmentedControlSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -713,10 +839,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoSegmentedControlDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoSliderTitle,
       icon: GalleryIcons.sliders,
+      slug: 'cupertino-slider',
       subtitle: localizations.demoCupertinoSliderSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -728,10 +856,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoSliderDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoSelectionControlsSwitchTitle,
       icon: GalleryIcons.cupertinoSwitch,
+      slug: 'cupertino-switch',
       subtitle: localizations.demoCupertinoSwitchSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -743,10 +873,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoSwitchDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoTabBarTitle,
       icon: GalleryIcons.bottomNavigation,
+      slug: 'cupertino-tab-bar',
       subtitle: localizations.demoCupertinoTabBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -758,10 +890,12 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoNavigationDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
+      slug: 'cupertino-text-field',
       subtitle: localizations.demoCupertinoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -773,16 +907,17 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           code: CodeSegments.cupertinoTextFieldDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
   ];
 }
 
-List<GalleryDemo> referenceDemos(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
+List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoColorsTitle,
       icon: GalleryIcons.colors,
+      slug: 'colors',
       subtitle: localizations.demoColorsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -793,10 +928,12 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
           code: CodeSegments.colorsDemo,
         ),
       ],
+      category: GalleryDemoCategory.other,
     ),
     GalleryDemo(
       title: localizations.demoTypographyTitle,
       icon: GalleryIcons.customTypography,
+      slug: 'typography',
       subtitle: localizations.demoTypographySubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -807,10 +944,12 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
           code: CodeSegments.typographyDemo,
         ),
       ],
+      category: GalleryDemoCategory.other,
     ),
     GalleryDemo(
       title: localizations.demo2dTransformationsTitle,
       icon: GalleryIcons.gridOn,
+      slug: '2d-transformations',
       subtitle: localizations.demo2dTransformationsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -821,8 +960,17 @@ List<GalleryDemo> referenceDemos(BuildContext context) {
           code: CodeSegments.transformationsDemo,
         ),
       ],
+      category: GalleryDemoCategory.other,
     ),
   ];
+}
+
+Map<String, GalleryDemo> slugToDemo(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context);
+  return LinkedHashMap<String, GalleryDemo>.fromIterable(
+    allGalleryDemos(localizations),
+    key: (dynamic demo) => demo.slug as String,
+  );
 }
 
 class DemoWrapper extends StatelessWidget {

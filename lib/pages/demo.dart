@@ -34,16 +34,53 @@ enum _DemoState {
 class DemoPage extends StatefulWidget {
   const DemoPage({
     Key key,
+    @required this.slug,
+  }) : super(key: key);
+
+  static String baseRoute = '/demo';
+  final String slug;
+
+  @override
+  _DemoPageState createState() => _DemoPageState();
+}
+
+class _DemoPageState extends State<DemoPage> {
+  Map<String, GalleryDemo> slugToDemoMap;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // To make sure that we do not rebuild the map for every update to the demo
+    // page, we save it in a variable. The cost of running `slugToDemo` is
+    // still only close to constant, as it's just iterating over all of the
+    // demos.
+    slugToDemoMap = slugToDemo(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.slug == null || !slugToDemoMap.containsKey(widget.slug)) {
+      // Return to root if invalid slug.
+      Navigator.of(context).pop();
+    }
+    return GalleryDemoPage(demo: slugToDemoMap[widget.slug]);
+  }
+}
+
+class GalleryDemoPage extends StatefulWidget {
+  const GalleryDemoPage({
+    Key key,
     @required this.demo,
   }) : super(key: key);
 
   final GalleryDemo demo;
 
   @override
-  _DemoPageState createState() => _DemoPageState();
+  _GalleryDemoPageState createState() => _GalleryDemoPageState();
 }
 
-class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
+class _GalleryDemoPageState extends State<GalleryDemoPage>
+    with TickerProviderStateMixin {
   _DemoState _state = _DemoState.normal;
   int _configIndex = 0;
   bool _isDesktop;
@@ -186,6 +223,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       leading: Padding(
         padding: EdgeInsetsDirectional.only(start: appBarPadding),
         child: IconButton(
+          key: ValueKey('Back'),
           icon: const BackButtonIcon(),
           tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () {
