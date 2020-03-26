@@ -9,13 +9,19 @@ enum DisplayType {
   mobile,
 }
 
-const _desktopBreakpoint = 700.0;
-const _smallDesktopMaxWidth = 1000.0;
+const _desktopPortraitBreakpoint = 700.0;
+const _desktopLandscapeBreakpoint = 1000.0;
 
 /// Returns the [DisplayType] for the current screen. This app only supports
 /// mobile and desktop layouts, and as such we only have one breakpoint.
 DisplayType displayTypeOf(BuildContext context) {
-  if (MediaQuery.of(context).size.shortestSide > _desktopBreakpoint) {
+  final orientation = MediaQuery.of(context).orientation;
+  final width = MediaQuery.of(context).size.width;
+
+  if ((orientation == Orientation.landscape &&
+          width > _desktopLandscapeBreakpoint) ||
+      (orientation == Orientation.portrait &&
+          width > _desktopPortraitBreakpoint)) {
     return DisplayType.desktop;
   } else {
     return DisplayType.mobile;
@@ -29,8 +35,8 @@ bool isDisplayDesktop(BuildContext context) {
 }
 
 /// Returns a boolean if we are in a display of [DisplayType.desktop] but less
-/// than 1000 width. Used to build adaptive and responsive layouts.
+/// than [_desktopLandscapeBreakpoint] width. Used to build adaptive and responsive layouts.
 bool isDisplaySmallDesktop(BuildContext context) {
   return isDisplayDesktop(context) &&
-      MediaQuery.of(context).size.width < _smallDesktopMaxWidth;
+      MediaQuery.of(context).size.width < _desktopLandscapeBreakpoint;
 }
