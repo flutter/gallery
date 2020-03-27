@@ -52,32 +52,21 @@ class _AnimatedBackdropState extends State<AnimatedBackdrop>
     return Backdrop(
       controller: backdropController,
       isSettingsOpenNotifier: isSettingsOpenNotifier,
-      openSettingsAnimation: openSettingsAnimation,
-      frontLayer: SettingsPage(
-        isSettingsOpenNotifier: isSettingsOpenNotifier,
-      ),
-      backLayer: HomePage(),
     );
   }
 }
 
 class Backdrop extends StatefulWidget {
-  final Widget frontLayer;
-  final Widget backLayer;
   final AnimationController controller;
   final Animation<double> openSettingsAnimation;
   final ValueNotifier<bool> isSettingsOpenNotifier;
 
   Backdrop({
     Key key,
-    @required this.frontLayer,
-    @required this.backLayer,
     @required this.controller,
     @required this.openSettingsAnimation,
     @required this.isSettingsOpenNotifier,
-  })  : assert(frontLayer != null),
-        assert(backLayer != null),
-        assert(controller != null),
+  })  : assert(controller != null),
         assert(isSettingsOpenNotifier != null),
         assert(openSettingsAnimation != null),
         super(key: key);
@@ -95,20 +84,20 @@ class _BackdropState extends State<Backdrop>
   double settingsButtonHeightDesktop = 56;
   double settingsButtonHeightMobile = 40;
 
-  FocusNode frontLayerFocusNode;
-  FocusNode backLayerFocusNode;
+  FocusNode settingsPageFocusNode;
+  FocusNode homePageFocusNode;
 
   @override
   void initState() {
     super.initState();
-    frontLayerFocusNode = FocusNode();
-    backLayerFocusNode = FocusNode();
+    settingsPageFocusNode = FocusNode();
+    homePageFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
-    frontLayerFocusNode.dispose();
-    backLayerFocusNode.dispose();
+    settingsPageFocusNode.dispose();
+    homePageFocusNode.dispose();
     super.dispose();
   }
 
@@ -159,7 +148,7 @@ class _BackdropState extends State<Backdrop>
     isActive.value = true;
   }
 
-  Animation<RelativeRect> _getPanelAnimation(BoxConstraints constraints) {
+  Animation<RelativeRect> _settingsPanelSlidingAnimation(BoxConstraints constraints) {
     final double height = constraints.biggest.height;
     final double top = height - galleryHeaderHeight;
     final double bottom = -galleryHeaderHeight;
@@ -192,39 +181,42 @@ class _BackdropState extends State<Backdrop>
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
 
-    final Widget frontLayer = ExcludeSemantics(
+    final Widget settingsPage = ExcludeSemantics(
       child: FocusTraversalGroup(
         policy: WidgetOrderTraversalPolicy(),
         child: Focus(
           skipTraversal: !widget.isSettingsOpenNotifier.value,
-          child: widget.frontLayer,
+          child: SettingsPage(
+            isSettingsOpenNotifier: widget.isSettingsOpenNotifier,
+          ),
         ),
       ),
       excluding: !widget.isSettingsOpenNotifier.value,
     );
-    final Widget backLayer = ExcludeSemantics(
-      child: widget.backLayer,
+    final Widget homePage = ExcludeSemantics(
+      child: HomePage(),
       excluding: widget.isSettingsOpenNotifier.value,
     );
 
     return FocusTraversalGroup(
       child: InheritedBackdropFocusNodes(
-        frontLayerFocusNode: frontLayerFocusNode,
-        backLayerFocusNode: backLayerFocusNode,
+        frontLayerFocusNode: settingsPageFocusNode,
+        backLayerFocusNode: homePageFocusNode,
         child: Container(
           child: Stack(
             children: [
               if (!isDesktop) ...[
                 _galleryHeader(),
-                frontLayer,
+                settingsPage,
+                // Slides the settings panel in from above the screen.
                 PositionedTransition(
-                  rect: _getPanelAnimation(constraints),
-                  child: backLayer,
+                  rect: _settingsPanelSlidingAnimation(constraints),
+                  child: homePage,
                 ),
               ],
               if (isDesktop) ...[
                 _galleryHeader(),
-                backLayer,
+                homePage,
                 if (widget.isSettingsOpenNotifier.value) ...[
                   ExcludeSemantics(
                     child: ModalBarrier(
@@ -261,7 +253,7 @@ class _BackdropState extends State<Backdrop>
                           maxWidth: desktopSettingsWidth,
                           minWidth: desktopSettingsWidth,
                         ),
-                        child: frontLayer,
+                        child: settingsPage,
                       ),
                     ),
                   ),
@@ -299,8 +291,8 @@ class _BackdropState extends State<Backdrop>
                               if (!hasFocus) {
                                 FocusScope.of(context).requestFocus(
                                     (widget.isSettingsOpenNotifier.value)
-                                        ? frontLayerFocusNode
-                                        : backLayerFocusNode);
+                                        ? settingsPageFocusNode
+                                        : homePageFocusNode);
                               }
                             },
                             child: FlareActor(
