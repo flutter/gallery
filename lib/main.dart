@@ -17,7 +17,6 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowHttp = false;
-  timeDilation = 10;
   runApp(GalleryApp());
 }
 
@@ -37,7 +36,6 @@ class GalleryApp extends StatelessWidget {
         builder: (context) {
           return MaterialApp(
             title: 'Gallery',
-            showPerformanceOverlay: true,
             debugShowCheckedModeBanner: false,
             themeMode: GalleryOptions.of(context).themeMode,
             theme: GalleryThemeData.lightThemeData.copyWith(
