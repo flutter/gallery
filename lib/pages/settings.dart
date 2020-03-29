@@ -27,9 +27,9 @@ enum _ExpandableSetting {
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({this.animationController});
-  
+
   final AnimationController animationController;
-  
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
@@ -51,7 +51,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    
+
     _staggerSettingsItemsAnimation = CurvedAnimation(
       parent: widget.animationController,
       curve: Interval(
@@ -252,8 +252,8 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               if (isDesktop) SizedBox(height: firstHeaderDesktopTopPadding),
               Focus(
-                focusNode:
-                    InheritedBackdrop.of(context).settingsPageFocusNode,
+                focusNode: InheritedBackdropFocusNodes.of(context)
+                    .settingsPageFocusNode,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: ExcludeSemantics(

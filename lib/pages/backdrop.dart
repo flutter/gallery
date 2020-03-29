@@ -32,41 +32,6 @@ class _BackdropState extends State<Backdrop>
   FlareAnimationLayer _animationLayer;
 
   @override
-  void initialize(FlutterActorArtboard artboard) {
-    _artboard = artboard;
-    initAnimationLayer();
-  }
-
-  @override
-  void setViewTransform(Mat2D viewTransform) {
-    // This is a necessary override for the [FlareController] mixin.
-  }
-
-  @override
-  bool advance(FlutterActorArtboard artboard, double elapsed) {
-    print('advance');
-    if (_animationLayer != null) {
-      FlareAnimationLayer layer = _animationLayer;
-      layer.time = _settingsPanelController.value * layer.duration;
-      layer.animation.apply(layer.time, _artboard, 1);
-      if (layer.isDone || layer.time == 0) {
-        _animationLayer = null;
-      }
-    }
-    return _animationLayer != null;
-  }
-
-  void initAnimationLayer() {
-    if (_artboard != null) {
-      final animationName = "Animations";
-      ActorAnimation animation = _artboard.getAnimation(animationName);
-      _animationLayer = FlareAnimationLayer()
-        ..name = animationName
-        ..animation = animation;
-    }
-  }
-
-  @override
   void initState() {
     super.initState();
     _settingsPanelController = AnimationController(
@@ -94,14 +59,47 @@ class _BackdropState extends State<Backdrop>
     super.dispose();
   }
 
-  void toggleSettings() {
+  @override
+  void initialize(FlutterActorArtboard artboard) {
+    _artboard = artboard;
+    initAnimationLayer();
+  }
+
+  @override
+  void setViewTransform(Mat2D viewTransform) {
+    // This is a necessary override for the [FlareController] mixin.
+  }
+
+  @override
+  bool advance(FlutterActorArtboard artboard, double elapsed) {
+    if (_animationLayer != null) {
+      FlareAnimationLayer layer = _animationLayer;
+      layer.time = _settingsPanelController.value * layer.duration;
+      layer.animation.apply(layer.time, _artboard, 1);
+      if (layer.isDone || layer.time == 0) {
+        _animationLayer = null;
+      }
+    }
+    return _animationLayer != null;
+  }
+
+  void initAnimationLayer() {
+    if (_artboard != null) {
+      final animationName = "Animations";
+      ActorAnimation animation = _artboard.getAnimation(animationName);
+      _animationLayer = FlareAnimationLayer()
+        ..name = animationName
+        ..animation = animation;
+    }
+  }
+
+  void _toggleSettings() {
     // Animate the settings panel to open or close.
     _settingsPanelController.fling(
         velocity: _isSettingsOpenNotifier.value ? -1 : 1);
-//    initAnimationLayer();
-    setState(() {
-      isActive.value = true;
-    });
+    _isSettingsOpenNotifier.value = !_isSettingsOpenNotifier.value;
+    initAnimationLayer();
+    isActive.value = true;
   }
 
   Widget _galleryHeader() {
@@ -120,7 +118,8 @@ class _BackdropState extends State<Backdrop>
     );
   }
 
-  Animation<RelativeRect> _slideDownSettingsPageAnimation(BoxConstraints constraints) {
+  Animation<RelativeRect> _slideDownSettingsPageAnimation(
+      BoxConstraints constraints) {
     return RelativeRectTween(
       begin: RelativeRect.fromLTRB(0, -constraints.maxHeight, 0, 0),
       end: RelativeRect.fromLTRB(0, 0, 0, 0),
@@ -136,7 +135,8 @@ class _BackdropState extends State<Backdrop>
     );
   }
 
-  Animation<RelativeRect> _slideDownHomePageAnimation(BoxConstraints constraints) {
+  Animation<RelativeRect> _slideDownHomePageAnimation(
+      BoxConstraints constraints) {
     return RelativeRectTween(
       begin: RelativeRect.fromLTRB(0, 0, 0, 0),
       end: RelativeRect.fromLTRB(
@@ -177,11 +177,9 @@ class _BackdropState extends State<Backdrop>
     );
 
     return FocusTraversalGroup(
-      child: InheritedBackdrop(
-        settingsPanelController: _settingsPanelController,
+      child: InheritedBackdropFocusNodes(
         settingsPageFocusNode: _settingsPageFocusNode,
         homePageFocusNode: _homePageFocusNode,
-        isSettingsOpenNotifier: _isSettingsOpenNotifier,
         child: Container(
           child: Stack(
             children: [
@@ -212,7 +210,7 @@ class _BackdropState extends State<Backdrop>
                     label: GalleryLocalizations.of(context)
                         .settingsButtonCloseLabel,
                     child: GestureDetector(
-                      onTap: toggleSettings,
+                      onTap: _toggleSettings,
                     ),
                   )
                 ],
@@ -248,6 +246,9 @@ class _BackdropState extends State<Backdrop>
                 alignment: AlignmentDirectional.topEnd,
                 child: _SettingsIcon(
                   animationController: _settingsPanelController,
+                  toggleSettings: _toggleSettings,
+                  flareController: this,
+                  isSettingsOpenNotifier: _isSettingsOpenNotifier,
                 ),
               ),
             ],
@@ -259,65 +260,52 @@ class _BackdropState extends State<Backdrop>
 
   @override
   Widget build(BuildContext context) {
-    print('backdrop build');
     return LayoutBuilder(
       builder: _buildStack,
     );
   }
 }
 
-class InheritedBackdrop extends InheritedWidget {
-  InheritedBackdrop({
+class InheritedBackdropFocusNodes extends InheritedWidget {
+  InheritedBackdropFocusNodes({
     @required Widget child,
-    @required this.settingsPanelController,
     @required this.settingsPageFocusNode,
     @required this.homePageFocusNode,
-    @required this.isSettingsOpenNotifier,
   })  : assert(child != null),
         super(child: child);
 
-  final AnimationController settingsPanelController;
   final FocusNode settingsPageFocusNode;
   final FocusNode homePageFocusNode;
-  final ValueNotifier<bool> isSettingsOpenNotifier;
 
-  static InheritedBackdrop of(BuildContext context) =>
+  static InheritedBackdropFocusNodes of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType();
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 }
 
-class _SettingsIcon extends StatefulWidget {
-  _SettingsIcon({this.animationController, this.flareController});
+class _SettingsIcon extends AnimatedWidget {
+  _SettingsIcon({
+    this.animationController,
+    this.flareController,
+    this.toggleSettings,
+    this.isSettingsOpenNotifier
+  }) : super(listenable: animationController);
 
   final AnimationController animationController;
   final FlareController flareController;
-
-  @override
-  _SettingsIconState createState() => _SettingsIconState();
-}
-
-class _SettingsIconState extends State<_SettingsIcon>  {
-//  @override
-//  initState() {
-//    super.initState();
-//    widget.animationController.addListener(() {
-//      setState(() {
-//
-//      });
-//    });
-//  }
+  final VoidCallback toggleSettings;
+  final ValueNotifier<bool> isSettingsOpenNotifier;
 
   @override
   Widget build(BuildContext context) {
-    final backdrop = InheritedBackdrop.of(context);
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
+    final backdropFocusNodes = InheritedBackdropFocusNodes.of(context);
 
     return Semantics(
       button: true,
-      label: backdrop.isSettingsOpenNotifier.value
+      label: isSettingsOpenNotifier.value
           ? GalleryLocalizations.of(context).settingsButtonCloseLabel
           : GalleryLocalizations.of(context).settingsButtonLabel,
       child: SizedBox(
@@ -329,25 +317,21 @@ class _SettingsIconState extends State<_SettingsIcon>  {
           borderRadius: BorderRadiusDirectional.only(
             bottomStart: Radius.circular(10),
           ),
-          color: backdrop.isSettingsOpenNotifier.value &
-                  !backdrop.settingsPanelController.isAnimating
+          color: isSettingsOpenNotifier.value & !animationController.isAnimating
               ? Colors.transparent
               : Theme.of(context).colorScheme.secondaryVariant,
           clipBehavior: Clip.antiAlias,
           child: InkWell(
-            onTap: () {
-              backdrop.isSettingsOpenNotifier.value =
-                  !backdrop.isSettingsOpenNotifier.value;
-            },
+            onTap: toggleSettings,
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
               child: Focus(
                 onFocusChange: (hasFocus) {
                   if (!hasFocus) {
                     FocusScope.of(context).requestFocus(
-                        (backdrop.isSettingsOpenNotifier.value)
-                            ? backdrop.settingsPageFocusNode
-                            : backdrop.homePageFocusNode);
+                        (isSettingsOpenNotifier.value)
+                            ? backdropFocusNodes.settingsPageFocusNode
+                            : backdropFocusNodes.homePageFocusNode);
                   }
                 },
                 child: FlareActor(
@@ -358,7 +342,7 @@ class _SettingsIconState extends State<_SettingsIcon>  {
                       ? Alignment.bottomLeft
                       : Alignment.bottomRight,
                   fit: BoxFit.contain,
-                  controller: widget.flareController,
+                  controller: flareController,
                 ),
               ),
             ),

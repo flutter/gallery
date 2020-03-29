@@ -17,7 +17,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowHttp = false;
-//  timeDilation = 20;
+  timeDilation = 10;
   runApp(GalleryApp());
 }
 
