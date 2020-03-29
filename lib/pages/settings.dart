@@ -26,30 +26,24 @@ enum _ExpandableSetting {
 }
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage({
-    Key key,
-    @required this.isSettingsOpenNotifier,
-  }) : super(key: key);
-
-  final ValueNotifier<bool> isSettingsOpenNotifier;
-
+  SettingsPage({this.animationController});
+  
+  final AnimationController animationController;
+  
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderStateMixin {
-  _ExpandableSetting expandedSettingId;
-
-  AnimationController _animationController;
-  Animation<double> _openSettingsAnimation;
+class _SettingsPageState extends State<SettingsPage> {
+  _ExpandableSetting _expandedSettingId;
   Animation<double> _staggerSettingsItemsAnimation;
 
   void onTapSetting(_ExpandableSetting settingId) {
     setState(() {
-      if (expandedSettingId == settingId) {
-        expandedSettingId = null;
+      if (_expandedSettingId == settingId) {
+        _expandedSettingId = null;
       } else {
-        expandedSettingId = settingId;
+        _expandedSettingId = settingId;
       }
     });
   }
@@ -57,37 +51,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
-
-    // When closing settings, also shrink expanded setting.
-    widget.isSettingsOpenNotifier.addListener(() {
-      if (!widget.isSettingsOpenNotifier.value) {
-        _animationController.reverse();
-        setState(() {
-          expandedSettingId = null;
-        });
-      } else {
-        _animationController.forward();
-      }
-    });
-
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 200),
-    )..addListener(() {
-      setState(() {
-        // The animation is the state.
-      });
-    });
-    _openSettingsAnimation = CurvedAnimation(
-      parent: _animationController,
-      curve: Interval(
-        0.0,
-        0.4,
-        curve: Curves.ease,
-      ),
-    );
+    
     _staggerSettingsItemsAnimation = CurvedAnimation(
-      parent: _animationController,
+      parent: widget.animationController,
       curve: Interval(
         0.5,
         1.0,
@@ -188,7 +154,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           options.copyWith(textScaleFactor: newTextScale),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.textScale),
-        isExpanded: expandedSettingId == _ExpandableSetting.textScale,
+        isExpanded: _expandedSettingId == _ExpandableSetting.textScale,
       ),
       SettingsListItem<CustomTextDirection>(
         title: GalleryLocalizations.of(context).settingsTextDirection,
@@ -209,7 +175,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           options.copyWith(customTextDirection: newTextDirection),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.textDirection),
-        isExpanded: expandedSettingId == _ExpandableSetting.textDirection,
+        isExpanded: _expandedSettingId == _ExpandableSetting.textDirection,
       ),
       SettingsListItem<Locale>(
         title: GalleryLocalizations.of(context).settingsLocale,
@@ -227,7 +193,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           );
         },
         onTapSetting: () => onTapSetting(_ExpandableSetting.locale),
-        isExpanded: expandedSettingId == _ExpandableSetting.locale,
+        isExpanded: _expandedSettingId == _ExpandableSetting.locale,
       ),
       SettingsListItem<TargetPlatform>(
         title: GalleryLocalizations.of(context).settingsPlatformMechanics,
@@ -244,7 +210,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           options.copyWith(platform: newPlatform),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.platform),
-        isExpanded: expandedSettingId == _ExpandableSetting.platform,
+        isExpanded: _expandedSettingId == _ExpandableSetting.platform,
       ),
       SettingsListItem<ThemeMode>(
         title: GalleryLocalizations.of(context).settingsTheme,
@@ -265,61 +231,56 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           options.copyWith(themeMode: newThemeMode),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.theme),
-        isExpanded: expandedSettingId == _ExpandableSetting.theme,
+        isExpanded: _expandedSettingId == _ExpandableSetting.theme,
       ),
       SlowMotionSetting(),
     ];
 
     return Material(
       color: colorScheme.secondaryVariant,
-      child: _AnimatedSettingsPage(
-        animation: _openSettingsAnimation,
-        child: Padding(
-          padding: isDesktop
-              ? EdgeInsets.zero
-              : EdgeInsets.only(
-                  bottom: galleryHeaderHeight,
-                ),
-          // Remove ListView top padding as it is already accounted for.
-          child: MediaQuery.removePadding(
-            removeTop: isDesktop,
-            context: context,
-            child: ListView(
-              children: [
-                if (isDesktop) SizedBox(height: firstHeaderDesktopTopPadding),
-                Focus(
-                  focusNode: InheritedBackdropFocusNodes.of(context)
-                      .frontLayerFocusNode,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32),
-                    child: ExcludeSemantics(
-                      child: Header(
-                        color: Theme.of(context).colorScheme.onSurface,
-                        text: GalleryLocalizations.of(context).settingsTitle,
-                      ),
+      child: Padding(
+        padding: isDesktop
+            ? EdgeInsets.zero
+            : EdgeInsets.only(
+                bottom: galleryHeaderHeight,
+              ),
+        // Remove ListView top padding as it is already accounted for.
+        child: MediaQuery.removePadding(
+          removeTop: isDesktop,
+          context: context,
+          child: ListView(
+            children: [
+              if (isDesktop) SizedBox(height: firstHeaderDesktopTopPadding),
+              Focus(
+                focusNode:
+                    InheritedBackdrop.of(context).settingsPageFocusNode,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32),
+                  child: ExcludeSemantics(
+                    child: Header(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      text: GalleryLocalizations.of(context).settingsTitle,
                     ),
                   ),
                 ),
-                if (isDesktop)
-                  ...settingsListItems
-                else ...[
-                  _AnimateSettingsListItems(
-                    animation: _staggerSettingsItemsAnimation,
-                    children: settingsListItems,
-                  ),
-                  SizedBox(height: 16),
-                  Divider(
-                      thickness: 2, height: 0, color: colorScheme.background),
-                  SizedBox(height: 12),
-                  SettingsAbout(),
-                  SettingsFeedback(),
-                  SizedBox(height: 12),
-                  Divider(
-                      thickness: 2, height: 0, color: colorScheme.background),
-                  SettingsAttribution(),
-                ],
+              ),
+              if (isDesktop)
+                ...settingsListItems
+              else ...[
+                _AnimateSettingsListItems(
+                  animation: _staggerSettingsItemsAnimation,
+                  children: settingsListItems,
+                ),
+                SizedBox(height: 16),
+                Divider(thickness: 2, height: 0, color: colorScheme.background),
+                SizedBox(height: 12),
+                SettingsAbout(),
+                SettingsFeedback(),
+                SizedBox(height: 12),
+                Divider(thickness: 2, height: 0, color: colorScheme.background),
+                SettingsAttribution(),
               ],
-            ),
+            ],
           ),
         ),
       ),
@@ -432,46 +393,6 @@ class _SettingsLink extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-/// Animate the settings page to slide in from above.
-class _AnimatedSettingsPage extends StatelessWidget {
-  const _AnimatedSettingsPage({
-    Key key,
-    @required this.animation,
-    @required this.child,
-  }) : super(key: key);
-
-  final Widget child;
-  final Animation<double> animation;
-
-  @override
-  Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
-
-    if (isDesktop) {
-      return child;
-    } else {
-      return LayoutBuilder(builder: (context, constraints) {
-        return Stack(
-          children: [
-            PositionedTransition(
-              rect: RelativeRectTween(
-                begin: RelativeRect.fromLTRB(0, -constraints.maxHeight, 0, 0),
-                end: RelativeRect.fromLTRB(0, 0, 0, 0),
-              ).animate(
-                CurvedAnimation(
-                  parent: animation,
-                  curve: Curves.linear,
-                ),
-              ),
-              child: child,
-            ),
-          ],
-        );
-      });
-    }
   }
 }
 

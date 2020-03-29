@@ -26,7 +26,7 @@ void main() {
             frontLayer: Text('Front'),
             backLayer: Text('Back'),
             controller: animationController,
-            isSettingsOpenNotifier: isSettingsOpen,
+            _isSettingsOpenNotifier: isSettingsOpen,
             openSettingsAnimation: animationController,
           ),
         ),

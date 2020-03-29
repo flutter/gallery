@@ -16,90 +16,20 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/pages/settings.dart';
 
-class AnimatedBackdrop extends StatefulWidget {
-  @override
-  _AnimatedBackdropState createState() => _AnimatedBackdropState();
-}
-
-class _AnimatedBackdropState extends State<AnimatedBackdrop>
-    with SingleTickerProviderStateMixin {
-  AnimationController backdropController;
-  ValueNotifier<bool> isSettingsOpenNotifier;
-
-  @override
-  void initState() {
-    super.initState();
-    backdropController = AnimationController(
-      duration: Duration(milliseconds: 200),
-      vsync: this,
-    )..addListener(() {
-        setState(() {
-          // The state that has changed here is the animation.
-        });
-      });
-    isSettingsOpenNotifier = ValueNotifier(false);
-  }
-
-  @override
-  void dispose() {
-    backdropController.dispose();
-    isSettingsOpenNotifier.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Backdrop(
-      controller: backdropController,
-      isSettingsOpenNotifier: isSettingsOpenNotifier,
-    );
-  }
-}
-
 class Backdrop extends StatefulWidget {
-  final AnimationController controller;
-  final Animation<double> openSettingsAnimation;
-  final ValueNotifier<bool> isSettingsOpenNotifier;
-
-  Backdrop({
-    Key key,
-    @required this.controller,
-    @required this.openSettingsAnimation,
-    @required this.isSettingsOpenNotifier,
-  })  : assert(controller != null),
-        assert(isSettingsOpenNotifier != null),
-        assert(openSettingsAnimation != null),
-        super(key: key);
-
   @override
   _BackdropState createState() => _BackdropState();
 }
 
 class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin, FlareController {
-  FlareAnimationLayer _animationLayer;
+  AnimationController _settingsPanelController;
+  FocusNode _settingsPageFocusNode;
+  FocusNode _homePageFocusNode;
+  ValueNotifier<bool> _isSettingsOpenNotifier;
+
   FlutterActorArtboard _artboard;
-
-  double settingsButtonWidth = 64;
-  double settingsButtonHeightDesktop = 56;
-  double settingsButtonHeightMobile = 40;
-
-  FocusNode settingsPageFocusNode;
-  FocusNode homePageFocusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    settingsPageFocusNode = FocusNode();
-    homePageFocusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    settingsPageFocusNode.dispose();
-    homePageFocusNode.dispose();
-    super.dispose();
-  }
+  FlareAnimationLayer _animationLayer;
 
   @override
   void initialize(FlutterActorArtboard artboard) {
@@ -114,9 +44,10 @@ class _BackdropState extends State<Backdrop>
 
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
+    print('advance');
     if (_animationLayer != null) {
       FlareAnimationLayer layer = _animationLayer;
-      layer.time = widget.controller.value * layer.duration;
+      layer.time = _settingsPanelController.value * layer.duration;
       layer.animation.apply(layer.time, _artboard, 1);
       if (layer.isDone || layer.time == 0) {
         _animationLayer = null;
@@ -135,35 +66,47 @@ class _BackdropState extends State<Backdrop>
     }
   }
 
-  void toggleSettings() {
-    // Animate the settings panel to open or close.
-    widget.controller
-        .fling(velocity: widget.isSettingsOpenNotifier.value ? -1 : 1);
-    setState(() {
-      widget.isSettingsOpenNotifier.value =
-          !widget.isSettingsOpenNotifier.value;
+  @override
+  void initState() {
+    super.initState();
+    _settingsPanelController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
+    _settingsPageFocusNode = FocusNode();
+    _homePageFocusNode = FocusNode();
+    _isSettingsOpenNotifier = ValueNotifier(false);
+    _isSettingsOpenNotifier.addListener(() {
+      if (_isSettingsOpenNotifier.value) {
+        _settingsPanelController.forward();
+      } else {
+        _settingsPanelController.reverse();
+      }
     });
-    // Animate the settings icon.
-    initAnimationLayer();
-    isActive.value = true;
   }
 
-  Animation<RelativeRect> _settingsPanelSlidingAnimation(BoxConstraints constraints) {
-    final double height = constraints.biggest.height;
-    final double top = height - galleryHeaderHeight;
-    final double bottom = -galleryHeaderHeight;
-    return RelativeRectTween(
-      begin: RelativeRect.fromLTRB(0, 0, 0, 0),
-      end: RelativeRect.fromLTRB(0, top, 0, bottom),
-    ).animate(CurvedAnimation(
-      parent: widget.openSettingsAnimation,
-      curve: Curves.linear,
-    ));
+  @override
+  void dispose() {
+    _settingsPanelController.dispose();
+    _settingsPageFocusNode.dispose();
+    _homePageFocusNode.dispose();
+    _isSettingsOpenNotifier.dispose();
+    super.dispose();
+  }
+
+  void toggleSettings() {
+    // Animate the settings panel to open or close.
+    _settingsPanelController.fling(
+        velocity: _isSettingsOpenNotifier.value ? -1 : 1);
+//    initAnimationLayer();
+    setState(() {
+      isActive.value = true;
+    });
   }
 
   Widget _galleryHeader() {
     return ExcludeSemantics(
-      excluding: widget.isSettingsOpenNotifier.value,
+      excluding: _isSettingsOpenNotifier.value,
       child: Semantics(
         sortKey: OrdinalSortKey(
           GalleryOptions.of(context).textDirection() == TextDirection.ltr
@@ -177,6 +120,43 @@ class _BackdropState extends State<Backdrop>
     );
   }
 
+  Animation<RelativeRect> _slideDownSettingsPageAnimation(BoxConstraints constraints) {
+    return RelativeRectTween(
+      begin: RelativeRect.fromLTRB(0, -constraints.maxHeight, 0, 0),
+      end: RelativeRect.fromLTRB(0, 0, 0, 0),
+    ).animate(
+      CurvedAnimation(
+        parent: _settingsPanelController,
+        curve: Interval(
+          0.0,
+          0.4,
+          curve: Curves.ease,
+        ),
+      ),
+    );
+  }
+
+  Animation<RelativeRect> _slideDownHomePageAnimation(BoxConstraints constraints) {
+    return RelativeRectTween(
+      begin: RelativeRect.fromLTRB(0, 0, 0, 0),
+      end: RelativeRect.fromLTRB(
+        0,
+        constraints.biggest.height - galleryHeaderHeight,
+        0,
+        -galleryHeaderHeight,
+      ),
+    ).animate(
+      CurvedAnimation(
+        parent: _settingsPanelController,
+        curve: Interval(
+          0.0,
+          0.4,
+          curve: Curves.ease,
+        ),
+      ),
+    );
+  }
+
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
@@ -185,39 +165,44 @@ class _BackdropState extends State<Backdrop>
       child: FocusTraversalGroup(
         policy: WidgetOrderTraversalPolicy(),
         child: Focus(
-          skipTraversal: !widget.isSettingsOpenNotifier.value,
-          child: SettingsPage(
-            isSettingsOpenNotifier: widget.isSettingsOpenNotifier,
-          ),
+          skipTraversal: !_isSettingsOpenNotifier.value,
+          child: SettingsPage(animationController: _settingsPanelController),
         ),
       ),
-      excluding: !widget.isSettingsOpenNotifier.value,
+      excluding: !_isSettingsOpenNotifier.value,
     );
     final Widget homePage = ExcludeSemantics(
       child: HomePage(),
-      excluding: widget.isSettingsOpenNotifier.value,
+      excluding: _isSettingsOpenNotifier.value,
     );
 
     return FocusTraversalGroup(
-      child: InheritedBackdropFocusNodes(
-        frontLayerFocusNode: settingsPageFocusNode,
-        backLayerFocusNode: homePageFocusNode,
+      child: InheritedBackdrop(
+        settingsPanelController: _settingsPanelController,
+        settingsPageFocusNode: _settingsPageFocusNode,
+        homePageFocusNode: _homePageFocusNode,
+        isSettingsOpenNotifier: _isSettingsOpenNotifier,
         child: Container(
           child: Stack(
             children: [
+              _galleryHeader(),
               if (!isDesktop) ...[
-                _galleryHeader(),
-                settingsPage,
-                // Slides the settings panel in from above the screen.
+                // Slides the settings page up and down from the top of the
+                // screen.
                 PositionedTransition(
-                  rect: _settingsPanelSlidingAnimation(constraints),
+                  rect: _slideDownSettingsPageAnimation(constraints),
+                  child: settingsPage,
+                ),
+                // Slides the home page up and down below the bottom of the
+                // screen.
+                PositionedTransition(
+                  rect: _slideDownHomePageAnimation(constraints),
                   child: homePage,
                 ),
               ],
               if (isDesktop) ...[
-                _galleryHeader(),
                 homePage,
-                if (widget.isSettingsOpenNotifier.value) ...[
+                if (_isSettingsOpenNotifier.value) ...[
                   ExcludeSemantics(
                     child: ModalBarrier(
                       dismissible: true,
@@ -236,7 +221,7 @@ class _BackdropState extends State<Backdrop>
                       ? Alignment.topRight
                       : Alignment.topLeft,
                   scale: CurvedAnimation(
-                    parent: widget.controller,
+                    parent: _settingsPanelController,
                     curve: Curves.easeIn,
                     reverseCurve: Curves.easeOut,
                   ),
@@ -261,57 +246,8 @@ class _BackdropState extends State<Backdrop>
               ],
               Align(
                 alignment: AlignmentDirectional.topEnd,
-                child: Semantics(
-                  button: true,
-                  label: widget.isSettingsOpenNotifier.value
-                      ? GalleryLocalizations.of(context)
-                          .settingsButtonCloseLabel
-                      : GalleryLocalizations.of(context).settingsButtonLabel,
-                  child: SizedBox(
-                    width: settingsButtonWidth,
-                    height: isDesktop
-                        ? settingsButtonHeightDesktop
-                        : settingsButtonHeightMobile + safeAreaTopPadding,
-                    child: Material(
-                      borderRadius: BorderRadiusDirectional.only(
-                        bottomStart: Radius.circular(10),
-                      ),
-                      color: widget.isSettingsOpenNotifier.value &
-                              !widget.controller.isAnimating
-                          ? Colors.transparent
-                          : Theme.of(context).colorScheme.secondaryVariant,
-                      clipBehavior: Clip.antiAlias,
-                      child: InkWell(
-                        onTap: toggleSettings,
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.only(
-                              start: 3, end: 18),
-                          child: Focus(
-                            onFocusChange: (hasFocus) {
-                              if (!hasFocus) {
-                                FocusScope.of(context).requestFocus(
-                                    (widget.isSettingsOpenNotifier.value)
-                                        ? settingsPageFocusNode
-                                        : homePageFocusNode);
-                              }
-                            },
-                            child: FlareActor(
-                              Theme.of(context).colorScheme.brightness ==
-                                      Brightness.light
-                                  ? 'assets/icons/settings/settings_light.flr'
-                                  : 'assets/icons/settings/settings_dark.flr',
-                              alignment: Directionality.of(context) ==
-                                      TextDirection.ltr
-                                  ? Alignment.bottomLeft
-                                  : Alignment.bottomRight,
-                              fit: BoxFit.contain,
-                              controller: this,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                child: _SettingsIcon(
+                  animationController: _settingsPanelController,
                 ),
               ),
             ],
@@ -323,26 +259,116 @@ class _BackdropState extends State<Backdrop>
 
   @override
   Widget build(BuildContext context) {
+    print('backdrop build');
     return LayoutBuilder(
       builder: _buildStack,
     );
   }
 }
 
-class InheritedBackdropFocusNodes extends InheritedWidget {
-  InheritedBackdropFocusNodes({
+class InheritedBackdrop extends InheritedWidget {
+  InheritedBackdrop({
     @required Widget child,
-    @required this.frontLayerFocusNode,
-    @required this.backLayerFocusNode,
+    @required this.settingsPanelController,
+    @required this.settingsPageFocusNode,
+    @required this.homePageFocusNode,
+    @required this.isSettingsOpenNotifier,
   })  : assert(child != null),
         super(child: child);
 
-  final FocusNode frontLayerFocusNode;
-  final FocusNode backLayerFocusNode;
+  final AnimationController settingsPanelController;
+  final FocusNode settingsPageFocusNode;
+  final FocusNode homePageFocusNode;
+  final ValueNotifier<bool> isSettingsOpenNotifier;
 
-  static InheritedBackdropFocusNodes of(BuildContext context) =>
+  static InheritedBackdrop of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType();
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 }
+
+class _SettingsIcon extends StatefulWidget {
+  _SettingsIcon({this.animationController, this.flareController});
+
+  final AnimationController animationController;
+  final FlareController flareController;
+
+  @override
+  _SettingsIconState createState() => _SettingsIconState();
+}
+
+class _SettingsIconState extends State<_SettingsIcon>  {
+//  @override
+//  initState() {
+//    super.initState();
+//    widget.animationController.addListener(() {
+//      setState(() {
+//
+//      });
+//    });
+//  }
+
+  @override
+  Widget build(BuildContext context) {
+    final backdrop = InheritedBackdrop.of(context);
+    final isDesktop = isDisplayDesktop(context);
+    final safeAreaTopPadding = MediaQuery.of(context).padding.top;
+
+    return Semantics(
+      button: true,
+      label: backdrop.isSettingsOpenNotifier.value
+          ? GalleryLocalizations.of(context).settingsButtonCloseLabel
+          : GalleryLocalizations.of(context).settingsButtonLabel,
+      child: SizedBox(
+        width: _settingsButtonWidth,
+        height: isDesktop
+            ? _settingsButtonHeightDesktop
+            : _settingsButtonHeightMobile + safeAreaTopPadding,
+        child: Material(
+          borderRadius: BorderRadiusDirectional.only(
+            bottomStart: Radius.circular(10),
+          ),
+          color: backdrop.isSettingsOpenNotifier.value &
+                  !backdrop.settingsPanelController.isAnimating
+              ? Colors.transparent
+              : Theme.of(context).colorScheme.secondaryVariant,
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () {
+              backdrop.isSettingsOpenNotifier.value =
+                  !backdrop.isSettingsOpenNotifier.value;
+            },
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
+              child: Focus(
+                onFocusChange: (hasFocus) {
+                  if (!hasFocus) {
+                    FocusScope.of(context).requestFocus(
+                        (backdrop.isSettingsOpenNotifier.value)
+                            ? backdrop.settingsPageFocusNode
+                            : backdrop.homePageFocusNode);
+                  }
+                },
+                child: FlareActor(
+                  Theme.of(context).colorScheme.brightness == Brightness.light
+                      ? 'assets/icons/settings/settings_light.flr'
+                      : 'assets/icons/settings/settings_dark.flr',
+                  alignment: Directionality.of(context) == TextDirection.ltr
+                      ? Alignment.bottomLeft
+                      : Alignment.bottomRight,
+                  fit: BoxFit.contain,
+                  controller: widget.flareController,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+const double _settingsButtonWidth = 64;
+const double _settingsButtonHeightDesktop = 56;
+const double _settingsButtonHeightMobile = 40;

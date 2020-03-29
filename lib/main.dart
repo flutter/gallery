@@ -17,6 +17,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowHttp = false;
+//  timeDilation = 20;
   runApp(GalleryApp());
 }
 
@@ -35,7 +36,7 @@ class GalleryApp extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return MaterialApp(
-            showPerformanceOverlay: true,
+//            showPerformanceOverlay: true,
             title: 'Gallery',
             debugShowCheckedModeBanner: false,
             themeMode: GalleryOptions.of(context).themeMode,
@@ -72,7 +73,7 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: SplashPage(
-        child: AnimatedBackdrop(),
+        child: Backdrop(),
       ),
     );
   }
