@@ -41,13 +41,6 @@ class _BackdropState extends State<Backdrop>
     _settingsPageFocusNode = FocusNode();
     _homePageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
-    _isSettingsOpenNotifier.addListener(() {
-      if (_isSettingsOpenNotifier.value) {
-        _settingsPanelController.forward();
-      } else {
-        _settingsPanelController.reverse();
-      }
-    });
   }
 
   @override
