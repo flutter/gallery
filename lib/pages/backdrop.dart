@@ -21,6 +21,14 @@ const double _settingsButtonHeightDesktop = 56;
 const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
+  Backdrop({
+    this.settingsPage,
+    this.homePage,
+  });
+
+  final Widget settingsPage;
+  final Widget homePage;
+
   @override
   _BackdropState createState() => _BackdropState();
 }
@@ -31,6 +39,8 @@ class _BackdropState extends State<Backdrop>
   FocusNode _settingsPageFocusNode;
   FocusNode _homePageFocusNode;
   ValueNotifier<bool> _isSettingsOpenNotifier;
+  Widget _settingsPage;
+  Widget _homePage;
 
   FlutterActorArtboard _artboard;
   FlareAnimationLayer _animationLayer;
@@ -45,6 +55,10 @@ class _BackdropState extends State<Backdrop>
     _settingsPageFocusNode = FocusNode();
     _homePageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
+    _settingsPage = widget.settingsPage ?? SettingsPage(
+      animationController: _settingsPanelController,
+    );
+    _homePage = widget.homePage ?? HomePage();
   }
 
   @override
@@ -109,7 +123,9 @@ class _BackdropState extends State<Backdrop>
               : 2.0,
           name: 'header',
         ),
-        label: GalleryLocalizations.of(context).homeHeaderGallery,
+        label: GalleryLocalizations
+            .of(context)
+            .homeHeaderGallery,
         child: Container(),
       ),
     );
@@ -156,23 +172,31 @@ class _BackdropState extends State<Backdrop>
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final isDesktop = isDisplayDesktop(context);
-    final safeAreaTopPadding = MediaQuery.of(context).padding.top;
 
-    final Widget settingsPage = ExcludeSemantics(
-      child: FocusTraversalGroup(
-        policy: WidgetOrderTraversalPolicy(),
-        child: Focus(
-          skipTraversal: !_isSettingsOpenNotifier.value,
-          child: SettingsPage(
-            animationController: _settingsPanelController,
+    final Widget settingsPage = ValueListenableBuilder<bool>(
+      valueListenable: _isSettingsOpenNotifier,
+      builder: (context, value, child) {
+        return ExcludeSemantics(
+          child: FocusTraversalGroup(
+            policy: WidgetOrderTraversalPolicy(),
+            child: Focus(
+              skipTraversal: !_isSettingsOpenNotifier.value,
+              child: _settingsPage,
+            ),
           ),
-        ),
-      ),
-      excluding: !_isSettingsOpenNotifier.value,
+          excluding: !value,
+        );
+      },
     );
-    final Widget homePage = ExcludeSemantics(
-      child: HomePage(),
-      excluding: _isSettingsOpenNotifier.value,
+
+    final Widget homePage = ValueListenableBuilder<bool>(
+      valueListenable: _isSettingsOpenNotifier,
+      builder: (context, value, child) {
+        return ExcludeSemantics(
+          child: _homePage,
+          excluding: value,
+        );
+      },
     );
 
     return FocusTraversalGroup(
@@ -199,20 +223,37 @@ class _BackdropState extends State<Backdrop>
               ],
               if (isDesktop) ...[
                 homePage,
-                if (_isSettingsOpenNotifier.value) ...[
-                  ExcludeSemantics(
-                    child: ModalBarrier(
-                      dismissible: true,
-                    ),
-                  ),
-                  Semantics(
-                    label: GalleryLocalizations.of(context)
-                        .settingsButtonCloseLabel,
-                    child: GestureDetector(
-                      onTap: _toggleSettings,
-                    ),
-                  )
-                ],
+                ValueListenableBuilder<bool>(
+                  valueListenable: _isSettingsOpenNotifier,
+                  builder: (context, value, child) {
+                    if (value) {
+                      return ExcludeSemantics(
+                        child: ModalBarrier(
+                          dismissible: true,
+                        ),
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
+                ),
+                ValueListenableBuilder<bool>(
+                  valueListenable: _isSettingsOpenNotifier,
+                  builder: (context, value, child) {
+                    if (value) {
+                      return Semantics(
+                        label: GalleryLocalizations
+                            .of(context)
+                            .settingsButtonCloseLabel,
+                        child: GestureDetector(
+                          onTap: _toggleSettings,
+                        ),
+                      );
+                    } else {
+                      return Container();
+                    }
+                  },
+                ),
                 ScaleTransition(
                   alignment: Directionality.of(context) == TextDirection.ltr
                       ? Alignment.topRight
@@ -228,7 +269,10 @@ class _BackdropState extends State<Backdrop>
                       elevation: 7,
                       clipBehavior: Clip.antiAlias,
                       borderRadius: BorderRadius.circular(40),
-                      color: Theme.of(context).colorScheme.secondaryVariant,
+                      color: Theme
+                          .of(context)
+                          .colorScheme
+                          .secondaryVariant,
                       child: Container(
                         constraints: const BoxConstraints(
                           maxHeight: 560,
@@ -256,6 +300,7 @@ class _BackdropState extends State<Backdrop>
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
