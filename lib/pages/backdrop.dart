@@ -16,6 +16,10 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/pages/settings.dart';
 
+const double _settingsButtonWidth = 64;
+const double _settingsButtonHeightDesktop = 56;
+const double _settingsButtonHeightMobile = 40;
+
 class Backdrop extends StatefulWidget {
   @override
   _BackdropState createState() => _BackdropState();
@@ -347,7 +351,3 @@ class _SettingsIcon extends AnimatedWidget {
     );
   }
 }
-
-const double _settingsButtonWidth = 64;
-const double _settingsButtonHeightDesktop = 56;
-const double _settingsButtonHeightMobile = 40;

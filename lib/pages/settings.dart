@@ -430,14 +430,14 @@ class _AnimateSettingsListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final startDividingPadding = 4.0;
+    final dividingPadding = 4.0;
     final topPaddingTween = Tween<double>(
       begin: 0,
-      end: children.length * startDividingPadding,
+      end: children.length * dividingPadding,
     );
     final dividerTween = Tween<double>(
-      begin: startDividingPadding,
-      end: 0,
+      begin: 0,
+      end: dividingPadding,
     );
 
     return Padding(
