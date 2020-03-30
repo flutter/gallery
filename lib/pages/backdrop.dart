@@ -55,9 +55,10 @@ class _BackdropState extends State<Backdrop>
     _settingsPageFocusNode = FocusNode();
     _homePageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
-    _settingsPage = widget.settingsPage ?? SettingsPage(
-      animationController: _settingsPanelController,
-    );
+    _settingsPage = widget.settingsPage ??
+        SettingsPage(
+          animationController: _settingsPanelController,
+        );
     _homePage = widget.homePage ?? HomePage();
   }
 
@@ -123,9 +124,7 @@ class _BackdropState extends State<Backdrop>
               : 2.0,
           name: 'header',
         ),
-        label: GalleryLocalizations
-            .of(context)
-            .homeHeaderGallery,
+        label: GalleryLocalizations.of(context).homeHeaderGallery,
         child: Container(),
       ),
     );
@@ -242,8 +241,7 @@ class _BackdropState extends State<Backdrop>
                   builder: (context, value, child) {
                     if (value) {
                       return Semantics(
-                        label: GalleryLocalizations
-                            .of(context)
+                        label: GalleryLocalizations.of(context)
                             .settingsButtonCloseLabel,
                         child: GestureDetector(
                           onTap: _toggleSettings,
@@ -269,10 +267,7 @@ class _BackdropState extends State<Backdrop>
                       elevation: 7,
                       clipBehavior: Clip.antiAlias,
                       borderRadius: BorderRadius.circular(40),
-                      color: Theme
-                          .of(context)
-                          .colorScheme
-                          .secondaryVariant,
+                      color: Theme.of(context).colorScheme.secondaryVariant,
                       child: Container(
                         constraints: const BoxConstraints(
                           maxHeight: 560,
@@ -300,7 +295,6 @@ class _BackdropState extends State<Backdrop>
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
