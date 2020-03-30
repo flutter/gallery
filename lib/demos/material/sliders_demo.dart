@@ -203,37 +203,7 @@ class _RangeSlidersState extends State<_RangeSliders> {
 
 // BEGIN customSlidersDemo
 
-Path _downTriangle(double size, Offset thumbCenter, {bool invert = false}) {
-  final thumbPath = Path();
-  final height = math.sqrt(3) / 2;
-  final centerHeight = size * height / 3;
-  final halfSize = size / 2;
-  final sign = invert ? -1 : 1;
-  thumbPath.moveTo(
-      thumbCenter.dx - halfSize, thumbCenter.dy + sign * centerHeight);
-  thumbPath.lineTo(thumbCenter.dx, thumbCenter.dy - 2 * sign * centerHeight);
-  thumbPath.lineTo(
-      thumbCenter.dx + halfSize, thumbCenter.dy + sign * centerHeight);
-  thumbPath.close();
-  return thumbPath;
-}
 
-Path _rightTriangle(double size, Offset thumbCenter, {bool invert = false}) {
-  final thumbPath = Path();
-  final halfSize = size / 2;
-  final sign = invert ? -1 : 1;
-  thumbPath.moveTo(thumbCenter.dx + halfSize * sign, thumbCenter.dy);
-  thumbPath.lineTo(thumbCenter.dx - halfSize * sign, thumbCenter.dy - size);
-  thumbPath.lineTo(thumbCenter.dx - halfSize * sign, thumbCenter.dy + size);
-  thumbPath.close();
-  return thumbPath;
-}
-
-Path _upTriangle(double size, Offset thumbCenter) =>
-    _downTriangle(size, thumbCenter, invert: true);
-
-Path _leftTriangle(double size, Offset thumbCenter) =>
-    _rightTriangle(size, thumbCenter, invert: true);
 
 
 class _CustomSliders extends StatefulWidget {
