@@ -10,6 +10,12 @@ assignees: ''
 **Describe the bug**
 A clear and concise description of what the bug is.
 
+**Flutter doctor**
+Copy and paste the output of `flutter doctor -v` here
+
+```
+```
+
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
