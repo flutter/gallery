@@ -48,9 +48,20 @@ class _SettingsPageState extends State<SettingsPage> {
     });
   }
 
+  void _closeSettingId(AnimationStatus status) {
+    if (status == AnimationStatus.dismissed) {
+      setState(() {
+        _expandedSettingId = null;
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+
+    // When closing settings, also shrink expanded setting.
+    widget.animationController.addStatusListener(_closeSettingId);
 
     _staggerSettingsItemsAnimation = CurvedAnimation(
       parent: widget.animationController,
@@ -60,6 +71,12 @@ class _SettingsPageState extends State<SettingsPage> {
         curve: Curves.easeIn,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.animationController.removeStatusListener(_closeSettingId);
   }
 
   /// Given a [Locale], returns a [DisplayOption] with its native name for a

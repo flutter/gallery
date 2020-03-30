@@ -159,7 +159,9 @@ class _BackdropState extends State<Backdrop>
         policy: WidgetOrderTraversalPolicy(),
         child: Focus(
           skipTraversal: !_isSettingsOpenNotifier.value,
-          child: SettingsPage(animationController: _settingsPanelController),
+          child: SettingsPage(
+            animationController: _settingsPanelController,
+          ),
         ),
       ),
       excluding: !_isSettingsOpenNotifier.value,
@@ -278,12 +280,12 @@ class InheritedBackdropFocusNodes extends InheritedWidget {
 }
 
 class _SettingsIcon extends AnimatedWidget {
-  _SettingsIcon({
-    this.animationController,
-    this.flareController,
-    this.toggleSettings,
-    this.isSettingsOpenNotifier
-  }) : super(listenable: animationController);
+  _SettingsIcon(
+      {this.animationController,
+      this.flareController,
+      this.toggleSettings,
+      this.isSettingsOpenNotifier})
+      : super(listenable: animationController);
 
   final AnimationController animationController;
   final FlareController flareController;
