@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
@@ -79,6 +80,12 @@ class RouteConfiguration {
         for (String groupName in match.groupNames) {
           groupNameToMatch[groupName] = match.namedGroup(groupName);
         }
+        if (kIsWeb) {
+          return NoAnimationMaterialPageRoute<void>(
+            builder: (context) => path.builder(context, groupNameToMatch),
+            settings: settings,
+          );
+        }
         return MaterialPageRoute<void>(
           builder: (context) => path.builder(context, groupNameToMatch),
           settings: settings,
@@ -88,5 +95,22 @@ class RouteConfiguration {
 
     // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
     return null;
+  }
+}
+
+class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
+  NoAnimationMaterialPageRoute({
+    @required WidgetBuilder builder,
+    RouteSettings settings,
+  }) : super(builder: builder, settings: settings);
+
+  @override
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return child;
   }
 }
