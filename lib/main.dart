@@ -71,7 +71,7 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: SplashPage(
-        child: AnimatedBackdrop(),
+        child: Backdrop(),
       ),
     );
   }
