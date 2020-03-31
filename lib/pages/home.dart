@@ -135,7 +135,7 @@ class HomePage extends StatelessWidget {
             /// the container which is why we created this Focus variable.
             Focus(
               focusNode:
-                  InheritedBackdropFocusNodes.of(context).backLayerFocusNode,
+                  InheritedBackdropFocusNodes.of(context).homePageFocusNode,
               child: SizedBox(),
             ),
             Container(
