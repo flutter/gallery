@@ -21,7 +21,7 @@ const double _settingsButtonHeightDesktop = 56;
 const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
-  Backdrop({
+  const Backdrop({
     this.settingsPage,
     this.homePage,
   });

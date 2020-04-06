@@ -73,7 +73,7 @@ class GalleryOptions {
       deviceLocale ??
       // TODO: When deviceLocale can be obtained on macOS, this won't be necessary
       // https://github.com/flutter/flutter/issues/45343
-      (!kIsWeb && Platform.isMacOS ? Locale('en', 'US') : null);
+      (!kIsWeb && Platform.isMacOS ? const Locale('en', 'US') : null);
 
   /// Returns the text direction based on the [CustomTextDirection] setting.
   /// If the locale cannot be determined, returns null.

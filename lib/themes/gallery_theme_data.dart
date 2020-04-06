@@ -44,30 +44,30 @@ class GalleryThemeData {
     );
   }
 
-  static ColorScheme lightColorScheme = ColorScheme(
-    primary: const Color(0xFFB93C5D),
-    primaryVariant: const Color(0xFF117378),
-    secondary: const Color(0xFFEFF3F3),
-    secondaryVariant: const Color(0xFFFAFBFB),
-    background: const Color(0xFFE6EBEB),
-    surface: const Color(0xFFFAFBFB),
+  static const ColorScheme lightColorScheme = ColorScheme(
+    primary: Color(0xFFB93C5D),
+    primaryVariant: Color(0xFF117378),
+    secondary: Color(0xFFEFF3F3),
+    secondaryVariant: Color(0xFFFAFBFB),
+    background: Color(0xFFE6EBEB),
+    surface: Color(0xFFFAFBFB),
     onBackground: Colors.white,
     error: _lightFillColor,
     onError: _lightFillColor,
     onPrimary: _lightFillColor,
-    onSecondary: const Color(0xFF322942),
-    onSurface: const Color(0xFF241E30),
+    onSecondary: Color(0xFF322942),
+    onSurface: Color(0xFF241E30),
     brightness: Brightness.light,
   );
 
-  static ColorScheme darkColorScheme = ColorScheme(
-    primary: const Color(0xFFFF8383),
-    primaryVariant: const Color(0xFF1CDEC9),
-    secondary: const Color(0xFF4D1F7C),
-    secondaryVariant: const Color(0xFF451B6F),
-    background: const Color(0xFF241E30),
-    surface: const Color(0xFF1F1929),
-    onBackground: Colors.white.withOpacity(0.05),
+  static const ColorScheme darkColorScheme = ColorScheme(
+    primary: Color(0xFFFF8383),
+    primaryVariant: Color(0xFF1CDEC9),
+    secondary: Color(0xFF4D1F7C),
+    secondaryVariant: Color(0xFF451B6F),
+    background: Color(0xFF241E30),
+    surface: Color(0xFF1F1929),
+    onBackground: Color(0xFFFFFF0D), // White with 0.05 opacity
     error: _darkFillColor,
     onError: _darkFillColor,
     onPrimary: _darkFillColor,
