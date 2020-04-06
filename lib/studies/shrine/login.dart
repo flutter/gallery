@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
           : Scaffold(
               body: SafeArea(
                 child: ListView(
-                  physics: ClampingScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: _horizontalPadding,
                   ),
@@ -90,7 +90,7 @@ class _ShrineLogo extends StatelessWidget {
       child: Column(
         children: [
           FadeInImagePlaceholder(
-            image: AssetImage('packages/shrine_images/diamond.png'),
+            image: const AssetImage('packages/shrine_images/diamond.png'),
             placeholder: Container(
               width: 34,
               height: 34,
@@ -172,7 +172,7 @@ class _CancelAndNextButtons extends StatelessWidget {
     final bool isDesktop = isDisplayDesktop(context);
 
     final EdgeInsets buttonTextPadding = isDesktop
-        ? EdgeInsets.symmetric(horizontal: 24, vertical: 16)
+        ? const EdgeInsets.symmetric(horizontal: 24, vertical: 16)
         : EdgeInsets.zero;
 
     return Wrap(

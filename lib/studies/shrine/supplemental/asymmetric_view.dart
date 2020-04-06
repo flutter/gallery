@@ -273,7 +273,7 @@ class DesktopColumns extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Spacer(),
+            const Spacer(),
             ...List<Widget>.generate(
               2 * columnCount - 1,
               (generalizedColumnIndex) {
@@ -284,7 +284,7 @@ class DesktopColumns extends StatelessWidget {
                 }
               },
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
         Container(height: 60),

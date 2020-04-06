@@ -49,7 +49,7 @@ class _SettingsItem extends StatelessWidget {
       textColor: Colors.white,
       child: Container(
         alignment: AlignmentDirectional.centerStart,
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
         child: Text(title),
       ),
       onPressed: () {

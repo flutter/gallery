@@ -86,7 +86,7 @@ class _MainView extends StatelessWidget {
       ];
     } else {
       listViewChildren = [
-        _SmallLogo(),
+        const _SmallLogo(),
         _UsernameInput(
           usernameController: usernameController,
         ),
@@ -104,7 +104,7 @@ class _MainView extends StatelessWidget {
 
     return Column(
       children: [
-        if (isDesktop) _TopBar(),
+        if (isDesktop) const _TopBar(),
         Expanded(
           child: Align(
             alignment: isDesktop ? Alignment.center : Alignment.topCenter,
@@ -131,7 +131,7 @@ class _TopBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: [
@@ -142,7 +142,8 @@ class _TopBar extends StatelessWidget {
                 child: SizedBox(
                   height: 80,
                   child: FadeInImagePlaceholder(
-                    image: AssetImage('logo.png', package: 'rally_assets'),
+                    image:
+                        const AssetImage('logo.png', package: 'rally_assets'),
                     placeholder: LayoutBuilder(builder: (context, constraints) {
                       return SizedBox(
                         width: constraints.maxHeight,
@@ -188,8 +189,8 @@ class _SmallLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 64),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 64),
       child: SizedBox(
         height: 160,
         child: ExcludeSemantics(

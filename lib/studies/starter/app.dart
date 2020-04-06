@@ -30,24 +30,24 @@ class StarterApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: _primaryColor,
         highlightColor: Colors.transparent,
-        colorScheme: ColorScheme(
+        colorScheme: const ColorScheme(
           primary: _primaryColor,
-          primaryVariant: const Color(0xFF3700B3),
-          secondary: const Color(0xFF03DAC6),
-          secondaryVariant: const Color(0xFF018786),
+          primaryVariant: Color(0xFF3700B3),
+          secondary: Color(0xFF03DAC6),
+          secondaryVariant: Color(0xFF018786),
           background: Colors.white,
           surface: Colors.white,
           onBackground: Colors.black,
-          error: const Color(0xFFB00020),
+          error: Color(0xFFB00020),
           onError: Colors.white,
           onPrimary: Colors.white,
           onSecondary: Colors.black,
           onSurface: Colors.black,
           brightness: Brightness.light,
         ),
-        dividerTheme: DividerThemeData(
+        dividerTheme: const DividerThemeData(
           thickness: 1,
-          color: const Color(0xFFE5E5E5),
+          color: Color(0xFFE5E5E5),
         ),
         platform: GalleryOptions.of(context).platform,
       ),
@@ -60,8 +60,8 @@ class _Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ApplyTextOptions(
-      child: const HomePage(),
+    return const ApplyTextOptions(
+      child: HomePage(),
     );
   }
 }
