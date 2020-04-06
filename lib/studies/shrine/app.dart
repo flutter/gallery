@@ -19,6 +19,8 @@ import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ShrineApp extends StatefulWidget {
+  const ShrineApp();
+
   static String loginRoute = '/shrine/login';
   static String homeRoute = '/shrine';
 
@@ -71,7 +73,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
   }
 
   Widget desktopBackdrop() {
-    return DesktopBackdrop(
+    return const DesktopBackdrop(
       frontLayer: ProductPage(),
       backLayer: CategoryMenuPage(),
     );
@@ -121,12 +123,12 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
           onGenerateInitialRoutes: (_) {
             return [
               MaterialPageRoute<void>(
-                builder: (context) => LoginPage(),
+                builder: (context) => const LoginPage(),
               ),
             ];
           },
           routes: {
-            ShrineApp.loginRoute: (context) => LoginPage(),
+            ShrineApp.loginRoute: (context) => const LoginPage(),
             ShrineApp.homeRoute: (context) => home,
           },
           theme: shrineTheme.copyWith(

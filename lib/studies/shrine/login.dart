@@ -25,12 +25,9 @@ double desktopLoginScreenMainAreaWidth({BuildContext context}) {
   );
 }
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
+class LoginPage extends StatelessWidget {
+  const LoginPage();
 
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final bool isDesktop = isDisplayDesktop(context);

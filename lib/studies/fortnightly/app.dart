@@ -14,6 +14,8 @@ import 'package:gallery/studies/fortnightly/shared.dart';
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
+  const FortnightlyApp();
+
   static String defaultRoute = '/fortnightly';
 
   @override
@@ -40,6 +42,8 @@ class FortnightlyApp extends StatelessWidget {
 }
 
 class _FortnightlyHomeMobile extends StatelessWidget {
+  const _FortnightlyHomeMobile();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +87,8 @@ class _FortnightlyHomeMobile extends StatelessWidget {
 }
 
 class _FortnightlyHomeDesktop extends StatelessWidget {
+  const _FortnightlyHomeDesktop();
+
   @override
   Widget build(BuildContext context) {
     final menuWidth = 200.0;

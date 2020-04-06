@@ -14,6 +14,8 @@ import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage();
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }

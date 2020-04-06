@@ -10,6 +10,8 @@ import 'package:gallery/studies/starter/home.dart';
 const _primaryColor = Color(0xFF6200EE);
 
 class StarterApp extends StatelessWidget {
+  const StarterApp();
+
   static String defaultRoute = '/starter';
 
   @override
@@ -22,9 +24,9 @@ class StarterApp extends StatelessWidget {
       locale: GalleryOptions.of(context).locale,
       initialRoute: StarterApp.defaultRoute,
       routes: {
-        StarterApp.defaultRoute: (context) => _Home(),
+        StarterApp.defaultRoute: (context) => const _Home(),
       },
-      home: _Home(),
+      home: const _Home(),
       theme: ThemeData(
         primaryColor: _primaryColor,
         highlightColor: Colors.transparent,
@@ -54,10 +56,12 @@ class StarterApp extends StatelessWidget {
 }
 
 class _Home extends StatelessWidget {
+  const _Home();
+
   @override
   Widget build(BuildContext context) {
     return ApplyTextOptions(
-      child: HomePage(),
+      child: const HomePage(),
     );
   }
 }

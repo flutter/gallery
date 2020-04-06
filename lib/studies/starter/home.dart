@@ -11,6 +11,8 @@ import 'package:gallery/layout/adaptive.dart';
 const appBarDesktopHeight = 128.0;
 
 class HomePage extends StatelessWidget {
+  const HomePage();
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

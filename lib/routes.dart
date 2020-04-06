@@ -43,11 +43,11 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + RallyApp.homeRoute,
-      (context, matches) => StudyWrapper(study: RallyApp()),
+      (context, matches) => const StudyWrapper(study: RallyApp()),
     ),
     Path(
       r'^' + ShrineApp.homeRoute,
-      (context, matches) => StudyWrapper(study: ShrineApp()),
+      (context, matches) => const StudyWrapper(study: ShrineApp()),
     ),
     Path(
       r'^' + CraneApp.defaultRoute,
@@ -55,11 +55,11 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + FortnightlyApp.defaultRoute,
-      (context, matches) => StudyWrapper(study: FortnightlyApp()),
+      (context, matches) => const StudyWrapper(study: FortnightlyApp()),
     ),
     Path(
       r'^' + StarterApp.defaultRoute,
-      (context, matches) => StudyWrapper(study: StarterApp()),
+      (context, matches) => const StudyWrapper(study: StarterApp()),
     ),
     Path(
       r'^/',

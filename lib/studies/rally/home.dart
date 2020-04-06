@@ -18,6 +18,8 @@ const int turnsToRotateRight = 1;
 const int turnsToRotateLeft = 3;
 
 class HomePage extends StatefulWidget {
+  const HomePage();
+
   @override
   _HomePageState createState() => _HomePageState();
 }

@@ -12,9 +12,9 @@ import 'package:gallery/studies/crane/sleep_form.dart';
 import 'package:gallery/studies/crane/theme.dart';
 
 class CraneApp extends StatelessWidget {
-  static String defaultRoute = '/crane';
-
   const CraneApp();
+
+  static String defaultRoute = '/crane';
 
   @override
   Widget build(BuildContext context) {

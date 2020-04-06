@@ -17,6 +17,8 @@ import 'package:gallery/studies/rally/login.dart';
 /// The home route is the main page with tabs for sub pages.
 /// The login route is the initial route.
 class RallyApp extends StatelessWidget {
+  const RallyApp();
+
   static String loginRoute = '/rally/login';
   static String homeRoute = '/rally';
 
@@ -31,11 +33,11 @@ class RallyApp extends StatelessWidget {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: HomePage(),
+      home: const HomePage(),
       initialRoute: loginRoute,
       routes: <String, WidgetBuilder>{
-        homeRoute: (context) => HomePage(),
-        loginRoute: (context) => LoginPage(),
+        homeRoute: (context) => const HomePage(),
+        loginRoute: (context) => const LoginPage(),
       },
     );
   }
