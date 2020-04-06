@@ -9,6 +9,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN cupertinoButtonDemo
 
 class CupertinoButtonDemo extends StatelessWidget {
+  const CupertinoButtonDemo();
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(

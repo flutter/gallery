@@ -16,6 +16,8 @@ class _TabInfo {
 }
 
 class CupertinoTabBarDemo extends StatelessWidget {
+  const CupertinoTabBarDemo();
+
   @override
   Widget build(BuildContext context) {
     final _tabInfo = [

@@ -9,6 +9,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN cupertinoNavigationBarDemo
 
 class CupertinoNavigationBarDemo extends StatelessWidget {
+  const CupertinoNavigationBarDemo();
+
   @override
   Widget build(BuildContext context) {
     return Navigator(onGenerateRoute: (settings) {

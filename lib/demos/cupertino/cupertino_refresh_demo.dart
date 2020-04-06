@@ -11,6 +11,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN cupertinoRefreshDemo
 
 class CupertinoRefreshControlDemo extends StatefulWidget {
+  const CupertinoRefreshControlDemo();
+
   @override
   _CupertinoRefreshControlDemoState createState() =>
       _CupertinoRefreshControlDemoState();

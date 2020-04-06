@@ -8,6 +8,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN tooltipDemo
 
 class TooltipDemo extends StatelessWidget {
+  const TooltipDemo();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

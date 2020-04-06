@@ -44,6 +44,8 @@ class _TextStyleItem extends StatelessWidget {
 }
 
 class TypographyDemo extends StatelessWidget {
+  const TypographyDemo();
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;

@@ -8,6 +8,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN bottomAppBarDemo
 
 class BottomAppBarDemo extends StatefulWidget {
+  const BottomAppBarDemo();
+
   @override
   State createState() => _BottomAppBarDemoState();
 }

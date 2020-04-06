@@ -9,6 +9,8 @@ import 'package:intl/intl.dart';
 // BEGIN cupertinoPickersDemo
 
 class CupertinoPickerDemo extends StatefulWidget {
+  const CupertinoPickerDemo();
+
   @override
   _CupertinoPickerDemoState createState() => _CupertinoPickerDemoState();
 }

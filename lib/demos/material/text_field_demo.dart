@@ -12,6 +12,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN textFieldDemo
 
 class TextFieldDemo extends StatelessWidget {
+  const TextFieldDemo();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

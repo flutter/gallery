@@ -12,7 +12,7 @@ enum BottomSheetDemoType {
 }
 
 class BottomSheetDemo extends StatelessWidget {
-  BottomSheetDemo({Key key, @required this.type}) : super(key: key);
+  const BottomSheetDemo({Key key, @required this.type}) : super(key: key);
 
   final BottomSheetDemoType type;
 
