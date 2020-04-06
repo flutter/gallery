@@ -51,7 +51,7 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + CraneApp.defaultRoute,
-      (context, matches) => StudyWrapper(study: CraneApp()),
+      (context, matches) => const StudyWrapper(study: CraneApp()),
     ),
     Path(
       r'^' + FortnightlyApp.defaultRoute,
@@ -63,7 +63,7 @@ class RouteConfiguration {
     ),
     Path(
       r'^/',
-      (context, matches) => RootPage(),
+      (context, matches) => const RootPage(),
     ),
   ];
 

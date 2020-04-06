@@ -11,14 +11,11 @@ import 'package:gallery/studies/crane/fly_form.dart';
 import 'package:gallery/studies/crane/sleep_form.dart';
 import 'package:gallery/studies/crane/theme.dart';
 
-class CraneApp extends StatefulWidget {
+class CraneApp extends StatelessWidget {
   static String defaultRoute = '/crane';
 
-  @override
-  _CraneAppState createState() => _CraneAppState();
-}
+  const CraneApp();
 
-class _CraneAppState extends State<CraneApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,10 +24,9 @@ class _CraneAppState extends State<CraneApp> {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: _Home(),
       initialRoute: CraneApp.defaultRoute,
       routes: {
-        CraneApp.defaultRoute: (context) => _Home(),
+        CraneApp.defaultRoute: (context) => const _Home(),
       },
       theme: craneTheme.copyWith(
         platform: GalleryOptions.of(context).platform,
@@ -43,15 +39,17 @@ class _CraneAppState extends State<CraneApp> {
 }
 
 class _Home extends StatelessWidget {
+  const _Home();
+
   @override
   Widget build(BuildContext context) {
     return ApplyTextOptions(
-      child: Backdrop(
-        frontLayer: Container(),
+      child: const Backdrop(
+        frontLayer: SizedBox(),
         backLayerItems: [
-          FlyForm(index: 0),
-          SleepForm(index: 1),
-          EatForm(index: 2),
+          FlyForm(),
+          SleepForm(),
+          EatForm(),
         ],
         frontTitle: Text('CRANE'),
         backTitle: Text('MENU'),
