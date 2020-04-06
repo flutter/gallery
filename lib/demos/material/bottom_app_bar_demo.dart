@@ -110,7 +110,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
       floatingActionButtonLocation: _fabLocation,
       bottomNavigationBar: _DemoBottomAppBar(
         fabLocation: _fabLocation,
-        shape: _showNotch ? CircularNotchedRectangle() : null,
+        shape: _showNotch ? const CircularNotchedRectangle() : null,
       ),
     );
   }

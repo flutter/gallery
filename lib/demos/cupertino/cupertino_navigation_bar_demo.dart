@@ -19,7 +19,7 @@ class CupertinoNavigationBarDemo extends StatelessWidget {
         builder: (context) => CupertinoPageScaffold(
           child: CustomScrollView(
             slivers: [
-              CupertinoSliverNavigationBar(
+              const CupertinoSliverNavigationBar(
                 automaticallyImplyLeading: false,
               ),
               SliverPadding(

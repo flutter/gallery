@@ -103,7 +103,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
               });
             },
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipMedium),
             selected: indexSelected == 1,
@@ -113,7 +113,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
               });
             },
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipLarge),
             selected: indexSelected == 2,

@@ -51,7 +51,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
         Text(GalleryLocalizations.of(context).demoCupertinoPickerDate),
         Text(
           DateFormat.yMMMMd().format(date),
-          style: TextStyle(color: CupertinoColors.inactiveGray),
+          style: const TextStyle(color: CupertinoColors.inactiveGray),
         ),
       ]),
     );
@@ -82,7 +82,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
           Text(GalleryLocalizations.of(context).demoCupertinoPickerTime),
           Text(
             DateFormat.jm().format(time),
-            style: TextStyle(color: CupertinoColors.inactiveGray),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],
       ),
@@ -114,7 +114,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
           Text(GalleryLocalizations.of(context).demoCupertinoPickerDateTime),
           Text(
             DateFormat.yMMMd().add_jm().format(dateTime),
-            style: TextStyle(color: CupertinoColors.inactiveGray),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],
       ),
@@ -147,7 +147,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
             '${timer.inHours}:'
             '${(timer.inMinutes % 60).toString().padLeft(2, '0')}:'
             '${(timer.inSeconds % 60).toString().padLeft(2, '0')}',
-            style: TextStyle(color: CupertinoColors.inactiveGray),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],
       ),
@@ -222,8 +222,8 @@ class _Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: const Border(
+      decoration: const BoxDecoration(
+        border: Border(
           top: BorderSide(color: CupertinoColors.inactiveGray, width: 0),
           bottom: BorderSide(color: CupertinoColors.inactiveGray, width: 0),
         ),

@@ -29,7 +29,7 @@ class CupertinoButtonDemo extends StatelessWidget {
               ),
               onPressed: () {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             CupertinoButton.filled(
               child: Text(
                 GalleryLocalizations.of(context).cupertinoButtonWithBackground,

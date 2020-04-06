@@ -21,7 +21,7 @@ class TextFieldDemo extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoTextFieldTitle),
       ),
-      body: TextFormFieldDemo(),
+      body: const TextFormFieldDemo(),
     );
   }
 }
@@ -247,7 +247,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                 TextFormField(
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldTellUsAboutYourself,
                     helperText: GalleryLocalizations.of(context)
@@ -262,7 +262,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     labelText:
                         GalleryLocalizations.of(context).demoTextFieldSalary,
                     suffixText:

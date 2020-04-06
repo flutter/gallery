@@ -27,7 +27,7 @@ class TooltipDemo extends StatelessWidget {
                 GalleryLocalizations.of(context).demoTooltipInstructions,
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Tooltip(
                 message:
                     GalleryLocalizations.of(context).starterAppTooltipSearch,
