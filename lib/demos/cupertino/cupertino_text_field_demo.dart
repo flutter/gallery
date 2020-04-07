@@ -48,7 +48,7 @@ class CupertinoTextFieldDemo extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
               clearButtonMode: OverlayVisibilityMode.editing,
               keyboardType: TextInputType.number,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
                     width: 0,

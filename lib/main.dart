@@ -44,7 +44,7 @@ class GalleryApp extends StatelessWidget {
             darkTheme: GalleryThemeData.darkThemeData.copyWith(
               platform: GalleryOptions.of(context).platform,
             ),
-            localizationsDelegates: [
+            localizationsDelegates: const [
               ...GalleryLocalizations.localizationsDelegates,
               const LocaleNamesLocalizationsDelegate()
             ],

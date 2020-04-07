@@ -65,7 +65,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     _staggerSettingsItemsAnimation = CurvedAnimation(
       parent: widget.animationController,
-      curve: Interval(
+      curve: const Interval(
         0.5,
         1.0,
         curve: Curves.easeIn,
@@ -258,7 +258,7 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Padding(
         padding: isDesktop
             ? EdgeInsets.zero
-            : EdgeInsets.only(
+            : const EdgeInsets.only(
                 bottom: galleryHeaderHeight,
               ),
         // Remove ListView top padding as it is already accounted for.
@@ -267,7 +267,8 @@ class _SettingsPageState extends State<SettingsPage> {
           context: context,
           child: ListView(
             children: [
-              if (isDesktop) SizedBox(height: firstHeaderDesktopTopPadding),
+              if (isDesktop)
+                const SizedBox(height: firstHeaderDesktopTopPadding),
               Focus(
                 focusNode: InheritedBackdropFocusNodes.of(context)
                     .settingsPageFocusNode,
