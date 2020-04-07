@@ -192,7 +192,7 @@ class _NavigationIconView {
           ),
           Center(
             child: IconTheme(
-              data: IconThemeData(
+              data: const IconThemeData(
                 color: Colors.white,
                 size: 80,
               ),

@@ -285,7 +285,7 @@ class Ripple extends StatelessWidget {
           child: Container(
             height: radius * 2,
             width: radius * 2,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
             ),
@@ -344,7 +344,7 @@ class TapTarget extends StatelessWidget {
             child: Container(
               height: radius * 2,
               width: radius * 2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),

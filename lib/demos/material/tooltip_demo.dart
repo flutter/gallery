@@ -34,7 +34,7 @@ class TooltipDemo extends StatelessWidget {
                 child: IconButton(
                   color: Theme.of(context).colorScheme.primary,
                   onPressed: () {},
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                 ),
               ),
             ],
