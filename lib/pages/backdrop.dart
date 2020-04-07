@@ -21,7 +21,7 @@ const double _settingsButtonHeightDesktop = 56;
 const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
-  Backdrop({
+  const Backdrop({
     this.settingsPage,
     this.homePage,
   });
@@ -50,7 +50,7 @@ class _BackdropState extends State<Backdrop>
     super.initState();
     _settingsPanelController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
     );
     _settingsPageFocusNode = FocusNode();
     _homePageFocusNode = FocusNode();
@@ -134,7 +134,7 @@ class _BackdropState extends State<Backdrop>
       BoxConstraints constraints) {
     return RelativeRectTween(
       begin: RelativeRect.fromLTRB(0, -constraints.maxHeight, 0, 0),
-      end: RelativeRect.fromLTRB(0, 0, 0, 0),
+      end: const RelativeRect.fromLTRB(0, 0, 0, 0),
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
@@ -150,7 +150,7 @@ class _BackdropState extends State<Backdrop>
   Animation<RelativeRect> _slideDownHomePageAnimation(
       BoxConstraints constraints) {
     return RelativeRectTween(
-      begin: RelativeRect.fromLTRB(0, 0, 0, 0),
+      begin: const RelativeRect.fromLTRB(0, 0, 0, 0),
       end: RelativeRect.fromLTRB(
         0,
         constraints.biggest.height - galleryHeaderHeight,
@@ -226,7 +226,7 @@ class _BackdropState extends State<Backdrop>
                   valueListenable: _isSettingsOpenNotifier,
                   builder: (context, value, child) {
                     if (value) {
-                      return ExcludeSemantics(
+                      return const ExcludeSemantics(
                         child: ModalBarrier(
                           dismissible: true,
                         ),
@@ -352,7 +352,7 @@ class _SettingsIcon extends AnimatedWidget {
             ? _settingsButtonHeightDesktop
             : _settingsButtonHeightMobile + safeAreaTopPadding,
         child: Material(
-          borderRadius: BorderRadiusDirectional.only(
+          borderRadius: const BorderRadiusDirectional.only(
             bottomStart: Radius.circular(10),
           ),
           color: isSettingsOpenNotifier.value & !animationController.isAnimating

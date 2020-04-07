@@ -112,11 +112,4 @@ flutter:
     - family: GalleryIcons
       fonts:
         - asset: fonts/GalleryIcons.ttf
-    # TODO: Remove once google_fonts supports condensed fonts
-    - family: Roboto Condensed
-      fonts:
-        - asset: packages/rally_assets/RobotoCondensed-Light.ttf
-          weight: 400
-        - asset: packages/rally_assets/RobotoCondensed-Bold.ttf
-          weight: 700
 

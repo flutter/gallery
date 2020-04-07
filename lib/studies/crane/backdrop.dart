@@ -46,7 +46,7 @@ class _FrontLayer extends StatelessWidget {
         child: PhysicalShape(
           elevation: 16,
           color: cranePrimaryWhite,
-          clipper: ShapeBorderClipper(
+          clipper: const ShapeBorderClipper(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(frontLayerBorderRadius),
@@ -60,10 +60,10 @@ class _FrontLayer extends StatelessWidget {
                     horizontal:
                         isSmallDesktop ? appPaddingSmall : appPaddingLarge,
                     vertical: 22)
-                : EdgeInsets.all(20),
+                : const EdgeInsets.all(20),
             children: [
               Text(title, style: Theme.of(context).textTheme.subtitle2),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ItemCards(index: index),
             ],
           ),
@@ -115,14 +115,14 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
     _tabController = TabController(length: 3, vsync: this);
 
     // Offsets to create a horizontal gap between front layers.
-    _flyLayerHorizontalOffset = _tabController.animation
-        .drive(Tween<Offset>(begin: Offset(0, 0), end: Offset(-0.05, 0)));
+    _flyLayerHorizontalOffset = _tabController.animation.drive(
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-0.05, 0)));
 
-    _sleepLayerHorizontalOffset = _tabController.animation
-        .drive(Tween<Offset>(begin: Offset(0.05, 0), end: Offset(0, 0)));
+    _sleepLayerHorizontalOffset = _tabController.animation.drive(
+        Tween<Offset>(begin: const Offset(0.05, 0), end: const Offset(0, 0)));
 
-    _eatLayerHorizontalOffset = _tabController.animation
-        .drive(Tween<Offset>(begin: Offset(0.10, 0), end: Offset(0.05, 0)));
+    _eatLayerHorizontalOffset = _tabController.animation.drive(Tween<Offset>(
+        begin: const Offset(0.10, 0), end: const Offset(0.05, 0)));
   }
 
   @override
@@ -144,7 +144,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
     return Material(
       color: cranePurple800,
       child: Padding(
-        padding: EdgeInsets.only(top: 12),
+        padding: const EdgeInsets.only(top: 12),
         child: FocusTraversalGroup(
           policy: ReadingOrderTraversalPolicy(),
           child: Scaffold(
@@ -185,7 +185,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                             constraints.maxHeight + _sleepLayerTopOffset * 2,
                         child: TabBarView(
                           physics: isDesktop
-                              ? NeverScrollableScrollPhysics()
+                              ? const NeverScrollableScrollPhysics()
                               : null, // use default TabBarView physics
                           controller: _tabController,
                           children: [
@@ -259,7 +259,7 @@ class _CraneAppBarState extends State<CraneAppBar> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ExcludeSemantics(
+            const ExcludeSemantics(
               child: FadeInImagePlaceholder(
                 image: AssetImage('assets/crane/logo/logo.png'),
                 placeholder: SizedBox(

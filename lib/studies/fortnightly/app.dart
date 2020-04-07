@@ -14,13 +14,15 @@ import 'package:gallery/studies/fortnightly/shared.dart';
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  static String defaultRoute = '/fortnightly';
+  const FortnightlyApp();
+
+  static const String defaultRoute = '/fortnightly';
 
   @override
   Widget build(BuildContext context) {
     final home = isDisplayDesktop(context)
-        ? _FortnightlyHomeDesktop()
-        : _FortnightlyHomeMobile();
+        ? const _FortnightlyHomeDesktop()
+        : const _FortnightlyHomeMobile();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context).copyWith(
@@ -40,6 +42,8 @@ class FortnightlyApp extends StatelessWidget {
 }
 
 class _FortnightlyHomeMobile extends StatelessWidget {
+  const _FortnightlyHomeMobile();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +56,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Semantics(
           label: _fortnightlyTitle,
-          child: FadeInImagePlaceholder(
+          child: const FadeInImagePlaceholder(
             image: AssetImage('assets/fortnightly/fortnightly_title.png'),
             placeholder: SizedBox.shrink(),
             excludeFromSemantics: true,
@@ -83,10 +87,12 @@ class _FortnightlyHomeMobile extends StatelessWidget {
 }
 
 class _FortnightlyHomeDesktop extends StatelessWidget {
+  const _FortnightlyHomeDesktop();
+
   @override
   Widget build(BuildContext context) {
     final menuWidth = 200.0;
-    final spacer = SizedBox(width: 20);
+    final spacer = const SizedBox(width: 20);
     final headerHeight = 40 * reducedTextScale(context);
 
     return Scaffold(
@@ -101,7 +107,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                   Container(
                     width: menuWidth,
                     alignment: AlignmentDirectional.centerStart,
-                    margin: EdgeInsets.only(left: 12),
+                    margin: const EdgeInsets.only(left: 12),
                     child: Semantics(
                       label: _fortnightlyTitle,
                       child: Image.asset(
@@ -152,7 +158,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     child: ListView(
                       children: [
                         ...buildStockItems(context),
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                         ...buildVideoPreviewItems(context),
                       ],
                     ),

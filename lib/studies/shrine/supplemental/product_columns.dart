@@ -33,7 +33,7 @@ class TwoProductCardColumn extends StatelessWidget {
                     imageAspectRatio: imageAspectRatio,
                     product: top,
                   )
-                : SizedBox(
+                : const SizedBox(
                     height: spacerHeight,
                   ),
           ),

@@ -13,7 +13,7 @@ enum SelectionControlsDemoType {
 }
 
 class SelectionControlsDemo extends StatelessWidget {
-  SelectionControlsDemo({Key key, @required this.type}) : super(key: key);
+  const SelectionControlsDemo({Key key, @required this.type}) : super(key: key);
 
   final SelectionControlsDemoType type;
 

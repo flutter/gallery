@@ -52,7 +52,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                   ListView(
                     children: [
                       Semantics(
-                        sortKey: OrdinalSortKey(0, name: _ordinalSortKeyName),
+                        sortKey:
+                            const OrdinalSortKey(0, name: _ordinalSortKeyName),
                         child: Row(
                           children: [
                             SizedBox(
@@ -83,13 +84,15 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                       const SizedBox(height: 16),
                       Semantics(
-                        sortKey: OrdinalSortKey(1, name: _ordinalSortKeyName),
+                        sortKey:
+                            const OrdinalSortKey(1, name: _ordinalSortKeyName),
                         child: Column(
                           children: _createShoppingCartRows(model),
                         ),
                       ),
                       Semantics(
-                        sortKey: OrdinalSortKey(2, name: _ordinalSortKeyName),
+                        sortKey:
+                            const OrdinalSortKey(2, name: _ordinalSortKeyName),
                         child: ShoppingCartSummary(model: model),
                       ),
                       const SizedBox(height: 100),
@@ -100,7 +103,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     start: 16,
                     end: 16,
                     child: Semantics(
-                      sortKey: OrdinalSortKey(3, name: _ordinalSortKeyName),
+                      sortKey:
+                          const OrdinalSortKey(3, name: _ordinalSortKeyName),
                       child: RaisedButton(
                         shape: const BeveledRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(7)),
@@ -108,7 +112,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                         color: shrinePink100,
                         splashColor: shrineBrown600,
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 12),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                           child: Text(
                             GalleryLocalizations.of(context)
                                 .shrineCartClearButtonCaption,

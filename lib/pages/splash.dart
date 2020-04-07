@@ -78,7 +78,7 @@ class _SplashPageState extends State<SplashPage>
     _effect = _random.nextInt(_effectDurations.length) + 1;
 
     _controller = AnimationController(
-        duration: Duration(
+        duration: const Duration(
           milliseconds: splashPageAnimationDurationInMilliseconds,
         ),
         vsync: this)
@@ -138,7 +138,7 @@ class _SplashPageState extends State<SplashPage>
               frontLayer = Padding(
                 padding: const EdgeInsets.only(top: 136),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.vertical(
+                  borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(40),
                   ),
                   child: frontLayer,
@@ -210,7 +210,8 @@ class _SplashBackLayer extends StatelessWidget {
 
     return ExcludeSemantics(
       child: Container(
-        color: Color(0xFF030303), // This is the background color of the gifs.
+        // This is the background color of the gifs.
+        color: const Color(0xFF030303),
         padding: EdgeInsets.only(
           bottom: isDisplayDesktop(context) ? homePeekDesktop : homePeekMobile,
         ),

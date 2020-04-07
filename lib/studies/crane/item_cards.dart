@@ -163,7 +163,7 @@ class _DestinationCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
-            contentPadding: EdgeInsetsDirectional.only(end: 8),
+            contentPadding: const EdgeInsetsDirectional.only(end: 8),
             leading: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(4)),
               child: SizedBox(
@@ -179,7 +179,7 @@ class _DestinationCard extends StatelessWidget {
               style: textTheme.subtitle2,
             ),
           ),
-          Divider(),
+          const Divider(),
         ],
       );
     }

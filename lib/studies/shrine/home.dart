@@ -54,14 +54,14 @@ class HomePage extends StatelessWidget {
           Semantics(
             container: true,
             child: backdrop,
-            sortKey: OrdinalSortKey(1, name: _ordinalSortKeyName),
+            sortKey: const OrdinalSortKey(1, name: _ordinalSortKeyName),
           ),
           ExcludeSemantics(child: scrim),
           Align(
             child: Semantics(
               container: true,
               child: expandingBottomSheet,
-              sortKey: OrdinalSortKey(0, name: _ordinalSortKeyName),
+              sortKey: const OrdinalSortKey(0, name: _ordinalSortKeyName),
             ),
             alignment: isDesktop
                 ? AlignmentDirectional.topEnd

@@ -8,6 +8,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN snackbarsDemo
 
 class SnackbarsDemo extends StatelessWidget {
+  const SnackbarsDemo();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

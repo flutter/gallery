@@ -8,6 +8,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN tooltipDemo
 
 class TooltipDemo extends StatelessWidget {
+  const TooltipDemo();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,14 +27,14 @@ class TooltipDemo extends StatelessWidget {
                 GalleryLocalizations.of(context).demoTooltipInstructions,
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Tooltip(
                 message:
                     GalleryLocalizations.of(context).starterAppTooltipSearch,
                 child: IconButton(
                   color: Theme.of(context).colorScheme.primary,
                   onPressed: () {},
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                 ),
               ),
             ],
