@@ -12,7 +12,7 @@ void main() {
   testWidgets('Home page hides settings semantics when closed', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        localizationsDelegates: [GalleryLocalizations.delegate],
+        localizationsDelegates: const [GalleryLocalizations.delegate],
         home: ModelBinding(
           initialModel: const GalleryOptions(
             textScaleFactor: 1.0,
