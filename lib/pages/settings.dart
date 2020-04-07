@@ -65,7 +65,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     _staggerSettingsItemsAnimation = CurvedAnimation(
       parent: widget.animationController,
-      curve: Interval(
+      curve: const Interval(
         0.5,
         1.0,
         curve: Curves.easeIn,
@@ -258,7 +258,7 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Padding(
         padding: isDesktop
             ? EdgeInsets.zero
-            : EdgeInsets.only(
+            : const EdgeInsets.only(
                 bottom: galleryHeaderHeight,
               ),
         // Remove ListView top padding as it is already accounted for.
@@ -267,12 +267,13 @@ class _SettingsPageState extends State<SettingsPage> {
           context: context,
           child: ListView(
             children: [
-              if (isDesktop) SizedBox(height: firstHeaderDesktopTopPadding),
+              if (isDesktop)
+                const SizedBox(height: firstHeaderDesktopTopPadding),
               Focus(
                 focusNode: InheritedBackdropFocusNodes.of(context)
                     .settingsPageFocusNode,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32),
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
                   child: ExcludeSemantics(
                     child: Header(
                       color: Theme.of(context).colorScheme.onSurface,
@@ -288,12 +289,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   animation: _staggerSettingsItemsAnimation,
                   children: settingsListItems,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Divider(thickness: 2, height: 0, color: colorScheme.background),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 SettingsAbout(),
                 SettingsFeedback(),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 Divider(thickness: 2, height: 0, color: colorScheme.background),
                 SettingsAttribution(),
               ],

@@ -50,15 +50,15 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: 96,
     ).animate(_controller);
     _headerMargin = EdgeInsetsGeometryTween(
-      begin: EdgeInsets.fromLTRB(32, 8, 32, 8),
+      begin: const EdgeInsets.fromLTRB(32, 8, 32, 8),
       end: EdgeInsets.zero,
     ).animate(_controller);
     _headerImagePadding = EdgeInsetsGeometryTween(
-      begin: EdgeInsets.all(8),
-      end: EdgeInsetsDirectional.fromSTEB(16, 8, 8, 8),
+      begin: const EdgeInsets.all(8),
+      end: const EdgeInsetsDirectional.fromSTEB(16, 8, 8, 8),
     ).animate(_controller);
     _childrenPadding = EdgeInsetsGeometryTween(
-      begin: EdgeInsets.symmetric(horizontal: 32),
+      begin: const EdgeInsets.symmetric(horizontal: 32),
       end: EdgeInsets.zero,
     ).animate(_controller);
     _headerBorderRadius = BorderRadiusTween(
@@ -290,7 +290,7 @@ class CategoryDemoItem extends StatelessWidget {
                   demo.icon,
                   color: colorScheme.primary,
                 ),
-                SizedBox(width: 40),
+                const SizedBox(width: 40),
                 Flexible(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -306,7 +306,7 @@ class CategoryDemoItem extends StatelessWidget {
                           color: colorScheme.onSurface.withOpacity(0.5),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Divider(
                         thickness: 1,
                         height: 1,

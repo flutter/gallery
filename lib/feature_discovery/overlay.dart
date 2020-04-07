@@ -135,7 +135,7 @@ class Background extends StatelessWidget {
         left: centerPosition.dx,
         top: centerPosition.dy,
         child: FractionalTranslation(
-          translation: Offset(-0.5, -0.5),
+          translation: const Offset(-0.5, -0.5),
           child: Opacity(
             opacity: opacity,
             child: Container(
@@ -222,7 +222,7 @@ class Content extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildTitle(textTheme),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             _buildDescription(textTheme),
           ],
         ),
@@ -279,13 +279,13 @@ class Ripple extends StatelessWidget {
       left: center.dx,
       top: center.dy,
       child: FractionalTranslation(
-        translation: Offset(-0.5, -0.5),
+        translation: const Offset(-0.5, -0.5),
         child: Opacity(
           opacity: opacity,
           child: Container(
             height: radius * 2,
             width: radius * 2,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
             ),
@@ -336,7 +336,7 @@ class TapTarget extends StatelessWidget {
       left: center.dx,
       top: center.dy,
       child: FractionalTranslation(
-        translation: Offset(-0.5, -0.5),
+        translation: const Offset(-0.5, -0.5),
         child: InkWell(
           onTap: onTap,
           child: Opacity(
@@ -344,7 +344,7 @@ class TapTarget extends StatelessWidget {
             child: Container(
               height: radius * 2,
               width: radius * 2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),

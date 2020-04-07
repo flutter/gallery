@@ -12,19 +12,19 @@ void main() {
   testWidgets('Home page hides settings semantics when closed', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        localizationsDelegates: [GalleryLocalizations.delegate],
+        localizationsDelegates: const [GalleryLocalizations.delegate],
         home: ModelBinding(
-          initialModel: GalleryOptions(
+          initialModel: const GalleryOptions(
             textScaleFactor: 1.0,
           ),
-          child: Backdrop(
+          child: const Backdrop(
             settingsPage: Text('Front'),
             homePage: Text('Back'),
           ),
         ),
       ),
     );
-    await tester.pump(Duration(seconds: 1));
+    await tester.pump(const Duration(seconds: 1));
 
     expect(find.bySemanticsLabel('Settings'), findsOneWidget);
     expect(find.bySemanticsLabel('Close settings'), findsNothing);
@@ -32,7 +32,7 @@ void main() {
     expect(tester.getSemantics(find.text('Front')).label, '');
 
     await tester.tap(find.bySemanticsLabel('Settings'));
-    await tester.pump(Duration(seconds: 1));
+    await tester.pump(const Duration(seconds: 1));
 
     // The test no longer finds Setting and Close settings since the semantics
     // are excluded when settings mode is activated.
