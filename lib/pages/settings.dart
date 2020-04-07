@@ -272,7 +272,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 focusNode: InheritedBackdropFocusNodes.of(context)
                     .settingsPageFocusNode,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32),
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
                   child: ExcludeSemantics(
                     child: Header(
                       color: Theme.of(context).colorScheme.onSurface,
@@ -288,12 +288,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   animation: _staggerSettingsItemsAnimation,
                   children: settingsListItems,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Divider(thickness: 2, height: 0, color: colorScheme.background),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 SettingsAbout(),
                 SettingsFeedback(),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 Divider(thickness: 2, height: 0, color: colorScheme.background),
                 SettingsAttribution(),
               ],

@@ -75,7 +75,7 @@ extension GalleryDemoExtension on GalleryDemoCategory {
 }
 
 class GalleryDemo {
-  GalleryDemo({
+  const GalleryDemo({
     @required this.title,
     @required this.category,
     @required this.subtitle,
@@ -87,10 +87,7 @@ class GalleryDemo {
         assert(category != null),
         assert(subtitle != null),
         assert(category == GalleryDemoCategory.study ||
-            (slug != null &&
-                icon != null &&
-                configurations != null &&
-                configurations.isNotEmpty));
+            (slug != null && icon != null && configurations != null));
 
   final String title;
   final GalleryDemoCategory category;
@@ -103,7 +100,7 @@ class GalleryDemo {
 }
 
 class GalleryDemoConfiguration {
-  GalleryDemoConfiguration({
+  const GalleryDemoConfiguration({
     this.title,
     this.description,
     this.documentationUrl,
