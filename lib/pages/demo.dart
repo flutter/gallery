@@ -37,7 +37,7 @@ class DemoPage extends StatefulWidget {
     @required this.slug,
   }) : super(key: key);
 
-  static String baseRoute = '/demo';
+  static const String baseRoute = '/demo';
   final String slug;
 
   @override

@@ -12,7 +12,7 @@ const _primaryColor = Color(0xFF6200EE);
 class StarterApp extends StatelessWidget {
   const StarterApp();
 
-  static String defaultRoute = '/starter';
+  static const String defaultRoute = '/starter';
 
   @override
   Widget build(BuildContext context) {

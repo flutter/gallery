@@ -19,8 +19,8 @@ import 'package:gallery/studies/rally/login.dart';
 class RallyApp extends StatelessWidget {
   const RallyApp();
 
-  static String loginRoute = '/rally/login';
-  static String homeRoute = '/rally';
+  static const String loginRoute = '/rally/login';
+  static const String homeRoute = '/rally';
 
   @override
   Widget build(BuildContext context) {

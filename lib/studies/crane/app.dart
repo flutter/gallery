@@ -14,7 +14,7 @@ import 'package:gallery/studies/crane/theme.dart';
 class CraneApp extends StatelessWidget {
   const CraneApp();
 
-  static String defaultRoute = '/crane';
+  static const String defaultRoute = '/crane';
 
   @override
   Widget build(BuildContext context) {

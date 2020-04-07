@@ -21,8 +21,8 @@ import 'package:scoped_model/scoped_model.dart';
 class ShrineApp extends StatefulWidget {
   const ShrineApp();
 
-  static String loginRoute = '/shrine/login';
-  static String homeRoute = '/shrine';
+  static const String loginRoute = '/shrine/login';
+  static const String homeRoute = '/shrine';
 
   @override
   _ShrineAppState createState() => _ShrineAppState();

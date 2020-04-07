@@ -16,7 +16,7 @@ const _fortnightlyTitle = 'Fortnightly';
 class FortnightlyApp extends StatelessWidget {
   const FortnightlyApp();
 
-  static String defaultRoute = '/fortnightly';
+  static const String defaultRoute = '/fortnightly';
 
   @override
   Widget build(BuildContext context) {
