@@ -103,7 +103,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
               onPressed: () {
                 print('Floating action button pressed');
               },
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
               tooltip: GalleryLocalizations.of(context).buttonTextCreate,
             )
           : null,

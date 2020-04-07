@@ -26,7 +26,7 @@ class _SettingsViewState extends State<SettingsView> {
             for (String title
                 in DummyDataService.getSettingsTitles(context)) ...[
               _SettingsItem(title),
-              Divider(
+              const Divider(
                 color: RallyColors.dividerColor,
                 height: 1,
               )
