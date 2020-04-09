@@ -36,13 +36,13 @@ class _AboutDialog extends StatelessWidget {
 
     final name = 'Flutter Gallery'; // Don't need to localize.
     final legalese = '© 2019 The Flutter team'; // Don't need to localize.
-    final repoLinkText = GalleryLocalizations.of(context).githubRepo(name);
+    final repoText = GalleryLocalizations.of(context).githubRepo(name);
     final seeSource =
-        GalleryLocalizations.of(context).aboutDialogDescription(repoLinkText);
-    final repoIndex = seeSource.indexOf(repoLinkText);
-    final samplesRepoIndexEnd = repoIndex + repoLinkText.length;
-    final seeSourceFirst = seeSource.substring(0, repoIndex);
-    final seeSourceSecond = seeSource.substring(samplesRepoIndexEnd);
+        GalleryLocalizations.of(context).aboutDialogDescription(repoText);
+    final repoLinkIndex = seeSource.indexOf(repoText);
+    final repoLinkIndexEnd = repoLinkIndex + repoText.length;
+    final seeSourceFirst = seeSource.substring(0, repoLinkIndex);
+    final seeSourceSecond = seeSource.substring(repoLinkIndexEnd);
 
     return AlertDialog(
       backgroundColor: colorScheme.background,
@@ -72,7 +72,7 @@ class _AboutDialog extends StatelessWidget {
                     style: bodyTextStyle.copyWith(
                       color: colorScheme.primary,
                     ),
-                    text: repoLinkText,
+                    text: repoText,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
                         final url = 'https://github.com/flutter/gallery/';
