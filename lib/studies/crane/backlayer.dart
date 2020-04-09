@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 abstract class BackLayerItem extends StatefulWidget {
   final int index;
 
-  BackLayerItem({Key key, this.index}) : super(key: key);
+  const BackLayerItem({Key key, this.index}) : super(key: key);
 }
 
 class BackLayer extends StatefulWidget {

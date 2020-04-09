@@ -48,7 +48,7 @@ class HorizontalArticlePreview extends StatelessWidget {
                 data.category,
                 style: textTheme.subtitle1,
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 data.title,
                 style: textTheme.headline5.copyWith(fontSize: 16),
@@ -61,7 +61,7 @@ class HorizontalArticlePreview extends StatelessWidget {
             GalleryLocalizations.of(context).craneMinutes(minutes),
             style: textTheme.bodyText1,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
         ],
         FadeInImagePlaceholder(
           image: AssetImage(data.imageUrl),
@@ -116,18 +116,18 @@ class VerticalArticlePreview extends StatelessWidget {
               excludeFromSemantics: true,
             ),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             data.category,
             style: textTheme.subtitle1,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             data.title,
             style: headlineTextStyle ?? textTheme.headline5,
           ),
           if (showSnippet) ...[
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               data.snippet,
               style: textTheme.bodyText2,
@@ -243,7 +243,7 @@ class HashtagBar extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingTechDesign}',
@@ -308,7 +308,7 @@ class NavigationMenu extends StatelessWidget {
               ),
             ],
           ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         MenuItem(
           GalleryLocalizations.of(context).fortnightlyMenuFrontPage,
           header: true,
@@ -378,7 +378,7 @@ class StockItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(ticker, style: textTheme.subtitle1),
-        SizedBox(height: 2),
+        const SizedBox(height: 2),
         Row(
           children: [
             Expanded(
@@ -393,10 +393,12 @@ class StockItem extends StatelessWidget {
               percent > 0 ? '+' : '-',
               style: textTheme.subtitle2.copyWith(
                 fontSize: 12,
-                color: percent > 0 ? Color(0xff20CF63) : Color(0xff661FFF),
+                color: percent > 0
+                    ? const Color(0xff20CF63)
+                    : const Color(0xff661FFF),
               ),
             ),
-            SizedBox(width: 4),
+            const SizedBox(width: 4),
             Text(
               percentFormat.format(percent.abs() / 100),
               style: textTheme.caption.copyWith(
@@ -413,7 +415,7 @@ class StockItem extends StatelessWidget {
 
 List<Widget> buildStockItems(BuildContext context) {
   Widget articleDivider = Container(
-    margin: EdgeInsets.symmetric(vertical: 16),
+    margin: const EdgeInsets.symmetric(vertical: 16),
     color: Colors.black.withOpacity(0.07),
     height: 1,
   );
@@ -423,7 +425,7 @@ List<Widget> buildStockItems(BuildContext context) {
     SizedBox(
       width: double.infinity,
       child: FadeInImagePlaceholder(
-        image: AssetImage('assets/fortnightly/fortnightly_chart.png'),
+        image: const AssetImage('assets/fortnightly/fortnightly_chart.png'),
         placeholder: LayoutBuilder(builder: (context, constraints) {
           return Container(
             color: Colors.black.withOpacity(0.1),
@@ -499,7 +501,7 @@ class VideoPreview extends StatelessWidget {
             excludeFromSemantics: true,
           ),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Row(
           children: [
             Expanded(
@@ -508,7 +510,7 @@ class VideoPreview extends StatelessWidget {
             Text(time, style: textTheme.bodyText1)
           ],
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(data.title, style: textTheme.headline5.copyWith(fontSize: 16)),
       ],
     );
@@ -528,7 +530,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
       ),
       time: '2:31',
     ),
-    SizedBox(height: 32),
+    const SizedBox(height: 32),
     VideoPreview(
       data: ArticleData(
         imageUrl: 'assets/fortnightly/fortnightly_bees.jpg',
@@ -572,10 +574,8 @@ ThemeData buildTheme(BuildContext context) {
         fontSize: 16,
         textStyle: textTheme.headline5,
       ),
-      // TODO: Use GoogleFonts.robotoCondensed when available
       // (caption 2), preview category, stock ticker
-      subtitle1: textTheme.subtitle1.copyWith(
-        fontFamily: 'Roboto Condensed',
+      subtitle1: GoogleFonts.robotoCondensed(
         fontWeight: FontWeight.w700,
         fontSize: 16,
       ),

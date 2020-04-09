@@ -14,6 +14,8 @@ enum BannerDemoAction {
 }
 
 class BannerDemo extends StatefulWidget {
+  const BannerDemo();
+
   @override
   _BannerDemoState createState() => _BannerDemoState();
 }

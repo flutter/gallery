@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 // BEGIN dataTableDemo
 
 class DataTableDemo extends StatefulWidget {
+  const DataTableDemo();
+
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
 }

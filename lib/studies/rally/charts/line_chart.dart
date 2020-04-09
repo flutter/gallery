@@ -30,7 +30,7 @@ class RallyLineChart extends StatelessWidget {
         textDirection: GalleryOptions.of(context).textDirection(),
         textScaleFactor: reducedTextScale(context),
         padding: isDisplayDesktop(context)
-            ? EdgeInsets.symmetric(vertical: 22)
+            ? const EdgeInsets.symmetric(vertical: 22)
             : EdgeInsets.zero,
       ),
     );

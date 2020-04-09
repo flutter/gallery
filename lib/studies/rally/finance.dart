@@ -117,7 +117,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 16),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               child: Row(
                 children: [
                   Container(
@@ -160,8 +160,8 @@ class FinancialEntityCategoryView extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    constraints: BoxConstraints(minWidth: 32),
-                    padding: EdgeInsetsDirectional.only(start: 12),
+                    constraints: const BoxConstraints(minWidth: 32),
+                    padding: const EdgeInsetsDirectional.only(start: 12),
                     child: suffix,
                   ),
                 ],
@@ -331,7 +331,7 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: isDesktop ? EdgeInsets.all(40) : EdgeInsets.zero,
+                padding: isDesktop ? const EdgeInsets.all(40) : EdgeInsets.zero,
                 child: ListView(
                   shrinkWrap: true,
                   children: [
@@ -368,11 +368,11 @@ class _DetailedEventCard extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
     return FlatButton(
       onPressed: () {},
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             width: double.infinity,
             child: isDesktop
                 ? Row(

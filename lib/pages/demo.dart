@@ -34,16 +34,53 @@ enum _DemoState {
 class DemoPage extends StatefulWidget {
   const DemoPage({
     Key key,
+    @required this.slug,
+  }) : super(key: key);
+
+  static const String baseRoute = '/demo';
+  final String slug;
+
+  @override
+  _DemoPageState createState() => _DemoPageState();
+}
+
+class _DemoPageState extends State<DemoPage> {
+  Map<String, GalleryDemo> slugToDemoMap;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // To make sure that we do not rebuild the map for every update to the demo
+    // page, we save it in a variable. The cost of running `slugToDemo` is
+    // still only close to constant, as it's just iterating over all of the
+    // demos.
+    slugToDemoMap = slugToDemo(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.slug == null || !slugToDemoMap.containsKey(widget.slug)) {
+      // Return to root if invalid slug.
+      Navigator.of(context).pop();
+    }
+    return GalleryDemoPage(demo: slugToDemoMap[widget.slug]);
+  }
+}
+
+class GalleryDemoPage extends StatefulWidget {
+  const GalleryDemoPage({
+    Key key,
     @required this.demo,
   }) : super(key: key);
 
   final GalleryDemo demo;
 
   @override
-  _DemoPageState createState() => _DemoPageState();
+  _GalleryDemoPageState createState() => _GalleryDemoPageState();
 }
 
-class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
+class _GalleryDemoPageState extends State<GalleryDemoPage>
+    with TickerProviderStateMixin {
   _DemoState _state = _DemoState.normal;
   int _configIndex = 0;
   bool _isDesktop;
@@ -76,7 +113,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
     super.initState();
     _codeBackgroundColorController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
     SharedPreferences.getInstance().then((preferences) {
       setState(() {
@@ -186,6 +223,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
       leading: Padding(
         padding: EdgeInsetsDirectional.only(start: appBarPadding),
         child: IconButton(
+          key: const ValueKey('Back'),
           icon: const BackButtonIcon(),
           tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: () {
@@ -294,14 +332,14 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
           fontSize: 12 * GalleryOptions.of(context).textScaleFactor(context),
         );
         section = CodeStyle(
-          baseStyle: codeTheme.copyWith(color: Color(0xFFFAFBFB)),
-          numberStyle: codeTheme.copyWith(color: Color(0xFFBD93F9)),
-          commentStyle: codeTheme.copyWith(color: Color(0xFF808080)),
-          keywordStyle: codeTheme.copyWith(color: Color(0xFF1CDEC9)),
-          stringStyle: codeTheme.copyWith(color: Color(0xFFFFA65C)),
-          punctuationStyle: codeTheme.copyWith(color: Color(0xFF8BE9FD)),
-          classStyle: codeTheme.copyWith(color: Color(0xFFD65BAD)),
-          constantStyle: codeTheme.copyWith(color: Color(0xFFFF8383)),
+          baseStyle: codeTheme.copyWith(color: const Color(0xFFFAFBFB)),
+          numberStyle: codeTheme.copyWith(color: const Color(0xFFBD93F9)),
+          commentStyle: codeTheme.copyWith(color: const Color(0xFF808080)),
+          keywordStyle: codeTheme.copyWith(color: const Color(0xFF1CDEC9)),
+          stringStyle: codeTheme.copyWith(color: const Color(0xFFFFA65C)),
+          punctuationStyle: codeTheme.copyWith(color: const Color(0xFF8BE9FD)),
+          classStyle: codeTheme.copyWith(color: const Color(0xFFD65BAD)),
+          constantStyle: codeTheme.copyWith(color: const Color(0xFFFF8383)),
           child: _DemoSectionCode(
             maxHeight: maxSectionHeight,
             codeWidget: CodeDisplayPage(
@@ -369,7 +407,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         child: ListView(
           // Use a non-scrollable ListView to enable animation of shifting the
           // demo offscreen.
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             section,
             demoContent,
@@ -415,7 +453,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
               // If it is currently in light mode, add a
               // dark background for code.
               Widget codeBackground = Container(
-                padding: EdgeInsets.only(top: 56),
+                padding: const EdgeInsets.only(top: 56),
                 child: Container(
                   color: ColorTween(
                     begin: Colors.transparent,
@@ -528,7 +566,7 @@ class _DemoSectionOptions extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
           ],
         ),
       ),
@@ -557,7 +595,7 @@ class _DemoSectionOptionsItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          constraints: BoxConstraints(minWidth: double.infinity),
+          constraints: const BoxConstraints(minWidth: double.infinity),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           child: Text(
             title,
@@ -614,7 +652,7 @@ class _DemoSectionInfo extends StatelessWidget {
                       isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 description,
                 style: textTheme.bodyText2.apply(color: colorScheme.onSurface),
@@ -644,7 +682,7 @@ class DemoContent extends StatelessWidget {
       height: height,
       child: Material(
         clipBehavior: Clip.antiAlias,
-        borderRadius: BorderRadius.vertical(
+        borderRadius: const BorderRadius.vertical(
           top: Radius.circular(10.0),
           bottom: Radius.circular(2.0),
         ),
@@ -671,10 +709,10 @@ class _DemoSectionCode extends StatelessWidget {
     return Theme(
       data: GalleryThemeData.darkThemeData,
       child: Padding(
-        padding: EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.only(bottom: 16),
         child: Container(
           color: isDesktop ? null : GalleryThemeData.darkThemeData.canvasColor,
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           height: maxHeight,
           child: codeWidget,
         ),
@@ -721,13 +759,13 @@ class CodeDisplayPage extends StatelessWidget {
       children: [
         Padding(
           padding: isDesktop
-              ? EdgeInsets.only(bottom: 8)
-              : EdgeInsets.symmetric(vertical: 8),
+              ? const EdgeInsets.only(bottom: 8)
+              : const EdgeInsets.symmetric(vertical: 8),
           child: FlatButton(
             color: Colors.white.withOpacity(0.15),
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: EdgeInsets.symmetric(horizontal: 8),
-            shape: RoundedRectangleBorder(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
             onPressed: () async {
@@ -749,7 +787,7 @@ class CodeDisplayPage extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.symmetric(vertical: 8),
               child: RichText(
                 textDirection: TextDirection.ltr,
                 text: _richTextCode,

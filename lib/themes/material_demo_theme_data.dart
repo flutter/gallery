@@ -15,7 +15,7 @@ class MaterialDemoThemeData {
     bottomAppBarTheme: BottomAppBarTheme(
       color: _colorScheme.primary,
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.primary,
       colorScheme: _colorScheme,
     ),
@@ -28,7 +28,7 @@ class MaterialDemoThemeData {
     accentColor: _colorScheme.primary,
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: _colorScheme.background,
-    snackBarTheme: SnackBarThemeData(
+    snackBarTheme: const SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
     ),
     typography: Typography.material2018(

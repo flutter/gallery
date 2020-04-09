@@ -236,6 +236,8 @@ class PaletteTabView extends StatelessWidget {
 }
 
 class ColorsDemo extends StatelessWidget {
+  const ColorsDemo();
+
   @override
   Widget build(BuildContext context) {
     final palettes = _allPalettes(context);

@@ -26,54 +26,57 @@ enum _ExpandableSetting {
 }
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage({
-    Key key,
-    @required this.openSettingsAnimation,
-    @required this.staggerSettingsItemsAnimation,
-    @required this.isSettingsOpenNotifier,
-  }) : super(key: key);
+  SettingsPage({this.animationController});
 
-  final Animation<double> openSettingsAnimation;
-  final Animation<double> staggerSettingsItemsAnimation;
-  final ValueNotifier<bool> isSettingsOpenNotifier;
+  final AnimationController animationController;
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  _ExpandableSetting expandedSettingId;
-  Map<String, String> _localeNativeNames;
+  _ExpandableSetting _expandedSettingId;
+  Animation<double> _staggerSettingsItemsAnimation;
 
   void onTapSetting(_ExpandableSetting settingId) {
     setState(() {
-      if (expandedSettingId == settingId) {
-        expandedSettingId = null;
+      if (_expandedSettingId == settingId) {
+        _expandedSettingId = null;
       } else {
-        expandedSettingId = settingId;
+        _expandedSettingId = settingId;
       }
     });
+  }
+
+  void _closeSettingId(AnimationStatus status) {
+    if (status == AnimationStatus.dismissed) {
+      setState(() {
+        _expandedSettingId = null;
+      });
+    }
   }
 
   @override
   void initState() {
     super.initState();
-    LocaleNamesLocalizationsDelegate().allNativeNames().then(
-          (data) => setState(
-            () {
-              _localeNativeNames = data;
-            },
-          ),
-        );
 
     // When closing settings, also shrink expanded setting.
-    widget.isSettingsOpenNotifier.addListener(() {
-      if (!widget.isSettingsOpenNotifier.value) {
-        setState(() {
-          expandedSettingId = null;
-        });
-      }
-    });
+    widget.animationController.addStatusListener(_closeSettingId);
+
+    _staggerSettingsItemsAnimation = CurvedAnimation(
+      parent: widget.animationController,
+      curve: const Interval(
+        0.5,
+        1.0,
+        curve: Curves.easeIn,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.animationController.removeStatusListener(_closeSettingId);
   }
 
   /// Given a [Locale], returns a [DisplayOption] with its native name for a
@@ -86,7 +89,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final localeName = LocaleNames.of(context).nameOf(localeCode);
     if (localeName != null) {
       final localeNativeName =
-          _localeNativeNames != null ? _localeNativeNames[localeCode] : null;
+          LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode];
       return localeNativeName != null
           ? DisplayOption(localeNativeName, subtitle: localeName)
           : DisplayOption(localeName);
@@ -168,7 +171,7 @@ class _SettingsPageState extends State<SettingsPage> {
           options.copyWith(textScaleFactor: newTextScale),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.textScale),
-        isExpanded: expandedSettingId == _ExpandableSetting.textScale,
+        isExpanded: _expandedSettingId == _ExpandableSetting.textScale,
       ),
       SettingsListItem<CustomTextDirection>(
         title: GalleryLocalizations.of(context).settingsTextDirection,
@@ -189,7 +192,7 @@ class _SettingsPageState extends State<SettingsPage> {
           options.copyWith(customTextDirection: newTextDirection),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.textDirection),
-        isExpanded: expandedSettingId == _ExpandableSetting.textDirection,
+        isExpanded: _expandedSettingId == _ExpandableSetting.textDirection,
       ),
       SettingsListItem<Locale>(
         title: GalleryLocalizations.of(context).settingsLocale,
@@ -207,7 +210,7 @@ class _SettingsPageState extends State<SettingsPage> {
           );
         },
         onTapSetting: () => onTapSetting(_ExpandableSetting.locale),
-        isExpanded: expandedSettingId == _ExpandableSetting.locale,
+        isExpanded: _expandedSettingId == _ExpandableSetting.locale,
       ),
       SettingsListItem<TargetPlatform>(
         title: GalleryLocalizations.of(context).settingsPlatformMechanics,
@@ -224,7 +227,7 @@ class _SettingsPageState extends State<SettingsPage> {
           options.copyWith(platform: newPlatform),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.platform),
-        isExpanded: expandedSettingId == _ExpandableSetting.platform,
+        isExpanded: _expandedSettingId == _ExpandableSetting.platform,
       ),
       SettingsListItem<ThemeMode>(
         title: GalleryLocalizations.of(context).settingsTheme,
@@ -245,61 +248,57 @@ class _SettingsPageState extends State<SettingsPage> {
           options.copyWith(themeMode: newThemeMode),
         ),
         onTapSetting: () => onTapSetting(_ExpandableSetting.theme),
-        isExpanded: expandedSettingId == _ExpandableSetting.theme,
+        isExpanded: _expandedSettingId == _ExpandableSetting.theme,
       ),
       SlowMotionSetting(),
     ];
 
     return Material(
       color: colorScheme.secondaryVariant,
-      child: _AnimatedSettingsPage(
-        animation: widget.openSettingsAnimation,
-        child: Padding(
-          padding: isDesktop
-              ? EdgeInsets.zero
-              : EdgeInsets.only(
-                  bottom: galleryHeaderHeight,
-                ),
-          // Remove ListView top padding as it is already accounted for.
-          child: MediaQuery.removePadding(
-            removeTop: isDesktop,
-            context: context,
-            child: ListView(
-              children: [
-                if (isDesktop) SizedBox(height: firstHeaderDesktopTopPadding),
-                Focus(
-                  focusNode: InheritedBackdropFocusNodes.of(context)
-                      .frontLayerFocusNode,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32),
-                    child: ExcludeSemantics(
-                      child: Header(
-                        color: Theme.of(context).colorScheme.onSurface,
-                        text: GalleryLocalizations.of(context).settingsTitle,
-                      ),
+      child: Padding(
+        padding: isDesktop
+            ? EdgeInsets.zero
+            : const EdgeInsets.only(
+                bottom: galleryHeaderHeight,
+              ),
+        // Remove ListView top padding as it is already accounted for.
+        child: MediaQuery.removePadding(
+          removeTop: isDesktop,
+          context: context,
+          child: ListView(
+            children: [
+              if (isDesktop)
+                const SizedBox(height: firstHeaderDesktopTopPadding),
+              Focus(
+                focusNode: InheritedBackdropFocusNodes.of(context)
+                    .settingsPageFocusNode,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: ExcludeSemantics(
+                    child: Header(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      text: GalleryLocalizations.of(context).settingsTitle,
                     ),
                   ),
                 ),
-                if (isDesktop)
-                  ...settingsListItems
-                else ...[
-                  _AnimateSettingsListItems(
-                    animation: widget.staggerSettingsItemsAnimation,
-                    children: settingsListItems,
-                  ),
-                  SizedBox(height: 16),
-                  Divider(
-                      thickness: 2, height: 0, color: colorScheme.background),
-                  SizedBox(height: 12),
-                  SettingsAbout(),
-                  SettingsFeedback(),
-                  SizedBox(height: 12),
-                  Divider(
-                      thickness: 2, height: 0, color: colorScheme.background),
-                  SettingsAttribution(),
-                ],
+              ),
+              if (isDesktop)
+                ...settingsListItems
+              else ...[
+                _AnimateSettingsListItems(
+                  animation: _staggerSettingsItemsAnimation,
+                  children: settingsListItems,
+                ),
+                const SizedBox(height: 16),
+                Divider(thickness: 2, height: 0, color: colorScheme.background),
+                const SizedBox(height: 12),
+                SettingsAbout(),
+                SettingsFeedback(),
+                const SizedBox(height: 12),
+                Divider(thickness: 2, height: 0, color: colorScheme.background),
+                SettingsAttribution(),
               ],
-            ),
+            ],
           ),
         ),
       ),
@@ -415,46 +414,6 @@ class _SettingsLink extends StatelessWidget {
   }
 }
 
-/// Animate the settings page to slide in from above.
-class _AnimatedSettingsPage extends StatelessWidget {
-  const _AnimatedSettingsPage({
-    Key key,
-    @required this.animation,
-    @required this.child,
-  }) : super(key: key);
-
-  final Widget child;
-  final Animation<double> animation;
-
-  @override
-  Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
-
-    if (isDesktop) {
-      return child;
-    } else {
-      return LayoutBuilder(builder: (context, constraints) {
-        return Stack(
-          children: [
-            PositionedTransition(
-              rect: RelativeRectTween(
-                begin: RelativeRect.fromLTRB(0, -constraints.maxHeight, 0, 0),
-                end: RelativeRect.fromLTRB(0, 0, 0, 0),
-              ).animate(
-                CurvedAnimation(
-                  parent: animation,
-                  curve: Curves.linear,
-                ),
-              ),
-              child: child,
-            ),
-          ],
-        );
-      });
-    }
-  }
-}
-
 /// Animate the settings list items to stagger in from above.
 class _AnimateSettingsListItems extends StatelessWidget {
   const _AnimateSettingsListItems({
@@ -472,14 +431,14 @@ class _AnimateSettingsListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final startDividingPadding = 4.0;
+    final dividingPadding = 4.0;
     final topPaddingTween = Tween<double>(
       begin: 0,
-      end: children.length * startDividingPadding,
+      end: children.length * dividingPadding,
     );
     final dividerTween = Tween<double>(
-      begin: startDividingPadding,
-      end: 0,
+      begin: 0,
+      end: dividingPadding,
     );
 
     return Padding(

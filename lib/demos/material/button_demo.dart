@@ -79,7 +79,7 @@ class _FlatButtonDemo extends StatelessWidget {
             child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           FlatButton.icon(
             icon: const Icon(Icons.add, size: 18),
             label: Text(GalleryLocalizations.of(context).buttonText),
@@ -106,7 +106,7 @@ class _RaisedButtonDemo extends StatelessWidget {
             child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           RaisedButton.icon(
             icon: const Icon(Icons.add, size: 18),
             label: Text(GalleryLocalizations.of(context).buttonText),
@@ -136,7 +136,7 @@ class _OutlineButtonDemo extends StatelessWidget {
             child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           OutlineButton.icon(
             // TODO: Should update to OutlineButton follow material spec.
             highlightedBorderColor:
@@ -199,7 +199,7 @@ class _FloatingActionButtonDemo extends StatelessWidget {
             onPressed: () {},
             tooltip: GalleryLocalizations.of(context).buttonTextCreate,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           FloatingActionButton.extended(
             icon: const Icon(Icons.add),
             label: Text(GalleryLocalizations.of(context).buttonTextCreate),

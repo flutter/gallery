@@ -91,7 +91,7 @@ class _BackdropTitle extends AnimatedWidget {
         Directionality.of(context) == TextDirection.ltr ? 1 : -1;
 
     final slantedMenuIcon =
-        ImageIcon(AssetImage('packages/shrine_images/slanted_menu.png'));
+        const ImageIcon(AssetImage('packages/shrine_images/slanted_menu.png'));
 
     final directionalSlantedMenuIcon =
         Directionality.of(context) == TextDirection.ltr
@@ -333,6 +333,7 @@ class _BackdropState extends State<Backdrop>
   @override
   Widget build(BuildContext context) {
     final AppBar appBar = AppBar(
+      automaticallyImplyLeading: false,
       brightness: Brightness.light,
       elevation: 0,
       titleSpacing: 0,

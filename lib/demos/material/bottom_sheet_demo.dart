@@ -12,7 +12,7 @@ enum BottomSheetDemoType {
 }
 
 class BottomSheetDemo extends StatelessWidget {
-  BottomSheetDemo({Key key, @required this.type}) : super(key: key);
+  const BottomSheetDemo({Key key, @required this.type}) : super(key: key);
 
   final BottomSheetDemoType type;
 
@@ -47,7 +47,7 @@ class BottomSheetDemo extends StatelessWidget {
       // changing type.
       key: ValueKey(type),
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<Widget>(
+        return MaterialPageRoute<void>(
           builder: (context) => Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -64,7 +64,6 @@ class BottomSheetDemo extends StatelessWidget {
             ),
             body: _bottomSheetDemo(context),
           ),
-          settings: settings,
         );
       },
     );
@@ -89,7 +88,7 @@ class _BottomSheetContent extends StatelessWidget {
               ),
             ),
           ),
-          Divider(thickness: 1),
+          const Divider(thickness: 1),
           Expanded(
             child: ListView.builder(
               itemCount: 21,

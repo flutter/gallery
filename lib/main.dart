@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:gallery/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -43,7 +44,7 @@ class GalleryApp extends StatelessWidget {
             darkTheme: GalleryThemeData.darkThemeData.copyWith(
               platform: GalleryOptions.of(context).platform,
             ),
-            localizationsDelegates: [
+            localizationsDelegates: const [
               ...GalleryLocalizations.localizationsDelegates,
               LocaleNamesLocalizationsDelegate()
             ],
@@ -53,13 +54,24 @@ class GalleryApp extends StatelessWidget {
               deviceLocale = locale;
               return locale;
             },
-            home: ApplyTextOptions(
-              child: SplashPage(
-                child: AnimatedBackdrop(),
-              ),
-            ),
+            onGenerateRoute: RouteConfiguration.onGenerateRoute,
           );
         },
+      ),
+    );
+  }
+}
+
+class RootPage extends StatelessWidget {
+  const RootPage({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const ApplyTextOptions(
+      child: SplashPage(
+        child: Backdrop(),
       ),
     );
   }

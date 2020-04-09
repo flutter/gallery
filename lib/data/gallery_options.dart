@@ -8,6 +8,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:flutter/services.dart' show SystemChrome, SystemUiOverlayStyle;
 import 'package:gallery/constants.dart';
 
 enum CustomTextDirection {
@@ -72,7 +73,7 @@ class GalleryOptions {
       deviceLocale ??
       // TODO: When deviceLocale can be obtained on macOS, this won't be necessary
       // https://github.com/flutter/flutter/issues/45343
-      (!kIsWeb && Platform.isMacOS ? Locale('en', 'US') : null);
+      (!kIsWeb && Platform.isMacOS ? const Locale('en', 'US') : null);
 
   /// Returns the text direction based on the [CustomTextDirection] setting.
   /// If the locale cannot be determined, returns null.
@@ -234,9 +235,26 @@ class _ModelBindingState extends State<ModelBinding> {
     }
   }
 
+  void handleThemeChange(GalleryOptions newModel) {
+    switch (newModel.themeMode) {
+      case ThemeMode.system:
+        final brightness = WidgetsBinding.instance.window.platformBrightness;
+        SystemChrome.setSystemUIOverlayStyle(brightness == Brightness.dark
+            ? SystemUiOverlayStyle.light
+            : SystemUiOverlayStyle.dark);
+        break;
+      case ThemeMode.light:
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+        break;
+      case ThemeMode.dark:
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    }
+  }
+
   void updateModel(GalleryOptions newModel) {
     if (newModel != currentModel) {
       handleTimeDilation(newModel);
+      handleThemeChange(newModel);
       setState(() {
         currentModel = newModel;
       });

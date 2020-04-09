@@ -11,25 +11,28 @@ import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
 
-const fortnightlyTitle = 'Fortnightly';
+const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  const FortnightlyApp({Key key, this.navigatorKey}) : super(key: key);
+  const FortnightlyApp();
 
-  final GlobalKey<NavigatorState> navigatorKey;
+  static const String defaultRoute = '/fortnightly';
 
   @override
   Widget build(BuildContext context) {
     final home = isDisplayDesktop(context)
-        ? _FortnightlyHomeDesktop()
-        : _FortnightlyHomeMobile();
+        ? const _FortnightlyHomeDesktop()
+        : const _FortnightlyHomeMobile();
     return MaterialApp(
-      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context).copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
       home: ApplyTextOptions(child: home),
+      routes: {
+        FortnightlyApp.defaultRoute: (context) => ApplyTextOptions(child: home),
+      },
+      initialRoute: FortnightlyApp.defaultRoute,
       // L10n settings.
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
@@ -39,6 +42,8 @@ class FortnightlyApp extends StatelessWidget {
 }
 
 class _FortnightlyHomeMobile extends StatelessWidget {
+  const _FortnightlyHomeMobile();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +53,10 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Semantics(
-          label: fortnightlyTitle,
-          child: FadeInImagePlaceholder(
+          label: _fortnightlyTitle,
+          child: const FadeInImagePlaceholder(
             image: AssetImage('assets/fortnightly/fortnightly_title.png'),
             placeholder: SizedBox.shrink(),
             excludeFromSemantics: true,
@@ -81,10 +87,12 @@ class _FortnightlyHomeMobile extends StatelessWidget {
 }
 
 class _FortnightlyHomeDesktop extends StatelessWidget {
+  const _FortnightlyHomeDesktop();
+
   @override
   Widget build(BuildContext context) {
     final menuWidth = 200.0;
-    final spacer = SizedBox(width: 20);
+    final spacer = const SizedBox(width: 20);
     final headerHeight = 40 * reducedTextScale(context);
 
     return Scaffold(
@@ -99,9 +107,9 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                   Container(
                     width: menuWidth,
                     alignment: AlignmentDirectional.centerStart,
-                    margin: EdgeInsets.only(left: 12),
+                    margin: const EdgeInsets.only(left: 12),
                     child: Semantics(
-                      label: fortnightlyTitle,
+                      label: _fortnightlyTitle,
                       child: Image.asset(
                         'assets/fortnightly/fortnightly_title.png',
                         excludeFromSemantics: true,
@@ -150,7 +158,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     child: ListView(
                       children: [
                         ...buildStockItems(context),
-                        SizedBox(height: 32),
+                        const SizedBox(height: 32),
                         ...buildVideoPreviewItems(context),
                       ],
                     ),

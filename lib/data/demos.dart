@@ -2,7 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
@@ -47,24 +50,57 @@ import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 
+enum GalleryDemoCategory {
+  study,
+  material,
+  cupertino,
+  other,
+}
+
+extension GalleryDemoExtension on GalleryDemoCategory {
+  String get name => describeEnum(this);
+
+  String displayTitle(GalleryLocalizations localizations) {
+    switch (this) {
+      case GalleryDemoCategory.material:
+        return 'MATERIAL';
+      case GalleryDemoCategory.cupertino:
+        return 'CUPERTINO';
+      case GalleryDemoCategory.other:
+        return localizations.homeCategoryReference;
+      case GalleryDemoCategory.study:
+    }
+    return null;
+  }
+}
+
 class GalleryDemo {
-  GalleryDemo({
+  const GalleryDemo({
     @required this.title,
-    @required this.icon,
+    @required this.category,
     @required this.subtitle,
-    @required this.configurations,
+    // Parameters below are required for non-study demos.
+    this.slug,
+    this.icon,
+    this.configurations,
   })  : assert(title != null),
-        assert(icon != null),
-        assert(configurations != null && configurations.isNotEmpty);
+        assert(category != null),
+        assert(subtitle != null),
+        assert(category == GalleryDemoCategory.study ||
+            (slug != null && icon != null && configurations != null));
 
   final String title;
-  final IconData icon;
+  final GalleryDemoCategory category;
   final String subtitle;
+  final String slug;
+  final IconData icon;
   final List<GalleryDemoConfiguration> configurations;
+
+  String get describe => '${this.title}@${this.category.name}';
 }
 
 class GalleryDemoConfiguration {
-  GalleryDemoConfiguration({
+  const GalleryDemoConfiguration({
     this.title,
     this.description,
     this.documentationUrl,
@@ -79,40 +115,80 @@ class GalleryDemoConfiguration {
   final CodeDisplayer code;
 }
 
-List<GalleryDemo> materialDemos(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
+List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
+    studies(localizations).values.toList() +
+    materialDemos(localizations) +
+    cupertinoDemos(localizations) +
+    otherDemos(localizations);
+
+Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
+  return <String, GalleryDemo>{
+    'shrine': GalleryDemo(
+      title: 'Shrine',
+      subtitle: localizations.shrineDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'rally': GalleryDemo(
+      title: 'Rally',
+      subtitle: localizations.rallyDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'crane': GalleryDemo(
+      title: 'Crane',
+      subtitle: localizations.craneDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'fortnightly': GalleryDemo(
+      title: 'Fortnightly',
+      subtitle: localizations.fortnightlyDescription,
+      category: GalleryDemoCategory.study,
+    ),
+    'starterApp': GalleryDemo(
+      title: localizations.starterAppTitle,
+      subtitle: localizations.starterAppDescription,
+      category: GalleryDemoCategory.study,
+    ),
+  };
+}
+
+List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoBannerTitle,
       icon: GalleryIcons.listsLeaveBehind,
+      slug: 'banner',
       subtitle: localizations.demoBannerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoBannerTitle,
           description: localizations.demoBannerDescription,
           documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
-          buildRoute: (_) => BannerDemo(),
+          buildRoute: (_) => const BannerDemo(),
           code: CodeSegments.bannerDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoBottomAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
+      slug: 'bottom-app-bar',
       subtitle: localizations.demoBottomAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoBottomAppBarTitle,
           description: localizations.demoBottomAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
-          buildRoute: (_) => BottomAppBarDemo(),
+          buildRoute: (_) => const BottomAppBarDemo(),
           code: CodeSegments.bottomAppBarDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoBottomNavigationTitle,
       icon: GalleryIcons.bottomNavigation,
+      slug: 'bottom-navigation',
       subtitle: localizations.demoBottomNavigationSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -120,8 +196,8 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoBottomNavigationDescription,
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
-          buildRoute: (_) =>
-              BottomNavigationDemo(type: BottomNavigationDemoType.withLabels),
+          buildRoute: (_) => const BottomNavigationDemo(
+              type: BottomNavigationDemoType.withLabels),
           code: CodeSegments.bottomNavigationDemo,
         ),
         GalleryDemoConfiguration(
@@ -129,15 +205,17 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoBottomNavigationDescription,
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
-          buildRoute: (_) => BottomNavigationDemo(
+          buildRoute: (_) => const BottomNavigationDemo(
               type: BottomNavigationDemoType.withoutLabels),
           code: CodeSegments.bottomNavigationDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoBottomSheetTitle,
       icon: GalleryIcons.bottomSheets,
+      slug: 'bottom-sheet',
       subtitle: localizations.demoBottomSheetSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -145,49 +223,52 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoBottomSheetPersistentDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
           buildRoute: (_) =>
-              BottomSheetDemo(type: BottomSheetDemoType.persistent),
+              const BottomSheetDemo(type: BottomSheetDemoType.persistent),
           code: CodeSegments.bottomSheetDemoPersistent,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoBottomSheetModalTitle,
           description: localizations.demoBottomSheetModalDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) => BottomSheetDemo(type: BottomSheetDemoType.modal),
+          buildRoute: (_) =>
+              const BottomSheetDemo(type: BottomSheetDemoType.modal),
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoButtonTitle,
       icon: GalleryIcons.genericButtons,
+      slug: 'button',
       subtitle: localizations.demoButtonSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoFlatButtonTitle,
           description: localizations.demoFlatButtonDescription,
           documentationUrl: '$_docsBaseUrl/material/FlatButton-class.html',
-          buildRoute: (_) => ButtonDemo(type: ButtonDemoType.flat),
+          buildRoute: (_) => const ButtonDemo(type: ButtonDemoType.flat),
           code: CodeSegments.buttonDemoFlat,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoRaisedButtonTitle,
           description: localizations.demoRaisedButtonDescription,
           documentationUrl: '$_docsBaseUrl/material/RaisedButton-class.html',
-          buildRoute: (_) => ButtonDemo(type: ButtonDemoType.raised),
+          buildRoute: (_) => const ButtonDemo(type: ButtonDemoType.raised),
           code: CodeSegments.buttonDemoRaised,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoOutlineButtonTitle,
           description: localizations.demoOutlineButtonDescription,
           documentationUrl: '$_docsBaseUrl/material/OutlineButton-class.html',
-          buildRoute: (_) => ButtonDemo(type: ButtonDemoType.outline),
+          buildRoute: (_) => const ButtonDemo(type: ButtonDemoType.outline),
           code: CodeSegments.buttonDemoOutline,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoToggleButtonTitle,
           description: localizations.demoToggleButtonDescription,
           documentationUrl: '$_docsBaseUrl/material/ToggleButtons-class.html',
-          buildRoute: (_) => ButtonDemo(type: ButtonDemoType.toggle),
+          buildRoute: (_) => const ButtonDemo(type: ButtonDemoType.toggle),
           code: CodeSegments.buttonDemoToggle,
         ),
         GalleryDemoConfiguration(
@@ -195,77 +276,85 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoFloatingButtonDescription,
           documentationUrl:
               '$_docsBaseUrl/material/FloatingActionButton-class.html',
-          buildRoute: (_) => ButtonDemo(type: ButtonDemoType.floating),
+          buildRoute: (_) => const ButtonDemo(type: ButtonDemoType.floating),
           code: CodeSegments.buttonDemoFloating,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
-      title: GalleryLocalizations.of(context).demoCardTitle,
+      title: localizations.demoCardTitle,
       icon: GalleryIcons.cards,
-      subtitle: GalleryLocalizations.of(context).demoCardSubtitle,
+      slug: 'card',
+      subtitle: localizations.demoCardSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: GalleryLocalizations.of(context).demoCardTitle,
-          description: GalleryLocalizations.of(context).demoCardDescription,
+          title: localizations.demoCardTitle,
+          description: localizations.demoCardDescription,
           documentationUrl: '$_docsBaseUrl/material/Card-class.html',
-          buildRoute: (context) => CardsDemo(),
+          buildRoute: (context) => const CardsDemo(),
           code: CodeSegments.cardsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoChipTitle,
       icon: GalleryIcons.chips,
+      slug: 'chip',
       subtitle: localizations.demoChipSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoActionChipTitle,
           description: localizations.demoActionChipDescription,
           documentationUrl: '$_docsBaseUrl/material/ActionChip-class.html',
-          buildRoute: (_) => ChipDemo(type: ChipDemoType.action),
+          buildRoute: (_) => const ChipDemo(type: ChipDemoType.action),
           code: CodeSegments.chipDemoAction,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoChoiceChipTitle,
           description: localizations.demoChoiceChipDescription,
           documentationUrl: '$_docsBaseUrl/material/ChoiceChip-class.html',
-          buildRoute: (_) => ChipDemo(type: ChipDemoType.choice),
+          buildRoute: (_) => const ChipDemo(type: ChipDemoType.choice),
           code: CodeSegments.chipDemoChoice,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoFilterChipTitle,
           description: localizations.demoFilterChipDescription,
           documentationUrl: '$_docsBaseUrl/material/FilterChip-class.html',
-          buildRoute: (_) => ChipDemo(type: ChipDemoType.filter),
+          buildRoute: (_) => const ChipDemo(type: ChipDemoType.filter),
           code: CodeSegments.chipDemoFilter,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoInputChipTitle,
           description: localizations.demoInputChipDescription,
           documentationUrl: '$_docsBaseUrl/material/InputChip-class.html',
-          buildRoute: (_) => ChipDemo(type: ChipDemoType.input),
+          buildRoute: (_) => const ChipDemo(type: ChipDemoType.input),
           code: CodeSegments.chipDemoInput,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoDataTableTitle,
       icon: GalleryIcons.dataTable,
+      slug: 'data-table',
       subtitle: localizations.demoDataTableSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoDataTableTitle,
           description: localizations.demoDataTableDescription,
           documentationUrl: '$_docsBaseUrl/material/DataTable-class.html',
-          buildRoute: (_) => DataTableDemo(),
+          buildRoute: (_) => const DataTableDemo(),
           code: CodeSegments.dataTableDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoDialogTitle,
       icon: GalleryIcons.dialogs,
+      slug: 'dialog',
       subtitle: localizations.demoDialogSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -298,10 +387,12 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           code: CodeSegments.dialogDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoGridListsTitle,
       icon: GalleryIcons.gridOn,
+      slug: 'grid-lists',
       subtitle: localizations.demoGridListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -309,56 +400,62 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoGridListsDescription,
           documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
           buildRoute: (context) =>
-              GridListDemo(type: GridListDemoType.imageOnly),
+              const GridListDemo(type: GridListDemoType.imageOnly),
           code: CodeSegments.gridListsDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoGridListsHeaderTitle,
           description: localizations.demoGridListsDescription,
           documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
-          buildRoute: (context) => GridListDemo(type: GridListDemoType.header),
+          buildRoute: (context) =>
+              const GridListDemo(type: GridListDemoType.header),
           code: CodeSegments.gridListsDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoGridListsFooterTitle,
           description: localizations.demoGridListsDescription,
           documentationUrl: '$_docsBaseUrl/widgets/GridView-class.html',
-          buildRoute: (context) => GridListDemo(type: GridListDemoType.footer),
+          buildRoute: (context) =>
+              const GridListDemo(type: GridListDemoType.footer),
           code: CodeSegments.gridListsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoListsTitle,
       icon: GalleryIcons.listAlt,
+      slug: 'lists',
       subtitle: localizations.demoListsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoOneLineListsTitle,
           description: localizations.demoListsDescription,
           documentationUrl: '$_docsBaseUrl/material/ListTile-class.html',
-          buildRoute: (context) => ListDemo(type: ListDemoType.oneLine),
+          buildRoute: (context) => const ListDemo(type: ListDemoType.oneLine),
           code: CodeSegments.listDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoTwoLineListsTitle,
           description: localizations.demoListsDescription,
           documentationUrl: '$_docsBaseUrl/material/ListTile-class.html',
-          buildRoute: (context) => ListDemo(type: ListDemoType.twoLine),
+          buildRoute: (context) => const ListDemo(type: ListDemoType.twoLine),
           code: CodeSegments.listDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoMenuTitle,
       icon: GalleryIcons.moreVert,
+      slug: 'menu',
       subtitle: localizations.demoMenuSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoContextMenuTitle,
           description: localizations.demoMenuDescription,
           documentationUrl: '$_docsBaseUrl/material/PopupMenuItem-class.html',
-          buildRoute: (context) => MenuDemo(
+          buildRoute: (context) => const MenuDemo(
             type: MenuDemoType.contextMenu,
           ),
           code: CodeSegments.menuDemoContext,
@@ -367,7 +464,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: localizations.demoSectionedMenuTitle,
           description: localizations.demoMenuDescription,
           documentationUrl: '$_docsBaseUrl/material/PopupMenuItem-class.html',
-          buildRoute: (context) => MenuDemo(
+          buildRoute: (context) => const MenuDemo(
             type: MenuDemoType.sectionedMenu,
           ),
           code: CodeSegments.menuDemoSectioned,
@@ -377,7 +474,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoMenuDescription,
           documentationUrl:
               '$_docsBaseUrl/material/CheckedPopupMenuItem-class.html',
-          buildRoute: (context) => MenuDemo(
+          buildRoute: (context) => const MenuDemo(
             type: MenuDemoType.checklistMenu,
           ),
           code: CodeSegments.menuDemoChecklist,
@@ -386,37 +483,41 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: localizations.demoSimpleMenuTitle,
           description: localizations.demoMenuDescription,
           documentationUrl: '$_docsBaseUrl/material/PopupMenuItem-class.html',
-          buildRoute: (context) => MenuDemo(
+          buildRoute: (context) => const MenuDemo(
             type: MenuDemoType.simpleMenu,
           ),
           code: CodeSegments.menuDemoSimple,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoPickersTitle,
       icon: GalleryIcons.event,
+      slug: 'pickers',
       subtitle: localizations.demoPickersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoDatePickerTitle,
           description: localizations.demoDatePickerDescription,
           documentationUrl: '$_docsBaseUrl/material/showDatePicker.html',
-          buildRoute: (context) => PickerDemo(type: PickerDemoType.date),
+          buildRoute: (context) => const PickerDemo(type: PickerDemoType.date),
           code: CodeSegments.pickerDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoTimePickerTitle,
           description: localizations.demoTimePickerDescription,
           documentationUrl: '$_docsBaseUrl/material/showTimePicker.htmlhtml',
-          buildRoute: (context) => PickerDemo(type: PickerDemoType.time),
+          buildRoute: (context) => const PickerDemo(type: PickerDemoType.time),
           code: CodeSegments.pickerDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoProgressIndicatorTitle,
       icon: GalleryIcons.progressActivity,
+      slug: 'progress-indicator',
       subtitle: localizations.demoProgressIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -424,7 +525,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoCircularProgressIndicatorDescription,
           documentationUrl:
               '$_docsBaseUrl/material/CircularProgressIndicator-class.html',
-          buildRoute: (context) => ProgressIndicatorDemo(
+          buildRoute: (context) => const ProgressIndicatorDemo(
             type: ProgressIndicatorDemoType.circular,
           ),
           code: CodeSegments.progressIndicatorsDemo,
@@ -434,23 +535,25 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoLinearProgressIndicatorDescription,
           documentationUrl:
               '$_docsBaseUrl/material/LinearProgressIndicator-class.html',
-          buildRoute: (context) => ProgressIndicatorDemo(
+          buildRoute: (context) => const ProgressIndicatorDemo(
             type: ProgressIndicatorDemoType.linear,
           ),
           code: CodeSegments.progressIndicatorsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoSelectionControlsTitle,
       icon: GalleryIcons.checkBox,
+      slug: 'selection-controls',
       subtitle: localizations.demoSelectionControlsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoSelectionControlsCheckboxTitle,
           description: localizations.demoSelectionControlsCheckboxDescription,
           documentationUrl: '$_docsBaseUrl/material/Checkbox-class.html',
-          buildRoute: (context) => SelectionControlsDemo(
+          buildRoute: (context) => const SelectionControlsDemo(
             type: SelectionControlsDemoType.checkbox,
           ),
           code: CodeSegments.selectionControlsDemoCheckbox,
@@ -459,7 +562,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: localizations.demoSelectionControlsRadioTitle,
           description: localizations.demoSelectionControlsRadioDescription,
           documentationUrl: '$_docsBaseUrl/material/Radio-class.html',
-          buildRoute: (context) => SelectionControlsDemo(
+          buildRoute: (context) => const SelectionControlsDemo(
             type: SelectionControlsDemoType.radio,
           ),
           code: CodeSegments.selectionControlsDemoRadio,
@@ -468,23 +571,26 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           title: localizations.demoSelectionControlsSwitchTitle,
           description: localizations.demoSelectionControlsSwitchDescription,
           documentationUrl: '$_docsBaseUrl/material/Switch-class.html',
-          buildRoute: (context) => SelectionControlsDemo(
+          buildRoute: (context) => const SelectionControlsDemo(
             type: SelectionControlsDemoType.switches,
           ),
           code: CodeSegments.selectionControlsDemoSwitches,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoSlidersTitle,
       icon: GalleryIcons.sliders,
+      slug: 'sliders',
       subtitle: localizations.demoSlidersSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoSlidersTitle,
           description: localizations.demoSlidersDescription,
           documentationUrl: '$_docsBaseUrl/material/Slider-class.html',
-          buildRoute: (context) => SlidersDemo(type: SlidersDemoType.sliders),
+          buildRoute: (context) =>
+              const SlidersDemo(type: SlidersDemoType.sliders),
           code: CodeSegments.slidersDemo,
         ),
         GalleryDemoConfiguration(
@@ -492,7 +598,7 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoRangeSlidersDescription,
           documentationUrl: '$_docsBaseUrl/material/RangeSlider-class.html',
           buildRoute: (context) =>
-              SlidersDemo(type: SlidersDemoType.rangeSliders),
+              const SlidersDemo(type: SlidersDemoType.rangeSliders),
           code: CodeSegments.rangeSlidersDemo,
         ),
         GalleryDemoConfiguration(
@@ -500,83 +606,94 @@ List<GalleryDemo> materialDemos(BuildContext context) {
           description: localizations.demoCustomSlidersDescription,
           documentationUrl: '$_docsBaseUrl/material/SliderTheme-class.html',
           buildRoute: (context) =>
-              SlidersDemo(type: SlidersDemoType.customSliders),
+              const SlidersDemo(type: SlidersDemoType.customSliders),
           code: CodeSegments.customSlidersDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoSnackbarsTitle,
       icon: GalleryIcons.snackbar,
+      slug: 'snackbars',
       subtitle: localizations.demoSnackbarsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoSnackbarsTitle,
           description: localizations.demoSnackbarsDescription,
           documentationUrl: '$_docsBaseUrl/material/SnackBar-class.html',
-          buildRoute: (context) => SnackbarsDemo(),
+          buildRoute: (context) => const SnackbarsDemo(),
           code: CodeSegments.snackbarsDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoTabsTitle,
       icon: GalleryIcons.tabs,
+      slug: 'tabs',
       subtitle: localizations.demoTabsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoTabsScrollingTitle,
           description: localizations.demoTabsDescription,
           documentationUrl: '$_docsBaseUrl/material/TabBar-class.html',
-          buildRoute: (context) => TabsDemo(type: TabsDemoType.scrollable),
+          buildRoute: (context) =>
+              const TabsDemo(type: TabsDemoType.scrollable),
           code: CodeSegments.tabsScrollableDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoTabsNonScrollingTitle,
           description: localizations.demoTabsDescription,
           documentationUrl: '$_docsBaseUrl/material/TabBar-class.html',
-          buildRoute: (context) => TabsDemo(type: TabsDemoType.nonScrollable),
+          buildRoute: (context) =>
+              const TabsDemo(type: TabsDemoType.nonScrollable),
           code: CodeSegments.tabsNonScrollableDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
+      slug: 'text-field',
       subtitle: localizations.demoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoTextFieldTitle,
           description: localizations.demoTextFieldDescription,
           documentationUrl: '$_docsBaseUrl/material/TextField-class.html',
-          buildRoute: (_) => TextFieldDemo(),
+          buildRoute: (_) => const TextFieldDemo(),
           code: CodeSegments.textFieldDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
       title: localizations.demoTooltipTitle,
       icon: GalleryIcons.tooltip,
+      slug: 'tooltip',
       subtitle: localizations.demoTooltipSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoTooltipTitle,
           description: localizations.demoTooltipDescription,
           documentationUrl: '$_docsBaseUrl/material/Tooltip-class.html',
-          buildRoute: (_) => TooltipDemo(),
+          buildRoute: (_) => const TooltipDemo(),
           code: CodeSegments.tooltipDemo,
         ),
       ],
+      category: GalleryDemoCategory.material,
     ),
   ];
 }
 
-List<GalleryDemo> cupertinoDemos(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
+List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoCupertinoActivityIndicatorTitle,
       icon: GalleryIcons.cupertinoProgress,
+      slug: 'cupertino-activity-indicator',
       subtitle: localizations.demoCupertinoActivityIndicatorSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -584,14 +701,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoActivityIndicatorDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoActivityIndicator-class.html',
-          buildRoute: (_) => CupertinoProgressIndicatorDemo(),
+          buildRoute: (_) => const CupertinoProgressIndicatorDemo(),
           code: CodeSegments.cupertinoActivityIndicatorDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoAlertsTitle,
       icon: GalleryIcons.dialogs,
+      slug: 'cupertino-alerts',
       subtitle: localizations.demoCupertinoAlertsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -599,7 +718,8 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
-          buildRoute: (_) => CupertinoAlertDemo(type: AlertDemoType.alert),
+          buildRoute: (_) =>
+              const CupertinoAlertDemo(type: AlertDemoType.alert),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -607,7 +727,8 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
-          buildRoute: (_) => CupertinoAlertDemo(type: AlertDemoType.alertTitle),
+          buildRoute: (_) =>
+              const CupertinoAlertDemo(type: AlertDemoType.alertTitle),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -616,7 +737,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
           buildRoute: (_) =>
-              CupertinoAlertDemo(type: AlertDemoType.alertButtons),
+              const CupertinoAlertDemo(type: AlertDemoType.alertButtons),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -625,7 +746,7 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
           buildRoute: (_) =>
-              CupertinoAlertDemo(type: AlertDemoType.alertButtonsOnly),
+              const CupertinoAlertDemo(type: AlertDemoType.alertButtonsOnly),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -634,14 +755,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoActionSheet-class.html',
           buildRoute: (_) =>
-              CupertinoAlertDemo(type: AlertDemoType.actionSheet),
+              const CupertinoAlertDemo(type: AlertDemoType.actionSheet),
           code: CodeSegments.cupertinoAlertDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoButtonsTitle,
       icon: GalleryIcons.genericButtons,
+      slug: 'cupertino-buttons',
       subtitle: localizations.demoCupertinoButtonsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -649,14 +772,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoButtonsDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
-          buildRoute: (_) => CupertinoButtonDemo(),
+          buildRoute: (_) => const CupertinoButtonDemo(),
           code: CodeSegments.cupertinoButtonDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoNavigationBarTitle,
       icon: GalleryIcons.bottomSheetPersistent,
+      slug: 'cupertino-navigation-bar',
       subtitle: localizations.demoCupertinoNavigationBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -664,14 +789,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoNavigationBarDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoNavigationBar-class.html',
-          buildRoute: (_) => CupertinoNavigationBarDemo(),
+          buildRoute: (_) => const CupertinoNavigationBarDemo(),
           code: CodeSegments.cupertinoNavigationBarDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoPickerTitle,
       icon: GalleryIcons.event,
+      slug: 'cupertino-picker',
       subtitle: localizations.demoCupertinoPickerSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -679,14 +806,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoPickerDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoDatePicker-class.html',
-          buildRoute: (_) => CupertinoPickerDemo(),
+          buildRoute: (_) => const CupertinoPickerDemo(),
           code: CodeSegments.cupertinoPickersDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoPullToRefreshTitle,
       icon: GalleryIcons.cupertinoPullToRefresh,
+      slug: 'cupertino-pull-to-refresh',
       subtitle: localizations.demoCupertinoPullToRefreshSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -694,14 +823,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoPullToRefreshDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSliverRefreshControl-class.html',
-          buildRoute: (_) => CupertinoRefreshControlDemo(),
+          buildRoute: (_) => const CupertinoRefreshControlDemo(),
           code: CodeSegments.cupertinoRefreshDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoSegmentedControlTitle,
       icon: GalleryIcons.tabs,
+      slug: 'cupertino-segmented-control',
       subtitle: localizations.demoCupertinoSegmentedControlSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -709,14 +840,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoSegmentedControlDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSegmentedControl-class.html',
-          buildRoute: (_) => CupertinoSegmentedControlDemo(),
+          buildRoute: (_) => const CupertinoSegmentedControlDemo(),
           code: CodeSegments.cupertinoSegmentedControlDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoSliderTitle,
       icon: GalleryIcons.sliders,
+      slug: 'cupertino-slider',
       subtitle: localizations.demoCupertinoSliderSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -724,14 +857,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoSliderDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSlider-class.html',
-          buildRoute: (_) => CupertinoSliderDemo(),
+          buildRoute: (_) => const CupertinoSliderDemo(),
           code: CodeSegments.cupertinoSliderDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoSelectionControlsSwitchTitle,
       icon: GalleryIcons.cupertinoSwitch,
+      slug: 'cupertino-switch',
       subtitle: localizations.demoCupertinoSwitchSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -739,14 +874,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoSwitchDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSwitch-class.html',
-          buildRoute: (_) => CupertinoSwitchDemo(),
+          buildRoute: (_) => const CupertinoSwitchDemo(),
           code: CodeSegments.cupertinoSwitchDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoTabBarTitle,
       icon: GalleryIcons.bottomNavigation,
+      slug: 'cupertino-tab-bar',
       subtitle: localizations.demoCupertinoTabBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -754,14 +891,16 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoTabBarDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoTabBar-class.html',
-          buildRoute: (_) => CupertinoTabBarDemo(),
+          buildRoute: (_) => const CupertinoTabBarDemo(),
           code: CodeSegments.cupertinoNavigationDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
       title: localizations.demoCupertinoTextFieldTitle,
       icon: GalleryIcons.textFieldsAlt,
+      slug: 'cupertino-text-field',
       subtitle: localizations.demoCupertinoTextFieldSubtitle,
       configurations: [
         GalleryDemoConfiguration(
@@ -769,60 +908,74 @@ List<GalleryDemo> cupertinoDemos(BuildContext context) {
           description: localizations.demoCupertinoTextFieldDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoTextField-class.html',
-          buildRoute: (_) => CupertinoTextFieldDemo(),
+          buildRoute: (_) => const CupertinoTextFieldDemo(),
           code: CodeSegments.cupertinoTextFieldDemo,
         ),
       ],
+      category: GalleryDemoCategory.cupertino,
     ),
   ];
 }
 
-List<GalleryDemo> referenceDemos(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
+List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
       title: localizations.demoColorsTitle,
       icon: GalleryIcons.colors,
+      slug: 'colors',
       subtitle: localizations.demoColorsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoColorsTitle,
           description: localizations.demoColorsDescription,
           documentationUrl: '$_docsBaseUrl/material/MaterialColor-class.html',
-          buildRoute: (_) => ColorsDemo(),
+          buildRoute: (_) => const ColorsDemo(),
           code: CodeSegments.colorsDemo,
         ),
       ],
+      category: GalleryDemoCategory.other,
     ),
     GalleryDemo(
       title: localizations.demoTypographyTitle,
       icon: GalleryIcons.customTypography,
+      slug: 'typography',
       subtitle: localizations.demoTypographySubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demoTypographyTitle,
           description: localizations.demoTypographyDescription,
           documentationUrl: '$_docsBaseUrl/material/TextTheme-class.html',
-          buildRoute: (_) => TypographyDemo(),
+          buildRoute: (_) => const TypographyDemo(),
           code: CodeSegments.typographyDemo,
         ),
       ],
+      category: GalleryDemoCategory.other,
     ),
     GalleryDemo(
       title: localizations.demo2dTransformationsTitle,
       icon: GalleryIcons.gridOn,
+      slug: '2d-transformations',
       subtitle: localizations.demo2dTransformationsSubtitle,
       configurations: [
         GalleryDemoConfiguration(
           title: localizations.demo2dTransformationsTitle,
           description: localizations.demo2dTransformationsDescription,
           documentationUrl: '$_docsBaseUrl/widgets/GestureDetector-class.html',
-          buildRoute: (_) => TransformationsDemo(),
+          buildRoute: (_) => const TransformationsDemo(),
           code: CodeSegments.transformationsDemo,
         ),
       ],
+      category: GalleryDemoCategory.other,
     ),
   ];
+}
+
+Map<String, GalleryDemo> slugToDemo(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context);
+  return LinkedHashMap<String, GalleryDemo>.fromIterable(
+    allGalleryDemos(localizations),
+    key: (dynamic demo) => demo.slug as String,
+  );
 }
 
 class DemoWrapper extends StatelessWidget {
@@ -838,7 +991,8 @@ class DemoWrapper extends StatelessWidget {
       ),
       child: ApplyTextOptions(
         child: CupertinoTheme(
-          data: CupertinoThemeData().copyWith(brightness: Brightness.light),
+          data:
+              const CupertinoThemeData().copyWith(brightness: Brightness.light),
           child: child,
         ),
       ),

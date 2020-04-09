@@ -17,14 +17,14 @@ import 'package:gallery/studies/rally/login.dart';
 /// The home route is the main page with tabs for sub pages.
 /// The login route is the initial route.
 class RallyApp extends StatelessWidget {
-  const RallyApp({Key key, this.navigatorKey}) : super(key: key);
+  const RallyApp();
 
-  final GlobalKey<NavigatorState> navigatorKey;
+  static const String loginRoute = '/rally/login';
+  static const String homeRoute = '/rally';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigatorKey,
       title: 'Rally',
       debugShowCheckedModeBanner: false,
       theme: _buildRallyTheme().copyWith(
@@ -33,10 +33,11 @@ class RallyApp extends StatelessWidget {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: HomePage(),
-      initialRoute: '/login',
+      home: const HomePage(),
+      initialRoute: loginRoute,
       routes: <String, WidgetBuilder>{
-        '/login': (context) => LoginPage(),
+        homeRoute: (context) => const HomePage(),
+        loginRoute: (context) => const LoginPage(),
       },
     );
   }
@@ -63,21 +64,17 @@ class RallyApp extends StatelessWidget {
   TextTheme _buildRallyTextTheme(TextTheme base) {
     return base
         .copyWith(
-          // TODO: Use GoogleFonts.robotoCondensed when available
-          bodyText2: base.bodyText2.copyWith(
-            fontFamily: 'Roboto Condensed',
+          bodyText2: GoogleFonts.robotoCondensed(
             fontSize: 14,
             fontWeight: FontWeight.w400,
+            letterSpacing: letterSpacingOrNone(0.5),
           ),
           bodyText1: GoogleFonts.eczar(
             fontSize: 40,
             fontWeight: FontWeight.w400,
             letterSpacing: letterSpacingOrNone(1.4),
-            textStyle: base.bodyText1,
           ),
-          // TODO: Use GoogleFonts.robotoCondensed when available
-          button: base.button.copyWith(
-            fontFamily: 'Roboto Condensed',
+          button: GoogleFonts.robotoCondensed(
             fontWeight: FontWeight.w700,
             letterSpacing: letterSpacingOrNone(2.8),
           ),
@@ -85,7 +82,6 @@ class RallyApp extends StatelessWidget {
             fontSize: 40,
             fontWeight: FontWeight.w600,
             letterSpacing: letterSpacingOrNone(1.4),
-            textStyle: base.bodyText1,
           ),
         )
         .apply(
