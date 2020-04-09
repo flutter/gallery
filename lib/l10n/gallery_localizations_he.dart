@@ -10,12 +10,12 @@ class GalleryLocalizationsHe extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} מאגר GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'כדי לראות את קוד המקור של האפליקציה הזו, יש להיכנס אל {value}.';
+    return 'כדי לראות את קוד המקור של האפליקציה הזו, יש להיכנס אל ${repoLink}.';
   }
 
   @override

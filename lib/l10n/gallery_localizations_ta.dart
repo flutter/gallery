@@ -10,12 +10,12 @@ class GalleryLocalizationsTa extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub தரவு சேமிப்பகம்';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'இந்த ஆப்ஸின் மூலக் குறியீட்டைப் பார்க்க {value}க்குச் செல்லவும்.';
+    return 'இந்த ஆப்ஸிற்கான மூலக் குறியீட்டைப் பார்க்க ${repoLink} இணைப்பிற்குச் செல்லவும்.';
   }
 
   @override

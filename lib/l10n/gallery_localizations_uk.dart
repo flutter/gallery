@@ -10,7 +10,7 @@ class GalleryLocalizationsUk extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Сховище GitHub \"${repoName}\"';
   }
 
   @override

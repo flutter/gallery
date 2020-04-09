@@ -10,12 +10,12 @@ class GalleryLocalizationsTe extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub నిల్వ స్థానం';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'ఈ యాప్ యొక్క సోర్స్ కోడ్‌ను చూడటానికి, దయచేసి {value} లింక్‌ను సందర్శించండి.';
+    return 'ఈ యాప్ సోర్స్ కోడ్‌ను చూడటానికి, దయచేసి ${repoLink}ను సందర్శించండి.';
   }
 
   @override

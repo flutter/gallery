@@ -10,12 +10,12 @@ class GalleryLocalizationsGu extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub ડેટા સ્ટોરેજ સ્થાન';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'આ ઍપનો સોર્સ કોડ જોવા માટે, કૃપા કરીને {value}ની મુલાકાત લો.';
+    return 'આ ઍપનો સૉર્સ કોડ જોવા માટે, કૃપા કરીને {value}ની મુલાકાત લો.';
   }
 
   @override

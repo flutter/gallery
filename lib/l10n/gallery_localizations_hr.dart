@@ -10,12 +10,12 @@ class GalleryLocalizationsHr extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'GitHub spremište ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Da biste vidjeli izvorni kôd za ovu aplikaciju, posjetite {value}.';
+    return 'Da biste vidjeli izvorni kôd za ovu aplikaciju, posjetite ${repoLink}.';
   }
 
   @override

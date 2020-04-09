@@ -10,12 +10,12 @@ class GalleryLocalizationsSr extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub складиште';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Да бисте видели изворни кôд за ову апликацију, посетите: {value}.';
+    return 'Да бисте видели изворни кôд за ову апликацију, посетите ${repoLink}.';
   }
 
   @override
@@ -2241,8 +2241,13 @@ class GalleryLocalizationsSrLatn extends GalleryLocalizationsSr {
   GalleryLocalizationsSrLatn() : super('sr_Latn');
 
   @override
+  String githubRepo(Object repoName) {
+    return '${repoName} GitHub skladište';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Da biste videli izvorni kôd za ovu aplikaciju, posetite: {value}.';
+    return 'Da biste videli izvorni kôd za ovu aplikaciju, posetite ${repoLink}.';
   }
 
   @override

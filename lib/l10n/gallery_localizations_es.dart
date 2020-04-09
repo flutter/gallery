@@ -10,12 +10,12 @@ class GalleryLocalizationsEs extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Repositorio de GitHub ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Visita {value} para ver el código fuente de esta aplicación.';
+    return 'Ve a {value} para ver el código fuente de esta aplicación.';
   }
 
   @override
@@ -2250,8 +2250,13 @@ class GalleryLocalizationsEs419 extends GalleryLocalizationsEs {
   GalleryLocalizationsEs419() : super('es_419');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -4487,8 +4492,13 @@ class GalleryLocalizationsEsAr extends GalleryLocalizationsEs {
   GalleryLocalizationsEsAr() : super('es_AR');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -6724,8 +6734,13 @@ class GalleryLocalizationsEsBo extends GalleryLocalizationsEs {
   GalleryLocalizationsEsBo() : super('es_BO');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -8961,8 +8976,13 @@ class GalleryLocalizationsEsCl extends GalleryLocalizationsEs {
   GalleryLocalizationsEsCl() : super('es_CL');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -11198,8 +11218,13 @@ class GalleryLocalizationsEsCo extends GalleryLocalizationsEs {
   GalleryLocalizationsEsCo() : super('es_CO');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -13435,8 +13460,13 @@ class GalleryLocalizationsEsCr extends GalleryLocalizationsEs {
   GalleryLocalizationsEsCr() : super('es_CR');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -15672,8 +15702,13 @@ class GalleryLocalizationsEsDo extends GalleryLocalizationsEs {
   GalleryLocalizationsEsDo() : super('es_DO');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -17909,8 +17944,13 @@ class GalleryLocalizationsEsEc extends GalleryLocalizationsEs {
   GalleryLocalizationsEsEc() : super('es_EC');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -20146,8 +20186,13 @@ class GalleryLocalizationsEsGt extends GalleryLocalizationsEs {
   GalleryLocalizationsEsGt() : super('es_GT');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -22383,8 +22428,13 @@ class GalleryLocalizationsEsHn extends GalleryLocalizationsEs {
   GalleryLocalizationsEsHn() : super('es_HN');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -24620,8 +24670,13 @@ class GalleryLocalizationsEsMx extends GalleryLocalizationsEs {
   GalleryLocalizationsEsMx() : super('es_MX');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -26857,8 +26912,13 @@ class GalleryLocalizationsEsNi extends GalleryLocalizationsEs {
   GalleryLocalizationsEsNi() : super('es_NI');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -29094,8 +29154,13 @@ class GalleryLocalizationsEsPa extends GalleryLocalizationsEs {
   GalleryLocalizationsEsPa() : super('es_PA');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -31331,8 +31396,13 @@ class GalleryLocalizationsEsPe extends GalleryLocalizationsEs {
   GalleryLocalizationsEsPe() : super('es_PE');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -33568,8 +33638,13 @@ class GalleryLocalizationsEsPr extends GalleryLocalizationsEs {
   GalleryLocalizationsEsPr() : super('es_PR');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -35805,8 +35880,13 @@ class GalleryLocalizationsEsPy extends GalleryLocalizationsEs {
   GalleryLocalizationsEsPy() : super('es_PY');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -38042,8 +38122,13 @@ class GalleryLocalizationsEsSv extends GalleryLocalizationsEs {
   GalleryLocalizationsEsSv() : super('es_SV');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -40279,8 +40364,13 @@ class GalleryLocalizationsEsUs extends GalleryLocalizationsEs {
   GalleryLocalizationsEsUs() : super('es_US');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -42516,8 +42606,13 @@ class GalleryLocalizationsEsUy extends GalleryLocalizationsEs {
   GalleryLocalizationsEsUy() : super('es_UY');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override
@@ -44753,8 +44848,13 @@ class GalleryLocalizationsEsVe extends GalleryLocalizationsEs {
   GalleryLocalizationsEsVe() : super('es_VE');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositorio de GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver el código fuente de esta app, visita {value}.';
+    return 'Para ver el código fuente de esta app, visita ${repoLink}.';
   }
 
   @override

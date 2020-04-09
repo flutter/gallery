@@ -10,12 +10,12 @@ class GalleryLocalizationsCs extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Repozitář GitHub ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Chcete-li zobrazit zdrojový kód této aplikace, přejděte na {value}.';
+    return 'Chcete-li zobrazit zdrojový kód této aplikace, přejděte na ${repoLink}.';
   }
 
   @override

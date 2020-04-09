@@ -10,12 +10,12 @@ class GalleryLocalizationsDe extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub-Repository';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Den Quellcode dieser App findest du hier: {value}.';
+    return 'Den Quellcode dieser App findest du hier: ${repoLink}.';
   }
 
   @override
@@ -2237,8 +2237,13 @@ class GalleryLocalizationsDeAt extends GalleryLocalizationsDe {
   GalleryLocalizationsDeAt() : super('de_AT');
 
   @override
+  String githubRepo(Object repoName) {
+    return '${repoName} GitHub-Repository';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Den Quellcode dieser App findest du hier: {value}.';
+    return 'Den Quellcode dieser App findest du hier: ${repoLink}.';
   }
 
   @override
@@ -4460,8 +4465,13 @@ class GalleryLocalizationsDeCh extends GalleryLocalizationsDe {
   GalleryLocalizationsDeCh() : super('de_CH');
 
   @override
+  String githubRepo(Object repoName) {
+    return '${repoName} GitHub-Repository';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Den Quellcode dieser App findest du hier: {value}.';
+    return 'Den Quellcode dieser App findest du hier: ${repoLink}.';
   }
 
   @override

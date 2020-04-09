@@ -10,12 +10,12 @@ class GalleryLocalizationsZu extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} Ikhosombe le-GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Ukuze ubone ikhodi yomthombo yalolu hlelo lokusebenza, sicela uvakashele i-{value}.';
+    return 'Ukuze ubone ikhodi yomthombo yalolu hlelo lokusebenza, sicela uvakashele i-${repoLink}.';
   }
 
   @override

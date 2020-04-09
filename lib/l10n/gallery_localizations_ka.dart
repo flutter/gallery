@@ -10,12 +10,12 @@ class GalleryLocalizationsKa extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub საცავი';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'ამ აპის საწყისი კოდის სანახავად, გთხოვთ, მოინახულოთ {value}.';
+    return 'ამ აპის საწყისი კოდის სანახავად, გთხოვთ, მოინახულოთ ${repoLink}.';
   }
 
   @override

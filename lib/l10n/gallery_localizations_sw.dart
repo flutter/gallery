@@ -10,12 +10,12 @@ class GalleryLocalizationsSw extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} Hazina ya GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Ili uangalie msimbo wa programu hii, tafadhali tembelea {value}.';
+    return 'Ili uangalie msimbo wa programu hii, tafadhali tembelea ${repoLink}.';
   }
 
   @override

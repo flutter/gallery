@@ -10,12 +10,12 @@ class GalleryLocalizationsVi extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Kho lưu trữ ${repoName} trên GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Để xem mã nguồn của ứng dụng này, vui lòng truy cập vào {value}.';
+    return 'Để xem mã nguồn của ứng dụng này, vui lòng truy cập vào ${repoLink}.';
   }
 
   @override

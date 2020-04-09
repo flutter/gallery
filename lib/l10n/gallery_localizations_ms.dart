@@ -10,12 +10,12 @@ class GalleryLocalizationsMs extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} repositori GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Untuk melihat kod sumber apl ini, sila lawati {value}.';
+    return 'Untuk melihat kod sumber apl ini, sila lawati ${repoLink}.';
   }
 
   @override

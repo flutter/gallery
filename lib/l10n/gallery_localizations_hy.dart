@@ -10,12 +10,12 @@ class GalleryLocalizationsHy extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub-ի շտեմարան';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Այս հավելվածի կոդը տեսնելու համար բացեք {value} էջը։';
+    return 'Այս հավելվածի կոդը տեսնելու համար բացեք ${repoLink} էջը։';
   }
 
   @override

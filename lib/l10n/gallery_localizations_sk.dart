@@ -10,12 +10,12 @@ class GalleryLocalizationsSk extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Odkladací priestor GitHub ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Ak si chcete zobraziť zdrojový kód tejto aplikácie, navštívte {value}.';
+    return 'Ak si chcete zobraziť zdrojový kód tejto aplikácie, prejdite na ${repoLink}.';
   }
 
   @override

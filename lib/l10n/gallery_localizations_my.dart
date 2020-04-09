@@ -10,12 +10,12 @@ class GalleryLocalizationsMy extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub သိမ်းဆည်းရန်နေရာ';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'ဤအက်ပ်အတွက် ကုဒ်အရင်းအမြစ်ကို ကြည့်ရန် {value} သို့ သွားပါ။';
+    return 'ဤအက်ပ်အတွက် ကုဒ်အရင်းအမြစ်ကို ကြည့်ရန် ${repoLink} သို့ သွားပါ။';
   }
 
   @override

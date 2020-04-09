@@ -10,12 +10,12 @@ class GalleryLocalizationsEt extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHubi andmehoidla';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Selle rakenduse lähtekoodi nägemiseks vaadake siia: {value}.';
+    return 'Selle rakenduse lähtekoodi nägemiseks vaadake siia: ${repoLink}.';
   }
 
   @override

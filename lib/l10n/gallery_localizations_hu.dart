@@ -10,12 +10,12 @@ class GalleryLocalizationsHu extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub-tárhely';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Az alkalmazás forráskódjának megtekintéséhez keresse fel a következőt: {value}.';
+    return 'Az alkalmazás forráskódjának megtekintéséhez keresse fel a következőt: ${repoLink}.';
   }
 
   @override

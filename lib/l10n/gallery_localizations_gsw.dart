@@ -10,12 +10,12 @@ class GalleryLocalizationsGsw extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub-Repository';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Den Quellcode dieser App findest du hier: {value}.';
+    return 'Den Quellcode dieser App findest du hier: ${repoLink}.';
   }
 
   @override

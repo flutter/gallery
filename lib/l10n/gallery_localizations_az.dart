@@ -10,12 +10,12 @@ class GalleryLocalizationsAz extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub yaddaşı';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Bu tətbiqin mənbə koduna baxmaq üçün {value} ünvanına daxil olun.';
+    return 'Bu tətbiqin mənbə koduna baxmaq üçün ${repoLink} ünvanına daxil olun.';
   }
 
   @override

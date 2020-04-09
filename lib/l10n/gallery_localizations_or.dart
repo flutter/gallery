@@ -10,12 +10,12 @@ class GalleryLocalizationsOr extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub ଡାଟା ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'ଏହି ଆପ୍ ପାଇଁ ଉତ୍ସ କୋଡ୍ ଦେଖିବାକୁ, ଦୟାକରି {value}କୁ ଯାଆନ୍ତୁ।';
+    return 'ଏହି ଆପ୍ ପାଇଁ ଉତ୍ସ କୋଡ୍ ଦେଖିବାକୁ, ଦୟାକରି ${repoLink}କୁ ଯାଆନ୍ତୁ।';
   }
 
   @override
@@ -1315,7 +1315,7 @@ class GalleryLocalizationsOr extends GalleryLocalizations {
   String get bottomNavigationCommentsTab => 'ମନ୍ତବ୍ୟଗୁଡ଼ିକ';
 
   @override
-  String get bottomNavigationCalendarTab => 'କ୍ୟାଲେଣ୍ଡର୍';
+  String get bottomNavigationCalendarTab => 'Calendar';
 
   @override
   String get bottomNavigationAccountTab => 'ଆକାଉଣ୍ଟ';

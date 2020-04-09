@@ -10,12 +10,12 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'مستودع GitHub ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {value}.';
+    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة ${repoLink}.';
   }
 
   @override
@@ -2233,8 +2233,13 @@ class GalleryLocalizationsArEg extends GalleryLocalizationsAr {
   GalleryLocalizationsArEg() : super('ar_EG');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'مستودع GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {value}.';
+    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة ${repoLink}.';
   }
 
   @override
@@ -4452,8 +4457,13 @@ class GalleryLocalizationsArJo extends GalleryLocalizationsAr {
   GalleryLocalizationsArJo() : super('ar_JO');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'مستودع GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {value}.';
+    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة ${repoLink}.';
   }
 
   @override
@@ -6671,8 +6681,13 @@ class GalleryLocalizationsArMa extends GalleryLocalizationsAr {
   GalleryLocalizationsArMa() : super('ar_MA');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'مستودع GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {value}.';
+    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة ${repoLink}.';
   }
 
   @override
@@ -8890,8 +8905,13 @@ class GalleryLocalizationsArSa extends GalleryLocalizationsAr {
   GalleryLocalizationsArSa() : super('ar_SA');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'مستودع GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {value}.';
+    return 'للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة ${repoLink}.';
   }
 
   @override

@@ -10,12 +10,12 @@ class GalleryLocalizationsAm extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} የGitHub ውሂብ ማከማቻ';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'የዚህ መተግበሪያ ኮድ ምንጭ ኮድን ለማየት እባክዎ {value}ን ይጎብኙ።';
+    return 'የዚህ መተግበሪያ ኮድ ምንጭ ኮድን ለማየት እባክዎ ${repoLink}ን ይጎብኙ።';
   }
 
   @override
@@ -865,7 +865,7 @@ class GalleryLocalizationsAm extends GalleryLocalizations {
 
   @override
   String get demoCupertinoActionSheetDescription =>
-      'የእርምጃ ሉህ ከሁለት ወይም ከዚያ በላይ አሁን ካለው ዓውድ ጋር ግንኙነት ያላቸው ምርጫዎች ጋር የምርጫ ስብስብ ለተጠቃሚው የሚያቀርብ የተወሰነ የማንቂያ ቅጥ ነው። የእርምጃ ሉህ አርእስት፣ ተጨማሪ መልዕክት፣ እና የእርምጃዎች ዝርዝር ሊኖረው ይችላል።';
+      'የእርምጃ ሉህ ከሁለት ወይም ከዚያ በላይ አሁን ካለው ዓውድ ጋር ግንኙነት ያላቸው ምርጫዎች ጋር የምርጫ ስብስብ ለተጠቃሚው የሚያቀርብ የተወሰነ የማንቂያ ቅጥ ነው። የእርምጃ ሉህ አርዕስት፣ ተጨማሪ መልዕክት፣ እና የእርምጃዎች ዝርዝር ሊኖረው ይችላል።';
 
   @override
   String get demoCupertinoNavigationBarTitle => 'የአሰሳ አሞሌ';

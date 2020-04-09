@@ -10,12 +10,12 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub ಸಂಗ್ರಹಣೆ';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'ಈ ಆ್ಯಪ್‌ನ ಮೂಲ ಕೋಡ್ ಅನ್ನು ನೋಡಲು, {value} ಗೆ ಭೇಟಿ ನೀಡಿ.';
+    return 'ಈ ಆ್ಯಪ್‌ನ ಮೂಲ ಕೋಡ್ ಅನ್ನು ನೋಡಲು, ${repoLink} ಗೆ ಭೇಟಿ ನೀಡಿ.';
   }
 
   @override

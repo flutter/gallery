@@ -10,12 +10,12 @@ class GalleryLocalizationsKy extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub сактоочу жайы';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Бул колдонмо үчүн булак кодун көрүү үчүн төмөнкүгө баш багыңыз: {value}.';
+    return 'Бул колдонмонун кодун көрүү үчүн төмөнкүгө баш багыңыз: ${repoLink}.';
   }
 
   @override

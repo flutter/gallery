@@ -10,12 +10,12 @@ class GalleryLocalizationsPt extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Repositório ${repoName} do GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver o código-fonte desse app, acesse {value}.';
+    return 'Para ver o código-fonte desse app, acesse ${repoLink}.';
   }
 
   @override
@@ -2236,8 +2236,13 @@ class GalleryLocalizationsPtBr extends GalleryLocalizationsPt {
   GalleryLocalizationsPtBr() : super('pt_BR');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositório ${repoName} do GitHub';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver o código-fonte desse app, acesse {value}.';
+    return 'Para ver o código-fonte desse app, acesse ${repoLink}.';
   }
 
   @override
@@ -4458,8 +4463,13 @@ class GalleryLocalizationsPtPt extends GalleryLocalizationsPt {
   GalleryLocalizationsPtPt() : super('pt_PT');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'Repositório do GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Para ver o código-fonte desta aplicação, visite {value}.';
+    return 'Para ver o código-fonte desta app, visite o ${repoLink}.';
   }
 
   @override

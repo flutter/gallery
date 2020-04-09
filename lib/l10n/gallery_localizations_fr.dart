@@ -10,12 +10,12 @@ class GalleryLocalizationsFr extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'dépôt GitHub ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Pour voir le code source de cette application, veuillez consulter {value}.';
+    return 'Pour voir le code source de cette application, veuillez consulter le ${repoLink}.';
   }
 
   @override
@@ -2251,8 +2251,13 @@ class GalleryLocalizationsFrCa extends GalleryLocalizationsFr {
   GalleryLocalizationsFrCa() : super('fr_CA');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'référentiel GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Pour voir le code source de cette application, veuillez consulter {value}.';
+    return 'Pour voir le code source de cette application, veuillez consulter le ${repoLink}.';
   }
 
   @override
@@ -4485,8 +4490,13 @@ class GalleryLocalizationsFrCh extends GalleryLocalizationsFr {
   GalleryLocalizationsFrCh() : super('fr_CH');
 
   @override
+  String githubRepo(Object repoName) {
+    return 'dépôt GitHub ${repoName}';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Pour voir le code source de cette application, veuillez consulter {value}.';
+    return 'Pour voir le code source de cette application, veuillez consulter le ${repoLink}.';
   }
 
   @override

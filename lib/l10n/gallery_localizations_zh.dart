@@ -10,12 +10,12 @@ class GalleryLocalizationsZh extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub 代码库';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return '要查看此应用的源代码，请访问 {value}。';
+    return '要查看此应用的源代码，请访问 ${repoLink}。';
   }
 
   @override
@@ -2156,8 +2156,13 @@ class GalleryLocalizationsZhCn extends GalleryLocalizationsZh {
   GalleryLocalizationsZhCn() : super('zh_CN');
 
   @override
+  String githubRepo(Object repoName) {
+    return '${repoName} GitHub 代码库';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return '要查看此应用的源代码，请访问 {value}。';
+    return '要查看此应用的源代码，请访问 ${repoLink}。';
   }
 
   @override
@@ -4298,8 +4303,13 @@ class GalleryLocalizationsZhHk extends GalleryLocalizationsZh {
   GalleryLocalizationsZhHk() : super('zh_HK');
 
   @override
+  String githubRepo(Object repoName) {
+    return '${repoName} GitHub 存放區';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return '如要查看此應用程式的原始碼，請前往 {value}。';
+    return '如要查看此應用程式的原始碼，請前往 ${repoLink}。';
   }
 
   @override
@@ -6437,8 +6447,13 @@ class GalleryLocalizationsZhTw extends GalleryLocalizationsZh {
   GalleryLocalizationsZhTw() : super('zh_TW');
 
   @override
+  String githubRepo(Object repoName) {
+    return '${repoName} GitHub 存放區';
+  }
+
+  @override
   String aboutDialogDescription(Object repoLink) {
-    return '如要查看這個應用程式的原始碼，請前往 {value}。';
+    return '如要查看這個應用程式的原始碼，請前往 ${repoLink}。';
   }
 
   @override

@@ -10,12 +10,12 @@ class GalleryLocalizationsSq extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'Depoja ${repoName} e GitHub';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Për të parë kodin burimor për këtë aplikacion, vizito {value}.';
+    return 'Për të parë kodin burimor për këtë aplikacion, vizito ${repoLink}.';
   }
 
   @override

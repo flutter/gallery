@@ -10,12 +10,12 @@ class GalleryLocalizationsEu extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return '${repoName} GitHub biltegia';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'Aplikazio honen iturburu-kodea ikusteko, joan hona: {value}.';
+    return 'Aplikazio honen iturburu-kodea ikusteko, joan hona: ${repoLink}.';
   }
 
   @override
@@ -1397,7 +1397,7 @@ class GalleryLocalizationsEu extends GalleryLocalizations {
   String get dialogSetBackup => 'Ezarri babeskopiak egiteko kontua';
 
   @override
-  String get dialogAddAccount => 'Gehitu kontua';
+  String get dialogAddAccount => 'Gehitu kontu bat';
 
   @override
   String get dialogShow => 'ERAKUTSI LEIHOA';

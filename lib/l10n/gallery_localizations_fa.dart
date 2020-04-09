@@ -10,12 +10,12 @@ class GalleryLocalizationsFa extends GalleryLocalizations {
 
   @override
   String githubRepo(Object repoName) {
-    return '${repoName} GitHub repository';
+    return 'مخزن GitHub‏ ${repoName}';
   }
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'برای دیدن کد منبع این برنامه ، لطفاً {value} را ببینید.';
+    return 'برای دیدن کد منبع این برنامه ، لطفاً به ${repoLink} بروید.';
   }
 
   @override
@@ -996,7 +996,7 @@ class GalleryLocalizationsFa extends GalleryLocalizations {
 
   @override
   String get demoColorsDescription =>
-      'ثابت‌های رنگ و تغییر رنگ که پالت رنگ «طراحی سه بعدی» را نمایش می‌دهند.';
+      'ثابت‌های رنگ و تغییر رنگ که پالت رنگ «طراحی مواد» را نمایش می‌دهند.';
 
   @override
   String get demoTypographyTitle => 'تایپوگرافی';
@@ -1006,7 +1006,7 @@ class GalleryLocalizationsFa extends GalleryLocalizations {
 
   @override
   String get demoTypographyDescription =>
-      'تعریف‌هایی برای سبک‌های تایپوگرافی مختلف در «طراحی سه‌بعدی» یافت شد.';
+      'تعریف‌هایی برای سبک‌های تایپوگرافی مختلف در «طراحی مواد» یافت شد.';
 
   @override
   String get demo2dTransformationsTitle => 'تبدیل دوبعدی';
@@ -1092,14 +1092,14 @@ class GalleryLocalizationsFa extends GalleryLocalizations {
 
   @override
   String get demoCircularProgressIndicatorDescription =>
-      'نشانگر پیشرفت مدور با طراحی سه بعدی که می‌چرخد تا نشان دهد که برنامه مشغول است.';
+      'نشانگر پیشرفت مدور با «طراحی مواد» که می‌چرخد تا نشان دهد که برنامه مشغول است.';
 
   @override
   String get demoLinearProgressIndicatorTitle => 'نشانگر پیشرفت خطی';
 
   @override
   String get demoLinearProgressIndicatorDescription =>
-      'نشانگر پیشرفت خطی با طراحی سه بعدی که با عنوان نوار پیشرفت نیز شناخته شده است.';
+      'نشانگر پیشرفت خطی با «طراحی مواد» که با عنوان نوار پیشرفت نیز شناخته شده است.';
 
   @override
   String get demoPickersTitle => 'انتخابگر';
@@ -1112,14 +1112,14 @@ class GalleryLocalizationsFa extends GalleryLocalizations {
 
   @override
   String get demoDatePickerDescription =>
-      'کادر گفتگویی حاوی انتخابگر تاریخ «طراحی سه بعدی» را نمایش می‌دهد.';
+      'کادر گفتگویی حاوی انتخابگر تاریخ «طراحی مواد» را نمایش می‌دهد.';
 
   @override
   String get demoTimePickerTitle => 'انتخابگر زمان';
 
   @override
   String get demoTimePickerDescription =>
-      'کادر گفتگویی حاوی انتخابگر زمان «طراحی سه بعدی» را نمایش می‌دهد.';
+      'کادر گفتگویی حاوی انتخابگر زمان «طراحی مواد» را نمایش می‌دهد.';
 
   @override
   String get demoPickersShowPicker => 'نمایش انتخابگر';
