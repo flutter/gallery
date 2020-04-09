@@ -35,6 +35,8 @@ Future<void> generateLocalizations() async {
     'gen_l10n.dart',
   );
 
+  await pubGet(directory: l10nScriptFile);
+
   Dart.run(l10nScriptFile, arguments: [
     '--template-arb-file=intl_en.arb',
     '--output-localization-file=gallery_localizations.dart',
