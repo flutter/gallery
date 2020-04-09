@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub रीपॉझिटरी",
   "fortnightlyMenuUS": "यूएस",
   "fortnightlyMenuBusiness": "व्यवसाय",
   "fortnightlyMenuScience": "विज्ञान",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "सिस्टम",
   "settingsTitle": "सेटिंग्ज",
   "rallyDescription": "वैयक्तिक अर्थसहाय्य अ‍ॅप",
-  "aboutDialogDescription": "या अ‍ॅपसाठी स्रोत कोड पाहण्यासाठी, कृपया {value} ला भेट द्या.",
+  "aboutDialogDescription": "या अ‍ॅपसाठी स्रोत कोड पाहण्याकरिता, कृपया {repoLink} ला भेट द्या.",
   "bottomNavigationCommentsTab": "टिप्पण्या",
   "starterAppGenericBody": "मुख्य मजकूर",
   "starterAppGenericHeadline": "ठळक शीर्षक",

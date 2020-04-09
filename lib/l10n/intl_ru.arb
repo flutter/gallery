@@ -1,4 +1,5 @@
 {
+  "githubRepo": "репозиторий GitHub {repoName}",
   "fortnightlyMenuUS": "США",
   "fortnightlyMenuBusiness": "Бизнес",
   "fortnightlyMenuScience": "Наука",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Системные настройки",
   "settingsTitle": "Настройки",
   "rallyDescription": "Приложение для планирования бюджета",
-  "aboutDialogDescription": "Чтобы посмотреть код этого приложения, откройте страницу {value}.",
+  "aboutDialogDescription": "Чтобы посмотреть код этого приложения, откройте {repoLink}.",
   "bottomNavigationCommentsTab": "Комментарии",
   "starterAppGenericBody": "Основной текст",
   "starterAppGenericHeadline": "Заголовок",

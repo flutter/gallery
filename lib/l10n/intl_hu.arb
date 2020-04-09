@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub-tárhely",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Üzlet",
   "fortnightlyMenuScience": "Tudomány",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Rendszer",
   "settingsTitle": "Beállítások",
   "rallyDescription": "Személyes pénzügyi alkalmazás",
-  "aboutDialogDescription": "Az alkalmazás forráskódjának megtekintéséhez keresse fel a következőt: {value}.",
+  "aboutDialogDescription": "Az alkalmazás forráskódjának megtekintéséhez keresse fel a következőt: {repoLink}.",
   "bottomNavigationCommentsTab": "Megjegyzések",
   "starterAppGenericBody": "Szövegtörzs",
   "starterAppGenericHeadline": "Címsor",

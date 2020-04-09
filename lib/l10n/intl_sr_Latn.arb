@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub skladište",
   "fortnightlyMenuUS": "SAD",
   "fortnightlyMenuBusiness": "Biznis",
   "fortnightlyMenuScience": "Nauka",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistem",
   "settingsTitle": "Podešavanja",
   "rallyDescription": "Aplikacija za lične finansije",
-  "aboutDialogDescription": "Da biste videli izvorni kôd za ovu aplikaciju, posetite: {value}.",
+  "aboutDialogDescription": "Da biste videli izvorni kôd za ovu aplikaciju, posetite {repoLink}.",
   "bottomNavigationCommentsTab": "Komentari",
   "starterAppGenericBody": "Glavni tekst",
   "starterAppGenericHeadline": "Naslov",

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub 代码库",
   "fortnightlyMenuUS": "美国",
   "fortnightlyMenuBusiness": "商业",
   "fortnightlyMenuScience": "科学",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "系统",
   "settingsTitle": "设置",
   "rallyDescription": "个人理财应用",
-  "aboutDialogDescription": "要查看此应用的源代码，请访问 {value}。",
+  "aboutDialogDescription": "要查看此应用的源代码，请访问 {repoLink}。",
   "bottomNavigationCommentsTab": "注释",
   "starterAppGenericBody": "正文",
   "starterAppGenericHeadline": "标题",
