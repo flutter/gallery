@@ -44,6 +44,8 @@ class _TextStyleItem extends StatelessWidget {
 }
 
 class TypographyDemo extends StatelessWidget {
+  const TypographyDemo();
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -89,13 +91,13 @@ class TypographyDemo extends StatelessWidget {
         text: 'Medium 14sp',
       ),
       _TextStyleItem(
-        name: 'Body Text 2',
-        style: textTheme.bodyText2,
+        name: 'Body Text 1',
+        style: textTheme.bodyText1,
         text: 'Regular 16sp',
       ),
       _TextStyleItem(
-        name: 'Body Text 1',
-        style: textTheme.bodyText1,
+        name: 'Body Text 2',
+        style: textTheme.bodyText2,
         text: 'Regular 14sp',
       ),
       _TextStyleItem(

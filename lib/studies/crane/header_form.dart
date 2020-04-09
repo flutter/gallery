@@ -42,7 +42,7 @@ class HeaderForm extends StatelessWidget {
               return GridView.count(
                 crossAxisCount: crossAxisCount,
                 childAspectRatio: itemWidth / textFieldHeight,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   for (final field in fields)
                     Padding(
@@ -82,12 +82,12 @@ class _HeaderTextField extends StatelessWidget {
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             width: 0,
             style: BorderStyle.none,
           ),
         ),
-        contentPadding: EdgeInsets.all(16),
+        contentPadding: const EdgeInsets.all(16),
         fillColor: cranePurple700,
         filled: true,
         hintText: field.title,

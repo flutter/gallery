@@ -14,7 +14,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 0,
         destination: GalleryLocalizations.of(context).craneFly0,
         stops: 1,
-        duration: Duration(hours: 6, minutes: 15),
+        duration: const Duration(hours: 6, minutes: 15),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly0SemanticLabel,
       ),
@@ -22,7 +22,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 1,
         destination: GalleryLocalizations.of(context).craneFly1,
         stops: 0,
-        duration: Duration(hours: 13, minutes: 30),
+        duration: const Duration(hours: 13, minutes: 30),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly1SemanticLabel,
         imageAspectRatio: 400 / 410,
@@ -31,7 +31,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 2,
         destination: GalleryLocalizations.of(context).craneFly2,
         stops: 0,
-        duration: Duration(hours: 5, minutes: 16),
+        duration: const Duration(hours: 5, minutes: 16),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly2SemanticLabel,
         imageAspectRatio: 400 / 394,
@@ -40,7 +40,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 3,
         destination: GalleryLocalizations.of(context).craneFly3,
         stops: 2,
-        duration: Duration(hours: 19, minutes: 40),
+        duration: const Duration(hours: 19, minutes: 40),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly3SemanticLabel,
         imageAspectRatio: 400 / 377,
@@ -49,7 +49,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 4,
         destination: GalleryLocalizations.of(context).craneFly4,
         stops: 0,
-        duration: Duration(hours: 8, minutes: 24),
+        duration: const Duration(hours: 8, minutes: 24),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly4SemanticLabel,
         imageAspectRatio: 400 / 308,
@@ -58,7 +58,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 5,
         destination: GalleryLocalizations.of(context).craneFly5,
         stops: 1,
-        duration: Duration(hours: 14, minutes: 12),
+        duration: const Duration(hours: 14, minutes: 12),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly5SemanticLabel,
         imageAspectRatio: 400 / 418,
@@ -67,7 +67,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 6,
         destination: GalleryLocalizations.of(context).craneFly6,
         stops: 0,
-        duration: Duration(hours: 5, minutes: 24),
+        duration: const Duration(hours: 5, minutes: 24),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly6SemanticLabel,
         imageAspectRatio: 400 / 345,
@@ -76,7 +76,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 7,
         destination: GalleryLocalizations.of(context).craneFly7,
         stops: 1,
-        duration: Duration(hours: 5, minutes: 43),
+        duration: const Duration(hours: 5, minutes: 43),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly7SemanticLabel,
         imageAspectRatio: 400 / 408,
@@ -85,7 +85,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 8,
         destination: GalleryLocalizations.of(context).craneFly8,
         stops: 0,
-        duration: Duration(hours: 8, minutes: 25),
+        duration: const Duration(hours: 8, minutes: 25),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly8SemanticLabel,
         imageAspectRatio: 400 / 399,
@@ -94,7 +94,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 9,
         destination: GalleryLocalizations.of(context).craneFly9,
         stops: 1,
-        duration: Duration(hours: 15, minutes: 52),
+        duration: const Duration(hours: 15, minutes: 52),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly9SemanticLabel,
         imageAspectRatio: 400 / 379,
@@ -103,7 +103,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 10,
         destination: GalleryLocalizations.of(context).craneFly10,
         stops: 0,
-        duration: Duration(hours: 5, minutes: 57),
+        duration: const Duration(hours: 5, minutes: 57),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly10SemanticLabel,
         imageAspectRatio: 400 / 307,
@@ -112,7 +112,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 11,
         destination: GalleryLocalizations.of(context).craneFly11,
         stops: 1,
-        duration: Duration(hours: 13, minutes: 24),
+        duration: const Duration(hours: 13, minutes: 24),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly11SemanticLabel,
         imageAspectRatio: 400 / 369,
@@ -121,7 +121,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 12,
         destination: GalleryLocalizations.of(context).craneFly12,
         stops: 2,
-        duration: Duration(hours: 10, minutes: 20),
+        duration: const Duration(hours: 10, minutes: 20),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly12SemanticLabel,
         imageAspectRatio: 400 / 394,
@@ -130,7 +130,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         id: 13,
         destination: GalleryLocalizations.of(context).craneFly13,
         stops: 0,
-        duration: Duration(hours: 7, minutes: 15),
+        duration: const Duration(hours: 7, minutes: 15),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly13SemanticLabel,
         imageAspectRatio: 400 / 433,

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
@@ -42,27 +43,27 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + RallyApp.homeRoute,
-      (context, matches) => StudyWrapper(study: RallyApp()),
+      (context, matches) => const StudyWrapper(study: RallyApp()),
     ),
     Path(
       r'^' + ShrineApp.homeRoute,
-      (context, matches) => StudyWrapper(study: ShrineApp()),
+      (context, matches) => const StudyWrapper(study: ShrineApp()),
     ),
     Path(
       r'^' + CraneApp.defaultRoute,
-      (context, matches) => StudyWrapper(study: CraneApp()),
+      (context, matches) => const StudyWrapper(study: CraneApp()),
     ),
     Path(
       r'^' + FortnightlyApp.defaultRoute,
-      (context, matches) => StudyWrapper(study: FortnightlyApp()),
+      (context, matches) => const StudyWrapper(study: FortnightlyApp()),
     ),
     Path(
       r'^' + StarterApp.defaultRoute,
-      (context, matches) => StudyWrapper(study: StarterApp()),
+      (context, matches) => const StudyWrapper(study: StarterApp()),
     ),
     Path(
       r'^/',
-      (context, matches) => RootPage(),
+      (context, matches) => const RootPage(),
     ),
   ];
 
@@ -79,6 +80,12 @@ class RouteConfiguration {
         for (String groupName in match.groupNames) {
           groupNameToMatch[groupName] = match.namedGroup(groupName);
         }
+        if (kIsWeb) {
+          return NoAnimationMaterialPageRoute<void>(
+            builder: (context) => path.builder(context, groupNameToMatch),
+            settings: settings,
+          );
+        }
         return MaterialPageRoute<void>(
           builder: (context) => path.builder(context, groupNameToMatch),
           settings: settings,
@@ -88,5 +95,22 @@ class RouteConfiguration {
 
     // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
     return null;
+  }
+}
+
+class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
+  NoAnimationMaterialPageRoute({
+    @required WidgetBuilder builder,
+    RouteSettings settings,
+  }) : super(builder: builder, settings: settings);
+
+  @override
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return child;
   }
 }

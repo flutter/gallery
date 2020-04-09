@@ -25,12 +25,9 @@ double desktopLoginScreenMainAreaWidth({BuildContext context}) {
   );
 }
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
+class LoginPage extends StatelessWidget {
+  const LoginPage();
 
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final bool isDesktop = isDisplayDesktop(context);
@@ -64,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
           : Scaffold(
               body: SafeArea(
                 child: ListView(
-                  physics: ClampingScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: _horizontalPadding,
                   ),
@@ -93,7 +90,7 @@ class _ShrineLogo extends StatelessWidget {
       child: Column(
         children: [
           FadeInImagePlaceholder(
-            image: AssetImage('packages/shrine_images/diamond.png'),
+            image: const AssetImage('packages/shrine_images/diamond.png'),
             placeholder: Container(
               width: 34,
               height: 34,
@@ -175,7 +172,7 @@ class _CancelAndNextButtons extends StatelessWidget {
     final bool isDesktop = isDisplayDesktop(context);
 
     final EdgeInsets buttonTextPadding = isDesktop
-        ? EdgeInsets.symmetric(horizontal: 24, vertical: 16)
+        ? const EdgeInsets.symmetric(horizontal: 24, vertical: 16)
         : EdgeInsets.zero;
 
     return Wrap(

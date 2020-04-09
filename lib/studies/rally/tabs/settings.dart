@@ -26,7 +26,7 @@ class _SettingsViewState extends State<SettingsView> {
             for (String title
                 in DummyDataService.getSettingsTitles(context)) ...[
               _SettingsItem(title),
-              Divider(
+              const Divider(
                 color: RallyColors.dividerColor,
                 height: 1,
               )
@@ -49,7 +49,7 @@ class _SettingsItem extends StatelessWidget {
       textColor: Colors.white,
       child: Container(
         alignment: AlignmentDirectional.centerStart,
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
         child: Text(title),
       ),
       onPressed: () {

@@ -44,7 +44,7 @@ class GalleryApp extends StatelessWidget {
             darkTheme: GalleryThemeData.darkThemeData.copyWith(
               platform: GalleryOptions.of(context).platform,
             ),
-            localizationsDelegates: [
+            localizationsDelegates: const [
               ...GalleryLocalizations.localizationsDelegates,
               LocaleNamesLocalizationsDelegate()
             ],
@@ -69,9 +69,9 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ApplyTextOptions(
+    return const ApplyTextOptions(
       child: SplashPage(
-        child: AnimatedBackdrop(),
+        child: Backdrop(),
       ),
     );
   }

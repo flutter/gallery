@@ -9,6 +9,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN cupertinoSwitchDemo
 
 class CupertinoSwitchDemo extends StatefulWidget {
+  const CupertinoSwitchDemo();
+
   @override
   _CupertinoSwitchDemoState createState() => _CupertinoSwitchDemoState();
 }

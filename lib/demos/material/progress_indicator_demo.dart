@@ -72,7 +72,7 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
         return Column(
           children: [
             const CircularProgressIndicator(),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             CircularProgressIndicator(value: _animation.value),
           ],
         );
@@ -80,7 +80,7 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
         return Column(
           children: [
             const LinearProgressIndicator(),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             LinearProgressIndicator(value: _animation.value),
           ],
         );
