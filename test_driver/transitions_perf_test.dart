@@ -107,7 +107,7 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
       print('tapping $demo');
       await driver.tap(demoItem); // Launch the demo
 
-      sleep(Duration(milliseconds: 500));
+      sleep(const Duration(milliseconds: 500));
 
       if (kUnsynchronizedDemos.contains(demo)) {
         await driver.runUnsynchronized<void>(() async {
@@ -136,7 +136,7 @@ void main([List<String> args = const <String>[]]) {
 
       if (_allDemos.isEmpty) throw 'no demo names found';
 
-      sleep(Duration(seconds: 2));
+      sleep(const Duration(seconds: 2));
 
       if (args.contains('--with_semantics')) {
         print('Enabeling semantics...');
