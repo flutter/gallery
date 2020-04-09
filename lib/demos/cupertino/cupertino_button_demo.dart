@@ -9,6 +9,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN cupertinoButtonDemo
 
 class CupertinoButtonDemo extends StatelessWidget {
+  const CupertinoButtonDemo();
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -27,7 +29,7 @@ class CupertinoButtonDemo extends StatelessWidget {
               ),
               onPressed: () {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             CupertinoButton.filled(
               child: Text(
                 GalleryLocalizations.of(context).cupertinoButtonWithBackground,

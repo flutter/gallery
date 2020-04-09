@@ -48,7 +48,7 @@ class _AboutDialog extends StatelessWidget {
       backgroundColor: colorScheme.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       content: Container(
-        constraints: BoxConstraints(maxWidth: 400),
+        constraints: const BoxConstraints(maxWidth: 400),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -60,7 +60,7 @@ class _AboutDialog extends StatelessWidget {
                 style: textTheme.headline4.apply(color: colorScheme.onPrimary),
               ),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             RichText(
               text: TextSpan(
                 children: [
@@ -91,7 +91,7 @@ class _AboutDialog extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Text(
               legalese,
               style: bodyTextStyle,

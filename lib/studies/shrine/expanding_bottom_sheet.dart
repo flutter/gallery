@@ -483,8 +483,9 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
     _bottomStartShapeAnimation = _getShapeBottomStartAnimation(context);
     _thumbnailOpacityAnimation = _getThumbnailOpacityAnimation();
     _cartOpacityAnimation = _getCartOpacityAnimation();
-    _gapAnimation =
-        isDesktop ? _getDesktopGapAnimation(116) : AlwaysStoppedAnimation(0);
+    _gapAnimation = isDesktop
+        ? _getDesktopGapAnimation(116)
+        : const AlwaysStoppedAnimation(0);
 
     final Widget child = Container(
       width: _widthAnimation.value,

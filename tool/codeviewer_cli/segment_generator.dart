@@ -78,7 +78,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
     // Process file.
 
     String content = file.readAsStringSync();
-    List<String> lines = LineSplitter().convert(content);
+    List<String> lines = const LineSplitter().convert(content);
 
     _FileReadStatus status = _FileReadStatus.comments;
 

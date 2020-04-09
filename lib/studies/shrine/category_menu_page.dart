@@ -45,7 +45,7 @@ class CategoryMenuPage extends StatelessWidget {
     return Container(
       width: 56 * GalleryOptions.of(context).textScaleFactor(context),
       height: 1,
-      color: Color(0xFF8F716D),
+      color: const Color(0xFF8F716D),
     );
   }
 

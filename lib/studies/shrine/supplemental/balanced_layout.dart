@@ -36,7 +36,7 @@ class _TaggedHeightData {
 /// Used for iteration.
 List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
   List<_TaggedHeightData> result = List<_TaggedHeightData>.from(set);
-  result.add(_TaggedHeightData(index: _emptyElement, height: 0));
+  result.add(const _TaggedHeightData(index: _emptyElement, height: 0));
   return result;
 }
 

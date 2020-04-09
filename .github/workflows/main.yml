@@ -1,5 +1,9 @@
 name: Flutter Gallery
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
 jobs:
   test:
     name: Test on ${{ matrix.os }}

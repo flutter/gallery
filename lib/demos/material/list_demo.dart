@@ -27,7 +27,7 @@ class ListDemo extends StatelessWidget {
       ),
       body: Scrollbar(
         child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           children: [
             for (int index = 1; index < 21; index++)
               ListTile(

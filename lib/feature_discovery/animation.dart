@@ -31,7 +31,7 @@ class Animations {
   Animation<double> backgroundOpacity(FeatureDiscoveryStatus status) {
     switch (status) {
       case FeatureDiscoveryStatus.closed:
-        return AlwaysStoppedAnimation<double>(0);
+        return const AlwaysStoppedAnimation<double>(0);
       case FeatureDiscoveryStatus.open:
         return Tween<double>(begin: 0, end: backgroundMaxOpacity)
             .animate(CurvedAnimation(
@@ -51,7 +51,7 @@ class Animations {
           curve: Interval(0.2, 1.0, curve: Curves.ease),
         ));
       default:
-        return AlwaysStoppedAnimation<double>(backgroundMaxOpacity);
+        return const AlwaysStoppedAnimation<double>(backgroundMaxOpacity);
     }
   }
 
@@ -61,7 +61,7 @@ class Animations {
   ) {
     switch (status) {
       case FeatureDiscoveryStatus.closed:
-        return AlwaysStoppedAnimation<double>(0);
+        return const AlwaysStoppedAnimation<double>(0);
       case FeatureDiscoveryStatus.open:
         return Tween<double>(begin: 0, end: backgroundRadiusMax)
             .animate(CurvedAnimation(
@@ -118,7 +118,7 @@ class Animations {
   Animation<double> contentOpacity(FeatureDiscoveryStatus status) {
     switch (status) {
       case FeatureDiscoveryStatus.closed:
-        return AlwaysStoppedAnimation<double>(0);
+        return const AlwaysStoppedAnimation<double>(0);
       case FeatureDiscoveryStatus.open:
         return Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
           parent: openController,
@@ -135,7 +135,7 @@ class Animations {
           curve: Interval(0, 0.4, curve: Curves.ease),
         ));
       default:
-        return AlwaysStoppedAnimation<double>(1.0);
+        return const AlwaysStoppedAnimation<double>(1.0);
     }
   }
 
@@ -148,7 +148,7 @@ class Animations {
           curve: Interval(0.3, 0.8, curve: Curves.ease),
         ));
       default:
-        return AlwaysStoppedAnimation<double>(0);
+        return const AlwaysStoppedAnimation<double>(0);
     }
   }
 
@@ -162,16 +162,16 @@ class Animations {
             curve: Interval(0.3, 0.8, curve: Curves.ease),
           ));
         }
-        return AlwaysStoppedAnimation<double>(tapTargetMaxRadius);
+        return const AlwaysStoppedAnimation<double>(tapTargetMaxRadius);
       default:
-        return AlwaysStoppedAnimation<double>(0);
+        return const AlwaysStoppedAnimation<double>(0);
     }
   }
 
   Animation<double> tapTargetOpacity(FeatureDiscoveryStatus status) {
     switch (status) {
       case FeatureDiscoveryStatus.closed:
-        return AlwaysStoppedAnimation<double>(0);
+        return const AlwaysStoppedAnimation<double>(0);
       case FeatureDiscoveryStatus.open:
         return Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
           parent: openController,
@@ -188,14 +188,14 @@ class Animations {
           curve: Interval(0.2, 0.8, curve: Curves.ease),
         ));
       default:
-        return AlwaysStoppedAnimation<double>(1.0);
+        return const AlwaysStoppedAnimation<double>(1.0);
     }
   }
 
   Animation<double> tapTargetRadius(FeatureDiscoveryStatus status) {
     switch (status) {
       case FeatureDiscoveryStatus.closed:
-        return AlwaysStoppedAnimation<double>(tapTargetMinRadius);
+        return const AlwaysStoppedAnimation<double>(tapTargetMinRadius);
       case FeatureDiscoveryStatus.open:
         return Tween<double>(begin: tapTargetMinRadius, end: tapTargetMaxRadius)
             .animate(CurvedAnimation(
@@ -218,7 +218,7 @@ class Animations {
             curve: Interval(0.3, 0.6, curve: Curves.ease),
           ));
         }
-        return AlwaysStoppedAnimation<double>(tapTargetMaxRadius);
+        return const AlwaysStoppedAnimation<double>(tapTargetMaxRadius);
       case FeatureDiscoveryStatus.tap:
         return Tween<double>(begin: tapTargetMaxRadius, end: tapTargetMinRadius)
             .animate(CurvedAnimation(
@@ -232,7 +232,7 @@ class Animations {
           curve: Curves.ease,
         ));
       default:
-        return AlwaysStoppedAnimation<double>(tapTargetMaxRadius);
+        return const AlwaysStoppedAnimation<double>(tapTargetMaxRadius);
     }
   }
 }

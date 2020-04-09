@@ -14,7 +14,7 @@ enum BottomNavigationDemoType {
 }
 
 class BottomNavigationDemo extends StatefulWidget {
-  BottomNavigationDemo({Key key, @required this.type}) : super(key: key);
+  const BottomNavigationDemo({Key key, @required this.type}) : super(key: key);
 
   final BottomNavigationDemoType type;
 
@@ -192,7 +192,7 @@ class _NavigationIconView {
           ),
           Center(
             child: IconTheme(
-              data: IconThemeData(
+              data: const IconThemeData(
                 color: Colors.white,
                 size: 80,
               ),
