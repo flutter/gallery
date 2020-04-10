@@ -17,6 +17,7 @@ linter:
     - close_sinks
     - constant_identifier_names
     - control_flow_in_finally
+    - directives_ordering
     - empty_statements
     - hash_and_equals
     - implementation_imports
@@ -30,7 +31,4 @@ linter:
     - throw_in_finally
     - unnecessary_brace_in_string_interps
     - unnecessary_getters_setters
-    - unnecessary_const
-    - unnecessary_new
     - unnecessary_statements
-    - directives_ordering
