@@ -19,7 +19,7 @@ IconThemeData _customIconTheme(IconThemeData original) {
 }
 
 ThemeData _buildShrineTheme() {
-  final ThemeData base = ThemeData.light();
+  final base = ThemeData.light();
   return base.copyWith(
     colorScheme: _shrineColorScheme,
     accentColor: shrineBrown900,

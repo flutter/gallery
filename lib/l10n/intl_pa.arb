@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub ਡਾਟਾ-ਭੰਡਾਰ",
   "fortnightlyMenuUS": "ਅਮਰੀਕਾ",
   "fortnightlyMenuBusiness": "ਕਾਰੋਬਾਰ",
   "fortnightlyMenuScience": "ਵਿਗਿਆਨ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ਸਿਸਟਮ",
   "settingsTitle": "ਸੈਟਿੰਗਾਂ",
   "rallyDescription": "ਨਿੱਜੀ ਵਿੱਤੀ ਐਪ",
-  "aboutDialogDescription": "ਇਸ ਐਪ ਦਾ ਸਰੋਤ ਕੋਡ ਦੇਖਣ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ {value} 'ਤੇ ਜਾਓ।",
+  "aboutDialogDescription": "ਇਸ ਐਪ ਲਈ ਸਰੋਤ ਕੋਡ ਦੇਖਣ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ {repoLink} 'ਤੇ ਜਾਓ।",
   "bottomNavigationCommentsTab": "ਟਿੱਪਣੀਆਂ",
   "starterAppGenericBody": "ਬਾਡੀ",
   "starterAppGenericHeadline": "ਸੁਰਖੀ",

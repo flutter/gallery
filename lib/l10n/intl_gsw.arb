@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub-Repository",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Wirtschaft",
   "fortnightlyMenuScience": "Wissenschaft",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "System",
   "settingsTitle": "Einstellungen",
   "rallyDescription": "Persönliche Finanz-App",
-  "aboutDialogDescription": "Den Quellcode dieser App findest du hier: {value}.",
+  "aboutDialogDescription": "Den Quellcode dieser App findest du hier: {repoLink}.",
   "bottomNavigationCommentsTab": "Kommentare",
   "starterAppGenericBody": "Text",
   "starterAppGenericHeadline": "Überschrift",

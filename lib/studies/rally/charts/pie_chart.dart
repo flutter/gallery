@@ -150,7 +150,7 @@ class _AnimatedRallyPieChart extends AnimatedWidget {
 
     return LayoutBuilder(builder: (context, constraints) {
       // When the widget is larger, we increase the font size.
-      TextStyle headlineStyle = constraints.maxHeight >= pieChartMaxSize
+      var headlineStyle = constraints.maxHeight >= pieChartMaxSize
           ? textTheme.headline5.copyWith(fontSize: 70)
           : textTheme.headline5;
 
@@ -237,9 +237,9 @@ class _RallyPieChartOutlineBoxPainter extends BoxPainter {
     );
 
     // Paint each arc with spacing.
-    double cumulativeSpace = 0;
-    double cumulativeTotal = 0;
-    for (RallyPieChartSegment segment in segments) {
+    var cumulativeSpace = 0.0;
+    var cumulativeTotal = 0.0;
+    for (final segment in segments) {
       final paint = Paint()..color = segment.color;
       final startAngle = _calculateStartAngle(cumulativeTotal, cumulativeSpace);
       final sweepAngle = _calculateSweepAngle(segment.value, 0);

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub krātuve",
   "fortnightlyMenuUS": "ASV ziņas",
   "fortnightlyMenuBusiness": "Uzņēmējdarbība",
   "fortnightlyMenuScience": "Zinātne",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistēma",
   "settingsTitle": "Iestatījumi",
   "rallyDescription": "Personisko finanšu lietotne",
-  "aboutDialogDescription": "Lai skatītu šīs lietotnes pirmkodu, lūdzu, apmeklējiet {value}.",
+  "aboutDialogDescription": "Lai skatītu šīs lietotnes pirmkodu, lūdzu, apmeklējiet: {repoLink}.",
   "bottomNavigationCommentsTab": "Komentāri",
   "starterAppGenericBody": "Pamatteksts",
   "starterAppGenericHeadline": "Virsraksts",

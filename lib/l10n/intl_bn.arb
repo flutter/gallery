@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub ভান্ডার",
   "fortnightlyMenuUS": "মার্কিন যুক্তরাষ্ট্র",
   "fortnightlyMenuBusiness": "ব্যবসা",
   "fortnightlyMenuScience": "বিজ্ঞান",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "সিস্টেম",
   "settingsTitle": "সেটিংস",
   "rallyDescription": "ব্যক্তিগত ফাইনান্স অ্যাপ",
-  "aboutDialogDescription": "এই অ্যাপের সোর্স কোড দেখতে {value}-এ দেখুন।",
+  "aboutDialogDescription": "এই অ্যাপের সোর্স কোড দেখতে {repoLink}-এ দেখুন।",
   "bottomNavigationCommentsTab": "মন্তব্য",
   "starterAppGenericBody": "মুখ্য অংশ",
   "starterAppGenericHeadline": "শিরোনাম",

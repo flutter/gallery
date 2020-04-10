@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Рэпазітар GitHub {repoName}",
   "fortnightlyMenuUS": "ЗША",
   "fortnightlyMenuBusiness": "Бізнес",
   "fortnightlyMenuScience": "Навука",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Сістэма",
   "settingsTitle": "Налады",
   "rallyDescription": "Праграма для кіравання асабістымі фінансамі",
-  "aboutDialogDescription": "Каб праглядзець зыходны код гэтай праграмы, акрыйце старонку {value}.",
+  "aboutDialogDescription": "Каб праглядзець зыходны код гэтай праграмы, акрыйце старонку {repoLink}.",
   "bottomNavigationCommentsTab": "Каментарыі",
   "starterAppGenericBody": "Асноўны тэкст",
   "starterAppGenericHeadline": "Загаловак",

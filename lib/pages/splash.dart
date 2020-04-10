@@ -83,7 +83,7 @@ class _SplashPageState extends State<SplashPage>
         ),
         vsync: this)
       ..addListener(() {
-        this.setState(() {});
+        setState(() {});
       });
   }
 
@@ -97,7 +97,7 @@ class _SplashPageState extends State<SplashPage>
     BuildContext context,
     BoxConstraints constraints,
   ) {
-    final double height = constraints.biggest.height -
+    final height = constraints.biggest.height -
         (isDisplayDesktop(context) ? homePeekDesktop : homePeekMobile);
     return RelativeRectTween(
       begin: const RelativeRect.fromLTRB(0, 0, 0, 0),
@@ -116,9 +116,8 @@ class _SplashPageState extends State<SplashPage>
         isFinished: _controller.status == AnimationStatus.dismissed,
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final Animation<RelativeRect> animation =
-                _getPanelAnimation(context, constraints);
-            Widget frontLayer = widget.child;
+            final animation = _getPanelAnimation(context, constraints);
+            var frontLayer = widget.child;
             if (_isSplashVisible) {
               frontLayer = GestureDetector(
                 behavior: HitTestBehavior.opaque,

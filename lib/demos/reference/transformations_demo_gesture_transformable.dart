@@ -158,7 +158,7 @@ class _GestureTransformableState extends State<GestureTransformable>
 
   // The transformation matrix that gives the initial home position.
   Matrix4 get _initialTransform {
-    Matrix4 matrix = Matrix4.identity();
+    var matrix = Matrix4.identity();
     if (widget.initialTranslation != null) {
       matrix = matrixTranslate(matrix, widget.initialTranslation);
     }
@@ -175,8 +175,8 @@ class _GestureTransformableState extends State<GestureTransformable>
   static Offset fromViewport(Offset viewportPoint, Matrix4 transform) {
     // On viewportPoint, perform the inverse transformation of the scene to get
     // where the point would be in the scene before the transformation.
-    final Matrix4 inverseMatrix = Matrix4.inverted(transform);
-    final Vector3 untransformed = inverseMatrix.transform3(Vector3(
+    final inverseMatrix = Matrix4.inverted(transform);
+    final untransformed = inverseMatrix.transform3(Vector3(
       viewportPoint.dx,
       viewportPoint.dy,
       0,
@@ -187,7 +187,7 @@ class _GestureTransformableState extends State<GestureTransformable>
   // Get the offset of the current widget from the global screen coordinates.
   // TODO(justinmc): Protect against calling this during first build.
   static Offset getOffset(BuildContext context) {
-    final RenderBox renderObject = context.findRenderObject() as RenderBox;
+    final renderObject = context.findRenderObject() as RenderBox;
     return renderObject.localToGlobal(Offset.zero);
   }
 
@@ -347,9 +347,9 @@ class _GestureTransformableState extends State<GestureTransformable>
     }
 
     // Clamp translation so the viewport remains inside _boundaryRect.
-    final double scale = _transform.getMaxScaleOnAxis();
-    final Size scaledSize = widget.size / scale;
-    final Rect viewportBoundaries = Rect.fromLTRB(
+    final scale = _transform.getMaxScaleOnAxis();
+    final scaledSize = widget.size / scale;
+    final viewportBoundaries = Rect.fromLTRB(
       _boundaryRect.left,
       _boundaryRect.top,
       _boundaryRect.right - scaledSize.width,
@@ -357,23 +357,23 @@ class _GestureTransformableState extends State<GestureTransformable>
     );
     // Translation is reversed (a positive translation moves the scene to the
     // right, viewport to the left).
-    final Rect translationBoundaries = Rect.fromLTRB(
+    final translationBoundaries = Rect.fromLTRB(
       -scale * viewportBoundaries.right,
       -scale * viewportBoundaries.bottom,
       -scale * viewportBoundaries.left,
       -scale * viewportBoundaries.top,
     );
-    final Matrix4 nextMatrix = matrix.clone()
+    final nextMatrix = matrix.clone()
       ..translate(
         translation.dx,
         translation.dy,
       );
-    final Vector3 nextTranslationVector = nextMatrix.getTranslation();
-    final Offset nextTranslation = Offset(
+    final nextTranslationVector = nextMatrix.getTranslation();
+    final nextTranslation = Offset(
       nextTranslationVector.x,
       nextTranslationVector.y,
     );
-    final bool inBoundaries = translationBoundaries.contains(
+    final inBoundaries = translationBoundaries.contains(
       Offset(nextTranslation.dx, nextTranslation.dy),
     );
     if (!inBoundaries) {
@@ -394,10 +394,10 @@ class _GestureTransformableState extends State<GestureTransformable>
     assert(scale != 0);
 
     // Don't allow a scale that moves the viewport outside of _boundaryRect.
-    final Offset tl = fromViewport(const Offset(0, 0), _transform);
-    final Offset tr = fromViewport(Offset(widget.size.width, 0), _transform);
-    final Offset bl = fromViewport(Offset(0, widget.size.height), _transform);
-    final Offset br = fromViewport(
+    final tl = fromViewport(const Offset(0, 0), _transform);
+    final tr = fromViewport(Offset(widget.size.width, 0), _transform);
+    final bl = fromViewport(Offset(0, widget.size.height), _transform);
+    final br = fromViewport(
       Offset(widget.size.width, widget.size.height),
       _transform,
     );
@@ -410,13 +410,13 @@ class _GestureTransformableState extends State<GestureTransformable>
 
     // Don't allow a scale that results in an overall scale beyond min/max
     // scale.
-    final double currentScale = _transform.getMaxScaleOnAxis();
-    final double totalScale = currentScale * scale;
-    final double clampedTotalScale = totalScale.clamp(
+    final currentScale = _transform.getMaxScaleOnAxis();
+    final totalScale = currentScale * scale;
+    final clampedTotalScale = totalScale.clamp(
       widget.minScale,
       widget.maxScale,
     ) as double;
-    final double clampedScale = clampedTotalScale / currentScale;
+    final clampedScale = clampedTotalScale / currentScale;
     return matrix..scale(clampedScale);
   }
 
@@ -427,7 +427,7 @@ class _GestureTransformableState extends State<GestureTransformable>
     if (widget.disableRotation || rotation == 0) {
       return matrix;
     }
-    final Offset focalPointScene = fromViewport(focalPoint, matrix);
+    final focalPointScene = fromViewport(focalPoint, matrix);
     return matrix
       ..translate(focalPointScene.dx, focalPointScene.dy)
       ..rotateZ(-rotation)
@@ -460,7 +460,7 @@ class _GestureTransformableState extends State<GestureTransformable>
 
   // Handle an update to an ongoing gesture of _GestureType.
   void _onScaleUpdate(ScaleUpdateDetails details) {
-    double scale = _transform.getMaxScaleOnAxis();
+    var scale = _transform.getMaxScaleOnAxis();
     if (widget.onScaleUpdate != null) {
       widget.onScaleUpdate(ScaleUpdateDetails(
         focalPoint: fromViewport(details.focalPoint, _transform),
@@ -468,7 +468,7 @@ class _GestureTransformableState extends State<GestureTransformable>
         rotation: details.rotation,
       ));
     }
-    final Offset focalPointScene = fromViewport(
+    final focalPointScene = fromViewport(
       details.focalPoint,
       _transform,
     );
@@ -490,8 +490,8 @@ class _GestureTransformableState extends State<GestureTransformable>
         // details.scale gives us the amount to change the scale as of the
         // start of this gesture, so calculate the amount to scale as of the
         // previous call to _onScaleUpdate.
-        final double desiredScale = _scaleStart * details.scale;
-        final double scaleChange = desiredScale / scale;
+        final desiredScale = _scaleStart * details.scale;
+        final scaleChange = desiredScale / scale;
         _transform = matrixScale(_transform, scaleChange);
         scale = _transform.getMaxScaleOnAxis();
 
@@ -499,21 +499,21 @@ class _GestureTransformableState extends State<GestureTransformable>
         // same places in the scene. That means that the focal point of the
         // scale should be on the same place in the scene before and after the
         // scale.
-        final Offset focalPointSceneNext = fromViewport(
+        final focalPointSceneNext = fromViewport(
           details.focalPoint,
           _transform,
         );
         _transform =
             matrixTranslate(_transform, focalPointSceneNext - focalPointScene);
       } else if (gestureType == _GestureType.rotate && details.rotation != 0) {
-        final double desiredRotation = _rotationStart + details.rotation;
+        final desiredRotation = _rotationStart + details.rotation;
         _transform = matrixRotate(
             _transform, _currentRotation - desiredRotation, details.focalPoint);
         _currentRotation = desiredRotation;
       } else if (_translateFromScene != null && details.scale == 1) {
         // Translate so that the same point in the scene is underneath the
         // focal point before and after the movement.
-        final Offset translationChange = focalPointScene - _translateFromScene;
+        final translationChange = focalPointScene - _translateFromScene;
         _transform = matrixTranslate(_transform, translationChange);
         _translateFromScene = fromViewport(details.focalPoint, _transform);
       }
@@ -535,16 +535,15 @@ class _GestureTransformableState extends State<GestureTransformable>
     _controller.reset();
 
     // If the scale ended with velocity, animate inertial movement
-    final double velocityTotal = details.velocity.pixelsPerSecond.dx.abs() +
+    final velocityTotal = details.velocity.pixelsPerSecond.dx.abs() +
         details.velocity.pixelsPerSecond.dy.abs();
     if (velocityTotal == 0) {
       return;
     }
 
-    final Vector3 translationVector = _transform.getTranslation();
-    final Offset translation = Offset(translationVector.x, translationVector.y);
-    final InertialMotion inertialMotion =
-        InertialMotion(details.velocity, translation);
+    final translationVector = _transform.getTranslation();
+    final translation = Offset(translationVector.x, translationVector.y);
+    final inertialMotion = InertialMotion(details.velocity, translation);
     _animation = Tween<Offset>(
       begin: translation,
       end: inertialMotion.finalPosition,
@@ -560,12 +559,11 @@ class _GestureTransformableState extends State<GestureTransformable>
     setState(() {
       // Translate _transform such that the resulting translation is
       // _animation.value.
-      final Vector3 translationVector = _transform.getTranslation();
-      final Offset translation =
-          Offset(translationVector.x, translationVector.y);
-      final Offset translationScene = fromViewport(translation, _transform);
-      final Offset animationScene = fromViewport(_animation.value, _transform);
-      final Offset translationChangeScene = animationScene - translationScene;
+      final translationVector = _transform.getTranslation();
+      final translation = Offset(translationVector.x, translationVector.y);
+      final translationScene = fromViewport(translation, _transform);
+      final animationScene = fromViewport(_animation.value, _transform);
+      final translationChangeScene = animationScene - translationScene;
       _transform = matrixTranslate(_transform, translationChangeScene);
     });
     if (!_controller.isAnimating) {

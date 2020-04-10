@@ -167,7 +167,7 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> {
   Widget build(BuildContext context) {
     return Center(
       child: ToggleButtons(
-        children: [
+        children: const [
           Icon(Icons.ac_unit),
           Icon(Icons.call),
           Icon(Icons.cake),

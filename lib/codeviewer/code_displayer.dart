@@ -4,4 +4,4 @@
 
 import 'package:flutter/material.dart';
 
-typedef TextSpan CodeDisplayer(BuildContext context);
+typedef CodeDisplayer = TextSpan Function(BuildContext context);
