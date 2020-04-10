@@ -1,4 +1,5 @@
 {
+  "githubRepo": "مستودع GitHub {repoName}",
   "fortnightlyMenuUS": "الولايات المتحدة",
   "fortnightlyMenuBusiness": "أعمال",
   "fortnightlyMenuScience": "علوم",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "النظام",
   "settingsTitle": "الإعدادات",
   "rallyDescription": "تطبيق للتمويل الشخصي",
-  "aboutDialogDescription": "للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {value}.",
+  "aboutDialogDescription": "للاطّلاع على رمز المصدر لهذا التطبيق، يُرجى زيارة {repoLink}.",
   "bottomNavigationCommentsTab": "التعليقات",
   "starterAppGenericBody": "النص",
   "starterAppGenericHeadline": "العنوان",

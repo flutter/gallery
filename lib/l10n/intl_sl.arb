@@ -1,4 +1,5 @@
 {
+  "githubRepo": "shrambo {repoName} v GitHubu",
   "fortnightlyMenuUS": "Združene države",
   "fortnightlyMenuBusiness": "Posel",
   "fortnightlyMenuScience": "Znanost",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistemsko",
   "settingsTitle": "Nastavitve",
   "rallyDescription": "Aplikacija za osebne finance",
-  "aboutDialogDescription": "Če si želite ogledati izvorno kodo za to aplikacijo, odprite {value}.",
+  "aboutDialogDescription": "Če si želite ogledati izvorno kodo za to aplikacijo, odprite {repoLink}.",
   "bottomNavigationCommentsTab": "Komentarji",
   "starterAppGenericBody": "Telo",
   "starterAppGenericHeadline": "Naslov",

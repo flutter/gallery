@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub ৰিপ’জিটৰী",
   "fortnightlyMenuUS": "আমেৰিকা যুক্তৰাষ্ট্ৰ",
   "fortnightlyMenuBusiness": "ব্যৱসায়",
   "fortnightlyMenuScience": "বিজ্ঞান",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ছিষ্টেম",
   "settingsTitle": "ছেটিংসমূহ",
   "rallyDescription": "এটা ব্যক্তিগত বিত্তীয় এপ্‌",
-  "aboutDialogDescription": "এই এপ্‌টোৰ উৎস ক’ডটো চাবলৈ, অনুগ্ৰহ কৰি {value} চাওক।",
+  "aboutDialogDescription": "এই এপ্‌টোৰ উৎস ক’ডটো চাবলৈ, অনুগ্ৰহ কৰি {repoLink}লৈ যাওক।",
   "bottomNavigationCommentsTab": "মন্তব্যসমূহ",
   "starterAppGenericBody": "মূল অংশ",
   "starterAppGenericHeadline": "শীৰ্ষ শিৰোনাম",

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Repositori GitHub {repoName}",
   "fortnightlyMenuUS": "AS",
   "fortnightlyMenuBusiness": "Bisnis",
   "fortnightlyMenuScience": "Sains",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistem",
   "settingsTitle": "Setelan",
   "rallyDescription": "Aplikasi keuangan pribadi",
-  "aboutDialogDescription": "Untuk melihat kode sumber aplikasi ini, kunjungi {value}.",
+  "aboutDialogDescription": "Untuk melihat kode sumber aplikasi ini, buka {repoLink}.",
   "bottomNavigationCommentsTab": "Komentar",
   "starterAppGenericBody": "Isi",
   "starterAppGenericHeadline": "Judul",

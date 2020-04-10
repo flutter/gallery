@@ -1,4 +1,5 @@
 {
+  "githubRepo": "référentiel GitHub {repoName}",
   "fortnightlyMenuUS": "États-Unis",
   "fortnightlyMenuBusiness": "Affaires",
   "fortnightlyMenuScience": "Sciences",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Système",
   "settingsTitle": "Paramètres",
   "rallyDescription": "Une application pour les finances personnelles",
-  "aboutDialogDescription": "Pour voir le code source de cette application, veuillez consulter {value}.",
+  "aboutDialogDescription": "Pour voir le code source de cette application, veuillez consulter le {repoLink}.",
   "bottomNavigationCommentsTab": "Commentaires",
   "starterAppGenericBody": "Corps du texte",
   "starterAppGenericHeadline": "Titre",

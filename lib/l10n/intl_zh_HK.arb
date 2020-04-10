@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub 存放區",
   "fortnightlyMenuUS": "美國",
   "fortnightlyMenuBusiness": "商業",
   "fortnightlyMenuScience": "科學",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "系統",
   "settingsTitle": "設定",
   "rallyDescription": "個人理財應用程式",
-  "aboutDialogDescription": "如要查看此應用程式的原始碼，請前往 {value}。",
+  "aboutDialogDescription": "如要查看此應用程式的原始碼，請前往 {repoLink}。",
   "bottomNavigationCommentsTab": "留言",
   "starterAppGenericBody": "內文",
   "starterAppGenericHeadline": "標題",

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub biltegia",
   "fortnightlyMenuUS": "Ameriketako Estatu Batuak",
   "fortnightlyMenuBusiness": "Negozioak",
   "fortnightlyMenuScience": "Zientzia",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistema",
   "settingsTitle": "Ezarpenak",
   "rallyDescription": "Finantza-aplikazio pertsonala",
-  "aboutDialogDescription": "Aplikazio honen iturburu-kodea ikusteko, joan hona: {value}.",
+  "aboutDialogDescription": "Aplikazio honen iturburu-kodea ikusteko, joan hona: {repoLink}.",
   "bottomNavigationCommentsTab": "Iruzkinak",
   "starterAppGenericBody": "Gorputza",
   "starterAppGenericHeadline": "Goiburua",
@@ -665,7 +666,7 @@
   "colorsBlue": "URDINA",
   "colorsLightBlue": "URDIN ARGIA",
   "colorsCyan": "ZIANA",
-  "dialogAddAccount": "Gehitu kontua",
+  "dialogAddAccount": "Gehitu kontu bat",
   "Gallery": "Galeria",
   "Categories": "Kategoriak",
   "SHRINE": "SANTUTEGIA",

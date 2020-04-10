@@ -1,4 +1,5 @@
 {
+  "githubRepo": "ឃ្លាំង GitHub របស់ {repoName}",
   "fortnightlyMenuUS": "សហរដ្ឋ​អាមេរិក",
   "fortnightlyMenuBusiness": "អាជីវកម្ម",
   "fortnightlyMenuScience": "វិទ្យាសាស្ត្រ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ប្រព័ន្ធ",
   "settingsTitle": "ការកំណត់",
   "rallyDescription": "កម្មវិធីហិរញ្ញវត្ថុ​ផ្ទាល់ខ្លួន",
-  "aboutDialogDescription": "ដើម្បីមើលកូដប្រភព​សម្រាប់​កម្មវិធីនេះ សូមចូល​ទៅកាន់ {value}។",
+  "aboutDialogDescription": "ដើម្បី​មើល​កូដ​ប្រភព​សម្រាប់​កម្មវិធី​នេះ សូមចូល​ទៅកាន់ {repoLink}​។",
   "bottomNavigationCommentsTab": "មតិ",
   "starterAppGenericBody": "តួ​អត្ថបទ",
   "starterAppGenericHeadline": "ចំណង​ជើង",

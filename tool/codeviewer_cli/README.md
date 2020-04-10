@@ -8,13 +8,13 @@ Code segments are highlighted before the app is compiled.
 This is done because the highlighting process can take 300ms to finish, creating
 a noticeable delay when the demo switches to code page.
 
-The highlighter takes all files in the `gallery/lib/demos/` folder and scans each.
+The highlighter takes all files in the `lib/demos/` folder and scans each.
 Highlighted code widgets are stored in the
-`gallery/lib/codeviewer/code_segments.dart` file.
+`lib/codeviewer/code_segments.dart` file.
 
 ## How to generate code segments
 
-From the `samples/gallery/` directory:
+From the `gallery/` directory:
 1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by
 running `flutter pub get`.
 2. Then run `flutter pub run grinder update-code-segments` to generate code
