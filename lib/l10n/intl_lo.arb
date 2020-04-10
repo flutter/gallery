@@ -1,4 +1,5 @@
 {
+  "githubRepo": "ບ່ອນເກັບຂໍ້ມູນ {repoName} GitHub",
   "fortnightlyMenuUS": "ສະຫະລັດ",
   "fortnightlyMenuBusiness": "ທຸລະກິດ",
   "fortnightlyMenuScience": "ວິທະຍາສາດ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ລະບົບ",
   "settingsTitle": "ການຕັ້ງຄ່າ",
   "rallyDescription": "ແອັບການເງິນສ່ວນຕົວ",
-  "aboutDialogDescription": "ເພື່ອເບິ່ງຊອດໂຄດສຳລັບແອັບນີ້, ກະລຸນາໄປທີ່ {value}.",
+  "aboutDialogDescription": "ເພື່ອເບິ່ງຊອດໂຄດສຳລັບແອັບນີ້, ກະລຸນາໄປທີ່ {repoLink}.",
   "bottomNavigationCommentsTab": "ຄຳເຫັນ",
   "starterAppGenericBody": "ສ່ວນເນື້ອຫາ",
   "starterAppGenericHeadline": "​ຫົວ​ຂໍ້",

@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     return ApplyTextOptions(
       child: isDesktop
@@ -112,9 +112,9 @@ class _UsernameTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final TextEditingController _usernameController = TextEditingController();
+    final _usernameController = TextEditingController();
 
     return PrimaryColorOverride(
       color: shrineBrown900,
@@ -139,9 +139,9 @@ class _PasswordTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final TextEditingController _passwordController = TextEditingController();
+    final _passwordController = TextEditingController();
 
     return PrimaryColorOverride(
       color: shrineBrown900,
@@ -167,11 +167,11 @@ class _CancelAndNextButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final EdgeInsets buttonTextPadding = isDesktop
+    final buttonTextPadding = isDesktop
         ? const EdgeInsets.symmetric(horizontal: 24, vertical: 16)
         : EdgeInsets.zero;
 

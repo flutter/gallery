@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub रिपोजिटरी",
   "fortnightlyMenuUS": "सं. रा. अमेरिका",
   "fortnightlyMenuBusiness": "व्यवसाय",
   "fortnightlyMenuScience": "विज्ञान",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "प्रणाली",
   "settingsTitle": "सेटिङ",
   "rallyDescription": "व्यक्तिगत वित्त व्यवस्थापनसम्बन्धी अनुप्रयोग",
-  "aboutDialogDescription": "यो अनुप्रयोगको सोर्स कोड हेर्न कृपया {value} मा जानुहोस्।",
+  "aboutDialogDescription": "यो अनुप्रयोगको सोर्स कोड हेर्न कृपया {repoLink} मा जानुहोस्।",
   "bottomNavigationCommentsTab": "टिप्पणीहरू",
   "starterAppGenericBody": "मुख्य भाग",
   "starterAppGenericHeadline": "शीर्षक",

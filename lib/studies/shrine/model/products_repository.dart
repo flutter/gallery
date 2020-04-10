@@ -8,7 +8,7 @@ import '../../../l10n/gallery_localizations.dart';
 
 class ProductsRepository {
   static List<Product> loadProducts(Category category) {
-    List<Product> allProducts = [
+    final allProducts = [
       Product(
         category: categoryAccessories,
         id: 0,

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Складиште на GitHub {repoName}",
   "fortnightlyMenuUS": "САД",
   "fortnightlyMenuBusiness": "Бизнис",
   "fortnightlyMenuScience": "Наука",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Систем",
   "settingsTitle": "Поставки",
   "rallyDescription": "Апликација за лични финансии",
-  "aboutDialogDescription": "За да го видите изворниот код на апликацијава, одете на {value}.",
+  "aboutDialogDescription": "За да го видите изворниот код на апликацијава, одете на {repoLink}.",
   "bottomNavigationCommentsTab": "Коментари",
   "starterAppGenericBody": "Главен текст",
   "starterAppGenericHeadline": "Наслов",

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "GitHub-lagringsplats {repoName}",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Ekonomi",
   "fortnightlyMenuScience": "Vetenskap",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "System",
   "settingsTitle": "Inställningar",
   "rallyDescription": "En app för privatekonomi",
-  "aboutDialogDescription": "Besök {value} om du vill se källkoden för den här appen.",
+  "aboutDialogDescription": "Besök {repoLink} om du vill se källkoden för den här appen.",
   "bottomNavigationCommentsTab": "Kommentarer",
   "starterAppGenericBody": "Brödtext",
   "starterAppGenericHeadline": "Rubrik",

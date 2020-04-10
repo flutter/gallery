@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub ගබඩාව",
   "fortnightlyMenuUS": "එක්සත් ජනපදය",
   "fortnightlyMenuBusiness": "ව්‍යාපාරය",
   "fortnightlyMenuScience": "විද්‍යාව",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "පද්ධතිය",
   "settingsTitle": "සැකසීම්",
   "rallyDescription": "පුද්ගලික මූල්‍ය යෙදුමක්",
-  "aboutDialogDescription": "මෙම යෙදුම සඳහා ප්‍රභව කේතය බැලීමට කරුණාකර {value} වෙත පිවිසෙන්න.",
+  "aboutDialogDescription": "මෙම යෙදුම සඳහා මූලාශ්‍ර කේතය බැලීමට කරුණාකර {repoLink} වෙත පිවිසෙන්න.",
   "bottomNavigationCommentsTab": "අදහස් දැක්වීම්",
   "starterAppGenericBody": "අන්තර්ගතය",
   "starterAppGenericHeadline": "සිරස්තලය",

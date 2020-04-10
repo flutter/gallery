@@ -20,7 +20,7 @@ class _BillsViewState extends State<BillsView>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    List<BillData> items = DummyDataService.getBillDataList(context);
+    final items = DummyDataService.getBillDataList(context);
     final dueTotal = sumBillDataPrimaryAmount(items);
     final paidTotal = sumBillDataPaidAmount(items);
     final detailItems = DummyDataService.getBillDetailList(

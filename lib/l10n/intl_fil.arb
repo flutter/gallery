@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Repository ng GitHub ng {repoName}",
   "fortnightlyMenuUS": "US",
   "fortnightlyMenuBusiness": "Negosyo",
   "fortnightlyMenuScience": "Agham",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "System",
   "settingsTitle": "Mga Setting",
   "rallyDescription": "Isang personal na finance app",
-  "aboutDialogDescription": "Para makita ang source code para sa app na ito, pakibisita ang {value}.",
+  "aboutDialogDescription": "Para makita ang source code para sa app na ito, pakibisita ang {repoLink}.",
   "bottomNavigationCommentsTab": "Mga Komento",
   "starterAppGenericBody": "Nilalaman",
   "starterAppGenericHeadline": "Headline",

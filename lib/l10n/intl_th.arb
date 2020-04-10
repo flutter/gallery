@@ -1,4 +1,5 @@
 {
+  "githubRepo": "ที่เก็บ {repoName} ใน GitHub",
   "fortnightlyMenuUS": "สหรัฐอเมริกา",
   "fortnightlyMenuBusiness": "ธุรกิจ",
   "fortnightlyMenuScience": "วิทยาศาสตร์",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ระบบ",
   "settingsTitle": "การตั้งค่า",
   "rallyDescription": "แอปการเงินส่วนบุคคล",
-  "aboutDialogDescription": "โปรดไปที่ {value} เพื่อดูซอร์สโค้ดของแอปนี้",
+  "aboutDialogDescription": "โปรดไปที่ {repoLink} เพื่อดูซอร์สโค้ดของแอปนี้",
   "bottomNavigationCommentsTab": "ความคิดเห็น",
   "starterAppGenericBody": "เนื้อความ",
   "starterAppGenericHeadline": "บรรทัดแรก",

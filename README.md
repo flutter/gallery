@@ -75,8 +75,7 @@ platform it runs on. This is determined based on window size as outlined in
 ## Generating localized strings and highlighted code segments
 
 To generate localized strings or highlighted code segments, make sure that you
-have [grinder](https://pub.dev/packages/grinder) installed. You can install it
-by getting the packages in `samples/gallery/`:
+have [grinder](https://pub.dev/packages/grinder) installed by running 
 ```bash
 flutter pub get
 ```

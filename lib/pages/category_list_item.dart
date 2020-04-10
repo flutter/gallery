@@ -131,7 +131,7 @@ class _CategoryListItemState extends State<CategoryListItem>
 
   @override
   Widget build(BuildContext context) {
-    final bool closed = !_isExpanded && _controller.isDismissed;
+    final closed = !_isExpanded && _controller.isDismissed;
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
