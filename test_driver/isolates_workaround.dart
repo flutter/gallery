@@ -11,13 +11,13 @@ class IsolatesWorkaround {
 
   Future<void> resumeIsolates() async {
     final vm = await _driver.serviceClient.getVM();
-    // // unpause any paused isolated
+    // Unpause any paused isolated
     for (final isolateRef in vm.isolates) {
       final isolate = await isolateRef.load();
       if (isolate.isPaused) {
         await isolate.resume();
         if (log) {
-          print("Resuming isolate: ${isolate.numberAsString}:${isolate.name}");
+          print('Resuming isolate: ${isolate.numberAsString}:${isolate.name}');
         }
       }
     }
@@ -31,7 +31,7 @@ class IsolatesWorkaround {
       if (isolate.isPaused) {
         await isolate.resume();
         if (log) {
-          print("Resuming isolate: ${isolate.numberAsString}:${isolate.name}");
+          print('Resuming isolate: ${isolate.numberAsString}:${isolate.name}');
         }
       }
     });
