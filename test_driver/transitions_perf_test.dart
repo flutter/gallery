@@ -157,21 +157,8 @@ void main([List<String> args = const <String>[]]) {
       }
     });
 
-    test('all demos', () async {
-      // Scroll to and expand all categories.
-      SerializableFinder homeList = find.byValueKey('HomeListView');
-      for (var category in ['material', 'cupertino', 'other']) {
-        final categoryHeader = find.byValueKey('${category}CategoryHeader');
-        await driver.scrollUntilVisible(
-          homeList,
-          categoryHeader,
-          dyScroll: -400,
-          timeout: const Duration(seconds: 30),
-        );
-        await driver.tap(categoryHeader);
-      }
-      await scrollToTop(driver);
 
+    test('all demos', () async {
       // Collect timeline data for just a limited set of demos to avoid OOMs.
       final Timeline timeline = await driver.traceAction(
         () async {
