@@ -208,7 +208,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   @override
   Widget build(BuildContext context) {
-    bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
     _resolveState(context);
 
     final colorScheme = Theme.of(context).colorScheme;
@@ -326,7 +326,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         );
         break;
       case _DemoState.code:
-        final TextStyle codeTheme = GoogleFonts.robotoMono(
+        final codeTheme = GoogleFonts.robotoMono(
           fontSize: 12 * GalleryOptions.of(context).textScaleFactor(context),
         );
         section = CodeStyle(
@@ -728,8 +728,8 @@ class CodeDisplayPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    final TextSpan _richTextCode = code(context);
-    final String _plainTextCode = _richTextCode.toPlainText();
+    final _richTextCode = code(context);
+    final _plainTextCode = _richTextCode.toPlainText();
 
     void _showSnackBarOnCopySuccess(dynamic result) {
       Scaffold.of(context).showSnackBar(

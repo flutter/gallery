@@ -39,7 +39,7 @@ class CutCornersBorder extends OutlineInputBorder {
   @override
   ShapeBorder lerpFrom(ShapeBorder a, double t) {
     if (a is CutCornersBorder) {
-      final CutCornersBorder outline = a;
+      final outline = a;
       return CutCornersBorder(
         borderRadius: BorderRadius.lerp(outline.borderRadius, borderRadius, t),
         borderSide: BorderSide.lerp(outline.borderSide, borderSide, t),
@@ -53,7 +53,7 @@ class CutCornersBorder extends OutlineInputBorder {
   @override
   ShapeBorder lerpTo(ShapeBorder b, double t) {
     if (b is CutCornersBorder) {
-      final CutCornersBorder outline = b;
+      final outline = b;
       return CutCornersBorder(
         borderRadius: BorderRadius.lerp(borderRadius, outline.borderRadius, t),
         borderSide: BorderSide.lerp(borderSide, outline.borderSide, t),
@@ -65,7 +65,7 @@ class CutCornersBorder extends OutlineInputBorder {
   }
 
   Path _notchedCornerPath(Rect center, [double start = 0, double extent = 0]) {
-    final Path path = Path();
+    final path = Path();
     if (start > 0 || extent > 0) {
       path.relativeMoveTo(extent + start, center.top);
       _notchedSidesAndBottom(center, path);
@@ -101,24 +101,23 @@ class CutCornersBorder extends OutlineInputBorder {
     assert(gapExtent != null);
     assert(gapPercentage >= 0 && gapPercentage <= 1);
 
-    final Paint paint = borderSide.toPaint();
-    final RRect outer = borderRadius.toRRect(rect);
+    final paint = borderSide.toPaint();
+    final outer = borderRadius.toRRect(rect);
     if (gapStart == null || gapExtent <= 0 || gapPercentage == 0) {
       canvas.drawPath(_notchedCornerPath(outer.middleRect), paint);
     } else {
-      final double extent =
-          lerpDouble(0.0, gapExtent + gapPadding * 2, gapPercentage);
+      final extent = lerpDouble(0.0, gapExtent + gapPadding * 2, gapPercentage);
       switch (textDirection) {
         case TextDirection.rtl:
           {
-            final Path path = _notchedCornerPath(
+            final path = _notchedCornerPath(
                 outer.middleRect, gapStart + gapPadding - extent, extent);
             canvas.drawPath(path, paint);
             break;
           }
         case TextDirection.ltr:
           {
-            final Path path = _notchedCornerPath(
+            final path = _notchedCornerPath(
                 outer.middleRect, gapStart - gapPadding, extent);
             canvas.drawPath(path, paint);
             break;

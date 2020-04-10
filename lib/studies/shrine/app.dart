@@ -93,9 +93,9 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final Widget backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
+    final backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
     final Widget home = LayoutCache(
       layouts: _layouts,
       child: PageStatus(

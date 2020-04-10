@@ -327,8 +327,8 @@ class _UsNumberTextInputFormatter extends TextInputFormatter {
   ) {
     final newTextLength = newValue.text.length;
     final newText = StringBuffer();
-    int selectionIndex = newValue.selection.end;
-    int usedSubstringIndex = 0;
+    var selectionIndex = newValue.selection.end;
+    var usedSubstringIndex = 0;
     if (newTextLength >= 1) {
       newText.write('(');
       if (newValue.selection.end >= 1) selectionIndex++;

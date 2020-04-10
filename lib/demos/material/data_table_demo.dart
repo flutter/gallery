@@ -489,8 +489,8 @@ class _DessertDataSource extends DataTableSource {
 
   void _sort<T>(Comparable<T> Function(_Dessert d) getField, bool ascending) {
     _desserts.sort((a, b) {
-      final Comparable<T> aValue = getField(a);
-      final Comparable<T> bValue = getField(b);
+      final aValue = getField(a);
+      final bValue = getField(b);
       return ascending
           ? Comparable.compare(aValue, bValue)
           : Comparable.compare(bValue, aValue);
@@ -508,7 +508,7 @@ class _DessertDataSource extends DataTableSource {
     );
     assert(index >= 0);
     if (index >= _desserts.length) return null;
-    final _Dessert dessert = _desserts[index];
+    final dessert = _desserts[index];
     return DataRow.byIndex(
       index: index,
       selected: dessert.selected,
@@ -543,7 +543,7 @@ class _DessertDataSource extends DataTableSource {
   int get selectedRowCount => _selectedCount;
 
   void _selectAll(bool checked) {
-    for (final _Dessert dessert in _desserts) {
+    for (final dessert in _desserts) {
       dessert.selected = checked;
     }
     _selectedCount = checked ? _desserts.length : 0;

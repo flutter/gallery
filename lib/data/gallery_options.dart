@@ -78,7 +78,7 @@ class GalleryOptions {
   TextDirection textDirection() {
     switch (customTextDirection) {
       case CustomTextDirection.localeBased:
-        final String language = locale?.languageCode?.toLowerCase();
+        final language = locale?.languageCode?.toLowerCase();
         if (language == null) return null;
         return rtlLanguages.contains(language)
             ? TextDirection.rtl
@@ -129,13 +129,13 @@ class GalleryOptions {
       );
 
   static GalleryOptions of(BuildContext context) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, GalleryOptions newModel) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     scope.modelBindingState.updateModel(newModel);
   }

@@ -88,10 +88,10 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
 
     if (_generateSpans()) {
       // Successfully parsed the code
-      final List<CodeSpan> formattedText = <CodeSpan>[];
-      int currentPosition = 0;
+      final formattedText = <CodeSpan>[];
+      var currentPosition = 0;
 
-      for (_HighlightSpan span in _spans) {
+      for (final span in _spans) {
         if (currentPosition != span.start) {
           formattedText
               .add(CodeSpan(text: _src.substring(currentPosition, span.start)));
@@ -116,7 +116,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
   }
 
   bool _generateSpans() {
-    int lastLoopPosition = _scanner.position;
+    var lastLoopPosition = _scanner.position;
 
     while (!_scanner.isDone) {
       // Skip White space
@@ -134,9 +134,9 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
 
       // Line comments
       if (_scanner.scan('//')) {
-        final int startComment = _scanner.lastMatch.start;
+        final startComment = _scanner.lastMatch.start;
 
-        bool eof = false;
+        var eof = false;
         int endComment;
         if (_scanner.scan(RegExp(r'.*\n'))) {
           endComment = _scanner.lastMatch.end - 1;
@@ -259,7 +259,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       if (_scanner.scan(RegExp(r'\w+'))) {
         _HighlightType type;
 
-        String word = _scanner.lastMatch[0];
+        var word = _scanner.lastMatch[0];
         if (word.startsWith('_')) {
           word = word.substring(1);
         }
@@ -298,7 +298,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
   }
 
   void _simplify() {
-    for (int i = _spans.length - 2; i >= 0; i -= 1) {
+    for (var i = _spans.length - 2; i >= 0; i -= 1) {
       if (_spans[i].type == _spans[i + 1].type &&
           _spans[i].end == _spans[i + 1].start) {
         _spans[i] = _HighlightSpan(
@@ -313,7 +313,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
 
   bool _firstLetterIsUpperCase(String str) {
     if (str.isNotEmpty) {
-      final String first = str.substring(0, 1);
+      final first = str.substring(0, 1);
       return first == first.toUpperCase();
     }
     return false;
@@ -380,7 +380,7 @@ String _styleNameOf(_HighlightType type) {
 }
 
 String _escape(String text) {
-  StringBuffer escapedText = StringBuffer();
+  final escapedText = StringBuffer();
 
   for (final char in text.runes) {
     if (char < 0x20 ||
@@ -407,6 +407,6 @@ String _encode(int charCode) {
 }
 
 String _encodeAndPad(int charCode) {
-  String encoded = _encode(charCode);
+  final encoded = _encode(charCode);
   return '0' * (4 - encoded.length) + encoded;
 }
