@@ -13,7 +13,7 @@ const _intlHeader = '''
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on lib/l10n/intl_en.arb.
+  It is based on lib/l10n/intl_en.arb.
 -->
 <resources>
 ''';

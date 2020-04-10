@@ -1,12 +1,11 @@
 import 'dart:async';
 
+// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 
-import 'gallery_localizations_en.dart';
 import 'gallery_localizations_af.dart';
 import 'gallery_localizations_am.dart';
 import 'gallery_localizations_ar.dart';
@@ -21,6 +20,7 @@ import 'gallery_localizations_cs.dart';
 import 'gallery_localizations_da.dart';
 import 'gallery_localizations_de.dart';
 import 'gallery_localizations_el.dart';
+import 'gallery_localizations_en.dart';
 import 'gallery_localizations_es.dart';
 import 'gallery_localizations_et.dart';
 import 'gallery_localizations_eu.dart';
@@ -83,8 +83,6 @@ import 'gallery_localizations_vi.dart';
 import 'gallery_localizations_zh.dart';
 import 'gallery_localizations_zu.dart';
 
-// ignore_for_file: unnecessary_brace_in_string_interps
-
 /// Callers can lookup localized strings with an instance of GalleryLocalizations returned
 /// by `GalleryLocalizations.of(context)`.
 ///
@@ -112,8 +110,7 @@ import 'gallery_localizations_zu.dart';
 ///   # Internationalization support.
 ///   flutter_localizations:
 ///     sdk: flutter
-///   intl: 0.16.0
-///   intl_translation: 0.17.7
+///   intl: 0.16.1
 ///
 ///   # rest of dependencies
 /// ```
