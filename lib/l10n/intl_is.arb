@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub geymsla",
   "fortnightlyMenuUS": "Bandaríkin",
   "fortnightlyMenuBusiness": "Viðskipti",
   "fortnightlyMenuScience": "Vísindi",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Kerfi",
   "settingsTitle": "Stillingar",
   "rallyDescription": "Forrit fyrir fjármál einstaklinga",
-  "aboutDialogDescription": "Farðu á {value} til að sjá upprunakóða forritsins.",
+  "aboutDialogDescription": "Farðu á {repoLink} til að sjá upprunakóða þessa forrits.",
   "bottomNavigationCommentsTab": "Ummæli",
   "starterAppGenericBody": "Meginmál",
   "starterAppGenericHeadline": "Fyrirsögn",

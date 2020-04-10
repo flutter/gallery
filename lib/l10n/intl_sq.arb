@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Depoja {repoName} e GitHub",
   "fortnightlyMenuUS": "Shtetet e Bashkuara",
   "fortnightlyMenuBusiness": "Biznes",
   "fortnightlyMenuScience": "Shkencë",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistemi",
   "settingsTitle": "Cilësimet",
   "rallyDescription": "Një aplikacion për financat personale",
-  "aboutDialogDescription": "Për të parë kodin burimor për këtë aplikacion, vizito {value}.",
+  "aboutDialogDescription": "Për të parë kodin burimor për këtë aplikacion, vizito {repoLink}.",
   "bottomNavigationCommentsTab": "Komente",
   "starterAppGenericBody": "Trupi",
   "starterAppGenericHeadline": "Titulli",

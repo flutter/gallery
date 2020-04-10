@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub საცავი",
   "fortnightlyMenuUS": "შეერთებული შტატები",
   "fortnightlyMenuBusiness": "ბიზნესი",
   "fortnightlyMenuScience": "მეცნიერება",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "სისტემა",
   "settingsTitle": "პარამეტრები",
   "rallyDescription": "პირადი ფინანსების აპი",
-  "aboutDialogDescription": "ამ აპის საწყისი კოდის სანახავად, გთხოვთ, მოინახულოთ {value}.",
+  "aboutDialogDescription": "ამ აპის საწყისი კოდის სანახავად, გთხოვთ, მოინახულოთ {repoLink}.",
   "bottomNavigationCommentsTab": "კომენტარები",
   "starterAppGenericBody": "ძირითადი ტექსტი",
   "starterAppGenericHeadline": "სათაური",

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub havuzu",
   "fortnightlyMenuUS": "ABD",
   "fortnightlyMenuBusiness": "İş Dünyası",
   "fortnightlyMenuScience": "Bilim",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistem",
   "settingsTitle": "Ayarlar",
   "rallyDescription": "Kişisel finans uygulaması",
-  "aboutDialogDescription": "Bu uygulamanın kaynak kodunu görmek için {value} sayfasını ziyaret edin.",
+  "aboutDialogDescription": "Bu uygulamanın kaynak kodunu görmek için lütfen {repoLink} sayfasını ziyaret edin.",
   "bottomNavigationCommentsTab": "Yorumlar",
   "starterAppGenericBody": "Gövde",
   "starterAppGenericHeadline": "Başlık",

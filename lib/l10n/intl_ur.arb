@@ -1,4 +1,5 @@
 {
+  "githubRepo": "GitHub ذخیرہ {repoName}",
   "fortnightlyMenuUS": "US",
   "fortnightlyMenuBusiness": "کاروبار",
   "fortnightlyMenuScience": "سائنس",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "سسٹم",
   "settingsTitle": "ترتیبات",
   "rallyDescription": "ایک ذاتی اقتصادی ایپ",
-  "aboutDialogDescription": "اس ایپ کے لیے ماخذ کوڈ دیکھنے کے لیے، براہ کرم {value} کا ملاحظہ کریں۔",
+  "aboutDialogDescription": "اس ایپ کے لیے ماخذ کوڈ دیکھنے کے لیے، براہ کرم {repoLink} کا ملاحظہ کریں۔",
   "bottomNavigationCommentsTab": "تبصرے",
   "starterAppGenericBody": "مضمون",
   "starterAppGenericHeadline": "سرخی",

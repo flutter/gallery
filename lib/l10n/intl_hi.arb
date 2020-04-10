@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub की डेटा स्टोर करने की जगह",
   "fortnightlyMenuUS": "अमेरिका",
   "fortnightlyMenuBusiness": "कारोबार",
   "fortnightlyMenuScience": "विज्ञान",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "सिस्टम",
   "settingsTitle": "सेटिंग",
   "rallyDescription": "निजी तौर पर पैसाें से जुड़ी सुविधाएं देने वाला ऐप्लिकेशन",
-  "aboutDialogDescription": "इस ऐप्लिकेशन का सोर्स कोड देखने के लिए, कृपया {value} पर जाएं.",
+  "aboutDialogDescription": "इस ऐप्लिकेशन का सोर्स कोड देखने के लिए, कृपया {repoLink} पर जाएं.",
   "bottomNavigationCommentsTab": "टिप्पणियां",
   "starterAppGenericBody": "मुख्य भाग",
   "starterAppGenericHeadline": "शीर्षक",

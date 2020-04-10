@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub-lager",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Erhverv",
   "fortnightlyMenuScience": "Videnskab",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "System",
   "settingsTitle": "Indstillinger",
   "rallyDescription": "En personlig økonomiapp",
-  "aboutDialogDescription": "Gå til {value} for at se kildekoden for denne app.",
+  "aboutDialogDescription": "Gå til {repoLink}. for at se kildekoden for denne app.",
   "bottomNavigationCommentsTab": "Kommentarer",
   "starterAppGenericBody": "Brødtekst",
   "starterAppGenericHeadline": "Overskrift",
