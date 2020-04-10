@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
     final isDesktop = isDisplayDesktop(context);
     Widget tabBarView;
     if (isDesktop) {

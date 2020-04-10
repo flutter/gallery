@@ -85,7 +85,7 @@ class _BackdropState extends State<Backdrop>
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_animationLayer != null) {
-      FlareAnimationLayer layer = _animationLayer;
+      final layer = _animationLayer;
       layer.time = _settingsPanelController.value * layer.duration;
       layer.animation.apply(layer.time, _artboard, 1);
       if (layer.isDone || layer.time == 0) {
@@ -97,8 +97,8 @@ class _BackdropState extends State<Backdrop>
 
   void initAnimationLayer() {
     if (_artboard != null) {
-      final animationName = "Animations";
-      ActorAnimation animation = _artboard.getAnimation(animationName);
+      final animationName = 'Animations';
+      final animation = _artboard.getAnimation(animationName);
       _animationLayer = FlareAnimationLayer()
         ..name = animationName
         ..animation = animation;
@@ -138,7 +138,7 @@ class _BackdropState extends State<Backdrop>
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.4,
           curve: Curves.ease,
@@ -160,7 +160,7 @@ class _BackdropState extends State<Backdrop>
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.4,
           curve: Curves.ease,

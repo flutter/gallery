@@ -49,8 +49,8 @@ class RallyApp extends StatelessWidget {
       primaryColor: RallyColors.primaryBackground,
       focusColor: RallyColors.focusColor,
       textTheme: _buildRallyTextTheme(base.textTheme),
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: const TextStyle(
+      inputDecorationTheme: const InputDecorationTheme(
+        labelStyle: TextStyle(
           color: RallyColors.gray,
           fontWeight: FontWeight.w500,
         ),

@@ -53,8 +53,10 @@ class FlyDestination extends Destination {
   final int stops;
   final Duration duration;
 
+  @override
   String get assetName => 'assets/crane/destinations/fly_$id.jpg';
 
+  @override
   String subtitle(BuildContext context) {
     final stopsText = GalleryLocalizations.of(context).craneFlyStops(stops);
 
@@ -102,8 +104,10 @@ class SleepDestination extends Destination {
 
   final int total;
 
+  @override
   String get assetName => 'assets/crane/destinations/sleep_$id.jpg';
 
+  @override
   String subtitle(BuildContext context) {
     return GalleryLocalizations.of(context).craneSleepProperties(total);
   }
@@ -127,8 +131,10 @@ class EatDestination extends Destination {
 
   final int total;
 
+  @override
   String get assetName => 'assets/crane/destinations/eat_$id.jpg';
 
+  @override
   String subtitle(BuildContext context) {
     return GalleryLocalizations.of(context).craneEatRestaurants(total);
   }

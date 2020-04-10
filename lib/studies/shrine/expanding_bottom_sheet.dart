@@ -67,7 +67,7 @@ class ExpandingBottomSheet extends StatefulWidget {
       {bool isNullOk = false}) {
     assert(isNullOk != null);
     assert(context != null);
-    final _ExpandingBottomSheetState result =
+    final result =
         context.findAncestorStateOfType<_ExpandingBottomSheetState>();
     if (isNullOk || result != null) {
       return result;
@@ -206,8 +206,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
   }
 
   Animation<double> _getDesktopGapAnimation(double gapHeight) {
-    final double _collapsedGapHeight = gapHeight;
-    final double _expandedGapHeight = 0;
+    final _collapsedGapHeight = gapHeight;
+    final _expandedGapHeight = 0.0;
 
     if (_controller.status == AnimationStatus.forward) {
       // Opening animation
@@ -238,10 +238,9 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
 
   // Animation of the top-start cut corner. It's cut when closed and not cut when open.
   Animation<double> _getShapeTopStartAnimation(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final double cornerRadius =
-        isDesktop ? _desktopCornerRadius : _mobileCornerRadius;
+    final cornerRadius = isDesktop ? _desktopCornerRadius : _mobileCornerRadius;
 
     if (_controller.status == AnimationStatus.forward) {
       return Tween<double>(begin: cornerRadius, end: 0).animate(
@@ -263,9 +262,9 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
 
   // Animation of the bottom-start cut corner. It's cut when closed and not cut when open.
   Animation<double> _getShapeBottomStartAnimation(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final double cornerRadius = isDesktop ? _desktopCornerRadius : 0;
+    final cornerRadius = isDesktop ? _desktopCornerRadius : 0.0;
 
     if (_controller.status == AnimationStatus.forward) {
       return Tween<double>(begin: cornerRadius, end: 0).animate(
@@ -308,10 +307,10 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
   // Returns the correct width of the ExpandingBottomSheet based on the number of
   // products and the text scaling options in the cart in the mobile layout.
   double _mobileWidthFor(int numProducts, BuildContext context) {
-    final double cartThumbnailGap = numProducts > 0 ? 16 : 0;
-    final double thumbnailsWidth =
+    final cartThumbnailGap = numProducts > 0 ? 16 : 0;
+    final thumbnailsWidth =
         min(numProducts, _maxThumbnailCount) * _paddedThumbnailHeight(context);
-    final double overflowNumberWidth =
+    final overflowNumberWidth =
         numProducts > _maxThumbnailCount ? 30 * cappedTextScale(context) : 0;
     return _cartIconWidth +
         cartThumbnailGap +
@@ -334,10 +333,10 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
   // Returns the correct height of the ExpandingBottomSheet based on the number of
   // products and the text scaling options in the cart in the desktop layout.
   double _desktopHeightFor(int numProducts, BuildContext context) {
-    final double cartThumbnailGap = numProducts > 0 ? 8 : 0;
-    final double thumbnailsHeight =
+    final cartThumbnailGap = numProducts > 0 ? 8 : 0;
+    final thumbnailsHeight =
         min(numProducts, _maxThumbnailCount) * _paddedThumbnailHeight(context);
-    final double overflowNumberHeight =
+    final overflowNumberHeight =
         numProducts > _maxThumbnailCount ? 28 * reducedTextScale(context) : 0;
     return _cartIconHeight +
         cartThumbnailGap +
@@ -347,7 +346,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
 
   // Returns true if the cart is open or opening and false otherwise.
   bool get _isOpen {
-    final AnimationStatus status = _controller.status;
+    final status = _controller.status;
     return status == AnimationStatus.completed ||
         status == AnimationStatus.forward;
   }
@@ -393,7 +392,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
   }
 
   Widget _buildThumbnails(BuildContext context, int numProducts) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     Widget thumbnails;
 
@@ -458,16 +457,16 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
   Widget _buildCart(BuildContext context) {
     // numProducts is the number of different products in the cart (does not
     // include multiples of the same product).
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final AppStateModel model = ScopedModel.of<AppStateModel>(context);
-    final int numProducts = model.productsInCart.keys.length;
-    final int totalCartQuantity = model.totalCartQuantity;
-    final Size screenSize = MediaQuery.of(context).size;
-    final double screenWidth = screenSize.width;
-    final double screenHeight = screenSize.height;
+    final model = ScopedModel.of<AppStateModel>(context);
+    final numProducts = model.productsInCart.keys.length;
+    final totalCartQuantity = model.totalCartQuantity;
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
 
-    final double expandedCartWidth = isDesktop
+    final expandedCartWidth = isDesktop
         ? (360 * cappedTextScale(context)).clamp(360, screenWidth).toDouble()
         : screenWidth;
 
@@ -506,7 +505,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
       ),
     );
 
-    final Widget childWithInteraction = productPageIsVisible(context)
+    final childWithInteraction = productPageIsVisible(context)
         ? Semantics(
             button: true,
             label: GalleryLocalizations.of(context)
@@ -527,16 +526,16 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
 
   // Builder for the hide and reveal animation when the backdrop opens and closes
   Widget _buildSlideAnimation(BuildContext context, Widget child) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     if (isDesktop) {
       return child;
     } else {
-      final double textDirectionScalar =
+      final textDirectionScalar =
           Directionality.of(context) == TextDirection.ltr ? 1 : -1;
 
       _slideAnimation = _getEmphasizedEasingAnimation(
-        begin: Offset(1 * textDirectionScalar, 0),
+        begin: Offset(1.0 * textDirectionScalar, 0.0),
         peak: Offset(_peakVelocityProgress * textDirectionScalar, 0),
         end: const Offset(0, 0),
         isForward: widget.hideController.status == AnimationStatus.forward,
@@ -600,8 +599,8 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
   }
 
   Product _productWithId(int productId) {
-    final AppStateModel model = ScopedModel.of<AppStateModel>(context);
-    final Product product = model.getProductById(productId);
+    final model = ScopedModel.of<AppStateModel>(context);
+    final product = model.getProductById(productId);
     assert(product != null);
     return product;
   }
@@ -613,8 +612,7 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
 
   Widget _buildThumbnail(
       BuildContext context, int index, Animation<double> animation) {
-    final Animation<double> thumbnailSize =
-        Tween<double>(begin: 0.8, end: 1).animate(
+    final thumbnailSize = Tween<double>(begin: 0.8, end: 1).animate(
       CurvedAnimation(
         curve: const Interval(0.33, 1, curve: Curves.easeIn),
         parent: animation,
@@ -637,15 +635,15 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
     // Update _internalList based on the model
     _internalList =
         ScopedModel.of<AppStateModel>(context).productsInCart.keys.toList();
-    final Set<int> internalSet = Set<int>.from(_internalList);
-    final Set<int> listSet = Set<int>.from(_list.list);
+    final internalSet = Set<int>.from(_internalList);
+    final listSet = Set<int>.from(_list.list);
 
-    final Set<int> difference = internalSet.difference(listSet);
+    final difference = internalSet.difference(listSet);
     if (difference.isEmpty) {
       return;
     }
 
-    for (int product in difference) {
+    for (final product in difference) {
       if (_internalList.length < _list.length) {
         _list.remove(product);
       } else if (_internalList.length > _list.length) {
@@ -654,7 +652,7 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
     }
 
     while (_internalList.length != _list.length) {
-      int index = 0;
+      var index = 0;
       // Check bounds and that the list elements are the same
       while (_internalList.isNotEmpty &&
           _list.length > 0 &&
@@ -667,7 +665,7 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
   }
 
   Widget _buildAnimatedList(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     return AnimatedList(
       key: _listKey,
@@ -694,13 +692,13 @@ class ExtraProductsNumber extends StatelessWidget {
   // including their duplicates (but not duplicates of products shown as
   // thumbnails).
   int _calculateOverflow(AppStateModel model) {
-    final Map<int, int> productMap = model.productsInCart;
+    final productMap = model.productsInCart;
     // List created to be able to access products by index instead of ID.
     // Order is guaranteed because productsInCart returns a LinkedHashMap.
-    final List<int> products = productMap.keys.toList();
-    int overflow = 0;
-    final int numProducts = products.length;
-    for (int i = _maxThumbnailCount; i < numProducts; i++) {
+    final products = productMap.keys.toList();
+    var overflow = 0;
+    final numProducts = products.length;
+    for (var i = _maxThumbnailCount; i < numProducts; i++) {
       overflow += productMap[products[i]];
     }
     return overflow;
@@ -711,9 +709,9 @@ class ExtraProductsNumber extends StatelessWidget {
       return Container();
     }
 
-    final int numOverflowProducts = _calculateOverflow(model);
+    final numOverflowProducts = _calculateOverflow(model);
     // Maximum of 99 so padding doesn't get messy.
-    final int displayedOverflowProducts =
+    final displayedOverflowProducts =
         numOverflowProducts <= 99 ? numOverflowProducts : 99;
     return Container(
       child: Text(
@@ -740,7 +738,7 @@ class ProductThumbnail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     return FadeTransition(
       opacity: opacityAnimation,
@@ -796,14 +794,14 @@ class _ListModel {
   }
 
   void remove(int product) {
-    final int index = _items.indexOf(product);
+    final index = _items.indexOf(product);
     if (index >= 0) {
       _removeAt(index);
     }
   }
 
   void _removeAt(int index) {
-    final int removedItem = _items.removeAt(index);
+    final removedItem = _items.removeAt(index);
     if (removedItem != null) {
       _animatedList.removeItem(index, (context, animation) {
         return removedItemBuilder(removedItem, context, animation);

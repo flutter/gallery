@@ -22,7 +22,7 @@ void showAboutDialog({
 }
 
 Future<String> getVersionNumber() async {
-  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  final packageInfo = await PackageInfo.fromPlatform();
   return packageInfo.version;
 }
 

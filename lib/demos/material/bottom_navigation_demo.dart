@@ -77,16 +77,16 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
 
   @override
   void dispose() {
-    for (_NavigationIconView view in _navigationViews) {
+    for (final view in _navigationViews) {
       view.controller.dispose();
     }
     super.dispose();
   }
 
   Widget _buildTransitionsStack() {
-    final List<FadeTransition> transitions = <FadeTransition>[];
+    final transitions = <FadeTransition>[];
 
-    for (_NavigationIconView view in _navigationViews) {
+    for (final view in _navigationViews) {
       transitions.add(view.transition(context));
     }
 
