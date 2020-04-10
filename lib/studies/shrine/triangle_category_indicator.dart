@@ -29,7 +29,7 @@ class TriangleCategoryIndicator extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Path myPath = Path()
+    final myPath = Path()
       ..addPolygon(
         List.from(_vertices.map<Offset>((vertex) {
           return Offset(size.width, size.height) / 2 +
@@ -38,7 +38,7 @@ class TriangleCategoryIndicator extends CustomPainter {
         })),
         true,
       );
-    Paint myPaint = Paint()..color = shrinePink400;
+    final myPaint = Paint()..color = shrinePink400;
     canvas.drawPath(myPath, myPaint);
   }
 
