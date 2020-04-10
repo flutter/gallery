@@ -98,7 +98,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   bool get _isSupportedSharedPreferencesPlatform =>
       !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
-  // Only show the feature highlight on Android/iOS, mobile layout, non-test
+  // Only show the feature highlight on Android/iOS, in mobile layout, non-test
   // mode, and only on the first and fourth time the demo page is viewed.
   bool _showFeatureHighlightForPlatform(BuildContext context) {
     return _showFeatureHighlight &&
