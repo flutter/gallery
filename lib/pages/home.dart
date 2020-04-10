@@ -149,8 +149,7 @@ class HomePage extends StatelessWidget {
               child: _CategoriesHeader(),
             ),
             Container(
-              // Makes integration tests possible.
-              height: GalleryOptions.of(context).testMode ? 3000 : 585,
+              height: 585,
               padding: const EdgeInsets.symmetric(
                 horizontal: _horizontalDesktopPadding,
               ),
