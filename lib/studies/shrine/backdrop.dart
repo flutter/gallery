@@ -66,15 +66,13 @@ class _FrontLayer extends StatelessWidget {
 class _BackdropTitle extends AnimatedWidget {
   const _BackdropTitle({
     Key key,
-    this.listenable,
+    Animation<double> listenable,
     this.onPress,
     @required this.frontTitle,
     @required this.backTitle,
   })  : assert(frontTitle != null),
         assert(backTitle != null),
         super(key: key, listenable: listenable);
-
-  final Animation<double> listenable;
 
   final void Function() onPress;
   final Widget frontTitle;
@@ -83,7 +81,7 @@ class _BackdropTitle extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = CurvedAnimation(
-      parent: listenable,
+      parent: listenable as Animation<double>,
       curve: const Interval(0, 0.78),
     );
 

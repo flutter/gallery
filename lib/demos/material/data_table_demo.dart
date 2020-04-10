@@ -26,13 +26,14 @@ class _DataTableDemoState extends State<DataTableDemo> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (_dessertsDataSource == null) {
-      _dessertsDataSource = _DessertDataSource(context);
-    }
+    _dessertsDataSource ??= _DessertDataSource(context);
   }
 
   void _sort<T>(
-      Comparable<T> getField(_Dessert d), int columnIndex, bool ascending) {
+    Comparable<T> Function(_Dessert d) getField,
+    int columnIndex,
+    bool ascending,
+  ) {
     _dessertsDataSource._sort<T>(getField, ascending);
     setState(() {
       _sortColumnIndex = columnIndex;
@@ -486,7 +487,7 @@ class _DessertDataSource extends DataTableSource {
   final BuildContext context;
   List<_Dessert> _desserts;
 
-  void _sort<T>(Comparable<T> getField(_Dessert d), bool ascending) {
+  void _sort<T>(Comparable<T> Function(_Dessert d) getField, bool ascending) {
     _desserts.sort((a, b) {
       final Comparable<T> aValue = getField(a);
       final Comparable<T> bValue = getField(b);

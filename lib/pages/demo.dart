@@ -132,9 +132,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (_isDesktop == null) {
-      _isDesktop = isDisplayDesktop(context);
-    }
+    _isDesktop ??= isDisplayDesktop(context);
   }
 
   /// Sets state and updates the background color for code.
@@ -199,8 +197,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     } else if (_state == _DemoState.normal && isDesktop) {
       // Do not allow normal state for desktop.
       _state = _hasOptions ? _DemoState.options : _DemoState.info;
-    } else if (isDesktop != this._isDesktop) {
-      this._isDesktop = isDesktop;
+    } else if (isDesktop != _isDesktop) {
+      _isDesktop = isDesktop;
       // When going from desktop to mobile, return to normal state.
       if (!isDesktop) {
         _state = _DemoState.normal;
@@ -726,6 +724,7 @@ class CodeDisplayPage extends StatelessWidget {
 
   final CodeDisplayer code;
 
+  @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 

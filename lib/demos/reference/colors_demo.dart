@@ -12,8 +12,8 @@ const double kColorItemHeight = 48;
 
 class _Palette {
   _Palette({
-    this.name,
-    this.primary,
+    @required this.name,
+    @required this.primary,
     this.accent,
     this.threshold = 900,
   })  : assert(name != null),
@@ -84,10 +84,11 @@ List<_Palette> _allPalettes(BuildContext context) {
       threshold: 400,
     ),
     _Palette(
-        name: GalleryLocalizations.of(context).colorsGreen,
-        primary: Colors.green,
-        accent: Colors.greenAccent,
-        threshold: 500),
+      name: GalleryLocalizations.of(context).colorsGreen,
+      primary: Colors.green,
+      accent: Colors.greenAccent,
+      threshold: 500,
+    ),
     _Palette(
       name: GalleryLocalizations.of(context).colorsLightGreen,
       primary: Colors.lightGreen,

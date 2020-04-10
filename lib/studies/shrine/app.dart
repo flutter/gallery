@@ -38,7 +38,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
   AppStateModel _model;
 
-  Map<String, List<List<int>>> _layouts = {};
+  final Map<String, List<List<int>>> _layouts = {};
 
   @override
   void initState() {

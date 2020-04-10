@@ -97,7 +97,7 @@ class _BackdropState extends State<Backdrop>
 
   void initAnimationLayer() {
     if (_artboard != null) {
-      final animationName = "Animations";
+      final animationName = 'Animations';
       ActorAnimation animation = _artboard.getAnimation(animationName);
       _animationLayer = FlareAnimationLayer()
         ..name = animationName

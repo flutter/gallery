@@ -83,7 +83,7 @@ class _SplashPageState extends State<SplashPage>
         ),
         vsync: this)
       ..addListener(() {
-        this.setState(() {});
+        setState(() {});
       });
   }
 

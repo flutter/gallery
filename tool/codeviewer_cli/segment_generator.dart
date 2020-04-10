@@ -72,7 +72,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
   Map<String, StringBuffer> subsegments = {};
   Map<String, String> subsegmentPrologues = {};
 
-  Set<String> appearedSubsegments = Set();
+  Set<String> appearedSubsegments = <String>{};
 
   for (final file in files) {
     // Process file.
@@ -84,7 +84,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
 
     StringBuffer prologue = StringBuffer();
 
-    Set<String> activeSubsegments = Set();
+    Set<String> activeSubsegments = <String>{};
 
     for (final line in lines) {
       // Update status.

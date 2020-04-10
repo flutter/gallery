@@ -30,7 +30,7 @@ double sumBudgetDataAmountUsed(List<BudgetData> items) =>
     sumOf<BudgetData>(items, (item) => item.amountUsed);
 
 /// Utility function to sum up values in a list.
-double sumOf<T>(List<T> list, double getValue(T elt)) {
+double sumOf<T>(List<T> list, double Function(T elt) getValue) {
   double sum = 0;
   for (T elt in list) {
     sum += getValue(elt);

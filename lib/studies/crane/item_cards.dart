@@ -73,7 +73,7 @@ class _ItemCardsState extends State<ItemCards> {
         final col = i % ItemCards.totalColumns;
 
         if (columns[col] == null) {
-          columns[col] = List<Widget>();
+          columns[col] = [];
         }
 
         columns[col].add(
@@ -106,7 +106,7 @@ class _ItemCardsState extends State<ItemCards> {
 }
 
 class _DestinationCard extends StatelessWidget {
-  _DestinationCard({this.destination}) : assert(destination != null);
+  _DestinationCard({@required this.destination}) : assert(destination != null);
   final Destination destination;
 
   @override

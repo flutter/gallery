@@ -169,7 +169,8 @@ List<List<int>> _balancedDistribution({
   assert(biases.length == columnCount);
 
   List<Set<_TaggedHeightData>> columnObjects =
-      List<Set<_TaggedHeightData>>.generate(columnCount, (column) => Set());
+      List<Set<_TaggedHeightData>>.generate(
+          columnCount, (column) => <_TaggedHeightData>{});
 
   List<double> columnHeights = List<double>.from(biases);
 

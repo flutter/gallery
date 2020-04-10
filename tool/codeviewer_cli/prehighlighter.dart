@@ -390,9 +390,9 @@ String _escape(String text) {
         char == 0x27 ||
         char == 0x5C) {
       if (char <= 0xffff) {
-        escapedText.write("\\u${_encodeAndPad(char)}");
+        escapedText.write('\\u${_encodeAndPad(char)}');
       } else {
-        escapedText.write("\\u{${_encode(char)}}");
+        escapedText.write('\\u{${_encode(char)}}');
       }
     } else {
       escapedText.write(String.fromCharCode(char));

@@ -32,9 +32,7 @@ const systemLocaleOption = Locale('system');
 Locale _deviceLocale;
 Locale get deviceLocale => _deviceLocale;
 set deviceLocale(Locale locale) {
-  if (_deviceLocale == null) {
-    _deviceLocale = locale;
-  }
+  _deviceLocale ??= locale;
 }
 
 class GalleryOptions {
@@ -102,7 +100,7 @@ class GalleryOptions {
   }) {
     return GalleryOptions(
       themeMode: themeMode ?? this.themeMode,
-      textScaleFactor: textScaleFactor ?? this._textScaleFactor,
+      textScaleFactor: textScaleFactor ?? _textScaleFactor,
       customTextDirection: customTextDirection ?? this.customTextDirection,
       locale: locale ?? this.locale,
       timeDilation: timeDilation ?? this.timeDilation,
@@ -198,6 +196,7 @@ class ModelBinding extends StatefulWidget {
   final GalleryOptions initialModel;
   final Widget child;
 
+  @override
   _ModelBindingState createState() => _ModelBindingState();
 }
 

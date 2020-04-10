@@ -308,7 +308,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
   }
 
   @override
-  dispose() {
+  void dispose() {
     _animationController.dispose();
     _launchTimer?.cancel();
     _launchTimer = null;
@@ -682,7 +682,7 @@ class _CarouselState extends State<_Carousel>
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
@@ -771,7 +771,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
