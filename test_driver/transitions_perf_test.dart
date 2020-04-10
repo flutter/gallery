@@ -20,32 +20,36 @@ import 'isolates_workaround.dart';
 // endless buffer instead of a ring buffer.
 //
 // These names must match the output of GalleryDemo.describe in
-// gallery/lib/data/demos.dart.
-const List<String> kProfiledDemos = <String>[
+// lib/data/demos.dart.
+const List<String> _profiledDemos = <String>[
   'Shrine@study',
   'Rally@study',
   'Crane@study',
-//  'Fortnightly@study',
+  'Fortnightly@study',
   'Bottom navigation@material',
-//  'Buttons@material',
-//  'Cards@material',
-//  'Chips@material',
-//  'Dialogs@material',
-//  'Pickers@material',
-//  'Colors@other',
+  'Buttons@material',
+  'Cards@material',
+  'Chips@material',
+  'Dialogs@material',
+  'Pickers@material',
+  'Colors@other',
 ];
 
 // Demos that will be backed out of within FlutterDriver.runUnsynchronized();
 //
 // These names must match the output of GalleryDemo.describe in
-// gallery/lib/data/demos.dart.
-const List<String> kUnsynchronizedDemos = <String>[
+// lib/data/demos.dart.
+const List<String> _unsynchronizedDemos = <String>[
   'Progress indicators@material',
   'Activity indicator@cupertino',
   'Colors@reference',
 ];
 
-const List<String> kSkippedDemos = <String>[];
+// Demos that will be not be launched.
+//
+// These names must match the output of GalleryDemo.describe in
+// lib/data/demos.dart.
+const List<String> _skippedDemos = <String>[];
 
 // All of the gallery demos, identified as "title@category".
 //
@@ -53,76 +57,117 @@ const List<String> kSkippedDemos = <String>[];
 // in transitions_perf.dart.
 List<String> _allDemos = <String>[];
 
-Future scrollToTop(FlutterDriver driver) async {
-  SerializableFinder homeList = find.byValueKey('HomeListView');
-  await driver.scrollUntilVisible(
-    homeList,
-    find.text('Gallery'),
-    dyScroll: 1000,
-    timeout: const Duration(seconds: 5),
+// SerializableFinders for scrolling actions.
+final homeList = find.byValueKey('HomeListView');
+final backButton = find.byValueKey('Back');
+final galleryHeader = find.text('Gallery');
+final categoriesHeader = find.text('Categories');
+
+// Let overscroll animation settle on iOS after driver.scroll.
+void handleOverscrollAnimation() {
+  sleep(const Duration(seconds: 1));
+}
+
+/// Scroll to the top of the app, given the current demo. Works with both mobile
+/// and desktop layouts.
+Future scrollToTop(SerializableFinder demoItem, FlutterDriver driver) async {
+  print('scrolling to top');
+
+  // Scroll to the Categories header.
+  await driver.scroll(
+    demoItem,
+    0,
+    5000,
+    const Duration(milliseconds: 200),
   );
+  handleOverscrollAnimation();
+
+  // Scroll to top.
+  await driver.scroll(
+    categoriesHeader,
+    0,
+    500,
+    const Duration(milliseconds: 200),
+  );
+  handleOverscrollAnimation();
+}
+
+/// Returns a [Future] that resolves to true if the widget specified by [finder]
+/// is present, false otherwise.
+Future<bool> isPresent(SerializableFinder finder, FlutterDriver driver,
+    {Duration timeout = const Duration(seconds: 5)}) async {
+  try {
+    await driver.waitFor(finder, timeout: timeout);
+    return true;
+  } catch (exception) {
+    return false;
+  }
 }
 
 /// Scrolls each each demo into view, launches it, then returns to the
-/// home screen twice.
+/// home screen, twice.
 Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
-  SerializableFinder homeList = find.byValueKey('HomeListView');
-
-  SerializableFinder demoList;
   String currentDemoCategory;
+  SerializableFinder demoList;
+  SerializableFinder demoItem;
 
-  for (final String demo in demos) {
-    if (kSkippedDemos.contains(demo)) continue;
+  for (final demo in demos) {
+    if (_skippedDemos.contains(demo)) continue;
 
     print('> $demo');
 
-    final String demoCategory = demo.substring(demo.indexOf('@') + 1);
+    final demoCategory = demo.substring(demo.indexOf('@') + 1);
     if (demoCategory != currentDemoCategory) {
+      // We've switched categories.
       currentDemoCategory = demoCategory;
-
       demoList = find.byValueKey('${demoCategory}DemoList');
-      // Scroll to demo category list.
+
+      // We may want to return to the previous category later.
+      // Reset its scroll (matters for desktop layout).
+      if (demoItem != null) await scrollToTop(demoItem, driver);
+
+      // Scroll to the category list.
       if (demoCategory != 'study') {
+        print('scrolling to $currentDemoCategory category');
         await driver.scrollUntilVisible(
           homeList,
           demoList,
-          dyScroll: -400,
-          alignment: 0.5,
-          timeout: const Duration(seconds: 30),
+          dyScroll: -1000,
+          timeout: const Duration(seconds: 10),
         );
       }
     }
 
     // Scroll to demo and open it twice.
-    print('scrolling until $demo');
-    final SerializableFinder demoItem = find.byValueKey(demo);
+    demoItem = find.byValueKey(demo);
+
+    print('scrolling to demo');
     await driver.scrollUntilVisible(
       demoList,
       demoItem,
-      dxScroll: -100,
-      dyScroll: -200,
+      dxScroll: -500,
+      dyScroll: -50,
       alignment: 0.5,
-      timeout: const Duration(seconds: 30),
+      timeout: const Duration(seconds: 10),
     );
 
-    for (int i = 0; i < 2; i += 1) {
-      print('tapping $demo');
+    for (var i = 0; i < 2; i += 1) {
       await driver.tap(demoItem); // Launch the demo
 
       sleep(const Duration(milliseconds: 500));
 
-      if (kUnsynchronizedDemos.contains(demo)) {
+      if (_unsynchronizedDemos.contains(demo)) {
         await driver.runUnsynchronized<void>(() async {
-          await driver.tap(find.byValueKey('Back'));
+          await driver.tap(backButton);
         });
       } else {
-        await driver.tap(find.byValueKey('Back'));
+        await driver.tap(backButton);
       }
     }
     print('< Success');
   }
 
-  await scrollToTop(driver);
+  await scrollToTop(demoItem, driver);
 }
 
 void main([List<String> args = const <String>[]]) {
@@ -133,7 +178,7 @@ void main([List<String> args = const <String>[]]) {
     setUpAll(() async {
       driver = await FlutterDriver.connect();
 
-      // TODO: Remove workaround when https://github.com/flutter/flutter/issues/24703 is closed
+      // TODO: Remove workaround when https://github.com/flutter/flutter/issues/24703 is fixed
       workaround = IsolatesWorkaround(driver);
       await workaround.resumeIsolates();
 
@@ -148,6 +193,8 @@ void main([List<String> args = const <String>[]]) {
         print('Enabeling semantics...');
         await driver.setSemantics(true);
       }
+
+      await isPresent(galleryHeader, driver);
     });
 
     tearDownAll(() async {
@@ -157,12 +204,11 @@ void main([List<String> args = const <String>[]]) {
       }
     });
 
-
     test('all demos', () async {
       // Collect timeline data for just a limited set of demos to avoid OOMs.
-      final Timeline timeline = await driver.traceAction(
+      final timeline = await driver.traceAction(
         () async {
-          await runDemos(kProfiledDemos, driver);
+          await runDemos(_profiledDemos, driver);
         },
         streams: const <TimelineStream>[
           TimelineStream.dart,
@@ -170,12 +216,12 @@ void main([List<String> args = const <String>[]]) {
         ],
       );
 
-      final TimelineSummary summary = TimelineSummary.summarize(timeline);
+      final summary = TimelineSummary.summarize(timeline);
       await summary.writeSummaryToFile('transitions', pretty: true);
 
       // Execute the remaining tests.
-      final Set<String> unprofiledDemos = Set<String>.from(_allDemos)
-        ..removeAll(kProfiledDemos);
+      final unprofiledDemos = Set<String>.from(_allDemos)
+        ..removeAll(_profiledDemos);
       await runDemos(unprofiledDemos.toList(), driver);
     }, timeout: const Timeout(Duration(minutes: 5)));
   });
