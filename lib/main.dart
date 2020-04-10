@@ -17,10 +17,17 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowHttp = false;
-  runApp(GalleryApp());
+  runApp(const GalleryApp(testMode: false));
 }
 
 class GalleryApp extends StatelessWidget {
+  const GalleryApp({
+    Key key,
+    this.testMode = false,
+  }) : super(key: key);
+
+  final bool testMode;
+
   @override
   Widget build(BuildContext context) {
     return ModelBinding(
@@ -31,6 +38,7 @@ class GalleryApp extends StatelessWidget {
         locale: null,
         timeDilation: timeDilation,
         platform: defaultTargetPlatform,
+        testMode: testMode,
       ),
       child: Builder(
         builder: (context) {

@@ -5,10 +5,11 @@
 import 'dart:async';
 import 'dart:convert' show JsonEncoder;
 
+import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/main.dart' as gallery;
+import 'package:gallery/main.dart' show GalleryApp;
 
 Future<String> _handleMessages(String message) async {
   assert(message == 'demoDescriptions');
@@ -21,5 +22,5 @@ Future<String> _handleMessages(String message) async {
 
 void main() {
   enableFlutterDriverExtension(handler: _handleMessages);
-  gallery.main();
+  runApp(const GalleryApp(testMode: true));
 }
