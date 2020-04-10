@@ -126,7 +126,7 @@ packages:
       name: flare_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.3"
+    version: "2.0.2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -184,7 +184,7 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.10"
+    version: "0.4.0"
   grinder:
     dependency: "direct dev"
     description:
@@ -415,7 +415,7 @@ packages:
       name: rally_assets
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "2.0.0"
   scoped_model:
     dependency: "direct main"
     description:
