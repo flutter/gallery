@@ -9,6 +9,8 @@ import 'dart:io' show sleep;
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 
+import 'isolates_workaround.dart';
+
 // Demos for which timeline data will be collected using
 // FlutterDriver.traceAction().
 //
@@ -126,8 +128,14 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
 void main([List<String> args = const <String>[]]) {
   group('flutter gallery transitions', () {
     FlutterDriver driver;
+    IsolatesWorkaround workaround;
+
     setUpAll(() async {
       driver = await FlutterDriver.connect();
+
+      // TODO: Remove workaround when https://github.com/flutter/flutter/issues/24703 is closed
+      workaround = IsolatesWorkaround(driver);
+      await workaround.resumeIsolates();
 
       // See _handleMessages() in transitions_perf.dart.
       _allDemos = List<String>.from(json.decode(
@@ -136,8 +144,6 @@ void main([List<String> args = const <String>[]]) {
 
       if (_allDemos.isEmpty) throw 'no demo names found';
 
-      sleep(const Duration(seconds: 2));
-
       if (args.contains('--with_semantics')) {
         print('Enabeling semantics...');
         await driver.setSemantics(true);
@@ -145,7 +151,10 @@ void main([List<String> args = const <String>[]]) {
     });
 
     tearDownAll(() async {
-      if (driver != null) await driver.close();
+      if (driver != null) {
+        await driver.close();
+        await workaround.tearDown();
+      }
     });
 
     test('all demos', () async {
