@@ -260,7 +260,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SliderTheme(
-                data: SliderThemeData(
+                data: const SliderThemeData(
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor: Colors.black26,
                   activeTickMarkColor: Colors.white70,

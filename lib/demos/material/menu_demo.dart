@@ -150,7 +150,7 @@ class _SectionedMenuDemo extends StatelessWidget {
           PopupMenuItem<String>(
             value: GalleryLocalizations.of(context).demoMenuPreview,
             child: ListTile(
-              leading: Icon(Icons.visibility),
+              leading: const Icon(Icons.visibility),
               title: Text(
                 GalleryLocalizations.of(context).demoMenuPreview,
               ),
@@ -159,7 +159,7 @@ class _SectionedMenuDemo extends StatelessWidget {
           PopupMenuItem<String>(
             value: GalleryLocalizations.of(context).demoMenuShare,
             child: ListTile(
-              leading: Icon(Icons.person_add),
+              leading: const Icon(Icons.person_add),
               title: Text(
                 GalleryLocalizations.of(context).demoMenuShare,
               ),
@@ -168,7 +168,7 @@ class _SectionedMenuDemo extends StatelessWidget {
           PopupMenuItem<String>(
             value: GalleryLocalizations.of(context).demoMenuGetLink,
             child: ListTile(
-              leading: Icon(Icons.link),
+              leading: const Icon(Icons.link),
               title: Text(
                 GalleryLocalizations.of(context).demoMenuGetLink,
               ),
@@ -178,7 +178,7 @@ class _SectionedMenuDemo extends StatelessWidget {
           PopupMenuItem<String>(
             value: GalleryLocalizations.of(context).demoMenuRemove,
             child: ListTile(
-              leading: Icon(Icons.delete),
+              leading: const Icon(Icons.delete),
               title: Text(
                 GalleryLocalizations.of(context).demoMenuRemove,
               ),

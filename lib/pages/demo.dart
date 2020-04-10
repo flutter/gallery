@@ -260,26 +260,26 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             onPressed: () => _handleTap(_DemoState.options),
           ),
         IconButton(
-          icon: Icon(Icons.info),
+          icon: const Icon(Icons.info),
           tooltip: GalleryLocalizations.of(context).demoInfoTooltip,
           color: _state == _DemoState.info ? selectedIconColor : iconColor,
           onPressed: () => _handleTap(_DemoState.info),
         ),
         IconButton(
-          icon: Icon(Icons.code),
+          icon: const Icon(Icons.code),
           tooltip: GalleryLocalizations.of(context).demoCodeTooltip,
           color: _state == _DemoState.code ? selectedIconColor : iconColor,
           onPressed: () => _handleTap(_DemoState.code),
         ),
         IconButton(
-          icon: Icon(Icons.library_books),
+          icon: const Icon(Icons.library_books),
           tooltip: GalleryLocalizations.of(context).demoDocumentationTooltip,
           color: iconColor,
           onPressed: () => _showDocumentation(context),
         ),
         if (isDesktop)
           IconButton(
-            icon: Icon(Icons.fullscreen),
+            icon: const Icon(Icons.fullscreen),
             tooltip: GalleryLocalizations.of(context).demoFullscreenTooltip,
             color:
                 _state == _DemoState.fullscreen ? selectedIconColor : iconColor,

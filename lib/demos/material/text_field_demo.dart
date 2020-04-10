@@ -190,7 +190,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
                     filled: true,
-                    icon: Icon(Icons.person),
+                    icon: const Icon(Icons.person),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldWhatDoPeopleCallYou,
                     labelText:
@@ -206,7 +206,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
                     filled: true,
-                    icon: Icon(Icons.phone),
+                    icon: const Icon(Icons.phone),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldWhereCanWeReachYou,
                     labelText: GalleryLocalizations.of(context)
@@ -232,7 +232,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
                     filled: true,
-                    icon: Icon(Icons.email),
+                    icon: const Icon(Icons.email),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldYourEmailAddress,
                     labelText:

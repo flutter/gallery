@@ -138,7 +138,7 @@ class _BackdropState extends State<Backdrop>
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.4,
           curve: Curves.ease,
@@ -160,7 +160,7 @@ class _BackdropState extends State<Backdrop>
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.4,
           curve: Curves.ease,

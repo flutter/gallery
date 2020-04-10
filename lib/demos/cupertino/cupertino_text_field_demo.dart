@@ -41,7 +41,7 @@ class CupertinoTextFieldDemo extends StatelessWidget {
               ),
             ),
             CupertinoTextField(
-              prefix: Icon(
+              prefix: const Icon(
                 CupertinoIcons.padlock_solid,
                 size: 28,
               ),

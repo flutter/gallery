@@ -566,7 +566,7 @@ class _AnimatedCarousel extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
+            curve: const Interval(
               0.200,
               0.800,
               curve: Curves.ease,
@@ -617,7 +617,7 @@ class _AnimatedCarouselCard extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
+            curve: const Interval(
               0.900,
               1.000,
               curve: Curves.ease,

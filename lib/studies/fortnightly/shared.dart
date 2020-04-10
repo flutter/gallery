@@ -298,7 +298,7 @@ class NavigationMenu extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
                 tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                 onPressed: () => Navigator.pop(context),
               ),
@@ -342,7 +342,7 @@ class MenuItem extends StatelessWidget {
           Container(
             width: 32,
             alignment: Alignment.centerLeft,
-            child: header ? null : Icon(Icons.arrow_drop_down),
+            child: header ? null : const Icon(Icons.arrow_drop_down),
           ),
           Expanded(
             child: Text(

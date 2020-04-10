@@ -67,7 +67,7 @@ class _ActionChipDemo extends StatelessWidget {
     return Center(
       child: ActionChip(
         onPressed: () {},
-        avatar: Icon(
+        avatar: const Icon(
           Icons.brightness_5,
           color: Colors.black54,
         ),
@@ -200,7 +200,7 @@ class _InputChipDemo extends StatelessWidget {
       child: InputChip(
         onPressed: () {},
         onDeleted: () {},
-        avatar: Icon(
+        avatar: const Icon(
           Icons.directions_bike,
           size: 20,
           color: Colors.black54,
