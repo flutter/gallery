@@ -2,17 +2,17 @@
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on gallery/lib/src/l10n/intl_en.arb.
+  It is based on lib/l10n/intl_en.arb.
 -->
 <resources>
   <string
-    name="aboutFlutterSamplesRepo"
-    description="Represents a link to the Flutter samples github repository."
-    >Flutter samples Github repo</string>
+    name="githubRepo"
+    description="Represents a link to a GitHub repository."
+    >{repoName} GitHub repository</string>
   <string
     name="aboutDialogDescription"
     description="A description about how to view the source code for this app."
-    >To see the source code for this app, please visit the {value}.</string>
+    >To see the source code for this app, please visit the {repoLink}.</string>
   <string
     name="signIn"
     description="Sign in label to sign into website."

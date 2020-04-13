@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} repositori GitHub",
   "fortnightlyMenuUS": "AS",
   "fortnightlyMenuBusiness": "Perniagaan",
   "fortnightlyMenuScience": "Sains",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistem",
   "settingsTitle": "Tetapan",
   "rallyDescription": "Apl kewangan peribadi",
-  "aboutDialogDescription": "Untuk melihat kod sumber apl ini, sila lawati {value}.",
+  "aboutDialogDescription": "Untuk melihat kod sumber apl ini, sila lawati {repoLink}.",
   "bottomNavigationCommentsTab": "Ulasan",
   "starterAppGenericBody": "Kandungan",
   "starterAppGenericHeadline": "Tajuk",

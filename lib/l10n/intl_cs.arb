@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Repozitář GitHub {repoName}",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Byznys",
   "fortnightlyMenuScience": "Věda",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Systém",
   "settingsTitle": "Nastavení",
   "rallyDescription": "Aplikace pro osobní finance",
-  "aboutDialogDescription": "Chcete-li zobrazit zdrojový kód této aplikace, přejděte na {value}.",
+  "aboutDialogDescription": "Chcete-li zobrazit zdrojový kód této aplikace, přejděte na {repoLink}.",
   "bottomNavigationCommentsTab": "Komentáře",
   "starterAppGenericBody": "Text",
   "starterAppGenericHeadline": "Nadpis",

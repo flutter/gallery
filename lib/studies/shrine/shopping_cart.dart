@@ -40,7 +40,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData localTheme = Theme.of(context);
+    final localTheme = Theme.of(context);
     return Scaffold(
       backgroundColor: shrinePink50,
       body: SafeArea(
@@ -145,13 +145,13 @@ class ShoppingCartSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle smallAmountStyle =
+    final smallAmountStyle =
         Theme.of(context).textTheme.bodyText2.copyWith(color: shrineBrown600);
-    final TextStyle largeAmountStyle = Theme.of(context)
+    final largeAmountStyle = Theme.of(context)
         .textTheme
         .headline4
         .copyWith(letterSpacing: letterSpacingOrNone(mediumLetterSpacing));
-    final NumberFormat formatter = NumberFormat.simpleCurrency(
+    final formatter = NumberFormat.simpleCurrency(
       decimalDigits: 2,
       locale: Localizations.localeOf(context).toString(),
     );
@@ -256,11 +256,11 @@ class ShoppingCartRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NumberFormat formatter = NumberFormat.simpleCurrency(
+    final formatter = NumberFormat.simpleCurrency(
       decimalDigits: 0,
       locale: Localizations.localeOf(context).toString(),
     );
-    final ThemeData localTheme = Theme.of(context);
+    final localTheme = Theme.of(context);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),

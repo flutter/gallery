@@ -72,12 +72,12 @@ class RouteConfiguration {
   /// [WidgetsApp.onGenerateRoute] to make use of the [paths] for route
   /// matching.
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    for (Path path in paths) {
+    for (final path in paths) {
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name)) {
         final match = regExpPattern.firstMatch(settings.name);
-        Map<String, String> groupNameToMatch = {};
-        for (String groupName in match.groupNames) {
+        var groupNameToMatch = <String, String>{};
+        for (final groupName in match.groupNames) {
           groupNameToMatch[groupName] = match.namedGroup(groupName);
         }
         if (kIsWeb) {

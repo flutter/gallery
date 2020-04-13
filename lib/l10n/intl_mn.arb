@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub хадгалах газар",
   "fortnightlyMenuUS": "АНУ",
   "fortnightlyMenuBusiness": "Бизнес",
   "fortnightlyMenuScience": "Шинжлэх ухаан",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Систем",
   "settingsTitle": "Тохиргоо",
   "rallyDescription": "Хувийн санхүүгийн апп",
-  "aboutDialogDescription": "Энэ аппын эх кодыг харахын тулд {value}-д зочилно уу.",
+  "aboutDialogDescription": "Энэ аппын эх кодыг харахын тулд {repoLink} хаягаар зочилно уу.",
   "bottomNavigationCommentsTab": "Сэтгэгдлүүд",
   "starterAppGenericBody": "Үндсэн хэсэг",
   "starterAppGenericHeadline": "Толгой гарчиг",
