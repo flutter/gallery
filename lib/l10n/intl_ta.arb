@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub தரவு சேமிப்பகம்",
   "fortnightlyMenuUS": "அமெரிக்கா",
   "fortnightlyMenuBusiness": "வணிகம்",
   "fortnightlyMenuScience": "அறிவியல்",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "சிஸ்டம்",
   "settingsTitle": "அமைப்புகள்",
   "rallyDescription": "ஒரு பிரத்தியேக நிதி ஆப்ஸ்",
-  "aboutDialogDescription": "இந்த ஆப்ஸின் மூலக் குறியீட்டைப் பார்க்க {value}க்குச் செல்லவும்.",
+  "aboutDialogDescription": "இந்த ஆப்ஸிற்கான மூலக் குறியீட்டைப் பார்க்க {repoLink} இணைப்பிற்குச் செல்லவும்.",
   "bottomNavigationCommentsTab": "கருத்துகள்",
   "starterAppGenericBody": "உரைப் பகுதி",
   "starterAppGenericHeadline": "தலைப்பு",

@@ -15,7 +15,7 @@ IconThemeData _customIconTheme(IconThemeData original, Color color) {
 }
 
 ThemeData _buildCraneTheme() {
-  final ThemeData base = ThemeData.light();
+  final base = ThemeData.light();
 
   return base.copyWith(
     colorScheme: const ColorScheme.light().copyWith(

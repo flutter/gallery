@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub yaddaşı",
   "fortnightlyMenuUS": "ABŞ",
   "fortnightlyMenuBusiness": "Biznes",
   "fortnightlyMenuScience": "Elm",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistem",
   "settingsTitle": "Ayarlar",
   "rallyDescription": "Şəxsi maliyyə tətbiqi",
-  "aboutDialogDescription": "Bu tətbiqin mənbə koduna baxmaq üçün {value} ünvanına daxil olun.",
+  "aboutDialogDescription": "Bu tətbiqin mənbə koduna baxmaq üçün {repoLink} ünvanına daxil olun.",
   "bottomNavigationCommentsTab": "Şərhlər",
   "starterAppGenericBody": "Əsas",
   "starterAppGenericHeadline": "Başlıq",

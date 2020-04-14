@@ -34,7 +34,7 @@ class TabsDemo extends StatelessWidget {
 class _TabsScrollableDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> tabs = [
+    final tabs = [
       GalleryLocalizations.of(context).colorsRed,
       GalleryLocalizations.of(context).colorsOrange,
       GalleryLocalizations.of(context).colorsGreen,
@@ -82,7 +82,7 @@ class _TabsScrollableDemo extends StatelessWidget {
 class _TabsNonScrollableDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> tabs = [
+    final tabs = [
       GalleryLocalizations.of(context).colorsRed,
       GalleryLocalizations.of(context).colorsOrange,
       GalleryLocalizations.of(context).colorsGreen,

@@ -63,7 +63,7 @@ class _PickerDemoState extends State<PickerDemo> {
   }
 
   Future<void> _showTimePicker() async {
-    final TimeOfDay picked = await showTimePicker(
+    final picked = await showTimePicker(
       context: context,
       initialTime: _fromTime,
     );

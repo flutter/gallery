@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} የGitHub ውሂብ ማከማቻ",
   "fortnightlyMenuUS": "አሜሪካ",
   "fortnightlyMenuBusiness": "ንግድ",
   "fortnightlyMenuScience": "ሳይንስ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ሥርዓት",
   "settingsTitle": "ቅንብሮች",
   "rallyDescription": "የግል የፋይናንስ መተግበሪያ",
-  "aboutDialogDescription": "የዚህ መተግበሪያ ኮድ ምንጭ ኮድን ለማየት እባክዎ {value}ን ይጎብኙ።",
+  "aboutDialogDescription": "የዚህ መተግበሪያ ኮድ ምንጭ ኮድን ለማየት እባክዎ {repoLink}ን ይጎብኙ።",
   "bottomNavigationCommentsTab": "አስተያየቶች",
   "starterAppGenericBody": "አካል",
   "starterAppGenericHeadline": "አርዕስተ ዜና",
@@ -620,7 +621,7 @@
   "demoCupertinoAlertButtonsTitle": "ከአዝራሮች ጋር ማንቂያዎች",
   "demoCupertinoAlertButtonsOnlyTitle": "የማንቂያ አዝራሮች ብቻ",
   "demoCupertinoActionSheetTitle": "የእርምጃ ሉህ",
-  "demoCupertinoActionSheetDescription": "የእርምጃ ሉህ ከሁለት ወይም ከዚያ በላይ አሁን ካለው ዓውድ ጋር ግንኙነት ያላቸው ምርጫዎች ጋር የምርጫ ስብስብ ለተጠቃሚው የሚያቀርብ የተወሰነ የማንቂያ ቅጥ ነው። የእርምጃ ሉህ አርእስት፣ ተጨማሪ መልዕክት፣ እና የእርምጃዎች ዝርዝር ሊኖረው ይችላል።",
+  "demoCupertinoActionSheetDescription": "የእርምጃ ሉህ ከሁለት ወይም ከዚያ በላይ አሁን ካለው ዓውድ ጋር ግንኙነት ያላቸው ምርጫዎች ጋር የምርጫ ስብስብ ለተጠቃሚው የሚያቀርብ የተወሰነ የማንቂያ ቅጥ ነው። የእርምጃ ሉህ አርዕስት፣ ተጨማሪ መልዕክት፣ እና የእርምጃዎች ዝርዝር ሊኖረው ይችላል።",
   "demoColorsTitle": "ቀለማት",
   "demoColorsSubtitle": "ሁሉም አስቀድመው የተገለጹ ቀለማት",
   "demoColorsDescription": "የቁስ ንድፍ ቀለም ቤተ ሥዕልን የሚወክሉ የቀለም እና የቀለም መደብ ቋሚዎች።",

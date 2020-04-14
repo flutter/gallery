@@ -191,6 +191,9 @@ class _BottomPicker extends StatelessWidget {
     return Container(
       height: 216,
       padding: const EdgeInsets.only(top: 6),
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       color: CupertinoColors.systemBackground.resolveFrom(context),
       child: DefaultTextStyle(
         style: TextStyle(

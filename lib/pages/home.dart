@@ -308,7 +308,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
   }
 
   @override
-  dispose() {
+  void dispose() {
     _animationController.dispose();
     _launchTimer?.cancel();
     _launchTimer = null;
@@ -469,7 +469,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
     return Material(
       // Makes integration tests possible.
       key: ValueKey('${category.name}CategoryHeader'),
@@ -566,7 +566,7 @@ class _AnimatedCarousel extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
+            curve: const Interval(
               0.200,
               0.800,
               curve: Curves.ease,
@@ -617,7 +617,7 @@ class _AnimatedCarouselCard extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
+            curve: const Interval(
               0.900,
               1.000,
               curve: Curves.ease,
@@ -682,7 +682,7 @@ class _CarouselState extends State<_Carousel>
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
@@ -772,7 +772,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
@@ -857,7 +857,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
     double velocity,
   ) {
     final itemWidth = position.viewportDimension / _desktopCardsPerPage;
-    double item = position.pixels / itemWidth;
+    var item = position.pixels / itemWidth;
     if (velocity < -tolerance.velocity) {
       item -= 0.5;
     } else if (velocity > tolerance.velocity) {
@@ -878,8 +878,8 @@ class _SnappingScrollPhysics extends ScrollPhysics {
         (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
       return super.createBallisticSimulation(position, velocity);
     }
-    final Tolerance tolerance = this.tolerance;
-    final double target = _getTargetPixels(position, tolerance, velocity);
+    final tolerance = this.tolerance;
+    final target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels) {
       return ScrollSpringSimulation(
         spring,

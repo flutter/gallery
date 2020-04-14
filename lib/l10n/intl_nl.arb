@@ -1,4 +1,5 @@
 {
+  "githubRepo": "GitHub-opslagplaats {repoName}",
   "fortnightlyMenuUS": "Verenigde Staten",
   "fortnightlyMenuBusiness": "Zakelijk",
   "fortnightlyMenuScience": "Wetenschap",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Systeem",
   "settingsTitle": "Instellingen",
   "rallyDescription": "Een app voor persoonlijke financiën",
-  "aboutDialogDescription": "Als je de broncode van deze app wilt zien, ga je naar de {value}.",
+  "aboutDialogDescription": "Als je de broncode voor deze app wilt bekijken, ga je naar de {repoLink}.",
   "bottomNavigationCommentsTab": "Reacties",
   "starterAppGenericBody": "Hoofdtekst",
   "starterAppGenericHeadline": "Kop",
