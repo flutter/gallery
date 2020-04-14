@@ -41,7 +41,8 @@ Future<void> generateLocalizations() async {
     '--template-arb-file=intl_en.arb',
     '--output-localization-file=gallery_localizations.dart',
     '--output-class=GalleryLocalizations',
-    '--preferred-supported-locales=["en"]'
+    '--preferred-supported-locales=["en"]',
+    '--use-deferred-loading',
   ]);
   await format(path: path.join('lib', 'l10n'));
 }
