@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_driver/flutter_driver.dart';
+import 'package:vm_service_client/vm_service_client.dart';
 
 /// Workaround for bug: https://github.com/flutter/flutter/issues/24703
 class IsolatesWorkaround {
@@ -9,17 +10,21 @@ class IsolatesWorkaround {
   final bool log;
   StreamSubscription _streamSubscription;
 
+  Future _loadAndResumeIsolate(VMIsolateRef isolateRef) async {
+    final isolate = await isolateRef.load();
+    if (isolate.isPaused) {
+      await isolate.resume();
+      if (log) {
+        print('Resuming isolate: ${isolate.numberAsString}:${isolate.name}');
+      }
+    }
+  }
+
   Future<void> resumeIsolates() async {
     final vm = await _driver.serviceClient.getVM();
     // Unpause any paused isolated
     for (final isolateRef in vm.isolates) {
-      final isolate = await isolateRef.load();
-      if (isolate.isPaused) {
-        await isolate.resume();
-        if (log) {
-          print('Resuming isolate: ${isolate.numberAsString}:${isolate.name}');
-        }
-      }
+      await _loadAndResumeIsolate(isolateRef);
     }
     if (_streamSubscription != null) {
       return;
@@ -27,13 +32,7 @@ class IsolatesWorkaround {
     _streamSubscription = _driver.serviceClient.onIsolateRunnable
         .asBroadcastStream()
         .listen((isolateRef) async {
-      final isolate = await isolateRef.load();
-      if (isolate.isPaused) {
-        await isolate.resume();
-        if (log) {
-          print('Resuming isolate: ${isolate.numberAsString}:${isolate.name}');
-        }
-      }
+      await _loadAndResumeIsolate(isolateRef);
     });
   }
 

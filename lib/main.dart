@@ -17,7 +17,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowHttp = false;
-  runApp(const GalleryApp(testMode: false));
+  runApp(const GalleryApp());
 }
 
 class GalleryApp extends StatelessWidget {
