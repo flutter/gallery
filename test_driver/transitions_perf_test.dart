@@ -152,6 +152,7 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
     );
 
     for (var i = 0; i < 2; i += 1) {
+      print('tapping demo');
       await driver.tap(demoItem); // Launch the demo
 
       sleep(const Duration(milliseconds: 500));
@@ -178,16 +179,18 @@ void main([List<String> args = const <String>[]]) {
     setUpAll(() async {
       driver = await FlutterDriver.connect();
 
-      // TODO: Remove workaround when https://github.com/flutter/flutter/issues/24703 is fixed
-      workaround = IsolatesWorkaround(driver);
-      await workaround.resumeIsolates();
-
       // See _handleMessages() in transitions_perf.dart.
       _allDemos = List<String>.from(json.decode(
         await driver.requestData('demoDescriptions'),
       ) as List<dynamic>);
-
       if (_allDemos.isEmpty) throw 'no demo names found';
+
+      // TODO: Remove workaround for https://github.com/flutter/flutter/issues/24703
+      final isWeb = await driver.requestData('isWeb') == 'true';
+      if (!isWeb) {
+        workaround = IsolatesWorkaround(driver);
+        await workaround.resumeIsolates();
+      }
 
       if (args.contains('--with_semantics')) {
         print('Enabeling semantics...');

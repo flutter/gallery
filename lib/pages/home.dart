@@ -732,9 +732,9 @@ class _CarouselState extends State<_Carousel>
   @override
   Widget build(BuildContext context) {
     return _AnimatedCarousel(
-      // Makes integration tests possible.
-      key: const ValueKey('studyDemoList'),
       child: PageView.builder(
+        // Makes integration tests possible.
+        key: const ValueKey('studyDemoList'),
         onPageChanged: (value) {
           setState(() {
             _currentPage = value;
