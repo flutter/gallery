@@ -1,4 +1,5 @@
 {
+  "githubRepo": "repositori de GitHub {repoName}",
   "fortnightlyMenuUS": "EUA",
   "fortnightlyMenuBusiness": "Negocis",
   "fortnightlyMenuScience": "Ciència",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistema",
   "settingsTitle": "Configuració",
   "rallyDescription": "Una aplicació de finances personal",
-  "aboutDialogDescription": "Per consultar el codi font d'aquesta aplicació, ves a {value}.",
+  "aboutDialogDescription": "Per consultar el codi font d'aquesta aplicació, visita el {repoLink}.",
   "bottomNavigationCommentsTab": "Comentaris",
   "starterAppGenericBody": "Cos",
   "starterAppGenericHeadline": "Títol",

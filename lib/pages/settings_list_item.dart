@@ -322,7 +322,7 @@ class _CategoryHeader extends StatelessWidget {
                 ),
                 child: RotationTransition(
                   turns: chevronRotation,
-                  child: Icon(Icons.arrow_drop_down),
+                  child: const Icon(Icons.arrow_drop_down),
                 ),
               )
             ],

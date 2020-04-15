@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Хранилище в GitHub ({repoName})",
   "fortnightlyMenuUS": "САЩ",
   "fortnightlyMenuBusiness": "Бизнес",
   "fortnightlyMenuScience": "Наука",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Система",
   "settingsTitle": "Настройки",
   "rallyDescription": "Приложение за лични финанси",
-  "aboutDialogDescription": "За да видите изходния код за това приложение, моля, посетете {value}.",
+  "aboutDialogDescription": "За да видите изходния код за това приложение, моля, посетете {repoLink}.",
   "bottomNavigationCommentsTab": "Коментари",
   "starterAppGenericBody": "Основен текст",
   "starterAppGenericHeadline": "Заглавие",

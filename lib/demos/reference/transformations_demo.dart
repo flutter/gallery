@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui' show Vertices;
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'transformations_demo_board.dart';
@@ -35,7 +34,7 @@ class _TransformationsDemoState extends State<TransformationsDemo> {
 
   @override
   Widget build(BuildContext context) {
-    final BoardPainter painter = BoardPainter(
+    final painter = BoardPainter(
       board: _board,
     );
 
@@ -54,8 +53,8 @@ class _TransformationsDemoState extends State<TransformationsDemo> {
           builder: (context, constraints) {
             // Draw the scene as big as is available, but allow the user to
             // translate beyond that to a visibleSize that's a bit bigger.
-            final Size size = Size(constraints.maxWidth, constraints.maxHeight);
-            final Size visibleSize = Size(size.width * 3, size.height * 2);
+            final size = Size(constraints.maxWidth, constraints.maxHeight);
+            final visibleSize = Size(size.width * 3, size.height * 2);
             return GestureTransformable(
               reset: _reset,
               onResetEnd: () {
@@ -134,8 +133,8 @@ class _TransformationsDemoState extends State<TransformationsDemo> {
   }
 
   void _onTapUp(TapUpDetails details) {
-    final Offset scenePoint = details.globalPosition;
-    final BoardPoint boardPoint = _board.pointToBoardPoint(scenePoint);
+    final scenePoint = details.globalPosition;
+    final boardPoint = _board.pointToBoardPoint(scenePoint);
     setState(() {
       _board = _board.copyWithSelected(boardPoint);
     });
@@ -154,11 +153,10 @@ class BoardPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     void drawBoardPoint(BoardPoint boardPoint) {
-      final Color color = boardPoint.color.withOpacity(
+      final color = boardPoint.color.withOpacity(
         board.selected == boardPoint ? 0.7 : 1,
       );
-      final Vertices vertices =
-          board.getVerticesForBoardPoint(boardPoint, color);
+      final vertices = board.getVerticesForBoardPoint(boardPoint, color);
       canvas.drawVertices(vertices, BlendMode.color, Paint());
     }
 

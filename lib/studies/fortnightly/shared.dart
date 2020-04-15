@@ -35,7 +35,7 @@ class HorizontalArticlePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,7 @@ class VerticalArticlePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return SizedBox(
       width: width ?? double.infinity,
@@ -150,7 +150,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     color: Colors.black.withOpacity(0.2),
     height: 1,
   );
-  TextTheme textTheme = Theme.of(context).textTheme;
+  final textTheme = Theme.of(context).textTheme;
 
   return <Widget>[
     VerticalArticlePreview(
@@ -298,7 +298,7 @@ class NavigationMenu extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
                 tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                 onPressed: () => Navigator.pop(context),
               ),
@@ -342,7 +342,7 @@ class MenuItem extends StatelessWidget {
           Container(
             width: 32,
             alignment: Alignment.centerLeft,
-            child: header ? null : Icon(Icons.arrow_drop_down),
+            child: header ? null : const Icon(Icons.arrow_drop_down),
           ),
           Expanded(
             child: Text(
@@ -419,7 +419,7 @@ List<Widget> buildStockItems(BuildContext context) {
     color: Colors.black.withOpacity(0.07),
     height: 1,
   );
-  double imageAspectRatio = 165 / 55;
+  const imageAspectRatio = 165 / 55;
 
   return <Widget>[
     SizedBox(
@@ -480,7 +480,7 @@ class VideoPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -545,7 +545,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
 }
 
 ThemeData buildTheme(BuildContext context) {
-  TextTheme textTheme = Theme.of(context).textTheme;
+  final textTheme = Theme.of(context).textTheme;
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(

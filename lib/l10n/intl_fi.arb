@@ -1,4 +1,5 @@
 {
+  "githubRepo": "GitHub-datasäilö: {repoName}",
   "fortnightlyMenuUS": "Yhdysvallat",
   "fortnightlyMenuBusiness": "Liiketoiminta",
   "fortnightlyMenuScience": "Tiede",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Järjestelmä",
   "settingsTitle": "Asetukset",
   "rallyDescription": "Sovellus oman talouden hoitoon",
-  "aboutDialogDescription": "Jos haluat nähdä tämän sovelluksen lähdekoodin, avaa {value}.",
+  "aboutDialogDescription": "Jos haluat nähdä tämän sovelluksen lähdekoodin, avaa {repoLink}.",
   "bottomNavigationCommentsTab": "Kommentit",
   "starterAppGenericBody": "Leipäteksti",
   "starterAppGenericHeadline": "Otsake",

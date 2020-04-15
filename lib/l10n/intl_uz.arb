@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub repozitoriysi",
   "fortnightlyMenuUS": "AQSH",
   "fortnightlyMenuBusiness": "Biznes",
   "fortnightlyMenuScience": "Ilm-fan",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Tizim",
   "settingsTitle": "Sozlamalar",
   "rallyDescription": "Budjetni rejalashtirish uchun ilova",
-  "aboutDialogDescription": "Bu ilovaning manba kodini koʻrish uchun bu yerga kiring: {value}.",
+  "aboutDialogDescription": "Bu ilovaning manba kodini koʻrish uchun bu yerga kiring: {repoLink}.",
   "bottomNavigationCommentsTab": "Fikrlar",
   "starterAppGenericBody": "Asosiy qism",
   "starterAppGenericHeadline": "Sarlavha",
