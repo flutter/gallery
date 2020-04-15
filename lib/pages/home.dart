@@ -318,7 +318,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
-    final testMode = GalleryOptions.of(context).testMode;
+    final isTestMode = GalleryOptions.of(context).isTestMode;
     return Stack(
       children: [
         ListView(
@@ -350,7 +350,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.material,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(localizations),
-                initiallyExpanded: testMode,
+                initiallyExpanded: isTestMode,
               ),
             ),
             _AnimatedCategoryItem(
@@ -363,7 +363,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.cupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(localizations),
-                initiallyExpanded: testMode,
+                initiallyExpanded: isTestMode,
               ),
             ),
             _AnimatedCategoryItem(
@@ -376,7 +376,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.other,
                 imageString: 'assets/icons/reference/reference.png',
                 demos: otherDemos(localizations),
-                initiallyExpanded: testMode,
+                initiallyExpanded: isTestMode,
               ),
             ),
           ],

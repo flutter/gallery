@@ -23,10 +23,10 @@ void main() {
 class GalleryApp extends StatelessWidget {
   const GalleryApp({
     Key key,
-    this.testMode = false,
+    this.isTestMode = false,
   }) : super(key: key);
 
-  final bool testMode;
+  final bool isTestMode;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class GalleryApp extends StatelessWidget {
         locale: null,
         timeDilation: timeDilation,
         platform: defaultTargetPlatform,
-        testMode: testMode,
+        isTestMode: isTestMode,
       ),
       child: Builder(
         builder: (context) {

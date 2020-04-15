@@ -9,9 +9,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:gallery/data/demos.dart';
-import 'package:gallery/main.dart' show GalleryApp;
-
 import 'package:gallery/l10n/gallery_localizations_en.dart';
+import 'package:gallery/main.dart' show GalleryApp;
 
 Future<String> _handleMessages(String message) async {
   switch (message) {
@@ -31,5 +30,5 @@ Future<String> _handleMessages(String message) async {
 
 void main() {
   enableFlutterDriverExtension(handler: _handleMessages);
-  runApp(const GalleryApp(testMode: true));
+  runApp(const GalleryApp(isTestMode: true));
 }

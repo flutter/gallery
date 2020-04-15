@@ -104,7 +104,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     return _showFeatureHighlight &&
         _isSupportedSharedPreferencesPlatform &&
         !isDisplayDesktop(context) &&
-        !GalleryOptions.of(context).testMode &&
+        !GalleryOptions.of(context).isTestMode &&
         (_demoViewedCount != null &&
             (_demoViewedCount == 0 || _demoViewedCount == 3));
   }

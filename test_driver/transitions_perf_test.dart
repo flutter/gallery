@@ -32,6 +32,7 @@ const List<String> _profiledDemos = <String>[
   'Chips@material',
   'Dialogs@material',
   'Pickers@material',
+  'Alerts@cupertino',
   'Colors@other',
 ];
 
