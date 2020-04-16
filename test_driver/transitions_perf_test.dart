@@ -152,6 +152,8 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
       timeout: const Duration(seconds: 10),
     );
 
+    // We launch each demo twice to be able to measure and compare first and
+    // subsequent builds.
     for (var i = 0; i < 2; i += 1) {
       print('tapping demo');
       await driver.tap(demoItem); // Launch the demo
