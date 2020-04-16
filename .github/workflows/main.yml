@@ -64,7 +64,7 @@ jobs:
       if: runner.os == 'macOS'
 
   integration-test:
-    name: Integration test
+    name: Integration tests
     runs-on: ubuntu-latest
     steps:
     # Set up Flutter and add it to the path.
@@ -88,9 +88,10 @@ jobs:
       with:
         path: 'code'
 
+    # Run integration tests.
     - name: Get packages for the Flutter project.
       run: flutter pub get
       working-directory: code
-    - name: Run Flutter integration tests.
-      run: flutter test integration_test
+    - name: Run gallery_compile_test.
+      run: flutter test integration_test/gallery_compile_test.dart
       working-directory: code
