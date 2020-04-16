@@ -20,7 +20,6 @@ void main() {
         'web',
         'main.dart.js',
       );
-      print('Path: $js');
       await _runProcess('flutter', [
         'build',
         'web',
