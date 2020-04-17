@@ -119,14 +119,14 @@ packages:
       name: flare_dart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.3"
+    version: "2.3.4"
   flare_flutter:
     dependency: "direct main"
     description:
       name: flare_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.3"
+    version: "2.0.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -184,7 +184,7 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.10"
+    version: "0.5.0+1"
   grinder:
     dependency: "direct dev"
     description:
@@ -354,7 +354,7 @@ packages:
     source: hosted
     version: "1.0.1"
   pedantic:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
@@ -415,7 +415,7 @@ packages:
       name: rally_assets
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "2.0.0"
   scoped_model:
     dependency: "direct main"
     description:
