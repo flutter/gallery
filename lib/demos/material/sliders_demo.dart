@@ -236,6 +236,7 @@ Path _leftTriangle(double size, Offset thumbCenter) =>
     _rightTriangle(size, thumbCenter, invert: true);
 
 class _CustomRangeThumbShape extends RangeSliderThumbShape {
+  const _CustomRangeThumbShape();
   static const double _thumbSize = 4;
   static const double _disabledThumbSize = 3;
 
@@ -303,6 +304,8 @@ class _CustomRangeThumbShape extends RangeSliderThumbShape {
 }
 
 class _CustomThumbShape extends SliderComponentShape {
+  const _CustomThumbShape();
+
   static const double _thumbSize = 4;
   static const double _disabledThumbSize = 3;
 
@@ -348,6 +351,8 @@ class _CustomThumbShape extends SliderComponentShape {
 }
 
 class _CustomValueIndicatorShape extends SliderComponentShape {
+  const _CustomValueIndicatorShape();
+
   static const double _indicatorSize = 4;
   static const double _disabledIndicatorSize = 3;
   static const double _slideUpHeight = 40;
