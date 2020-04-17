@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
@@ -201,6 +203,221 @@ class _RangeSlidersState extends State<_RangeSliders> {
 
 // BEGIN customSlidersDemo
 
+Path _downTriangle(double size, Offset thumbCenter, {bool invert = false}) {
+  final thumbPath = Path();
+  final height = math.sqrt(3) / 2;
+  final centerHeight = size * height / 3;
+  final halfSize = size / 2;
+  final sign = invert ? -1 : 1;
+  thumbPath.moveTo(
+      thumbCenter.dx - halfSize, thumbCenter.dy + sign * centerHeight);
+  thumbPath.lineTo(thumbCenter.dx, thumbCenter.dy - 2 * sign * centerHeight);
+  thumbPath.lineTo(
+      thumbCenter.dx + halfSize, thumbCenter.dy + sign * centerHeight);
+  thumbPath.close();
+  return thumbPath;
+}
+
+Path _rightTriangle(double size, Offset thumbCenter, {bool invert = false}) {
+  final thumbPath = Path();
+  final halfSize = size / 2;
+  final sign = invert ? -1 : 1;
+  thumbPath.moveTo(thumbCenter.dx + halfSize * sign, thumbCenter.dy);
+  thumbPath.lineTo(thumbCenter.dx - halfSize * sign, thumbCenter.dy - size);
+  thumbPath.lineTo(thumbCenter.dx - halfSize * sign, thumbCenter.dy + size);
+  thumbPath.close();
+  return thumbPath;
+}
+
+Path _upTriangle(double size, Offset thumbCenter) =>
+    _downTriangle(size, thumbCenter, invert: true);
+
+Path _leftTriangle(double size, Offset thumbCenter) =>
+    _rightTriangle(size, thumbCenter, invert: true);
+
+class _CustomRangeThumbShape extends RangeSliderThumbShape {
+  const _CustomRangeThumbShape();
+  static const double _thumbSize = 4;
+  static const double _disabledThumbSize = 3;
+
+  @override
+  Size getPreferredSize(bool isEnabled, bool isDiscrete) {
+    return isEnabled
+        ? const Size.fromRadius(_thumbSize)
+        : const Size.fromRadius(_disabledThumbSize);
+  }
+
+  static final Animatable<double> sizeTween = Tween<double>(
+    begin: _disabledThumbSize,
+    end: _thumbSize,
+  );
+
+  @override
+  void paint(
+    PaintingContext context,
+    Offset center, {
+    @required Animation<double> activationAnimation,
+    @required Animation<double> enableAnimation,
+    bool isDiscrete = false,
+    bool isEnabled = false,
+    bool isOnTop,
+    TextDirection textDirection,
+    @required SliderThemeData sliderTheme,
+    Thumb thumb,
+    bool isPressed,
+  }) {
+    final canvas = context.canvas;
+    final colorTween = ColorTween(
+      begin: sliderTheme.disabledThumbColor,
+      end: sliderTheme.thumbColor,
+    );
+
+    final size = _thumbSize * sizeTween.evaluate(enableAnimation);
+    Path thumbPath;
+    switch (textDirection) {
+      case TextDirection.rtl:
+        switch (thumb) {
+          case Thumb.start:
+            thumbPath = _rightTriangle(size, center);
+            break;
+          case Thumb.end:
+            thumbPath = _leftTriangle(size, center);
+            break;
+        }
+        break;
+      case TextDirection.ltr:
+        switch (thumb) {
+          case Thumb.start:
+            thumbPath = _leftTriangle(size, center);
+            break;
+          case Thumb.end:
+            thumbPath = _rightTriangle(size, center);
+            break;
+        }
+        break;
+    }
+    canvas.drawPath(
+      thumbPath,
+      Paint()..color = colorTween.evaluate(enableAnimation),
+    );
+  }
+}
+
+class _CustomThumbShape extends SliderComponentShape {
+  const _CustomThumbShape();
+
+  static const double _thumbSize = 4;
+  static const double _disabledThumbSize = 3;
+
+  @override
+  Size getPreferredSize(bool isEnabled, bool isDiscrete) {
+    return isEnabled
+        ? const Size.fromRadius(_thumbSize)
+        : const Size.fromRadius(_disabledThumbSize);
+  }
+
+  static final Animatable<double> sizeTween = Tween<double>(
+    begin: _disabledThumbSize,
+    end: _thumbSize,
+  );
+
+  @override
+  void paint(
+    PaintingContext context,
+    Offset thumbCenter, {
+    Animation<double> activationAnimation,
+    Animation<double> enableAnimation,
+    bool isDiscrete,
+    TextPainter labelPainter,
+    RenderBox parentBox,
+    SliderThemeData sliderTheme,
+    TextDirection textDirection,
+    double value,
+    double textScaleFactor,
+    Size sizeWithOverflow,
+  }) {
+    final canvas = context.canvas;
+    final colorTween = ColorTween(
+      begin: sliderTheme.disabledThumbColor,
+      end: sliderTheme.thumbColor,
+    );
+    final size = _thumbSize * sizeTween.evaluate(enableAnimation);
+    final thumbPath = _downTriangle(size, thumbCenter);
+    canvas.drawPath(
+      thumbPath,
+      Paint()..color = colorTween.evaluate(enableAnimation),
+    );
+  }
+}
+
+class _CustomValueIndicatorShape extends SliderComponentShape {
+  const _CustomValueIndicatorShape();
+
+  static const double _indicatorSize = 4;
+  static const double _disabledIndicatorSize = 3;
+  static const double _slideUpHeight = 40;
+
+  @override
+  Size getPreferredSize(bool isEnabled, bool isDiscrete) {
+    return Size.fromRadius(isEnabled ? _indicatorSize : _disabledIndicatorSize);
+  }
+
+  static final Animatable<double> sizeTween = Tween<double>(
+    begin: _disabledIndicatorSize,
+    end: _indicatorSize,
+  );
+
+  @override
+  void paint(
+    PaintingContext context,
+    Offset thumbCenter, {
+    Animation<double> activationAnimation,
+    Animation<double> enableAnimation,
+    bool isDiscrete,
+    TextPainter labelPainter,
+    RenderBox parentBox,
+    SliderThemeData sliderTheme,
+    TextDirection textDirection,
+    double value,
+    double textScaleFactor,
+    Size sizeWithOverflow,
+  }) {
+    final canvas = context.canvas;
+    final enableColor = ColorTween(
+      begin: sliderTheme.disabledThumbColor,
+      end: sliderTheme.valueIndicatorColor,
+    );
+    final slideUpTween = Tween<double>(
+      begin: 0,
+      end: _slideUpHeight,
+    );
+    final size = _indicatorSize * sizeTween.evaluate(enableAnimation);
+    final slideUpOffset =
+        Offset(0, -slideUpTween.evaluate(activationAnimation));
+    final thumbPath = _upTriangle(size, thumbCenter + slideUpOffset);
+    final paintColor = enableColor
+        .evaluate(enableAnimation)
+        .withAlpha((255 * activationAnimation.value).round());
+    canvas.drawPath(
+      thumbPath,
+      Paint()..color = paintColor,
+    );
+    canvas.drawLine(
+        thumbCenter,
+        thumbCenter + slideUpOffset,
+        Paint()
+          ..color = paintColor
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2);
+    labelPainter.paint(
+      canvas,
+      thumbCenter +
+          slideUpOffset +
+          Offset(-labelPainter.width / 2, -labelPainter.height - 4),
+    );
+  }
+}
+
 class _CustomSliders extends StatefulWidget {
   @override
   _CustomSlidersState createState() => _CustomSlidersState();
@@ -233,6 +450,8 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   overlayColor: theme.colorScheme.onSurface.withOpacity(0.12),
                   thumbColor: Colors.deepPurple,
                   valueIndicatorColor: Colors.deepPurpleAccent,
+                  thumbShape: const _CustomThumbShape(),
+                  valueIndicatorShape: const _CustomValueIndicatorShape(),
                   valueIndicatorTextStyle: theme.accentTextTheme.bodyText1
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
@@ -267,6 +486,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   inactiveTickMarkColor: Colors.black,
                   overlayColor: Colors.black12,
                   thumbColor: Colors.deepPurple,
+                  rangeThumbShape: _CustomRangeThumbShape(),
                   showValueIndicator: ShowValueIndicator.never,
                 ),
                 child: RangeSlider(
