@@ -1,4 +1,5 @@
 {
+  "githubRepo": "GitHub-bewaarplek {repoName}",
   "fortnightlyMenuUS": "VSA",
   "fortnightlyMenuBusiness": "Besigheid",
   "fortnightlyMenuScience": "Wetenskap",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Stelsel",
   "settingsTitle": "Instellings",
   "rallyDescription": "'n Program vir jou persoonlike geldsake",
-  "aboutDialogDescription": "Besoek asseblief die {value} om die bronkode vir hierdie program te sien.",
+  "aboutDialogDescription": "Besoek die {repoLink} om hierdie program se bronkode te sien.",
   "bottomNavigationCommentsTab": "Opmerkings",
   "starterAppGenericBody": "Liggaam",
   "starterAppGenericHeadline": "Hoofopskrif",

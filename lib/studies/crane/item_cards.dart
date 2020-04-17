@@ -28,7 +28,7 @@ class _ItemCardsState extends State<ItemCards> {
   List<Destination> eatDestinations;
 
   List<Widget> _buildDestinationCards({int listIndex}) {
-    final List<Destination> destinations = [
+    final destinations = [
       if (listIndex == 0) ...flyDestinations,
       if (listIndex == 1) ...sleepDestinations,
       if (listIndex == 2) ...eatDestinations,
@@ -64,8 +64,7 @@ class _ItemCardsState extends State<ItemCards> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    final List<Widget> destinationCards =
-        _buildDestinationCards(listIndex: widget.index);
+    final destinationCards = _buildDestinationCards(listIndex: widget.index);
 
     if (isDesktop) {
       var columns = List<List<Widget>>(ItemCards.totalColumns);
@@ -73,7 +72,7 @@ class _ItemCardsState extends State<ItemCards> {
         final col = i % ItemCards.totalColumns;
 
         if (columns[col] == null) {
-          columns[col] = List<Widget>();
+          columns[col] = [];
         }
 
         columns[col].add(
@@ -106,7 +105,7 @@ class _ItemCardsState extends State<ItemCards> {
 }
 
 class _DestinationCard extends StatelessWidget {
-  _DestinationCard({this.destination}) : assert(destination != null);
+  _DestinationCard({@required this.destination}) : assert(destination != null);
   final Destination destination;
 
   @override
@@ -163,7 +162,7 @@ class _DestinationCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
-            contentPadding: EdgeInsetsDirectional.only(end: 8),
+            contentPadding: const EdgeInsetsDirectional.only(end: 8),
             leading: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(4)),
               child: SizedBox(
@@ -179,7 +178,7 @@ class _DestinationCard extends StatelessWidget {
               style: textTheme.subtitle2,
             ),
           ),
-          Divider(),
+          const Divider(),
         ],
       );
     }

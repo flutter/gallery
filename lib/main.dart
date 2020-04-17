@@ -17,10 +17,17 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowHttp = false;
-  runApp(GalleryApp());
+  runApp(const GalleryApp());
 }
 
 class GalleryApp extends StatelessWidget {
+  const GalleryApp({
+    Key key,
+    this.isTestMode = false,
+  }) : super(key: key);
+
+  final bool isTestMode;
+
   @override
   Widget build(BuildContext context) {
     return ModelBinding(
@@ -31,11 +38,12 @@ class GalleryApp extends StatelessWidget {
         locale: null,
         timeDilation: timeDilation,
         platform: defaultTargetPlatform,
+        isTestMode: isTestMode,
       ),
       child: Builder(
         builder: (context) {
           return MaterialApp(
-            title: 'Gallery',
+            title: 'Flutter Gallery',
             debugShowCheckedModeBanner: false,
             themeMode: GalleryOptions.of(context).themeMode,
             theme: GalleryThemeData.lightThemeData.copyWith(
@@ -44,7 +52,7 @@ class GalleryApp extends StatelessWidget {
             darkTheme: GalleryThemeData.darkThemeData.copyWith(
               platform: GalleryOptions.of(context).platform,
             ),
-            localizationsDelegates: [
+            localizationsDelegates: const [
               ...GalleryLocalizations.localizationsDelegates,
               LocaleNamesLocalizationsDelegate()
             ],
@@ -69,7 +77,7 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ApplyTextOptions(
+    return const ApplyTextOptions(
       child: SplashPage(
         child: Backdrop(),
       ),

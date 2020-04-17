@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub қоймасы",
   "fortnightlyMenuUS": "АҚШ",
   "fortnightlyMenuBusiness": "Бизнес",
   "fortnightlyMenuScience": "Ғылым",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Жүйе",
   "settingsTitle": "Параметрлер",
   "rallyDescription": "Бюджет жоспарлауға арналған қолданба",
-  "aboutDialogDescription": "Қолданбаның кодын көру үшін {value} бетін ашыңыз.",
+  "aboutDialogDescription": "Осы қолданбаның бастапқы кодын көру үшін {value} бетін ашыңыз.",
   "bottomNavigationCommentsTab": "Пікірлер",
   "starterAppGenericBody": "Негізгі мәтін",
   "starterAppGenericHeadline": "Тақырып",

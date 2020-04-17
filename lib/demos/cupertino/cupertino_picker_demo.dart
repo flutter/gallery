@@ -9,6 +9,8 @@ import 'package:intl/intl.dart';
 // BEGIN cupertinoPickersDemo
 
 class CupertinoPickerDemo extends StatefulWidget {
+  const CupertinoPickerDemo();
+
   @override
   _CupertinoPickerDemoState createState() => _CupertinoPickerDemoState();
 }
@@ -49,7 +51,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
         Text(GalleryLocalizations.of(context).demoCupertinoPickerDate),
         Text(
           DateFormat.yMMMMd().format(date),
-          style: TextStyle(color: CupertinoColors.inactiveGray),
+          style: const TextStyle(color: CupertinoColors.inactiveGray),
         ),
       ]),
     );
@@ -80,7 +82,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
           Text(GalleryLocalizations.of(context).demoCupertinoPickerTime),
           Text(
             DateFormat.jm().format(time),
-            style: TextStyle(color: CupertinoColors.inactiveGray),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],
       ),
@@ -112,7 +114,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
           Text(GalleryLocalizations.of(context).demoCupertinoPickerDateTime),
           Text(
             DateFormat.yMMMd().add_jm().format(dateTime),
-            style: TextStyle(color: CupertinoColors.inactiveGray),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],
       ),
@@ -145,7 +147,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
             '${timer.inHours}:'
             '${(timer.inMinutes % 60).toString().padLeft(2, '0')}:'
             '${(timer.inSeconds % 60).toString().padLeft(2, '0')}',
-            style: TextStyle(color: CupertinoColors.inactiveGray),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],
       ),
@@ -189,6 +191,9 @@ class _BottomPicker extends StatelessWidget {
     return Container(
       height: 216,
       padding: const EdgeInsets.only(top: 6),
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       color: CupertinoColors.systemBackground.resolveFrom(context),
       child: DefaultTextStyle(
         style: TextStyle(
@@ -220,8 +225,8 @@ class _Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: const Border(
+      decoration: const BoxDecoration(
+        border: Border(
           top: BorderSide(color: CupertinoColors.inactiveGray, width: 0),
           bottom: BorderSide(color: CupertinoColors.inactiveGray, width: 0),
         ),

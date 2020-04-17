@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub കലവറ",
   "fortnightlyMenuUS": "യുഎസ്",
   "fortnightlyMenuBusiness": "ബിസിനസ്",
   "fortnightlyMenuScience": "ശാസ്‌ത്രം",
@@ -479,7 +480,7 @@
   "demoTextFieldYourEmailAddress": "നിങ്ങളുടെ ഇമെയിൽ വിലാസം",
   "demoBottomNavigationSubtitle": "ക്രോസ്-ഫേഡിംഗ് കാഴ്‌ചകളുള്ള ബോട്ടം നാവിഗേഷൻ",
   "settingsPlatformAndroid": "Android",
-  "aboutDialogDescription": "ഈ ആപ്പിനായുള്ള സോഴ്‌സ് കോഡ് കാണുന്നതിന്, {value} സന്ദർശിക്കുക.",
+  "aboutDialogDescription": "ഈ ആപ്പിനുള്ള സോഴ്‌സ് കോഡ് കാണാൻ {repoLink} സന്ദർശിക്കുക.",
   "aboutFlutterSamplesRepo": "ഫ്ലട്ടർ സാമ്പിൾസ് ഗിറ്റ്ഹബ് റിപ്പോ",
   "demoTextFieldHidePasswordLabel": "പാസ്‍വേഡ് മറയ്ക്കുക",
   "demoTextFieldFormErrors": "സമർപ്പിക്കുന്നതിന് മുമ്പ് ചുവപ്പ് നിറത്തിൽ അടയാളപ്പെടുത്തിയ പിശകുകൾ പരിഹരിക്കുക.",

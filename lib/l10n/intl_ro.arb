@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Directorul GitHub {repoName}",
   "fortnightlyMenuUS": "S.U.A.",
   "fortnightlyMenuBusiness": "Afaceri",
   "fortnightlyMenuScience": "Știință",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Sistem",
   "settingsTitle": "Setări",
   "rallyDescription": "O aplicație pentru finanțe personale",
-  "aboutDialogDescription": "Ca să vedeți codul sursă al acestei aplicații, accesați {value}.",
+  "aboutDialogDescription": "Ca să vedeți codul sursă al acestei aplicații, accesați {repoLink}.",
   "bottomNavigationCommentsTab": "Comentarii",
   "starterAppGenericBody": "Corp",
   "starterAppGenericHeadline": "Titlu",

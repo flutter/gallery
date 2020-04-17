@@ -11,6 +11,8 @@ import 'package:gallery/layout/adaptive.dart';
 const appBarDesktopHeight = 128.0;
 
 class HomePage extends StatelessWidget {
+  const HomePage();
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -19,8 +21,8 @@ class HomePage extends StatelessWidget {
     final body = SafeArea(
       child: Padding(
         padding: isDesktop
-            ? EdgeInsets.symmetric(horizontal: 72, vertical: 48)
-            : EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            ? const EdgeInsets.symmetric(horizontal: 72, vertical: 48)
+            : const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -30,12 +32,12 @@ class HomePage extends StatelessWidget {
                 color: colorScheme.onSecondary,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               GalleryLocalizations.of(context).starterAppGenericSubtitle,
               style: textTheme.subtitle1,
             ),
-            SizedBox(height: 48),
+            const SizedBox(height: 48),
             Text(
               GalleryLocalizations.of(context).starterAppGenericBody,
               style: textTheme.bodyText1,
@@ -49,10 +51,10 @@ class HomePage extends StatelessWidget {
       return Row(
         children: [
           ListDrawer(),
-          VerticalDivider(width: 1),
+          const VerticalDivider(width: 1),
           Expanded(
             child: Scaffold(
-              appBar: AdaptiveAppBar(
+              appBar: const AdaptiveAppBar(
                 isDesktop: true,
               ),
               body: body,
@@ -72,7 +74,7 @@ class HomePage extends StatelessWidget {
       );
     } else {
       return Scaffold(
-        appBar: AdaptiveAppBar(),
+        appBar: const AdaptiveAppBar(),
         body: body,
         drawer: ListDrawer(),
         floatingActionButton: FloatingActionButton(
@@ -115,7 +117,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
               preferredSize: const Size.fromHeight(26),
               child: Container(
                 alignment: AlignmentDirectional.centerStart,
-                margin: EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
+                margin: const EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
                 child: Text(
                   GalleryLocalizations.of(context).starterAppGenericTitle,
                   style: themeData.textTheme.headline6.copyWith(
@@ -173,12 +175,12 @@ class _ListDrawerState extends State<ListDrawer> {
                 style: textTheme.bodyText2,
               ),
             ),
-            Divider(),
+            const Divider(),
             ...Iterable<int>.generate(numItems).toList().map((i) {
               return ListTile(
                 enabled: true,
                 selected: i == selectedItem,
-                leading: Icon(Icons.favorite),
+                leading: const Icon(Icons.favorite),
                 title: Text(
                   GalleryLocalizations.of(context).starterAppDrawerItem(i + 1),
                 ),

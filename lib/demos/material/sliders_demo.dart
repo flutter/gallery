@@ -82,7 +82,7 @@ class _SlidersState extends State<_Sliders> {
                   child: TextField(
                     textAlign: TextAlign.center,
                     onSubmitted: (value) {
-                      final double newValue = double.tryParse(value);
+                      final newValue = double.tryParse(value);
                       if (newValue != null && newValue != _continuousValue) {
                         setState(() {
                           _continuousValue = newValue.clamp(0, 100) as double;
@@ -479,7 +479,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SliderTheme(
-                data: SliderThemeData(
+                data: const SliderThemeData(
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor: Colors.black26,
                   activeTickMarkColor: Colors.white70,

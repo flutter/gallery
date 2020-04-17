@@ -8,6 +8,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN cupertinoTextFieldDemo
 
 class CupertinoTextFieldDemo extends StatelessWidget {
+  const CupertinoTextFieldDemo();
+
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
@@ -39,14 +41,14 @@ class CupertinoTextFieldDemo extends StatelessWidget {
               ),
             ),
             CupertinoTextField(
-              prefix: Icon(
+              prefix: const Icon(
                 CupertinoIcons.padlock_solid,
                 size: 28,
               ),
-              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
               clearButtonMode: OverlayVisibilityMode.editing,
               keyboardType: TextInputType.number,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
                     width: 0,

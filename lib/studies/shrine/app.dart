@@ -19,8 +19,10 @@ import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ShrineApp extends StatefulWidget {
-  static String loginRoute = '/shrine/login';
-  static String homeRoute = '/shrine';
+  const ShrineApp();
+
+  static const String loginRoute = '/shrine/login';
+  static const String homeRoute = '/shrine';
 
   @override
   _ShrineAppState createState() => _ShrineAppState();
@@ -36,7 +38,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
   AppStateModel _model;
 
-  Map<String, List<List<int>>> _layouts = {};
+  final Map<String, List<List<int>>> _layouts = {};
 
   @override
   void initState() {
@@ -71,7 +73,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
   }
 
   Widget desktopBackdrop() {
-    return DesktopBackdrop(
+    return const DesktopBackdrop(
       frontLayer: ProductPage(),
       backLayer: CategoryMenuPage(),
     );
@@ -91,9 +93,9 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final Widget backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
+    final backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
     final Widget home = LayoutCache(
       layouts: _layouts,
       child: PageStatus(
@@ -121,12 +123,12 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
           onGenerateInitialRoutes: (_) {
             return [
               MaterialPageRoute<void>(
-                builder: (context) => LoginPage(),
+                builder: (context) => const LoginPage(),
               ),
             ];
           },
           routes: {
-            ShrineApp.loginRoute: (context) => LoginPage(),
+            ShrineApp.loginRoute: (context) => const LoginPage(),
             ShrineApp.homeRoute: (context) => home,
           },
           theme: shrineTheme.copyWith(

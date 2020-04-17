@@ -164,7 +164,7 @@ class _GridDemoPhotoItem extends StatelessWidget {
         return GridTile(
           header: Material(
             color: Colors.transparent,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(4)),
             ),
             clipBehavior: Clip.antiAlias,
@@ -179,7 +179,7 @@ class _GridDemoPhotoItem extends StatelessWidget {
         return GridTile(
           footer: Material(
             color: Colors.transparent,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(4)),
             ),
             clipBehavior: Clip.antiAlias,

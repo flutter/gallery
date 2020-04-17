@@ -36,21 +36,20 @@ class MobileAsymmetricView extends StatelessWidget {
 
     // Decide whether the page size and text size allow 2-column products.
 
-    final double cardHeight = (constraints.biggest.height -
+    final cardHeight = (constraints.biggest.height -
             _topPadding -
             _bottomPadding -
             TwoProductCardColumn.spacerHeight) /
         2;
 
-    final double imageWidth =
-        _cardToScreenWidthRatio * constraints.biggest.width -
-            TwoProductCardColumn.horizontalPadding;
+    final imageWidth = _cardToScreenWidthRatio * constraints.biggest.width -
+        TwoProductCardColumn.horizontalPadding;
 
-    final double imageHeight = cardHeight -
+    final imageHeight = cardHeight -
         MobileProductCard.defaultTextBoxHeight *
             GalleryOptions.of(context).textScaleFactor(context);
 
-    final bool shouldUseAlternatingLayout =
+    final shouldUseAlternatingLayout =
         imageHeight > 0 && imageWidth / imageHeight < 49 / 33;
 
     if (shouldUseAlternatingLayout) {
@@ -67,12 +66,11 @@ class MobileAsymmetricView extends StatelessWidget {
       // to the index of the list of columns.
 
       return List<Container>.generate(_listItemCount(products.length), (index) {
-        double width =
-            _cardToScreenWidthRatio * MediaQuery.of(context).size.width;
+        var width = _cardToScreenWidthRatio * MediaQuery.of(context).size.width;
         Widget column;
         if (index % 2 == 0) {
           /// Even cases
-          final int bottom = _evenCasesIndex(index);
+          final bottom = _evenCasesIndex(index);
           column = TwoProductCardColumn(
             bottom: products[bottom],
             top:
@@ -171,24 +169,23 @@ class DesktopAsymmetricView extends StatelessWidget {
   Widget build(BuildContext context) {
     // Determine the scale factor for the desktop asymmetric view.
 
-    final double textScaleFactor =
-        GalleryOptions.of(context).textScaleFactor(context);
+    final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
 
     // When text is larger, the images becomes wider, but at half the rate.
-    final double imageScaleFactor = reducedTextScale(context);
+    final imageScaleFactor = reducedTextScale(context);
 
     // When text is larger, horizontal padding becomes smaller.
-    final double paddingScaleFactor = textScaleFactor >= 1.5 ? 0.25 : 1;
+    final paddingScaleFactor = textScaleFactor >= 1.5 ? 0.25 : 1;
 
     // Calculate number of columns
 
-    final double sidebar = desktopCategoryMenuPageWidth(context: context);
-    final double minimumBoundaryWidth = 84 * paddingScaleFactor;
-    final double columnWidth = 186 * imageScaleFactor;
-    final double columnGapWidth = 24 * imageScaleFactor;
-    final double windowWidth = MediaQuery.of(context).size.width;
+    final sidebar = desktopCategoryMenuPageWidth(context: context);
+    final minimumBoundaryWidth = 84 * paddingScaleFactor;
+    final columnWidth = 186 * imageScaleFactor;
+    final columnGapWidth = 24 * imageScaleFactor;
+    final windowWidth = MediaQuery.of(context).size.width;
 
-    final int idealColumnCount = max(
+    final idealColumnCount = max(
       1,
       ((windowWidth + columnGapWidth - 2 * minimumBoundaryWidth - sidebar) /
               (columnWidth + columnGapWidth))
@@ -196,14 +193,14 @@ class DesktopAsymmetricView extends StatelessWidget {
     );
 
     // Limit column width to fit within window when there is only one column.
-    final double actualColumnWidth = idealColumnCount == 1
+    final actualColumnWidth = idealColumnCount == 1
         ? min(
             columnWidth,
             windowWidth - sidebar - 2 * minimumBoundaryWidth,
           )
         : columnWidth;
 
-    final int columnCount = min(idealColumnCount, max(products.length, 1));
+    final columnCount = min(idealColumnCount, max(products.length, 1));
 
     return AnimatedBuilder(
       animation: PageStatus.of(context).cartController,
@@ -239,7 +236,7 @@ class DesktopColumns extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget _gap = Container(width: 24);
 
-    final List<List<Product>> productCardLists = balancedLayout(
+    final productCardLists = balancedLayout(
       context: context,
       columnCount: columnCount,
       products: products,
@@ -247,14 +244,12 @@ class DesktopColumns extends StatelessWidget {
       smallImageWidth: smallImageWidth,
     );
 
-    final List<DesktopProductCardColumn> productCardColumns =
-        List<DesktopProductCardColumn>.generate(
+    final productCardColumns = List<DesktopProductCardColumn>.generate(
       columnCount,
       (column) {
-        final bool alignToEnd =
-            (column % 2 == 1) || (column == columnCount - 1);
-        final bool startLarge = (column % 2 == 1);
-        final bool lowerStart = (column % 2 == 1);
+        final alignToEnd = (column % 2 == 1) || (column == columnCount - 1);
+        final startLarge = (column % 2 == 1);
+        final lowerStart = (column % 2 == 1);
         return DesktopProductCardColumn(
           alignToEnd: alignToEnd,
           startLarge: startLarge,
@@ -273,7 +268,7 @@ class DesktopColumns extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Spacer(),
+            const Spacer(),
             ...List<Widget>.generate(
               2 * columnCount - 1,
               (generalizedColumnIndex) {
@@ -284,7 +279,7 @@ class DesktopColumns extends StatelessWidget {
                 }
               },
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
         Container(height: 60),

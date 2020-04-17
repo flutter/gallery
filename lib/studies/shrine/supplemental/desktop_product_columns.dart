@@ -40,8 +40,8 @@ class DesktopProductCardColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      final int currentColumnProductCount = products.length;
-      final int currentColumnWidgetCount =
+      final currentColumnProductCount = products.length;
+      final currentColumnWidgetCount =
           max(2 * currentColumnProductCount - 1, 0);
 
       return Container(
@@ -55,7 +55,7 @@ class DesktopProductCardColumn extends StatelessWidget {
               Widget card;
               if (index % 2 == 0) {
                 // This is a product.
-                final int productCardIndex = index ~/ 2;
+                final productCardIndex = index ~/ 2;
                 card = DesktopProductCard(
                   product: products[productCardIndex],
                   imageWidth: startLarge

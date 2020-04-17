@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} Χώρος φύλαξης GitHub",
   "fortnightlyMenuUS": "ΗΠΑ",
   "fortnightlyMenuBusiness": "Επιχειρήσεις",
   "fortnightlyMenuScience": "Επιστήμη",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Σύστημα",
   "settingsTitle": "Ρυθμίσεις",
   "rallyDescription": "Μια εφαρμογή για προσωπικά οικονομικά",
-  "aboutDialogDescription": "Για να δείτε τον πηγαίο κώδικα για αυτήν την εφαρμογή, επισκεφτείτε το {value}.",
+  "aboutDialogDescription": "Για να δείτε τον πηγαίο κώδικα για αυτήν την εφαρμογή, επισκεφτείτε το {repoLink}.",
   "bottomNavigationCommentsTab": "Σχόλια",
   "starterAppGenericBody": "Σώμα",
   "starterAppGenericHeadline": "Επικεφαλίδα",

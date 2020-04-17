@@ -32,9 +32,7 @@ const systemLocaleOption = Locale('system');
 Locale _deviceLocale;
 Locale get deviceLocale => _deviceLocale;
 set deviceLocale(Locale locale) {
-  if (_deviceLocale == null) {
-    _deviceLocale = locale;
-  }
+  _deviceLocale ??= locale;
 }
 
 class GalleryOptions {
@@ -45,6 +43,7 @@ class GalleryOptions {
     Locale locale,
     this.timeDilation,
     this.platform,
+    this.isTestMode,
   })  : _textScaleFactor = textScaleFactor,
         _locale = locale;
 
@@ -54,6 +53,7 @@ class GalleryOptions {
   final Locale _locale;
   final double timeDilation;
   final TargetPlatform platform;
+  final bool isTestMode; // True for integration tests.
 
   // We use a sentinel value to indicate the system text scale option. By
   // default, return the actual text scale factor, otherwise return the
@@ -73,14 +73,14 @@ class GalleryOptions {
       deviceLocale ??
       // TODO: When deviceLocale can be obtained on macOS, this won't be necessary
       // https://github.com/flutter/flutter/issues/45343
-      (!kIsWeb && Platform.isMacOS ? Locale('en', 'US') : null);
+      (!kIsWeb && Platform.isMacOS ? const Locale('en', 'US') : null);
 
   /// Returns the text direction based on the [CustomTextDirection] setting.
   /// If the locale cannot be determined, returns null.
   TextDirection textDirection() {
     switch (customTextDirection) {
       case CustomTextDirection.localeBased:
-        final String language = locale?.languageCode?.toLowerCase();
+        final language = locale?.languageCode?.toLowerCase();
         if (language == null) return null;
         return rtlLanguages.contains(language)
             ? TextDirection.rtl
@@ -102,7 +102,7 @@ class GalleryOptions {
   }) {
     return GalleryOptions(
       themeMode: themeMode ?? this.themeMode,
-      textScaleFactor: textScaleFactor ?? this._textScaleFactor,
+      textScaleFactor: textScaleFactor ?? _textScaleFactor,
       customTextDirection: customTextDirection ?? this.customTextDirection,
       locale: locale ?? this.locale,
       timeDilation: timeDilation ?? this.timeDilation,
@@ -131,13 +131,13 @@ class GalleryOptions {
       );
 
   static GalleryOptions of(BuildContext context) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, GalleryOptions newModel) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     scope.modelBindingState.updateModel(newModel);
   }
@@ -198,6 +198,7 @@ class ModelBinding extends StatefulWidget {
   final GalleryOptions initialModel;
   final Widget child;
 
+  @override
   _ModelBindingState createState() => _ModelBindingState();
 }
 
