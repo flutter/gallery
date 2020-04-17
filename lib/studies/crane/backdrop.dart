@@ -266,7 +266,8 @@ class _CraneAppBarState extends State<CraneAppBar> {
                   width: 40,
                   height: 60,
                 ),
-                fit: BoxFit.cover,
+                width: 40,
+                height: 60,
               ),
             ),
             Expanded(
