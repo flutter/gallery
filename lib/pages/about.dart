@@ -22,7 +22,7 @@ void showAboutDialog({
 }
 
 Future<String> getVersionNumber() async {
-  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  final packageInfo = await PackageInfo.fromPlatform();
   return packageInfo.version;
 }
 
@@ -36,20 +36,19 @@ class _AboutDialog extends StatelessWidget {
 
     final name = 'Flutter Gallery'; // Don't need to localize.
     final legalese = '© 2019 The Flutter team'; // Don't need to localize.
-    final samplesRepo =
-        GalleryLocalizations.of(context).aboutFlutterSamplesRepo;
+    final repoText = GalleryLocalizations.of(context).githubRepo(name);
     final seeSource =
-        GalleryLocalizations.of(context).aboutDialogDescription(samplesRepo);
-    final samplesRepoIndex = seeSource.indexOf(samplesRepo);
-    final samplesRepoIndexEnd = samplesRepoIndex + samplesRepo.length;
-    final seeSourceFirst = seeSource.substring(0, samplesRepoIndex);
-    final seeSourceSecond = seeSource.substring(samplesRepoIndexEnd);
+        GalleryLocalizations.of(context).aboutDialogDescription(repoText);
+    final repoLinkIndex = seeSource.indexOf(repoText);
+    final repoLinkIndexEnd = repoLinkIndex + repoText.length;
+    final seeSourceFirst = seeSource.substring(0, repoLinkIndex);
+    final seeSourceSecond = seeSource.substring(repoLinkIndexEnd);
 
     return AlertDialog(
       backgroundColor: colorScheme.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       content: Container(
-        constraints: BoxConstraints(maxWidth: 400),
+        constraints: const BoxConstraints(maxWidth: 400),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -61,7 +60,7 @@ class _AboutDialog extends StatelessWidget {
                 style: textTheme.headline4.apply(color: colorScheme.onPrimary),
               ),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             RichText(
               text: TextSpan(
                 children: [
@@ -73,10 +72,10 @@ class _AboutDialog extends StatelessWidget {
                     style: bodyTextStyle.copyWith(
                       color: colorScheme.primary,
                     ),
-                    text: samplesRepo,
+                    text: repoText,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        final url = 'https://github.com/flutter/samples/';
+                        final url = 'https://github.com/flutter/gallery/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
@@ -92,7 +91,7 @@ class _AboutDialog extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Text(
               legalese,
               style: bodyTextStyle,

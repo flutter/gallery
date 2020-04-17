@@ -43,7 +43,7 @@ class DialogDemo extends StatelessWidget {
         child: child,
       ),
     );
-    T value = await showDialog<T>(
+    final value = await showDialog<T>(
       context: context,
       builder: (context) => child,
     );
@@ -58,8 +58,8 @@ class DialogDemo extends StatelessWidget {
   }
 
   void _showAlertDialog(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final TextStyle dialogTextStyle = theme.textTheme.subtitle1
+    final theme = Theme.of(context);
+    final dialogTextStyle = theme.textTheme.subtitle1
         .copyWith(color: theme.textTheme.caption.color);
     _showDemoDialog<String>(
       context: context,
@@ -77,8 +77,8 @@ class DialogDemo extends StatelessWidget {
   }
 
   void _showAlertDialogWithTitle(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final TextStyle dialogTextStyle = theme.textTheme.subtitle1
+    final theme = Theme.of(context);
+    final dialogTextStyle = theme.textTheme.subtitle1
         .copyWith(color: theme.textTheme.caption.color);
     _showDemoDialog<String>(
       context: context,
@@ -97,7 +97,7 @@ class DialogDemo extends StatelessWidget {
   }
 
   void _showSimpleDialog(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
     _showDemoDialog<String>(
       context: context,
       child: SimpleDialog(
@@ -245,7 +245,7 @@ class _DialogDemoItem extends StatelessWidget {
 class _FullScreenDialogDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
 
     // Remove the MediaQuery padding because the demo is rendered inside of a
     // different page that already accounts for this padding.

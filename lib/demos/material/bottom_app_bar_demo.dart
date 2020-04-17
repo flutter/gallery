@@ -8,6 +8,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN bottomAppBarDemo
 
 class BottomAppBarDemo extends StatefulWidget {
+  const BottomAppBarDemo();
+
   @override
   State createState() => _BottomAppBarDemoState();
 }
@@ -101,14 +103,14 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
               onPressed: () {
                 print('Floating action button pressed');
               },
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
               tooltip: GalleryLocalizations.of(context).buttonTextCreate,
             )
           : null,
       floatingActionButtonLocation: _fabLocation,
       bottomNavigationBar: _DemoBottomAppBar(
         fabLocation: _fabLocation,
-        shape: _showNotch ? CircularNotchedRectangle() : null,
+        shape: _showNotch ? const CircularNotchedRectangle() : null,
       ),
     );
   }

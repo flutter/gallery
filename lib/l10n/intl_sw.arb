@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} Hazina ya GitHub",
   "fortnightlyMenuUS": "Marekani",
   "fortnightlyMenuBusiness": "Biashara",
   "fortnightlyMenuScience": "Sayansi",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Mfumo",
   "settingsTitle": "Mipangilio",
   "rallyDescription": "Programu ya fedha ya binafsi",
-  "aboutDialogDescription": "Ili uangalie msimbo wa programu hii, tafadhali tembelea {value}.",
+  "aboutDialogDescription": "Ili uangalie msimbo wa programu hii, tafadhali tembelea {repoLink}.",
   "bottomNavigationCommentsTab": "Maoni",
   "starterAppGenericBody": "Mwili",
   "starterAppGenericHeadline": "Kichwa",

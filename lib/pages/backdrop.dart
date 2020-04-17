@@ -21,7 +21,7 @@ const double _settingsButtonHeightDesktop = 56;
 const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
-  Backdrop({
+  const Backdrop({
     this.settingsPage,
     this.homePage,
   });
@@ -50,7 +50,7 @@ class _BackdropState extends State<Backdrop>
     super.initState();
     _settingsPanelController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
     );
     _settingsPageFocusNode = FocusNode();
     _homePageFocusNode = FocusNode();
@@ -85,7 +85,7 @@ class _BackdropState extends State<Backdrop>
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     if (_animationLayer != null) {
-      FlareAnimationLayer layer = _animationLayer;
+      final layer = _animationLayer;
       layer.time = _settingsPanelController.value * layer.duration;
       layer.animation.apply(layer.time, _artboard, 1);
       if (layer.isDone || layer.time == 0) {
@@ -97,8 +97,8 @@ class _BackdropState extends State<Backdrop>
 
   void initAnimationLayer() {
     if (_artboard != null) {
-      final animationName = "Animations";
-      ActorAnimation animation = _artboard.getAnimation(animationName);
+      final animationName = 'Animations';
+      final animation = _artboard.getAnimation(animationName);
       _animationLayer = FlareAnimationLayer()
         ..name = animationName
         ..animation = animation;
@@ -134,11 +134,11 @@ class _BackdropState extends State<Backdrop>
       BoxConstraints constraints) {
     return RelativeRectTween(
       begin: RelativeRect.fromLTRB(0, -constraints.maxHeight, 0, 0),
-      end: RelativeRect.fromLTRB(0, 0, 0, 0),
+      end: const RelativeRect.fromLTRB(0, 0, 0, 0),
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.4,
           curve: Curves.ease,
@@ -150,7 +150,7 @@ class _BackdropState extends State<Backdrop>
   Animation<RelativeRect> _slideDownHomePageAnimation(
       BoxConstraints constraints) {
     return RelativeRectTween(
-      begin: RelativeRect.fromLTRB(0, 0, 0, 0),
+      begin: const RelativeRect.fromLTRB(0, 0, 0, 0),
       end: RelativeRect.fromLTRB(
         0,
         constraints.biggest.height - galleryHeaderHeight,
@@ -160,7 +160,7 @@ class _BackdropState extends State<Backdrop>
     ).animate(
       CurvedAnimation(
         parent: _settingsPanelController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.4,
           curve: Curves.ease,
@@ -226,7 +226,7 @@ class _BackdropState extends State<Backdrop>
                   valueListenable: _isSettingsOpenNotifier,
                   builder: (context, value, child) {
                     if (value) {
-                      return ExcludeSemantics(
+                      return const ExcludeSemantics(
                         child: ModalBarrier(
                           dismissible: true,
                         ),
@@ -352,7 +352,7 @@ class _SettingsIcon extends AnimatedWidget {
             ? _settingsButtonHeightDesktop
             : _settingsButtonHeightMobile + safeAreaTopPadding,
         child: Material(
-          borderRadius: BorderRadiusDirectional.only(
+          borderRadius: const BorderRadiusDirectional.only(
             bottomStart: Radius.circular(10),
           ),
           color: isSettingsOpenNotifier.value & !animationController.isAnimating

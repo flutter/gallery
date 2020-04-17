@@ -39,7 +39,7 @@ class SlowMotionSetting extends StatelessWidget {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -121,13 +121,13 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
       end: EdgeInsets.zero,
     ).animate(_controller);
     _headerPadding = EdgeInsetsGeometryTween(
-      begin: EdgeInsetsDirectional.fromSTEB(16, 10, 0, 10),
-      end: EdgeInsetsDirectional.fromSTEB(32, 18, 32, 20),
+      begin: const EdgeInsetsDirectional.fromSTEB(16, 10, 0, 10),
+      end: const EdgeInsetsDirectional.fromSTEB(32, 18, 32, 20),
     ).animate(_controller);
     _headerSubtitleHeight =
         _controller.drive(Tween<double>(begin: 1.0, end: 0.0));
     _childrenPadding = EdgeInsetsGeometryTween(
-      begin: EdgeInsets.symmetric(horizontal: 32),
+      begin: const EdgeInsets.symmetric(horizontal: 32),
       end: EdgeInsets.zero,
     ).animate(_controller);
     _headerBorderRadius = BorderRadiusTween(
@@ -241,7 +241,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
         ),
         child: ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => optionWidgetsList[index],
           itemCount: optionWidgetsList.length,
         ),
@@ -322,7 +322,7 @@ class _CategoryHeader extends StatelessWidget {
                 ),
                 child: RotationTransition(
                   turns: chevronRotation,
-                  child: Icon(Icons.arrow_drop_down),
+                  child: const Icon(Icons.arrow_drop_down),
                 ),
               )
             ],

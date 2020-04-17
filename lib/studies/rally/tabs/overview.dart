@@ -40,10 +40,10 @@ class _OverviewViewState extends State<OverviewView> {
                 flex: 7,
                 child: Semantics(
                   sortKey: const OrdinalSortKey(1, name: sortKeyName),
-                  child: _OverviewGrid(spacing: 24),
+                  child: const _OverviewGrid(spacing: 24),
                 ),
               ),
-              SizedBox(width: 24),
+              const SizedBox(width: 24),
               Flexible(
                 flex: 3,
                 child: Container(
@@ -67,8 +67,8 @@ class _OverviewViewState extends State<OverviewView> {
           child: Column(
             children: [
               _AlertsView(alerts: alerts.sublist(0, 1)),
-              SizedBox(height: 12),
-              _OverviewGrid(spacing: 12),
+              const SizedBox(height: 12),
+              const _OverviewGrid(spacing: 12),
             ],
           ),
         ),
@@ -160,7 +160,8 @@ class _AlertsView extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            padding: isDesktop ? EdgeInsets.symmetric(vertical: 16) : null,
+            padding:
+                isDesktop ? const EdgeInsets.symmetric(vertical: 16) : null,
             child: MergeSemantics(
               child: Wrap(
                 alignment: WrapAlignment.spaceBetween,
@@ -200,7 +201,7 @@ class _Alert extends StatelessWidget {
     return MergeSemantics(
       child: Container(
         padding: isDisplayDesktop(context)
-            ? EdgeInsets.symmetric(vertical: 8)
+            ? const EdgeInsets.symmetric(vertical: 8)
             : null,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

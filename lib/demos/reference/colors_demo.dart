@@ -12,8 +12,8 @@ const double kColorItemHeight = 48;
 
 class _Palette {
   _Palette({
-    this.name,
-    this.primary,
+    @required this.name,
+    @required this.primary,
     this.accent,
     this.threshold = 900,
   })  : assert(name != null),
@@ -84,10 +84,11 @@ List<_Palette> _allPalettes(BuildContext context) {
       threshold: 400,
     ),
     _Palette(
-        name: GalleryLocalizations.of(context).colorsGreen,
-        primary: Colors.green,
-        accent: Colors.greenAccent,
-        threshold: 500),
+      name: GalleryLocalizations.of(context).colorsGreen,
+      primary: Colors.green,
+      accent: Colors.greenAccent,
+      threshold: 500,
+    ),
     _Palette(
       name: GalleryLocalizations.of(context).colorsLightGreen,
       primary: Colors.lightGreen,
@@ -203,11 +204,11 @@ class PaletteTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
-    final TextStyle whiteTextStyle = textTheme.bodyText2.copyWith(
+    final textTheme = Theme.of(context).textTheme;
+    final whiteTextStyle = textTheme.bodyText2.copyWith(
       color: Colors.white,
     );
-    final TextStyle blackTextStyle = textTheme.bodyText2.copyWith(
+    final blackTextStyle = textTheme.bodyText2.copyWith(
       color: Colors.black,
     );
     return Scrollbar(
@@ -236,6 +237,8 @@ class PaletteTabView extends StatelessWidget {
 }
 
 class ColorsDemo extends StatelessWidget {
+  const ColorsDemo();
+
   @override
   Widget build(BuildContext context) {
     final palettes = _allPalettes(context);

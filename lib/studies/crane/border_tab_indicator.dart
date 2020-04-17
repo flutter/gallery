@@ -13,8 +13,7 @@ class BorderTabIndicator extends Decoration {
 
   @override
   _BorderPainter createBoxPainter([VoidCallback onChanged]) {
-    return _BorderPainter(
-        this, indicatorHeight, this.textScaleFactor, onChanged);
+    return _BorderPainter(this, indicatorHeight, textScaleFactor, onChanged);
   }
 }
 
@@ -45,7 +44,7 @@ class _BorderPainter extends BoxPainter {
     paint.style = PaintingStyle.stroke;
     paint.strokeWidth = 2;
     canvas.drawRRect(
-      RRect.fromRectAndRadius(rect, Radius.circular(56)),
+      RRect.fromRectAndRadius(rect, const Radius.circular(56)),
       paint,
     );
   }

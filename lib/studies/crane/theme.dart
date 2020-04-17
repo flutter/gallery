@@ -15,10 +15,10 @@ IconThemeData _customIconTheme(IconThemeData original, Color color) {
 }
 
 ThemeData _buildCraneTheme() {
-  final ThemeData base = ThemeData.light();
+  final base = ThemeData.light();
 
   return base.copyWith(
-    colorScheme: ColorScheme.light().copyWith(
+    colorScheme: const ColorScheme.light().copyWith(
       primary: cranePurple800,
       secondary: craneRed700,
     ),
@@ -32,7 +32,7 @@ ThemeData _buildCraneTheme() {
     textSelectionColor: cranePurple700,
     errorColor: craneErrorOrange,
     highlightColor: Colors.transparent,
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.accent,
     ),
     textTheme: _buildCraneTextTheme(base.textTheme),

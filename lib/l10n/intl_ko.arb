@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub 저장소",
   "fortnightlyMenuUS": "미국",
   "fortnightlyMenuBusiness": "비즈니스",
   "fortnightlyMenuScience": "과학",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "시스템",
   "settingsTitle": "설정",
   "rallyDescription": "개인 자산관리 앱",
-  "aboutDialogDescription": "앱의 소스 코드를 보려면 {value}(으)로 이동하세요.",
+  "aboutDialogDescription": "앱의 소스 코드를 보려면 {repoLink}(으)로 이동하세요.",
   "bottomNavigationCommentsTab": "댓글",
   "starterAppGenericBody": "본문",
   "starterAppGenericHeadline": "헤드라인",

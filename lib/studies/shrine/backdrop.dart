@@ -66,15 +66,13 @@ class _FrontLayer extends StatelessWidget {
 class _BackdropTitle extends AnimatedWidget {
   const _BackdropTitle({
     Key key,
-    this.listenable,
+    Animation<double> listenable,
     this.onPress,
     @required this.frontTitle,
     @required this.backTitle,
   })  : assert(frontTitle != null),
         assert(backTitle != null),
         super(key: key, listenable: listenable);
-
-  final Animation<double> listenable;
 
   final void Function() onPress;
   final Widget frontTitle;
@@ -83,15 +81,15 @@ class _BackdropTitle extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = CurvedAnimation(
-      parent: listenable,
+      parent: listenable as Animation<double>,
       curve: const Interval(0, 0.78),
     );
 
-    final double textDirectionScalar =
+    final textDirectionScalar =
         Directionality.of(context) == TextDirection.ltr ? 1 : -1;
 
     final slantedMenuIcon =
-        ImageIcon(AssetImage('packages/shrine_images/slanted_menu.png'));
+        const ImageIcon(AssetImage('packages/shrine_images/slanted_menu.png'));
 
     final directionalSlantedMenuIcon =
         Directionality.of(context) == TextDirection.ltr
@@ -102,7 +100,7 @@ class _BackdropTitle extends AnimatedWidget {
                 child: slantedMenuIcon,
               );
 
-    final String menuButtonTooltip = animation.isCompleted
+    final menuButtonTooltip = animation.isCompleted
         ? GalleryLocalizations.of(context).shrineTooltipOpenMenu
         : animation.isDismissed
             ? GalleryLocalizations.of(context).shrineTooltipCloseMenu
@@ -130,7 +128,7 @@ class _BackdropTitle extends AnimatedWidget {
                 FractionalTranslation(
                   translation: Tween<Offset>(
                     begin: Offset.zero,
-                    end: Offset(1 * textDirectionScalar, 0),
+                    end: Offset(1.0 * textDirectionScalar, 0.0),
                   ).evaluate(animation),
                   child: const ImageIcon(
                     AssetImage('packages/shrine_images/diamond.png'),
@@ -219,7 +217,7 @@ class _BackdropState extends State<Backdrop>
   }
 
   bool get _frontLayerVisible {
-    final AnimationStatus status = _controller.status;
+    final status = _controller.status;
     return status == AnimationStatus.completed ||
         status == AnimationStatus.forward;
   }
@@ -295,9 +293,9 @@ class _BackdropState extends State<Backdrop>
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
-    const double layerTitleHeight = 48;
-    final Size layerSize = constraints.biggest;
-    final double layerTop = layerSize.height - layerTitleHeight;
+    const layerTitleHeight = 48;
+    final layerSize = constraints.biggest;
+    final layerTop = layerSize.height - layerTitleHeight;
 
     _layerAnimation = _getLayerAnimation(layerSize, layerTop);
 
@@ -332,7 +330,7 @@ class _BackdropState extends State<Backdrop>
 
   @override
   Widget build(BuildContext context) {
-    final AppBar appBar = AppBar(
+    final appBar = AppBar(
       automaticallyImplyLeading: false,
       brightness: Brightness.light,
       elevation: 0,

@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 // BEGIN dataTableDemo
 
 class DataTableDemo extends StatefulWidget {
+  const DataTableDemo();
+
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
 }
@@ -24,13 +26,14 @@ class _DataTableDemoState extends State<DataTableDemo> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (_dessertsDataSource == null) {
-      _dessertsDataSource = _DessertDataSource(context);
-    }
+    _dessertsDataSource ??= _DessertDataSource(context);
   }
 
   void _sort<T>(
-      Comparable<T> getField(_Dessert d), int columnIndex, bool ascending) {
+    Comparable<T> Function(_Dessert d) getField,
+    int columnIndex,
+    bool ascending,
+  ) {
     _dessertsDataSource._sort<T>(getField, ascending);
     setState(() {
       _sortColumnIndex = columnIndex;
@@ -484,10 +487,10 @@ class _DessertDataSource extends DataTableSource {
   final BuildContext context;
   List<_Dessert> _desserts;
 
-  void _sort<T>(Comparable<T> getField(_Dessert d), bool ascending) {
+  void _sort<T>(Comparable<T> Function(_Dessert d) getField, bool ascending) {
     _desserts.sort((a, b) {
-      final Comparable<T> aValue = getField(a);
-      final Comparable<T> bValue = getField(b);
+      final aValue = getField(a);
+      final bValue = getField(b);
       return ascending
           ? Comparable.compare(aValue, bValue)
           : Comparable.compare(bValue, aValue);
@@ -505,7 +508,7 @@ class _DessertDataSource extends DataTableSource {
     );
     assert(index >= 0);
     if (index >= _desserts.length) return null;
-    final _Dessert dessert = _desserts[index];
+    final dessert = _desserts[index];
     return DataRow.byIndex(
       index: index,
       selected: dessert.selected,
@@ -540,7 +543,7 @@ class _DessertDataSource extends DataTableSource {
   int get selectedRowCount => _selectedCount;
 
   void _selectAll(bool checked) {
-    for (final _Dessert dessert in _desserts) {
+    for (final dessert in _desserts) {
       dessert.selected = checked;
     }
     _selectedCount = checked ? _desserts.length : 0;

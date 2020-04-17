@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub сактоочу жайы",
   "fortnightlyMenuUS": "АКШ",
   "fortnightlyMenuBusiness": "Ишкердик",
   "fortnightlyMenuScience": "Илим",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Тутум",
   "settingsTitle": "Жөндөөлөр",
   "rallyDescription": "Жеке каржы колдонмосу",
-  "aboutDialogDescription": "Бул колдонмо үчүн булак кодун көрүү үчүн төмөнкүгө баш багыңыз: {value}.",
+  "aboutDialogDescription": "Бул колдонмонун кодун көрүү үчүн төмөнкүгө баш багыңыз: {repoLink}.",
   "bottomNavigationCommentsTab": "Пикирлер",
   "starterAppGenericBody": "Негизги текст",
   "starterAppGenericHeadline": "Башкы сап",

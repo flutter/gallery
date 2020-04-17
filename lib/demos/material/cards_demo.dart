@@ -187,7 +187,7 @@ class _SelectableTravelDestinationItemState
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return SafeArea(
       top: false,
@@ -278,10 +278,9 @@ class TravelDestinationContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final TextStyle titleStyle =
-        theme.textTheme.headline5.copyWith(color: Colors.white);
-    final TextStyle descriptionStyle = theme.textTheme.subtitle1;
+    final theme = Theme.of(context);
+    final titleStyle = theme.textTheme.headline5.copyWith(color: Colors.white);
+    final descriptionStyle = theme.textTheme.subtitle1;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -376,6 +375,8 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
+  const CardsDemo();
+
   @override
   _CardsDemoState createState() => _CardsDemoState();
 }

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHubi andmehoidla",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Äri",
   "fortnightlyMenuScience": "Teadus",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Süsteem",
   "settingsTitle": "Seaded",
   "rallyDescription": "Isiklik finantsrakendus",
-  "aboutDialogDescription": "Selle rakenduse lähtekoodi nägemiseks vaadake siia: {value}.",
+  "aboutDialogDescription": "Selle rakenduse lähtekoodi nägemiseks vaadake siia: {repoLink}.",
   "bottomNavigationCommentsTab": "Kommentaarid",
   "starterAppGenericBody": "Sisu",
   "starterAppGenericHeadline": "Pealkiri",

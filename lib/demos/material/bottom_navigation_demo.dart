@@ -14,7 +14,7 @@ enum BottomNavigationDemoType {
 }
 
 class BottomNavigationDemo extends StatefulWidget {
-  BottomNavigationDemo({Key key, @required this.type}) : super(key: key);
+  const BottomNavigationDemo({Key key, @required this.type}) : super(key: key);
 
   final BottomNavigationDemoType type;
 
@@ -77,16 +77,16 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
 
   @override
   void dispose() {
-    for (_NavigationIconView view in _navigationViews) {
+    for (final view in _navigationViews) {
       view.controller.dispose();
     }
     super.dispose();
   }
 
   Widget _buildTransitionsStack() {
-    final List<FadeTransition> transitions = <FadeTransition>[];
+    final transitions = <FadeTransition>[];
 
-    for (_NavigationIconView view in _navigationViews) {
+    for (final view in _navigationViews) {
       transitions.add(view.transition(context));
     }
 
@@ -192,7 +192,7 @@ class _NavigationIconView {
           ),
           Center(
             child: IconTheme(
-              data: IconThemeData(
+              data: const IconThemeData(
                 color: Colors.white,
                 size: 80,
               ),

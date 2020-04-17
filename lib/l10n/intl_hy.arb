@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub-ի շտեմարան",
   "fortnightlyMenuUS": "ԱՄՆ",
   "fortnightlyMenuBusiness": "Բիզնես",
   "fortnightlyMenuScience": "Գիտություն",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Համակարգ",
   "settingsTitle": "Կարգավորումներ",
   "rallyDescription": "Բյուջեի պլանավորման հավելված",
-  "aboutDialogDescription": "Այս հավելվածի կոդը տեսնելու համար բացեք {value} էջը։",
+  "aboutDialogDescription": "Այս հավելվածի կոդը տեսնելու համար բացեք {repoLink} էջը։",
   "bottomNavigationCommentsTab": "Մեկնաբանություններ",
   "starterAppGenericBody": "Հիմնական տեքստ",
   "starterAppGenericHeadline": "Խորագիր",

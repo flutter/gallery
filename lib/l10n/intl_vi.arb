@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Kho lưu trữ {repoName} trên GitHub",
   "fortnightlyMenuUS": "Hoa Kỳ",
   "fortnightlyMenuBusiness": "Kinh doanh",
   "fortnightlyMenuScience": "Khoa học",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Hệ thống",
   "settingsTitle": "Cài đặt",
   "rallyDescription": "Một ứng dụng tài chính cá nhân",
-  "aboutDialogDescription": "Để xem mã nguồn của ứng dụng này, vui lòng truy cập vào {value}.",
+  "aboutDialogDescription": "Để xem mã nguồn của ứng dụng này, vui lòng truy cập vào {repoLink}.",
   "bottomNavigationCommentsTab": "Bình luận",
   "starterAppGenericBody": "Nội dung",
   "starterAppGenericHeadline": "Tiêu đề",
