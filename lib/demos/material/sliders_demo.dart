@@ -450,8 +450,8 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   overlayColor: theme.colorScheme.onSurface.withOpacity(0.12),
                   thumbColor: Colors.deepPurple,
                   valueIndicatorColor: Colors.deepPurpleAccent,
-                  thumbShape: _CustomThumbShape(),
-                  valueIndicatorShape: _CustomValueIndicatorShape(),
+                  thumbShape: const _CustomThumbShape(),
+                  valueIndicatorShape: const _CustomValueIndicatorShape(),
                   valueIndicatorTextStyle: theme.accentTextTheme.bodyText1
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
