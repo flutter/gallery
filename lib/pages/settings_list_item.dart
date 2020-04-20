@@ -243,7 +243,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => optionWidgetsList[index],
-          itemCount: optionWidgetsList.length,
+          itemCount: widget.isExpanded ? optionWidgetsList.length : 0,
         ),
       ),
     );
