@@ -97,6 +97,7 @@ class _SlidersState extends State<_Sliders> {
                 ),
               ),
               Slider(
+                useV2Slider: true,
                 value: _continuousValue,
                 min: 0,
                 max: 100,
@@ -115,6 +116,7 @@ class _SlidersState extends State<_Sliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Slider(
+                useV2Slider: true,
                 value: _discreteValue,
                 min: 0,
                 max: 200,
@@ -159,6 +161,7 @@ class _RangeSlidersState extends State<_RangeSliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               RangeSlider(
+                useV2Slider: true,
                 values: _continuousValues,
                 min: 0,
                 max: 100,
@@ -176,6 +179,7 @@ class _RangeSlidersState extends State<_RangeSliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               RangeSlider(
+                useV2Slider: true,
                 values: _discreteValues,
                 min: 0,
                 max: 200,
@@ -440,6 +444,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             children: [
               SliderTheme(
                 data: theme.sliderTheme.copyWith(
+                  trackHeight: 2,
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor:
                       theme.colorScheme.onSurface.withOpacity(0.5),
@@ -456,6 +461,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
                 child: Slider(
+                  useV2Slider: true,
                   value: _discreteCustomValue,
                   min: 0,
                   max: 200,
@@ -480,6 +486,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             children: [
               SliderTheme(
                 data: const SliderThemeData(
+                  trackHeight: 2,
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor: Colors.black26,
                   activeTickMarkColor: Colors.white70,
@@ -490,6 +497,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   showValueIndicator: ShowValueIndicator.never,
                 ),
                 child: RangeSlider(
+                  useV2Slider: true,
                   values: _continuousCustomValues,
                   min: 0,
                   max: 200,
