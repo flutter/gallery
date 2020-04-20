@@ -97,6 +97,7 @@ class _SlidersState extends State<_Sliders> {
                 ),
               ),
               Slider(
+                useV2Slider: true,
                 value: _continuousValue,
                 min: 0,
                 max: 100,
@@ -115,6 +116,7 @@ class _SlidersState extends State<_Sliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Slider(
+                useV2Slider: true,
                 value: _discreteValue,
                 min: 0,
                 max: 200,
