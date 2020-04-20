@@ -444,6 +444,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             children: [
               SliderTheme(
                 data: theme.sliderTheme.copyWith(
+                  trackHeight: 2,
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor:
                       theme.colorScheme.onSurface.withOpacity(0.5),
@@ -485,6 +486,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             children: [
               SliderTheme(
                 data: const SliderThemeData(
+                  trackHeight: 2,
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor: Colors.black26,
                   activeTickMarkColor: Colors.white70,
