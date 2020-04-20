@@ -298,13 +298,10 @@ class _BackdropState extends State<Backdrop>
 
   @override
   Widget build(BuildContext context) {
-    appCache ??= LayoutBuilder(
+    return LayoutBuilder(
       builder: _buildStack,
     );
-    return appCache;
   }
-
-  Widget appCache;
 }
 
 class InheritedBackdropFocusNodes extends InheritedWidget {
