@@ -43,6 +43,7 @@ class GalleryOptions {
     Locale locale,
     this.timeDilation,
     this.platform,
+    this.isTestMode,
   })  : _textScaleFactor = textScaleFactor,
         _locale = locale;
 
@@ -52,6 +53,7 @@ class GalleryOptions {
   final Locale _locale;
   final double timeDilation;
   final TargetPlatform platform;
+  final bool isTestMode; // True for integration tests.
 
   // We use a sentinel value to indicate the system text scale option. By
   // default, return the actual text scale factor, otherwise return the
