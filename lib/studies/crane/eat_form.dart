@@ -26,21 +26,25 @@ class _EatFormState extends State<EatForm> {
     return HeaderForm(
       fields: <HeaderFormField>[
         HeaderFormField(
+          index: 0,
           iconData: Icons.person,
           title: GalleryLocalizations.of(context).craneFormDiners,
           textController: dinerController,
         ),
         HeaderFormField(
+          index: 1,
           iconData: Icons.date_range,
           title: GalleryLocalizations.of(context).craneFormDate,
           textController: dateController,
         ),
         HeaderFormField(
+          index: 2,
           iconData: Icons.access_time,
           title: GalleryLocalizations.of(context).craneFormTime,
           textController: timeController,
         ),
         HeaderFormField(
+          index: 3,
           iconData: Icons.restaurant_menu,
           title: GalleryLocalizations.of(context).craneFormLocation,
           textController: locationController,
