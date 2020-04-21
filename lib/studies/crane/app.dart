@@ -25,9 +25,6 @@ class CraneApp extends StatelessWidget {
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
       initialRoute: CraneApp.defaultRoute,
-      showPerformanceOverlay: false,
-      checkerboardOffscreenLayers: false,
-      checkerboardRasterCacheImages: true,
       routes: {
         CraneApp.defaultRoute: (context) => const _Home(),
       },
