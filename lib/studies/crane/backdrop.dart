@@ -113,7 +113,7 @@ class _FrontLayerState extends State<_FrontLayer> {
             staggeredTileBuilder: (index) => index == 0
                 ? StaggeredTile.fit(crossAxisCount)
                 : const StaggeredTile.fit(1),
-            itemCount: destinations.length + 1,
+            itemCount: destinations.length,
           ),
         ),
       ),
