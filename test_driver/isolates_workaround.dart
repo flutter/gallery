@@ -11,7 +11,13 @@ class IsolatesWorkaround {
   StreamSubscription _streamSubscription;
 
   Future _loadAndResumeIsolate(VMIsolateRef isolateRef) async {
-    final isolate = await isolateRef.load();
+    VMIsolate isolate;
+    try {
+      isolate = await isolateRef.load();
+    } catch (e) {
+      print(e);
+      return;
+    }
     if (isolate.isPaused) {
       await isolate.resume();
       if (log) {
