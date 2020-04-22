@@ -33,7 +33,7 @@ class DestinationCard extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(4)),
-                    child: DestinationImage(destination: destination),
+                    child: _DestinationImage(destination: destination),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 10),
@@ -61,7 +61,7 @@ class DestinationCard extends StatelessWidget {
                   child: SizedBox(
                     width: mobileThumbnailSize,
                     height: mobileThumbnailSize,
-                    child: DestinationImage(destination: destination),
+                    child: _DestinationImage(destination: destination),
                   ),
                 ),
                 title:
@@ -85,8 +85,8 @@ class DestinationCard extends StatelessWidget {
   }
 }
 
-class DestinationImage extends StatelessWidget {
-  const DestinationImage({@required this.destination})
+class _DestinationImage extends StatelessWidget {
+  const _DestinationImage({@required this.destination})
       : assert(destination != null);
   final Destination destination;
 

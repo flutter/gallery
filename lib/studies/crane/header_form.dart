@@ -16,8 +16,12 @@ class HeaderFormField {
   final String title;
   final TextEditingController textController;
 
-  const HeaderFormField(
-      {this.index, this.iconData, this.title, this.textController});
+  const HeaderFormField({
+    this.index,
+    this.iconData,
+    this.title,
+    this.textController,
+  });
 }
 
 class HeaderForm extends StatelessWidget {
