@@ -16,7 +16,7 @@ import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
-  GoogleFonts.config.allowHttp = false;
+  GoogleFonts.config.allowRuntimeFetching = false;
   runApp(const GalleryApp());
 }
 
