@@ -22,6 +22,10 @@ import 'package:gallery/studies/crane/model/destination.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 
+// How much the 'sleep' front layer is vertically offset relative to other
+// front layers, in pixels, with the mobile layout.
+const _sleepLayerTopOffset = 60.0;
+
 class _FrontLayer extends StatefulWidget {
   const _FrontLayer({
     Key key,
@@ -42,6 +46,7 @@ class _FrontLayerState extends State<_FrontLayer> {
   List<Destination> destinations;
 
   static const frontLayerBorderRadius = 16.0;
+  static const bottomPadding = EdgeInsets.only(bottom: 120);
 
   @override
   void didChangeDependencies() {
@@ -100,9 +105,8 @@ class _FrontLayerState extends State<_FrontLayer> {
                 ? EdgeInsets.symmetric(
                         horizontal:
                             isSmallDesktop ? appPaddingSmall : appPaddingLarge)
-                    .add(EdgeInsets.only(bottom: widget.mobileTopOffset * 2))
-                : const EdgeInsets.symmetric(horizontal: 20)
-                    .add(EdgeInsets.only(bottom: widget.mobileTopOffset * 2)),
+                    .add(bottomPadding)
+                : const EdgeInsets.symmetric(horizontal: 20).add(bottomPadding),
             itemBuilder: (context, index) {
               if (index == 0) {
                 return _header();
@@ -152,10 +156,6 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   Animation<Offset> _flyLayerHorizontalOffset;
   Animation<Offset> _sleepLayerHorizontalOffset;
   Animation<Offset> _eatLayerHorizontalOffset;
-
-  // How much the 'sleep' front layer is vertically offset relative to other
-  // front layers, in pixels, with the mobile layout.
-  static const _sleepLayerTopOffset = 60.0;
 
   @override
   void initState() {
