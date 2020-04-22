@@ -26,21 +26,25 @@ class _FlyFormState extends State<FlyForm> {
     return HeaderForm(
       fields: <HeaderFormField>[
         HeaderFormField(
+          index: 0,
           iconData: Icons.person,
           title: GalleryLocalizations.of(context).craneFormTravelers,
           textController: travelerController,
         ),
         HeaderFormField(
+          index: 1,
           iconData: Icons.place,
           title: GalleryLocalizations.of(context).craneFormOrigin,
           textController: countryDestinationController,
         ),
         HeaderFormField(
+          index: 2,
           iconData: Icons.airplanemode_active,
           title: GalleryLocalizations.of(context).craneFormDestination,
           textController: destinationController,
         ),
         HeaderFormField(
+          index: 3,
           iconData: Icons.date_range,
           title: GalleryLocalizations.of(context).craneFormDates,
           textController: dateController,
