@@ -22,10 +22,6 @@ import 'package:gallery/studies/crane/model/destination.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 
-// How much the 'sleep' front layer is vertically offset relative to other
-// front layers, in pixels, with the mobile layout.
-const _sleepLayerTopOffset = 60.0;
-
 class _FrontLayer extends StatefulWidget {
   const _FrontLayer({
     Key key,
@@ -156,6 +152,10 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   Animation<Offset> _flyLayerHorizontalOffset;
   Animation<Offset> _sleepLayerHorizontalOffset;
   Animation<Offset> _eatLayerHorizontalOffset;
+
+  // How much the 'sleep' front layer is vertically offset relative to other
+  // front layers, in pixels, with the mobile layout.
+  static const _sleepLayerTopOffset = 60.0;
 
   @override
   void initState() {
