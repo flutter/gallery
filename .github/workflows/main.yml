@@ -48,8 +48,8 @@ jobs:
     - name: Run Flutter unit tests.
       run: flutter test
       working-directory: code
-    - name: Run Flutter golden tests
-      run: flutter test goldens_test
+    - name: Run Flutter golden tests.
+      run: flutter test golden_test
       working-directory: code
       if: runner.os == 'macOS'
 
