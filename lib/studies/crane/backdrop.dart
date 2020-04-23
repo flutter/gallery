@@ -207,70 +207,68 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                 tabHandler: _handleTabs,
               ),
             ),
-            body: FocusScope(
-              child: Stack(
-                children: [
-                  BackLayer(
-                    tabController: _tabController,
-                    backLayerItems: widget.backLayerItems,
+            body: Stack(
+              children: [
+                BackLayer(
+                  tabController: _tabController,
+                  backLayerItems: widget.backLayerItems,
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: isDesktop
+                        ? (isDisplaySmallDesktop(context)
+                                ? textFieldHeight * 3
+                                : textFieldHeight * 2) +
+                            20 * textScaleFactor / 2
+                        : 175 + 140 * textScaleFactor / 2,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: isDesktop
-                          ? (isDisplaySmallDesktop(context)
-                                  ? textFieldHeight * 3
-                                  : textFieldHeight * 2) +
-                              20 * textScaleFactor / 2
-                          : 175 + 140 * textScaleFactor / 2,
-                    ),
-                    // To display the middle front layer higher than the others,
-                    // we allow the TabBarView to overflow by an offset
-                    // (doubled because it technically overflows top & bottom).
-                    // The other front layers are top padded by this offset.
-                    child: LayoutBuilder(builder: (context, constraints) {
-                      return OverflowBox(
-                        maxHeight:
-                            constraints.maxHeight + _sleepLayerTopOffset * 2,
-                        child: TabBarView(
-                          physics: isDesktop
-                              ? const NeverScrollableScrollPhysics()
-                              : null, // use default TabBarView physics
-                          controller: _tabController,
-                          children: [
-                            SlideTransition(
-                              position: _flyLayerHorizontalOffset,
-                              child: _FrontLayer(
-                                title: GalleryLocalizations.of(context)
-                                    .craneFlySubhead,
-                                index: 0,
-                                mobileTopOffset: _sleepLayerTopOffset,
-                              ),
+                  // To display the middle front layer higher than the others,
+                  // we allow the TabBarView to overflow by an offset
+                  // (doubled because it technically overflows top & bottom).
+                  // The other front layers are top padded by this offset.
+                  child: LayoutBuilder(builder: (context, constraints) {
+                    return OverflowBox(
+                      maxHeight:
+                          constraints.maxHeight + _sleepLayerTopOffset * 2,
+                      child: TabBarView(
+                        physics: isDesktop
+                            ? const NeverScrollableScrollPhysics()
+                            : null, // use default TabBarView physics
+                        controller: _tabController,
+                        children: [
+                          SlideTransition(
+                            position: _flyLayerHorizontalOffset,
+                            child: _FrontLayer(
+                              title: GalleryLocalizations.of(context)
+                                  .craneFlySubhead,
+                              index: 0,
+                              mobileTopOffset: _sleepLayerTopOffset,
                             ),
-                            SlideTransition(
-                              position: _sleepLayerHorizontalOffset,
-                              child: _FrontLayer(
-                                title: GalleryLocalizations.of(context)
-                                    .craneSleepSubhead,
-                                index: 1,
-                                mobileTopOffset: 0,
-                              ),
+                          ),
+                          SlideTransition(
+                            position: _sleepLayerHorizontalOffset,
+                            child: _FrontLayer(
+                              title: GalleryLocalizations.of(context)
+                                  .craneSleepSubhead,
+                              index: 1,
+                              mobileTopOffset: 0,
                             ),
-                            SlideTransition(
-                              position: _eatLayerHorizontalOffset,
-                              child: _FrontLayer(
-                                title: GalleryLocalizations.of(context)
-                                    .craneEatSubhead,
-                                index: 2,
-                                mobileTopOffset: _sleepLayerTopOffset,
-                              ),
+                          ),
+                          SlideTransition(
+                            position: _eatLayerHorizontalOffset,
+                            child: _FrontLayer(
+                              title: GalleryLocalizations.of(context)
+                                  .craneEatSubhead,
+                              index: 2,
+                              mobileTopOffset: _sleepLayerTopOffset,
                             ),
-                          ],
-                        ),
-                      );
-                    }),
-                  ),
-                ],
-              ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+                ),
+              ],
             ),
           ),
         ),
