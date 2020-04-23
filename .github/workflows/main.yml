@@ -48,6 +48,10 @@ jobs:
     - name: Run Flutter unit tests.
       run: flutter test
       working-directory: code
+    - name: Run Flutter golden tests
+      run: flutter test goldens_test
+      working-directory: code
+      if: runner.os == 'macOS'
 
     # Run custom scripts defined in `tool/grind.dart`.
     - name: Verify that localizations are up to date.
