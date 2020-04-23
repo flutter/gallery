@@ -1,6 +1,7 @@
 // Copyright 2019 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -11,6 +12,7 @@ import 'package:path/path.dart' as path;
 import 'package:google_fonts/src/google_fonts_family_with_variant.dart';
 import 'package:google_fonts/src/google_fonts_variant.dart';
 
+/// Load fonts to make sure they show up in golden tests.
 Future<void> loadFonts() async {
   await _load(await loadFontsFromManifest()
     ..addAll(loadGoogleFonts()));
