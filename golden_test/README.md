@@ -7,7 +7,7 @@ fail. It gives us confidence that code changes does not cause UI regressions.
 An expected change to the UI will also cause the golden tests to fail. You will then need to update
 the goldens by running the following command on your macOS machine:
 ```bash
-flutter test golden_test --update-goldens
+flutter test --update-goldens golden_test
 ```
 
 Due to slight [differences](https://github.com/flutter/flutter/issues/36667#issuecomment-521335243)
