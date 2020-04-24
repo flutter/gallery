@@ -99,6 +99,7 @@ class GalleryOptions {
     Locale locale,
     double timeDilation,
     TargetPlatform platform,
+    bool isTestMode,
   }) {
     return GalleryOptions(
       themeMode: themeMode ?? this.themeMode,
@@ -107,6 +108,7 @@ class GalleryOptions {
       locale: locale ?? this.locale,
       timeDilation: timeDilation ?? this.timeDilation,
       platform: platform ?? this.platform,
+      isTestMode: isTestMode ?? this.isTestMode,
     );
   }
 
@@ -118,7 +120,8 @@ class GalleryOptions {
       customTextDirection == other.customTextDirection &&
       locale == other.locale &&
       timeDilation == other.timeDilation &&
-      platform == other.platform;
+      platform == other.platform &&
+      isTestMode == other.isTestMode;
 
   @override
   int get hashCode => hashValues(
@@ -128,6 +131,7 @@ class GalleryOptions {
         locale,
         timeDilation,
         platform,
+        isTestMode,
       );
 
   static GalleryOptions of(BuildContext context) {
@@ -170,7 +174,8 @@ class ApplyTextOptions extends StatelessWidget {
   }
 }
 
-// Everything below is boilerplate except code relating to time dilation.
+// Everything below is boilerplate except code relating to time dilation and
+// theme changes.
 // See https://medium.com/flutter/managing-flutter-application-state-with-inheritedwidgets-1140452befe1
 
 class _ModelBindingScope extends InheritedWidget {
