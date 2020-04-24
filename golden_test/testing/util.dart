@@ -1,0 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+const mobileSize = Size(540, 960);
+const desktopSize = Size(1280, 850);
+
+Future<void> setUpBinding(
+  WidgetTester tester, {
+  Size size = mobileSize,
+  Brightness brightness = Brightness.light,
+}) async {
+  await tester.binding.setSurfaceSize(size);
+  tester.binding.window.physicalSizeTestValue = size;
+  tester.binding.window.devicePixelRatioTestValue = 1.0;
+  tester.binding.window.textScaleFactorTestValue = 1.0;
+  tester.binding.window.platformBrightnessTestValue = brightness;
+  tester.binding.addTime(const Duration(seconds: 10));
+}
