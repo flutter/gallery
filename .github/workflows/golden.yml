@@ -35,9 +35,9 @@ jobs:
     - name: Run Flutter golden tests.
       run: flutter test golden_test
       working-directory: code
-    - name: Upload Goldens if tests fail.
+    - name: Upload goldens if tests fail.
       uses: actions/upload-artifact@v1
       if: failure()
       with:
-        name: Goldens
+        name: goldens
         path: code/golden_test/failures/

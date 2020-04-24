@@ -15,3 +15,8 @@ in rendering across platforms, mostly around text, the tests will only be run on
 on Github Actions. This means that if you update the tests on a Linux or Windows machine the golden
 tests will not pass on Github Actions. Instead you are recommended to download the goldens directly
 from the failed Github Actions job, and use those inside of your branch.
+
+You can find the goldens under Artifacts in the top menu inside of the failed Github Actions job. It
+will include the master image, your test image and the difference.
+
+![Where to download the golden artifacts](https://user-images.githubusercontent.com/1770678/80202787-70f1de80-8626-11ea-9d98-58ac72f67479.png)
