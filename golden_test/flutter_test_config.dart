@@ -5,7 +5,6 @@
 import 'dart:async';
 
 import 'package:flare_flutter/flare_testing.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'testing/font_loader.dart';
