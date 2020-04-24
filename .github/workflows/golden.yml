@@ -35,3 +35,8 @@ jobs:
     - name: Run Flutter golden tests.
       run: flutter test golden_test
       working-directory: code
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Goldens
+        path: $GITHUB_WORKSPACE/code/golden_test/failures
