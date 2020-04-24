@@ -16362,13 +16362,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.classStyle, text: 'Slider'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a                  useV2Slider'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'true'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
-      TextSpan(
           style: codeStyle.baseStyle, text: '\u000a                  value'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' _discreteCustomValue'),
@@ -16584,13 +16577,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'RangeSlider'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a                  useV2Slider'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'true'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle, text: '\u000a                  values'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
@@ -24886,13 +24872,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.classStyle, text: 'RangeSlider'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a                useV2Slider'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'true'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
-      TextSpan(
           style: codeStyle.baseStyle, text: '\u000a                values'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' _continuousValues'),
@@ -24976,13 +24955,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.classStyle, text: 'RangeSlider'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a                useV2Slider'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'true'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle, text: '\u000a                values'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
@@ -25952,13 +25924,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.classStyle, text: 'Slider'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a                useV2Slider'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'true'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a                value'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' _continuousValue'),
@@ -26046,13 +26011,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.classStyle, text: 'Slider'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a                useV2Slider'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'true'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a                value'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' _discreteValue'),
