@@ -28,15 +28,16 @@ jobs:
       with:
         path: 'code'
 
-    # Run the tests for the repository.
+    # Run the golden tests for the repository.
     - name: Get packages for the Flutter project.
       run: flutter pub get
       working-directory: code
     - name: Run Flutter golden tests.
       run: flutter test golden_test
       working-directory: code
-    - uses: actions/upload-artifact@v1
+    - name: Upload Goldens if tests fail.
+      uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: Goldens
-        path: $GITHUB_WORKSPACE/code/golden_test/failures
+        path: code/golden_test/failures/
