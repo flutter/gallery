@@ -112,9 +112,11 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
       child: _Menu(
         children: [
           Text(GalleryLocalizations.of(context).demoCupertinoPickerDateTime),
-          Text(
-            DateFormat.yMMMd().add_jm().format(dateTime),
-            style: const TextStyle(color: CupertinoColors.inactiveGray),
+          Flexible(
+            child: Text(
+              DateFormat.yMMMd().add_jm().format(dateTime),
+              style: const TextStyle(color: CupertinoColors.inactiveGray),
+            ),
           ),
         ],
       ),

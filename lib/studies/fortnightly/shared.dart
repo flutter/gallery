@@ -64,7 +64,7 @@ class HorizontalArticlePreview extends StatelessWidget {
           const SizedBox(width: 8),
         ],
         FadeInImagePlaceholder(
-          image: AssetImage(data.imageUrl),
+          image: AssetImage(data.imageUrl, package: 'flutter_gallery_assets'),
           placeholder: Container(
             color: Colors.black.withOpacity(0.1),
             width: 64 / (1 / data.imageAspectRatio),
@@ -103,7 +103,10 @@ class VerticalArticlePreview extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: FadeInImagePlaceholder(
-              image: AssetImage(data.imageUrl),
+              image: AssetImage(
+                data.imageUrl,
+                package: 'flutter_gallery_assets',
+              ),
               placeholder: LayoutBuilder(builder: (context, constraints) {
                 return Container(
                   color: Colors.black.withOpacity(0.1),
@@ -155,7 +158,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
   return <Widget>[
     VerticalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_healthcare.jpg',
+        imageUrl: 'fortnightly/fortnightly_healthcare.jpg',
         imageAspectRatio: 391 / 248,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
@@ -166,7 +169,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_war.png',
+        imageUrl: 'fortnightly/fortnightly_war.png',
         imageAspectRatio: 1,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
@@ -177,7 +180,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_gas.png',
+        imageUrl: 'fortnightly/fortnightly_gas.png',
         imageAspectRatio: 1,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
@@ -192,7 +195,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_army.png',
+        imageUrl: 'fortnightly/fortnightly_army.png',
         imageAspectRatio: 1,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
@@ -204,7 +207,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_stocks.png',
+        imageUrl: 'fortnightly/fortnightly_stocks.png',
         imageAspectRatio: 77 / 64,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
@@ -215,7 +218,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_fabrics.png',
+        imageUrl: 'fortnightly/fortnightly_fabrics.png',
         imageAspectRatio: 76 / 64,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
@@ -303,7 +306,8 @@ class NavigationMenu extends StatelessWidget {
                 onPressed: () => Navigator.pop(context),
               ),
               Image.asset(
-                'assets/fortnightly/fortnightly_title.png',
+                'fortnightly/fortnightly_title.png',
+                package: 'flutter_gallery_assets',
                 excludeFromSemantics: true,
               ),
             ],
@@ -425,7 +429,10 @@ List<Widget> buildStockItems(BuildContext context) {
     SizedBox(
       width: double.infinity,
       child: FadeInImagePlaceholder(
-        image: const AssetImage('assets/fortnightly/fortnightly_chart.png'),
+        image: const AssetImage(
+          'fortnightly/fortnightly_chart.png',
+          package: 'flutter_gallery_assets',
+        ),
         placeholder: LayoutBuilder(builder: (context, constraints) {
           return Container(
             color: Colors.black.withOpacity(0.1),
@@ -488,7 +495,10 @@ class VideoPreview extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: FadeInImagePlaceholder(
-            image: AssetImage(data.imageUrl),
+            image: AssetImage(
+              data.imageUrl,
+              package: 'flutter_gallery_assets',
+            ),
             placeholder: LayoutBuilder(builder: (context, constraints) {
               return Container(
                 color: Colors.black.withOpacity(0.1),
@@ -521,7 +531,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
   return <Widget>[
     VideoPreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_feminists.jpg',
+        imageUrl: 'fortnightly/fortnightly_feminists.jpg',
         imageAspectRatio: 148 / 88,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
@@ -533,7 +543,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
     const SizedBox(height: 32),
     VideoPreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_bees.jpg',
+        imageUrl: 'fortnightly/fortnightly_bees.jpg',
         imageAspectRatio: 148 / 88,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuUS.toUpperCase(),
