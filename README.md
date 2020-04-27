@@ -110,7 +110,7 @@ flutter pub run grinder update-code-segments
     * This step can be removed once fully migrated to firebase hosting.
 
 4. Publish the firebase hosting web release.
-    * Log in in to the account that has write access to `gallery-flutter-dev` with `firebase login`
+    * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
     * `flutter web build`
     * `firebase deploy`
 
