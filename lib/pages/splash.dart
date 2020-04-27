@@ -181,7 +181,7 @@ class _SplashBackLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var effectAsset = 'assets/splash_effects/splash_effect_$effect.gif';
+    var effectAsset = 'splash_effects/splash_effect_$effect.gif';
     final flutterLogo = Image.asset('assets/logo/flutter_logo.png');
 
     Widget child;
@@ -201,7 +201,12 @@ class _SplashBackLayer extends StatelessWidget {
     } else {
       child = Stack(
         children: [
-          Center(child: Image.asset(effectAsset)),
+          Center(
+            child: Image.asset(
+              effectAsset,
+              package: 'flutter_gallery_assets',
+            ),
+          ),
           Center(child: flutterLogo),
         ],
       );
