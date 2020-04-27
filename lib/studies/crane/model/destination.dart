@@ -54,7 +54,7 @@ class FlyDestination extends Destination {
   final Duration duration;
 
   @override
-  String get assetName => 'assets/crane/destinations/fly_$id.jpg';
+  String get assetName => 'crane/destinations/fly_$id.jpg';
 
   @override
   String subtitle(BuildContext context) {
@@ -105,7 +105,7 @@ class SleepDestination extends Destination {
   final int total;
 
   @override
-  String get assetName => 'assets/crane/destinations/sleep_$id.jpg';
+  String get assetName => 'crane/destinations/sleep_$id.jpg';
 
   @override
   String subtitle(BuildContext context) {
@@ -132,7 +132,7 @@ class EatDestination extends Destination {
   final int total;
 
   @override
-  String get assetName => 'assets/crane/destinations/eat_$id.jpg';
+  String get assetName => 'crane/destinations/eat_$id.jpg';
 
   @override
   String subtitle(BuildContext context) {
