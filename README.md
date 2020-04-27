@@ -109,7 +109,7 @@ flutter pub run grinder update-code-segments
         * `git update-ref refs/heads/gh-pages upstream/gh-pages` if you need to align with upstream.
     * This step can be removed once fully migrated to firebase hosting.
 
-4. Publish the firebase hosting web release.
+4. Publish the firebase hosted web release.
     * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
     * `flutter web build`
     * `firebase deploy`
