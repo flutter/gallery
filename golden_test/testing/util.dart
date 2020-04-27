@@ -13,10 +13,9 @@ Future<void> setUpBinding(
   Size size = mobileSize,
   Brightness brightness = Brightness.light,
 }) async {
-  await tester.binding.setSurfaceSize(size);
   tester.binding.window.physicalSizeTestValue = size;
   tester.binding.window.devicePixelRatioTestValue = 1.0;
   tester.binding.window.textScaleFactorTestValue = 1.0;
   tester.binding.window.platformBrightnessTestValue = brightness;
-  tester.binding.addTime(const Duration(seconds: 10));
+  addTearDown(tester.binding.window.clearAllTestValues);
 }
