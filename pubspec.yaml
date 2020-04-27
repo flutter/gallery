@@ -114,3 +114,4 @@ flutter:
     - family: GalleryIcons
       fonts:
         - asset: fonts/GalleryIcons.ttf
+
