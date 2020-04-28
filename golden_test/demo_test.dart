@@ -10,11 +10,13 @@ import 'package:gallery/main.dart';
 import 'testing/precache_images.dart';
 import 'testing/util.dart';
 
+// The banner demo is used to test the layout of the demo page. The tests for
+// the banner component are done inside of flutter/flutter.
 const demoBannerRoute = '/demo/banner';
 
 void main() {
   group('mobile', () {
-    testWidgets('demo banner page matches golden screenshot', (tester) async {
+    testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester);
       await pumpWidgetWithImages(
         tester,
@@ -25,12 +27,11 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/demo_banner_mobile_light.png'),
+        matchesGoldenFile('goldens/demo_mobile_light.png'),
       );
     });
 
-    testWidgets('dark demo banner page matches golden screenshot',
-        (tester) async {
+    testWidgets('dark demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, brightness: Brightness.dark);
       await pumpWidgetWithImages(
         tester,
@@ -41,13 +42,13 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/demo_banner_mobile_dark.png'),
+        matchesGoldenFile('goldens/demo_mobile_dark.png'),
       );
     });
   });
 
   group('desktop', () {
-    testWidgets('demo banner page matches golden screenshot', (tester) async {
+    testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, size: desktopSize);
       await pumpWidgetWithImages(
         tester,
@@ -58,12 +59,11 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/demo_banner_desktop_light.png'),
+        matchesGoldenFile('goldens/demo_desktop_light.png'),
       );
     });
 
-    testWidgets('dark demo banner page matches golden screenshot',
-        (tester) async {
+    testWidgets('dark demo page matches golden screenshot', (tester) async {
       await setUpBinding(
         tester,
         size: desktopSize,
@@ -78,7 +78,7 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/demo_banner_desktop_dark.png'),
+        matchesGoldenFile('goldens/demo_desktop_dark.png'),
       );
     });
   });
