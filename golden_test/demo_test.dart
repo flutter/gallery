@@ -2,15 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gallery/data/demos.dart';
 
 import 'package:gallery/main.dart';
-import 'package:gallery/pages/category_list_item.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'testing/font_loader.dart';
 import 'testing/precache_images.dart';
 import 'testing/util.dart';
 
