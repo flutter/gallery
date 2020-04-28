@@ -169,7 +169,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           subtitleHeight: _headerSubtitleHeight,
           chevronRotation: _headerChevronRotation,
           title: widget.title,
-          subtitle: widget.options[widget.selectedOption].title ?? '',
+          subtitle: widget.options[widget.selectedOption]?.title ?? '',
           onTap: () => widget.onTapSetting(),
         ),
         Padding(
