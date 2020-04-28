@@ -4,62 +4,70 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gallery/data/demos.dart';
 
 import 'package:gallery/main.dart';
+import 'package:gallery/pages/category_list_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'testing/font_loader.dart';
 import 'testing/precache_images.dart';
 import 'testing/util.dart';
 
+const demoBannerRoute = '/demo/banner';
+
 void main() {
   group('mobile', () {
-    testWidgets('home page matches golden screenshot', (tester) async {
+    testWidgets('demo banner page matches golden screenshot', (tester) async {
       await setUpBinding(tester);
       await pumpWidgetWithImages(
         tester,
-        const GalleryApp(),
+        const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
       await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_mobile_light.png'),
+        matchesGoldenFile('goldens/demo_banner_mobile_light.png'),
       );
     });
 
-    testWidgets('dark home page matches golden screenshot', (tester) async {
+    testWidgets('dark demo banner page matches golden screenshot',
+        (tester) async {
       await setUpBinding(tester, brightness: Brightness.dark);
       await pumpWidgetWithImages(
         tester,
-        const GalleryApp(),
+        const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
       await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_mobile_dark.png'),
+        matchesGoldenFile('goldens/demo_banner_mobile_dark.png'),
       );
     });
   });
 
   group('desktop', () {
-    testWidgets('home page matches golden screenshot', (tester) async {
+    testWidgets('demo banner page matches golden screenshot', (tester) async {
       await setUpBinding(tester, size: desktopSize);
       await pumpWidgetWithImages(
         tester,
-        const GalleryApp(),
+        const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
       await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_desktop_light.png'),
+        matchesGoldenFile('goldens/demo_banner_desktop_light.png'),
       );
     });
 
-    testWidgets('dark home page matches golden screenshot', (tester) async {
+    testWidgets('dark demo banner page matches golden screenshot',
+        (tester) async {
       await setUpBinding(
         tester,
         size: desktopSize,
@@ -67,14 +75,14 @@ void main() {
       );
       await pumpWidgetWithImages(
         tester,
-        const GalleryApp(),
+        const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
       await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_desktop_dark.png'),
+        matchesGoldenFile('goldens/demo_banner_desktop_dark.png'),
       );
     });
   });

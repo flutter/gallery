@@ -23,10 +23,12 @@ void main() {
 class GalleryApp extends StatelessWidget {
   const GalleryApp({
     Key key,
+    this.initialRoute,
     this.isTestMode = false,
   }) : super(key: key);
 
   final bool isTestMode;
+  final String initialRoute;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +58,7 @@ class GalleryApp extends StatelessWidget {
               ...GalleryLocalizations.localizationsDelegates,
               LocaleNamesLocalizationsDelegate()
             ],
+            initialRoute: initialRoute,
             supportedLocales: GalleryLocalizations.supportedLocales,
             locale: GalleryOptions.of(context).locale,
             localeResolutionCallback: (locale, supportedLocales) {

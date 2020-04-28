@@ -6,6 +6,8 @@ import 'dart:async';
 
 import 'package:flare_flutter/flare_testing.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:meta/meta.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'testing/font_loader.dart';
 
@@ -21,6 +23,10 @@ Future<void> main(FutureOr<void> Function() testMain) async {
 
   TestWidgetsFlutterBinding.ensureInitialized();
   FlareTesting.setup();
+  // Disabling the warning because @visibleForTesting doesn't take the testing
+  // framework into account.
+  // ignore: invalid_use_of_visible_for_testing_member
+  SharedPreferences.setMockInitialValues(<String, String>{});
   await loadFonts();
   await testMain();
 }
