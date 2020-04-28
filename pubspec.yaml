@@ -24,7 +24,7 @@ dependencies:
   url_launcher: ^5.1.6
   shared_preferences: ^0.5.4
   collection: ^1.14.0
-  flutter_gallery_assets: ^0.1.9
+  flutter_gallery_assets: ^0.2.0
   package_info: ^0.4.0
   google_fonts: ^1.0.0
   flutter_staggered_grid_view: ^0.3.0
@@ -43,18 +43,59 @@ flutter:
   assets:
     - fonts/google_fonts/
     - assets/demos/
-    - assets/studies/
     - assets/icons/cupertino/
     - assets/icons/material/
     - assets/icons/reference/
     - assets/icons/settings/
     - assets/logo/
-    - assets/splash_effects/
-    - packages/rally_assets/logo.png
-    - packages/rally_assets/thumb.png
-    - assets/crane/logo/
-    - assets/crane/destinations/
-    - assets/fortnightly/
+    - assets/studies/
+    - packages/flutter_gallery_assets/crane/destinations/eat_1.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_2.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_3.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_4.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_5.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_6.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_7.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_8.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_9.jpg
+    - packages/flutter_gallery_assets/crane/destinations/eat_10.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_0.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_1.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_2.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_3.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_4.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_5.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_6.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_7.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_8.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_9.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_10.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_11.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_12.jpg
+    - packages/flutter_gallery_assets/crane/destinations/fly_13.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_0.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_1.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_2.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_3.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_4.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_5.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_6.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_7.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_8.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_9.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_10.jpg
+    - packages/flutter_gallery_assets/crane/destinations/sleep_11.jpg
+    - packages/flutter_gallery_assets/crane/logo/logo.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_army.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_bees.jpg
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_chart.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_fabrics.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_feminists.jpg
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_gas.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_healthcare.jpg
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_stocks.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_title.png
+    - packages/flutter_gallery_assets/fortnightly/fortnightly_war.png
     - packages/flutter_gallery_assets/places/india_chennai_flower_market.png
     - packages/flutter_gallery_assets/places/india_thanjavur_market.png
     - packages/flutter_gallery_assets/places/india_tanjore_bronze_works.png
@@ -68,6 +109,18 @@ flutter:
     - packages/flutter_gallery_assets/places/india_tanjore_market_technology.png
     - packages/flutter_gallery_assets/places/india_pondicherry_beach.png
     - packages/flutter_gallery_assets/places/india_pondicherry_fisherman.png
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_1.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_2.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_3.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_4.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_5.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_6.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_7.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_8.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_9.gif
+    - packages/flutter_gallery_assets/splash_effects/splash_effect_10.gif
+    - packages/rally_assets/logo.png
+    - packages/rally_assets/thumb.png
     - packages/shrine_images/diamond.png
     - packages/shrine_images/slanted_menu.png
     - packages/shrine_images/0-0.jpg

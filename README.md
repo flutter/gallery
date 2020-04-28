@@ -102,19 +102,25 @@ flutter pub run grinder update-code-segments
 	* `git tag v2.3`
 	* `git push --tags`
 
-3. Publish the web release (using the [peanut package](https://pub.dev/packages/peanut)).
+3. Publish the GH pages web release (using the [peanut package](https://pub.dev/packages/peanut)).
     * `flutter pub global activate peanut`
     * `flutter pub global run peanut:peanut`
     * `git push upstream gh-pages:gh-pages`
         * `git update-ref refs/heads/gh-pages upstream/gh-pages` if you need to align with upstream.
+    * This step can be removed once fully migrated to firebase hosting.
 
-4. Publish the Android release (using the correct signing certificates).
+4. Publish the firebase hosted web release.
+    * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
+    * `flutter web build`
+    * `firebase deploy`
+
+5. Publish the Android release (using the correct signing certificates).
     * Create the app bundle with `flutter build appbundle`.
     * Upload to the Play store console.
     * Publish the Play store release.
     * Create the APK with `flutter build apk` (this is for the Github release).
 
-5. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.x`
+6. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.x`
     * Upload the Android APK from above.
     * Create and upload the macOS build by running `flutter build macos` and zipping the 
       app inside `build/macos/Build/Products/Release`.
