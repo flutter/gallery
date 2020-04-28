@@ -15,7 +15,8 @@ import 'package:google_fonts/src/google_fonts_variant.dart';
 /// Load fonts to make sure they show up in golden tests.
 Future<void> loadFonts() async {
   await _load(await loadFontsFromManifest()
-    ..addAll(loadGoogleFonts()));
+    ..addAll(loadGoogleFonts())
+    ..addAll(loadFontsFromTestingDir()));
 }
 
 Future<Map<String, List<Future<ByteData>>>> loadFontsFromManifest() async {
@@ -35,10 +36,29 @@ Future<Map<String, List<Future<ByteData>>>> loadFontsFromManifest() async {
   return fontFamilyToData;
 }
 
+Map<String, List<Future<ByteData>>> loadFontsFromTestingDir() {
+  final fontFamilyToData = <String, List<Future<ByteData>>>{};
+  final currentDir = path.dirname(Platform.script.path);
+  final fontsDirectory = path.join(
+    currentDir,
+    'golden_test',
+    'testing',
+    'fonts',
+  );
+  for (var file in Directory(fontsDirectory).listSync()) {
+    if (file is File) {
+      final fontFamily =
+          path.basenameWithoutExtension(file.path).split('-').first;
+      (fontFamilyToData[fontFamily] ??= [])
+          .add(file.readAsBytes().then((bytes) => ByteData.view(bytes.buffer)));
+    }
+  }
+  return fontFamilyToData;
+}
+
 Map<String, List<Future<ByteData>>> loadGoogleFonts() {
   final currentDir = path.dirname(Platform.script.path);
-  final googleFontsDirectory = path.join(currentDir,
-      currentDir.endsWith('golden_test') ? '..' : '', 'fonts', 'google_fonts');
+  final googleFontsDirectory = path.join(currentDir, 'fonts', 'google_fonts');
   final fontFamilyToData = <String, List<Future<ByteData>>>{};
   final files = Directory(googleFontsDirectory).listSync();
   for (final file in files) {
