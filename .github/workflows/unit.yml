@@ -9,6 +9,7 @@ jobs:
     name: Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
@@ -52,9 +53,9 @@ jobs:
       id: golden_test
       run: flutter test golden_test
       working-directory: code
-    - name: Upload goldens if tests fail.
+    - name: Upload goldens if golden tests fail.
       uses: actions/upload-artifact@v1
-      if: steps.golden_test.outputs.status != 'success'
+      if: failure()
       with:
         name: goldens
         path: code/golden_test/failures/
