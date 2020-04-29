@@ -8,19 +8,16 @@
   gtag('js', new Date());
   gtag('config', 'UA-67589403-10');
   window.addEventListener('error', function (error) {
-      var message = [
-          'Message: ' + error.message,
-          'URL: ' +  error.filename,
-          'Line: ' +  error.lineno,
-          'Column: ' + error.colno,
-          'Error object: ' + JSON.stringify(error.error)
-      ].join(' - ');
+    var message = [
+      'Message: ' + error.message,
+      'URL: ' +  error.filename,
+      'Line: ' +  error.lineno,
+      'Column: ' + error.colno,
+      'Error object: ' + JSON.stringify(error.error)
+    ].join(' - ');
 
-      gtag('event', 'exception', {
-          'description': message,
-          'fatal': false
-      });
-      return false;
+    gtag('event', 'exception', {'description': message});
+    return false;
   });
   </script>
   <meta charset="UTF-8">
