@@ -120,7 +120,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: _horizontalDesktopPadding,
               ),
-              child: ExcludeSemantics(child: _GalleryHeader()),
+              child: _GalleryHeader(),
             ),
             Container(
               height: carouselHeight,
@@ -313,7 +313,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
             Container(
               margin:
                   const EdgeInsets.symmetric(horizontal: _horizontalPadding),
-              child: ExcludeSemantics(child: _GalleryHeader()),
+              child: _GalleryHeader(),
             ),
             _Carousel(
               children: widget.carouselCards,
