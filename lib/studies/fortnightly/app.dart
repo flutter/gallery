@@ -24,6 +24,7 @@ class FortnightlyApp extends StatelessWidget {
         ? const _FortnightlyHomeDesktop()
         : const _FortnightlyHomeMobile();
     return MaterialApp(
+      title: _fortnightlyTitle,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context).copyWith(
         platform: GalleryOptions.of(context).platform,

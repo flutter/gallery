@@ -557,6 +557,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
 ThemeData buildTheme(BuildContext context) {
   final textTheme = Theme.of(context).textTheme;
   return ThemeData(
+    primaryColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       color: Colors.white,
