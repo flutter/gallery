@@ -171,92 +171,88 @@ class _BackdropState extends State<Backdrop>
       valueListenable: _isSettingsOpenNotifier,
       builder: (context, value, child) {
         return ExcludeSemantics(
-          child: _homePage,
+          child: FocusTraversalGroup(child: _homePage),
           excluding: value,
         );
       },
     );
 
-    return InheritedBackdropFocusNodes(
-      settingsPageFocusNode: _settingsPageFocusNode,
-      homePageFocusNode: _homePageFocusNode,
-      child: Stack(
-        children: [
-          if (!isDesktop) ...[
-            // Slides the settings page up and down from the top of the
-            // screen.
-            PositionedTransition(
-              rect: _slideDownSettingsPageAnimation(constraints),
-              child: settingsPage,
-            ),
-            // Slides the home page up and down below the bottom of the
-            // screen.
-            PositionedTransition(
-              rect: _slideDownHomePageAnimation(constraints),
-              child: homePage,
-            ),
-          ],
-          if (isDesktop) ...[
-            Semantics(sortKey: const OrdinalSortKey(3), child: homePage),
-            ValueListenableBuilder<bool>(
-              valueListenable: _isSettingsOpenNotifier,
-              builder: (context, value, child) {
-                if (value) {
-                  return Semantics(
-                    label: GalleryLocalizations.of(context)
-                        .settingsButtonCloseLabel,
-                    child: GestureDetector(
-                      onTap: _toggleSettings,
-                      child: const ModalBarrier(dismissible: false),
+    return Stack(
+      children: [
+        if (!isDesktop) ...[
+          // Slides the settings page up and down from the top of the
+          // screen.
+          PositionedTransition(
+            rect: _slideDownSettingsPageAnimation(constraints),
+            child: settingsPage,
+          ),
+          // Slides the home page up and down below the bottom of the
+          // screen.
+          PositionedTransition(
+            rect: _slideDownHomePageAnimation(constraints),
+            child: homePage,
+          ),
+        ],
+        if (isDesktop) ...[
+          Semantics(sortKey: const OrdinalSortKey(2), child: homePage),
+          ValueListenableBuilder<bool>(
+            valueListenable: _isSettingsOpenNotifier,
+            builder: (context, value, child) {
+              if (value) {
+                return Semantics(
+                  label:
+                      GalleryLocalizations.of(context).settingsButtonCloseLabel,
+                  child: Listener(
+                    onPointerDown: (_) => _toggleSettings(),
+                    child: const ModalBarrier(dismissible: false),
+                  ),
+                );
+              } else {
+                return Container();
+              }
+            },
+          ),
+          // TODO: restrict Focus navigation to settings panel when it is open
+          // Will be able to this when ExcludeFocus is available, using a
+          // FocusTraversalOrder if needed.
+          Semantics(
+            sortKey: const OrdinalSortKey(3),
+            child: ScaleTransition(
+              alignment: Directionality.of(context) == TextDirection.ltr
+                  ? Alignment.topRight
+                  : Alignment.topLeft,
+              scale: CurvedAnimation(
+                parent: _settingsPanelController,
+                curve: Curves.easeIn,
+                reverseCurve: Curves.easeOut,
+              ),
+              child: Align(
+                alignment: AlignmentDirectional.topEnd,
+                child: Material(
+                  elevation: 7,
+                  clipBehavior: Clip.antiAlias,
+                  borderRadius: BorderRadius.circular(40),
+                  color: Theme.of(context).colorScheme.secondaryVariant,
+                  child: Container(
+                    constraints: const BoxConstraints(
+                      maxHeight: 560,
+                      maxWidth: desktopSettingsWidth,
+                      minWidth: desktopSettingsWidth,
                     ),
-                  );
-                } else {
-                  return Container();
-                }
-              },
-            ),
-            Semantics(
-              sortKey: const OrdinalSortKey(4),
-              child: ScaleTransition(
-                alignment: Directionality.of(context) == TextDirection.ltr
-                    ? Alignment.topRight
-                    : Alignment.topLeft,
-                scale: CurvedAnimation(
-                  parent: _settingsPanelController,
-                  curve: Curves.easeIn,
-                  reverseCurve: Curves.easeOut,
-                ),
-                child: Align(
-                  alignment: AlignmentDirectional.topEnd,
-                  child: Material(
-                    elevation: 7,
-                    clipBehavior: Clip.antiAlias,
-                    borderRadius: BorderRadius.circular(40),
-                    color: Theme.of(context).colorScheme.secondaryVariant,
-                    child: Container(
-                      constraints: const BoxConstraints(
-                        maxHeight: 560,
-                        maxWidth: desktopSettingsWidth,
-                        minWidth: desktopSettingsWidth,
-                      ),
-                      child: settingsPage,
-                    ),
+                    child: settingsPage,
                   ),
                 ),
               ),
             ),
-          ],
-          Align(
-            alignment: AlignmentDirectional.topEnd,
-            child: _SettingsIcon(
-              animationController: _settingsPanelController,
-              toggleSettings: _toggleSettings,
-              flareController: this,
-              isSettingsOpenNotifier: _isSettingsOpenNotifier,
-            ),
           ),
         ],
-      ),
+        _SettingsIcon(
+          animationController: _settingsPanelController,
+          toggleSettings: _toggleSettings,
+          flareController: this,
+          isSettingsOpenNotifier: _isSettingsOpenNotifier,
+        ),
+      ],
     );
   }
 
@@ -266,24 +262,6 @@ class _BackdropState extends State<Backdrop>
       builder: _buildStack,
     );
   }
-}
-
-class InheritedBackdropFocusNodes extends InheritedWidget {
-  InheritedBackdropFocusNodes({
-    @required Widget child,
-    @required this.settingsPageFocusNode,
-    @required this.homePageFocusNode,
-  })  : assert(child != null),
-        super(child: child);
-
-  final FocusNode settingsPageFocusNode;
-  final FocusNode homePageFocusNode;
-
-  static InheritedBackdropFocusNodes of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType();
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
 }
 
 class _SettingsIcon extends AnimatedWidget {
@@ -309,44 +287,37 @@ class _SettingsIcon extends AnimatedWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
-    final backdropFocusNodes = InheritedBackdropFocusNodes.of(context);
 
     return Semantics(
-      sortKey: const OrdinalSortKey(2),
+      sortKey: const OrdinalSortKey(1),
       button: true,
       label: _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
-      child: SizedBox(
-        width: _settingsButtonWidth,
-        height: isDesktop
-            ? _settingsButtonHeightDesktop
-            : _settingsButtonHeightMobile + safeAreaTopPadding,
-        child: Material(
-          borderRadius: const BorderRadiusDirectional.only(
-            bottomStart: Radius.circular(10),
-          ),
-          color: isSettingsOpenNotifier.value & !animationController.isAnimating
-              ? Colors.transparent
-              : Theme.of(context).colorScheme.secondaryVariant,
-          clipBehavior: Clip.antiAlias,
-          child: InkWell(
-            onTap: () {
-              toggleSettings();
-              SemanticsService.announce(
-                _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
-                GalleryOptions.of(context).textDirection(),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
-              child: Focus(
-                onFocusChange: (hasFocus) {
-                  if (!hasFocus) {
-                    FocusScope.of(context).requestFocus(
-                        isSettingsOpenNotifier.value
-                            ? backdropFocusNodes.settingsPageFocusNode
-                            : backdropFocusNodes.homePageFocusNode);
-                  }
-                },
+      child: Align(
+        alignment: AlignmentDirectional.topEnd,
+        child: SizedBox(
+          width: _settingsButtonWidth,
+          height: isDesktop
+              ? _settingsButtonHeightDesktop
+              : _settingsButtonHeightMobile + safeAreaTopPadding,
+          child: Material(
+            borderRadius: const BorderRadiusDirectional.only(
+              bottomStart: Radius.circular(10),
+            ),
+            color:
+                isSettingsOpenNotifier.value & !animationController.isAnimating
+                    ? Colors.transparent
+                    : Theme.of(context).colorScheme.secondaryVariant,
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: () {
+                toggleSettings();
+                SemanticsService.announce(
+                  _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
+                  GalleryOptions.of(context).textDirection(),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
                 child: FlareActor(
                   Theme.of(context).colorScheme.brightness == Brightness.light
                       ? 'assets/icons/settings/settings_light.flr'

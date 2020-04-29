@@ -123,20 +123,6 @@ class HomePage extends StatelessWidget {
               ),
               child: _GalleryHeader(),
             ),
-
-            /// TODO: When Focus widget becomes better remove dummy Focus
-            /// variable.
-            /// This [Focus] widget grabs focus from the settingsIcon,
-            /// when settings isn't open.
-            /// The container following the Focus widget isn't wrapped with
-            /// Focus because anytime FocusScope.of(context).requestFocus() the
-            /// focused widget will be skipped. We want to be able to focus on
-            /// the container which is why we created this Focus variable.
-            Focus(
-              focusNode:
-                  InheritedBackdropFocusNodes.of(context).homePageFocusNode,
-              child: const SizedBox(),
-            ),
             Container(
               height: carouselHeight,
               child: _DesktopCarousel(children: carouselCards),

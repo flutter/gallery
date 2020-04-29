@@ -269,16 +269,12 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               if (isDesktop)
                 const SizedBox(height: firstHeaderDesktopTopPadding),
-              Focus(
-                focusNode: InheritedBackdropFocusNodes.of(context)
-                    .settingsPageFocusNode,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: ExcludeSemantics(
-                    child: Header(
-                      color: Theme.of(context).colorScheme.onSurface,
-                      text: GalleryLocalizations.of(context).settingsTitle,
-                    ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: ExcludeSemantics(
+                  child: Header(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    text: GalleryLocalizations.of(context).settingsTitle,
                   ),
                 ),
               ),
