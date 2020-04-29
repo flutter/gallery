@@ -161,7 +161,7 @@ class _BackdropState extends State<Backdrop>
       builder: (context, value, child) {
         return ExcludeSemantics(
           // TODO: use ExcludeFocus when available https://github.com/flutter/flutter/pull/55756
-          child: _settingsPage,
+          child: value ? FocusScope(child: _settingsPage) : _settingsPage,
           excluding: !value,
         );
       },
@@ -213,8 +213,8 @@ class _BackdropState extends State<Backdrop>
             },
           ),
           // TODO: restrict Focus navigation to settings panel when it is open
-          // Will be able to this when ExcludeFocus is available, using a
-          // FocusTraversalOrder if needed.
+          // Will be able to this when ExcludeFocus is available, using
+          // FocusScope to restrict cycling and FocusTraversalOrder if needed.
           Semantics(
             sortKey: const OrdinalSortKey(3),
             child: ScaleTransition(
