@@ -25,7 +25,7 @@ Github Actions job. It will include the master image, your test image and the
 difference.
 
 ![Where to download the golden artifacts](
-https://user-images.githubusercontent.com/1770678/80202787-70f1de80-8626-11ea-9d98-58ac72f67479.png)
+https://user-images.githubusercontent.com/1770678/80633314-d98ef000-8a58-11ea-82c5-9cb7448ff70d.png)
 
 ## Loading fonts in golden tests
 In Flutter widget tests the font used is the ['Ahem'](
