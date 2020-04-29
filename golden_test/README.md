@@ -8,16 +8,17 @@ code changes does not cause UI regressions.
 An expected change to the UI will also cause the golden tests to fail. If this
 is unintended, you will need to change your code to prevent the UI change. If
 it was intended, you will then need to update the goldens by running the
-following command:
+following command on your macOS machine:
 ```bash
 flutter test --update-goldens golden_test
 ```
 
 Due to slight [differences](
 https://github.com/flutter/flutter/issues/36667#issuecomment-521335243)
-in rendering across platforms, mostly around text, there are different goldens
-for each operating system. The golden tests will be run on macOS, Windows and
-Linux. You are recommended to download the goldens directly from the failed
+in rendering across platforms, mostly around text, the tests will only be run
+on a macOS machine on Github Actions. This means that if you update the tests
+on a Linux or Windows machine the golden tests will not pass on Github Actions.
+Instead you are recommended to download the goldens directly from the failed
 Github Actions job, and use those inside of your branch.
 
 You can find the goldens under Artifacts in the top menu inside of the failed
@@ -25,7 +26,7 @@ Github Actions job. It will include the master image, your test image and the
 difference.
 
 ![Where to download the golden artifacts](
-https://user-images.githubusercontent.com/1770678/80633314-d98ef000-8a58-11ea-82c5-9cb7448ff70d.png)
+https://user-images.githubusercontent.com/1770678/80202787-70f1de80-8626-11ea-9d98-58ac72f67479.png)
 
 ## Loading fonts in golden tests
 In Flutter widget tests the font used is the ['Ahem'](

@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -25,7 +27,7 @@ void main() {
         find.byType(GalleryApp),
         matchesGoldenFile(pathToGoldens('home_page_mobile_light.png')),
       );
-    });
+    }, skip: !Platform.isMacOS);
 
     testWidgets('dark home page matches golden screenshot', (tester) async {
       await setUpBinding(tester, brightness: Brightness.dark);
@@ -40,7 +42,7 @@ void main() {
         find.byType(GalleryApp),
         matchesGoldenFile(pathToGoldens('home_page_mobile_dark.png')),
       );
-    });
+    }, skip: !Platform.isMacOS);
   });
 
   group('desktop', () {
@@ -57,7 +59,7 @@ void main() {
         find.byType(GalleryApp),
         matchesGoldenFile(pathToGoldens('home_page_desktop_light.png')),
       );
-    });
+    }, skip: !Platform.isMacOS);
 
     testWidgets('dark home page matches golden screenshot', (tester) async {
       await setUpBinding(
@@ -76,6 +78,6 @@ void main() {
         find.byType(GalleryApp),
         matchesGoldenFile(pathToGoldens('home_page_desktop_dark.png')),
       );
-    });
+    }, skip: !Platform.isMacOS);
   });
 }

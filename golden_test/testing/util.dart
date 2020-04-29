@@ -38,5 +38,5 @@ Future<void> setUpBinding(
 }
 
 String pathToGoldens(String file) {
-  return path.join('goldens', Platform.operatingSystem, file);
+  return path.join('goldens', file);
 }
