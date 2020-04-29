@@ -15,6 +15,7 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
+import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/category_list_item.dart';
 import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
@@ -121,6 +122,20 @@ class HomePage extends StatelessWidget {
                 horizontal: _horizontalDesktopPadding,
               ),
               child: _GalleryHeader(),
+            ),
+
+            /// TODO: When Focus widget becomes better remove dummy Focus
+            /// variable.
+            /// This [Focus] widget grabs focus from the settingsIcon,
+            /// when settings isn't open.
+            /// The container following the Focus widget isn't wrapped with
+            /// Focus because anytime FocusScope.of(context).requestFocus() the
+            /// focused widget will be skipped. We want to be able to focus on
+            /// the container which is why we created this Focus variable.
+            Focus(
+              focusNode:
+                  InheritedBackdropFocusNodes.of(context).homePageFocusNode,
+              child: const SizedBox(),
             ),
             Container(
               height: carouselHeight,
