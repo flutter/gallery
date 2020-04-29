@@ -7,6 +7,25 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-67589403-10');
+      window.onerror = function (msg, url, lineNo, columnNo, error) {
+          var message;
+          if (msg.toLowerCase().indexOf("script error") > -1){
+              message = 'Script Error: ' + msg;
+          } else {
+              message = [
+                  'Message: ' + msg,
+                  'URL: ' + url,
+                  'Line: ' + lineNo,
+                  'Column: ' + columnNo,
+                  'Error object: ' + JSON.stringify(error)
+              ].join(' - ');
+          }
+          gtag('event', 'exception', {
+              'description': message,
+              'fatal': false
+          });
+          return false;
+      };
   </script>
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
