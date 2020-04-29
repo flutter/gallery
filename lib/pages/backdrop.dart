@@ -313,6 +313,12 @@ class _SettingsIcon extends AnimatedWidget {
   final VoidCallback toggleSettings;
   final ValueNotifier<bool> isSettingsOpenNotifier;
 
+  String _settingsSemanticLabel(bool isOpen, BuildContext context) {
+    return isOpen
+        ? GalleryLocalizations.of(context).settingsButtonCloseLabel
+        : GalleryLocalizations.of(context).settingsButtonLabel;
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -320,9 +326,7 @@ class _SettingsIcon extends AnimatedWidget {
 
     return Semantics(
       button: true,
-      label: isSettingsOpenNotifier.value
-          ? GalleryLocalizations.of(context).settingsButtonCloseLabel
-          : GalleryLocalizations.of(context).settingsButtonLabel,
+      label: _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
       child: SizedBox(
         width: _settingsButtonWidth,
         height: isDesktop
@@ -338,14 +342,11 @@ class _SettingsIcon extends AnimatedWidget {
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: () {
+              toggleSettings();
               SemanticsService.announce(
-                // The value hasn't changed yet so we invert it.
-                !isSettingsOpenNotifier.value
-                    ? GalleryLocalizations.of(context).settingsButtonCloseLabel
-                    : GalleryLocalizations.of(context).settingsButtonLabel,
+                _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
                 GalleryOptions.of(context).textDirection(),
               );
-              toggleSettings();
             },
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
