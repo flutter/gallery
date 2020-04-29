@@ -199,98 +199,94 @@ class _BackdropState extends State<Backdrop>
     );
 
     return FocusTraversalGroup(
-      child: InheritedBackdropFocusNodes(
-        settingsPageFocusNode: _settingsPageFocusNode,
-        homePageFocusNode: _homePageFocusNode,
-        child: Container(
-          child: Stack(
-            children: [
-              _galleryHeader(),
-              if (!isDesktop) ...[
-                // Slides the settings page up and down from the top of the
-                // screen.
-                PositionedTransition(
-                  rect: _slideDownSettingsPageAnimation(constraints),
-                  child: settingsPage,
-                ),
-                // Slides the home page up and down below the bottom of the
-                // screen.
-                PositionedTransition(
-                  rect: _slideDownHomePageAnimation(constraints),
-                  child: homePage,
-                ),
-              ],
-              if (isDesktop) ...[
-                homePage,
-                ValueListenableBuilder<bool>(
-                  valueListenable: _isSettingsOpenNotifier,
-                  builder: (context, value, child) {
-                    if (value) {
-                      return const ExcludeSemantics(
-                        child: ModalBarrier(
-                          dismissible: true,
-                        ),
-                      );
-                    } else {
-                      return Container();
-                    }
-                  },
-                ),
-                ValueListenableBuilder<bool>(
-                  valueListenable: _isSettingsOpenNotifier,
-                  builder: (context, value, child) {
-                    if (value) {
-                      return Semantics(
-                        label: GalleryLocalizations.of(context)
-                            .settingsButtonCloseLabel,
-                        child: GestureDetector(
-                          onTap: _toggleSettings,
-                        ),
-                      );
-                    } else {
-                      return Container();
-                    }
-                  },
-                ),
-                ScaleTransition(
-                  alignment: Directionality.of(context) == TextDirection.ltr
-                      ? Alignment.topRight
-                      : Alignment.topLeft,
-                  scale: CurvedAnimation(
-                    parent: _settingsPanelController,
-                    curve: Curves.easeIn,
-                    reverseCurve: Curves.easeOut,
-                  ),
-                  child: Align(
-                    alignment: AlignmentDirectional.topEnd,
-                    child: Material(
-                      elevation: 7,
-                      clipBehavior: Clip.antiAlias,
-                      borderRadius: BorderRadius.circular(40),
-                      color: Theme.of(context).colorScheme.secondaryVariant,
-                      child: Container(
-                        constraints: const BoxConstraints(
-                          maxHeight: 560,
-                          maxWidth: desktopSettingsWidth,
-                          minWidth: desktopSettingsWidth,
-                        ),
-                        child: settingsPage,
+      child: Container(
+        child: Stack(
+          children: [
+            _galleryHeader(),
+            if (!isDesktop) ...[
+              // Slides the settings page up and down from the top of the
+              // screen.
+              PositionedTransition(
+                rect: _slideDownSettingsPageAnimation(constraints),
+                child: settingsPage,
+              ),
+              // Slides the home page up and down below the bottom of the
+              // screen.
+              PositionedTransition(
+                rect: _slideDownHomePageAnimation(constraints),
+                child: homePage,
+              ),
+            ],
+            if (isDesktop) ...[
+              homePage,
+              ValueListenableBuilder<bool>(
+                valueListenable: _isSettingsOpenNotifier,
+                builder: (context, value, child) {
+                  if (value) {
+                    return const ExcludeSemantics(
+                      child: ModalBarrier(
+                        dismissible: true,
                       ),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+              ValueListenableBuilder<bool>(
+                valueListenable: _isSettingsOpenNotifier,
+                builder: (context, value, child) {
+                  if (value) {
+                    return Semantics(
+                      label: GalleryLocalizations.of(context)
+                          .settingsButtonCloseLabel,
+                      child: GestureDetector(
+                        onTap: _toggleSettings,
+                      ),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+              ScaleTransition(
+                alignment: Directionality.of(context) == TextDirection.ltr
+                    ? Alignment.topRight
+                    : Alignment.topLeft,
+                scale: CurvedAnimation(
+                  parent: _settingsPanelController,
+                  curve: Curves.easeIn,
+                  reverseCurve: Curves.easeOut,
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional.topEnd,
+                  child: Material(
+                    elevation: 7,
+                    clipBehavior: Clip.antiAlias,
+                    borderRadius: BorderRadius.circular(40),
+                    color: Theme.of(context).colorScheme.secondaryVariant,
+                    child: Container(
+                      constraints: const BoxConstraints(
+                        maxHeight: 560,
+                        maxWidth: desktopSettingsWidth,
+                        minWidth: desktopSettingsWidth,
+                      ),
+                      child: settingsPage,
                     ),
                   ),
                 ),
-              ],
-              Align(
-                alignment: AlignmentDirectional.topEnd,
-                child: _SettingsIcon(
-                  animationController: _settingsPanelController,
-                  toggleSettings: _toggleSettings,
-                  flareController: this,
-                  isSettingsOpenNotifier: _isSettingsOpenNotifier,
-                ),
               ),
             ],
-          ),
+            Align(
+              alignment: AlignmentDirectional.topEnd,
+              child: _SettingsIcon(
+                animationController: _settingsPanelController,
+                toggleSettings: _toggleSettings,
+                flareController: this,
+                isSettingsOpenNotifier: _isSettingsOpenNotifier,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -302,24 +298,6 @@ class _BackdropState extends State<Backdrop>
       builder: _buildStack,
     );
   }
-}
-
-class InheritedBackdropFocusNodes extends InheritedWidget {
-  InheritedBackdropFocusNodes({
-    @required Widget child,
-    @required this.settingsPageFocusNode,
-    @required this.homePageFocusNode,
-  })  : assert(child != null),
-        super(child: child);
-
-  final FocusNode settingsPageFocusNode;
-  final FocusNode homePageFocusNode;
-
-  static InheritedBackdropFocusNodes of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType();
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
 }
 
 class _SettingsIcon extends AnimatedWidget {
@@ -339,7 +317,6 @@ class _SettingsIcon extends AnimatedWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
-    final backdropFocusNodes = InheritedBackdropFocusNodes.of(context);
 
     return Semantics(
       button: true,
@@ -360,28 +337,27 @@ class _SettingsIcon extends AnimatedWidget {
               : Theme.of(context).colorScheme.secondaryVariant,
           clipBehavior: Clip.antiAlias,
           child: InkWell(
-            onTap: toggleSettings,
+            onTap: () {
+              SemanticsService.announce(
+                // The value hasn't changed yet so we invert it.
+                !isSettingsOpenNotifier.value
+                    ? GalleryLocalizations.of(context).settingsButtonCloseLabel
+                    : GalleryLocalizations.of(context).settingsButtonLabel,
+                GalleryOptions.of(context).textDirection(),
+              );
+              toggleSettings();
+            },
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
-              child: Focus(
-                onFocusChange: (hasFocus) {
-                  if (!hasFocus) {
-                    FocusScope.of(context).requestFocus(
-                        (isSettingsOpenNotifier.value)
-                            ? backdropFocusNodes.settingsPageFocusNode
-                            : backdropFocusNodes.homePageFocusNode);
-                  }
-                },
-                child: FlareActor(
-                  Theme.of(context).colorScheme.brightness == Brightness.light
-                      ? 'assets/icons/settings/settings_light.flr'
-                      : 'assets/icons/settings/settings_dark.flr',
-                  alignment: Directionality.of(context) == TextDirection.ltr
-                      ? Alignment.bottomLeft
-                      : Alignment.bottomRight,
-                  fit: BoxFit.contain,
-                  controller: flareController,
-                ),
+              child: FlareActor(
+                Theme.of(context).colorScheme.brightness == Brightness.light
+                    ? 'assets/icons/settings/settings_light.flr'
+                    : 'assets/icons/settings/settings_dark.flr',
+                alignment: Directionality.of(context) == TextDirection.ltr
+                    ? Alignment.bottomLeft
+                    : Alignment.bottomRight,
+                fit: BoxFit.contain,
+                controller: flareController,
               ),
             ),
           ),
