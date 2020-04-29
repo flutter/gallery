@@ -883,7 +883,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
   }
 
   @override
-  bool get allowImplicitScrolling => false;
+  bool get allowImplicitScrolling => true;
 }
 
 class _DesktopPageButton extends StatelessWidget {
