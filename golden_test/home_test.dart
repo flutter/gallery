@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -23,7 +25,7 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_mobile_light.png'),
+        matchesGoldenFile(pathToGoldens('home_page_mobile_light.png')),
       );
     });
 
@@ -38,7 +40,7 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_mobile_dark.png'),
+        matchesGoldenFile(pathToGoldens('home_page_mobile_dark.png')),
       );
     });
   });
@@ -55,7 +57,7 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_desktop_light.png'),
+        matchesGoldenFile(pathToGoldens('home_page_desktop_light.png')),
       );
     });
 
@@ -74,7 +76,7 @@ void main() {
 
       await expectLater(
         find.byType(GalleryApp),
-        matchesGoldenFile('goldens/home_page_desktop_dark.png'),
+        matchesGoldenFile(pathToGoldens('home_page_desktop_dark.png')),
       );
     });
   });

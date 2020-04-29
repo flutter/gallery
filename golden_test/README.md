@@ -15,10 +15,9 @@ flutter test --update-goldens golden_test
 
 Due to slight [differences](
 https://github.com/flutter/flutter/issues/36667#issuecomment-521335243)
-in rendering across platforms, mostly around text, the tests will only be run
-on a macOS machine on Github Actions. This means that if you update the tests
-on a Linux or Windows machine the golden tests will not pass on Github Actions.
-Instead you are recommended to download the goldens directly from the failed
+in rendering across platforms, mostly around text, there are different goldens
+for each operating system. The golden tests will be run on macOS, Windows and
+Linux. You are recommended to download the goldens directly from the failed
 Github Actions job, and use those inside of your branch.
 
 You can find the goldens under Artifacts in the top menu inside of the failed

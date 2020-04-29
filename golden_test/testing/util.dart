@@ -2,8 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:path/path.dart' as path;
 
 const mobileSize = Size(540, 960);
 const desktopSize = Size(1280, 850);
@@ -32,4 +35,8 @@ Future<void> setUpBinding(
   tester.binding.window.textScaleFactorTestValue = 1.0;
   tester.binding.window.platformBrightnessTestValue = brightness;
   addTearDown(tester.binding.window.clearAllTestValues);
+}
+
+String pathToGoldens(String file) {
+  return path.join('goldens', Platform.operatingSystem, file);
 }
