@@ -900,30 +900,32 @@ class _DesktopPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonSize = 58.0;
     final padding = _horizontalDesktopPadding - buttonSize / 2;
-    return Align(
-      alignment: isEnd
-          ? AlignmentDirectional.centerEnd
-          : AlignmentDirectional.centerStart,
-      child: Container(
-        width: buttonSize,
-        height: buttonSize,
-        margin: EdgeInsetsDirectional.only(
-          start: isEnd ? 0 : padding,
-          end: isEnd ? padding : 0,
-        ),
-        child: Tooltip(
-          message: isEnd
-              ? MaterialLocalizations.of(context).nextPageTooltip
-              : MaterialLocalizations.of(context).previousPageTooltip,
-          child: Material(
-            color: Colors.black.withOpacity(0.5),
-            shape: const CircleBorder(),
-            clipBehavior: Clip.antiAlias,
-            child: InkWell(
-              onTap: onTap,
-              child: Icon(
-                isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
-                color: Colors.white,
+    return ExcludeSemantics(
+      child: Align(
+        alignment: isEnd
+            ? AlignmentDirectional.centerEnd
+            : AlignmentDirectional.centerStart,
+        child: Container(
+          width: buttonSize,
+          height: buttonSize,
+          margin: EdgeInsetsDirectional.only(
+            start: isEnd ? 0 : padding,
+            end: isEnd ? padding : 0,
+          ),
+          child: Tooltip(
+            message: isEnd
+                ? MaterialLocalizations.of(context).nextPageTooltip
+                : MaterialLocalizations.of(context).previousPageTooltip,
+            child: Material(
+              color: Colors.black.withOpacity(0.5),
+              shape: const CircleBorder(),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: onTap,
+                child: Icon(
+                  isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
