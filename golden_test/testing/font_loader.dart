@@ -38,9 +38,7 @@ Future<Map<String, List<Future<ByteData>>>> loadFontsFromManifest() async {
 
 Map<String, List<Future<ByteData>>> loadFontsFromTestingDir() {
   final fontFamilyToData = <String, List<Future<ByteData>>>{};
-  final currentDir = path.dirname(Platform.script.path);
   final fontsDirectory = path.join(
-    currentDir,
     'golden_test',
     'testing',
     'fonts',
@@ -57,8 +55,7 @@ Map<String, List<Future<ByteData>>> loadFontsFromTestingDir() {
 }
 
 Map<String, List<Future<ByteData>>> loadGoogleFonts() {
-  final currentDir = path.dirname(Platform.script.path);
-  final googleFontsDirectory = path.join(currentDir, 'fonts', 'google_fonts');
+  final googleFontsDirectory = path.join('fonts', 'google_fonts');
   final fontFamilyToData = <String, List<Future<ByteData>>>{};
   final files = Directory(googleFontsDirectory).listSync();
   for (final file in files) {
