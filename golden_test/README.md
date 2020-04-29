@@ -8,7 +8,7 @@ code changes does not cause UI regressions.
 An expected change to the UI will also cause the golden tests to fail. If this
 is unintended, you will need to change your code to prevent the UI change. If
 it was intended, you will then need to update the goldens by running the
-following command on your macOS machine:
+following command:
 ```bash
 flutter test --update-goldens golden_test
 ```
