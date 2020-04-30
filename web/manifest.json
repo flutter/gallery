@@ -2,7 +2,7 @@
     "name": "Flutter Gallery",
     "short_name": "Flutter Gallery",
     "start_url": ".",
-    "display": "minimal-ui",
+    "display": "standalone",
     "background_color": "#030303",
     "theme_color": "#030303",
     "description": "A resource to help developers evaluate and use Flutter.",
