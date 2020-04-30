@@ -1,0 +1,7 @@
+name: gallery_devicelab
+
+environment:
+  sdk: ">=2.3.0 <3.0.0"
+
+dependencies:
+
