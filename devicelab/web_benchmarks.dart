@@ -24,6 +24,7 @@ const int chromeDebugPort = 10000;
 Future<TaskResult> runWebBenchmark({ @required bool useCanvasKit }) async {
   // Reduce logging level. Otherwise, package:webkit_inspection_protocol is way too spammy.
   Logger.root.level = Level.INFO;
+  // TODO: Correct flutterDirectory.
   final String macrobenchmarksDirectory = path.join(flutterDirectory.path, 'dev', 'benchmarks', 'macrobenchmarks');
   return await inDirectory(macrobenchmarksDirectory, () async {
     await evalFlutter('build', options: <String>[
