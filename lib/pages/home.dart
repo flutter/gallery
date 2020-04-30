@@ -15,7 +15,6 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
-import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/category_list_item.dart';
 import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
