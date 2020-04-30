@@ -437,22 +437,12 @@ class _DesktopCategoryItem extends StatelessWidget {
                 color: colorScheme.background,
               ),
               Flexible(
-                // Remove ListView top padding as it is already accounted for.
-                child: MediaQuery.removePadding(
-                  removeTop: true,
-                  context: context,
-                  child: ListView(
-                    // Makes integration tests possible.
-                    key: ValueKey('${category.name}DemoList'),
-                    children: [
-                      const SizedBox(height: 12),
-                      for (GalleryDemo demo in demos)
-                        CategoryDemoItem(
-                          demo: demo,
-                        ),
-                      const SizedBox(height: 12),
-                    ],
-                  ),
+                child: ListView.builder(
+                  // Makes integration tests possible.
+                  key: ValueKey('${category.name}DemoList'),
+                  itemBuilder: (context, index) =>
+                      CategoryDemoItem(demo: demos[index]),
+                  itemCount: demos.length,
                 ),
               ),
             ],
