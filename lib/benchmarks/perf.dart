@@ -23,12 +23,7 @@ class GalleryRecorder extends WidgetRecorder {
     Future<void>.delayed(
       Duration(seconds: 5),
       () {
-        print('WidgetBinding.Instance: ${WidgetsBinding.instance}');
-        Timer.periodic(Duration(milliseconds: 200), (timer) {
-          print('Callback : ${WidgetsBinding.instance.transientCallbackCount}');
-          print('Schedule : ${WidgetsBinding.instance.hasScheduledFrame}');
-          print('');
-        });
+        
       }
     );
     return GalleryApp();
@@ -37,3 +32,15 @@ class GalleryRecorder extends WidgetRecorder {
 
 // TODO: Add automation.
 
+
+
+/*
+      () {
+        print('WidgetBinding.Instance: ${WidgetsBinding.instance}');
+        Timer.periodic(Duration(milliseconds: 200), (timer) {
+          print('Callback : ${WidgetsBinding.instance.transientCallbackCount}');
+          print('Schedule : ${WidgetsBinding.instance.hasScheduledFrame}');
+          print('');
+        });
+      }
+ */
