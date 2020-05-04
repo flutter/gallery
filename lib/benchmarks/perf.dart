@@ -14,7 +14,7 @@ import 'package:gallery/main.dart';
 class GalleryRecorder extends WidgetRecorder {
   GalleryRecorder() : super(name: benchmarkName);
 
-  static const String benchmarkName = 'bench_card_infinite_scroll';
+  static const String benchmarkName = 'gallery_perf';
 
   @override
   Widget createWidget() => GalleryApp();

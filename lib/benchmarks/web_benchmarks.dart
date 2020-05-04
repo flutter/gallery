@@ -9,6 +9,7 @@ import 'dart:math' as math;
 
 import 'bench_card_infinite_scroll.dart';
 import 'bench_text_layout.dart';
+import 'perf.dart';
 import 'recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
@@ -32,7 +33,9 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
     BenchTextCachedLayout.canvasBenchmarkName: () => BenchTextCachedLayout(useCanvas: true),
     BenchBuildColorsGrid.domBenchmarkName: () => BenchBuildColorsGrid.dom(),
     BenchBuildColorsGrid.canvasBenchmarkName: () => BenchBuildColorsGrid.canvas(),
-  }
+  },
+
+  GalleryRecorder.benchmarkName: () => GalleryRecorder(),
 };
 
 final LocalBenchmarkServerClient _client = LocalBenchmarkServerClient();
