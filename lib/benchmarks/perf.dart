@@ -23,7 +23,7 @@ class GalleryRecorder extends WidgetRecorder {
     Future<void>.delayed(
       Duration(seconds: 5),
       () {
-        
+        // TODO: Add automation.
       }
     );
     return GalleryApp();
