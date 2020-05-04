@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import 'recorder.dart';
 
@@ -17,7 +18,15 @@ class GalleryRecorder extends WidgetRecorder {
   static const String benchmarkName = 'gallery_perf';
 
   @override
-  Widget createWidget() => GalleryApp();
+  Widget createWidget() {
+    Future<void>.delayed(
+      Duration(seconds: 5),
+      () {
+        print('WidgetBinding.Instance: ${WidgetsBinding.instance}');
+      }
+    );
+    return GalleryApp();
+  }
 }
 
 // TODO: Add automation.
