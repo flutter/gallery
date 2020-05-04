@@ -480,7 +480,7 @@ void cd(dynamic directory) {
 }
 
 // TODO: Correct flutterDirectory.
-Directory get flutterDirectory => Directory.current.parent.parent;
+Directory get flutterDirectory => Directory('../../../../f/flutter');
 
 String requireEnvVar(String name) {
   final String value = Platform.environment[name];
