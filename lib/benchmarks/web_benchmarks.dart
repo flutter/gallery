@@ -7,16 +7,8 @@ import 'dart:convert' show json;
 import 'dart:html' as html;
 import 'dart:math' as math;
 
-import 'bench_text_layout.dart';
-import 'bench_text_out_of_picture_bounds.dart';
-
-import 'bench_build_material_checkbox.dart';
 import 'bench_card_infinite_scroll.dart';
-import 'bench_draw_rect.dart';
-import 'bench_dynamic_clip_on_static_picture.dart';
-import 'bench_picture_recording.dart';
-import 'bench_simple_lazy_text_scroll.dart';
-import 'bench_text_out_of_picture_bounds.dart';
+import 'bench_text_layout.dart';
 import 'recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
@@ -29,12 +21,6 @@ const bool isCanvasKit = bool.fromEnvironment('FLUTTER_WEB_USE_SKIA', defaultVal
 /// of your benchmark is unique.
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
   BenchCardInfiniteScroll.benchmarkName: () => BenchCardInfiniteScroll(),
-  BenchDrawRect.benchmarkName: () => BenchDrawRect(),
-  BenchTextOutOfPictureBounds.benchmarkName: () => BenchTextOutOfPictureBounds(),
-  BenchSimpleLazyTextScroll.benchmarkName: () => BenchSimpleLazyTextScroll(),
-  BenchBuildMaterialCheckbox.benchmarkName: () => BenchBuildMaterialCheckbox(),
-  BenchDynamicClipOnStaticPicture.benchmarkName: () => BenchDynamicClipOnStaticPicture(),
-  BenchPictureRecording.benchmarkName: () => BenchPictureRecording(),
   if (isCanvasKit)
     BenchBuildColorsGrid.canvasKitBenchmarkName: () => BenchBuildColorsGrid.canvasKit(),
 
