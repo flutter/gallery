@@ -19,3 +19,6 @@ class GalleryRecorder extends WidgetRecorder {
   @override
   Widget createWidget() => GalleryApp();
 }
+
+// TODO: Add automation.
+
