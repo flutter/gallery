@@ -25,6 +25,8 @@ const int _kWarmUpSampleCount = 200;
 /// The number of samples we use to collect statistics from.
 const int _kMeasuredSampleCount = 100;
 
+/* TODO: Edit this number, or the logic, such that we have enough time to
+         measure everything. */
 /// The total number of samples collected by a benchmark.
 const int kTotalSampleCount = _kWarmUpSampleCount + _kMeasuredSampleCount;
 
