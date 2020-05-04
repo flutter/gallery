@@ -19,6 +19,7 @@ class GalleryRecorder extends WidgetRecorder {
 
   @override
   Widget createWidget() {
+    // TODO: Set up future for automation.
     Future<void>.delayed(
       Duration(seconds: 5),
       () {
