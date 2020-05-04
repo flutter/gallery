@@ -27,7 +27,7 @@ Future<TaskResult> runWebBenchmark({ @required bool useCanvasKit }) async {
   // TODO: Correct flutterDirectory.
   final String macrobenchmarksDirectory = '..';
   return await inDirectory(macrobenchmarksDirectory, () async {
-    await evalFlutter('build', options: <String>[
+    await evalFlutterAbsolute('build', options: <String>[
       'web',
       '--dart-define=FLUTTER_WEB_ENABLE_PROFILING=true',
       if (useCanvasKit)
