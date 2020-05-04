@@ -192,4 +192,5 @@ Future<void> main () async {
   TaskResult result = await runWebBenchmark(useCanvasKit: false);
   print ('Finished.');
   print ('Result: $result');
+  print ('Data: ${result.toJson()}');
 }
