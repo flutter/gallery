@@ -22,14 +22,14 @@ class GalleryRecorder extends WidgetRecorder {
   Widget createWidget() {
     // TODO: Set up future for automation.
     Future<void>.delayed(
-      Duration(milliseconds: 500),
+      Duration(milliseconds: 1500),
       () async {
         final LiveWidgetController controller = LiveWidgetController(
           WidgetsBinding.instance
         );
         await controller.tap(find.text('Rally'));
         print('Tapped.');
-        // await Future<void>.delayed(Duration(milliseconds: 500));
+        await Future<void>.delayed(Duration(milliseconds: 1000));
         await controller.tap(find.text('Back'));
         print('Back.');
       }
