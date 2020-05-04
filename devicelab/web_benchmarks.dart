@@ -191,4 +191,5 @@ Future<void> main () async {
   print ('Starting.');
   TaskResult result = await runWebBenchmark(useCanvasKit: false);
   print ('Finished.');
+  print ('Result: $result');
 }
