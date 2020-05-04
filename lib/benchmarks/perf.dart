@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'recorder.dart';
@@ -22,8 +23,15 @@ class GalleryRecorder extends WidgetRecorder {
     // TODO: Set up future for automation.
     Future<void>.delayed(
       Duration(milliseconds: 500),
-      () {
-        // TODO: Add automation.
+      () async {
+        final LiveWidgetController controller = LiveWidgetController(
+          WidgetsBinding.instance
+        );
+        await controller.tap(find.text('Rally'));
+        print('Tapped.');
+        // await Future<void>.delayed(Duration(milliseconds: 500));
+        await controller.tap(find.text('Back'));
+        print('Back.');
       }
     );
     return GalleryApp();
