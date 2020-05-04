@@ -23,6 +23,11 @@ class GalleryRecorder extends WidgetRecorder {
       Duration(seconds: 5),
       () {
         print('WidgetBinding.Instance: ${WidgetsBinding.instance}');
+        Timer.periodic(Duration(milliseconds: 200), (timer) {
+          print('Callback : ${WidgetsBinding.instance.transientCallbackCount}');
+          print('Schedule : ${WidgetsBinding.instance.hasScheduledFrame}');
+          print('');
+        });
       }
     );
     return GalleryApp();
