@@ -37,7 +37,6 @@ class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin, FlareController {
   AnimationController _settingsPanelController;
   FocusNode _settingsPageFocusNode;
-  FocusNode _homePageFocusNode;
   ValueNotifier<bool> _isSettingsOpenNotifier;
   Widget _settingsPage;
   Widget _homePage;
@@ -53,7 +52,6 @@ class _BackdropState extends State<Backdrop>
       duration: const Duration(milliseconds: 200),
     );
     _settingsPageFocusNode = FocusNode();
-    _homePageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
     _settingsPage = widget.settingsPage ??
         SettingsPage(
@@ -66,7 +64,6 @@ class _BackdropState extends State<Backdrop>
   void dispose() {
     _settingsPanelController.dispose();
     _settingsPageFocusNode.dispose();
-    _homePageFocusNode.dispose();
     _isSettingsOpenNotifier.dispose();
     super.dispose();
   }
@@ -158,21 +155,33 @@ class _BackdropState extends State<Backdrop>
 
     final Widget settingsPage = ValueListenableBuilder<bool>(
       valueListenable: _isSettingsOpenNotifier,
-      builder: (context, value, child) {
+      builder: (context, isSettingsOpen, child) {
         return ExcludeSemantics(
-          // TODO: use ExcludeFocus when available https://github.com/flutter/flutter/pull/55756
-          child: value ? FocusScope(child: _settingsPage) : _settingsPage,
-          excluding: !value,
+          child: isSettingsOpen
+              ? RawKeyboardListener(
+                  focusNode: _settingsPageFocusNode,
+                  onKey: (event) {
+                    if (event.logicalKey == LogicalKeyboardKey.escape) {
+                      _toggleSettings();
+                    }
+                  },
+                  child: FocusScope(
+                    autofocus: true,
+                    child: _settingsPage,
+                  ),
+                )
+              : ExcludeFocus(child: _settingsPage),
+          excluding: !isSettingsOpen,
         );
       },
     );
 
     final Widget homePage = ValueListenableBuilder<bool>(
       valueListenable: _isSettingsOpenNotifier,
-      builder: (context, value, child) {
+      builder: (context, isSettingsOpen, child) {
         return ExcludeSemantics(
           child: FocusTraversalGroup(child: _homePage),
-          excluding: value,
+          excluding: isSettingsOpen,
         );
       },
     );
@@ -212,9 +221,6 @@ class _BackdropState extends State<Backdrop>
               }
             },
           ),
-          // TODO: restrict Focus navigation to settings panel when it is open
-          // Will be able to this when ExcludeFocus is available, using
-          // FocusScope to restrict cycling and FocusTraversalOrder if needed.
           Semantics(
             sortKey: const OrdinalSortKey(3),
             child: ScaleTransition(
