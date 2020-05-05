@@ -72,18 +72,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   // TODO: Adapt.
   Future<void> scrollUntilVisible(
       Scrollable scrollable,
-      Finder item, {
-        double alignment = 0.0,
-        double dxScroll = 0.0,
-        double dyScroll = 0.0,
-        Duration timeout,
-      }) async {
+      Finder item,
+    ) async {
     assert(scrollable != null);
     assert(item != null);
-    assert(alignment != null);
-    assert(dxScroll != null);
-    assert(dyScroll != null);
-    assert(dxScroll != 0.0 || dyScroll != 0.0);
 
     bool isVisible = false;
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
