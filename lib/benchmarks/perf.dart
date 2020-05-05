@@ -12,6 +12,21 @@ import 'recorder.dart';
 
 import 'package:gallery/main.dart';
 
+const List<String> demos = <String>[
+  'Shrine',
+  'Rally',
+  'Crane',
+  'Fortnightly',
+  'Bottom navigation',
+  'Buttons',
+  'Cards',
+  'Chips',
+  'Dialogs',
+  'Pickers',
+  'Alerts',
+  'Colors',
+];
+
 /// Creates an infinite list of Material cards and scrolls it.
 class GalleryRecorder extends CustomizedWidgetRecorder {
   GalleryRecorder() : super(name: benchmarkName);
@@ -34,15 +49,12 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           WidgetsBinding.instance
         );
 
-        // Tap into each study, then return.
-        await tapOnText('Shrine');
-        await tapOnText('Back');
-        await tapOnText('Rally');
-        await tapOnText('Back');
-        await tapOnText('Crane');
-        await tapOnText('Back');
-        await tapOnText('Fortnightly');
-        await tapOnText('Back');
+        for (final String demo in demos) {
+          await tapOnText(demo);
+          await controller.tap(find.byKey(const ValueKey('Back')));
+          print('Back');
+          await Future<void>.delayed(Duration(milliseconds: 1000));
+        }
 
         // At the end of the test, mark as finished.
         finished = true;
