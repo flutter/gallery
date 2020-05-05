@@ -18,8 +18,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   static const String benchmarkName = 'gallery_perf';
 
+  bool finished = false;
+
   @override
-  bool shouldContinue () => profile.shouldContinue();
+  bool shouldContinue () => profile.shouldContinue() || ! finished;
 
   @override
   Widget createWidget() {
@@ -35,6 +37,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         await Future<void>.delayed(Duration(milliseconds: 1000));
         await controller.tap(find.text('Back'));
         print('Back.');
+
+        // At the end of the test, mark as finished.
+        finished = true;
       }
     );
     return GalleryApp();
