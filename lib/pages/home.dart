@@ -15,7 +15,6 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
-import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/category_list_item.dart';
 import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
@@ -121,22 +120,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: _horizontalDesktopPadding,
               ),
-              child: ExcludeSemantics(child: _GalleryHeader()),
-            ),
-
-            /// TODO: When Focus widget becomes better remove dummy Focus
-            /// variable.
-
-            /// This [Focus] widget grabs focus from the settingsIcon,
-            /// when settings isn't open.
-            /// The container following the Focus widget isn't wrapped with
-            /// Focus because anytime FocusScope.of(context).requestFocus() the
-            /// focused widget will be skipped. We want to be able to focus on
-            /// the container which is why we created this Focus variable.
-            Focus(
-              focusNode:
-                  InheritedBackdropFocusNodes.of(context).homePageFocusNode,
-              child: const SizedBox(),
+              child: _GalleryHeader(),
             ),
             Container(
               height: carouselHeight,
@@ -329,7 +313,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
             Container(
               margin:
                   const EdgeInsets.symmetric(horizontal: _horizontalPadding),
-              child: ExcludeSemantics(child: _GalleryHeader()),
+              child: _GalleryHeader(),
             ),
             _Carousel(
               children: widget.carouselCards,
@@ -889,7 +873,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
   }
 
   @override
-  bool get allowImplicitScrolling => false;
+  bool get allowImplicitScrolling => true;
 }
 
 class _DesktopPageButton extends StatelessWidget {
@@ -906,30 +890,32 @@ class _DesktopPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonSize = 58.0;
     final padding = _horizontalDesktopPadding - buttonSize / 2;
-    return Align(
-      alignment: isEnd
-          ? AlignmentDirectional.centerEnd
-          : AlignmentDirectional.centerStart,
-      child: Container(
-        width: buttonSize,
-        height: buttonSize,
-        margin: EdgeInsetsDirectional.only(
-          start: isEnd ? 0 : padding,
-          end: isEnd ? padding : 0,
-        ),
-        child: Tooltip(
-          message: isEnd
-              ? MaterialLocalizations.of(context).nextPageTooltip
-              : MaterialLocalizations.of(context).previousPageTooltip,
-          child: Material(
-            color: Colors.black.withOpacity(0.5),
-            shape: const CircleBorder(),
-            clipBehavior: Clip.antiAlias,
-            child: InkWell(
-              onTap: onTap,
-              child: Icon(
-                isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
-                color: Colors.white,
+    return ExcludeSemantics(
+      child: Align(
+        alignment: isEnd
+            ? AlignmentDirectional.centerEnd
+            : AlignmentDirectional.centerStart,
+        child: Container(
+          width: buttonSize,
+          height: buttonSize,
+          margin: EdgeInsetsDirectional.only(
+            start: isEnd ? 0 : padding,
+            end: isEnd ? padding : 0,
+          ),
+          child: Tooltip(
+            message: isEnd
+                ? MaterialLocalizations.of(context).nextPageTooltip
+                : MaterialLocalizations.of(context).previousPageTooltip,
+            child: Material(
+              color: Colors.black.withOpacity(0.5),
+              shape: const CircleBorder(),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: onTap,
+                child: Icon(
+                  isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
