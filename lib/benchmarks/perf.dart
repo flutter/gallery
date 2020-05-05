@@ -13,10 +13,13 @@ import 'recorder.dart';
 import 'package:gallery/main.dart';
 
 /// Creates an infinite list of Material cards and scrolls it.
-class GalleryRecorder extends WidgetRecorder {
+class GalleryRecorder extends CustomizedWidgetRecorder {
   GalleryRecorder() : super(name: benchmarkName);
 
   static const String benchmarkName = 'gallery_perf';
+
+  @override
+  bool shouldContinue () => profile.shouldContinue();
 
   @override
   Widget createWidget() {
