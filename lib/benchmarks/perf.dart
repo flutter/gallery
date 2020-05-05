@@ -94,14 +94,23 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     });
 
     while (!isVisible) {
+      // TODO: Warning! Experimental.
       // TODO: scroll the scrollable.
 
       // get current position
+      final double pixels = scrollable.controller.position.pixels;
+
       // compute new position
+      final double newPixels = pixels + 30;
+
       // jump to
+      scrollable.controller.jumpTo(newPixels);
 
       // TODO: await scroll.
+      // no await needed here.
+
       // TODO: await a certain time.
+      await Future<void>.delayed(const Duration(milliseconds: 50));
     }
 
     return;
