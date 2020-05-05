@@ -157,21 +157,20 @@ class _BackdropState extends State<Backdrop>
       valueListenable: _isSettingsOpenNotifier,
       builder: (context, isSettingsOpen, child) {
         return ExcludeSemantics(
+          excluding: !isSettingsOpen,
           child: isSettingsOpen
               ? RawKeyboardListener(
+                  // TODO: Implement RawKeyboardListener.includeSemantics
+                  includeSemantics: true,
                   focusNode: _settingsPageFocusNode,
                   onKey: (event) {
                     if (event.logicalKey == LogicalKeyboardKey.escape) {
                       _toggleSettings();
                     }
                   },
-                  child: FocusScope(
-                    autofocus: true,
-                    child: _settingsPage,
-                  ),
+                  child: FocusScope(child: _settingsPage),
                 )
               : ExcludeFocus(child: _settingsPage),
-          excluding: !isSettingsOpen,
         );
       },
     );
@@ -180,12 +179,13 @@ class _BackdropState extends State<Backdrop>
       valueListenable: _isSettingsOpenNotifier,
       builder: (context, isSettingsOpen, child) {
         return ExcludeSemantics(
-          child: FocusTraversalGroup(child: _homePage),
           excluding: isSettingsOpen,
+          child: FocusTraversalGroup(child: _homePage),
         );
       },
     );
 
+    debugDumpSemanticsTree(DebugSemanticsDumpOrder.traversalOrder);
     return Stack(
       children: [
         if (!isDesktop) ...[
@@ -206,11 +206,9 @@ class _BackdropState extends State<Backdrop>
           Semantics(sortKey: const OrdinalSortKey(2), child: homePage),
           ValueListenableBuilder<bool>(
             valueListenable: _isSettingsOpenNotifier,
-            builder: (context, value, child) {
-              if (value) {
-                return Semantics(
-                  label:
-                      GalleryLocalizations.of(context).settingsButtonCloseLabel,
+            builder: (context, isSettingsOpen, child) {
+              if (isSettingsOpen) {
+                return ExcludeSemantics(
                   child: Listener(
                     onPointerDown: (_) => _toggleSettings(),
                     child: const ModalBarrier(dismissible: false),
@@ -294,12 +292,12 @@ class _SettingsIcon extends AnimatedWidget {
     final isDesktop = isDisplayDesktop(context);
     final safeAreaTopPadding = MediaQuery.of(context).padding.top;
 
-    return Semantics(
-      sortKey: const OrdinalSortKey(1),
-      button: true,
-      label: _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
-      child: Align(
-        alignment: AlignmentDirectional.topEnd,
+    return Align(
+      alignment: AlignmentDirectional.topEnd,
+      child: Semantics(
+        sortKey: const OrdinalSortKey(1),
+        button: true,
+        label: _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
         child: SizedBox(
           width: _settingsButtonWidth,
           height: isDesktop
