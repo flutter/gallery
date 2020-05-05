@@ -185,7 +185,6 @@ class _BackdropState extends State<Backdrop>
       },
     );
 
-    debugDumpSemanticsTree(DebugSemanticsDumpOrder.traversalOrder);
     return Stack(
       children: [
         if (!isDesktop) ...[
