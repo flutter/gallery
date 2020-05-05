@@ -71,7 +71,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   // TODO: Adapt.
   Future<void> scrollUntilVisible(
-      Finder scrollable,
+      Scrollable scrollable,
       Finder item, {
         double alignment = 0.0,
         double dxScroll = 0.0,
@@ -95,6 +95,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
     while (!isVisible) {
       // TODO: scroll the scrollable.
+
+      // get current position
+      // compute new position
+      // jump to
+
       // TODO: await scroll.
       // TODO: await a certain time.
     }
