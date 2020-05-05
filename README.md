@@ -41,16 +41,20 @@ This includes:
 - Linux
 - Windows
 
-That being said, extra steps must be taken to [enable Desktop support](
+
+An APK, macOS, Linux, and Windows builds are available for [download](https://github.com/flutter/gallery/releases). You can find it on the web at [gallery.flutter.dev](https://gallery.flutter.dev/) and on the [Google Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery).
+
+You can build from source yourself for any of these platforms, though, please note desktop support must [be enabled](
 https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). For
-example, to run the macOS app:
+example, to run the app on Windows:
 
 ```bash
 cd gallery/
-flutter config --enable-macos-desktop
+flutter config --enable-windows-desktop
 flutter create .
-flutter run -d macos
+flutter run -d windows
 ```
+
 
 Additionally, the UI adapts between mobile and desktop layouts regardless of the
 platform it runs on. This is determined based on window size as outlined in
