@@ -19,9 +19,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   static const String benchmarkName = 'gallery_perf';
 
   bool finished = false;
+  LiveWidgetController controller;
 
   @override
-  bool shouldContinue () => profile.shouldContinue() || ! finished;
+  bool shouldContinue() => profile.shouldContinue() || ! finished;
 
   @override
   Widget createWidget() {
@@ -29,20 +30,31 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     Future<void>.delayed(
       Duration(milliseconds: 1500),
       () async {
-        final LiveWidgetController controller = LiveWidgetController(
+        controller = LiveWidgetController(
           WidgetsBinding.instance
         );
-        await controller.tap(find.text('Rally'));
-        print('Tapped.');
-        await Future<void>.delayed(Duration(milliseconds: 1000));
-        await controller.tap(find.text('Back'));
-        print('Back.');
+
+        // Tap into each study, then return.
+        await tapOnText('Shrine');
+        await tapOnText('Back');
+        await tapOnText('Rally');
+        await tapOnText('Back');
+        await tapOnText('Crane');
+        await tapOnText('Back');
+        await tapOnText('Fortnightly');
+        await tapOnText('Back');
 
         // At the end of the test, mark as finished.
         finished = true;
       }
     );
     return GalleryApp();
+  }
+
+  Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
+    await controller.tap(find.text(text, skipOffstage: skipOffStage));
+    print('Tapped $text');
+    await Future<void>.delayed(Duration(milliseconds: 1000));
   }
 }
 
