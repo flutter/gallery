@@ -71,8 +71,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   // TODO: Adapt.
   Future<void> scrollUntilVisible(
-      SerializableFinder scrollable,
-      SerializableFinder item, {
+      Finder scrollable,
+      Finder item, {
         double alignment = 0.0,
         double dxScroll = 0.0,
         double dyScroll = 0.0,
@@ -85,19 +85,21 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     assert(dyScroll != null);
     assert(dxScroll != 0.0 || dyScroll != 0.0);
 
-    // Kick off an (unawaited) waitFor that will complete when the item we're
-    // looking for finally scrolls onscreen. We add an initial pause to give it
-    // the chance to complete if the item is already onscreen; if not, scroll
-    // repeatedly until we either find the item or time out.
     bool isVisible = false;
-    waitFor(item, timeout: timeout).then<void>((_) { isVisible = true; });
-    await Future<void>.delayed(const Duration(milliseconds: 500));
+    Timer.periodic(const Duration(milliseconds: 50), (timer) {
+      if (item.evaluate().isNotEmpty) {
+        isVisible = true;
+        timer.cancel(); // TODO: remove this if it works unexpectedly.
+      }
+    });
+
     while (!isVisible) {
-      await scroll(scrollable, dxScroll, dyScroll, const Duration(milliseconds: 100));
-      await Future<void>.delayed(const Duration(milliseconds: 500));
+      // TODO: scroll the scrollable.
+      // TODO: await scroll.
+      // TODO: await a certain time.
     }
 
-    return scrollIntoView(item, alignment: alignment);
+    return;
   }
 }
 
