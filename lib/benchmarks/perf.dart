@@ -12,6 +12,24 @@ import 'recorder.dart';
 
 import 'package:gallery/main.dart';
 
+const List<String> studyDemos = <String>[
+  'Shrine',
+  'Rally',
+  'Crane',
+  'Fortnightly',
+];
+
+const List<String> widgetDemos = <String>[
+  'Bottom navigation',
+  'Buttons',
+  'Cards',
+  'Chips',
+  'Dialogs',
+  'Pickers',
+  'Alerts',
+  'Colors',
+];
+
 const List<String> demos = <String>[
   'Shrine',
   'Rally',
@@ -49,12 +67,26 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           WidgetsBinding.instance
         );
 
-        for (final String demo in demos) {
+        for (final String demo in studyDemos) {
           await tapOnText(demo);
           await controller.tap(find.byKey(const ValueKey('Back')));
           print('Back');
           await Future<void>.delayed(Duration(milliseconds: 1000));
         }
+
+        // widgetDemos[0]
+
+        final String widgetDemo0 = widgetDemos[0];
+
+        final Element widgetDemoLocation = find.text(widgetDemo0).evaluate().first;
+
+        // Find corresponding widget
+
+        final BuildContext widgetDemoContext =
+            widgetDemoLocation as BuildContext;
+
+        final Scrollable scrollable = Scrollable.of(widgetDemoContext).widget;
+        // TODO: I don't know if this actually works. Let's find out.
 
         // At the end of the test, mark as finished.
         finished = true;
