@@ -68,6 +68,37 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     print('Tapped $text');
     await Future<void>.delayed(Duration(milliseconds: 1000));
   }
+
+  // TODO: Adapt.
+  Future<void> scrollUntilVisible(
+      SerializableFinder scrollable,
+      SerializableFinder item, {
+        double alignment = 0.0,
+        double dxScroll = 0.0,
+        double dyScroll = 0.0,
+        Duration timeout,
+      }) async {
+    assert(scrollable != null);
+    assert(item != null);
+    assert(alignment != null);
+    assert(dxScroll != null);
+    assert(dyScroll != null);
+    assert(dxScroll != 0.0 || dyScroll != 0.0);
+
+    // Kick off an (unawaited) waitFor that will complete when the item we're
+    // looking for finally scrolls onscreen. We add an initial pause to give it
+    // the chance to complete if the item is already onscreen; if not, scroll
+    // repeatedly until we either find the item or time out.
+    bool isVisible = false;
+    waitFor(item, timeout: timeout).then<void>((_) { isVisible = true; });
+    await Future<void>.delayed(const Duration(milliseconds: 500));
+    while (!isVisible) {
+      await scroll(scrollable, dxScroll, dyScroll, const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 500));
+    }
+
+    return scrollIntoView(item, alignment: alignment);
+  }
 }
 
 // TODO: Add automation.
