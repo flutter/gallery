@@ -53,7 +53,10 @@ class _BackdropState extends State<Backdrop>
     );
     _settingsPageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
-    _settingsPage = widget.settingsPage ?? SettingsPage();
+    _settingsPage = widget.settingsPage ??
+        SettingsPage(
+          animationController: _settingsPanelController,
+        );
     _homePage = widget.homePage ?? HomePage();
   }
 
