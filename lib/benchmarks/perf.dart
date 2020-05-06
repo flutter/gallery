@@ -91,6 +91,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // widgetDemos[0]
 
+        // TODO: abstract and automate.
+
         final String widgetDemo0 = widgetDemos[0];
 
         final Element widgetDemoLocation =
