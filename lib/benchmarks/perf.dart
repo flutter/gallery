@@ -85,7 +85,53 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         for (final demoDescription in demoDescriptions)
             print(demoDescription);
 
+        // TODO: abstract and automate here.
+
+        for (final demo in ['Rally@study']) {
+          // TODO: run the demo.
+
+          final Element demoButton =
+              find.byKey(ValueKey(demo), skipOffstage: false)
+              .evaluate().single;
+
+          print('$demo | Demo button found, and it is $demoButton');
+
+          final ScrollableState scrollableState =
+              Scrollable.of(demoButton as BuildContext);
+
+          print('$demo | ScrollableState found, and it is $scrollableState');
+
+          await scrollUntilVisible(
+            scrollableState,
+            find.byKey(ValueKey(demo)),
+          );
+
+          print('$demo | Scrolled');
+
+          await Future<void>.delayed(Duration(milliseconds: 1000));
+
+          print('$demo | Waited for scroll to stop');
+
+          await controller.tap(find.byKey(ValueKey(demo)));
+
+          print('$demo | Tapped');
+
+          await Future<void>.delayed(Duration(milliseconds: 1000));
+
+          print('$demo | Waited');
+
+          await controller.tap(find.byKey(ValueKey('Back')));
+
+          print('$demo | Tapped "Back"');
+
+          await Future<void>.delayed(Duration(milliseconds: 1000));
+
+          print('$demo | Finished');
+        }
+
         // widgetDemos[0]
+
+        /*
 
         // TODO: abstract and automate.
 
@@ -109,6 +155,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         await scrollUntilVisible(scrollableState, find.text(widgetDemo0, skipOffstage: false));
 
         tapOnText(widgetDemo0);
+
+         */
 
         // At the end of the test, mark as finished.
         finished = true;
