@@ -78,17 +78,22 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         final String widgetDemo0 = widgetDemos[0];
 
-        final Element widgetDemoLocation = find.text(widgetDemo0).evaluate().first;
+        final Element widgetDemoLocation =
+            find.text(widgetDemo0, skipOffstage: false).evaluate().first;
+        print('Element is $widgetDemoLocation');
 
         // Find corresponding widget
 
         final BuildContext widgetDemoContext =
             widgetDemoLocation as BuildContext;
 
+        print('BuildContext is $widgetDemoContext');
+
         final Scrollable scrollable = Scrollable.of(widgetDemoContext).widget;
         // TODO: I don't know if this actually works. Let's find out.
+        print('Scrollable is $scrollable');
 
-        scrollUntilVisible(scrollable, find.text(widgetDemo0));
+        scrollUntilVisible(scrollable, find.text(widgetDemo0, skipOffstage: false));
 
         // At the end of the test, mark as finished.
         finished = true;
