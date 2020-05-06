@@ -103,11 +103,11 @@ class _BackdropState extends State<Backdrop>
   }
 
   void _toggleSettings() {
+    initAnimationLayer();
     // Animate the settings panel to open or close.
     _settingsPanelController.fling(
         velocity: _isSettingsOpenNotifier.value ? -1 : 1);
     _isSettingsOpenNotifier.value = !_isSettingsOpenNotifier.value;
-    initAnimationLayer();
     isActive.value = true;
   }
 
