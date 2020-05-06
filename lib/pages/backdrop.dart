@@ -53,10 +53,7 @@ class _BackdropState extends State<Backdrop>
     );
     _settingsPageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
-    _settingsPage = widget.settingsPage ??
-        SettingsPage(
-          animationController: _settingsPanelController,
-        );
+    _settingsPage = widget.settingsPage ?? SettingsPage();
     _homePage = widget.homePage ?? HomePage();
   }
 
@@ -185,77 +182,80 @@ class _BackdropState extends State<Backdrop>
       },
     );
 
-    return Stack(
-      children: [
-        if (!isDesktop) ...[
-          // Slides the settings page up and down from the top of the
-          // screen.
-          PositionedTransition(
-            rect: _slideDownSettingsPageAnimation(constraints),
-            child: settingsPage,
-          ),
-          // Slides the home page up and down below the bottom of the
-          // screen.
-          PositionedTransition(
-            rect: _slideDownHomePageAnimation(constraints),
-            child: homePage,
-          ),
-        ],
-        if (isDesktop) ...[
-          Semantics(sortKey: const OrdinalSortKey(2), child: homePage),
-          ValueListenableBuilder<bool>(
-            valueListenable: _isSettingsOpenNotifier,
-            builder: (context, isSettingsOpen, child) {
-              if (isSettingsOpen) {
-                return ExcludeSemantics(
-                  child: Listener(
-                    onPointerDown: (_) => _toggleSettings(),
-                    child: const ModalBarrier(dismissible: false),
-                  ),
-                );
-              } else {
-                return Container();
-              }
-            },
-          ),
-          Semantics(
-            sortKey: const OrdinalSortKey(3),
-            child: ScaleTransition(
-              alignment: Directionality.of(context) == TextDirection.ltr
-                  ? Alignment.topRight
-                  : Alignment.topLeft,
-              scale: CurvedAnimation(
-                parent: _settingsPanelController,
-                curve: Curves.easeIn,
-                reverseCurve: Curves.easeOut,
-              ),
-              child: Align(
-                alignment: AlignmentDirectional.topEnd,
-                child: Material(
-                  elevation: 7,
-                  clipBehavior: Clip.antiAlias,
-                  borderRadius: BorderRadius.circular(40),
-                  color: Theme.of(context).colorScheme.secondaryVariant,
-                  child: Container(
-                    constraints: const BoxConstraints(
-                      maxHeight: 560,
-                      maxWidth: desktopSettingsWidth,
-                      minWidth: desktopSettingsWidth,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: GalleryOptions.of(context).resolvedSystemUiOverlayStyle(),
+      child: Stack(
+        children: [
+          if (!isDesktop) ...[
+            // Slides the settings page up and down from the top of the
+            // screen.
+            PositionedTransition(
+              rect: _slideDownSettingsPageAnimation(constraints),
+              child: settingsPage,
+            ),
+            // Slides the home page up and down below the bottom of the
+            // screen.
+            PositionedTransition(
+              rect: _slideDownHomePageAnimation(constraints),
+              child: homePage,
+            ),
+          ],
+          if (isDesktop) ...[
+            Semantics(sortKey: const OrdinalSortKey(2), child: homePage),
+            ValueListenableBuilder<bool>(
+              valueListenable: _isSettingsOpenNotifier,
+              builder: (context, isSettingsOpen, child) {
+                if (isSettingsOpen) {
+                  return ExcludeSemantics(
+                    child: Listener(
+                      onPointerDown: (_) => _toggleSettings(),
+                      child: const ModalBarrier(dismissible: false),
                     ),
-                    child: settingsPage,
+                  );
+                } else {
+                  return Container();
+                }
+              },
+            ),
+            Semantics(
+              sortKey: const OrdinalSortKey(3),
+              child: ScaleTransition(
+                alignment: Directionality.of(context) == TextDirection.ltr
+                    ? Alignment.topRight
+                    : Alignment.topLeft,
+                scale: CurvedAnimation(
+                  parent: _settingsPanelController,
+                  curve: Curves.easeIn,
+                  reverseCurve: Curves.easeOut,
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional.topEnd,
+                  child: Material(
+                    elevation: 7,
+                    clipBehavior: Clip.antiAlias,
+                    borderRadius: BorderRadius.circular(40),
+                    color: Theme.of(context).colorScheme.secondaryVariant,
+                    child: Container(
+                      constraints: const BoxConstraints(
+                        maxHeight: 560,
+                        maxWidth: desktopSettingsWidth,
+                        minWidth: desktopSettingsWidth,
+                      ),
+                      child: settingsPage,
+                    ),
                   ),
                 ),
               ),
             ),
+          ],
+          _SettingsIcon(
+            animationController: _settingsPanelController,
+            toggleSettings: _toggleSettings,
+            flareController: this,
+            isSettingsOpenNotifier: _isSettingsOpenNotifier,
           ),
         ],
-        _SettingsIcon(
-          animationController: _settingsPanelController,
-          toggleSettings: _toggleSettings,
-          flareController: this,
-          isSettingsOpenNotifier: _isSettingsOpenNotifier,
-        ),
-      ],
+      ),
     );
   }
 
@@ -316,7 +316,7 @@ class _SettingsIcon extends AnimatedWidget {
                 toggleSettings();
                 SemanticsService.announce(
                   _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
-                  GalleryOptions.of(context).textDirection(),
+                  GalleryOptions.of(context).resolvedTextDirection(),
                 );
               },
               child: Padding(
