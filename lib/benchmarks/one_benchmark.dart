@@ -29,7 +29,13 @@ Future<void> main() async {
   final String nextBenchmark = await _client.requestNextBenchmark();
 
   if (nextBenchmark == LocalBenchmarkServerClient.kManualFallback) {
-    _fallbackToManual('The server did not tell us which benchmark to run next.');
+    if (benchmarks.length == 1) {
+      await _runBenchmark(benchmarks.keys.single);
+    } else {
+      _fallbackToManual(
+        'The server did not tell us which benchmark to run next.',
+      );
+    }
     return;
   }
 
