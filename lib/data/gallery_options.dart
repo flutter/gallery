@@ -75,9 +75,10 @@ class GalleryOptions {
       // https://github.com/flutter/flutter/issues/45343
       (!kIsWeb && Platform.isMacOS ? const Locale('en', 'US') : null);
 
-  /// Returns the text direction based on the [CustomTextDirection] setting.
-  /// If the locale cannot be determined, returns null.
-  TextDirection textDirection() {
+  /// Returns a text direction based on the [CustomTextDirection] setting.
+  /// If it is based on locale and the locale cannot be determined, returns
+  /// null.
+  TextDirection resolvedTextDirection() {
     switch (customTextDirection) {
       case CustomTextDirection.localeBased:
         final language = locale?.languageCode?.toLowerCase();
