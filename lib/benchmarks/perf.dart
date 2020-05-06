@@ -87,8 +87,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
-        for (final demo in demoDescriptions.sublist(7, 8)) {
-          // TODO: Fix tap for "Bottom navigation@material".
+        for (final demo in demoDescriptions.sublist(5, 6)) {
+          // TODO: Fix tap for "Bottom navigation@material" (#7) and (#8).
 
           // TODO: run the demo.
 
@@ -101,6 +101,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           // TODO: Do spatial measurements on demoButton.
 
           print('$demo | Spatial >> ${demoButton.renderObject.paintBounds.size}');
+
+          final translation = demoButton.renderObject.getTransformTo(null).getTranslation();
+
+          print('$demo | Spatial >> (${translation.x}, ${translation.y})');
 
           final ScrollableState scrollableState =
               Scrollable.of(demoButton as BuildContext);
@@ -232,9 +236,13 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     // scroll up a little bit, just to make sure we can access the button.
     // TODO: replace with smoother animation.
 
+    print('scrollUntilVisible | Scrolled.');
+
     scrollableState.position.jumpTo(
       scrollableState.position.pixels + referenceSize.height,
     );
+
+    print('scrollUntilVisible | Scrolled more.');
 
     await Future<void>.delayed(const Duration(milliseconds: 50));
 
