@@ -88,6 +88,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         final Scrollable scrollable = Scrollable.of(widgetDemoContext).widget;
         // TODO: I don't know if this actually works. Let's find out.
 
+        scrollUntilVisible(scrollable, find.text(widgetDemo0));
+
         // At the end of the test, mark as finished.
         finished = true;
       }
