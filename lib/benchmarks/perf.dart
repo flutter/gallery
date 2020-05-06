@@ -98,6 +98,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Demo button found, and it is $demoButton');
 
+          // TODO: Do spatial measurements on demoButton.
+
+          print('$demo | Spatial >> ${demoButton.renderObject.paintBounds.size}');
+
           final ScrollableState scrollableState =
               Scrollable.of(demoButton as BuildContext);
 
