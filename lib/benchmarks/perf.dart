@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -111,6 +112,20 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | ScrollableState found, and it is $scrollableState');
 
+          final windowSize = MediaQuery.of(demoButton).size;
+
+          print('$demo | Window size = $windowSize');
+
+          final RenderAbstractViewport viewport = RenderAbstractViewport.of(demoButton.renderObject);
+
+          print('$demo | RenderAbstractViewport found, and it is $viewport');
+
+          await realScrollUntilVisible(
+            scrollableState: scrollableState,
+            element: demoButton,
+            windowSize: windowSize,
+          );
+
           await scrollUntilVisible(
             scrollableState,
             find.byKey(ValueKey(demo)),
@@ -181,6 +196,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     await controller.tap(find.text(text, skipOffstage: skipOffStage));
     print('Tapped $text');
     await Future<void>.delayed(Duration(milliseconds: 1000));
+  }
+
+  Future<void> realScrollUntilVisible({
+    ScrollableState scrollableState,
+    Element element,
+    Size windowSize,
+  }) async {
+    // TODO: Add code.
   }
 
   // TODO: Adapt.
