@@ -111,7 +111,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             scrollableState,
             find.byKey(ValueKey(demo)),
             elastic: {'Starter app@study'}.contains(demo),
-            referenceSize: demoButton.renderObject.paintBounds.size;
+            referenceSize: demoButton.renderObject.paintBounds.size,
           );
 
           print('$demo | Scrolled');
