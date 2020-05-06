@@ -111,6 +111,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             scrollableState,
             find.byKey(ValueKey(demo)),
             elastic: {'Starter app@study'}.contains(demo),
+            referenceSize: demoButton.renderObject.paintBounds.size;
           );
 
           print('$demo | Scrolled');
@@ -182,7 +183,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   Future<void> scrollUntilVisible(
       ScrollableState scrollableState,
       Finder item,
-      {bool elastic = false,}
+      {
+        bool elastic = false,
+        Size referenceSize,
+      }
     ) async {
     assert(scrollableState != null);
     assert(item != null);
@@ -221,12 +225,18 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       // jump to
       scrollableState.position.jumpTo(newPixels);
 
-      // TODO: await scroll.
-      // no await needed here.
-
       // TODO: await a certain time.
       await Future<void>.delayed(const Duration(milliseconds: 50));
     }
+
+    // scroll up a little bit, just to make sure we can access the button.
+    // TODO: replace with smoother animation.
+
+    scrollableState.position.jumpTo(
+      scrollableState.position.pixels + referenceSize.height,
+    );
+
+    await Future<void>.delayed(const Duration(milliseconds: 50));
 
     return;
   }
