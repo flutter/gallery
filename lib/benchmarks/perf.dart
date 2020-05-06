@@ -99,7 +99,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         final ScrollableState scrollableState = Scrollable.of(widgetDemoContext);
 
-        scrollUntilVisible(scrollableState, find.text(widgetDemo0, skipOffstage: false));
+        await scrollUntilVisible(scrollableState, find.text(widgetDemo0, skipOffstage: false));
+
+        tapOnText(widgetDemo0);
 
         // At the end of the test, mark as finished.
         finished = true;
