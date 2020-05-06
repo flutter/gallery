@@ -198,8 +198,7 @@ class ApplyTextOptions extends StatelessWidget {
   }
 }
 
-// Everything below is boilerplate except code relating to time dilation and
-// theme changes.
+// Everything below is boilerplate except code relating to time dilation.
 // See https://medium.com/flutter/managing-flutter-application-state-with-inheritedwidgets-1140452befe1
 
 class _ModelBindingScope extends InheritedWidget {
@@ -265,26 +264,9 @@ class _ModelBindingState extends State<ModelBinding> {
     }
   }
 
-  void handleThemeChange(GalleryOptions newModel) {
-//    switch (newModel.themeMode) {
-//      case ThemeMode.system:
-//        final brightness = WidgetsBinding.instance.window.platformBrightness;
-//        SystemChrome.setSystemUIOverlayStyle(brightness == Brightness.dark
-//            ? SystemUiOverlayStyle.light
-//            : SystemUiOverlayStyle.dark);
-//        break;
-//      case ThemeMode.light:
-//        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-//        break;
-//      case ThemeMode.dark:
-//        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-//    }
-  }
-
   void updateModel(GalleryOptions newModel) {
     if (newModel != currentModel) {
       handleTimeDilation(newModel);
-      handleThemeChange(newModel);
       setState(() {
         currentModel = newModel;
       });
