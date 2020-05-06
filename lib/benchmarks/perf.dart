@@ -93,7 +93,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         // TODO: I don't know if this actually works. Let's find out.
         print('Scrollable is $scrollable');
 
-        scrollUntilVisible(scrollable, find.text(widgetDemo0, skipOffstage: false));
+        final ScrollableState scrollableState = Scrollable.of(widgetDemoContext);
+
+        scrollUntilVisible(scrollableState, find.text(widgetDemo0, skipOffstage: false));
 
         // At the end of the test, mark as finished.
         finished = true;
@@ -110,10 +112,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   // TODO: Adapt.
   Future<void> scrollUntilVisible(
-      Scrollable scrollable,
+      ScrollableState scrollableState,
       Finder item,
     ) async {
-    assert(scrollable != null);
+    assert(scrollableState != null);
     assert(item != null);
 
     bool isVisible = false;
@@ -129,13 +131,13 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       // TODO: scroll the scrollable.
 
       // get current position
-      final double pixels = scrollable.controller.position.pixels;
+      final double pixels = scrollableState.position.pixels;
 
       // compute new position
       final double newPixels = pixels + 30;
 
       // jump to
-      scrollable.controller.jumpTo(newPixels);
+      scrollableState.position.jumpTo(newPixels);
 
       // TODO: await scroll.
       // no await needed here.
