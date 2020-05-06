@@ -63,7 +63,7 @@ class FlyDestination extends Destination {
     if (duration == null) {
       return stopsText;
     } else {
-      final textDirection = GalleryOptions.of(context).textDirection();
+      final textDirection = GalleryOptions.of(context).resolvedTextDirection();
       final durationText =
           formattedDuration(context, duration, abbreviated: true);
       return textDirection == TextDirection.ltr

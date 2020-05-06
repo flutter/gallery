@@ -44,6 +44,7 @@ class RallyApp extends StatelessWidget {
   ThemeData _buildRallyTheme() {
     final base = ThemeData.dark();
     return ThemeData(
+      appBarTheme: const AppBarTheme(brightness: Brightness.dark, elevation: 0),
       scaffoldBackgroundColor: RallyColors.primaryBackground,
       primaryColor: RallyColors.primaryBackground,
       focusColor: RallyColors.focusColor,

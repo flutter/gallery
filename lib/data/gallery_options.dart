@@ -8,7 +8,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
-import 'package:flutter/services.dart' show SystemChrome, SystemUiOverlayStyle;
+import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:gallery/constants.dart';
 
 enum CustomTextDirection {
@@ -75,9 +75,10 @@ class GalleryOptions {
       // https://github.com/flutter/flutter/issues/45343
       (!kIsWeb && Platform.isMacOS ? const Locale('en', 'US') : null);
 
-  /// Returns the text direction based on the [CustomTextDirection] setting.
-  /// If the locale cannot be determined, returns null.
-  TextDirection textDirection() {
+  /// Returns a text direction based on the [CustomTextDirection] setting.
+  /// If it is based on locale and the locale cannot be determined, returns
+  /// null.
+  TextDirection resolvedTextDirection() {
     switch (customTextDirection) {
       case CustomTextDirection.localeBased:
         final language = locale?.languageCode?.toLowerCase();
@@ -90,6 +91,29 @@ class GalleryOptions {
       default:
         return TextDirection.ltr;
     }
+  }
+
+  /// Returns a [SystemUiOverlayStyle] based on the [ThemeMode] setting.
+  /// In other words, if the theme is dark, returns light; if the theme is
+  /// light, returns dark.
+  SystemUiOverlayStyle resolvedSystemUiOverlayStyle() {
+    Brightness brightness;
+    switch (themeMode) {
+      case ThemeMode.light:
+        brightness = Brightness.light;
+        break;
+      case ThemeMode.dark:
+        brightness = Brightness.dark;
+        break;
+      default:
+        brightness = WidgetsBinding.instance.window.platformBrightness;
+    }
+
+    final overlayStyle = brightness == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
+
+    return overlayStyle;
   }
 
   GalleryOptions copyWith({
@@ -156,7 +180,7 @@ class ApplyTextOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final options = GalleryOptions.of(context);
-    final textDirection = options.textDirection();
+    final textDirection = options.resolvedTextDirection();
     final textScaleFactor = options.textScaleFactor(context);
 
     Widget widget = MediaQuery(
@@ -174,8 +198,7 @@ class ApplyTextOptions extends StatelessWidget {
   }
 }
 
-// Everything below is boilerplate except code relating to time dilation and
-// theme changes.
+// Everything below is boilerplate except code relating to time dilation.
 // See https://medium.com/flutter/managing-flutter-application-state-with-inheritedwidgets-1140452befe1
 
 class _ModelBindingScope extends InheritedWidget {
@@ -241,26 +264,9 @@ class _ModelBindingState extends State<ModelBinding> {
     }
   }
 
-  void handleThemeChange(GalleryOptions newModel) {
-    switch (newModel.themeMode) {
-      case ThemeMode.system:
-        final brightness = WidgetsBinding.instance.window.platformBrightness;
-        SystemChrome.setSystemUIOverlayStyle(brightness == Brightness.dark
-            ? SystemUiOverlayStyle.light
-            : SystemUiOverlayStyle.dark);
-        break;
-      case ThemeMode.light:
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-        break;
-      case ThemeMode.dark:
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    }
-  }
-
   void updateModel(GalleryOptions newModel) {
     if (newModel != currentModel) {
       handleTimeDilation(newModel);
-      handleThemeChange(newModel);
       setState(() {
         currentModel = newModel;
       });
