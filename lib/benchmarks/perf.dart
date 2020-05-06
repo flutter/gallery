@@ -10,6 +10,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'recorder.dart';
 
+import 'package:gallery/data/demos.dart';
+import 'package:gallery/l10n/gallery_localizations_en.dart';
 import 'package:gallery/main.dart';
 
 const List<String> studyDemos = <String>[
@@ -78,6 +80,15 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
          */
 
+        // Find all demos
+
+        final demoDescriptions = allGalleryDemos(GalleryLocalizationsEn())
+            .map((demo) => demo.describe)
+            .toList();
+
+        for (final demoDescription in demoDescriptions)
+            print(demoDescription);
+
         // widgetDemos[0]
 
         final String widgetDemo0 = widgetDemos[0];
@@ -93,11 +104,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         print('BuildContext is $widgetDemoContext');
 
-        final Scrollable scrollable = Scrollable.of(widgetDemoContext).widget;
-        // TODO: I don't know if this actually works. Let's find out.
-        print('Scrollable is $scrollable');
-
         final ScrollableState scrollableState = Scrollable.of(widgetDemoContext);
+
+        print('ScrollableState is $scrollableState');
 
         await scrollUntilVisible(scrollableState, find.text(widgetDemo0, skipOffstage: false));
 
