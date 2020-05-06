@@ -769,8 +769,6 @@ class CodeDisplayPage extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
             onPressed: () async {
-              // The future will not complete on web, thus no
-              // Snackbar will be shown, see https://github.com/flutter/flutter/issues/49349.
               await Clipboard.setData(ClipboardData(text: _plainTextCode))
                   .then(_showSnackBarOnCopySuccess)
                   .catchError(_showSnackBarOnCopyFailure);
