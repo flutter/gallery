@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: Scaffold(
+        appBar: AppBar(automaticallyImplyLeading: false),
         body: SafeArea(
           child: _MainView(
             usernameController: _usernameController,

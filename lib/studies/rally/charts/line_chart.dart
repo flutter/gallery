@@ -27,7 +27,7 @@ class RallyLineChart extends StatelessWidget {
         numberFormat: usdWithSignFormat(context),
         events: events,
         labelStyle: Theme.of(context).textTheme.bodyText2,
-        textDirection: GalleryOptions.of(context).textDirection(),
+        textDirection: GalleryOptions.of(context).resolvedTextDirection(),
         textScaleFactor: reducedTextScale(context),
         padding: isDisplayDesktop(context)
             ? const EdgeInsets.symmetric(vertical: 22)

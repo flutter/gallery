@@ -51,7 +51,8 @@ class _HomePageState extends State<HomePage>
     Widget tabBarView;
     if (isDesktop) {
       final isTextDirectionRtl =
-          GalleryOptions.of(context).textDirection() == TextDirection.rtl;
+          GalleryOptions.of(context).resolvedTextDirection() ==
+              TextDirection.rtl;
       final verticalRotation =
           isTextDirectionRtl ? turnsToRotateLeft : turnsToRotateRight;
       final revertVerticalRotation =
