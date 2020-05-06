@@ -82,12 +82,12 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             .map((demo) => demo.describe)
             .toList();
 
-        for (final demoDescription in demoDescriptions)
-            print(demoDescription);
+        for (final demo in demoDescriptions)
+            print(demo);
 
         // TODO: abstract and automate here.
 
-        for (final demo in ['Rally@study']) {
+        for (final demo in demoDescriptions.sublist(4, 5)) {
           // TODO: run the demo.
 
           final Element demoButton =
@@ -104,6 +104,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           await scrollUntilVisible(
             scrollableState,
             find.byKey(ValueKey(demo)),
+            elastic: true,
           );
 
           print('$demo | Scrolled');
@@ -175,9 +176,18 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   Future<void> scrollUntilVisible(
       ScrollableState scrollableState,
       Finder item,
+      {bool elastic = false,}
     ) async {
     assert(scrollableState != null);
     assert(item != null);
+
+    if (elastic) {
+      final double endOfScroll = scrollableState.position.maxScrollExtent;
+      scrollableState.position.jumpTo(endOfScroll);
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+
+      return;
+    }
 
     bool isVisible = false;
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
