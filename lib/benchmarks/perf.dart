@@ -120,6 +120,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | RenderAbstractViewport found, and it is $viewport');
 
+          final RenderAbstractViewport viewport2 = RenderAbstractViewport.of(find.text('Categories').evaluate().single.renderObject);
+
+          print('$demo | RenderAbstractViewport2 found, and it is $viewport2');
+
           await realScrollUntilVisible(
             scrollableState: scrollableState,
             element: demoButton,
