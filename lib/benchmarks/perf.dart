@@ -67,12 +67,16 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           WidgetsBinding.instance
         );
 
+        /* Skip studyDemos.
+
         for (final String demo in studyDemos) {
           await tapOnText(demo);
           await controller.tap(find.byKey(const ValueKey('Back')));
           print('Back');
           await Future<void>.delayed(Duration(milliseconds: 1000));
         }
+
+         */
 
         // widgetDemos[0]
 
