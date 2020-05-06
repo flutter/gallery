@@ -87,7 +87,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
-        for (final demo in demoDescriptions.sublist(4, 5)) {
+        for (final demo in demoDescriptions.sublist(0, 5)) {
           // TODO: run the demo.
 
           final Element demoButton =
@@ -104,7 +104,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           await scrollUntilVisible(
             scrollableState,
             find.byKey(ValueKey(demo)),
-            elastic: true,
+            elastic: {'Starter app@study'}.contains(demo),
           );
 
           print('$demo | Scrolled');
@@ -186,6 +186,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       scrollableState.position.jumpTo(endOfScroll);
       await Future<void>.delayed(const Duration(milliseconds: 50));
 
+      return;
+    }
+
+    if (item.evaluate().isNotEmpty) {
+      // No need to scroll if already visible.
       return;
     }
 
