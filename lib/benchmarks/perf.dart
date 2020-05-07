@@ -79,6 +79,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
     reporter('==== List of demos ====');
     for (final demo in demoDescriptions) {
+      if (!runCriterion(demo)) continue;
       reporter(demo);
     }
     reporter('==== End of list of demos ====');

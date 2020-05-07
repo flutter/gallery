@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:convert' show json;
+import 'dart:convert' show json, JsonEncoder;
 import 'dart:io' as io;
 
 import 'package:logging/logging.dart';
@@ -197,5 +197,5 @@ Future<void> main () async {
   final TaskResult result = await runWebBenchmark(useCanvasKit: false);
   print ('Finished.');
   print ('Result: $result');
-  print ('Data: ${result.toJson()}');
+  print (const JsonEncoder.withIndent('  ').convert(result.toJson()));
 }
