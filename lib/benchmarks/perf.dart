@@ -15,39 +15,6 @@ import 'package:gallery/data/demos.dart';
 import 'package:gallery/l10n/gallery_localizations_en.dart';
 import 'package:gallery/main.dart';
 
-const List<String> studyDemos = <String>[
-  'Shrine',
-  'Rally',
-  'Crane',
-  'Fortnightly',
-];
-
-const List<String> widgetDemos = <String>[
-  'Bottom navigation',
-  'Buttons',
-  'Cards',
-  'Chips',
-  'Dialogs',
-  'Pickers',
-  'Alerts',
-  'Colors',
-];
-
-const List<String> demos = <String>[
-  'Shrine',
-  'Rally',
-  'Crane',
-  'Fortnightly',
-  'Bottom navigation',
-  'Buttons',
-  'Cards',
-  'Chips',
-  'Dialogs',
-  'Pickers',
-  'Alerts',
-  'Colors',
-];
-
 // Demos that will be backed out of within FlutterDriver.runUnsynchronized();
 //
 // These names must match the output of GalleryDemo.describe in
