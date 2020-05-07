@@ -30,7 +30,7 @@ Future<TaskResult> runWebBenchmark({
   Logger.root.level = Level.INFO;
   final String macrobenchmarksDirectory = '..';
   return await inDirectory(macrobenchmarksDirectory, () async {
-    await evalFlutterAbsolute('build',
+    await evalFlutter('build',
       flutterDirectory: flutterDirectory,
       options: <String>[
         'web',

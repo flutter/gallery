@@ -372,7 +372,7 @@ List<String> flutterCommandArgs(String command, List<String> options) {
 }
 
 /// Runs a `flutter` command and returns the standard output as a string.
-Future<String> evalFlutterAbsolute(String command, {
+Future<String> evalFlutter(String command, {
   String flutterDirectory,
   List<String> options = const <String>[],
   bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
