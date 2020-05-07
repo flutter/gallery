@@ -87,7 +87,7 @@ Future<void> scrollUntilVisible({
       curve: Curves.easeInOut,
     );
   } else {
-    scrollable.position.jumpTo(targetPixels);
+    scrollable.position.jumpTo(restrictedTargetPixels);
   }
 
   await animationStops();
