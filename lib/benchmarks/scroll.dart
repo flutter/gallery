@@ -47,37 +47,36 @@ Future<void> scrollUntilVisible({
     return;
   }
 
-    double pixelsToBeMoved;
-    switch (scrollable.axisDirection) {
-    // TODO: add support for other directions and other alignment policies.
-      case AxisDirection.down:
-        pixelsToBeMoved = elementRect.top - visibleWindow.top;
-        break;
-      case AxisDirection.right:
-        pixelsToBeMoved = elementRect.left - visibleWindow.left;
-        break;
-      default: break;
-    }
+  double pixelsToBeMoved;
+  switch (scrollable.axisDirection) {
+  // TODO: add support for other directions and other alignment policies.
+    case AxisDirection.down:
+      pixelsToBeMoved = elementRect.top - visibleWindow.top;
+      break;
+    case AxisDirection.right:
+      pixelsToBeMoved = elementRect.left - visibleWindow.left;
+      break;
+    default: break;
+  }
 
-    final double targetPixels = scrollable.position.pixels + pixelsToBeMoved;
-    final double restrictedTargetPixels = targetPixels.clamp(
-      scrollable.position.minScrollExtent,
-      scrollable.position.maxScrollExtent,
-    ).toDouble();
+  final double targetPixels = scrollable.position.pixels + pixelsToBeMoved;
+  final double restrictedTargetPixels = targetPixels.clamp(
+    scrollable.position.minScrollExtent,
+    scrollable.position.maxScrollExtent,
+  ).toDouble();
 
-    if (animated) {
-      await scrollable.position.animateTo(
-        restrictedTargetPixels,
-        duration: _scrollAnimationLength,
-        curve: Curves.easeInOut,
-      );
-    } else {
-      scrollable.position.jumpTo(targetPixels);
-    }
-    await animationStops();
+  if (animated) {
+    await scrollable.position.animateTo(
+      restrictedTargetPixels,
+      duration: _scrollAnimationLength,
+      curve: Curves.easeInOut,
+    );
+  } else {
+    scrollable.position.jumpTo(targetPixels);
+  }
+  await animationStops();
 
-    return;
-
+  return;
 }
 
 Future<void> animationStops() async {
