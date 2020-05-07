@@ -88,8 +88,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     var finishedStudyDemos = false;
 
     for (final demo in demoDescriptions) {
-      if (!runCriterion(demo)) continue;
-
       if (!finishedStudyDemos && typeOfDemo(demo) != DemoType.study) {
         finishedStudyDemos = true;
 
@@ -103,6 +101,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
 
       await scrollUntilVisible(element: demoButton);
+
+      if (!runCriterion(demo)) continue;
 
       reporter('$demo | Started');
 
