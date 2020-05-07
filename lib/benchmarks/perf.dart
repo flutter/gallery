@@ -74,38 +74,42 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
               find.byKey(ValueKey(demo), skipOffstage: false)
               .evaluate().single;
 
-          print('$demo | Demo button found, and it is $demoButton');
-          print('$demo | Spatial >> ${demoButton.renderObject.paintBounds.size}');
-          print('$demo | Spatial >> ${absoluteTopLeft(demoButton.renderObject)}');
+          for (var i = 0; i < 2; ++i) {
+            print('$demo | Run $i');
+            print('$demo | Demo button found, and it is $demoButton');
+            print('$demo | Spatial >> ${demoButton.renderObject.paintBounds
+                .size}');
+            print('$demo | Spatial >> ${absoluteTopLeft(
+                demoButton.renderObject)}');
 
-          await realScrollUntilVisible(
-            element: demoButton,
-          );
+            await realScrollUntilVisible(
+              element: demoButton,
+            );
 
-          print('$demo | Scrolled');
+            print('$demo | Scrolled');
 
-          await animationStops();
+            await animationStops();
 
-          print('$demo | Waited for scroll to stop');
+            print('$demo | Waited for scroll to stop');
 
-          await controller.tap(find.byKey(ValueKey(demo)));
+            await controller.tap(find.byKey(ValueKey(demo)));
 
-          print('$demo | Tapped');
+            print('$demo | Tapped');
 
-          if (_unsynchronizedDemos.contains(demo)) {
-            await Future<void>.delayed(Duration(seconds: 3));
-          } else {
+            if (_unsynchronizedDemos.contains(demo)) {
+              await Future<void>.delayed(Duration(seconds: 3));
+            } else {
+              await animationStops();
+            }
+
+            print('$demo | Waited');
+
+            await controller.tap(find.byKey(ValueKey('Back')));
+
+            print('$demo | Tapped "Back"');
+
             await animationStops();
           }
-
-          print('$demo | Waited');
-
-          await controller.tap(find.byKey(ValueKey('Back')));
-
-          print('$demo | Tapped "Back"');
-
-          await animationStops();
-
           print('$demo | Finished');
         }
 
