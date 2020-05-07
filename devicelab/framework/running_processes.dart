@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// Adapted from flutter/dev/devicelab/lib/framework/running_processes.dart
+
 import 'dart:io';
 
 import 'package:meta/meta.dart';

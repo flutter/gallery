@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// Adapted from flutter/dev/devicelab/lib/tasks/web_benchmarks.dart
+
 import 'dart:async';
 import 'dart:convert' show json, JsonEncoder;
 import 'dart:io' as io;
