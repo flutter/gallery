@@ -20,7 +20,9 @@ import 'package:flutter/widgets.dart';
 /// The number of samples from warm-up iterations.
 ///
 /// We warm-up the benchmark prior to measuring to allow JIT and caches to settle.
-const int _kWarmUpSampleCount = 200;
+/// For the Flutter Gallery, which consists of many different demos, we lower this
+/// number in order to reliably measure all demos.
+const int _kWarmUpSampleCount = 5;
 
 /// The number of samples we use to collect statistics from.
 const int _kMinimumMeasuredSampleCount = 100;
