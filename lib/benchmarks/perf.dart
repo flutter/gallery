@@ -22,7 +22,7 @@ const Duration _initialWaitingDuration = Duration(milliseconds: 1500);
 const List<String> _demosWithAnimation = <String>[
   'Progress indicators@material',
   'Activity indicator@cupertino',
-  'Colors@reference',
+  'Colors@other',
 ];
 
 const Duration _defaultWaitingDuration = Duration(seconds: 3);
