@@ -17,6 +17,7 @@ List<FlyDestination> getFlyDestinations(BuildContext context) =>
         duration: const Duration(hours: 6, minutes: 15),
         assetSemanticLabel:
             GalleryLocalizations.of(context).craneFly0SemanticLabel,
+        imageAspectRatio: 400 / 400,
       ),
       FlyDestination(
         id: 1,
