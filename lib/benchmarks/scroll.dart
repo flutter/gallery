@@ -43,12 +43,13 @@ Future<void> scrollUntilVisible({
 
   final Rect visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
-  if (_isSuperset(large: visibleWindow, small: elementRect) && !strict) {
+  if (!strict && _isSuperset(large: visibleWindow, small: elementRect)) {
     return;
-  } else {
+  }
+
     double pixelsToBeMoved;
     switch (scrollable.axisDirection) {
-      // TODO: add support for other directions and other alignment policies.
+    // TODO: add support for other directions and other alignment policies.
       case AxisDirection.down:
         pixelsToBeMoved = elementRect.top - visibleWindow.top;
         break;
@@ -76,7 +77,7 @@ Future<void> scrollUntilVisible({
     await animationStops();
 
     return;
-  }
+
 }
 
 Future<void> animationStops() async {
