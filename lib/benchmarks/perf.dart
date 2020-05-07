@@ -16,9 +16,6 @@ import 'scroll.dart';
 
 const Duration _initialWaitingDuration = Duration(milliseconds: 1500);
 
-// TODO: update documentation.
-// These names must match the output of GalleryDemo.describe in
-// lib/data/demos.dart.
 const List<String> _demosWithAnimation = <String>[
   'Progress indicators@material',
   'Activity indicator@cupertino',
@@ -43,7 +40,7 @@ DemoType typeOfDemo(String demo) {
   }
 }
 
-// TODO: update documentation.
+/// A recorder that measures frame building durations for the Gallery.
 class GalleryRecorder extends CustomizedWidgetRecorder {
   GalleryRecorder({this.benchmarkName, this.reporter, this.runCriterion}) : super(name: benchmarkName);
 
@@ -59,11 +56,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   @override
   Widget createWidget() {
-    // TODO: Set up future for automation.
     Future<void>.delayed(_initialWaitingDuration, automateGestures);
     return const GalleryApp();
   }
 
+  /// Opens and quits demos that are specified by [runCriterion], twice.
   Future<void> automateGestures() async {
     await animationStops();
 
@@ -83,8 +80,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       reporter(demo);
     }
     reporter('==== End of list of demos ====');
-
-    // TODO: abstract and automate here.
 
     var finishedStudyDemos = false;
 
@@ -132,5 +127,4 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     // At the end of the test, mark as finished.
     finished = true;
   }
-
 }
