@@ -238,6 +238,8 @@ Future<void> main (List<String> rawArgs) async {
     useCanvasKit: useCanvasKit,
     flutterDirectory: flutterDirectory,
   );
-  print ('Finished. Result:');
+  print ('Finished.');
+  print ('==== Gallery benchmark results ====');
   print (const JsonEncoder.withIndent('  ').convert(result.toJson()));
+  print ('==== End of gallery benchmark results ====');
 }
