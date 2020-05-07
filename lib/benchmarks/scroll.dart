@@ -30,6 +30,21 @@ bool _isSuperset({@required Rect large, @required Rect small})
         && large.bottom >= small.bottom
         && large.right >= small.right;
 
+Future<void> animationStops() async {
+  if (! WidgetsBinding.instance.hasScheduledFrame) return;
+
+  final Completer stopped = Completer<void>();
+
+  Timer.periodic(_animationCheckingInterval, (timer) {
+    if (! WidgetsBinding.instance.hasScheduledFrame) {
+      stopped.complete();
+      timer.cancel();
+    }
+  });
+
+  await stopped.future;
+}
+
 Future<void> scrollUntilVisible({
   Element element,
   bool strict = false,
@@ -76,19 +91,4 @@ Future<void> scrollUntilVisible({
   }
 
   await animationStops();
-}
-
-Future<void> animationStops() async {
-  if (! WidgetsBinding.instance.hasScheduledFrame) return;
-
-  final Completer stopped = Completer<void>();
-
-  Timer.periodic(_animationCheckingInterval, (timer) {
-    if (! WidgetsBinding.instance.hasScheduledFrame) {
-      stopped.complete();
-      timer.cancel();
-    }
-  });
-
-  await stopped.future;
 }
