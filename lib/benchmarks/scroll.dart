@@ -41,7 +41,7 @@ Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
 
 Future<void> realScrollUntilVisible({
   Element element,
-  bool toTop = false,
+  bool strict = false,
 }) async {
   final RenderObject elementRenderObject = element.renderObject;
   final Rect elementRect = absoluteRect(elementRenderObject);
@@ -54,7 +54,7 @@ Future<void> realScrollUntilVisible({
 
   final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
 
-  if (isSuperset(large: visibleWindow, small: elementRect) && !toTop) {
+  if (isSuperset(large: visibleWindow, small: elementRect) && !strict) {
     print('Already contains.');
     return;
   } else {

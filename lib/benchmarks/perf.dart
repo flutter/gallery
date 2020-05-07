@@ -90,9 +90,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
-        realScrollUntilVisible(
+        await realScrollUntilVisible(
           element: find.text('Categories').evaluate().single,
-          toTop: true,
+          strict: true,
         );
 
         for (final demo in demoDescriptions.sublist(5)) {
