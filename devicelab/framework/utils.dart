@@ -422,8 +422,6 @@ void cd(dynamic directory) {
     throw 'Cannot cd into directory that does not exist: $directory';
 }
 
-// TODO: Correct flutterDirectory.
-
 String requireEnvVar(String name) {
   final String value = Platform.environment[name];
 
