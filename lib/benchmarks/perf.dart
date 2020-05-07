@@ -58,11 +58,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
-        bool startedCategories = false;
+        bool finishedStudyDemos = false;
 
-        for (final demo in demoDescriptions.sublist(0)) {
-          if (!startedCategories && ! demo.contains('@study')) {
-            startedCategories = true;
+        for (final demo in demoDescriptions) {
+          if (!finishedStudyDemos && ! demo.contains('@study')) {
+            finishedStudyDemos = true;
 
             await realScrollUntilVisible(
               element: find.text('Categories').evaluate().single,
@@ -87,7 +87,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Scrolled');
 
-          await Future<void>.delayed(Duration(milliseconds: 1000));
+          await animationStops();
 
           print('$demo | Waited for scroll to stop');
 
@@ -107,7 +107,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Tapped "Back"');
 
-          await Future<void>.delayed(Duration(milliseconds: 500));
+          await animationStops();
 
           print('$demo | Finished');
         }
