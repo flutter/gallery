@@ -67,6 +67,7 @@ Future<void> realScrollUntilVisible({
         break;
       default: break;
     }
+    // TODO: Correct.
     pixelsToBeMoved = pixelsToBeMoved.clamp(
       scrollable.position.minScrollExtent,
       scrollable.position.maxScrollExtent,
