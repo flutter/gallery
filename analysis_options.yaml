@@ -3,6 +3,8 @@ include: package:pedantic/analysis_options.1.9.0.yaml
 analyzer:
   exclude:
     - lib/l10n/messages_*.dart
+    - lib/benchmarks/benchmark_controller.dart
+    - lib/benchmarks/recorder.dart
     - devicelab/*
   strong-mode:
     implicit-casts: false
