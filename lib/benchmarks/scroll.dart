@@ -43,11 +43,7 @@ Future<void> scrollUntilVisible({
 
   final Rect visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
-  print('visibleWindow = $visibleWindow');
-  print('elementRect =   $elementRect');
-
   if (_isSuperset(large: visibleWindow, small: elementRect) && !strict) {
-    print('Already contains.');
     return;
   } else {
     double pixelsToBeMoved;
