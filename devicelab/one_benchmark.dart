@@ -34,7 +34,7 @@ Future<TaskResult> runWebBenchmark({ @required bool useCanvasKit }) async {
         '--dart-define=FLUTTER_WEB_USE_SKIA=true',
       '--profile',
       '-t',
-      'lib/benchmarks/one_benchmark.dart',
+      'lib/benchmarks/controlled_gallery.dart',
     ], environment: <String, String>{
       'FLUTTER_WEB': 'true',
     });
