@@ -139,19 +139,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             element: demoButton,
           );
 
-          print('Scrolled $demo');
-
-          await Future<void>.delayed(Duration(milliseconds: 1000));
-
-          continue;
-
-          await scrollUntilVisible(
-            scrollableState,
-            find.byKey(ValueKey(demo)),
-            elastic: {'Starter app@study'}.contains(demo),
-            referenceSize: demoButton.renderObject.paintBounds.size,
-          );
-
           print('$demo | Scrolled');
 
           await Future<void>.delayed(Duration(milliseconds: 1000));
