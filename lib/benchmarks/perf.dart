@@ -124,15 +124,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | RenderAbstractViewport2 found, and it is $viewport2');
 
-          print('demoButton | ${absoluteTopLeft1(demoButton.renderObject)}\n'
-                '           | ${absoluteTopLeft2(demoButton.renderObject)}');
-
-          print('RAV | ${absoluteTopLeft1(viewport)}\n'
-                '    | ${absoluteTopLeft2(viewport)}');
-
-          print('RAV2 | ${absoluteTopLeft1(viewport2)}\n'
-                '     | ${absoluteTopLeft2(viewport2)}');
-
           await realScrollUntilVisible(
             scrollableState: scrollableState,
             element: demoButton,
@@ -205,15 +196,15 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     return GalleryApp();
   }
 
-  Offset absoluteTopLeft1(RenderObject renderObject) {
+  // TODO: Remove.
+  Offset absoluteTopLeftAlternate(RenderObject renderObject) {
     final translation = renderObject.getTransformTo(null).getTranslation();
 
     return Offset(translation.x, translation.y);
   }
 
-  Offset absoluteTopLeft2(RenderObject renderObject) {
-    return (renderObject as RenderBox).localToGlobal(Offset.zero);
-  }
+  Offset absoluteTopLeft(RenderObject renderObject)
+      => (renderObject as RenderBox).localToGlobal(Offset.zero);
 
   Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
     await controller.tap(find.text(text, skipOffstage: skipOffStage));
