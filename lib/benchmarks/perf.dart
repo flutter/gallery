@@ -70,15 +70,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           WidgetsBinding.instance
         );
 
-        /*
-        for (final String demo in <String>[] /*studyDemos*/) {
-          await tapOnText(demo);
-          await controller.tap(find.byKey(const ValueKey('Back')));
-          print('Back');
-          await Future<void>.delayed(Duration(milliseconds: 1000));
-        }
-         */
-
         // Find all demos
 
         final demoDescriptions = allGalleryDemos(GalleryLocalizationsEn())
@@ -103,7 +94,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           }
 
           // TODO: Fix tap for "Bottom navigation@material" (#7) and (#8).
-
           // TODO: run the demo.
 
           final Element demoButton =
@@ -111,29 +101,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
               .evaluate().single;
 
           print('$demo | Demo button found, and it is $demoButton');
-
-          // TODO: Do spatial measurements on demoButton.
-
           print('$demo | Spatial >> ${demoButton.renderObject.paintBounds.size}');
-
           print('$demo | Spatial >> ${absoluteTopLeft(demoButton.renderObject)}');
-
-          final ScrollableState scrollableState =
-              Scrollable.of(demoButton);
-
-          print('$demo | ScrollableState found, and it is $scrollableState');
-
-          final windowSize = MediaQuery.of(demoButton).size;
-
-          print('$demo | Window size = $windowSize');
-
-          final RenderAbstractViewport viewport = RenderAbstractViewport.of(demoButton.renderObject);
-
-          print('$demo | RenderAbstractViewport found, and it is $viewport');
-
-          final RenderAbstractViewport viewport2 = RenderAbstractViewport.of(find.text('Categories').evaluate().single.renderObject);
-
-          print('$demo | RenderAbstractViewport2 found, and it is $viewport2');
 
           await realScrollUntilVisible(
             element: demoButton,
@@ -141,7 +110,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Scrolled');
 
-          await Future<void>.delayed(Duration(milliseconds: 1000));
+          await Future<void>.delayed(Duration(milliseconds: 500));
 
           print('$demo | Waited for scroll to stop');
 
@@ -149,7 +118,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Tapped');
 
-          await Future<void>.delayed(Duration(milliseconds: 1000));
+          await Future<void>.delayed(Duration(milliseconds: 500));
 
           print('$demo | Waited');
 
@@ -157,39 +126,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Tapped "Back"');
 
-          await Future<void>.delayed(Duration(milliseconds: 1000));
+          await Future<void>.delayed(Duration(milliseconds: 500));
 
           print('$demo | Finished');
         }
-
-        // widgetDemos[0]
-
-        /*
-
-        // TODO: abstract and automate.
-
-        final String widgetDemo0 = widgetDemos[0];
-
-        final Element widgetDemoLocation =
-            find.text(widgetDemo0, skipOffstage: false).evaluate().first;
-        print('Element is $widgetDemoLocation');
-
-        // Find corresponding widget
-
-        final BuildContext widgetDemoContext =
-            widgetDemoLocation as BuildContext;
-
-        print('BuildContext is $widgetDemoContext');
-
-        final ScrollableState scrollableState = Scrollable.of(widgetDemoContext);
-
-        print('ScrollableState is $scrollableState');
-
-        await scrollUntilVisible(scrollableState, find.text(widgetDemo0, skipOffstage: false));
-
-        tapOnText(widgetDemo0);
-
-         */
 
         // At the end of the test, mark as finished.
         finished = true;
@@ -201,8 +141,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 }
 
 // TODO: Add automation.
-
-
 
 /*
       () {
