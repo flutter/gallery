@@ -387,8 +387,6 @@ Future<String> evalFlutter(String command, {
       ? path.join(flutterDirectory, 'bin', 'flutter')
       : 'flutter';
 
-  print('Final command: $finalCommand, Args: $args');
-
   return eval(
     finalCommand,
     args,
