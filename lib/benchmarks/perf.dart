@@ -27,7 +27,7 @@ const List<String> _demosWithAnimation = <String>[
 
 const Duration _defaultWaitingDuration = Duration(seconds: 3);
 
-/// Creates an infinite list of Material cards and scrolls it.
+// TODO: update documentation.
 class GalleryRecorder extends CustomizedWidgetRecorder {
   GalleryRecorder() : super(name: benchmarkName);
 
