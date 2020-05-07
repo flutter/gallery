@@ -8,19 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Offset absoluteTopLeft(RenderObject renderObject)
+Offset _absoluteTopLeft(RenderObject renderObject)
     => (renderObject as RenderBox).localToGlobal(Offset.zero);
 
-Rect absoluteRect(RenderObject renderObject)
-    => absoluteTopLeft(renderObject) & renderObject.paintBounds.size;
+Rect _absoluteRect(RenderObject renderObject)
+    => _absoluteTopLeft(renderObject) & renderObject.paintBounds.size;
 
-Size windowSize(BuildContext context)
+Size _windowSize(BuildContext context)
     => MediaQuery.of(context).size;
 
-Rect windowRect(BuildContext context)
-    => Offset.zero & windowSize(context);
+Rect _windowRect(BuildContext context)
+    => Offset.zero & _windowSize(context);
 
-bool isSuperset({@required Rect large, @required Rect small})
+bool _isSuperset({@required Rect large, @required Rect small})
     => large.top <= small.top
         && large.left <= small.left
         && large.bottom >= small.bottom
@@ -32,17 +32,17 @@ Future<void> scrollUntilVisible({
   bool animated = true,
 }) async {
   final RenderObject elementRenderObject = element.renderObject;
-  final Rect elementRect = absoluteRect(elementRenderObject);
+  final Rect elementRect = _absoluteRect(elementRenderObject);
 
   final ScrollableState scrollable = Scrollable.of(element);
   final RenderAbstractViewport viewport = RenderAbstractViewport.of(elementRenderObject);
 
-  final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
+  final Rect visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
   print('visibleWindow = $visibleWindow');
   print('elementRect =   $elementRect');
 
-  if (isSuperset(large: visibleWindow, small: elementRect) && !strict) {
+  if (_isSuperset(large: visibleWindow, small: elementRect) && !strict) {
     print('Already contains.');
     return;
   } else {
