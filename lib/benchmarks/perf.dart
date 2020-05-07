@@ -14,11 +14,12 @@ import 'package:gallery/main.dart';
 import 'recorder.dart';
 import 'scroll.dart';
 
+// TODO: update documentation.
 // Demos that will be backed out of within FlutterDriver.runUnsynchronized();
 //
 // These names must match the output of GalleryDemo.describe in
 // lib/data/demos.dart.
-const List<String> _unsynchronizedDemos = <String>[
+const List<String> _demosWithAnimation = <String>[
   'Progress indicators@material',
   'Activity indicator@cupertino',
   'Colors@reference',
@@ -89,7 +90,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
             await controller.tap(find.byKey(ValueKey(demo)));
 
-            if (_unsynchronizedDemos.contains(demo)) {
+            if (_demosWithAnimation.contains(demo)) {
               await Future<void>.delayed(const Duration(seconds: 3));
             } else {
               await animationStops();
