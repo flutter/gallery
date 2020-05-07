@@ -82,9 +82,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       final demoButton =
           find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
 
-      await scrollUntilVisible(
-        element: demoButton,
-      );
+      await scrollUntilVisible(element: demoButton);
 
       print('$demo | Started');
 
