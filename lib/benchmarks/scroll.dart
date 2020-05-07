@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -74,19 +73,37 @@ Future<void> scrollUntilVisible({
       default: break;
     }
     print('PTBM = $pixelsToBeMoved');
+    final double targetPixels = scrollable.position.pixels + pixelsToBeMoved;
     if (animated) {
       await scrollable.position.animateTo(
-        scrollable.position.pixels + pixelsToBeMoved,
-        duration: Duration(milliseconds: 1000),
+        targetPixels,
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     } else {
-      scrollable.position.jumpTo(scrollable.position.pixels + pixelsToBeMoved);
+      scrollable.position.jumpTo(targetPixels);
     }
+    await animationStops();
     print('Scrolled.');
     return;
   }
+}
 
+Future<void> animationStops() async {
+  if (! WidgetsBinding.instance.hasScheduledFrame) {
+    return;
+  }
+
+  final Completer stopped = Completer<void>();
+
+  Timer.periodic(Duration(milliseconds: 50), (timer) {
+    if (! WidgetsBinding.instance.hasScheduledFrame) {
+      stopped.complete();
+      timer.cancel();
+    }
+  });
+
+  await stopped.future;
 }
 
 // TODO: Adapt.

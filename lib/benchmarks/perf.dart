@@ -5,7 +5,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'recorder.dart';
@@ -41,8 +40,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   Widget createWidget() {
     // TODO: Set up future for automation.
     Future<void>.delayed(
-      Duration(milliseconds: 1500),
+      const Duration(milliseconds: 1500),
       () async {
+        await animationStops();
+
         controller = LiveWidgetController(
           WidgetsBinding.instance
         );
@@ -64,20 +65,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           if (!finishedStudyDemos && ! demo.contains('@study')) {
             finishedStudyDemos = true;
 
-            print('Scrolled-1 to Categories');
-            await Future<void>.delayed(Duration(seconds: 2));
-
-            print('Scrolled-2');
             await scrollUntilVisible(
               element: find.text('Categories').evaluate().single,
               strict: true,
               animated: true,
             );
-
-            print('Scrolled-3');
-
-            await animationStops();
-            print('Scrolled-4 to Categories');
           }
 
           final Element demoButton =
@@ -86,40 +78,21 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           for (var i = 0; i < 2; ++i) {
             print('$demo | Run $i');
-            print('$demo | Demo button found, and it is $demoButton');
-            print('$demo | Spatial >> ${demoButton.renderObject.paintBounds
-                .size}');
-            print('$demo | Spatial >> ${absoluteTopLeft(
-                demoButton.renderObject)}');
-
-            await Future<void>.delayed(Duration(seconds: 2));
 
             await scrollUntilVisible(
               element: demoButton,
               animated: true,
             );
 
-            print('$demo | Scrolled');
-
-            await animationStops();
-
-            print('$demo | Waited for scroll to stop');
-
             await controller.tap(find.byKey(ValueKey(demo)));
 
-            print('$demo | Tapped');
-
             if (_unsynchronizedDemos.contains(demo)) {
-              await Future<void>.delayed(Duration(seconds: 3));
+              await Future<void>.delayed(const Duration(seconds: 3));
             } else {
               await animationStops();
             }
 
-            print('$demo | Waited');
-
-            await controller.tap(find.byKey(ValueKey('Back')));
-
-            print('$demo | Tapped "Back"');
+            await controller.tap(find.byKey(const ValueKey('Back')));
 
             await animationStops();
           }
@@ -130,24 +103,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         finished = true;
       }
     );
-    return GalleryApp();
+    return const GalleryApp();
   }
 
-}
-
-// TODO: Add automation.
-
-Future<void> animationStops() {
-  final Completer stopped = Completer<void>();
-
-  Timer.periodic(Duration(milliseconds: 50), (timer) {
-    if (! WidgetsBinding.instance.hasScheduledFrame) {
-      stopped.complete();
-      timer.cancel();
-    }
-  });
-
-  return stopped.future;
 }
 
 /*
