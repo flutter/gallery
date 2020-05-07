@@ -41,6 +41,7 @@ Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
 
 Future<void> realScrollUntilVisible({
   Element element,
+  bool toTop = false,
 }) async {
   final RenderObject elementRenderObject = element.renderObject;
   final Rect elementRect = absoluteRect(elementRenderObject);
@@ -53,7 +54,7 @@ Future<void> realScrollUntilVisible({
 
   final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
 
-  if (false /*isSuperset(large: visibleWindow, small: elementRect)*/) {
+  if (isSuperset(large: visibleWindow, small: elementRect) && !toTop) {
     print('Already contains.');
     return;
   } else {
@@ -67,11 +68,6 @@ Future<void> realScrollUntilVisible({
         break;
       default: break;
     }
-    // TODO: Correct.
-    pixelsToBeMoved = pixelsToBeMoved.clamp(
-      scrollable.position.minScrollExtent,
-      scrollable.position.maxScrollExtent,
-    ).toDouble();
     print('PTBM = $pixelsToBeMoved');
     scrollable.position.jumpTo(scrollable.position.pixels + pixelsToBeMoved);
     print('Scrolled.');

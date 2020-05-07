@@ -90,7 +90,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
-        realScrollUntilVisible(element: find.text('Categories').evaluate().single);
+        realScrollUntilVisible(
+          element: find.text('Categories').evaluate().single,
+          toTop: true,
+        );
 
         for (final demo in demoDescriptions.sublist(5)) {
           // TODO: Fix tap for "Bottom navigation@material" (#7) and (#8).
