@@ -102,6 +102,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
       await scrollUntilVisible(element: demoButton);
 
+      // Skip demo if it does not pass `runCriterion`.
+      // This continue statement is placed here because we need to scroll
+      // through each `Scrollable` to find the `demoButton`.
       if (!runCriterion(demo)) continue;
 
       reporter('$demo | Started');
