@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -16,7 +17,16 @@ Offset absoluteTopLeftAlternate(RenderObject renderObject) {
 }
 
 Offset absoluteTopLeft(RenderObject renderObject)
-=> (renderObject as RenderBox).localToGlobal(Offset.zero);
+    => (renderObject as RenderBox).localToGlobal(Offset.zero);
+
+Rect absoluteRect(RenderObject renderObject)
+    => absoluteTopLeft(renderObject) & renderObject.paintBounds.size;
+
+Size windowSize(BuildContext context)
+    => MediaQuery.of(context).size;
+
+Rect windowRect(BuildContext context)
+    => Offset.zero & windowSize(context);
 
 /*
 Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
@@ -27,11 +37,18 @@ Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
  */
 
 Future<void> realScrollUntilVisible({
-  ScrollableState scrollableState,
   Element element,
-  Size windowSize,
 }) async {
-  // TODO: Add code.
+  final ScrollableState scrollable = Scrollable.of(element);
+  final RenderAbstractViewport viewport = RenderAbstractViewport.of(element.renderObject);
+
+  print(scrollable);
+  print(viewport);
+
+  final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
+
+  print(absoluteRect(viewport));
+  print(visibleWindow);
 }
 
 // TODO: Adapt.

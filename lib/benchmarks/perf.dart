@@ -108,7 +108,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           print('$demo | Spatial >> ${absoluteTopLeft(demoButton.renderObject)}');
 
           final ScrollableState scrollableState =
-              Scrollable.of(demoButton as BuildContext);
+              Scrollable.of(demoButton);
 
           print('$demo | ScrollableState found, and it is $scrollableState');
 
@@ -125,10 +125,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           print('$demo | RenderAbstractViewport2 found, and it is $viewport2');
 
           await realScrollUntilVisible(
-            scrollableState: scrollableState,
             element: demoButton,
-            windowSize: windowSize,
           );
+
+          finished = true; return;
 
           await scrollUntilVisible(
             scrollableState,
