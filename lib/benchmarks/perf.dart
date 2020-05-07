@@ -67,7 +67,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
     // TODO: abstract and automate here.
 
-    bool finishedStudyDemos = false;
+    var finishedStudyDemos = false;
 
     for (final demo in demoDescriptions) {
       if (!finishedStudyDemos && ! demo.contains('@study')) {
@@ -79,9 +79,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         );
       }
 
-      final Element demoButton =
-          find.byKey(ValueKey(demo), skipOffstage: false)
-              .evaluate().single;
+      final demoButton =
+          find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
 
       await scrollUntilVisible(
         element: demoButton,

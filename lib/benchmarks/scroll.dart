@@ -50,13 +50,13 @@ Future<void> scrollUntilVisible({
   bool strict = false,
   bool animated = true,
 }) async {
-  final RenderObject elementRenderObject = element.renderObject;
-  final Rect elementRect = _absoluteRect(elementRenderObject);
+  final elementRenderObject = element.renderObject;
+  final elementRect = _absoluteRect(elementRenderObject);
 
-  final ScrollableState scrollable = Scrollable.of(element);
-  final RenderAbstractViewport viewport = RenderAbstractViewport.of(elementRenderObject);
+  final scrollable = Scrollable.of(element);
+  final viewport = RenderAbstractViewport.of(elementRenderObject);
 
-  final Rect visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
+  final visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
   if (!strict && _isSuperset(large: visibleWindow, small: elementRect)) {
     return;
@@ -74,8 +74,8 @@ Future<void> scrollUntilVisible({
     default: break;
   }
 
-  final double targetPixels = scrollable.position.pixels + pixelsToBeMoved;
-  final double restrictedTargetPixels = targetPixels.clamp(
+  final targetPixels = scrollable.position.pixels + pixelsToBeMoved;
+  final restrictedTargetPixels = targetPixels.clamp(
     scrollable.position.minScrollExtent,
     scrollable.position.maxScrollExtent,
   ).toDouble();
