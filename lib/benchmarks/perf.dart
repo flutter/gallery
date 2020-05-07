@@ -90,6 +90,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
+        realScrollUntilVisible(element: find.text('Categories').evaluate().single);
+
         for (final demo in demoDescriptions.sublist(5)) {
           // TODO: Fix tap for "Bottom navigation@material" (#7) and (#8).
 
@@ -127,6 +129,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           await realScrollUntilVisible(
             element: demoButton,
           );
+
+          print('Scrolled $demo');
+
+          await Future<void>.delayed(Duration(milliseconds: 1000));
 
           continue;
 
