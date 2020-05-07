@@ -27,16 +27,32 @@ const List<String> _demosWithAnimation = <String>[
 
 const Duration _defaultWaitingDuration = Duration(seconds: 3);
 
+enum DemoType {
+  study,
+  animatedWidget,
+  unanimatedWidget,
+}
+
+DemoType typeOfDemo(String demo) {
+  if (demo.contains('@study')) {
+    return DemoType.study;
+  } else if (_demosWithAnimation.contains(demo)) {
+    return DemoType.animatedWidget;
+  } else {
+    return DemoType.unanimatedWidget;
+  }
+}
+
 // TODO: update documentation.
 class GalleryRecorder extends CustomizedWidgetRecorder {
-  GalleryRecorder({this.reporter}) : super(name: benchmarkName);
+  GalleryRecorder({this.benchmarkName, this.reporter, this.runCriterion}) : super(name: benchmarkName);
 
-  static const String benchmarkName = 'gallery_perf';
+  final String benchmarkName;
+  final void Function(String) reporter;
+  final bool Function(String) runCriterion;
 
   bool finished = false;
   LiveWidgetController controller;
-
-  void Function(String) reporter;
 
   @override
   bool shouldContinue() => !finished || profile.shouldContinue();
@@ -72,7 +88,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     var finishedStudyDemos = false;
 
     for (final demo in demoDescriptions) {
-      if (!finishedStudyDemos && ! demo.contains('@study')) {
+      if (!runCriterion(demo)) continue;
+
+      if (!finishedStudyDemos && typeOfDemo(demo) != DemoType.study) {
         finishedStudyDemos = true;
 
         await scrollUntilVisible(
@@ -93,7 +111,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         await controller.tap(find.byKey(ValueKey(demo)));
 
-        if (_demosWithAnimation.contains(demo)) {
+        if (typeOfDemo(demo) == DemoType.animatedWidget) {
           await Future<void>.delayed(_defaultWaitingDuration);
         } else {
           await animationStops();

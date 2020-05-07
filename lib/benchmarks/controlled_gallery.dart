@@ -19,7 +19,21 @@ const bool isCanvasKit = bool.fromEnvironment('FLUTTER_WEB_USE_SKIA', defaultVal
 /// When adding a new benchmark, add it to this map. Make sure that the name
 /// of your benchmark is unique.
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
-  GalleryRecorder.benchmarkName: () => GalleryRecorder(reporter: _client.reportDemo),
+  'gallery_studies_perf': () => GalleryRecorder(
+    benchmarkName: 'gallery_studies_perf',
+    reporter: _client.reportDemo,
+    runCriterion: (String demo) => typeOfDemo(demo) == DemoType.study,
+  ),
+  'gallery_animated_widgets_perf': () => GalleryRecorder(
+    benchmarkName: 'gallery_animated_widgets_perf',
+    reporter: _client.reportDemo,
+    runCriterion: (String demo) => typeOfDemo(demo) == DemoType.animatedWidget,
+  ),
+  'gallery_unanimated_widgets_perf': () => GalleryRecorder(
+    benchmarkName: 'gallery_unanimated_widgets_perf',
+    reporter: _client.reportDemo,
+    runCriterion: (String demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
+  ),
 };
 
 final LocalBenchmarkServerClient _client = LocalBenchmarkServerClient();
