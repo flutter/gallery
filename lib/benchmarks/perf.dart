@@ -39,7 +39,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   LiveWidgetController controller;
 
   @override
-  bool shouldContinue() => profile.shouldContinue() || ! finished;
+  bool shouldContinue() => !finished || profile.shouldContinue();
 
   @override
   Widget createWidget() {
