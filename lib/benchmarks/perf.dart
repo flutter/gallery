@@ -111,14 +111,3 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   }
 
 }
-
-/*
-      () {
-        print('WidgetBinding.Instance: ${WidgetsBinding.instance}');
-        Timer.periodic(Duration(milliseconds: 200), (timer) {
-          print('Callback : ${WidgetsBinding.instance.transientCallbackCount}');
-          print('Schedule : ${WidgetsBinding.instance.hasScheduledFrame}');
-          print('');
-        });
-      }
- */
