@@ -31,9 +31,6 @@ class CraneApp extends StatelessWidget {
       theme: craneTheme.copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
-      darkTheme: craneTheme.copyWith(
-        platform: GalleryOptions.of(context).platform,
-      ),
     );
   }
 }
