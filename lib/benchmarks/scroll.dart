@@ -87,7 +87,7 @@ Future<void> animationStops() async {
 
   final Completer stopped = Completer<void>();
 
-  Timer.periodic(Duration(milliseconds: 50), (timer) {
+  Timer.periodic(const Duration(milliseconds: 50), (timer) {
     if (! WidgetsBinding.instance.hasScheduledFrame) {
       stopped.complete();
       timer.cancel();
