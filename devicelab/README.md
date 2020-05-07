@@ -22,3 +22,8 @@ dart run_benchmarks.dart -d ~/Development/flutter
 # or
 dart run_benchmarks.dart --flutter-directory ~/Development/flutter
 ```
+
+To run benchmark tests in a visible Chrome browser, run this command from this repository's root path:
+```
+flutter run -d chrome -t lib/benchmarks/controlled_gallery.dart
+```
