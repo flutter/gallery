@@ -29,7 +29,10 @@ Rect windowRect(BuildContext context)
     => Offset.zero & windowSize(context);
 
 bool isSuperset({@required Rect large, @required Rect small})
-    => large.contains(small.topLeft) && large.contains(small.bottomRight);
+    => large.top <= small.top
+        && large.left <= small.left
+        && large.bottom >= small.bottom
+        && large.right >= small.right;
 
 /*
 Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
@@ -49,10 +52,10 @@ Future<void> realScrollUntilVisible({
   final ScrollableState scrollable = Scrollable.of(element);
   final RenderAbstractViewport viewport = RenderAbstractViewport.of(elementRenderObject);
 
-  print(scrollable);
-  print(viewport);
-
   final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
+
+  print('visibleWindow = $visibleWindow');
+  print('elementRect =   $elementRect');
 
   if (isSuperset(large: visibleWindow, small: elementRect) && !strict) {
     print('Already contains.');
