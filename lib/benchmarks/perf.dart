@@ -9,6 +9,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'recorder.dart';
+import 'scroll.dart';
 
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/l10n/gallery_localizations_en.dart';
@@ -69,12 +70,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           WidgetsBinding.instance
         );
 
+        /*
         for (final String demo in <String>[] /*studyDemos*/) {
           await tapOnText(demo);
           await controller.tap(find.byKey(const ValueKey('Back')));
           print('Back');
           await Future<void>.delayed(Duration(milliseconds: 1000));
         }
+         */
 
         // Find all demos
 
@@ -102,9 +105,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Spatial >> ${demoButton.renderObject.paintBounds.size}');
 
-          final translation = demoButton.renderObject.getTransformTo(null).getTranslation();
-
-          print('$demo | Spatial >> (${translation.x}, ${translation.y})');
+          print('$demo | Spatial >> ${absoluteTopLeft(demoButton.renderObject)}');
 
           final ScrollableState scrollableState =
               Scrollable.of(demoButton as BuildContext);
@@ -195,95 +196,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     return GalleryApp();
   }
 
-  // TODO: Remove.
-  Offset absoluteTopLeftAlternate(RenderObject renderObject) {
-    final translation = renderObject.getTransformTo(null).getTranslation();
-
-    return Offset(translation.x, translation.y);
-  }
-
-  Offset absoluteTopLeft(RenderObject renderObject)
-      => (renderObject as RenderBox).localToGlobal(Offset.zero);
-
-  Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
-    await controller.tap(find.text(text, skipOffstage: skipOffStage));
-    print('Tapped $text');
-    await Future<void>.delayed(Duration(milliseconds: 1000));
-  }
-
-  Future<void> realScrollUntilVisible({
-    ScrollableState scrollableState,
-    Element element,
-    Size windowSize,
-  }) async {
-    // TODO: Add code.
-  }
-
-  // TODO: Adapt.
-  Future<void> scrollUntilVisible(
-      ScrollableState scrollableState,
-      Finder item,
-      {
-        bool elastic = false,
-        Size referenceSize,
-      }
-    ) async {
-    assert(scrollableState != null);
-    assert(item != null);
-
-    if (elastic) {
-      final double endOfScroll = scrollableState.position.maxScrollExtent;
-      scrollableState.position.jumpTo(endOfScroll);
-      await Future<void>.delayed(const Duration(milliseconds: 50));
-
-      return;
-    }
-
-    if (item.evaluate().isNotEmpty) {
-      // No need to scroll if already visible.
-      return;
-    }
-
-    bool isVisible = false;
-    Timer.periodic(const Duration(milliseconds: 50), (timer) {
-      if (item.evaluate().isNotEmpty) {
-        isVisible = true;
-        timer.cancel(); // TODO: remove this if it works unexpectedly.
-      }
-    });
-
-    while (!isVisible) {
-      // TODO: Warning! Experimental.
-      // TODO: scroll the scrollable.
-
-      // get current position
-      final double pixels = scrollableState.position.pixels;
-
-      // compute new position
-      final double newPixels = pixels + 30;
-
-      // jump to
-      scrollableState.position.jumpTo(newPixels);
-
-      // TODO: await a certain time.
-      await Future<void>.delayed(const Duration(milliseconds: 50));
-    }
-
-    // scroll up a little bit, just to make sure we can access the button.
-    // TODO: replace with smoother animation.
-
-    print('scrollUntilVisible | Scrolled.');
-
-    scrollableState.position.jumpTo(
-      scrollableState.position.pixels + referenceSize.height,
-    );
-
-    print('scrollUntilVisible | Scrolled more.');
-
-    await Future<void>.delayed(const Duration(milliseconds: 50));
-
-    return;
-  }
 }
 
 // TODO: Add automation.
