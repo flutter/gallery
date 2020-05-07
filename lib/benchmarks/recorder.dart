@@ -23,12 +23,12 @@ import 'package:flutter/widgets.dart';
 const int _kWarmUpSampleCount = 200;
 
 /// The number of samples we use to collect statistics from.
-const int _kMeasuredSampleCount = 100;
+const int _kMinimumMeasuredSampleCount = 100;
 
 /* TODO: Edit this number, or the logic, such that we have enough time to
          measure everything. */
 /// The total number of samples collected by a benchmark.
-const int kTotalSampleCount = _kWarmUpSampleCount + _kMeasuredSampleCount;
+const int _kTotalSampleCount = _kWarmUpSampleCount + _kMinimumMeasuredSampleCount;
 
 /// A benchmark metric that includes frame-related computations prior to
 /// submitting layer and picture operations to the underlying renderer, such as
@@ -321,8 +321,8 @@ abstract class CustomizedWidgetRecorder extends Recorder implements FrameRecorde
 /// Series of time recordings indexed in time order.
 ///
 /// It can calculate [average], [standardDeviation] and [noise]. If the amount
-/// of data collected is higher than [_kMeasuredSampleCount], then these
-/// calculations will only apply to the latest [_kMeasuredSampleCount] data
+/// of data collected is higher than [_kMinimumMeasuredSampleCount], then these
+/// calculations will only apply to the latest [_kMinimumMeasuredSampleCount] data
 /// points.
 class Timeseries {
   Timeseries(this.name, this.isReported);
@@ -580,7 +580,7 @@ class Profile {
 
     // We have recorded something, but do we have enough samples? If every
     // timeseries has collected enough samples, stop the benchmark.
-    return !scoreData.keys.every((String key) => scoreData[key].count >= kTotalSampleCount);
+    return !scoreData.keys.every((String key) => scoreData[key].count >= _kTotalSampleCount);
   }
 
   /// Returns a JSON representation of the profile that will be sent to the
