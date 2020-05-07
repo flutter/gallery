@@ -64,7 +64,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
           if (!finishedStudyDemos && ! demo.contains('@study')) {
             finishedStudyDemos = true;
 
-            await realScrollUntilVisible(
+            await scrollUntilVisible(
               element: find.text('Categories').evaluate().single,
               strict: true,
             );
@@ -82,7 +82,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             print('$demo | Spatial >> ${absoluteTopLeft(
                 demoButton.renderObject)}');
 
-            await realScrollUntilVisible(
+            await scrollUntilVisible(
               element: demoButton,
             );
 

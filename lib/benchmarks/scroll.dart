@@ -42,9 +42,10 @@ Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
 }
  */
 
-Future<void> realScrollUntilVisible({
+Future<void> scrollUntilVisible({
   Element element,
   bool strict = false,
+  bool animated = true,
 }) async {
   final RenderObject elementRenderObject = element.renderObject;
   final Rect elementRect = absoluteRect(elementRenderObject);
@@ -73,7 +74,15 @@ Future<void> realScrollUntilVisible({
       default: break;
     }
     print('PTBM = $pixelsToBeMoved');
-    scrollable.position.jumpTo(scrollable.position.pixels + pixelsToBeMoved);
+    if (animated) {
+      await scrollable.position.animateTo(
+        scrollable.position.pixels + pixelsToBeMoved,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.elasticInOut,
+      );
+    } else {
+      scrollable.position.jumpTo(scrollable.position.pixels + pixelsToBeMoved);
+    }
     print('Scrolled.');
     return;
   }
@@ -81,7 +90,7 @@ Future<void> realScrollUntilVisible({
 }
 
 // TODO: Adapt.
-Future<void> scrollUntilVisible(
+Future<void> deprecatedScrollUntilVisible(
     ScrollableState scrollableState,
     Finder item,
     {
