@@ -65,10 +65,16 @@ Future<void> scrollUntilVisible({
       default: break;
     }
     print('PTBM = $pixelsToBeMoved');
+
     final double targetPixels = scrollable.position.pixels + pixelsToBeMoved;
+    final double restrictedTargetPixels = targetPixels.clamp(
+      scrollable.position.minScrollExtent,
+      scrollable.position.maxScrollExtent,
+    ).toDouble();
+
     if (animated) {
       await scrollable.position.animateTo(
-        targetPixels,
+        restrictedTargetPixels,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
