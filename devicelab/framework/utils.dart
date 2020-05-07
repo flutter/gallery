@@ -436,14 +436,27 @@ Future<String> evalFlutter(String command, {
 
 /// Runs a `flutter` command and returns the standard output as a string.
 Future<String> evalFlutterAbsolute(String command, {
+  String flutterDirectory,
   List<String> options = const <String>[],
   bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
   Map<String, String> environment,
   StringBuffer stderr, // if not null, the stderr will be written here.
 }) {
   final List<String> args = flutterCommandArgs(command, options);
-  return eval('flutter', args,
-      canFail: canFail, environment: environment, stderr: stderr);
+
+  final String finalCommand = flutterDirectory != null
+      ? path.join(flutterDirectory, 'bin', 'flutter')
+      : 'flutter';
+
+  print('Final command: $finalCommand, Args: $args');
+
+  return eval(
+    finalCommand,
+    args,
+    canFail: canFail,
+    environment: environment,
+    stderr: stderr,
+  );
 }
 
 String get dartBin =>

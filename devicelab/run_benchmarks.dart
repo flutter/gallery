@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:convert' show json, JsonEncoder;
 import 'dart:io' as io;
 
+import 'package:args/args.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
@@ -21,23 +22,30 @@ import 'framework/utils.dart';
 const int benchmarkServerPort = 9999;
 const int chromeDebugPort = 10000;
 
-Future<TaskResult> runWebBenchmark({ @required bool useCanvasKit }) async {
+Future<TaskResult> runWebBenchmark({
+  String flutterDirectory,
+  @required bool useCanvasKit,
+}) async {
   // Reduce logging level. Otherwise, package:webkit_inspection_protocol is way too spammy.
   Logger.root.level = Level.INFO;
   // TODO: Correct flutterDirectory.
   final String macrobenchmarksDirectory = '..';
   return await inDirectory(macrobenchmarksDirectory, () async {
-    await evalFlutterAbsolute('build', options: <String>[
-      'web',
-      '--dart-define=FLUTTER_WEB_ENABLE_PROFILING=true',
-      if (useCanvasKit)
-        '--dart-define=FLUTTER_WEB_USE_SKIA=true',
-      '--profile',
-      '-t',
-      'lib/benchmarks/controlled_gallery.dart',
-    ], environment: <String, String>{
-      'FLUTTER_WEB': 'true',
-    });
+    await evalFlutterAbsolute('build',
+      flutterDirectory: flutterDirectory,
+      options: <String>[
+        'web',
+        '--dart-define=FLUTTER_WEB_ENABLE_PROFILING=true',
+        if (useCanvasKit)
+          '--dart-define=FLUTTER_WEB_USE_SKIA=true',
+        '--profile',
+        '-t',
+        'lib/benchmarks/controlled_gallery.dart',
+      ],
+      environment: <String, String>{
+        'FLUTTER_WEB': 'true',
+      },
+    );
     final Completer<List<Map<String, dynamic>>> profileData = Completer<List<Map<String, dynamic>>>();
     final List<Map<String, dynamic>> collectedProfiles = <Map<String, dynamic>>[];
     List<String> benchmarks;
@@ -192,10 +200,44 @@ Future<TaskResult> runWebBenchmark({ @required bool useCanvasKit }) async {
   });
 }
 
-Future<void> main () async {
-  print ('Starting.');
-  final TaskResult result = await runWebBenchmark(useCanvasKit: false);
-  print ('Finished.');
-  print ('Result: $result');
+Future<void> main (List<String> rawArgs) async {
+  final _argParser = ArgParser()
+    ..addFlag(
+      'use-canvas-kit',
+      abbr: 'c',
+      help: 'Use canvas kit.',
+    )
+    ..addOption(
+      'flutter-directory',
+      abbr: 'd',
+      help: 'The path to the flutter repository.',
+    );
+
+  ArgResults args;
+
+  try {
+    args = _argParser.parse(rawArgs);
+  } on FormatException catch (error) {
+    io.stderr.writeln('${error.message}\n');
+    io.stderr.writeln('Usage:\n');
+    io.stderr.writeln(_argParser.usage);
+    io.exitCode = 1;
+    return;
+  }
+
+  final bool useCanvasKit = args.wasParsed('use-canvas-kit');
+
+  final String flutterDirectory = args.wasParsed('flutter-directory')
+      ? args['flutter-directory'] as String
+      : null;
+
+  print ('Starting benchmark.');
+  print (useCanvasKit ? 'Using canvas kit.' : 'Not using canvas kit.');
+  print ('Flutter directory: ${flutterDirectory ?? "[default]"}');
+  final TaskResult result = await runWebBenchmark(
+    useCanvasKit: useCanvasKit,
+    flutterDirectory: flutterDirectory,
+  );
+  print ('Finished. Result:');
   print (const JsonEncoder.withIndent('  ').convert(result.toJson()));
 }
