@@ -28,7 +28,6 @@ Future<TaskResult> runWebBenchmark({
 }) async {
   // Reduce logging level. Otherwise, package:webkit_inspection_protocol is way too spammy.
   Logger.root.level = Level.INFO;
-  // TODO: Correct flutterDirectory.
   final String macrobenchmarksDirectory = '..';
   return await inDirectory(macrobenchmarksDirectory, () async {
     await evalFlutterAbsolute('build',
