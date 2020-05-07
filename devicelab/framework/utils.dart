@@ -204,47 +204,6 @@ void section(String title) {
   print('\n\n$output\n');
 }
 
-Future<String> getDartVersion() async {
-  // The Dart VM returns the version text to stderr.
-  final ProcessResult result = _processManager.runSync(<String>[dartBin, '--version']);
-  String version = (result.stderr as String).trim();
-
-  // Convert:
-  //   Dart VM version: 1.17.0-dev.2.0 (Tue May  3 12:14:52 2016) on "macos_x64"
-  // to:
-  //   1.17.0-dev.2.0
-  if (version.contains('('))
-    version = version.substring(0, version.indexOf('(')).trim();
-  if (version.contains(':'))
-    version = version.substring(version.indexOf(':') + 1).trim();
-
-  return version.replaceAll('"', "'");
-}
-
-Future<String> getCurrentFlutterRepoCommit() {
-  if (!dir('${flutterDirectory.path}/.git').existsSync()) {
-    return Future<String>.value(null);
-  }
-
-  return inDirectory<String>(flutterDirectory, () {
-    return eval('git', <String>['rev-parse', 'HEAD']);
-  });
-}
-
-Future<DateTime> getFlutterRepoCommitTimestamp(String commit) {
-  // git show -s --format=%at 4b546df7f0b3858aaaa56c4079e5be1ba91fbb65
-  return inDirectory<DateTime>(flutterDirectory, () async {
-    final String unixTimestamp = await eval('git', <String>[
-      'show',
-      '-s',
-      '--format=%at',
-      commit,
-    ]);
-    final int secondsSinceEpoch = int.parse(unixTimestamp);
-    return DateTime.fromMillisecondsSinceEpoch(secondsSinceEpoch * 1000);
-  });
-}
-
 /// Starts a subprocess.
 ///
 /// The first argument is the full path to the executable to run.
@@ -412,28 +371,6 @@ List<String> flutterCommandArgs(String command, List<String> options) {
   ];
 }
 
-Future<int> flutter(String command, {
-  List<String> options = const <String>[],
-  bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
-  Map<String, String> environment,
-}) {
-  final List<String> args = flutterCommandArgs(command, options);
-  return exec(path.join(flutterDirectory.path, 'bin', 'flutter'), args,
-      canFail: canFail, environment: environment);
-}
-
-/// Runs a `flutter` command and returns the standard output as a string.
-Future<String> evalFlutter(String command, {
-  List<String> options = const <String>[],
-  bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
-  Map<String, String> environment,
-  StringBuffer stderr, // if not null, the stderr will be written here.
-}) {
-  final List<String> args = flutterCommandArgs(command, options);
-  return eval(path.join(flutterDirectory.path, 'bin', 'flutter'), args,
-      canFail: canFail, environment: environment, stderr: stderr);
-}
-
 /// Runs a `flutter` command and returns the standard output as a string.
 Future<String> evalFlutterAbsolute(String command, {
   String flutterDirectory,
@@ -457,25 +394,6 @@ Future<String> evalFlutterAbsolute(String command, {
     environment: environment,
     stderr: stderr,
   );
-}
-
-String get dartBin =>
-    path.join(flutterDirectory.path, 'bin', 'cache', 'dart-sdk', 'bin', 'dart');
-
-Future<int> dart(List<String> args) => exec(dartBin, args);
-
-/// Returns a future that completes with a path suitable for JAVA_HOME
-/// or with null, if Java cannot be found.
-Future<String> findJavaHome() async {
-  final Iterable<String> hits = grep(
-    'Java binary at: ',
-    from: await evalFlutter('doctor', options: <String>['-v']),
-  );
-  if (hits.isEmpty)
-    return null;
-  final String javaBinary = hits.first.split(': ').last;
-  // javaBinary == /some/path/to/java/home/bin/java
-  return path.dirname(path.dirname(javaBinary));
 }
 
 Future<T> inDirectory<T>(dynamic directory, Future<T> action()) async {
