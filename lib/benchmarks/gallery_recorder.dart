@@ -74,12 +74,12 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         .map((demo) => demo.describe)
         .toList();
 
-    reporter('==== List of demos ====');
+    reporter('==== List of demos to be run ====');
     for (final demo in demoDescriptions) {
       if (!runCriterion(demo)) continue;
       reporter(demo);
     }
-    reporter('==== End of list of demos ====');
+    reporter('==== End of list of demos to be run ====');
 
     var finishedStudyDemos = false;
 
@@ -103,11 +103,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       // through each `Scrollable` to find the `demoButton`.
       if (!runCriterion(demo)) continue;
 
-      reporter('$demo | Started');
+      reporter('Running demo "$demo"');
 
       for (var i = 0; i < 2; ++i) {
-        reporter('$demo | Started run $i');
-
         await controller.tap(find.byKey(ValueKey(demo)));
 
         if (typeOfDemo(demo) == DemoType.animatedWidget) {
@@ -119,10 +117,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         await controller.tap(find.byKey(const ValueKey('Back')));
 
         await animationStops();
-        reporter('$demo | Finished run $i');
       }
-      reporter('$demo | Finished');
     }
+
+    reporter('All demos finished.');
 
     // At the end of the test, mark as finished.
     finished = true;
