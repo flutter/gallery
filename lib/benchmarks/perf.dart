@@ -54,14 +54,17 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             .map((demo) => demo.describe)
             .toList();
 
-        for (final demo in demoDescriptions)
-            print(demo);
+        print('==== List of demos ====');
+        for (final demo in demoDescriptions) {
+          print(demo);
+        }
+        print('==== End of list of demos ====');
 
         // TODO: abstract and automate here.
 
         bool finishedStudyDemos = false;
 
-        for (final demo in demoDescriptions.sublist(3, 7)) {
+        for (final demo in demoDescriptions) {
           if (!finishedStudyDemos && ! demo.contains('@study')) {
             finishedStudyDemos = true;
 
@@ -76,8 +79,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
               find.byKey(ValueKey(demo), skipOffstage: false)
               .evaluate().single;
 
+          print('$demo | Started');
+
           for (var i = 0; i < 2; ++i) {
-            print('$demo | Run $i');
+            print('$demo | Started run $i');
 
             await scrollUntilVisible(
               element: demoButton,
@@ -95,6 +100,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             await controller.tap(find.byKey(const ValueKey('Back')));
 
             await animationStops();
+            print('$demo | Finished run $i');
           }
           print('$demo | Finished');
         }
