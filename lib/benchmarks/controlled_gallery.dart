@@ -28,6 +28,8 @@ Future<void> main() async {
   // Check if the benchmark server wants us to run a specific benchmark.
   final String nextBenchmark = await _client.requestNextBenchmark();
 
+  _client.reportDemo('This is a random report.');
+
   if (nextBenchmark == LocalBenchmarkServerClient.kManualFallback) {
     if (benchmarks.length == 1) {
       await _runBenchmark(benchmarks.keys.single);
@@ -319,6 +321,17 @@ class LocalBenchmarkServerClient {
         'error': '$error',
         'stackTrace': '$stackTrace',
       }),
+    );
+  }
+
+  /// Reports a message about the demo to the benchmark server.
+  Future<void> reportDemo(String report) async {
+    _checkNotManualMode();
+    await html.HttpRequest.request(
+      '/report-demo',
+      method: 'POST',
+      mimeType: 'text/plain',
+      sendData: report,
     );
   }
 

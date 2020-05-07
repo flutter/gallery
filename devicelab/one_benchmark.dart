@@ -102,6 +102,11 @@ Future<TaskResult> runWebBenchmark({ @required bool useCanvasKit }) async {
             profileData.complete(collectedProfiles);
             return Response.notFound('Finished running benchmarks.');
           }
+        } else if (request.requestedUri.path.endsWith('/report-demo')) {
+          // A passthrough to report demo progress.
+          final report = await request.readAsString();
+          print('[Gallery] $report');
+          return Response.ok('Reported.');
         } else {
           return Response.notFound(
               'This request is not handled by the profile-data handler.');
