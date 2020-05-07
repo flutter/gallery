@@ -637,10 +637,10 @@ class Timeseries {
   /// See [TimeseriesStats] for more details.
   TimeseriesStats computeStats() {
     // The first few values we simply discard and never look at. They're from the warm-up phase.
-    final List<double> warmUpValues = _allValues.sublist(0, _allValues.length - _kMeasuredSampleCount);
+    final List<double> warmUpValues = _allValues.sublist(0, _kWarmUpSampleCount);
 
     // Values we analyze.
-    final List<double> candidateValues = _allValues.sublist(_allValues.length - _kMeasuredSampleCount);
+    final List<double> candidateValues = _allValues.sublist(_kWarmUpSampleCount);
 
     // The average that includes outliers.
     final double dirtyAverage = _computeAverage(name, candidateValues);
