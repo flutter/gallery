@@ -53,7 +53,7 @@ Future<void> realScrollUntilVisible({
 
   final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
 
-  if (isSuperset(large: visibleWindow, small: elementRect)) {
+  if (false /*isSuperset(large: visibleWindow, small: elementRect)*/) {
     print('Already contains.');
     return;
   } else {
