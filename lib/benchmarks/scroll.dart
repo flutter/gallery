@@ -106,7 +106,7 @@ Future<void> animationStops() async {
   await stopped.future;
 }
 
-// TODO: Adapt.
+@deprecated
 Future<void> deprecatedScrollUntilVisible(
     ScrollableState scrollableState,
     Finder item,
