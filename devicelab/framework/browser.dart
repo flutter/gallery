@@ -120,6 +120,9 @@ class Chrome {
   final WipConnection _debugConnection;
   bool _isStopped = false;
 
+  // Added for debugging.
+  io.Process get chromeProcess => _chromeProcess;
+
   Completer<void> _tracingCompleter;
   StreamSubscription<WipEvent> _tracingSubscription;
   List<Map<String, dynamic>> _tracingData;
