@@ -78,14 +78,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
               find.byKey(ValueKey(demo), skipOffstage: false)
               .evaluate().single;
 
+          await scrollUntilVisible(
+            element: demoButton,
+          );
+
           print('$demo | Started');
 
           for (var i = 0; i < 2; ++i) {
             print('$demo | Started run $i');
-
-            await scrollUntilVisible(
-              element: demoButton,
-            );
 
             await controller.tap(find.byKey(ValueKey(demo)));
 
