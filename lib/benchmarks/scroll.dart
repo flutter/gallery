@@ -74,9 +74,8 @@ Future<void> scrollUntilVisible({
   } else {
     scrollable.position.jumpTo(targetPixels);
   }
-  await animationStops();
 
-  return;
+  await animationStops();
 }
 
 Future<void> animationStops() async {
