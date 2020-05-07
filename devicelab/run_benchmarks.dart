@@ -39,7 +39,7 @@ Future<TaskResult> runWebBenchmark({
           '--dart-define=FLUTTER_WEB_USE_SKIA=true',
         '--profile',
         '-t',
-        'lib/benchmarks/controlled_gallery.dart',
+        'lib/benchmarks/benchmark_controller.dart',
       ],
       environment: <String, String>{
         'FLUTTER_WEB': 'true',
