@@ -19,7 +19,7 @@ const bool isCanvasKit = bool.fromEnvironment('FLUTTER_WEB_USE_SKIA', defaultVal
 /// When adding a new benchmark, add it to this map. Make sure that the name
 /// of your benchmark is unique.
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
-  GalleryRecorder.benchmarkName: () => GalleryRecorder(),
+  GalleryRecorder.benchmarkName: () => GalleryRecorder(reporter: _client.reportDemo),
 };
 
 final LocalBenchmarkServerClient _client = LocalBenchmarkServerClient();
@@ -28,7 +28,7 @@ Future<void> main() async {
   // Check if the benchmark server wants us to run a specific benchmark.
   final String nextBenchmark = await _client.requestNextBenchmark();
 
-  _client.reportDemo('This is a random report.');
+  _client.reportDemo('Gallery started.');
 
   if (nextBenchmark == LocalBenchmarkServerClient.kManualFallback) {
     if (benchmarks.length == 1) {
@@ -326,13 +326,16 @@ class LocalBenchmarkServerClient {
 
   /// Reports a message about the demo to the benchmark server.
   Future<void> reportDemo(String report) async {
-    _checkNotManualMode();
-    await html.HttpRequest.request(
-      '/report-demo',
-      method: 'POST',
-      mimeType: 'text/plain',
-      sendData: report,
-    );
+    if (isInManualMode) {
+      print(report);
+    } else {
+      await html.HttpRequest.request(
+        '/report-demo',
+        method: 'POST',
+        mimeType: 'text/plain',
+        sendData: report,
+      );
+    }
   }
 
   /// This is the same as calling [html.HttpRequest.request] but it doesn't

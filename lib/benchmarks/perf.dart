@@ -29,12 +29,14 @@ const Duration _defaultWaitingDuration = Duration(seconds: 3);
 
 // TODO: update documentation.
 class GalleryRecorder extends CustomizedWidgetRecorder {
-  GalleryRecorder() : super(name: benchmarkName);
+  GalleryRecorder({this.reporter}) : super(name: benchmarkName);
 
   static const String benchmarkName = 'gallery_perf';
 
   bool finished = false;
   LiveWidgetController controller;
+
+  void Function(String) reporter;
 
   @override
   bool shouldContinue() => !finished || profile.shouldContinue();
@@ -59,11 +61,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         .map((demo) => demo.describe)
         .toList();
 
-    print('==== List of demos ====');
+    reporter('==== List of demos ====');
     for (final demo in demoDescriptions) {
-      print(demo);
+      reporter(demo);
     }
-    print('==== End of list of demos ====');
+    reporter('==== End of list of demos ====');
 
     // TODO: abstract and automate here.
 
@@ -84,10 +86,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
       await scrollUntilVisible(element: demoButton);
 
-      print('$demo | Started');
+      reporter('$demo | Started');
 
       for (var i = 0; i < 2; ++i) {
-        print('$demo | Started run $i');
+        reporter('$demo | Started run $i');
 
         await controller.tap(find.byKey(ValueKey(demo)));
 
@@ -100,9 +102,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         await controller.tap(find.byKey(const ValueKey('Back')));
 
         await animationStops();
-        print('$demo | Finished run $i');
+        reporter('$demo | Finished run $i');
       }
-      print('$demo | Finished');
+      reporter('$demo | Finished');
     }
 
     // At the end of the test, mark as finished.
