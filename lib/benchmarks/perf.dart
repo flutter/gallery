@@ -48,6 +48,16 @@ const List<String> demos = <String>[
   'Colors',
 ];
 
+// Demos that will be backed out of within FlutterDriver.runUnsynchronized();
+//
+// These names must match the output of GalleryDemo.describe in
+// lib/data/demos.dart.
+const List<String> _unsynchronizedDemos = <String>[
+  'Progress indicators@material',
+  'Activity indicator@cupertino',
+  'Colors@reference',
+];
+
 /// Creates an infinite list of Material cards and scrolls it.
 class GalleryRecorder extends CustomizedWidgetRecorder {
   GalleryRecorder() : super(name: benchmarkName);
@@ -118,7 +128,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Tapped');
 
-          await Future<void>.delayed(Duration(milliseconds: 500));
+          if (_unsynchronizedDemos.contains(demo)) {
+            await Future<void>.delayed(Duration(seconds: 3));
+          } else {
+            await animationStops();
+          }
 
           print('$demo | Waited');
 
@@ -141,6 +155,19 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 }
 
 // TODO: Add automation.
+
+Future<void> animationStops() {
+  final Completer stopped = Completer<void>();
+
+  Timer.periodic(Duration(milliseconds: 50), (timer) {
+    if (! WidgetsBinding.instance.hasScheduledFrame) {
+      stopped.complete();
+      timer.cancel();
+    }
+  });
+
+  return stopped.future;
+}
 
 /*
       () {
