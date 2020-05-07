@@ -70,9 +70,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             );
           }
 
-          // TODO: Fix tap for "Bottom navigation@material" (#7) and (#8).
-          // TODO: run the demo.
-
           final Element demoButton =
               find.byKey(ValueKey(demo), skipOffstage: false)
               .evaluate().single;
