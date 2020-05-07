@@ -77,8 +77,8 @@ Future<void> scrollUntilVisible({
     if (animated) {
       await scrollable.position.animateTo(
         scrollable.position.pixels + pixelsToBeMoved,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.elasticInOut,
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.easeInOut,
       );
     } else {
       scrollable.position.jumpTo(scrollable.position.pixels + pixelsToBeMoved);

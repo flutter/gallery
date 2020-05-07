@@ -60,14 +60,24 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         bool finishedStudyDemos = false;
 
-        for (final demo in demoDescriptions) {
+        for (final demo in demoDescriptions.sublist(3, 7)) {
           if (!finishedStudyDemos && ! demo.contains('@study')) {
             finishedStudyDemos = true;
 
+            print('Scrolled-1 to Categories');
+            await Future<void>.delayed(Duration(seconds: 2));
+
+            print('Scrolled-2');
             await scrollUntilVisible(
               element: find.text('Categories').evaluate().single,
               strict: true,
+              animated: true,
             );
+
+            print('Scrolled-3');
+
+            await animationStops();
+            print('Scrolled-4 to Categories');
           }
 
           final Element demoButton =
@@ -82,8 +92,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             print('$demo | Spatial >> ${absoluteTopLeft(
                 demoButton.renderObject)}');
 
+            await Future<void>.delayed(Duration(seconds: 2));
+
             await scrollUntilVisible(
               element: demoButton,
+              animated: true,
             );
 
             print('$demo | Scrolled');
