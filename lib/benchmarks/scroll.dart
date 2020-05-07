@@ -8,6 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+const Duration _animationCheckingInterval = Duration(milliseconds: 50);
+
+const Duration _scrollAnimationLength = Duration(milliseconds: 300);
+
 Offset _absoluteTopLeft(RenderObject renderObject)
     => (renderObject as RenderBox).localToGlobal(Offset.zero);
 
@@ -57,7 +61,6 @@ Future<void> scrollUntilVisible({
         break;
       default: break;
     }
-    print('PTBM = $pixelsToBeMoved');
 
     final double targetPixels = scrollable.position.pixels + pixelsToBeMoved;
     final double restrictedTargetPixels = targetPixels.clamp(
@@ -68,26 +71,24 @@ Future<void> scrollUntilVisible({
     if (animated) {
       await scrollable.position.animateTo(
         restrictedTargetPixels,
-        duration: const Duration(milliseconds: 300),
+        duration: _scrollAnimationLength,
         curve: Curves.easeInOut,
       );
     } else {
       scrollable.position.jumpTo(targetPixels);
     }
     await animationStops();
-    print('Scrolled.');
+
     return;
   }
 }
 
 Future<void> animationStops() async {
-  if (! WidgetsBinding.instance.hasScheduledFrame) {
-    return;
-  }
+  if (! WidgetsBinding.instance.hasScheduledFrame) return;
 
   final Completer stopped = Completer<void>();
 
-  Timer.periodic(const Duration(milliseconds: 50), (timer) {
+  Timer.periodic(_animationCheckingInterval, (timer) {
     if (! WidgetsBinding.instance.hasScheduledFrame) {
       stopped.complete();
       timer.cancel();

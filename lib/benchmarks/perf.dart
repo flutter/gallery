@@ -17,8 +17,6 @@ import 'scroll.dart';
 const Duration _initialWaitingDuration = Duration(milliseconds: 1500);
 
 // TODO: update documentation.
-// Demos that will be backed out of within FlutterDriver.runUnsynchronized();
-//
 // These names must match the output of GalleryDemo.describe in
 // lib/data/demos.dart.
 const List<String> _demosWithAnimation = <String>[
