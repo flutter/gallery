@@ -172,7 +172,7 @@ abstract class RawRecorder extends Recorder {
   }
 }
 
-/// A recorder for benchmarking interactions with the framework by creating
+/// A (modified) recorder for benchmarking interactions with the framework by creating
 /// widgets.
 ///
 /// To implement a benchmark, extend this class and implement [createWidget].
@@ -180,7 +180,7 @@ abstract class RawRecorder extends Recorder {
 /// Example:
 ///
 /// ```
-/// class BenchListView extends WidgetRecorder {
+/// class BenchListView extends CustomWidgetRecorder {
 ///   BenchListView() : super(name: benchmarkName);
 ///
 ///   static const String benchmarkName = 'bench_list_view';
@@ -233,91 +233,6 @@ abstract class RawRecorder extends Recorder {
 ///   }
 /// }
 /// ```
-abstract class WidgetRecorder extends Recorder implements FrameRecorder {
-  WidgetRecorder({@required String name}) : super._(name, true);
-
-  /// Creates a widget to be benchmarked.
-  ///
-  /// The widget must create its own animation to drive the benchmark. The
-  /// animation should continue indefinitely. The benchmark harness will stop
-  /// pumping frames automatically.
-  Widget createWidget();
-
-  @override
-  VoidCallback didStop;
-
-  Profile profile;
-  Completer<void> _runCompleter;
-
-  Stopwatch _drawFrameStopwatch;
-
-  @override
-  @mustCallSuper
-  void frameWillDraw() {
-    startMeasureFrame();
-    _drawFrameStopwatch = Stopwatch()..start();
-  }
-
-  @override
-  @mustCallSuper
-  void frameDidDraw() {
-    endMeasureFrame();
-    profile.addDataPoint('drawFrameDuration', _drawFrameStopwatch.elapsed, reported: true);
-
-    if (profile.shouldContinue()) {
-      window.scheduleFrame();
-    } else {
-      didStop();
-      _runCompleter.complete();
-    }
-  }
-
-  @override
-  void _onError(dynamic error, StackTrace stackTrace) {
-    _runCompleter.completeError(error, stackTrace);
-  }
-
-  @override
-  Future<Profile> run() async {
-    _runCompleter = Completer<void>();
-    final Profile localProfile = profile = Profile(name: name);
-    final _RecordingWidgetsBinding binding =
-        _RecordingWidgetsBinding.ensureInitialized();
-    final Widget widget = createWidget();
-
-    registerEngineBenchmarkValueListener(kProfilePrerollFrame, (num value) {
-      localProfile.addDataPoint(
-        kProfilePrerollFrame,
-        Duration(microseconds: value.toInt()),
-        reported: false,
-      );
-    });
-    registerEngineBenchmarkValueListener(kProfileApplyFrame, (num value) {
-      localProfile.addDataPoint(
-        kProfileApplyFrame,
-        Duration(microseconds: value.toInt()),
-        reported: false,
-      );
-    });
-
-    binding._beginRecording(this, widget);
-
-    try {
-      await _runCompleter.future;
-      return localProfile;
-    } finally {
-      stopListeningToEngineBenchmarkValues(kProfilePrerollFrame);
-      stopListeningToEngineBenchmarkValues(kProfileApplyFrame);
-      _runCompleter = null;
-      profile = null;
-    }
-  }
-}
-
-/// A recorder for benchmarking interactions with the framework by creating
-/// widgets, with some custom modifications.
-///
-/// Similar to [WidgetRecorder], but different.
 abstract class CustomizedWidgetRecorder extends Recorder implements FrameRecorder {
   CustomizedWidgetRecorder({@required String name}) : super._(name, true);
 
