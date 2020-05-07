@@ -28,6 +28,9 @@ Size windowSize(BuildContext context)
 Rect windowRect(BuildContext context)
     => Offset.zero & windowSize(context);
 
+bool isSuperset({@required Rect large, @required Rect small})
+    => large.contains(small.topLeft) && large.contains(small.bottomRight);
+
 /*
 Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
   await controller.tap(find.text(text, skipOffstage: skipOffStage));
@@ -39,16 +42,41 @@ Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
 Future<void> realScrollUntilVisible({
   Element element,
 }) async {
+  final RenderObject elementRenderObject = element.renderObject;
+  final Rect elementRect = absoluteRect(elementRenderObject);
+
   final ScrollableState scrollable = Scrollable.of(element);
-  final RenderAbstractViewport viewport = RenderAbstractViewport.of(element.renderObject);
+  final RenderAbstractViewport viewport = RenderAbstractViewport.of(elementRenderObject);
 
   print(scrollable);
   print(viewport);
 
   final Rect visibleWindow = absoluteRect(viewport).intersect(windowRect(element));
 
-  print(absoluteRect(viewport));
-  print(visibleWindow);
+  if (isSuperset(large: visibleWindow, small: elementRect)) {
+    print('Already contains.');
+    return;
+  } else {
+    double pixelsToBeMoved;
+    switch (scrollable.axisDirection) {
+      case AxisDirection.down:
+        pixelsToBeMoved = elementRect.top - visibleWindow.top;
+        break;
+      case AxisDirection.right:
+        pixelsToBeMoved = elementRect.left - visibleWindow.left;
+        break;
+      default: break;
+    }
+    pixelsToBeMoved = pixelsToBeMoved.clamp(
+      scrollable.position.minScrollExtent,
+      scrollable.position.maxScrollExtent,
+    ).toDouble();
+    print('PTBM = $pixelsToBeMoved');
+    scrollable.position.jumpTo(scrollable.position.pixels + pixelsToBeMoved);
+    print('Scrolled.');
+    return;
+  }
+
 }
 
 // TODO: Adapt.

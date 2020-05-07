@@ -90,7 +90,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         // TODO: abstract and automate here.
 
-        for (final demo in demoDescriptions.sublist(5, 6)) {
+        for (final demo in demoDescriptions.sublist(7, 8)) {
           // TODO: Fix tap for "Bottom navigation@material" (#7) and (#8).
 
           // TODO: run the demo.
