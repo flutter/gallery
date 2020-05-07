@@ -83,7 +83,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
         bool startedCategories = false;
 
-        for (final demo in demoDescriptions.sublist(0, 7)) {
+        for (final demo in demoDescriptions.sublist(0)) {
           if (!startedCategories && ! demo.contains('@study')) {
             startedCategories = true;
 
@@ -110,7 +110,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
           print('$demo | Scrolled');
 
-          await Future<void>.delayed(Duration(milliseconds: 500));
+          await Future<void>.delayed(Duration(milliseconds: 1000));
 
           print('$demo | Waited for scroll to stop');
 
