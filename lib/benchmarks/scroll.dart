@@ -33,14 +33,6 @@ bool isSuperset({@required Rect large, @required Rect small})
         && large.bottom >= small.bottom
         && large.right >= small.right;
 
-/*
-Future<void> tapOnText(String text, {bool skipOffStage = false}) async {
-  await controller.tap(find.text(text, skipOffstage: skipOffStage));
-  print('Tapped $text');
-  await Future<void>.delayed(Duration(milliseconds: 1000));
-}
- */
-
 Future<void> scrollUntilVisible({
   Element element,
   bool strict = false,
