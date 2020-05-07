@@ -63,6 +63,7 @@ Future<void> realScrollUntilVisible({
   } else {
     double pixelsToBeMoved;
     switch (scrollable.axisDirection) {
+      // TODO: add support for other directions and other alignment policies.
       case AxisDirection.down:
         pixelsToBeMoved = elementRect.top - visibleWindow.top;
         break;
