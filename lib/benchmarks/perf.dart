@@ -71,7 +71,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
             await scrollUntilVisible(
               element: find.text('Categories').evaluate().single,
               strict: true,
-              animated: true,
             );
           }
 
@@ -86,7 +85,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
             await scrollUntilVisible(
               element: demoButton,
-              animated: true,
             );
 
             await controller.tap(find.byKey(ValueKey(demo)));
