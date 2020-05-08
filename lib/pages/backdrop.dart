@@ -160,8 +160,6 @@ class _BackdropState extends State<Backdrop>
           excluding: !isSettingsOpen,
           child: isSettingsOpen
               ? RawKeyboardListener(
-                  // TODO: Implement RawKeyboardListener.includeSemantics
-                  // includeSemantics: false,
                   focusNode: _settingsPageFocusNode,
                   onKey: (event) {
                     if (event.logicalKey == LogicalKeyboardKey.escape) {
