@@ -28,7 +28,8 @@ const int _kWarmUpSampleCount = 5;
 const int _kMinimumMeasuredSampleCount = 100;
 
 /// The total number of samples collected by a benchmark.
-const int _kTotalSampleCount = _kWarmUpSampleCount + _kMinimumMeasuredSampleCount;
+const int _kTotalSampleCount =
+    _kWarmUpSampleCount + _kMinimumMeasuredSampleCount;
 
 /// A benchmark metric that includes frame-related computations prior to
 /// submitting layer and picture operations to the underlying renderer, such as
@@ -233,7 +234,8 @@ abstract class RawRecorder extends Recorder {
 ///   }
 /// }
 /// ```
-abstract class CustomizedWidgetRecorder extends Recorder implements FrameRecorder {
+abstract class CustomizedWidgetRecorder extends Recorder
+    implements FrameRecorder {
   CustomizedWidgetRecorder({@required String name}) : super._(name, true);
 
   /// Creates a widget to be benchmarked.
@@ -266,7 +268,8 @@ abstract class CustomizedWidgetRecorder extends Recorder implements FrameRecorde
   @mustCallSuper
   void frameDidDraw() {
     endMeasureFrame();
-    profile.addDataPoint('drawFrameDuration', _drawFrameStopwatch.elapsed, reported: true);
+    profile.addDataPoint('drawFrameDuration', _drawFrameStopwatch.elapsed,
+        reported: true);
 
     if (shouldContinue()) {
       window.scheduleFrame();
@@ -286,7 +289,7 @@ abstract class CustomizedWidgetRecorder extends Recorder implements FrameRecorde
     _runCompleter = Completer<void>();
     final Profile localProfile = profile = Profile(name: name);
     final _RecordingWidgetsBinding binding =
-    _RecordingWidgetsBinding.ensureInitialized();
+        _RecordingWidgetsBinding.ensureInitialized();
     final Widget widget = createWidget();
 
     registerEngineBenchmarkValueListener(kProfilePrerollFrame, (num value) {
@@ -354,37 +357,45 @@ class Timeseries {
   /// See [TimeseriesStats] for more details.
   TimeseriesStats computeStats() {
     // The first few values we simply discard and never look at. They're from the warm-up phase.
-    final List<double> warmUpValues = _allValues.sublist(0, _kWarmUpSampleCount);
+    final List<double> warmUpValues =
+        _allValues.sublist(0, _kWarmUpSampleCount);
 
     // Values we analyze.
-    final List<double> candidateValues = _allValues.sublist(_kWarmUpSampleCount);
+    final List<double> candidateValues =
+        _allValues.sublist(_kWarmUpSampleCount);
 
     // The average that includes outliers.
     final double dirtyAverage = _computeAverage(name, candidateValues);
 
     // The standard deviation that includes outliers.
-    final double dirtyStandardDeviation = _computeStandardDeviationForPopulation(name, candidateValues);
+    final double dirtyStandardDeviation =
+        _computeStandardDeviationForPopulation(name, candidateValues);
 
     // Any value that's higher than this is considered an outlier.
     final double outlierCutOff = dirtyAverage + dirtyStandardDeviation;
 
     // Candidates with outliers removed.
-    final Iterable<double> cleanValues = candidateValues.where((double value) => value <= outlierCutOff);
+    final Iterable<double> cleanValues =
+        candidateValues.where((double value) => value <= outlierCutOff);
 
     // Outlier candidates.
-    final Iterable<double> outliers = candidateValues.where((double value) => value > outlierCutOff);
+    final Iterable<double> outliers =
+        candidateValues.where((double value) => value > outlierCutOff);
 
     // Final statistics.
     final double cleanAverage = _computeAverage(name, cleanValues);
-    final double standardDeviation = _computeStandardDeviationForPopulation(name, cleanValues);
-    final double noise = cleanAverage > 0.0 ? standardDeviation / cleanAverage : 0.0;
+    final double standardDeviation =
+        _computeStandardDeviationForPopulation(name, cleanValues);
+    final double noise =
+        cleanAverage > 0.0 ? standardDeviation / cleanAverage : 0.0;
 
     // Compute outlier average. If there are no outliers the outlier average is
     // the same as clean value average. In other words, in a perfect benchmark
     // with no noise the difference between average and outlier average is zero,
     // which the best possible outcome. Noise produces a positive difference
     // between the two.
-    final double outlierAverage = outliers.isNotEmpty ? _computeAverage(name, outliers) : cleanAverage;
+    final double outlierAverage =
+        outliers.isNotEmpty ? _computeAverage(name, outliers) : cleanAverage;
 
     final List<AnnotatedSample> annotatedValues = <AnnotatedSample>[
       for (final double warmUpValue in warmUpValues)
@@ -490,16 +501,16 @@ class TimeseriesStats {
   /// worse is jank when it happens. Smaller is better, with 1.0 being the
   /// perfect score. If [average] is zero, this value defaults to 1.0.
   double get outlierRatio => average > 0.0
-    ? outlierAverage / average
-    : 1.0; // this can only happen in perfect benchmark that reports only zeros
+      ? outlierAverage / average
+      : 1.0; // this can only happen in perfect benchmark that reports only zeros
 
   @override
   String toString() {
     final StringBuffer buffer = StringBuffer();
     buffer.writeln(
-      '$name: (samples: $cleanSampleCount clean/$outlierSampleCount outliers/'
-      '${cleanSampleCount + outlierSampleCount} measured/'
-      '${samples.length} total)');
+        '$name: (samples: $cleanSampleCount clean/$outlierSampleCount outliers/'
+        '${cleanSampleCount + outlierSampleCount} measured/'
+        '${samples.length} total)');
     buffer.writeln(' | average: $average μs');
     buffer.writeln(' | outlier average: $outlierAverage μs');
     buffer.writeln(' | outlier/clean ratio: ${outlierRatio}x');
@@ -547,7 +558,8 @@ class Profile {
   final Map<String, dynamic> extraData = <String, dynamic>{};
 
   /// Invokes [callback] and records the duration of its execution under [key].
-  Duration record(String key, VoidCallback callback, { @required bool reported }) {
+  Duration record(String key, VoidCallback callback,
+      {@required bool reported}) {
     final Duration duration = timeAction(callback);
     addDataPoint(key, duration, reported: reported);
     return duration;
@@ -559,8 +571,10 @@ class Profile {
   ///
   /// Set [reported] to `false` to store the data, but not show it on the
   /// dashboard UI.
-  void addDataPoint(String key, Duration duration, { @required bool reported }) {
-    scoreData.putIfAbsent(key, () => Timeseries(key, reported)).add(duration.inMicroseconds.toDouble());
+  void addDataPoint(String key, Duration duration, {@required bool reported}) {
+    scoreData
+        .putIfAbsent(key, () => Timeseries(key, reported))
+        .add(duration.inMicroseconds.toDouble());
   }
 
   /// Decides whether the data collected so far is sufficient to stop, or
@@ -580,7 +594,8 @@ class Profile {
 
     // We have recorded something, but do we have enough samples? If every
     // timeseries has collected enough samples, stop the benchmark.
-    return !scoreData.keys.every((String key) => scoreData[key].count >= _kTotalSampleCount);
+    return !scoreData.keys
+        .every((String key) => scoreData[key].count >= _kTotalSampleCount);
   }
 
   /// Returns a JSON representation of the profile that will be sent to the
@@ -642,7 +657,8 @@ class Profile {
 /// Computes the arithmetic mean (or average) of given [values].
 double _computeAverage(String label, Iterable<double> values) {
   if (values.isEmpty) {
-    throw StateError('$label: attempted to compute an average of an empty value list.');
+    throw StateError(
+        '$label: attempted to compute an average of an empty value list.');
   }
 
   final double sum = values.reduce((double a, double b) => a + b);
@@ -656,9 +672,11 @@ double _computeAverage(String label, Iterable<double> values) {
 /// See also:
 ///
 /// * https://en.wikipedia.org/wiki/Standard_deviation
-double _computeStandardDeviationForPopulation(String label, Iterable<double> population) {
+double _computeStandardDeviationForPopulation(
+    String label, Iterable<double> population) {
   if (population.isEmpty) {
-    throw StateError('$label: attempted to compute the standard deviation of empty population.');
+    throw StateError(
+        '$label: attempted to compute the standard deviation of empty population.');
   }
   final double mean = _computeAverage(label, population);
   final double sumOfSquaredDeltas = population.fold<double>(
@@ -823,12 +841,14 @@ void endMeasureFrame() {
 typedef EngineBenchmarkValueListener = void Function(num value);
 
 // Maps from a value label name to a listener.
-final Map<String, EngineBenchmarkValueListener> _engineBenchmarkListeners = <String, EngineBenchmarkValueListener>{};
+final Map<String, EngineBenchmarkValueListener> _engineBenchmarkListeners =
+    <String, EngineBenchmarkValueListener>{};
 
 /// Registers a [listener] for engine benchmark values labeled by [name].
 ///
 /// If another listener is already registered, overrides it.
-void registerEngineBenchmarkValueListener(String name, EngineBenchmarkValueListener listener) {
+void registerEngineBenchmarkValueListener(
+    String name, EngineBenchmarkValueListener listener) {
   if (listener == null) {
     throw ArgumentError(
       'Listener must not be null. To stop listening to engine benchmark values '
@@ -837,16 +857,15 @@ void registerEngineBenchmarkValueListener(String name, EngineBenchmarkValueListe
   }
 
   if (_engineBenchmarkListeners.containsKey(name)) {
-    throw StateError(
-      'A listener for "$name" is already registered.\n'
-      'Call `stopListeningToEngineBenchmarkValues` to unregister the previous '
-      'listener before registering a new one.'
-    );
+    throw StateError('A listener for "$name" is already registered.\n'
+        'Call `stopListeningToEngineBenchmarkValues` to unregister the previous '
+        'listener before registering a new one.');
   }
 
   if (_engineBenchmarkListeners.isEmpty) {
     // The first listener is being registered. Register the global listener.
-    js_util.setProperty(html.window, '_flutter_internal_on_benchmark', _dispatchEngineBenchmarkValue);
+    js_util.setProperty(html.window, '_flutter_internal_on_benchmark',
+        _dispatchEngineBenchmarkValue);
   }
 
   _engineBenchmarkListeners[name] = listener;

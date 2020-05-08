@@ -14,7 +14,8 @@ import 'recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
 
-const bool isCanvasKit = bool.fromEnvironment('FLUTTER_WEB_USE_SKIA', defaultValue: false);
+const bool isCanvasKit =
+    bool.fromEnvironment('FLUTTER_WEB_USE_SKIA', defaultValue: false);
 
 /// List of all benchmarks that run in the devicelab.
 ///
@@ -22,20 +23,22 @@ const bool isCanvasKit = bool.fromEnvironment('FLUTTER_WEB_USE_SKIA', defaultVal
 /// of your benchmark is unique.
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
   'gallery_studies_perf': () => GalleryRecorder(
-    benchmarkName: 'gallery_studies_perf',
-    reporter: _client.reportDemo,
-    runCriterion: (String demo) => typeOfDemo(demo) == DemoType.study,
-  ),
+        benchmarkName: 'gallery_studies_perf',
+        reporter: _client.reportDemo,
+        runCriterion: (String demo) => typeOfDemo(demo) == DemoType.study,
+      ),
   'gallery_animated_widgets_perf': () => GalleryRecorder(
-    benchmarkName: 'gallery_animated_widgets_perf',
-    reporter: _client.reportDemo,
-    runCriterion: (String demo) => typeOfDemo(demo) == DemoType.animatedWidget,
-  ),
+        benchmarkName: 'gallery_animated_widgets_perf',
+        reporter: _client.reportDemo,
+        runCriterion: (String demo) =>
+            typeOfDemo(demo) == DemoType.animatedWidget,
+      ),
   'gallery_unanimated_widgets_perf': () => GalleryRecorder(
-    benchmarkName: 'gallery_unanimated_widgets_perf',
-    reporter: _client.reportDemo,
-    runCriterion: (String demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
-  ),
+        benchmarkName: 'gallery_unanimated_widgets_perf',
+        reporter: _client.reportDemo,
+        runCriterion: (String demo) =>
+            typeOfDemo(demo) == DemoType.unanimatedWidget,
+      ),
 };
 
 final LocalBenchmarkServerClient _client = LocalBenchmarkServerClient();
@@ -72,12 +75,13 @@ Future<void> _runBenchmark(String benchmarkName) async {
   try {
     final Recorder recorder = recorderFactory();
     final Runner runner = recorder.isTracingEnabled && !_client.isInManualMode
-      ? Runner(
-          recorder: recorder,
-          setUpAllDidRun: () => _client.startPerformanceTracing(benchmarkName),
-          tearDownAllWillRun: _client.stopPerformanceTracing,
-        )
-      : Runner(recorder: recorder);
+        ? Runner(
+            recorder: recorder,
+            setUpAllDidRun: () =>
+                _client.startPerformanceTracing(benchmarkName),
+            tearDownAllWillRun: _client.stopPerformanceTracing,
+          )
+        : Runner(recorder: recorder);
 
     final Profile profile = await runner.run();
     if (!_client.isInManualMode) {
@@ -103,19 +107,19 @@ void _fallbackToManual(String error) {
 
       <!-- Absolutely position it so it receives the clicks and not the glasspane -->
       <ul style="position: absolute">
-        ${
-          benchmarks.keys
-            .map((String name) => '<li><button id="$name">$name</button></li>')
-            .join('\n')
-        }
+        ${benchmarks.keys.map((String name) => '<li><button id="$name">$name</button></li>').join('\n')}
       </ul>
     </div>
-  ''', validator: html.NodeValidatorBuilder()..allowHtml5()..allowInlineStyles());
+  ''',
+      validator: html.NodeValidatorBuilder()
+        ..allowHtml5()
+        ..allowInlineStyles());
 
   for (final String benchmarkName in benchmarks.keys) {
     final html.Element button = html.document.querySelector('#$benchmarkName');
     button.addEventListener('click', (_) {
-      final html.Element manualPanel = html.document.querySelector('#manual-panel');
+      final html.Element manualPanel =
+          html.document.querySelector('#manual-panel');
       manualPanel?.remove();
       _runBenchmark(benchmarkName);
     });
@@ -152,10 +156,11 @@ class TimeseriesVisualization {
     // The amount of vertical space available on the chart. Because some
     // outliers can be huge they can dwarf all the useful values. So we
     // limit it to 1.5 x the biggest non-outlier.
-    _maxValueChartRange = 1.5 * _stats.samples
-      .where((AnnotatedSample sample) => !sample.isOutlier)
-      .map<double>((AnnotatedSample sample) => sample.magnitude)
-      .fold<double>(0, math.max);
+    _maxValueChartRange = 1.5 *
+        _stats.samples
+            .where((AnnotatedSample sample) => !sample.isOutlier)
+            .map<double>((AnnotatedSample sample) => sample.magnitude)
+            .fold<double>(0, math.max);
   }
 
   static const double _kCanvasHeight = 200;
@@ -217,11 +222,13 @@ class TimeseriesVisualization {
 
     // Draw a horizontal solid line corresponding to the average.
     _ctx.lineWidth = 1;
-    drawLine(0, _normalized(_stats.average), _screenWidth, _normalized(_stats.average));
+    drawLine(0, _normalized(_stats.average), _screenWidth,
+        _normalized(_stats.average));
 
     // Draw a horizontal dashed line corresponding to the outlier cut off.
     _ctx.setLineDash(<num>[5, 5]);
-    drawLine(0, _normalized(_stats.outlierCutOff), _screenWidth, _normalized(_stats.outlierCutOff));
+    drawLine(0, _normalized(_stats.outlierCutOff), _screenWidth,
+        _normalized(_stats.outlierCutOff));
 
     // Draw a light red band that shows the noise (1 stddev in each direction).
     _ctx.fillStyle = 'rgba(255,50,50,0.3)';
@@ -317,10 +324,8 @@ class LocalBenchmarkServerClient {
       sendData: json.encode(profile.toJson()),
     );
     if (request.status != 200) {
-      throw Exception(
-        'Failed to report profile data to benchmark server. '
-        'The server responded with status code ${request.status}.'
-      );
+      throw Exception('Failed to report profile data to benchmark server. '
+          'The server responded with status code ${request.status}.');
     }
   }
 

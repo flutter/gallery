@@ -30,8 +30,7 @@ bool _isTaskRegistered = false;
 /// It is OK for a [task] to perform many things. However, only one task can be
 /// registered per Dart VM.
 Future<TaskResult> task(TaskFunction task) {
-  if (_isTaskRegistered)
-    throw StateError('A task is already registered');
+  if (_isTaskRegistered) throw StateError('A task is already registered');
 
   _isTaskRegistered = true;
 
@@ -51,8 +50,8 @@ class _TaskRunner {
     registerExtension('ext.cocoonRunTask',
         (String method, Map<String, String> parameters) async {
       final Duration taskTimeout = parameters.containsKey('timeoutInMinutes')
-        ? Duration(minutes: int.parse(parameters['timeoutInMinutes']))
-        : null;
+          ? Duration(minutes: int.parse(parameters['timeoutInMinutes']))
+          : null;
       final TaskResult result = await run(taskTimeout);
       return ServiceExtensionResponse.result(json.encode(result.toJson()));
     });
@@ -82,18 +81,19 @@ class _TaskRunner {
       print('Running task.');
       final String exe = Platform.isWindows ? '.exe' : '';
       section('Checking running Dart$exe processes');
-      final Set<RunningProcessInfo> beforeRunningDartInstances = await getRunningProcesses(
+      final Set<RunningProcessInfo> beforeRunningDartInstances =
+          await getRunningProcesses(
         processName: 'dart$exe',
       ).toSet();
       beforeRunningDartInstances.forEach(print);
 
       Future<TaskResult> futureResult = _performTask();
-      if (taskTimeout != null)
-        futureResult = futureResult.timeout(taskTimeout);
+      if (taskTimeout != null) futureResult = futureResult.timeout(taskTimeout);
       TaskResult result = await futureResult;
 
       section('Checking running Dart$exe processes after task...');
-      final List<RunningProcessInfo> afterRunningDartInstances = await getRunningProcesses(
+      final List<RunningProcessInfo> afterRunningDartInstances =
+          await getRunningProcesses(
         processName: 'dart$exe',
       ).toList();
       for (final RunningProcessInfo info in afterRunningDartInstances) {
@@ -126,8 +126,7 @@ class _TaskRunner {
   /// Causes the Dart VM to stay alive until a request to run the task is
   /// received via the VM service protocol.
   void keepVmAliveUntilTaskRunRequested() {
-    if (_taskStarted)
-      throw StateError('Task already started.');
+    if (_taskStarted) throw StateError('Task already started.');
 
     // Merely creating this port object will cause the VM to stay alive and keep
     // the VM service server running until the port is disposed of.

@@ -21,10 +21,10 @@ class RunningProcessInfo {
 
   @override
   bool operator ==(Object other) {
-    return other is RunningProcessInfo
-        && other.pid == pid
-        && other.commandLine == commandLine
-        && other.creationDate == creationDate;
+    return other is RunningProcessInfo &&
+        other.pid == pid &&
+        other.commandLine == commandLine &&
+        other.creationDate == creationDate;
   }
 
   @override
@@ -101,7 +101,8 @@ Stream<RunningProcessInfo> windowsRunningProcesses(String processName) async* {
     print(result.stdout);
     return;
   }
-  for (final RunningProcessInfo info in processPowershellOutput(result.stdout as String)) {
+  for (final RunningProcessInfo info
+      in processPowershellOutput(result.stdout as String)) {
     yield info;
   }
 }
@@ -141,10 +142,12 @@ Iterable<RunningProcessInfo> processPowershellOutput(String output) sync* {
 
     // 3/11/2019 11:01:54 AM
     // 12/11/2019 11:01:54 AM
-    String rawTime = line.substring(
-      creationDateHeaderStart,
-      creationDateHeaderEnd,
-    ).trim();
+    String rawTime = line
+        .substring(
+          creationDateHeaderStart,
+          creationDateHeaderEnd,
+        )
+        .trim();
 
     if (rawTime[1] == '/') {
       rawTime = '0$rawTime';
@@ -192,7 +195,8 @@ Stream<RunningProcessInfo> posixRunningProcesses(
     print(result.stdout);
     return;
   }
-  for (final RunningProcessInfo info in processPsOutput(result.stdout as String, processName)) {
+  for (final RunningProcessInfo info
+      in processPsOutput(result.stdout as String, processName)) {
     yield info;
   }
 }

@@ -42,7 +42,8 @@ DemoType typeOfDemo(String demo) {
 
 /// A recorder that measures frame building durations for the Gallery.
 class GalleryRecorder extends CustomizedWidgetRecorder {
-  GalleryRecorder({this.benchmarkName, this.reporter, this.runCriterion}) : super(name: benchmarkName);
+  GalleryRecorder({this.benchmarkName, this.reporter, this.runCriterion})
+      : super(name: benchmarkName);
 
   final String benchmarkName;
   final void Function(String) reporter;
@@ -64,9 +65,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   Future<void> automateGestures() async {
     await animationStops();
 
-    controller = LiveWidgetController(
-        WidgetsBinding.instance
-    );
+    controller = LiveWidgetController(WidgetsBinding.instance);
 
     // Find all demos
 

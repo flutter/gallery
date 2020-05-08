@@ -101,7 +101,7 @@ void fail(String message) {
 }
 
 // Remove the given file or directory.
-void rm(FileSystemEntity entity, { bool recursive = false}) {
+void rm(FileSystemEntity entity, {bool recursive = false}) {
   if (entity.existsSync()) {
     // This should not be necessary, but it turns out that
     // on Windows it's common for deletions to fail due to
@@ -132,8 +132,7 @@ void copy(File sourceFile, Directory targetDirectory, {String name}) {
 }
 
 void recursiveCopy(Directory source, Directory target) {
-  if (!target.existsSync())
-    target.createSync();
+  if (!target.existsSync()) target.createSync();
 
   for (final FileSystemEntity entity in source.listSync(followLinks: false)) {
     final String name = path.basename(entity.path);
@@ -200,8 +199,7 @@ void section(String title) {
     title = '╡ ••• $title ••• ╞';
     final String line = '═' * math.max((80 - title.length) ~/ 2, 2);
     output = '$line$title$line';
-    if (output.length == 79)
-      output += '═';
+    if (output.length == 79) output += '═';
   }
   print('\n\n$output\n');
 }
@@ -234,14 +232,15 @@ Future<Process> startProcess(
   String executable,
   List<String> arguments, {
   Map<String, String> environment,
-  bool isBot = true, // set to false to pretend not to be on a bot (e.g. to test user-facing outputs)
+  bool isBot =
+      true, // set to false to pretend not to be on a bot (e.g. to test user-facing outputs)
   String workingDirectory,
 }) async {
   assert(isBot != null);
   final String command = '$executable ${arguments?.join(" ") ?? ""}';
   final String finalWorkingDirectory = workingDirectory ?? cwd;
-  print('\nExecuting: $command in $finalWorkingDirectory'
-      + (environment != null ? ' with environment $environment' : ''));
+  print('\nExecuting: $command in $finalWorkingDirectory' +
+      (environment != null ? ' with environment $environment' : ''));
   environment ??= <String, String>{};
   environment['BOT'] = isBot ? 'true' : 'false';
   final Process process = await _processManager.start(
@@ -261,8 +260,7 @@ Future<Process> startProcess(
 }
 
 Future<void> forceQuitRunningProcesses() async {
-  if (_runningProcesses.isEmpty)
-    return;
+  if (_runningProcesses.isEmpty) return;
 
   // Give normally quitting processes a chance to report their exit code.
   await Future<void>.delayed(const Duration(seconds: 1));
@@ -282,10 +280,12 @@ Future<int> exec(
   String executable,
   List<String> arguments, {
   Map<String, String> environment,
-  bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
+  bool canFail =
+      false, // as in, whether failures are ok. False means that they are fatal.
   String workingDirectory,
 }) async {
-  final Process process = await startProcess(executable, arguments, environment: environment, workingDirectory: workingDirectory);
+  final Process process = await startProcess(executable, arguments,
+      environment: environment, workingDirectory: workingDirectory);
   await forwardStandardStreams(process);
   final int exitCode = await process.exitCode;
 
@@ -306,16 +306,21 @@ Future<void> forwardStandardStreams(Process process) {
       .transform<String>(utf8.decoder)
       .transform<String>(const LineSplitter())
       .listen((String line) {
-        print('stdout: $line');
-      }, onDone: () { stdoutDone.complete(); });
+    print('stdout: $line');
+  }, onDone: () {
+    stdoutDone.complete();
+  });
   process.stderr
       .transform<String>(utf8.decoder)
       .transform<String>(const LineSplitter())
       .listen((String line) {
-        print('stderr: $line');
-      }, onDone: () { stderrDone.complete(); });
+    print('stderr: $line');
+  }, onDone: () {
+    stderrDone.complete();
+  });
 
-  return Future.wait<void>(<Future<void>>[stdoutDone.future, stderrDone.future]);
+  return Future.wait<void>(
+      <Future<void>>[stdoutDone.future, stderrDone.future]);
 }
 
 /// Executes a command and returns its standard output as a String.
@@ -325,13 +330,15 @@ Future<String> eval(
   String executable,
   List<String> arguments, {
   Map<String, String> environment,
-  bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
+  bool canFail =
+      false, // as in, whether failures are ok. False means that they are fatal.
   String workingDirectory,
   StringBuffer stderr, // if not null, the stderr will be written here
   bool printStdout = true,
   bool printStderr = true,
 }) async {
-  final Process process = await startProcess(executable, arguments, environment: environment, workingDirectory: workingDirectory);
+  final Process process = await startProcess(executable, arguments,
+      environment: environment, workingDirectory: workingDirectory);
 
   final StringBuffer output = StringBuffer();
   final Completer<void> stdoutDone = Completer<void>();
@@ -340,20 +347,24 @@ Future<String> eval(
       .transform<String>(utf8.decoder)
       .transform<String>(const LineSplitter())
       .listen((String line) {
-        if (printStdout) {
-          print('stdout: $line');
-        }
-        output.writeln(line);
-      }, onDone: () { stdoutDone.complete(); });
+    if (printStdout) {
+      print('stdout: $line');
+    }
+    output.writeln(line);
+  }, onDone: () {
+    stdoutDone.complete();
+  });
   process.stderr
       .transform<String>(utf8.decoder)
       .transform<String>(const LineSplitter())
       .listen((String line) {
-        if (printStderr) {
-          print('stderr: $line');
-        }
-        stderr?.writeln(line);
-      }, onDone: () { stderrDone.complete(); });
+    if (printStderr) {
+      print('stderr: $line');
+    }
+    stderr?.writeln(line);
+  }, onDone: () {
+    stderrDone.complete();
+  });
 
   await Future.wait<void>(<Future<void>>[stdoutDone.future, stderrDone.future]);
   final int exitCode = await process.exitCode;
@@ -368,16 +379,21 @@ List<String> flutterCommandArgs(String command, List<String> options) {
   return <String>[
     command,
     if (localEngine != null) ...<String>['--local-engine', localEngine],
-    if (localEngineSrcPath != null) ...<String>['--local-engine-src-path', localEngineSrcPath],
+    if (localEngineSrcPath != null) ...<String>[
+      '--local-engine-src-path',
+      localEngineSrcPath
+    ],
     ...options,
   ];
 }
 
 /// Runs a `flutter` command and returns the standard output as a string.
-Future<String> evalFlutter(String command, {
+Future<String> evalFlutter(
+  String command, {
   String flutterDirectory,
   List<String> options = const <String>[],
-  bool canFail = false, // as in, whether failures are ok. False means that they are fatal.
+  bool canFail =
+      false, // as in, whether failures are ok. False means that they are fatal.
   Map<String, String> environment,
   StringBuffer stderr, // if not null, the stderr will be written here.
 }) {
@@ -425,8 +441,7 @@ void cd(dynamic directory) {
 String requireEnvVar(String name) {
   final String value = Platform.environment[name];
 
-  if (value == null)
-    fail('$name environment variable is missing. Quitting.');
+  if (value == null) fail('$name environment variable is missing. Quitting.');
 
   return value;
 }
@@ -450,7 +465,8 @@ Future<void> getNewGallery(String revision, Directory galleryDir) async {
   }
 
   await inDirectory<void>(galleryDir.parent, () async {
-    await exec('git', <String>['clone', 'https://github.com/flutter/gallery.git']);
+    await exec(
+        'git', <String>['clone', 'https://github.com/flutter/gallery.git']);
   });
 
   await inDirectory<void>(galleryDir, () async {
@@ -468,26 +484,16 @@ void checkNotNull(Object o1,
     Object o8 = 1,
     Object o9 = 1,
     Object o10 = 1]) {
-  if (o1 == null)
-    throw 'o1 is null';
-  if (o2 == null)
-    throw 'o2 is null';
-  if (o3 == null)
-    throw 'o3 is null';
-  if (o4 == null)
-    throw 'o4 is null';
-  if (o5 == null)
-    throw 'o5 is null';
-  if (o6 == null)
-    throw 'o6 is null';
-  if (o7 == null)
-    throw 'o7 is null';
-  if (o8 == null)
-    throw 'o8 is null';
-  if (o9 == null)
-    throw 'o9 is null';
-  if (o10 == null)
-    throw 'o10 is null';
+  if (o1 == null) throw 'o1 is null';
+  if (o2 == null) throw 'o2 is null';
+  if (o3 == null) throw 'o3 is null';
+  if (o4 == null) throw 'o4 is null';
+  if (o5 == null) throw 'o5 is null';
+  if (o6 == null) throw 'o6 is null';
+  if (o7 == null) throw 'o7 is null';
+  if (o8 == null) throw 'o8 is null';
+  if (o9 == null) throw 'o9 is null';
+  if (o10 == null) throw 'o10 is null';
 }
 
 /// Splits [from] into lines and selects those that contain [pattern].
@@ -541,7 +547,7 @@ String extractCloudAuthTokenArg(List<String> rawArgs) {
 }
 
 final RegExp _obsRegExp =
-  RegExp('An Observatory debugger .* is available at: ');
+    RegExp('An Observatory debugger .* is available at: ');
 final RegExp _obsPortRegExp = RegExp(r'(\S+:(\d+)/\S*)$');
 final RegExp _obsUriRegExp = RegExp(r'((http|//)[a-zA-Z0-9:/=_\-\.\[\]]+)');
 
@@ -549,7 +555,8 @@ final RegExp _obsUriRegExp = RegExp(r'((http|//)[a-zA-Z0-9:/=_\-\.\[\]]+)');
 ///
 /// The `prefix`, if specified, is a regular expression pattern and must not contain groups.
 /// `prefix` defaults to the RegExp: `An Observatory debugger .* is available at: `.
-int parseServicePort(String line, {
+int parseServicePort(
+  String line, {
   Pattern prefix,
 }) {
   prefix ??= _obsRegExp;
@@ -559,7 +566,7 @@ int parseServicePort(String line, {
   }
   final Match prefixMatch = matchesIter.first;
   final List<Match> matches =
-    _obsPortRegExp.allMatches(line, prefixMatch.end).toList();
+      _obsPortRegExp.allMatches(line, prefixMatch.end).toList();
   return matches.isEmpty ? null : int.parse(matches[0].group(2));
 }
 
@@ -567,7 +574,8 @@ int parseServicePort(String line, {
 ///
 /// The `prefix`, if specified, is a regular expression pattern and must not contain groups.
 /// `prefix` defaults to the RegExp: `An Observatory debugger .* is available at: `.
-Uri parseServiceUri(String line, {
+Uri parseServiceUri(
+  String line, {
   Pattern prefix,
 }) {
   prefix ??= _obsRegExp;
@@ -577,7 +585,7 @@ Uri parseServiceUri(String line, {
   }
   final Match prefixMatch = matchesIter.first;
   final List<Match> matches =
-    _obsUriRegExp.allMatches(line, prefixMatch.end).toList();
+      _obsUriRegExp.allMatches(line, prefixMatch.end).toList();
   return matches.isEmpty ? null : Uri.parse(matches[0].group(0));
 }
 
@@ -606,16 +614,19 @@ void checkDirectoryExists(String directory) {
 void checkCollectionContains<T>(Iterable<T> values, Iterable<T> collection) {
   for (final T value in values) {
     if (!collection.contains(value)) {
-      throw TaskResult.failure('Expected to find `$value` in `${collection.toString()}`.');
+      throw TaskResult.failure(
+          'Expected to find `$value` in `${collection.toString()}`.');
     }
   }
 }
 
 /// Check that `collection` does not contain any entries in `values`
-void checkCollectionDoesNotContain<T>(Iterable<T> values, Iterable<T> collection) {
+void checkCollectionDoesNotContain<T>(
+    Iterable<T> values, Iterable<T> collection) {
   for (final T value in values) {
     if (collection.contains(value)) {
-      throw TaskResult.failure('Did not expect to find `$value` in `$collection`.');
+      throw TaskResult.failure(
+          'Did not expect to find `$value` in `$collection`.');
     }
   }
 }
@@ -626,10 +637,8 @@ void checkFileContains(List<Pattern> patterns, String filePath) {
   final String fileContent = File(filePath).readAsStringSync();
   for (final Pattern pattern in patterns) {
     if (!fileContent.contains(pattern)) {
-      throw TaskResult.failure(
-        'Expected to find `$pattern` in `$filePath` '
-        'instead it found:\n$fileContent'
-      );
+      throw TaskResult.failure('Expected to find `$pattern` in `$filePath` '
+          'instead it found:\n$fileContent');
     }
   }
 }
@@ -645,6 +654,6 @@ Future<int> gitClone({String path, String repo}) async {
 
   return await inDirectory<int>(
     path,
-        () => exec('git', <String>['clone', repo]),
+    () => exec('git', <String>['clone', repo]),
   );
 }

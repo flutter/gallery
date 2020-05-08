@@ -12,31 +12,29 @@ const Duration _animationCheckingInterval = Duration(milliseconds: 50);
 
 const Duration _scrollAnimationLength = Duration(milliseconds: 300);
 
-Offset _absoluteTopLeft(RenderObject renderObject)
-    => (renderObject as RenderBox).localToGlobal(Offset.zero);
+Offset _absoluteTopLeft(RenderObject renderObject) =>
+    (renderObject as RenderBox).localToGlobal(Offset.zero);
 
-Rect _absoluteRect(RenderObject renderObject)
-    => _absoluteTopLeft(renderObject) & renderObject.paintBounds.size;
+Rect _absoluteRect(RenderObject renderObject) =>
+    _absoluteTopLeft(renderObject) & renderObject.paintBounds.size;
 
-Size _windowSize(BuildContext context)
-    => MediaQuery.of(context).size;
+Size _windowSize(BuildContext context) => MediaQuery.of(context).size;
 
-Rect _windowRect(BuildContext context)
-    => Offset.zero & _windowSize(context);
+Rect _windowRect(BuildContext context) => Offset.zero & _windowSize(context);
 
-bool _isSuperset({@required Rect large, @required Rect small})
-    => large.top <= small.top
-        && large.left <= small.left
-        && large.bottom >= small.bottom
-        && large.right >= small.right;
+bool _isSuperset({@required Rect large, @required Rect small}) =>
+    large.top <= small.top &&
+    large.left <= small.left &&
+    large.bottom >= small.bottom &&
+    large.right >= small.right;
 
 Future<void> animationStops() async {
-  if (! WidgetsBinding.instance.hasScheduledFrame) return;
+  if (!WidgetsBinding.instance.hasScheduledFrame) return;
 
   final Completer stopped = Completer<void>();
 
   Timer.periodic(_animationCheckingInterval, (timer) {
-    if (! WidgetsBinding.instance.hasScheduledFrame) {
+    if (!WidgetsBinding.instance.hasScheduledFrame) {
       stopped.complete();
       timer.cancel();
     }
@@ -72,14 +70,17 @@ Future<void> scrollUntilVisible({
     case AxisDirection.right:
       pixelsToBeMoved = elementRect.left - visibleWindow.left;
       break;
-    default: break;
+    default:
+      break;
   }
 
   final targetPixels = scrollable.position.pixels + pixelsToBeMoved;
-  final restrictedTargetPixels = targetPixels.clamp(
-    scrollable.position.minScrollExtent,
-    scrollable.position.maxScrollExtent,
-  ).toDouble();
+  final restrictedTargetPixels = targetPixels
+      .clamp(
+        scrollable.position.minScrollExtent,
+        scrollable.position.maxScrollExtent,
+      )
+      .toDouble();
 
   if (animated) {
     await scrollable.position.animateTo(

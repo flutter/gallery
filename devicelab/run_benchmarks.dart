@@ -32,13 +32,13 @@ Future<TaskResult> runWebBenchmark({
   Logger.root.level = Level.INFO;
   final String macrobenchmarksDirectory = '..';
   return await inDirectory(macrobenchmarksDirectory, () async {
-    await evalFlutter('build',
+    await evalFlutter(
+      'build',
       flutterDirectory: flutterDirectory,
       options: <String>[
         'web',
         '--dart-define=FLUTTER_WEB_ENABLE_PROFILING=true',
-        if (useCanvasKit)
-          '--dart-define=FLUTTER_WEB_USE_SKIA=true',
+        if (useCanvasKit) '--dart-define=FLUTTER_WEB_USE_SKIA=true',
         '--profile',
         '-t',
         'lib/benchmarks/benchmark_controller.dart',
@@ -47,8 +47,10 @@ Future<TaskResult> runWebBenchmark({
         'FLUTTER_WEB': 'true',
       },
     );
-    final Completer<List<Map<String, dynamic>>> profileData = Completer<List<Map<String, dynamic>>>();
-    final List<Map<String, dynamic>> collectedProfiles = <Map<String, dynamic>>[];
+    final Completer<List<Map<String, dynamic>>> profileData =
+        Completer<List<Map<String, dynamic>>>();
+    final List<Map<String, dynamic>> collectedProfiles =
+        <Map<String, dynamic>>[];
     List<String> benchmarks;
     Iterator<String> benchmarkIterator;
 
@@ -64,43 +66,54 @@ Future<TaskResult> runWebBenchmark({
       try {
         chrome ??= await whenChromeIsReady;
         if (request.requestedUri.path.endsWith('/profile-data')) {
-          final Map<String, dynamic> profile = json.decode(await request.readAsString()) as Map<String, dynamic>;
+          final Map<String, dynamic> profile =
+              json.decode(await request.readAsString()) as Map<String, dynamic>;
           final String benchmarkName = profile['name'] as String;
           if (benchmarkName != benchmarkIterator.current) {
             profileData.completeError(Exception(
               'Browser returned benchmark results from a wrong benchmark.\n'
-                  'Requested to run bechmark ${benchmarkIterator.current}, but '
-                  'got results for $benchmarkName.',
+              'Requested to run bechmark ${benchmarkIterator.current}, but '
+              'got results for $benchmarkName.',
             ));
             server.close();
           }
 
           // Trace data is null when the benchmark is not frame-based, such as RawRecorder.
           if (latestPerformanceTrace != null) {
-            final BlinkTraceSummary traceSummary = BlinkTraceSummary.fromJson(latestPerformanceTrace);
-            profile['totalUiFrame.average'] = traceSummary.averageTotalUIFrameTime.inMicroseconds;
-            profile['scoreKeys'] ??= <dynamic>[]; // using dynamic for consistency with JSON
+            final BlinkTraceSummary traceSummary =
+                BlinkTraceSummary.fromJson(latestPerformanceTrace);
+            profile['totalUiFrame.average'] =
+                traceSummary.averageTotalUIFrameTime.inMicroseconds;
+            profile['scoreKeys'] ??=
+                <dynamic>[]; // using dynamic for consistency with JSON
             profile['scoreKeys'].add('totalUiFrame.average');
             latestPerformanceTrace = null;
           }
           collectedProfiles.add(profile);
           return Response.ok('Profile received');
-        } else if (request.requestedUri.path.endsWith('/start-performance-tracing')) {
+        } else if (request.requestedUri.path
+            .endsWith('/start-performance-tracing')) {
           latestPerformanceTrace = null;
-          await chrome.beginRecordingPerformance(request.requestedUri.queryParameters['label']);
+          await chrome.beginRecordingPerformance(
+              request.requestedUri.queryParameters['label']);
           return Response.ok('Started performance tracing');
-        } else if (request.requestedUri.path.endsWith('/stop-performance-tracing')) {
+        } else if (request.requestedUri.path
+            .endsWith('/stop-performance-tracing')) {
           latestPerformanceTrace = await chrome.endRecordingPerformance();
           return Response.ok('Stopped performance tracing');
         } else if (request.requestedUri.path.endsWith('/on-error')) {
-          final Map<String, dynamic> errorDetails = json.decode(await request.readAsString()) as Map<String, dynamic>;
+          final Map<String, dynamic> errorDetails =
+              json.decode(await request.readAsString()) as Map<String, dynamic>;
           server.close();
           // Keep the stack trace as a string. It's thrown in the browser, not this Dart VM.
-          profileData.completeError('${errorDetails['error']}\n${errorDetails['stackTrace']}');
+          profileData.completeError(
+              '${errorDetails['error']}\n${errorDetails['stackTrace']}');
           return Response.ok('');
         } else if (request.requestedUri.path.endsWith('/next-benchmark')) {
           if (benchmarks == null) {
-            benchmarks = (json.decode(await request.readAsString()) as List<dynamic>).cast<String>();
+            benchmarks =
+                (json.decode(await request.readAsString()) as List<dynamic>)
+                    .cast<String>();
             benchmarkIterator = benchmarks.iterator;
           }
           if (benchmarkIterator.moveNext()) {
@@ -132,14 +145,18 @@ Future<TaskResult> runWebBenchmark({
     try {
       shelf_io.serveRequests(server, cascade.handler);
 
-      final String dartToolDirectory = path.join('$macrobenchmarksDirectory/.dart_tool');
-      final String userDataDir = io.Directory(dartToolDirectory).createTempSync('chrome_user_data_').path;
+      final String dartToolDirectory =
+          path.join('$macrobenchmarksDirectory/.dart_tool');
+      final String userDataDir = io.Directory(dartToolDirectory)
+          .createTempSync('chrome_user_data_')
+          .path;
 
       // TODO(yjbanov): temporarily disables headful Chrome until we get
       //                devicelab hardware that is able to run it. Our current
       //                GCE VMs can only run in headless mode.
       //                See: https://github.com/flutter/flutter/issues/50164
-      final bool isUncalibratedSmokeTest = io.Platform.environment['CALIBRATED'] != 'true';
+      final bool isUncalibratedSmokeTest =
+          io.Platform.environment['CALIBRATED'] != 'true';
       // final bool isUncalibratedSmokeTest =
       //     io.Platform.environment['UNCALIBRATED_SMOKE_TEST'] == 'true';
       final ChromeOptions options = ChromeOptions(
@@ -174,7 +191,8 @@ Future<TaskResult> runWebBenchmark({
         }
 
         final String namespace = '$benchmarkName.$backend';
-        final List<String> scoreKeys = List<String>.from(profile['scoreKeys'] as List<dynamic>);
+        final List<String> scoreKeys =
+            List<String>.from(profile['scoreKeys'] as List<dynamic>);
         if (scoreKeys == null || scoreKeys.isEmpty) {
           throw 'No score keys in benchmark "$benchmarkName"';
         }
@@ -193,7 +211,8 @@ Future<TaskResult> runWebBenchmark({
           taskResult['$namespace.$key'] = profile[key];
         }
       }
-      return TaskResult.success(taskResult, benchmarkScoreKeys: benchmarkScoreKeys);
+      return TaskResult.success(taskResult,
+          benchmarkScoreKeys: benchmarkScoreKeys);
     } finally {
       server?.close();
       chrome?.stop();
@@ -201,7 +220,7 @@ Future<TaskResult> runWebBenchmark({
   });
 }
 
-Future<void> main (List<String> rawArgs) async {
+Future<void> main(List<String> rawArgs) async {
   final _argParser = ArgParser()
     ..addFlag(
       'use-canvas-kit',
@@ -232,15 +251,15 @@ Future<void> main (List<String> rawArgs) async {
       ? args['flutter-directory'] as String
       : null;
 
-  print ('Starting benchmark.');
-  print (useCanvasKit ? 'Using canvas kit.' : 'Not using canvas kit.');
-  print ('Flutter directory: ${flutterDirectory ?? "[default]"}');
+  print('Starting benchmark.');
+  print(useCanvasKit ? 'Using canvas kit.' : 'Not using canvas kit.');
+  print('Flutter directory: ${flutterDirectory ?? "[default]"}');
   final TaskResult result = await runWebBenchmark(
     useCanvasKit: useCanvasKit,
     flutterDirectory: flutterDirectory,
   );
-  print ('Finished.');
-  print ('==== Gallery benchmark results ====');
-  print (const JsonEncoder.withIndent('  ').convert(result.toJson()));
-  print ('==== End of gallery benchmark results ====');
+  print('Finished.');
+  print('==== Gallery benchmark results ====');
+  print(const JsonEncoder.withIndent('  ').convert(result.toJson()));
+  print('==== End of gallery benchmark results ====');
 }
