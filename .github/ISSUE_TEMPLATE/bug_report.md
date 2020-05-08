@@ -8,7 +8,14 @@ assignees: ''
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is.
+A clear and concise description of what the bug is. Make sure that you are running the Gallery on
+the master channel before you file a bug.
+
+To switch channel run:
+```bash
+flutter channel master
+flutter upgrade
+```
 
 **Flutter doctor**
 Copy and paste the output of `flutter doctor -v` here
