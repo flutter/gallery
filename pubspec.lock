@@ -249,7 +249,7 @@ packages:
     source: hosted
     version: "0.16.1"
   intl_translation:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: intl_translation
       url: "https://pub.dartlang.org"
