@@ -9,7 +9,7 @@ import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/shrine/app.dart';
 import 'package:gallery/studies/starter/app.dart';
 
-typedef PathWidgetBuilder = Widget Function(BuildContext, Map<String, String>);
+typedef PathWidgetBuilder = Widget Function(BuildContext, String);
 
 class Path {
   const Path(this.pattern, this.builder);
@@ -18,13 +18,13 @@ class Path {
   final String pattern;
 
   /// The builder for the associated pattern route. The first argument is the
-  /// [BuildContext] and the second argument is any RegEx matches if such are
-  /// included inside of the pattern. See example:
+  /// [BuildContext] and the second argument a RegEx match if that is included
+  /// in the pattern.
   ///
   /// ```dart
   /// Path(
-  ///   'r'^/demo/(?<slug>[\w-]+)$',
-  ///   (context, matches) => Page(argument: matches['slug']),
+  ///   'r'^/demo/([\w-]+)$',
+  ///   (context, matches) => Page(argument: match),
   /// )
   /// ```
   final PathWidgetBuilder builder;
@@ -38,32 +38,32 @@ class RouteConfiguration {
   /// take priority.
   static List<Path> paths = [
     Path(
-      r'^' + DemoPage.baseRoute + r'/(?<slug>[\w-]+)$',
-      (context, matches) => DemoPage(slug: matches['slug']),
+      r'^' + DemoPage.baseRoute + r'/([\w-]+)$',
+      (context, match) => DemoPage(slug: match),
     ),
     Path(
       r'^' + RallyApp.homeRoute,
-      (context, matches) => const StudyWrapper(study: RallyApp()),
+      (context, match) => const StudyWrapper(study: RallyApp()),
     ),
     Path(
       r'^' + ShrineApp.homeRoute,
-      (context, matches) => const StudyWrapper(study: ShrineApp()),
+      (context, match) => const StudyWrapper(study: ShrineApp()),
     ),
     Path(
       r'^' + CraneApp.defaultRoute,
-      (context, matches) => const StudyWrapper(study: CraneApp()),
+      (context, match) => const StudyWrapper(study: CraneApp()),
     ),
     Path(
       r'^' + FortnightlyApp.defaultRoute,
-      (context, matches) => const StudyWrapper(study: FortnightlyApp()),
+      (context, match) => const StudyWrapper(study: FortnightlyApp()),
     ),
     Path(
       r'^' + StarterApp.defaultRoute,
-      (context, matches) => const StudyWrapper(study: StarterApp()),
+      (context, match) => const StudyWrapper(study: StarterApp()),
     ),
     Path(
       r'^/',
-      (context, matches) => const RootPage(),
+      (context, match) => const RootPage(),
     ),
   ];
 
@@ -75,19 +75,16 @@ class RouteConfiguration {
     for (final path in paths) {
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name)) {
-        final match = regExpPattern.firstMatch(settings.name);
-        var groupNameToMatch = <String, String>{};
-        for (final groupName in match.groupNames) {
-          groupNameToMatch[groupName] = match.namedGroup(groupName);
-        }
+        final firstMatch = regExpPattern.firstMatch(settings.name);
+        final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
         if (kIsWeb) {
           return NoAnimationMaterialPageRoute<void>(
-            builder: (context) => path.builder(context, groupNameToMatch),
+            builder: (context) => path.builder(context, match),
             settings: settings,
           );
         }
         return MaterialPageRoute<void>(
-          builder: (context) => path.builder(context, groupNameToMatch),
+          builder: (context) => path.builder(context, match),
           settings: settings,
         );
       }
