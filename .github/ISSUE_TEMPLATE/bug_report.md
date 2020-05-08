@@ -8,8 +8,8 @@ assignees: ''
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is. Make sure that you are running the Gallery on
-the master channel before you file a bug.
+A clear and concise description of what the bug is. Make sure that you are
+running the Gallery on the master channel before you file a bug.
 
 To switch channel run:
 ```bash
