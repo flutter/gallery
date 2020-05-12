@@ -160,22 +160,33 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       }
     }
 
-    bool scrolled = false;
+    var scrolled = false;
 
     // For each category
     for (final demo in selectedDemos) {
       // Scroll to that category
       if (!scrolled && categoryOf(demo) != 'study') {
         scrolled = true;
-        // TODO: Scroll to "Categories"
+        // Scroll to "Categories"
+        await scrollUntilVisible(
+          element: find.text('Categories').evaluate().single,
+          strict: true,
+        );
       } else if (scrolled && categoryOf(demo) == 'study') {
         scrolled = false;
-        // TODO: Scroll to top
+        // Scroll to top
+        final pageScrollable = Scrollable.of(find.text('Categories').evaluate().single);
+        await scrollToExtreme(scrollable: pageScrollable, toEnd: false);
       }
 
       // Scroll that scrollable
+      final demoButton = find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
+      final scrollable = Scrollable.of(demoButton);
 
-
+      for (var i = 0; i < 2; ++i) {
+        await scrollToExtreme(scrollable: scrollable, toEnd: true);
+        await scrollToExtreme(scrollable: scrollable, toEnd: false);
+      }
     }
 
     reporter('Scrolling test finished.');
