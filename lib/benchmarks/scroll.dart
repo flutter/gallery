@@ -85,8 +85,8 @@ Future<void> scrollUntilVisible({
 
   await scrollToPosition(
     scrollable: scrollable,
-    animated: animated,
     pixels: restrictedTargetPixels,
+    animated: animated,
   );
 }
 
@@ -101,15 +101,15 @@ Future<void> scrollToExtreme({
 
   await scrollToPosition(
     scrollable: scrollable,
-    animated: animated,
     pixels: targetPixels,
+    animated: animated,
   );
 }
 
 Future<void> scrollToPosition({
   ScrollableState scrollable,
-  bool animated = true,
   double pixels,
+  bool animated = true,
 }) async {
   if (animated) {
     await scrollable.position.animateTo(
