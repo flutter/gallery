@@ -152,7 +152,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     final Set coveredCategories = <String>{};
     final List selectedDemos = <String>[];
 
-    
+    for (final demo in demoDescriptions) {
+      final category = categoryOf(demo);
+      if (! coveredCategories.contains(category)) {
+        selectedDemos.add(demo);
+      }
+    }
+
+    print(selectedDemos);
 
     // For each category
         // Scroll to that category
