@@ -131,4 +131,9 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     // At the end of the test, mark as finished.
     finished = true;
   }
+
+  /// Scrolls various parts of the gallery.
+  Future<void> automateScrolls() async {
+    // TODO: implement.
+  }
 }
