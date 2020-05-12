@@ -62,7 +62,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   bool shouldContinue() => !finished || profile.shouldContinue();
 
   /// An iterable that generates all demo names.
-  Iterable<String> get demoDescriptions
+  Iterable<String> get demoNames
       => allGalleryDemos(GalleryLocalizationsEn())
           .map((demo) => demo.describe);
 
@@ -82,7 +82,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     controller = LiveWidgetController(WidgetsBinding.instance);
 
     reporter('==== List of demos to be run ====');
-    for (final demo in demoDescriptions) {
+    for (final demo in demoNames) {
       if (!runCriterion(demo)) continue;
       reporter(demo);
     }
@@ -90,7 +90,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
     var finishedStudyDemos = false;
 
-    for (final demo in demoDescriptions) {
+    for (final demo in demoNames) {
       if (!finishedStudyDemos && typeOfDemo(demo) != DemoType.study) {
         finishedStudyDemos = true;
 
@@ -152,7 +152,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     final Set coveredCategories = <String>{};
     final List selectedDemos = <String>[];
 
-    for (final demo in demoDescriptions) {
+    for (final demo in demoNames) {
       final category = categoryOf(demo);
       if (! coveredCategories.contains(category)) {
         selectedDemos.add(demo);
