@@ -61,9 +61,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   bool shouldContinue() => !finished || profile.shouldContinue();
 
   /// An iterable that generates all demo names.
-  Iterable<String> get demoNames
-      => allGalleryDemos(GalleryLocalizationsEn())
-          .map((demo) => demo.describe);
+  Iterable<String> get demoNames =>
+      allGalleryDemos(GalleryLocalizationsEn()).map((demo) => demo.describe);
 
   @override
   Widget createWidget() {
@@ -153,7 +152,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
     for (final demo in demoNames) {
       final category = categoryOf(demo);
-      if (! coveredCategories.contains(category)) {
+      if (!coveredCategories.contains(category)) {
         coveredCategories.add(category);
         selectedDemos.add(demo);
       }
@@ -174,12 +173,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       } else if (scrolled && categoryOf(demo) == 'study') {
         scrolled = false;
         // Scroll to top
-        final pageScrollable = Scrollable.of(find.text('Categories').evaluate().single);
+        final pageScrollable =
+            Scrollable.of(find.text('Categories').evaluate().single);
         await scrollToExtreme(scrollable: pageScrollable, toEnd: false);
       }
 
       // Scroll that scrollable
-      final demoButton = find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
+      final demoButton =
+          find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
       final scrollable = Scrollable.of(demoButton);
 
       for (var i = 0; i < 2; ++i) {
