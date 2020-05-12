@@ -43,9 +43,9 @@ DemoType typeOfDemo(String demo) {
 /// A recorder that measures frame building durations for the Gallery.
 class GalleryRecorder extends CustomizedWidgetRecorder {
   GalleryRecorder({
-    this.benchmarkName,
-    this.reporter,
-    this.runCriterion,
+    @required this.benchmarkName,
+    @required this.reporter,
+    @required this.runCriterion,
     this.testScrollsOnly = false,
   }) : super(name: benchmarkName);
 

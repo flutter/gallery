@@ -45,7 +45,7 @@ Future<void> animationStops() async {
 }
 
 Future<void> scrollUntilVisible({
-  Element element,
+  @required Element element,
   bool strict = false,
   bool animated = true,
 }) async {
@@ -91,7 +91,7 @@ Future<void> scrollUntilVisible({
 }
 
 Future<void> scrollToExtreme({
-  ScrollableState scrollable,
+  @required ScrollableState scrollable,
   bool toEnd = false,
   bool animated = true,
 }) async {
@@ -107,8 +107,8 @@ Future<void> scrollToExtreme({
 }
 
 Future<void> scrollToPosition({
-  ScrollableState scrollable,
-  double pixels,
+  @required ScrollableState scrollable,
+  @required double pixels,
   bool animated = true,
 }) async {
   if (animated) {
