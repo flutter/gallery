@@ -63,7 +63,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   @override
   Widget createWidget() {
-    Future<void>.delayed(_initialWaitingDuration, automateDemoGestures);
+    Future<void>.delayed(
+      _initialWaitingDuration,
+      testScrollsOnly ? automateScrolls : automateDemoGestures,
+    );
     return const GalleryApp();
   }
 
