@@ -136,7 +136,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   Future<void> automateScrolls() async {
     reporter('Running scrolling test.');
     // Extract categories.
-
     String categoryOf(String demo) {
       final atSymbolIndex = demo.lastIndexOf('@');
       if (atSymbolIndex < 0) {
@@ -165,14 +164,12 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       // Scroll to that category
       if (!scrolled && categoryOf(demo) != 'study') {
         scrolled = true;
-        // Scroll to "Categories"
         await scrollUntilVisible(
           element: find.text('Categories').evaluate().single,
           strict: true,
         );
       } else if (scrolled && categoryOf(demo) == 'study') {
         scrolled = false;
-        // Scroll to top
         final pageScrollable =
             Scrollable.of(find.text('Categories').evaluate().single);
         await scrollToExtreme(scrollable: pageScrollable, toEnd: false);
