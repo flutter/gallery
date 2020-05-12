@@ -149,8 +149,8 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     }
 
     // Select a demo from each category, so that we can test scrolling each one.
-    final Set coveredCategories = <String>{};
-    final List selectedDemos = <String>[];
+    final coveredCategories = <String>{};
+    final selectedDemos = <String>[];
 
     for (final demo in demoNames) {
       final category = categoryOf(demo);
@@ -160,11 +160,23 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
       }
     }
 
-    print(selectedDemos);
+    bool scrolled = false;
 
     // For each category
-        // Scroll to that category
-        // Scroll to bottom, to top, to bottom, to top.
+    for (final demo in selectedDemos) {
+      // Scroll to that category
+      if (!scrolled && categoryOf(demo) != 'study') {
+        scrolled = true;
+        // TODO: Scroll to "Categories"
+      } else if (scrolled && categoryOf(demo) == 'study') {
+        scrolled = false;
+        // TODO: Scroll to top
+      }
+
+      // Scroll that scrollable
+
+
+    }
 
     reporter('Scrolling test finished.');
     finished = true;
