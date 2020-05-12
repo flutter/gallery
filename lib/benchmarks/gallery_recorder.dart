@@ -47,8 +47,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     this.reporter,
     this.runCriterion,
     this.testScrollsOnly = false,
-  })
-      : super(name: benchmarkName);
+  }) : super(name: benchmarkName);
 
   final String benchmarkName;
   final void Function(String) reporter;
