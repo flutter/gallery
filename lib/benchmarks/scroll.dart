@@ -94,3 +94,25 @@ Future<void> scrollUntilVisible({
 
   await animationStops();
 }
+
+Future<void> scrollToExtreme({
+  ScrollableState scrollable,
+  bool toEnd = false,
+  bool animated = true,
+}) async {
+  final targetPixels = toEnd
+      ? scrollable.position.maxScrollExtent
+      : scrollable.position.minScrollExtent;
+
+  if (animated) {
+    await scrollable.position.animateTo(
+      targetPixels,
+      duration: _scrollAnimationLength,
+      curve: Curves.easeInOut,
+    );
+  } else {
+    scrollable.position.jumpTo(targetPixels);
+  }
+
+  await animationStops();
+}
