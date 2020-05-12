@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -82,20 +83,13 @@ Future<void> scrollUntilVisible({
       )
       .toDouble();
 
-  if (animated) {
-    await scrollable.position.animateTo(
-      restrictedTargetPixels,
-      duration: _scrollAnimationLength,
-      curve: Curves.easeInOut,
-    );
-  } else {
-    scrollable.position.jumpTo(restrictedTargetPixels);
-  }
-
-  await animationStops();
+  await scrollToPosition(
+    scrollable: scrollable,
+    animated: animated,
+    pixels: restrictedTargetPixels,
+  );
 }
 
-// TODO: Refactor.
 Future<void> scrollToExtreme({
   ScrollableState scrollable,
   bool toEnd = false,
@@ -105,14 +99,26 @@ Future<void> scrollToExtreme({
       ? scrollable.position.maxScrollExtent
       : scrollable.position.minScrollExtent;
 
+  await scrollToPosition(
+    scrollable: scrollable,
+    animated: animated,
+    pixels: targetPixels,
+  );
+}
+
+Future<void> scrollToPosition({
+  ScrollableState scrollable,
+  bool animated = true,
+  double pixels,
+}) async {
   if (animated) {
     await scrollable.position.animateTo(
-      targetPixels,
+      pixels,
       duration: _scrollAnimationLength,
       curve: Curves.easeInOut,
     );
   } else {
-    scrollable.position.jumpTo(targetPixels);
+    scrollable.position.jumpTo(pixels);
   }
 
   await animationStops();
