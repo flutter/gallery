@@ -39,6 +39,7 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
   'gallery_scroll_perf': () => GalleryRecorder(
         benchmarkName: 'gallery_scroll_perf',
         reporter: _client.reportDemo,
+        runCriterion: (String demo) => false,
         testScrollsOnly: true,
       ),
 };
