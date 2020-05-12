@@ -140,6 +140,21 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     reporter('Running scrolling test.');
     // Extract categories.
 
+    String categoryOf(String demo) {
+      final atSymbolIndex = demo.lastIndexOf('@');
+      if (atSymbolIndex < 0) {
+        return '';
+      } else {
+        return demo.substring(atSymbolIndex + 1);
+      }
+    }
+
+    // Select a demo from each category, so that we can test scrolling each one.
+    final Set coveredCategories = <String>{};
+    final List selectedDemos = <String>[];
+
+    
+
     // For each category
         // Scroll to that category
         // Scroll to bottom, to top, to bottom, to top.
