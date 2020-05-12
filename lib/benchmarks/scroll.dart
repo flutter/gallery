@@ -95,6 +95,7 @@ Future<void> scrollUntilVisible({
   await animationStops();
 }
 
+// TODO: Refactor.
 Future<void> scrollToExtreme({
   ScrollableState scrollable,
   bool toEnd = false,
