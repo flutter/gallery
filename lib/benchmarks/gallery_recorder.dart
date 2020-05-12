@@ -155,6 +155,7 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     for (final demo in demoNames) {
       final category = categoryOf(demo);
       if (! coveredCategories.contains(category)) {
+        coveredCategories.add(category);
         selectedDemos.add(demo);
       }
     }
