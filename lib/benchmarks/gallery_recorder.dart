@@ -63,12 +63,12 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   @override
   Widget createWidget() {
-    Future<void>.delayed(_initialWaitingDuration, automateGestures);
+    Future<void>.delayed(_initialWaitingDuration, automateDemoGestures);
     return const GalleryApp();
   }
 
   /// Opens and quits demos that are specified by [runCriterion], twice.
-  Future<void> automateGestures() async {
+  Future<void> automateDemoGestures() async {
     await animationStops();
 
     controller = LiveWidgetController(WidgetsBinding.instance);
