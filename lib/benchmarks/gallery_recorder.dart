@@ -137,6 +137,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
 
   /// Scrolls various parts of the gallery.
   Future<void> automateScrolls() async {
-    // TODO: implement.
+    reporter('Running scrolling test.');
+    // Extract categories.
+
+    // For each category
+        // Scroll to that category
+        // Scroll to bottom, to top, to bottom, to top.
+
+    reporter('Scrolling test finished.');
+    finished = true;
   }
 }
