@@ -61,6 +61,11 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   @override
   bool shouldContinue() => !finished || profile.shouldContinue();
 
+  /// An iterable that generates all demo names.
+  Iterable<String> get demoDescriptions
+      => allGalleryDemos(GalleryLocalizationsEn())
+          .map((demo) => demo.describe);
+
   @override
   Widget createWidget() {
     Future<void>.delayed(
@@ -75,12 +80,6 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
     await animationStops();
 
     controller = LiveWidgetController(WidgetsBinding.instance);
-
-    // Find all demos
-
-    final demoDescriptions = allGalleryDemos(GalleryLocalizationsEn())
-        .map((demo) => demo.describe)
-        .toList();
 
     reporter('==== List of demos to be run ====');
     for (final demo in demoDescriptions) {
