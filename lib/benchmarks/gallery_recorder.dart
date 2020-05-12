@@ -42,12 +42,18 @@ DemoType typeOfDemo(String demo) {
 
 /// A recorder that measures frame building durations for the Gallery.
 class GalleryRecorder extends CustomizedWidgetRecorder {
-  GalleryRecorder({this.benchmarkName, this.reporter, this.runCriterion})
+  GalleryRecorder({
+    this.benchmarkName,
+    this.reporter,
+    this.runCriterion,
+    this.testScrollsOnly = false,
+  })
       : super(name: benchmarkName);
 
   final String benchmarkName;
   final void Function(String) reporter;
   final bool Function(String) runCriterion;
+  final bool testScrollsOnly;
 
   bool finished = false;
   LiveWidgetController controller;

@@ -36,6 +36,11 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
         runCriterion: (String demo) =>
             typeOfDemo(demo) == DemoType.unanimatedWidget,
       ),
+  'gallery_scroll_perf': () => GalleryRecorder(
+        benchmarkName: 'gallery_scroll_perf',
+        reporter: _client.reportDemo,
+        testScrollsOnly: true,
+      ),
 };
 
 final LocalBenchmarkServerClient _client = LocalBenchmarkServerClient();
