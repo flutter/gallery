@@ -89,13 +89,14 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
         await scrollUntilVisible(
           element: find.text('Categories').evaluate().single,
           strict: true,
+          animated: false,
         );
       }
 
       final demoButton =
           find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
 
-      await scrollUntilVisible(element: demoButton);
+      await scrollUntilVisible(element: demoButton, animated: false);
 
       // Skip demo if it does not pass `runCriterion`.
       // This continue statement is placed here because we need to scroll
