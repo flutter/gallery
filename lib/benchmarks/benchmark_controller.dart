@@ -19,7 +19,7 @@ typedef RecorderFactory = Recorder Function();
 /// When adding a new benchmark, add it to this map. Make sure that the name
 /// of your benchmark is unique.
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
-  'gallery_studies_perf': () => GalleryRecorder(
+/*  'gallery_studies_perf': () => GalleryRecorder(
         benchmarkName: 'gallery_studies_perf',
         reporter: _client.reportDemo,
         runCriterion: (String demo) => typeOfDemo(demo) == DemoType.study,
@@ -41,7 +41,7 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
         reporter: _client.reportDemo,
         runCriterion: (String demo) => false,
         testScrollsOnly: true,
-      ),
+      ), */
 };
 
 final LocalBenchmarkServerClient _client = LocalBenchmarkServerClient();
