@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 // Adapted from flutter/dev/devicelab/lib/tasks/web_benchmarks.dart
+// TODO: Remove this file, and everything in ../devicelab/
 
 import 'dart:async';
 import 'dart:convert' show json, JsonEncoder;

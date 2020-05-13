@@ -4,6 +4,8 @@
 
 // Adapted from flutter/dev/benchmarks/macrobenchmarks/lib/web_benchmarks.dart
 
+// TODO: Remove this file.
+
 import 'dart:async';
 import 'dart:convert' show json;
 import 'dart:html' as html;

@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// TODO: Remove this file.
+
 import 'dart:async';
 import 'dart:html' as html;
 import 'dart:js_util' as js_util;
