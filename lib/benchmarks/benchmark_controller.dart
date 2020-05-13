@@ -9,7 +9,7 @@ import 'dart:convert' show json;
 import 'dart:html' as html;
 import 'dart:math' as math;
 
-import 'gallery_recorder.dart';
+import 'gallery_automator.dart';
 import 'recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
