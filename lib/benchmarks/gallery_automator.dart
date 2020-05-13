@@ -11,7 +11,6 @@ import 'package:gallery/data/demos.dart';
 import 'package:gallery/l10n/gallery_localizations_en.dart';
 import 'package:gallery/main.dart';
 
-import 'recorder.dart';
 import 'scroll.dart';
 
 const Duration _initialWaitingDuration = Duration(milliseconds: 1500);
@@ -40,14 +39,14 @@ DemoType typeOfDemo(String demo) {
   }
 }
 
-/// A recorder that measures frame building durations for the Gallery.
-class GalleryRecorder extends CustomizedWidgetRecorder {
-  GalleryRecorder({
+/// A class that automates the gallery.
+class GalleryAutomator {
+  GalleryAutomator({
     @required this.benchmarkName,
     @required this.reporter,
     @required this.runCriterion,
     this.testScrollsOnly = false,
-  }) : super(name: benchmarkName);
+  });
 
   final String benchmarkName;
   final void Function(String) reporter;
@@ -57,14 +56,10 @@ class GalleryRecorder extends CustomizedWidgetRecorder {
   bool finished = false;
   LiveWidgetController controller;
 
-  @override
-  bool shouldContinue() => !finished || profile.shouldContinue();
-
   /// An iterable that generates all demo names.
   Iterable<String> get demoNames =>
       allGalleryDemos(GalleryLocalizationsEn()).map((demo) => demo.describe);
 
-  @override
   Widget createWidget() {
     Future<void>.delayed(
       _initialWaitingDuration,
