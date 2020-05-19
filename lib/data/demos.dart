@@ -100,10 +100,10 @@ class GalleryDemo {
   final IconData icon;
   final List<GalleryDemoConfiguration> configurations;
 
-  String get describe => '$title@${category.name}';
+  String get describe => '${slug ?? studyId}@${category.name}';
 
   @override
-  String toString () => 'slug: $slug, title: $title';
+  String toString () => 'slug: $slug, studyId: $studyId, title: $title';
 }
 
 class GalleryDemoConfiguration {
@@ -134,26 +134,31 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
       title: 'Shrine',
       subtitle: localizations.shrineDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'shrine',
     ),
     'rally': GalleryDemo(
       title: 'Rally',
       subtitle: localizations.rallyDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'rally',
     ),
     'crane': GalleryDemo(
       title: 'Crane',
       subtitle: localizations.craneDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'crane',
     ),
     'fortnightly': GalleryDemo(
       title: 'Fortnightly',
       subtitle: localizations.fortnightlyDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'fortnightly',
     ),
     'starterApp': GalleryDemo(
       title: localizations.starterAppTitle,
       subtitle: localizations.starterAppDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'starter',
     ),
   };
 }
