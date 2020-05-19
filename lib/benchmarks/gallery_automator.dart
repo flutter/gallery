@@ -44,12 +44,14 @@ class GalleryAutomator {
   GalleryAutomator({
     @required this.benchmarkName,
     @required this.reporter,
+    @required this.reportError,
     @required this.runCriterion,
     this.testScrollsOnly = false,
   });
 
   final String benchmarkName;
   final void Function(String) reporter;
+  final Future<void> Function(dynamic error, StackTrace stackTrace) reportError;
   final bool Function(String) runCriterion;
   final bool testScrollsOnly;
 
@@ -64,7 +66,7 @@ class GalleryAutomator {
     Future<void>.delayed(
       _initialWaitingDuration,
       testScrollsOnly ? automateScrolls : automateDemoGestures,
-    );
+    ).catchError(reportError);
     return const GalleryApp();
   }
 
