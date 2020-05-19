@@ -62,11 +62,17 @@ class GalleryAutomator {
   Iterable<String> get demoNames =>
       allGalleryDemos(GalleryLocalizationsEn()).map((demo) => demo.describe);
 
+  Future<void> _handleError(dynamic error, StackTrace stackTrace) async {
+    print('Error: $error');
+    print('StackTrace: $stackTrace');
+    await reportError(error, stackTrace);
+  }
+
   Widget createWidget() {
     Future<void>.delayed(
       _initialWaitingDuration,
       testScrollsOnly ? automateScrolls : automateDemoGestures,
-    ).catchError(reportError);
+    ).catchError(_handleError);
     return const GalleryApp();
   }
 
