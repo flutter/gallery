@@ -105,7 +105,11 @@ class GalleryAutomator {
       final demoButton =
           find.byKey(ValueKey(demo), skipOffstage: false).evaluate().single;
 
-      await scrollUntilVisible(element: demoButton, animated: false, strict: true);
+      await scrollUntilVisible(
+        element: demoButton,
+        animated: false,
+        strict: true,
+      );
 
       // Skip demo if it does not pass `runCriterion`.
       // This continue statement is placed here because we need to scroll
