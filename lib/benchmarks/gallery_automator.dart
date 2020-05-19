@@ -76,6 +76,18 @@ class GalleryAutomator {
     return const GalleryApp();
   }
 
+  static bool _isUnique(List<String> list) {
+    final covered = <String>{};
+    for (final element in list) {
+      if (covered.contains(element)) {
+        return false;
+      } else {
+        covered.add(element);
+      }
+    }
+    return true;
+  }
+
   /// Opens and quits demos that are specified by [runCriterion], twice.
   Future<void> automateDemoGestures() async {
 
@@ -83,6 +95,16 @@ class GalleryAutomator {
     for (final d in allDemos){
       print(d);
     }
+
+    final allDemoDescriptions = [
+      for (final d in allDemos) d.describe
+    ];
+
+    assert(_isUnique(['a','b','c']));
+    assert(!_isUnique(['a','c','a','b']));
+    assert(_isUnique(['a']));
+    assert(_isUnique([]));
+    print('all demo description unique: ${_isUnique(allDemoDescriptions)}');
 
     return;
 
