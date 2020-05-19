@@ -84,8 +84,9 @@ class GalleryAutomator {
 
     reporter('==== List of demos to be run ====');
     for (final demo in demoNames) {
-      if (!runCriterion(demo)) continue;
-      reporter(demo);
+      if (runCriterion(demo)) {
+        reporter(demo);
+      }
     }
     reporter('==== End of list of demos to be run ====');
 
@@ -111,25 +112,26 @@ class GalleryAutomator {
         strict: true,
       );
 
-      // Skip demo if it does not pass `runCriterion`.
-      // This continue statement is placed here because we need to scroll
-      // through each `Scrollable` to find the `demoButton`.
-      if (!runCriterion(demo)) continue;
+      // Run demo if it passes `runCriterion`.
+      // Note that the above scrolling is required even for demos *not*
+      // satisfying `runCriterion`, because we need to scroll
+      // through every `Scrollable` to find the `demoButton`.
+      if (runCriterion(demo)) {
+        reporter('Running demo "$demo"');
 
-      reporter('Running demo "$demo"');
+        for (var i = 0; i < 2; ++i) {
+          await controller.tap(find.byKey(ValueKey(demo)));
 
-      for (var i = 0; i < 2; ++i) {
-        await controller.tap(find.byKey(ValueKey(demo)));
+          if (typeOfDemo(demo) == DemoType.animatedWidget) {
+            await Future<void>.delayed(_defaultWaitingDuration);
+          } else {
+            await animationStops();
+          }
 
-        if (typeOfDemo(demo) == DemoType.animatedWidget) {
-          await Future<void>.delayed(_defaultWaitingDuration);
-        } else {
+          await controller.tap(find.byKey(const ValueKey('Back')));
+
           await animationStops();
         }
-
-        await controller.tap(find.byKey(const ValueKey('Back')));
-
-        await animationStops();
       }
     }
 
