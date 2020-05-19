@@ -78,6 +78,14 @@ class GalleryAutomator {
 
   /// Opens and quits demos that are specified by [runCriterion], twice.
   Future<void> automateDemoGestures() async {
+
+    final allDemos = allGalleryDemos(GalleryLocalizationsEn());
+    for (final d in allDemos){
+      print(d);
+    }
+
+    return;
+
     await animationStops();
 
     controller = LiveWidgetController(WidgetsBinding.instance);
@@ -198,4 +206,15 @@ class GalleryAutomator {
     reporter('Scrolling test finished.');
     finished = true;
   }
+}
+
+Future<void> main() async {
+  final automator = GalleryAutomator(
+    benchmarkName: 'benchmark',
+    reporter: print,
+    reportError: (dynamic error, stackTrace) async {print(error); print(stackTrace);},
+    runCriterion: (any) => false,
+  );
+
+  runApp(automator.createWidget());
 }
