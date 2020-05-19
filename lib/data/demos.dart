@@ -79,6 +79,8 @@ class GalleryDemo {
     @required this.title,
     @required this.category,
     @required this.subtitle,
+    // This parameter is required for studies.
+    this.studyId,
     // Parameters below are required for non-study demos.
     this.slug,
     this.icon,
@@ -87,11 +89,13 @@ class GalleryDemo {
         assert(category != null),
         assert(subtitle != null),
         assert(category == GalleryDemoCategory.study ||
-            (slug != null && icon != null && configurations != null));
+            (slug != null && icon != null && configurations != null)),
+        assert(slug != null || studyId != null);
 
   final String title;
   final GalleryDemoCategory category;
   final String subtitle;
+  final String studyId;
   final String slug;
   final IconData icon;
   final List<GalleryDemoConfiguration> configurations;
