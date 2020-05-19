@@ -36,6 +36,7 @@ class _AboutDialog extends StatelessWidget {
 
     final name = 'Flutter Gallery'; // Don't need to localize.
     final legalese = '© 2019 The Flutter team'; // Don't need to localize.
+    final cookieChoicesUrl = 'https://www.cookiechoices.org/';
     final repoText = GalleryLocalizations.of(context).githubRepo(name);
     final seeSource =
         GalleryLocalizations.of(context).aboutDialogDescription(repoText);
@@ -95,6 +96,25 @@ class _AboutDialog extends StatelessWidget {
             Text(
               legalese,
               style: bodyTextStyle,
+            ),
+            const SizedBox(height: 18),
+            RichText(
+              text: TextSpan(
+                style: bodyTextStyle.copyWith(
+                  color: colorScheme.primary,
+                ),
+                text: cookieChoicesUrl,
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () async {
+                    final url = cookieChoicesUrl;
+                    if (await canLaunch(url)) {
+                      await launch(
+                        url,
+                        forceSafariVC: false,
+                      );
+                    }
+                  },
+              ),
             ),
           ],
         ),
