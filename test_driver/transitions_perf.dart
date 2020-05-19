@@ -9,15 +9,12 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:gallery/data/demos.dart';
-import 'package:gallery/l10n/gallery_localizations_en.dart';
 import 'package:gallery/main.dart' show GalleryApp;
 
 Future<String> _handleMessages(String message) async {
   switch (message) {
     case 'demoDescriptions':
-      final demoDescriptions = allGalleryDemos(GalleryLocalizationsEn())
-          .map((demo) => demo.describe)
-          .toList();
+      final demoDescriptions = allGalleryDemoDescriptions();
       return const JsonEncoder.withIndent('  ').convert(demoDescriptions);
       break;
     case 'isWeb':
