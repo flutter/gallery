@@ -2,61 +2,70 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:collection/collection.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gallery/data/gallery_options.dart';
-import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/l10n/gallery_localizations_en.dart';
-import 'package:gallery/pages/backdrop.dart';
+import 'package:gallery/data/demos.dart';
 
-Future<void> automateNameTests() async {
-  final allDemos = allGalleryDemos(GalleryLocalizationsEn());
-  for (final d in allDemos){
-    print(d);
+bool _isUnique(List<String> list) {
+  final covered = <String>{};
+  for (final element in list) {
+    if (covered.contains(element)) {
+      return false;
+    } else {
+      covered.add(element);
+    }
   }
+  return true;
+}
 
-  final allDemoDescriptions = [
-    for (final d in allDemos) d.describe
-  ];
+const _stringListEquality = ListEquality<String>();
 
-  assert(_isUnique(['a','b','c']));
-  assert(!_isUnique(['a','c','a','b']));
-  assert(_isUnique(['a']));
-  assert(_isUnique([]));
-  print('all demo description unique: ${_isUnique(allDemoDescriptions)}');
+void main() {
+  test('_isUnique works correctly', () {
+    expect(_isUnique(['a','b','c']), true);
+    expect(_isUnique(['a','c','a','b']), false);
+    expect(_isUnique(['a']), true);
+    expect(_isUnique([]), true);
+  });
 
-  final _oldToNewMap = <String, String>{};
+  test('Demo descriptions are unique and correct', () {
+    final allDemos = allGalleryDemos(GalleryLocalizationsEn());
+    final allDemoDescriptions = allDemos.map((d) => d.describe).toList();
 
-  for (final d in allDemos) {
-    final _oldDescribe = '${d.title}@${d.category.name}';
-    print('$_oldDescribe    ->    ${d.describe}');
-    _oldToNewMap[_oldDescribe] = d.describe;
-  }
+    expect(_isUnique(allDemoDescriptions), true);
+    expect(
+      _stringListEquality.equals(
+        allDemoDescriptions,
+        allGalleryDemoDescriptions(),
+      ),
+      true,
+    );
+  });
 
-  final _specialDemoList = [
-    'Shrine@study',
-    'Rally@study',
-    'Crane@study',
-    'Fortnightly@study',
-    'Bottom navigation@material',
-    'Buttons@material',
-    'Cards@material',
-    'Chips@material',
-    'Dialogs@material',
-    'Pickers@material',
-    'Alerts@cupertino',
-    'Colors@other',
-    'Progress indicators@material',
-    'Activity indicator@cupertino',
-    'Colors@reference',
-  ];
+  test('Special demo descriptions are correct', (){
+    final allDemos = allGalleryDemoDescriptions();
 
-  print('========');
+    final specialDemos = <String>[
+      'shrine@study',
+      'rally@study',
+      'crane@study',
+      'fortnightly@study',
+      'bottom-navigation@material',
+      'button@material',
+      'card@material',
+      'chip@material',
+      'dialog@material',
+      'pickers@material',
+      'cupertino-alerts@cupertino',
+      'colors@other',
+      'progress-indicator@material',
+      'cupertino-activity-indicator@cupertino',
+      'colors@other',
+    ];
 
-  for (final sd in _specialDemoList) {
-    print('${_oldToNewMap[sd]}');
-  }
-
-  print('========');
-
-  return;
+    for (final specialDemo in specialDemos) {
+      expect(allDemos.contains(specialDemo), true);
+    }
+  });
 }
