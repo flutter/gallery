@@ -60,7 +60,7 @@ class GalleryAutomator {
 
   /// An iterable that generates all demo names.
   Iterable<String> get demoNames =>
-      allGalleryDemos(GalleryLocalizationsEn()).map((demo) => demo.describe);
+      allGalleryDemoDescriptions();
 
   Future<void> _handleError(dynamic error, StackTrace stackTrace) async {
     print('Error: $error');
