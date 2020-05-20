@@ -11,8 +11,6 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 
 import 'isolates_workaround.dart';
 
-// TODO: update demo descriptions
-// TODO: add asserts for demos, making sure they are a subset of describe.
 // Demos for which timeline data will be collected using
 // FlutterDriver.traceAction().
 //
@@ -119,7 +117,6 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
 
     print('> $demo');
 
-    // TODO: use lastIndexOf
     final demoCategory = demo.substring(demo.indexOf('@') + 1);
     if (demoCategory != currentDemoCategory) {
       // We've switched categories.
