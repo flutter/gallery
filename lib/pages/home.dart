@@ -45,9 +45,11 @@ class HomePage extends StatelessWidget {
     final carouselCards = <Widget>[
       _CarouselCard(
         demo: studyDemos['shrine'],
-        asset: const AssetImage('assets/studies/shrine_card.png', package: 'flutter_gallery_additional_assets'),
+        asset: const AssetImage('assets/studies/shrine_card.png',
+            package: 'flutter_gallery_additional_assets'),
         assetColor: const Color(0xFFFEDBD0),
-        assetDark: const AssetImage('assets/studies/shrine_card_dark.png', package: 'flutter_gallery_additional_assets'),
+        assetDark: const AssetImage('assets/studies/shrine_card_dark.png',
+            package: 'flutter_gallery_additional_assets'),
         assetDarkColor: const Color(0xFF543B3C),
         textColor: shrineBrown900,
         studyRoute: ShrineApp.loginRoute,
@@ -55,34 +57,42 @@ class HomePage extends StatelessWidget {
       _CarouselCard(
         demo: studyDemos['rally'],
         textColor: RallyColors.accountColors[0],
-        asset: const AssetImage('assets/studies/rally_card.png', package: 'flutter_gallery_additional_assets'),
+        asset: const AssetImage('assets/studies/rally_card.png',
+            package: 'flutter_gallery_additional_assets'),
         assetColor: const Color(0xFFD1F2E6),
-        assetDark: const AssetImage('assets/studies/rally_card_dark.png', package: 'flutter_gallery_additional_assets'),
+        assetDark: const AssetImage('assets/studies/rally_card_dark.png',
+            package: 'flutter_gallery_additional_assets'),
         assetDarkColor: const Color(0xFF253538),
         studyRoute: RallyApp.loginRoute,
       ),
       _CarouselCard(
         demo: studyDemos['crane'],
-        asset: const AssetImage('assets/studies/crane_card.png', package: 'flutter_gallery_additional_assets'),
+        asset: const AssetImage('assets/studies/crane_card.png',
+            package: 'flutter_gallery_additional_assets'),
         assetColor: const Color(0xFFFBF6F8),
-        assetDark: const AssetImage('assets/studies/crane_card_dark.png', package: 'flutter_gallery_additional_assets'),
+        assetDark: const AssetImage('assets/studies/crane_card_dark.png',
+            package: 'flutter_gallery_additional_assets'),
         assetDarkColor: const Color(0xFF591946),
         textColor: cranePurple700,
         studyRoute: CraneApp.defaultRoute,
       ),
       _CarouselCard(
         demo: studyDemos['fortnightly'],
-        asset: const AssetImage('assets/studies/fortnightly_card.png', package: 'flutter_gallery_additional_assets'),
+        asset: const AssetImage('assets/studies/fortnightly_card.png',
+            package: 'flutter_gallery_additional_assets'),
         assetColor: Colors.white,
-        assetDark: const AssetImage('assets/studies/fortnightly_card_dark.png', package: 'flutter_gallery_additional_assets'),
+        assetDark: const AssetImage('assets/studies/fortnightly_card_dark.png',
+            package: 'flutter_gallery_additional_assets'),
         assetDarkColor: const Color(0xFF1F1F1F),
         studyRoute: FortnightlyApp.defaultRoute,
       ),
       _CarouselCard(
         demo: studyDemos['starterApp'],
-        asset: const AssetImage('assets/studies/starter_card.png', package: 'flutter_gallery_additional_assets'),
+        asset: const AssetImage('assets/studies/starter_card.png',
+            package: 'flutter_gallery_additional_assets'),
         assetColor: const Color(0xFFFAF6FE),
-        assetDark: const AssetImage('assets/studies/starter_card_dark.png', package: 'flutter_gallery_additional_assets'),
+        assetDark: const AssetImage('assets/studies/starter_card_dark.png',
+            package: 'flutter_gallery_additional_assets'),
         assetDarkColor: const Color(0xFF3F3D45),
         textColor: Colors.black,
         studyRoute: StarterApp.defaultRoute,
@@ -93,17 +103,20 @@ class HomePage extends StatelessWidget {
       final desktopCategoryItems = <_DesktopCategoryItem>[
         _DesktopCategoryItem(
           category: GalleryDemoCategory.material,
-          asset: const AssetImage('assets/icons/material/material.png', package: 'flutter_gallery_additional_assets'),
+          asset: const AssetImage('assets/icons/material/material.png',
+              package: 'flutter_gallery_additional_assets'),
           demos: materialDemos(localizations),
         ),
         _DesktopCategoryItem(
           category: GalleryDemoCategory.cupertino,
-          asset: const AssetImage('assets/icons/cupertino/cupertino.png', package: 'flutter_gallery_additional_assets'),
+          asset: const AssetImage('assets/icons/cupertino/cupertino.png',
+              package: 'flutter_gallery_additional_assets'),
           demos: cupertinoDemos(localizations),
         ),
         _DesktopCategoryItem(
           category: GalleryDemoCategory.other,
-          asset: const AssetImage('assets/icons/reference/reference.png', package: 'flutter_gallery_additional_assets'),
+          asset: const AssetImage('assets/icons/reference/reference.png',
+              package: 'flutter_gallery_additional_assets'),
           demos: otherDemos(localizations),
         ),
       ];
@@ -155,9 +168,10 @@ class HomePage extends StatelessWidget {
                   FadeInImagePlaceholder(
                     image: Theme.of(context).colorScheme.brightness ==
                             Brightness.dark
-                        ? const AssetImage('assets/logo/flutter_logo.png', package: 'flutter_gallery_additional_assets')
-                        : const AssetImage(
-                            'assets/logo/flutter_logo_color.png', package: 'flutter_gallery_additional_assets'),
+                        ? const AssetImage('assets/logo/flutter_logo.png',
+                            package: 'flutter_gallery_additional_assets')
+                        : const AssetImage('assets/logo/flutter_logo_color.png',
+                            package: 'flutter_gallery_additional_assets'),
                     placeholder: const SizedBox.shrink(),
                     excludeFromSemantics: true,
                   ),

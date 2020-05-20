@@ -23,8 +23,8 @@ const _stringListEquality = ListEquality<String>();
 
 void main() {
   test('_isUnique works correctly', () {
-    expect(_isUnique(['a','b','c']), true);
-    expect(_isUnique(['a','c','a','b']), false);
+    expect(_isUnique(['a', 'b', 'c']), true);
+    expect(_isUnique(['a', 'c', 'a', 'b']), false);
     expect(_isUnique(['a']), true);
     expect(_isUnique([]), true);
   });
@@ -43,7 +43,7 @@ void main() {
     );
   });
 
-  test('Special demo descriptions are correct', (){
+  test('Special demo descriptions are correct', () {
     final allDemos = allGalleryDemoDescriptions();
 
     final specialDemos = <String>[
