@@ -196,14 +196,3 @@ class GalleryAutomator {
     finished = true;
   }
 }
-
-Future<void> main() async {
-  final automator = GalleryAutomator(
-    benchmarkName: 'benchmark',
-    reporter: print,
-    reportError: (dynamic error, stackTrace) async {print(error); print(stackTrace);},
-    runCriterion: (demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
-  );
-
-  runApp(automator.createWidget());
-}
