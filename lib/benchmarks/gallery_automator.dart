@@ -58,8 +58,7 @@ class GalleryAutomator {
   LiveWidgetController controller;
 
   /// An iterable that generates all demo names.
-  Iterable<String> get demoNames =>
-      allGalleryDemoDescriptions();
+  Iterable<String> get demoNames => allGalleryDemoDescriptions();
 
   Future<void> _handleError(dynamic error, StackTrace stackTrace) async {
     print('Error: $error');
