@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:gallery/data/demos.dart';
-import 'package:gallery/l10n/gallery_localizations_en.dart';
 import 'package:gallery/main.dart';
 
 import 'scroll.dart';
