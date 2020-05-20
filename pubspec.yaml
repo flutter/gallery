@@ -271,5 +271,5 @@ flutter:
   fonts:
     - family: GalleryIcons
       fonts:
-        - asset: fonts/GalleryIcons.ttf
+        - asset: packages/flutter_gallery_additional_assets/fonts/GalleryIcons.ttf
 
