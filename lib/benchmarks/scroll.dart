@@ -29,6 +29,31 @@ bool _isSuperset({@required Rect large, @required Rect small}) =>
     large.bottom >= small.bottom &&
     large.right >= small.right;
 
+const _minFreeRoomRequirement = 5.0;
+
+/// Whether [small] is a subset of [large] and has sufficient room
+/// inside [large], at the end of [large] specified by [axisDirection].
+bool _hasSufficientFreeRoom({
+  @required Rect large,
+  @required Rect small,
+  @required AxisDirection axisDirection,
+}) {
+  if (!_isSuperset(large: large, small: small)) {
+    return false;
+  } else {
+    switch (axisDirection) {
+      case AxisDirection.down:
+        return large.bottom - small.bottom >= _minFreeRoomRequirement;
+      case AxisDirection.right:
+        return large.right - small.right >= _minFreeRoomRequirement;
+      case AxisDirection.left:
+        return small.left - large.left >= _minFreeRoomRequirement;
+      case AxisDirection.up:
+        return small.top - large.top >= _minFreeRoomRequirement;
+    }
+  }
+}
+
 Future<void> animationStops() async {
   if (!WidgetsBinding.instance.hasScheduledFrame) return;
 
@@ -57,7 +82,13 @@ Future<void> scrollUntilVisible({
 
   final visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
-  if (!strict && _isSuperset(large: visibleWindow, small: elementRect)) {
+  // If there is free room between this demo button and the end of
+  // the scrollable, the next demo button is visible and can be tapped.
+  if (!strict && _hasSufficientFreeRoom(
+    large: visibleWindow,
+    small: elementRect,
+    axisDirection: scrollable.axisDirection,
+  )) {
     return;
   }
 

@@ -106,7 +106,6 @@ class GalleryAutomator {
       await scrollUntilVisible(
         element: demoButton,
         animated: false,
-        strict: true,
       );
 
       // Run demo if it passes `runCriterion`.
