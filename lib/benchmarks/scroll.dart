@@ -102,7 +102,11 @@ Future<void> scrollUntilVisible({
     case AxisDirection.right:
       pixelsToBeMoved = elementRect.left - visibleWindow.left;
       break;
-    default:
+    case AxisDirection.left:
+      pixelsToBeMoved = visibleWindow.right - elementRect.right;
+      break;
+    case AxisDirection.up:
+      pixelsToBeMoved = visibleWindow.bottom - elementRect.bottom;
       break;
   }
 
