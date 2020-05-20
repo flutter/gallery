@@ -106,6 +106,40 @@ class GalleryAutomator {
     assert(_isUnique([]));
     print('all demo description unique: ${_isUnique(allDemoDescriptions)}');
 
+    final _oldToNewMap = <String, String>{};
+
+    for (final d in allDemos) {
+      final _oldDescribe = '${d.title}@${d.category.name}';
+      print('$_oldDescribe    ->    ${d.describe}');
+      _oldToNewMap[_oldDescribe] = d.describe;
+    }
+
+    final _specialDemoList = [
+      'Shrine@study',
+      'Rally@study',
+      'Crane@study',
+      'Fortnightly@study',
+      'Bottom navigation@material',
+      'Buttons@material',
+      'Cards@material',
+      'Chips@material',
+      'Dialogs@material',
+      'Pickers@material',
+      'Alerts@cupertino',
+      'Colors@other',
+      'Progress indicators@material',
+      'Activity indicator@cupertino',
+      'Colors@reference',
+    ];
+
+    print('========');
+
+    for (final sd in _specialDemoList) {
+      print('${_oldToNewMap[sd]}');
+    }
+
+    print('========');
+
     return;
 
     await animationStops();
