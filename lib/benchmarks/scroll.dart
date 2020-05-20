@@ -41,16 +41,24 @@ bool _hasSufficientFreeRoom({
   if (!_isSuperset(large: large, small: small)) {
     return false;
   } else {
+    bool result;
+
     switch (axisDirection) {
       case AxisDirection.down:
-        return large.bottom - small.bottom >= _minFreeRoomRequirement;
+        result = large.bottom - small.bottom >= _minFreeRoomRequirement;
+        break;
       case AxisDirection.right:
-        return large.right - small.right >= _minFreeRoomRequirement;
+        result = large.right - small.right >= _minFreeRoomRequirement;
+        break;
       case AxisDirection.left:
-        return small.left - large.left >= _minFreeRoomRequirement;
+        result = small.left - large.left >= _minFreeRoomRequirement;
+        break;
       case AxisDirection.up:
-        return small.top - large.top >= _minFreeRoomRequirement;
+        result = small.top - large.top >= _minFreeRoomRequirement;
+        break;
     }
+
+    return result;
   }
 }
 
