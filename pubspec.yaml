@@ -27,6 +27,11 @@ dependencies:
   google_fonts: ^1.0.0
   flutter_staggered_grid_view: ^0.3.0
 
+  flutter_gallery_additional_assets:
+    git:
+      url: https://github.com/pennzht/fluttergalleryadditionalassets.git
+      ref: f4a7c99a56df62496bc057adb9e7b5b916e0f451
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -40,14 +45,115 @@ dev_dependencies:
 
 flutter:
   assets:
-    - fonts/google_fonts/
-    - assets/demos/
-    - assets/icons/cupertino/
-    - assets/icons/material/
-    - assets/icons/reference/
-    - assets/icons/settings/
-    - assets/logo/
-    - assets/studies/
+    - packages/flutter_gallery_additional_assets/assets/icons/settings/settings_light.flr
+    - packages/flutter_gallery_additional_assets/assets/icons/settings/settings_dark.flr
+    - packages/flutter_gallery_additional_assets/assets/studies/shrine_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/starter_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/shrine_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/starter_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/starter_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/fortnightly_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/rally_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/fortnightly_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/crane_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/shrine_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/crane_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/1.5x/rally_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/starter_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/fortnightly_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/rally_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/fortnightly_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/shrine_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/starter_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/starter_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/fortnightly_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/rally_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/fortnightly_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/crane_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/shrine_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/crane_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/2.0x/rally_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/crane_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/shrine_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/starter_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/starter_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/fortnightly_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/rally_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/fortnightly_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/crane_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/shrine_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/crane_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/3.0x/rally_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/shrine_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/shrine_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/starter_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/starter_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/fortnightly_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/rally_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/fortnightly_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/crane_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/shrine_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/crane_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/4.0x/rally_card.png
+    - packages/flutter_gallery_additional_assets/assets/studies/crane_card_dark.png
+    - packages/flutter_gallery_additional_assets/assets/studies/rally_card.png
+    - packages/flutter_gallery_additional_assets/assets/logo/flutter_logo.png
+    - packages/flutter_gallery_additional_assets/assets/logo/flutter_logo_color.png
+    - packages/flutter_gallery_additional_assets/assets/logo/1.5x/flutter_logo.png
+    - packages/flutter_gallery_additional_assets/assets/logo/1.5x/flutter_logo_color.png
+    - packages/flutter_gallery_additional_assets/assets/logo/2.0x/flutter_logo.png
+    - packages/flutter_gallery_additional_assets/assets/logo/2.0x/flutter_logo_color.png
+    - packages/flutter_gallery_additional_assets/assets/logo/3.0x/flutter_logo.png
+    - packages/flutter_gallery_additional_assets/assets/logo/3.0x/flutter_logo_color.png
+    - packages/flutter_gallery_additional_assets/assets/logo/4.0x/flutter_logo.png
+    - packages/flutter_gallery_additional_assets/assets/logo/4.0x/flutter_logo_color.png
+    - packages/flutter_gallery_additional_assets/assets/icons/cupertino/1.5x/cupertino.png
+    - packages/flutter_gallery_additional_assets/assets/icons/cupertino/2.0x/cupertino.png
+    - packages/flutter_gallery_additional_assets/assets/icons/cupertino/3.0x/cupertino.png
+    - packages/flutter_gallery_additional_assets/assets/icons/cupertino/4.0x/cupertino.png
+    - packages/flutter_gallery_additional_assets/assets/icons/cupertino/cupertino.png
+    - packages/flutter_gallery_additional_assets/assets/icons/material/material.png
+    - packages/flutter_gallery_additional_assets/assets/icons/material/1.5x/material.png
+    - packages/flutter_gallery_additional_assets/assets/icons/material/2.0x/material.png
+    - packages/flutter_gallery_additional_assets/assets/icons/material/3.0x/material.png
+    - packages/flutter_gallery_additional_assets/assets/icons/material/4.0x/material.png
+    - packages/flutter_gallery_additional_assets/assets/icons/reference/1.5x/reference.png
+    - packages/flutter_gallery_additional_assets/assets/icons/reference/2.0x/reference.png
+    - packages/flutter_gallery_additional_assets/assets/icons/reference/reference.png
+    - packages/flutter_gallery_additional_assets/assets/icons/reference/3.0x/reference.png
+    - packages/flutter_gallery_additional_assets/assets/icons/reference/4.0x/reference.png
+    - packages/flutter_gallery_additional_assets/assets/demos/1.5x/bottom_navigation_background.png
+    - packages/flutter_gallery_additional_assets/assets/demos/2.0x/bottom_navigation_background.png
+    - packages/flutter_gallery_additional_assets/assets/demos/3.0x/bottom_navigation_background.png
+    - packages/flutter_gallery_additional_assets/assets/demos/4.0x/bottom_navigation_background.png
+    - packages/flutter_gallery_additional_assets/assets/demos/bottom_navigation_background.png
+    - packages/flutter_gallery_additional_assets/fonts/GalleryIcons.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Merriweather-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Eczar-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Montserrat-Medium.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Rubik-Bold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Merriweather-Light.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/RobotoCondensed-Bold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Raleway-Medium.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Raleway-SemiBold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/LibreFranklin-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/RobotoMono-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/LibreFranklin-ExtraBold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/LibreFranklin-Bold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Oswald-SemiBold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Oswald-Medium.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/LibreFranklin-SemiBold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Raleway-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Montserrat-Bold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Merriweather-BoldItalic.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Raleway-Light.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Rubik-Medium.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Montserrat-SemiBold.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/RobotoCondensed-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/LibreFranklin-Medium.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Montserrat-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Rubik-Regular.ttf
+    - packages/flutter_gallery_additional_assets/fonts/google_fonts/Eczar-SemiBold.ttf
     - packages/flutter_gallery_assets/crane/destinations/eat_1.jpg
     - packages/flutter_gallery_assets/crane/destinations/eat_2.jpg
     - packages/flutter_gallery_assets/crane/destinations/eat_3.jpg
