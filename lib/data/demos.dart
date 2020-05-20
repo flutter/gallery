@@ -102,9 +102,6 @@ class GalleryDemo {
   final List<GalleryDemoConfiguration> configurations;
 
   String get describe => '${slug ?? studyId}@${category.name}';
-
-  @override
-  String toString () => 'slug: $slug, studyId: $studyId, title: $title, describe: $describe';
 }
 
 class GalleryDemoConfiguration {
