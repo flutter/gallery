@@ -18,7 +18,6 @@ const Duration _initialWaitingDuration = Duration(milliseconds: 1500);
 const List<String> _demosWithAnimation = <String>[
   'progress-indicator@material',
   'cupertino-activity-indicator@cupertino',
-  'colors@other',
 ];
 
 const Duration _defaultWaitingDuration = Duration(seconds: 3);
@@ -71,7 +70,7 @@ class GalleryAutomator {
   Widget createWidget() {
     Future<void>.delayed(
       _initialWaitingDuration,
-      automateNameTests, // testScrollsOnly ? automateScrolls : automateDemoGestures,
+      testScrollsOnly ? automateScrolls : automateDemoGestures,
     ).catchError(_handleError);
     return const GalleryApp();
   }
@@ -270,7 +269,7 @@ Future<void> main() async {
     benchmarkName: 'benchmark',
     reporter: print,
     reportError: (dynamic error, stackTrace) async {print(error); print(stackTrace);},
-    runCriterion: (any) => false,
+    runCriterion: (demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
   );
 
   runApp(automator.createWidget());
