@@ -71,7 +71,7 @@ class GalleryAutomator {
   Widget createWidget() {
     Future<void>.delayed(
       _initialWaitingDuration,
-      testScrollsOnly ? automateScrolls : automateDemoGestures,
+      automateNameTests, // testScrollsOnly ? automateScrolls : automateDemoGestures,
     ).catchError(_handleError);
     return const GalleryApp();
   }
@@ -88,9 +88,7 @@ class GalleryAutomator {
     return true;
   }
 
-  /// Opens and quits demos that are specified by [runCriterion], twice.
-  Future<void> automateDemoGestures() async {
-
+  Future<void> automateNameTests() async {
     final allDemos = allGalleryDemos(GalleryLocalizationsEn());
     for (final d in allDemos){
       print(d);
@@ -141,7 +139,10 @@ class GalleryAutomator {
     print('========');
 
     return;
+  }
 
+  /// Opens and quits demos that are specified by [runCriterion], twice.
+  Future<void> automateDemoGestures() async {
     await animationStops();
 
     controller = LiveWidgetController(WidgetsBinding.instance);
