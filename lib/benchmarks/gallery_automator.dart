@@ -16,9 +16,9 @@ import 'scroll.dart';
 const Duration _initialWaitingDuration = Duration(milliseconds: 1500);
 
 const List<String> _demosWithAnimation = <String>[
-  'Progress indicators@material',
-  'Activity indicator@cupertino',
-  'Colors@other',
+  'progress-indicator@material',
+  'cupertino-activity-indicator@cupertino',
+  'colors@other',
 ];
 
 const Duration _defaultWaitingDuration = Duration(seconds: 3);
