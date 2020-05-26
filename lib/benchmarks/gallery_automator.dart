@@ -43,14 +43,14 @@ class GalleryAutomator {
     @required this.benchmarkName,
     @required this.reporter,
     @required this.reportError,
-    @required this.runCriterion,
+    @required this.shouldRunPredicate,
     this.testScrollsOnly = false,
   });
 
   final String benchmarkName;
   final void Function(String) reporter;
   final Future<void> Function(dynamic error, StackTrace stackTrace) reportError;
-  final bool Function(String) runCriterion;
+  final bool Function(String) shouldRunPredicate;
   final bool testScrollsOnly;
 
   bool finished = false;
@@ -73,7 +73,7 @@ class GalleryAutomator {
     return const GalleryApp();
   }
 
-  /// Opens and quits demos that are specified by [runCriterion], twice.
+  /// Opens and quits demos that are specified by [shouldRunPredicate], twice.
   Future<void> automateDemoGestures() async {
     await animationStops();
 
@@ -81,7 +81,7 @@ class GalleryAutomator {
 
     reporter('==== List of demos to be run ====');
     for (final demo in demoNames) {
-      if (runCriterion(demo)) {
+      if (shouldRunPredicate(demo)) {
         reporter(demo);
       }
     }
@@ -112,7 +112,7 @@ class GalleryAutomator {
       // Note that the above scrolling is required even for demos *not*
       // satisfying `runCriterion`, because we need to scroll
       // through every `Scrollable` to find the `demoButton`.
-      if (runCriterion(demo)) {
+      if (shouldRunPredicate(demo)) {
         reporter('Running demo "$demo"');
 
         for (var i = 0; i < 2; ++i) {
