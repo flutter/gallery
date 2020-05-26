@@ -43,9 +43,9 @@ class GalleryAutomator {
     @required this.benchmarkName,
     @required this.reporter,
     @required this.reportError,
-    @required this.shouldRunPredicate,
+    this.shouldRunPredicate,
     this.testScrollsOnly = false,
-  });
+  }) : assert(testScrollsOnly || shouldRunPredicate != null);
 
   final String benchmarkName;
   final void Function(String) reporter;
