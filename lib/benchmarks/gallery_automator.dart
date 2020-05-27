@@ -62,7 +62,7 @@ class GalleryAutomator {
   Future<void> _handleError(dynamic error, StackTrace stackTrace) async {
     print('Error: $error');
     print('StackTrace: $stackTrace');
-    await reportError(error, stackTrace);
+    throw error;
   }
 
   Widget createWidget() {
@@ -79,13 +79,13 @@ class GalleryAutomator {
 
     controller = LiveWidgetController(WidgetsBinding.instance);
 
-    reporter('==== List of demos to be run ====');
+    print('==== List of demos to be run ====');
     for (final demo in demoNames) {
       if (shouldRunPredicate(demo)) {
-        reporter(demo);
+        print(demo);
       }
     }
-    reporter('==== End of list of demos to be run ====');
+    print('==== End of list of demos to be run ====');
 
     var finishedStudyDemos = false;
 
@@ -113,7 +113,7 @@ class GalleryAutomator {
       // satisfying `runCriterion`, because we need to scroll
       // through every `Scrollable` to find the `demoButton`.
       if (shouldRunPredicate(demo)) {
-        reporter('Running demo "$demo"');
+        print('Running demo "$demo"');
 
         for (var i = 0; i < 2; ++i) {
           await controller.tap(find.byKey(ValueKey(demo)));
@@ -131,7 +131,7 @@ class GalleryAutomator {
       }
     }
 
-    reporter('All demos finished.');
+    print('All demos finished.');
 
     // At the end of the test, mark as finished.
     finished = true;
@@ -139,7 +139,7 @@ class GalleryAutomator {
 
   /// Scrolls various parts of the gallery.
   Future<void> automateScrolls() async {
-    reporter('Running scrolling test.');
+    print('Running scrolling test.');
     // Extract categories.
     String categoryOf(String demo) {
       final atSymbolIndex = demo.lastIndexOf('@');
@@ -191,7 +191,7 @@ class GalleryAutomator {
       }
     }
 
-    reporter('Scrolling test finished.');
+    print('Scrolling test finished.');
     finished = true;
   }
 }
