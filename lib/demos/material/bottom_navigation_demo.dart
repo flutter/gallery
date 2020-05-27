@@ -185,7 +185,7 @@ class _NavigationIconView {
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     'assets/demos/bottom_navigation_background.png',
-                    package: 'flutter_gallery_additional_assets',
+                    package: 'flutter_gallery_assets',
                   ),
                 ),
               ),

@@ -325,8 +325,8 @@ class _SettingsIcon extends AnimatedWidget {
                 padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
                 child: FlareActor(
                   Theme.of(context).colorScheme.brightness == Brightness.light
-                      ? 'packages/flutter_gallery_additional_assets/assets/icons/settings/settings_light.flr'
-                      : 'packages/flutter_gallery_additional_assets/assets/icons/settings/settings_dark.flr',
+                      ? 'packages/flutter_gallery_assets/assets/icons/settings/settings_light.flr'
+                      : 'packages/flutter_gallery_assets/assets/icons/settings/settings_dark.flr',
                   alignment: Directionality.of(context) == TextDirection.ltr
                       ? Alignment.bottomLeft
                       : Alignment.bottomRight,
