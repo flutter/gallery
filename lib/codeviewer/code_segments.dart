@@ -2538,7 +2538,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
           style: codeStyle.stringStyle,
-          text: '\u0027flutter_gallery_additional_assets\u0027'),
+          text: '\u0027flutter_gallery_assets\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a                  '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
