@@ -20,8 +20,7 @@ Future<void> pumpWidgetWithImages(
         await Future.wait([
           for (final assetName in assetNames)
             precacheImage(
-              AssetImage(assetName,
-                  package: 'flutter_gallery_assets'),
+              AssetImage(assetName, package: 'flutter_gallery_assets'),
               buildContext,
             ),
         ]);
