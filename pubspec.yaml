@@ -27,11 +27,6 @@ dependencies:
   google_fonts: ^1.0.0
   flutter_staggered_grid_view: ^0.3.0
 
-  flutter_gallery_additional_assets:
-    git:
-      url: https://github.com/pennzht/fluttergalleryadditionalassets.git
-      ref: f4a7c99a56df62496bc057adb9e7b5b916e0f451
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
