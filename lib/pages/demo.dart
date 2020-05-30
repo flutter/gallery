@@ -98,12 +98,13 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   bool get _isSupportedSharedPreferencesPlatform =>
       !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
-  // Only show the feature highlight on Android/iOS in mobile layout and only on
-  // the first and forth time the demo page is viewed.
+  // Only show the feature highlight on Android/iOS, in mobile layout, non-test
+  // mode, and only on the first and fourth time the demo page is viewed.
   bool _showFeatureHighlightForPlatform(BuildContext context) {
     return _showFeatureHighlight &&
         _isSupportedSharedPreferencesPlatform &&
         !isDisplayDesktop(context) &&
+        !GalleryOptions.of(context).isTestMode &&
         (_demoViewedCount != null &&
             (_demoViewedCount == 0 || _demoViewedCount == 3));
   }
@@ -132,9 +133,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (_isDesktop == null) {
-      _isDesktop = isDisplayDesktop(context);
-    }
+    _isDesktop ??= isDisplayDesktop(context);
   }
 
   /// Sets state and updates the background color for code.
@@ -199,8 +198,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     } else if (_state == _DemoState.normal && isDesktop) {
       // Do not allow normal state for desktop.
       _state = _hasOptions ? _DemoState.options : _DemoState.info;
-    } else if (isDesktop != this._isDesktop) {
-      this._isDesktop = isDesktop;
+    } else if (isDesktop != _isDesktop) {
+      _isDesktop = isDesktop;
       // When going from desktop to mobile, return to normal state.
       if (!isDesktop) {
         _state = _DemoState.normal;
@@ -210,7 +209,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   @override
   Widget build(BuildContext context) {
-    bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
     _resolveState(context);
 
     final colorScheme = Theme.of(context).colorScheme;
@@ -262,26 +261,26 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             onPressed: () => _handleTap(_DemoState.options),
           ),
         IconButton(
-          icon: Icon(Icons.info),
+          icon: const Icon(Icons.info),
           tooltip: GalleryLocalizations.of(context).demoInfoTooltip,
           color: _state == _DemoState.info ? selectedIconColor : iconColor,
           onPressed: () => _handleTap(_DemoState.info),
         ),
         IconButton(
-          icon: Icon(Icons.code),
+          icon: const Icon(Icons.code),
           tooltip: GalleryLocalizations.of(context).demoCodeTooltip,
           color: _state == _DemoState.code ? selectedIconColor : iconColor,
           onPressed: () => _handleTap(_DemoState.code),
         ),
         IconButton(
-          icon: Icon(Icons.library_books),
+          icon: const Icon(Icons.library_books),
           tooltip: GalleryLocalizations.of(context).demoDocumentationTooltip,
           color: iconColor,
           onPressed: () => _showDocumentation(context),
         ),
         if (isDesktop)
           IconButton(
-            icon: Icon(Icons.fullscreen),
+            icon: const Icon(Icons.fullscreen),
             tooltip: GalleryLocalizations.of(context).demoFullscreenTooltip,
             color:
                 _state == _DemoState.fullscreen ? selectedIconColor : iconColor,
@@ -328,7 +327,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         );
         break;
       case _DemoState.code:
-        final TextStyle codeTheme = GoogleFonts.robotoMono(
+        final codeTheme = GoogleFonts.robotoMono(
           fontSize: 12 * GalleryOptions.of(context).textScaleFactor(context),
         );
         section = CodeStyle(
@@ -726,11 +725,12 @@ class CodeDisplayPage extends StatelessWidget {
 
   final CodeDisplayer code;
 
+  @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    final TextSpan _richTextCode = code(context);
-    final String _plainTextCode = _richTextCode.toPlainText();
+    final _richTextCode = code(context);
+    final _plainTextCode = _richTextCode.toPlainText();
 
     void _showSnackBarOnCopySuccess(dynamic result) {
       Scaffold.of(context).showSnackBar(
@@ -769,8 +769,6 @@ class CodeDisplayPage extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
             onPressed: () async {
-              // The future will not complete on web, thus no
-              // Snackbar will be shown, see https://github.com/flutter/flutter/issues/49349.
               await Clipboard.setData(ClipboardData(text: _plainTextCode))
                   .then(_showSnackBarOnCopySuccess)
                   .catchError(_showSnackBarOnCopyFailure);

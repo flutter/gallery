@@ -33,7 +33,6 @@ class RallyApp extends StatelessWidget {
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: const HomePage(),
       initialRoute: loginRoute,
       routes: <String, WidgetBuilder>{
         homeRoute: (context) => const HomePage(),
@@ -45,12 +44,13 @@ class RallyApp extends StatelessWidget {
   ThemeData _buildRallyTheme() {
     final base = ThemeData.dark();
     return ThemeData(
+      appBarTheme: const AppBarTheme(brightness: Brightness.dark, elevation: 0),
       scaffoldBackgroundColor: RallyColors.primaryBackground,
       primaryColor: RallyColors.primaryBackground,
       focusColor: RallyColors.focusColor,
       textTheme: _buildRallyTextTheme(base.textTheme),
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: const TextStyle(
+      inputDecorationTheme: const InputDecorationTheme(
+        labelStyle: TextStyle(
           color: RallyColors.gray,
           fontWeight: FontWeight.w500,
         ),

@@ -24,6 +24,7 @@ class FortnightlyApp extends StatelessWidget {
         ? const _FortnightlyHomeDesktop()
         : const _FortnightlyHomeMobile();
     return MaterialApp(
+      title: _fortnightlyTitle,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context).copyWith(
         platform: GalleryOptions.of(context).platform,
@@ -57,7 +58,10 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         title: Semantics(
           label: _fortnightlyTitle,
           child: const FadeInImagePlaceholder(
-            image: AssetImage('assets/fortnightly/fortnightly_title.png'),
+            image: AssetImage(
+              'fortnightly/fortnightly_title.png',
+              package: 'flutter_gallery_assets',
+            ),
             placeholder: SizedBox.shrink(),
             excludeFromSemantics: true,
           ),
@@ -111,7 +115,8 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     child: Semantics(
                       label: _fortnightlyTitle,
                       child: Image.asset(
-                        'assets/fortnightly/fortnightly_title.png',
+                        'fortnightly/fortnightly_title.png',
+                        package: 'flutter_gallery_assets',
                         excludeFromSemantics: true,
                       ),
                     ),

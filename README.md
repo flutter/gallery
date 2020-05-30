@@ -41,15 +41,17 @@ This includes:
 - Linux
 - Windows
 
-That being said, extra steps must be taken to [enable Desktop support](
+An APK, macOS, Linux, and Windows builds are available for [download](https://github.com/flutter/gallery/releases). You can find it on the web at [gallery.flutter.dev](https://gallery.flutter.dev/) and on the [Google Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery).
+
+You can build from source yourself for any of these platforms, though, please note desktop support must [be enabled](
 https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). For
-example, to run the macOS app:
+example, to run the app on Windows:
 
 ```bash
 cd gallery/
-flutter config --enable-macos-desktop
+flutter config --enable-windows-desktop
 flutter create .
-flutter run -d macos
+flutter run -d windows
 ```
 
 Additionally, the UI adapts between mobile and desktop layouts regardless of the
@@ -75,8 +77,7 @@ platform it runs on. This is determined based on window size as outlined in
 ## Generating localized strings and highlighted code segments
 
 To generate localized strings or highlighted code segments, make sure that you
-have [grinder](https://pub.dev/packages/grinder) installed. You can install it
-by getting the packages in `samples/gallery/`:
+have [grinder](https://pub.dev/packages/grinder) installed by running 
 ```bash
 flutter pub get
 ```
@@ -103,19 +104,25 @@ flutter pub run grinder update-code-segments
 	* `git tag v2.3`
 	* `git push --tags`
 
-3. Publish the web release (using the [peanut package](https://pub.dev/packages/peanut)).
+3. Publish the GH pages web release (using the [peanut package](https://pub.dev/packages/peanut)).
     * `flutter pub global activate peanut`
     * `flutter pub global run peanut:peanut`
     * `git push upstream gh-pages:gh-pages`
         * `git update-ref refs/heads/gh-pages upstream/gh-pages` if you need to align with upstream.
+    * This step can be removed once fully migrated to firebase hosting.
 
-4. Publish the Android release (using the correct signing certificates).
+4. Publish the firebase hosted web release.
+    * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
+    * `flutter web build`
+    * `firebase deploy`
+
+5. Publish the Android release (using the correct signing certificates).
     * Create the app bundle with `flutter build appbundle`.
     * Upload to the Play store console.
     * Publish the Play store release.
     * Create the APK with `flutter build apk` (this is for the Github release).
 
-5. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.x`
+6. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.x`
     * Upload the Android APK from above.
     * Create and upload the macOS build by running `flutter build macos` and zipping the 
       app inside `build/macos/Build/Products/Release`.

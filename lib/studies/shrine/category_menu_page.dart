@@ -50,21 +50,21 @@ class CategoryMenuPage extends StatelessWidget {
   }
 
   Widget _buildCategory(Category category, BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final String categoryString = category.name(context);
+    final categoryString = category.name(context);
 
-    final TextStyle selectedCategoryTextStyle = Theme.of(context)
+    final selectedCategoryTextStyle = Theme.of(context)
         .textTheme
         .bodyText1
         .copyWith(fontSize: isDesktop ? 17 : 19);
 
-    final TextStyle unselectedCategoryTextStyle = selectedCategoryTextStyle
-        .copyWith(color: shrineBrown900.withOpacity(0.6));
+    final unselectedCategoryTextStyle = selectedCategoryTextStyle.copyWith(
+        color: shrineBrown900.withOpacity(0.6));
 
-    final double indicatorHeight = (isDesktop ? 28 : 30) *
+    final indicatorHeight = (isDesktop ? 28 : 30) *
         GalleryOptions.of(context).textScaleFactor(context);
-    final double indicatorWidth = indicatorHeight * 34 / 28;
+    final indicatorWidth = indicatorHeight * 34 / 28;
 
     return ScopedModelDescendant<AppStateModel>(
       builder: (context, child, model) => Semantics(
@@ -93,13 +93,12 @@ class CategoryMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final TextStyle logoutTextStyle =
-        Theme.of(context).textTheme.bodyText1.copyWith(
-              fontSize: isDesktop ? 17 : 19,
-              color: shrineBrown900.withOpacity(0.6),
-            );
+    final logoutTextStyle = Theme.of(context).textTheme.bodyText1.copyWith(
+          fontSize: isDesktop ? 17 : 19,
+          color: shrineBrown900.withOpacity(0.6),
+        );
 
     if (isDesktop) {
       return AnimatedBuilder(

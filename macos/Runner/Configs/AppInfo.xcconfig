@@ -11,4 +11,4 @@ PRODUCT_NAME = Flutter Gallery
 PRODUCT_BUNDLE_IDENTIFIER = io.flutter.demo.gallery
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright 2019 The Flutter team. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2019 The Flutter team. All rights reserved.

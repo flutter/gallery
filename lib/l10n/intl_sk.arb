@@ -1,4 +1,5 @@
 {
+  "githubRepo": "Odkladací priestor GitHub {repoName}",
   "fortnightlyMenuUS": "USA",
   "fortnightlyMenuBusiness": "Biznis",
   "fortnightlyMenuScience": "Veda",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "Systém",
   "settingsTitle": "Nastavenia",
   "rallyDescription": "Osobná finančná aplikácia",
-  "aboutDialogDescription": "Ak si chcete zobraziť zdrojový kód tejto aplikácie, navštívte {value}.",
+  "aboutDialogDescription": "Ak si chcete zobraziť zdrojový kód tejto aplikácie, prejdite na {repoLink}.",
   "bottomNavigationCommentsTab": "Komentáre",
   "starterAppGenericBody": "Obsahová časť",
   "starterAppGenericHeadline": "Nadpis",

@@ -9,7 +9,7 @@ import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
 class FlyForm extends BackLayerItem {
-  const FlyForm({int index}) : super(index: index);
+  const FlyForm() : super(index: 0);
 
   @override
   _FlyFormState createState() => _FlyFormState();
@@ -26,21 +26,25 @@ class _FlyFormState extends State<FlyForm> {
     return HeaderForm(
       fields: <HeaderFormField>[
         HeaderFormField(
+          index: 0,
           iconData: Icons.person,
           title: GalleryLocalizations.of(context).craneFormTravelers,
           textController: travelerController,
         ),
         HeaderFormField(
+          index: 1,
           iconData: Icons.place,
           title: GalleryLocalizations.of(context).craneFormOrigin,
           textController: countryDestinationController,
         ),
         HeaderFormField(
+          index: 2,
           iconData: Icons.airplanemode_active,
           title: GalleryLocalizations.of(context).craneFormDestination,
           textController: destinationController,
         ),
         HeaderFormField(
+          index: 3,
           iconData: Icons.date_range,
           title: GalleryLocalizations.of(context).craneFormDates,
           textController: dateController,

@@ -169,7 +169,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           subtitleHeight: _headerSubtitleHeight,
           chevronRotation: _headerChevronRotation,
           title: widget.title,
-          subtitle: widget.options[widget.selectedOption].title ?? '',
+          subtitle: widget.options[widget.selectedOption]?.title ?? '',
           onTap: () => widget.onTapSetting(),
         ),
         Padding(
@@ -243,7 +243,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => optionWidgetsList[index],
-          itemCount: optionWidgetsList.length,
+          itemCount: widget.isExpanded ? optionWidgetsList.length : 0,
         ),
       ),
     );
@@ -322,7 +322,7 @@ class _CategoryHeader extends StatelessWidget {
                 ),
                 child: RotationTransition(
                   turns: chevronRotation,
-                  child: Icon(Icons.arrow_drop_down),
+                  child: const Icon(Icons.arrow_drop_down),
                 ),
               )
             ],

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub ଡାଟା ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ",
   "fortnightlyMenuUS": "ଯୁକ୍ତରାଷ୍ଟ୍ର ଆମେରିକା",
   "fortnightlyMenuBusiness": "ବ୍ୟବସାୟ",
   "fortnightlyMenuScience": "ବିଜ୍ଞାନ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ସିଷ୍ଟମ୍",
   "settingsTitle": "ସେଟିଂସ୍",
   "rallyDescription": "ଏକ ବ୍ୟକ୍ତିଗତ ଫାଇନାନ୍ସ ଆପ୍",
-  "aboutDialogDescription": "ଏହି ଆପ୍ ପାଇଁ ଉତ୍ସ କୋଡ୍ ଦେଖିବାକୁ, ଦୟାକରି {value}କୁ ଯାଆନ୍ତୁ।",
+  "aboutDialogDescription": "ଏହି ଆପ୍ ପାଇଁ ଉତ୍ସ କୋଡ୍ ଦେଖିବାକୁ, ଦୟାକରି {repoLink}କୁ ଯାଆନ୍ତୁ।",
   "bottomNavigationCommentsTab": "ମନ୍ତବ୍ୟଗୁଡ଼ିକ",
   "starterAppGenericBody": "ବଡି",
   "starterAppGenericHeadline": "ହେଡଲାଇନ",
@@ -551,7 +552,7 @@
   "starterAppTooltipShare": "ସେୟାର୍‍ କରନ୍ତୁ",
   "starterAppTooltipFavorite": "ପସନ୍ଦ",
   "starterAppTooltipAdd": "ଯୋଗ କରନ୍ତୁ",
-  "bottomNavigationCalendarTab": "କ୍ୟାଲେଣ୍ଡର୍",
+  "bottomNavigationCalendarTab": "Calendar",
   "starterAppDescription": "ଏକ ପ୍ରତିକ୍ରିୟାଶୀଳ ଷ୍ଟାର୍ଟର୍ ଲେଆଉଟ୍",
   "starterAppTitle": "ଷ୍ଟାର୍ଟର୍ ଆପ୍",
   "aboutFlutterSamplesRepo": "ଫ୍ଲଟର୍ ସାମ୍ପଲ୍ ଗିଥୁବ୍ ରେପୋ",

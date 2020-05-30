@@ -83,7 +83,7 @@ class _SplashPageState extends State<SplashPage>
         ),
         vsync: this)
       ..addListener(() {
-        this.setState(() {});
+        setState(() {});
       });
   }
 
@@ -97,7 +97,7 @@ class _SplashPageState extends State<SplashPage>
     BuildContext context,
     BoxConstraints constraints,
   ) {
-    final double height = constraints.biggest.height -
+    final height = constraints.biggest.height -
         (isDisplayDesktop(context) ? homePeekDesktop : homePeekMobile);
     return RelativeRectTween(
       begin: const RelativeRect.fromLTRB(0, 0, 0, 0),
@@ -116,9 +116,8 @@ class _SplashPageState extends State<SplashPage>
         isFinished: _controller.status == AnimationStatus.dismissed,
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final Animation<RelativeRect> animation =
-                _getPanelAnimation(context, constraints);
-            Widget frontLayer = widget.child;
+            final animation = _getPanelAnimation(context, constraints);
+            var frontLayer = widget.child;
             if (_isSplashVisible) {
               frontLayer = GestureDetector(
                 behavior: HitTestBehavior.opaque,
@@ -182,7 +181,7 @@ class _SplashBackLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var effectAsset = 'assets/splash_effects/splash_effect_$effect.gif';
+    var effectAsset = 'splash_effects/splash_effect_$effect.gif';
     final flutterLogo = Image.asset('assets/logo/flutter_logo.png');
 
     Widget child;
@@ -202,7 +201,12 @@ class _SplashBackLayer extends StatelessWidget {
     } else {
       child = Stack(
         children: [
-          Center(child: Image.asset(effectAsset)),
+          Center(
+            child: Image.asset(
+              effectAsset,
+              package: 'flutter_gallery_assets',
+            ),
+          ),
           Center(child: flutterLogo),
         ],
       );

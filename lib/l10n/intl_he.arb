@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} מאגר GitHub",
   "fortnightlyMenuUS": "ארה\"ב",
   "fortnightlyMenuBusiness": "עסקים",
   "fortnightlyMenuScience": "מדע",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "מערכת",
   "settingsTitle": "הגדרות",
   "rallyDescription": "אפליקציה אישית לניהול פיננסי",
-  "aboutDialogDescription": "כדי לראות את קוד המקור של האפליקציה הזו, יש להיכנס אל {value}.",
+  "aboutDialogDescription": "כדי לראות את קוד המקור של האפליקציה הזו, יש להיכנס אל {repoLink}.",
   "bottomNavigationCommentsTab": "תגובות",
   "starterAppGenericBody": "גוף הטקסט",
   "starterAppGenericHeadline": "כותרת",

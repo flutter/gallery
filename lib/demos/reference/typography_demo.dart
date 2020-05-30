@@ -91,13 +91,13 @@ class TypographyDemo extends StatelessWidget {
         text: 'Medium 14sp',
       ),
       _TextStyleItem(
-        name: 'Body Text 2',
-        style: textTheme.bodyText2,
+        name: 'Body Text 1',
+        style: textTheme.bodyText1,
         text: 'Regular 16sp',
       ),
       _TextStyleItem(
-        name: 'Body Text 1',
-        style: textTheme.bodyText1,
+        name: 'Body Text 2',
+        style: textTheme.bodyText2,
         text: 'Regular 14sp',
       ),
       _TextStyleItem(

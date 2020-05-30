@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub သိမ်းဆည်းရန်နေရာ",
   "fortnightlyMenuUS": "ယူအက်စ်",
   "fortnightlyMenuBusiness": "လုပ်ငန်း",
   "fortnightlyMenuScience": "သိပွံ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "စနစ်",
   "settingsTitle": "ဆက်တင်များ",
   "rallyDescription": "ကိုယ်ပိုင် ငွေကြေးဆိုင်ရာ အက်ပ်",
-  "aboutDialogDescription": "ဤအက်ပ်အတွက် ကုဒ်အရင်းအမြစ်ကို ကြည့်ရန် {value} သို့ သွားပါ။",
+  "aboutDialogDescription": "ဤအက်ပ်အတွက် ကုဒ်အရင်းအမြစ်ကို ကြည့်ရန် {repoLink} သို့ သွားပါ။",
   "bottomNavigationCommentsTab": "မှတ်ချက်များ",
   "starterAppGenericBody": "စာကိုယ်",
   "starterAppGenericHeadline": "ခေါင်းစီး",

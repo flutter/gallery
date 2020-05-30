@@ -64,27 +64,27 @@ _FileReadStatus _updatedStatus(_FileReadStatus oldStatus, String line) {
 }
 
 Map<String, String> _createSegments(String sourceDirectoryPath) {
-  List<File> files = Directory(sourceDirectoryPath)
+  final files = Directory(sourceDirectoryPath)
       .listSync(recursive: true)
       .whereType<File>()
       .toList();
 
-  Map<String, StringBuffer> subsegments = {};
-  Map<String, String> subsegmentPrologues = {};
+  var subsegments = <String, StringBuffer>{};
+  var subsegmentPrologues = <String, String>{};
 
-  Set<String> appearedSubsegments = Set();
+  var appearedSubsegments = <String>{};
 
   for (final file in files) {
     // Process file.
 
-    String content = file.readAsStringSync();
-    List<String> lines = const LineSplitter().convert(content);
+    final content = file.readAsStringSync();
+    final lines = const LineSplitter().convert(content);
 
-    _FileReadStatus status = _FileReadStatus.comments;
+    var status = _FileReadStatus.comments;
 
-    StringBuffer prologue = StringBuffer();
+    final prologue = StringBuffer();
 
-    Set<String> activeSubsegments = Set();
+    final activeSubsegments = <String>{};
 
     for (final line in lines) {
       // Update status.
@@ -98,9 +98,10 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
       // Process run commands.
 
       if (line.trim().startsWith(beginSubsegment)) {
-        String argumentString = line.replaceFirst(beginSubsegment, '').trim();
-        List<String> arguments =
-            argumentString.isEmpty ? [] : argumentString.split(RegExp(r'\s+'));
+        final argumentString = line.replaceFirst(beginSubsegment, '').trim();
+        var arguments = argumentString.isEmpty
+            ? <String>[]
+            : argumentString.split(RegExp(r'\s+'));
 
         for (final argument in arguments) {
           if (activeSubsegments.contains(argument)) {
@@ -116,9 +117,10 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
           }
         }
       } else if (line.trim().startsWith(endSubsegment)) {
-        String argumentString = line.replaceFirst(endSubsegment, '').trim();
-        List<String> arguments =
-            argumentString.isEmpty ? [] : argumentString.split(RegExp(r'\s+'));
+        final argumentString = line.replaceFirst(endSubsegment, '').trim();
+        final arguments = argumentString.isEmpty
+            ? <String>[]
+            : argumentString.split(RegExp(r'\s+'));
 
         if (arguments.isEmpty && activeSubsegments.length == 1) {
           arguments.add(activeSubsegments.first);
@@ -146,8 +148,8 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
     }
   }
 
-  Map<String, List<TaggedString>> segments = {};
-  Map<String, String> segmentPrologues = {};
+  var segments = <String, List<TaggedString>>{};
+  var segmentPrologues = <String, String>{};
 
   // Sometimes a code segment is made up of subsegments. They are marked by
   // names with a "#" symbol in it, such as "bottomSheetDemoModal#1" and
@@ -158,7 +160,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
     double order;
 
     if (key.contains('#')) {
-      List<String> parts = key.split('#');
+      var parts = key.split('#');
       name = parts[0];
       order = double.parse(parts[1]);
     } else {
@@ -183,10 +185,10 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
     value.sort((ts1, ts2) => (ts1.order - ts2.order).sign.round());
   });
 
-  Map<String, String> answer = {};
+  var answer = <String, String>{};
 
   for (final name in segments.keys) {
-    StringBuffer buffer = StringBuffer();
+    final buffer = StringBuffer();
 
     buffer.write(segmentPrologues[name].trim());
     buffer.write('\n\n');
@@ -218,13 +220,13 @@ void _formatSegments(Map<String, String> segments, IOSink output) {
 
   final sortedNames = segments.keys.toList()..sort();
   for (final name in sortedNames) {
-    String code = segments[name];
+    final code = segments[name];
 
     output.writeln('  static TextSpan $name (BuildContext context) {');
-    output.writeln('    final CodeStyle codeStyle = CodeStyle.of(context);');
+    output.writeln('    final codeStyle = CodeStyle.of(context);');
     output.writeln('    return TextSpan(children: [');
 
-    List<CodeSpan> codeSpans = DartSyntaxPrehighlighter().format(code);
+    final codeSpans = DartSyntaxPrehighlighter().format(code);
 
     for (final span in codeSpans) {
       output.write('    ');
@@ -256,8 +258,8 @@ void _formatSegments(Map<String, String> segments, IOSink output) {
 /// The target file is overwritten.
 void writeSegments(
     {String sourceDirectoryPath, String targetFilePath, bool isDryRun}) {
-  Map<String, String> segments = _createSegments(sourceDirectoryPath);
-  IOSink output = isDryRun ? stdout : File(targetFilePath).openWrite();
+  final segments = _createSegments(sourceDirectoryPath);
+  final output = isDryRun ? stdout : File(targetFilePath).openWrite();
   _formatSegments(segments, output);
 }
 

@@ -9,8 +9,8 @@ class GalleryThemeData {
   static const _lightFillColor = Colors.black;
   static const _darkFillColor = Colors.white;
 
-  static Color _lightFocusColor = Colors.black.withOpacity(0.12);
-  static Color _darkFocusColor = Colors.white.withOpacity(0.12);
+  static final Color _lightFocusColor = Colors.black.withOpacity(0.12);
+  static final Color _darkFocusColor = Colors.white.withOpacity(0.12);
 
   static ThemeData lightThemeData =
       themeData(lightColorScheme, _lightFocusColor);
@@ -20,6 +20,8 @@ class GalleryThemeData {
     return ThemeData(
       colorScheme: colorScheme,
       textTheme: _textTheme,
+      // Matches manifest.json colors and background color.
+      primaryColor: const Color(0xFF030303),
       appBarTheme: AppBarTheme(
         textTheme: _textTheme.apply(bodyColor: colorScheme.onPrimary),
         color: colorScheme.background,
@@ -81,7 +83,7 @@ class GalleryThemeData {
   static const _semiBold = FontWeight.w600;
   static const _bold = FontWeight.w700;
 
-  static TextTheme _textTheme = TextTheme(
+  static final TextTheme _textTheme = TextTheme(
     headline4: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
     caption: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
     headline5: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),

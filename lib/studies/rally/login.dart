@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: Scaffold(
+        appBar: AppBar(automaticallyImplyLeading: false),
         body: SafeArea(
           child: _MainView(
             usernameController: _usernameController,
@@ -343,7 +344,8 @@ class _LoginButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 30),
         child: Row(
           children: [
-            Icon(Icons.check_circle_outline, color: RallyColors.buttonColor),
+            const Icon(Icons.check_circle_outline,
+                color: RallyColors.buttonColor),
             const SizedBox(width: 12),
             Text(GalleryLocalizations.of(context).rallyLoginRememberMe),
             const Expanded(child: SizedBox.shrink()),
@@ -401,7 +403,7 @@ class _FilledButton extends StatelessWidget {
       onPressed: onTap,
       child: Row(
         children: [
-          Icon(Icons.lock),
+          const Icon(Icons.lock),
           const SizedBox(width: 6),
           Text(text),
         ],

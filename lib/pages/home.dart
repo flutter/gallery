@@ -15,7 +15,6 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
-import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/category_list_item.dart';
 import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
@@ -121,22 +120,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 horizontal: _horizontalDesktopPadding,
               ),
-              child: ExcludeSemantics(child: _GalleryHeader()),
-            ),
-
-            /// TODO: When Focus widget becomes better remove dummy Focus
-            /// variable.
-
-            /// This [Focus] widget grabs focus from the settingsIcon,
-            /// when settings isn't open.
-            /// The container following the Focus widget isn't wrapped with
-            /// Focus because anytime FocusScope.of(context).requestFocus() the
-            /// focused widget will be skipped. We want to be able to focus on
-            /// the container which is why we created this Focus variable.
-            Focus(
-              focusNode:
-                  InheritedBackdropFocusNodes.of(context).homePageFocusNode,
-              child: const SizedBox(),
+              child: _GalleryHeader(),
             ),
             Container(
               height: carouselHeight,
@@ -308,7 +292,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
   }
 
   @override
-  dispose() {
+  void dispose() {
     _animationController.dispose();
     _launchTimer?.cancel();
     _launchTimer = null;
@@ -318,6 +302,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
+    final isTestMode = GalleryOptions.of(context).isTestMode;
     return Stack(
       children: [
         ListView(
@@ -328,7 +313,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
             Container(
               margin:
                   const EdgeInsets.symmetric(horizontal: _horizontalPadding),
-              child: ExcludeSemantics(child: _GalleryHeader()),
+              child: _GalleryHeader(),
             ),
             _Carousel(
               children: widget.carouselCards,
@@ -349,6 +334,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.material,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(localizations),
+                initiallyExpanded: isTestMode,
               ),
             ),
             _AnimatedCategoryItem(
@@ -361,6 +347,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.cupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(localizations),
+                initiallyExpanded: isTestMode,
               ),
             ),
             _AnimatedCategoryItem(
@@ -373,6 +360,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.other,
                 imageString: 'assets/icons/reference/reference.png',
                 demos: otherDemos(localizations),
+                initiallyExpanded: isTestMode,
               ),
             ),
           ],
@@ -433,22 +421,12 @@ class _DesktopCategoryItem extends StatelessWidget {
                 color: colorScheme.background,
               ),
               Flexible(
-                // Remove ListView top padding as it is already accounted for.
-                child: MediaQuery.removePadding(
-                  removeTop: true,
-                  context: context,
-                  child: ListView(
-                    // Makes integration tests possible.
-                    key: ValueKey('${category.name}DemoList'),
-                    children: [
-                      const SizedBox(height: 12),
-                      for (GalleryDemo demo in demos)
-                        CategoryDemoItem(
-                          demo: demo,
-                        ),
-                      const SizedBox(height: 12),
-                    ],
-                  ),
+                child: ListView.builder(
+                  // Makes integration tests possible.
+                  key: ValueKey('${category.name}DemoList'),
+                  itemBuilder: (context, index) =>
+                      CategoryDemoItem(demo: demos[index]),
+                  itemCount: demos.length,
                 ),
               ),
             ],
@@ -469,7 +447,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
     return Material(
       // Makes integration tests possible.
       key: ValueKey('${category.name}CategoryHeader'),
@@ -566,7 +544,7 @@ class _AnimatedCarousel extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
+            curve: const Interval(
               0.200,
               0.800,
               curve: Curves.ease,
@@ -617,7 +595,7 @@ class _AnimatedCarouselCard extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(
+            curve: const Interval(
               0.900,
               1.000,
               curve: Curves.ease,
@@ -682,7 +660,7 @@ class _CarouselState extends State<_Carousel>
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
@@ -729,6 +707,8 @@ class _CarouselState extends State<_Carousel>
   Widget build(BuildContext context) {
     return _AnimatedCarousel(
       child: PageView.builder(
+        // Makes integration tests possible.
+        key: const ValueKey('studyDemoList'),
         onPageChanged: (value) {
           setState(() {
             _currentPage = value;
@@ -737,6 +717,7 @@ class _CarouselState extends State<_Carousel>
         controller: _controller,
         itemCount: widget.children.length,
         itemBuilder: (context, index) => builder(index),
+        allowImplicitScrolling: true,
       ),
       controller: widget.animationController,
     );
@@ -771,7 +752,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
   }
 
   @override
-  dispose() {
+  void dispose() {
     _controller.dispose();
     super.dispose();
   }
@@ -856,7 +837,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
     double velocity,
   ) {
     final itemWidth = position.viewportDimension / _desktopCardsPerPage;
-    double item = position.pixels / itemWidth;
+    var item = position.pixels / itemWidth;
     if (velocity < -tolerance.velocity) {
       item -= 0.5;
     } else if (velocity > tolerance.velocity) {
@@ -877,8 +858,8 @@ class _SnappingScrollPhysics extends ScrollPhysics {
         (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
       return super.createBallisticSimulation(position, velocity);
     }
-    final Tolerance tolerance = this.tolerance;
-    final double target = _getTargetPixels(position, tolerance, velocity);
+    final tolerance = this.tolerance;
+    final target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels) {
       return ScrollSpringSimulation(
         spring,
@@ -892,7 +873,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
   }
 
   @override
-  bool get allowImplicitScrolling => false;
+  bool get allowImplicitScrolling => true;
 }
 
 class _DesktopPageButton extends StatelessWidget {
@@ -909,30 +890,32 @@ class _DesktopPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final buttonSize = 58.0;
     final padding = _horizontalDesktopPadding - buttonSize / 2;
-    return Align(
-      alignment: isEnd
-          ? AlignmentDirectional.centerEnd
-          : AlignmentDirectional.centerStart,
-      child: Container(
-        width: buttonSize,
-        height: buttonSize,
-        margin: EdgeInsetsDirectional.only(
-          start: isEnd ? 0 : padding,
-          end: isEnd ? padding : 0,
-        ),
-        child: Tooltip(
-          message: isEnd
-              ? MaterialLocalizations.of(context).nextPageTooltip
-              : MaterialLocalizations.of(context).previousPageTooltip,
-          child: Material(
-            color: Colors.black.withOpacity(0.5),
-            shape: const CircleBorder(),
-            clipBehavior: Clip.antiAlias,
-            child: InkWell(
-              onTap: onTap,
-              child: Icon(
-                isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
-                color: Colors.white,
+    return ExcludeSemantics(
+      child: Align(
+        alignment: isEnd
+            ? AlignmentDirectional.centerEnd
+            : AlignmentDirectional.centerStart,
+        child: Container(
+          width: buttonSize,
+          height: buttonSize,
+          margin: EdgeInsetsDirectional.only(
+            start: isEnd ? 0 : padding,
+            end: isEnd ? padding : 0,
+          ),
+          child: Tooltip(
+            message: isEnd
+                ? MaterialLocalizations.of(context).nextPageTooltip
+                : MaterialLocalizations.of(context).previousPageTooltip,
+            child: Material(
+              color: Colors.black.withOpacity(0.5),
+              shape: const CircleBorder(),
+              clipBehavior: Clip.antiAlias,
+              child: InkWell(
+                onTap: onTap,
+                child: Icon(
+                  isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub リポジトリ",
   "fortnightlyMenuUS": "US",
   "fortnightlyMenuBusiness": "ビジネス",
   "fortnightlyMenuScience": "科学",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "システム",
   "settingsTitle": "設定",
   "rallyDescription": "資産管理アプリ",
-  "aboutDialogDescription": "このアプリのソースコードは {value} で確認できます。",
+  "aboutDialogDescription": "このアプリのソースコードは {repoLink} で確認できます。",
   "bottomNavigationCommentsTab": "コメント",
   "starterAppGenericBody": "本文",
   "starterAppGenericHeadline": "見出し",

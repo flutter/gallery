@@ -1,4 +1,5 @@
 {
+  "githubRepo": "{repoName} GitHub ಸಂಗ್ರಹಣೆ",
   "fortnightlyMenuUS": "ಯುಎಸ್",
   "fortnightlyMenuBusiness": "ವ್ಯಾಪಾರ",
   "fortnightlyMenuScience": "ವಿಜ್ಞಾನ",
@@ -541,7 +542,7 @@
   "settingsSystemDefault": "ಸಿಸ್ಟಂ",
   "settingsTitle": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
   "rallyDescription": "ವೈಯಕ್ತಿಕ ಹಣಕಾಸು ಆ್ಯಪ್",
-  "aboutDialogDescription": "ಈ ಆ್ಯಪ್‌ನ ಮೂಲ ಕೋಡ್ ಅನ್ನು ನೋಡಲು, {value} ಗೆ ಭೇಟಿ ನೀಡಿ.",
+  "aboutDialogDescription": "ಈ ಆ್ಯಪ್‌ನ ಮೂಲ ಕೋಡ್ ಅನ್ನು ನೋಡಲು, {repoLink} ಗೆ ಭೇಟಿ ನೀಡಿ.",
   "bottomNavigationCommentsTab": "ಕಾಮೆಂಟ್‌ಗಳು",
   "starterAppGenericBody": "ಮುಖ್ಯ ಭಾಗ",
   "starterAppGenericHeadline": "ಶೀರ್ಷಿಕೆ",

@@ -14,11 +14,14 @@ class CategoryListItem extends StatefulWidget {
     this.category,
     this.imageString,
     this.demos = const [],
-  }) : super(key: key);
+    this.initiallyExpanded = false,
+  })  : assert(initiallyExpanded != null),
+        super(key: key);
 
   final GalleryDemoCategory category;
   final String imageString;
   final List<GalleryDemo> demos;
+  final bool initiallyExpanded;
 
   @override
   _CategoryListItemState createState() => _CategoryListItemState();
@@ -37,6 +40,7 @@ class _CategoryListItemState extends State<CategoryListItem>
   Animation<EdgeInsetsGeometry> _headerImagePadding;
   Animation<EdgeInsetsGeometry> _childrenPadding;
   Animation<BorderRadius> _headerBorderRadius;
+
   bool _isExpanded = false;
 
   @override
@@ -66,7 +70,8 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: BorderRadius.zero,
     ).animate(_controller);
 
-    _isExpanded = PageStorage.of(context)?.readState(context) as bool ?? false;
+    _isExpanded = PageStorage.of(context)?.readState(context) as bool ??
+        widget.initiallyExpanded;
     if (_isExpanded) {
       _controller.value = 1.0;
     }
@@ -126,7 +131,7 @@ class _CategoryListItemState extends State<CategoryListItem>
 
   @override
   Widget build(BuildContext context) {
-    final bool closed = !_isExpanded && _controller.isDismissed;
+    final closed = !_isExpanded && _controller.isDismissed;
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,

@@ -46,12 +46,13 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
     final isDesktop = isDisplayDesktop(context);
     Widget tabBarView;
     if (isDesktop) {
       final isTextDirectionRtl =
-          GalleryOptions.of(context).textDirection() == TextDirection.rtl;
+          GalleryOptions.of(context).resolvedTextDirection() ==
+              TextDirection.rtl;
       final verticalRotation =
           isTextDirectionRtl ? turnsToRotateLeft : turnsToRotateRight;
       final revertVerticalRotation =

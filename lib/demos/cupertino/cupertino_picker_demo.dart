@@ -112,9 +112,11 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
       child: _Menu(
         children: [
           Text(GalleryLocalizations.of(context).demoCupertinoPickerDateTime),
-          Text(
-            DateFormat.yMMMd().add_jm().format(dateTime),
-            style: const TextStyle(color: CupertinoColors.inactiveGray),
+          Flexible(
+            child: Text(
+              DateFormat.yMMMd().add_jm().format(dateTime),
+              style: const TextStyle(color: CupertinoColors.inactiveGray),
+            ),
           ),
         ],
       ),
@@ -191,6 +193,9 @@ class _BottomPicker extends StatelessWidget {
     return Container(
       height: 216,
       padding: const EdgeInsets.only(top: 6),
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       color: CupertinoColors.systemBackground.resolveFrom(context),
       child: DefaultTextStyle(
         style: TextStyle(

@@ -27,7 +27,7 @@ class RallyLineChart extends StatelessWidget {
         numberFormat: usdWithSignFormat(context),
         events: events,
         labelStyle: Theme.of(context).textTheme.bodyText2,
-        textDirection: GalleryOptions.of(context).textDirection(),
+        textDirection: GalleryOptions.of(context).resolvedTextDirection(),
         textScaleFactor: reducedTextScale(context),
         padding: isDisplayDesktop(context)
             ? const EdgeInsets.symmetric(vertical: 22)
@@ -164,10 +164,10 @@ class RallyLineChartPainter extends CustomPainter {
   List<double> _amountsPerDay(int numDays) {
     // Arbitrary value for the first point. In a real app, a wider range of
     // points would be used that go beyond the boundaries of the screen.
-    double lastAmount = 600;
+    var lastAmount = 600.0;
 
     // Align the points with equal deltas (1 day) as a cumulative sum.
-    int startMillis = startDate.millisecondsSinceEpoch;
+    var startMillis = startDate.millisecondsSinceEpoch;
 
     final amounts = <double>[];
     for (var i = 0; i < numDays; i++) {
@@ -186,7 +186,7 @@ class RallyLineChartPainter extends CustomPainter {
   }
 
   void _drawLine(Canvas canvas, Rect rect) {
-    final Paint linePaint = Paint()
+    final linePaint = Paint()
       ..color = RallyColors.accountColor(2)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
@@ -196,7 +196,7 @@ class RallyLineChartPainter extends CustomPainter {
 
     final amounts = _amountsPerDay(numDays + smoothing);
     final points = <Offset>[];
-    for (int i = 0; i < amounts.length; i++) {
+    for (var i = 0; i < amounts.length; i++) {
       final x = i / numDays * rect.width;
       final y = (maxAmount - amounts[i]) / maxAmount * rect.height;
       points.add(Offset(x, y));
@@ -212,7 +212,7 @@ class RallyLineChartPainter extends CustomPainter {
 
     final path = Path();
     path.moveTo(points[0].dx, points[0].dy);
-    for (int i = 1; i < numDays - smoothing + 2; i += smoothing) {
+    for (var i = 1; i < numDays - smoothing + 2; i += smoothing) {
       final x1 = points[i].dx;
       final y1 = points[i].dy;
       final x2 = (x1 + points[i + smoothing].dx) / 2;
@@ -224,8 +224,8 @@ class RallyLineChartPainter extends CustomPainter {
 
   /// Draw the X-axis increment markers at constant width intervals.
   void _drawXAxisTicks(Canvas canvas, Rect rect) {
-    for (int i = 0; i < numDays; i++) {
-      final double x = rect.width / numDays * i;
+    for (var i = 0; i < numDays; i++) {
+      final x = rect.width / numDays * i;
       canvas.drawRect(
         Rect.fromPoints(
           Offset(x, i % 7 == tickShift ? rect.top : rect.center.dy),
