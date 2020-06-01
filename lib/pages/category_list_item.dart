@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -277,6 +278,7 @@ class CategoryDemoItem extends StatelessWidget {
       color: Theme.of(context).colorScheme.surface,
       child: MergeSemantics(
         child: InkWell(
+          mouseCursor: SystemMouseCursors.click,
           onTap: () {
             Navigator.of(context).pushNamed(
               '${DemoPage.baseRoute}/${demo.slug}',

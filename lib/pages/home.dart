@@ -912,6 +912,7 @@ class _DesktopPageButton extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               child: InkWell(
                 onTap: onTap,
+                mouseCursor: SystemMouseCursors.click,
                 child: Icon(
                   isEnd ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
                   color: Colors.white,
@@ -963,6 +964,7 @@ class _CarouselCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
+          mouseCursor: SystemMouseCursors.click,
           onTap: () {
             Navigator.of(context).pushNamed(studyRoute);
           },
