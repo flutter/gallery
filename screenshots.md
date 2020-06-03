@@ -1,6 +1,6 @@
 # Screenshots
-<img width="1648" alt="macOS-dark" src="https://user-images.githubusercontent.com/6655696/73928206-fe991a00-48d2-11ea-837b-488c6f584875.png">
-<img width="1648" alt="macOS-light" src="https://user-images.githubusercontent.com/6655696/73928211-ffca4700-48d2-11ea-93f4-c1f368bfa6c7.png">
+<img width="1648" alt="macOS-dark" src="https://user-images.githubusercontent.com/6655696/82461901-32333500-9abb-11ea-800f-3f0fdba524eb.png">
+<img width="1648" alt="macOS-light" src="https://user-images.githubusercontent.com/6655696/82461846-23e51900-9abb-11ea-89cf-ca858265bf2c.png">
 <img width="540" alt="iPhone-dark" src="https://user-images.githubusercontent.com/6655696/73928221-035dce00-48d3-11ea-8906-1bf33629e527.png">
 <img width="540" alt="iPhone-light" src="https://user-images.githubusercontent.com/6655696/73928224-048efb00-48d3-11ea-8869-7da35d727cf1.png">
 <img width="552" alt="pixel-dark" src="https://user-images.githubusercontent.com/6655696/73928225-0658be80-48d3-11ea-9c44-4ae3c3f8b26e.png">
