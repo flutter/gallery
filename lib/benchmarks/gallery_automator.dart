@@ -60,6 +60,8 @@ class GalleryAutomator {
   Iterable<String> get demoNames => allGalleryDemoDescriptions();
 
   Widget createWidget() {
+    // There is no `catchError` here, because all errors are caught by
+    // the zone set up in `lib/web_benchmarks.dart` in `flutter/flutter`.
     Future<void>.delayed(
       _initialWaitingDuration,
       testScrollsOnly ? automateScrolls : automateDemoGestures,
