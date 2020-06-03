@@ -41,15 +41,11 @@ DemoType typeOfDemo(String demo) {
 class GalleryAutomator {
   GalleryAutomator({
     @required this.benchmarkName,
-    @required this.reporter,
-    @required this.reportError,
     this.shouldRunPredicate,
     this.testScrollsOnly = false,
   }) : assert(testScrollsOnly || shouldRunPredicate != null);
 
   final String benchmarkName;
-  final void Function(String) reporter;
-  final Future<void> Function(dynamic error, StackTrace stackTrace) reportError;
   final bool Function(String) shouldRunPredicate;
   final bool testScrollsOnly;
 
