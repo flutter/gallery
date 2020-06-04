@@ -21,7 +21,7 @@ jobs:
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix.
-      run: echo "::add-path::/$GITHUB_WORKSPACE/flutter/bin"
+      run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
       if: runner.os != 'Windows'
     - name: Add Flutter to the PATH for Windows.
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
