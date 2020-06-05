@@ -43,11 +43,13 @@ class GalleryAutomator {
     @required this.benchmarkName,
     this.shouldRunPredicate,
     this.testScrollsOnly = false,
+    @required this.stopWarmingUpCallback,
   }) : assert(testScrollsOnly || shouldRunPredicate != null);
 
   final String benchmarkName;
   final bool Function(String) shouldRunPredicate;
   final bool testScrollsOnly;
+  final void Function() stopWarmingUpCallback;
 
   bool finished = false;
   LiveWidgetController controller;
