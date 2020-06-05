@@ -46,12 +46,25 @@ class GalleryAutomator {
     @required this.stopWarmingUpCallback,
   }) : assert(testScrollsOnly || shouldRunPredicate != null);
 
+  /// The name of the current benchmark.
   final String benchmarkName;
+
+  /// A function deciding whether a demo should be run in this benchmark.
   final bool Function(String) shouldRunPredicate;
+
+  /// Whether we only test scrolling in this benchmark.
   final bool testScrollsOnly;
+
+  /// A function to call when warm-up is finished.
+  ///
+  /// This function is intended to ask `Recorder` to mark the warm-up phase
+  /// as over.
   final void Function() stopWarmingUpCallback;
 
+  /// Whether the automation has ended.
   bool finished = false;
+
+  /// A widget controller for automation.
   LiveWidgetController controller;
 
   /// An iterable that generates all demo names.
