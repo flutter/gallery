@@ -195,8 +195,17 @@ class GalleryAutomator {
   /// Warm up the animation.
   Future<void> warmUp() async {
     // Find first demo of each category.
+    final candidateDemos = firstDemosOfCategories(demoNames);
 
     // Find first demo that is not being tested here.
+    String firstUntestedDemo;
+    for (final demo in candidateDemos) {
+      if (testScrollsOnly || !shouldRunPredicate(demo)) {
+        firstUntestedDemo = demo;
+        break;
+      }
+    }
+    assert (firstUntestedDemo != null);
 
     // Open and close the demo twice to warm up.
   }
