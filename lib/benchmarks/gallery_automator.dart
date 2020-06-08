@@ -87,6 +87,8 @@ class GalleryAutomator {
 
     controller = LiveWidgetController(WidgetsBinding.instance);
 
+    warmUp();
+
     print('==== List of demos to be run ====');
     for (final demo in demoNames) {
       if (shouldRunPredicate(demo)) {
@@ -147,6 +149,12 @@ class GalleryAutomator {
 
   /// Scrolls various parts of the gallery.
   Future<void> automateScrolls() async {
+    await animationStops();
+
+    controller = LiveWidgetController(WidgetsBinding.instance);
+
+    warmUp();
+
     print('Running scrolling test.');
     // Extract categories.
     String categoryOf(String demo) {
