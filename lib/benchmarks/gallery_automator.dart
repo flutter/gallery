@@ -87,7 +87,7 @@ class GalleryAutomator {
 
     controller = LiveWidgetController(WidgetsBinding.instance);
 
-    warmUp();
+    await warmUp();
 
     print('==== List of demos to be run ====');
     for (final demo in demoNames) {
@@ -153,7 +153,7 @@ class GalleryAutomator {
 
     controller = LiveWidgetController(WidgetsBinding.instance);
 
-    warmUp();
+    await warmUp();
 
     print('Running scrolling test.');
     // Extract categories.
