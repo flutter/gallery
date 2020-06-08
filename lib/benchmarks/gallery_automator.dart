@@ -70,6 +70,7 @@ class GalleryAutomator {
   /// An iterable that generates all demo names.
   Iterable<String> get demoNames => allGalleryDemoDescriptions();
 
+  /// The gallery widget, with automation.
   Widget createWidget() {
     // There is no `catchError` here, because all errors are caught by
     // the zone set up in `lib/web_benchmarks.dart` in `flutter/flutter`.
