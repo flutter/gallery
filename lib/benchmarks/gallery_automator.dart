@@ -221,6 +221,9 @@ class GalleryAutomator {
 
       await animationStops();
     }
+
+    // When warm-up finishes, inform the recorder.
+    stopWarmingUpCallback();
   }
 
   // A function to find the category of a demo.
