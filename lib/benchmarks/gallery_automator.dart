@@ -207,7 +207,7 @@ class GalleryAutomator {
         break;
       }
     }
-    assert (firstUntestedDemo != null);
+    assert(firstUntestedDemo != null);
 
     // Open and close the demo twice to warm up.
     for (var i = 0; i < 2; ++i) {
@@ -241,7 +241,7 @@ class GalleryAutomator {
   }
 
   /// A function to find the first demo of each category.
-  List<String> firstDemosOfCategories (Iterable<String> demoList) {
+  List<String> firstDemosOfCategories(Iterable<String> demoList) {
     // Select the first demo from each category.
     final coveredCategories = <String>{};
     final selectedDemos = <String>[];
