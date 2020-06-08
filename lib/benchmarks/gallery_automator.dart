@@ -198,6 +198,8 @@ class GalleryAutomator {
     final candidateDemos = firstDemosOfCategories(demoNames);
 
     // Find first demo that is not being tested here.
+    // We open this demo as a way to warm up the engine, so we need to use an
+    // untested demo to avoid biasing the benchmarks.
     String firstUntestedDemo;
     for (final demo in candidateDemos) {
       if (testScrollsOnly || !shouldRunPredicate(demo)) {
@@ -208,6 +210,19 @@ class GalleryAutomator {
     assert (firstUntestedDemo != null);
 
     // Open and close the demo twice to warm up.
+    for (var i = 0; i < 2; ++i) {
+      await controller.tap(find.byKey(ValueKey(firstUntestedDemo)));
+
+      if (typeOfDemo(firstUntestedDemo) == DemoType.animatedWidget) {
+        await Future<void>.delayed(_defaultWaitingDuration);
+      } else {
+        await animationStops();
+      }
+
+      await controller.tap(find.byKey(const ValueKey('Back')));
+
+      await animationStops();
+    }
   }
 
   // A function to find the category of a demo.
