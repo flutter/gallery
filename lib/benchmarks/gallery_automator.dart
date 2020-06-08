@@ -83,10 +83,6 @@ class GalleryAutomator {
 
   /// Opens and quits demos that are specified by [shouldRunPredicate], twice.
   Future<void> automateDemoGestures() async {
-    await animationStops();
-
-    controller = LiveWidgetController(WidgetsBinding.instance);
-
     await warmUp();
 
     print('==== List of demos to be run ====');
@@ -149,10 +145,6 @@ class GalleryAutomator {
 
   /// Scrolls various parts of the gallery.
   Future<void> automateScrolls() async {
-    await animationStops();
-
-    controller = LiveWidgetController(WidgetsBinding.instance);
-
     await warmUp();
 
     print('Running scrolling test.');
@@ -194,6 +186,12 @@ class GalleryAutomator {
 
   /// Warm up the animation.
   Future<void> warmUp() async {
+    // Let animation stop.
+    await animationStops();
+
+    // Set controller.
+    controller = LiveWidgetController(WidgetsBinding.instance);
+
     // Find first demo of each category.
     final candidateDemos = firstDemosOfCategories(demoNames);
 
