@@ -226,7 +226,7 @@ class GalleryAutomator {
     stopWarmingUpCallback();
   }
 
-  // A function to find the category of a demo.
+  /// A function to find the category of a demo.
   String categoryOf(String demo) {
     final atSymbolIndex = demo.lastIndexOf('@');
     if (atSymbolIndex < 0) {
@@ -236,6 +236,7 @@ class GalleryAutomator {
     }
   }
 
+  /// A function to find the first demo of each category.
   List<String> firstDemosOfCategories (Iterable<String> demoList) {
     // Select the first demo from each category.
     final coveredCategories = <String>{};
