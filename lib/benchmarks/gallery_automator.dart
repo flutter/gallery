@@ -156,27 +156,8 @@ class GalleryAutomator {
     await warmUp();
 
     print('Running scrolling test.');
-    // Extract categories.
-    String categoryOf(String demo) {
-      final atSymbolIndex = demo.lastIndexOf('@');
-      if (atSymbolIndex < 0) {
-        return '';
-      } else {
-        return demo.substring(atSymbolIndex + 1);
-      }
-    }
 
-    // Select a demo from each category, so that we can test scrolling each one.
-    final coveredCategories = <String>{};
-    final selectedDemos = <String>[];
-
-    for (final demo in demoNames) {
-      final category = categoryOf(demo);
-      if (!coveredCategories.contains(category)) {
-        coveredCategories.add(category);
-        selectedDemos.add(demo);
-      }
-    }
+    final selectedDemos = firstDemosOfCategories(demoNames);
 
     var scrolled = false;
 
@@ -218,5 +199,31 @@ class GalleryAutomator {
     // Find first demo that is not being tested here.
 
     // Open and close the demo twice to warm up.
+  }
+
+  // A function to find the category of a demo.
+  String categoryOf(String demo) {
+    final atSymbolIndex = demo.lastIndexOf('@');
+    if (atSymbolIndex < 0) {
+      return '';
+    } else {
+      return demo.substring(atSymbolIndex + 1);
+    }
+  }
+
+  List<String> firstDemosOfCategories (Iterable<String> demoList) {
+    // Select the first demo from each category.
+    final coveredCategories = <String>{};
+    final selectedDemos = <String>[];
+
+    for (final demo in demoList) {
+      final category = categoryOf(demo);
+      if (!coveredCategories.contains(category)) {
+        coveredCategories.add(category);
+        selectedDemos.add(demo);
+      }
+    }
+
+    return selectedDemos;
   }
 }
