@@ -186,6 +186,8 @@ class GalleryAutomator {
 
   /// Warm up the animation.
   Future<void> warmUp() async {
+    print('Warming up.');
+
     // Let animation stop.
     await animationStops();
 
@@ -224,6 +226,8 @@ class GalleryAutomator {
 
     // When warm-up finishes, inform the recorder.
     stopWarmingUpCallback();
+
+    print('Warm-up finished.');
   }
 
   /// A function to find the category of a demo.
