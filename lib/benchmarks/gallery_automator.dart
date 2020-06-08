@@ -210,4 +210,13 @@ class GalleryAutomator {
     print('Scrolling test finished.');
     finished = true;
   }
+
+  /// Warm up the animation.
+  Future<void> warmUp() async {
+    // Find first demo of each category.
+
+    // Find first demo that is not being tested here.
+
+    // Open and close the demo twice to warm up.
+  }
 }
