@@ -1,6 +1,6 @@
 name: gallery
 description: A resource to help developers evaluate and use Flutter.
-
+repository: https://github.com/flutter/gallery
 version: 2.4.0+020400
 
 environment:
@@ -11,15 +11,17 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl:
+  intl: ^0.16.1
   flutter_localized_locales: ^1.1.1
   cupertino_icons: ^0.1.3
   rally_assets: ^2.0.0
-  meta:
-  scoped_model:
+  meta: ^1.1.8
+  scoped_model: ^1.0.1
   shrine_images: ^1.1.2
+  flare_dart: ^2.3.4
   flare_flutter: ^2.0.2
   url_launcher: ^5.1.6
+  vector_math: ^2.0.8
   shared_preferences: ^0.5.4
   collection: ^1.14.0
   flutter_gallery_assets: ^0.2.0
@@ -33,6 +35,8 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   test:
+  path:
+  args:
   grinder: ^0.8.0
   intl_translation:
   pedantic: ^1.9.0
