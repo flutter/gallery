@@ -23,7 +23,7 @@ packages:
     source: hosted
     version: "2.0.13"
   args:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: args
       url: "https://pub.dartlang.org"
@@ -84,7 +84,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.10"
+    version: "0.14.0"
   crypto:
     dependency: transitive
     description:
@@ -128,7 +128,7 @@ packages:
     source: hosted
     version: "5.1.0"
   flare_dart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flare_dart
       url: "https://pub.dartlang.org"
@@ -268,7 +268,7 @@ packages:
       name: js
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.1+1"
+    version: "0.6.2"
   json_rpc_2:
     dependency: transitive
     description:
@@ -347,7 +347,7 @@ packages:
     source: hosted
     version: "0.4.1"
   path:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: path
       url: "https://pub.dartlang.org"
@@ -581,7 +581,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.6"
+    version: "1.14.7"
   test_api:
     dependency: transitive
     description:
@@ -595,7 +595,7 @@ packages:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.6"
+    version: "0.3.7"
   typed_data:
     dependency: transitive
     description:
@@ -632,7 +632,7 @@ packages:
     source: hosted
     version: "0.1.1+6"
   vector_math:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: vector_math
       url: "https://pub.dartlang.org"
