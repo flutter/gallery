@@ -72,7 +72,7 @@ class GalleryOptions {
       _locale ??
       deviceLocale ??
       // TODO: When deviceLocale can be obtained on desktop, this won't be necessary
-      // https://github.com/flutter/flutter/issues/45343
+      // https://github.com/flutter/flutter/issues/45152
       (!kIsWeb && (Platform.isMacOS || Platform.isWindows || Platform.isLinux)
           ? const Locale('en', 'US')
           : null);
