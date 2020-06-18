@@ -82,10 +82,15 @@ class SettingsListItem<T> extends StatefulWidget {
     @required this.onOptionChanged,
     @required this.onTapSetting,
     @required this.isExpanded,
-  }) : super(key: key);
+  })  : optionsKeys = options.keys,
+        optionsValues = options.values,
+        super(key: key);
 
   final String title;
   final LinkedHashMap<T, DisplayOption> options;
+  // For ease of use.
+  final Iterable<T> optionsKeys;
+  final Iterable<DisplayOption> optionsValues;
   final T selectedOption;
   final ValueChanged<T> onOptionChanged;
   final Function onTapSetting;
@@ -190,46 +195,11 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     _handleExpansion();
     final theme = Theme.of(context);
 
-    final optionWidgetsList = <Widget>[];
-
-    widget.options.forEach(
-      (optionValue, optionDisplay) => optionWidgetsList.add(
-        RadioListTile<T>(
-          value: optionValue,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                optionDisplay.title,
-                style: theme.textTheme.bodyText1.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-              ),
-              if (optionDisplay.subtitle != null)
-                Text(
-                  optionDisplay.subtitle,
-                  style: theme.textTheme.bodyText1.copyWith(
-                    fontSize: 12,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onPrimary
-                        .withOpacity(0.8),
-                  ),
-                ),
-            ],
-          ),
-          groupValue: widget.selectedOption,
-          onChanged: (newOption) => widget.onOptionChanged(newOption),
-          activeColor: Theme.of(context).colorScheme.primary,
-          dense: true,
-        ),
-      ),
-    );
-
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
       child: Container(
+        constraints: const BoxConstraints(maxHeight: 380),
         margin: const EdgeInsetsDirectional.only(start: 24, bottom: 40),
         decoration: BoxDecoration(
           border: BorderDirectional(
@@ -241,9 +211,39 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
         ),
         child: ListView.builder(
           shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => optionWidgetsList[index],
-          itemCount: widget.isExpanded ? optionWidgetsList.length : 0,
+          itemCount: widget.isExpanded ? widget.options.keys.length : 0,
+          itemBuilder: (context, index) {
+            final displayOption = widget.optionsValues.elementAt(index);
+            return RadioListTile<T>(
+              value: widget.optionsKeys.elementAt(index),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    displayOption.title,
+                    style: theme.textTheme.bodyText1.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                  if (displayOption.subtitle != null)
+                    Text(
+                      displayOption.subtitle,
+                      style: theme.textTheme.bodyText1.copyWith(
+                        fontSize: 12,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onPrimary
+                            .withOpacity(0.8),
+                      ),
+                    ),
+                ],
+              ),
+              groupValue: widget.selectedOption,
+              onChanged: (newOption) => widget.onOptionChanged(newOption),
+              activeColor: Theme.of(context).colorScheme.primary,
+              dense: true,
+            );
+          },
         ),
       ),
     );
