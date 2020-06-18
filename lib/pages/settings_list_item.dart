@@ -76,21 +76,23 @@ class SlowMotionSetting extends StatelessWidget {
 class SettingsListItem<T> extends StatefulWidget {
   SettingsListItem({
     Key key,
+    @required this.optionsMap,
     @required this.title,
-    @required this.options,
     @required this.selectedOption,
     @required this.onOptionChanged,
     @required this.onTapSetting,
     @required this.isExpanded,
-  })  : optionsKeys = options.keys,
-        optionsValues = options.values,
+  })  : options = optionsMap.keys,
+        displayOptions = optionsMap.values,
         super(key: key);
 
+  final LinkedHashMap<T, DisplayOption> optionsMap;
+
+  /// For ease of use. Correspond to the keys and values of [optionsMap].
+  final Iterable<T> options;
+  final Iterable<DisplayOption> displayOptions;
+
   final String title;
-  final LinkedHashMap<T, DisplayOption> options;
-  // For ease of use.
-  final Iterable<T> optionsKeys;
-  final Iterable<DisplayOption> optionsValues;
   final T selectedOption;
   final ValueChanged<T> onOptionChanged;
   final Function onTapSetting;
@@ -174,7 +176,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           subtitleHeight: _headerSubtitleHeight,
           chevronRotation: _headerChevronRotation,
           title: widget.title,
-          subtitle: widget.options[widget.selectedOption]?.title ?? '',
+          subtitle: widget.optionsMap[widget.selectedOption]?.title ?? '',
           onTap: () => widget.onTapSetting(),
         ),
         Padding(
@@ -211,11 +213,11 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
         ),
         child: ListView.builder(
           shrinkWrap: true,
-          itemCount: widget.isExpanded ? widget.options.keys.length : 0,
+          itemCount: widget.isExpanded ? widget.optionsMap.keys.length : 0,
           itemBuilder: (context, index) {
-            final displayOption = widget.optionsValues.elementAt(index);
+            final displayOption = widget.displayOptions.elementAt(index);
             return RadioListTile<T>(
-              value: widget.optionsKeys.elementAt(index),
+              value: widget.options.elementAt(index),
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
