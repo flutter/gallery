@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  characters:
+    dependency: transitive
+    description:
+      name: characters
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   charcode:
     dependency: transitive
     description:
@@ -56,7 +63,7 @@ packages:
       name: cli_util
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4"
+    version: "0.2.0"
   clock:
     dependency: transitive
     description:
@@ -212,7 +219,7 @@ packages:
       name: grinder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.4"
+    version: "0.8.5"
   html:
     dependency: transitive
     description:
@@ -331,7 +338,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.10"
+    version: "1.4.12"
   package_config:
     dependency: transitive
     description:
@@ -359,7 +366,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.10"
+    version: "1.6.11"
   path_provider_linux:
     dependency: transitive
     description:
@@ -485,7 +492,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.5"
+    version: "0.7.6"
   shelf_packages_handler:
     dependency: transitive
     description:
@@ -609,7 +616,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.10"
+    version: "5.4.11"
   url_launcher_macos:
     dependency: transitive
     description:
@@ -644,7 +651,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.4"
+    version: "4.1.0"
   vm_service_client:
     dependency: transitive
     description:
