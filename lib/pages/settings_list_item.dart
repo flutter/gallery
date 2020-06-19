@@ -82,16 +82,9 @@ class SettingsListItem<T> extends StatefulWidget {
     @required this.onOptionChanged,
     @required this.onTapSetting,
     @required this.isExpanded,
-  })  : options = optionsMap.keys,
-        displayOptions = optionsMap.values,
-        super(key: key);
+  }) : super(key: key);
 
   final LinkedHashMap<T, DisplayOption> optionsMap;
-
-  /// For ease of use. Correspond to the keys and values of [optionsMap].
-  final Iterable<T> options;
-  final Iterable<DisplayOption> displayOptions;
-
   final String title;
   final T selectedOption;
   final ValueChanged<T> onOptionChanged;
@@ -115,6 +108,10 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
   Animation<EdgeInsetsGeometry> _headerPadding;
   Animation<EdgeInsetsGeometry> _childrenPadding;
   Animation<BorderRadius> _headerBorderRadius;
+
+  // For ease of use. Correspond to the keys and values of `widget.optionsMap`.
+  Iterable<T> _options;
+  Iterable<DisplayOption> _displayOptions;
 
   @override
   void initState() {
@@ -145,6 +142,9 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     if (widget.isExpanded) {
       _controller.value = 1.0;
     }
+
+    _options = widget.optionsMap.keys;
+    _displayOptions = widget.optionsMap.values;
   }
 
   @override
@@ -213,11 +213,11 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
         ),
         child: ListView.builder(
           shrinkWrap: true,
-          itemCount: widget.isExpanded ? widget.optionsMap.keys.length : 0,
+          itemCount: widget.isExpanded ? _options.length : 0,
           itemBuilder: (context, index) {
-            final displayOption = widget.displayOptions.elementAt(index);
+            final displayOption = _displayOptions.elementAt(index);
             return RadioListTile<T>(
-              value: widget.options.elementAt(index),
+              value: _options.elementAt(index),
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
