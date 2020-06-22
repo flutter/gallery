@@ -148,7 +148,7 @@ class _SettingsPageState extends State<SettingsPage> {
           context,
           useSentinel: true,
         ),
-        options: LinkedHashMap.of({
+        optionsMap: LinkedHashMap.of({
           systemTextScaleFactorOption: DisplayOption(
             GalleryLocalizations.of(context).settingsSystemDefault,
           ),
@@ -175,7 +175,7 @@ class _SettingsPageState extends State<SettingsPage> {
       SettingsListItem<CustomTextDirection>(
         title: GalleryLocalizations.of(context).settingsTextDirection,
         selectedOption: options.customTextDirection,
-        options: LinkedHashMap.of({
+        optionsMap: LinkedHashMap.of({
           CustomTextDirection.localeBased: DisplayOption(
             GalleryLocalizations.of(context).settingsTextDirectionLocaleBased,
           ),
@@ -198,7 +198,7 @@ class _SettingsPageState extends State<SettingsPage> {
         selectedOption: options.locale == deviceLocale
             ? systemLocaleOption
             : options.locale,
-        options: _getLocaleOptions(),
+        optionsMap: _getLocaleOptions(),
         onOptionChanged: (newLocale) {
           if (newLocale == systemLocaleOption) {
             newLocale = deviceLocale;
@@ -214,7 +214,7 @@ class _SettingsPageState extends State<SettingsPage> {
       SettingsListItem<TargetPlatform>(
         title: GalleryLocalizations.of(context).settingsPlatformMechanics,
         selectedOption: options.platform,
-        options: LinkedHashMap.of({
+        optionsMap: LinkedHashMap.of({
           TargetPlatform.android: DisplayOption('Android'),
           TargetPlatform.iOS: DisplayOption('iOS'),
           TargetPlatform.macOS: DisplayOption('macOS'),
@@ -231,7 +231,7 @@ class _SettingsPageState extends State<SettingsPage> {
       SettingsListItem<ThemeMode>(
         title: GalleryLocalizations.of(context).settingsTheme,
         selectedOption: options.themeMode,
-        options: LinkedHashMap.of({
+        optionsMap: LinkedHashMap.of({
           ThemeMode.system: DisplayOption(
             GalleryLocalizations.of(context).settingsSystemDefault,
           ),
