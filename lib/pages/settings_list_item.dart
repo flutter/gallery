@@ -201,7 +201,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
       child: Container(
-        constraints: const BoxConstraints(maxHeight: 380),
+        constraints: const BoxConstraints(maxHeight: 384),
         margin: const EdgeInsetsDirectional.only(start: 24, bottom: 40),
         decoration: BoxDecoration(
           border: BorderDirectional(
