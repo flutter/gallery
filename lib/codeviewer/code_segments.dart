@@ -28169,7 +28169,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '>['),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a                    '),
       TextSpan(
-          style: codeStyle.classStyle, text: 'WhitelistingTextInputFormatter'),
+          style: codeStyle.classStyle, text: 'FilteringTextInputFormatter'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'digitsOnly'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),

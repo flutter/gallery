@@ -2369,19 +2369,6 @@ class _GalleryLocalizationsDelegate
   bool shouldReload(_GalleryLocalizationsDelegate old) => false;
 }
 
-/// Lazy load the library for web, on other platforms we return the
-/// localizations synchronously.
-Future<GalleryLocalizations> _loadLibraryForWeb(
-  Future<dynamic> Function() loadLibrary,
-  GalleryLocalizations Function() localizationClosure,
-) {
-  if (kIsWeb) {
-    return loadLibrary().then((dynamic _) => localizationClosure());
-  } else {
-    return SynchronousFuture<GalleryLocalizations>(localizationClosure());
-  }
-}
-
 Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
   // Lookup logic when language+script codes are specified.
   switch (locale.languageCode) {
@@ -2389,8 +2376,8 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.scriptCode) {
           case 'Latn':
-            return _loadLibraryForWeb(gallery_localizations_sr.loadLibrary,
-                () => gallery_localizations_sr.GalleryLocalizationsSrLatn());
+            return gallery_localizations_sr.loadLibrary().then((dynamic _) =>
+                gallery_localizations_sr.GalleryLocalizationsSrLatn());
         }
         break;
       }
@@ -2402,17 +2389,17 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'EG':
-            return _loadLibraryForWeb(gallery_localizations_ar.loadLibrary,
-                () => gallery_localizations_ar.GalleryLocalizationsArEg());
+            return gallery_localizations_ar.loadLibrary().then((dynamic _) =>
+                gallery_localizations_ar.GalleryLocalizationsArEg());
           case 'JO':
-            return _loadLibraryForWeb(gallery_localizations_ar.loadLibrary,
-                () => gallery_localizations_ar.GalleryLocalizationsArJo());
+            return gallery_localizations_ar.loadLibrary().then((dynamic _) =>
+                gallery_localizations_ar.GalleryLocalizationsArJo());
           case 'MA':
-            return _loadLibraryForWeb(gallery_localizations_ar.loadLibrary,
-                () => gallery_localizations_ar.GalleryLocalizationsArMa());
+            return gallery_localizations_ar.loadLibrary().then((dynamic _) =>
+                gallery_localizations_ar.GalleryLocalizationsArMa());
           case 'SA':
-            return _loadLibraryForWeb(gallery_localizations_ar.loadLibrary,
-                () => gallery_localizations_ar.GalleryLocalizationsArSa());
+            return gallery_localizations_ar.loadLibrary().then((dynamic _) =>
+                gallery_localizations_ar.GalleryLocalizationsArSa());
         }
         break;
       }
@@ -2420,11 +2407,11 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'AT':
-            return _loadLibraryForWeb(gallery_localizations_de.loadLibrary,
-                () => gallery_localizations_de.GalleryLocalizationsDeAt());
+            return gallery_localizations_de.loadLibrary().then((dynamic _) =>
+                gallery_localizations_de.GalleryLocalizationsDeAt());
           case 'CH':
-            return _loadLibraryForWeb(gallery_localizations_de.loadLibrary,
-                () => gallery_localizations_de.GalleryLocalizationsDeCh());
+            return gallery_localizations_de.loadLibrary().then((dynamic _) =>
+                gallery_localizations_de.GalleryLocalizationsDeCh());
         }
         break;
       }
@@ -2432,29 +2419,29 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'AU':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnAu());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnAu());
           case 'CA':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnCa());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnCa());
           case 'GB':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnGb());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnGb());
           case 'IE':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnIe());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnIe());
           case 'IN':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnIn());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnIn());
           case 'NZ':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnNz());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnNz());
           case 'SG':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnSg());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnSg());
           case 'ZA':
-            return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-                () => gallery_localizations_en.GalleryLocalizationsEnZa());
+            return gallery_localizations_en.loadLibrary().then((dynamic _) =>
+                gallery_localizations_en.GalleryLocalizationsEnZa());
         }
         break;
       }
@@ -2462,65 +2449,65 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case '419':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEs419());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEs419());
           case 'AR':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsAr());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsAr());
           case 'BO':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsBo());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsBo());
           case 'CL':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsCl());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsCl());
           case 'CO':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsCo());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsCo());
           case 'CR':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsCr());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsCr());
           case 'DO':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsDo());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsDo());
           case 'EC':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsEc());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsEc());
           case 'GT':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsGt());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsGt());
           case 'HN':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsHn());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsHn());
           case 'MX':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsMx());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsMx());
           case 'NI':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsNi());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsNi());
           case 'PA':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsPa());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsPa());
           case 'PE':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsPe());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsPe());
           case 'PR':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsPr());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsPr());
           case 'PY':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsPy());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsPy());
           case 'SV':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsSv());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsSv());
           case 'US':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsUs());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsUs());
           case 'UY':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsUy());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsUy());
           case 'VE':
-            return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-                () => gallery_localizations_es.GalleryLocalizationsEsVe());
+            return gallery_localizations_es.loadLibrary().then((dynamic _) =>
+                gallery_localizations_es.GalleryLocalizationsEsVe());
         }
         break;
       }
@@ -2528,11 +2515,11 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'CA':
-            return _loadLibraryForWeb(gallery_localizations_fr.loadLibrary,
-                () => gallery_localizations_fr.GalleryLocalizationsFrCa());
+            return gallery_localizations_fr.loadLibrary().then((dynamic _) =>
+                gallery_localizations_fr.GalleryLocalizationsFrCa());
           case 'CH':
-            return _loadLibraryForWeb(gallery_localizations_fr.loadLibrary,
-                () => gallery_localizations_fr.GalleryLocalizationsFrCh());
+            return gallery_localizations_fr.loadLibrary().then((dynamic _) =>
+                gallery_localizations_fr.GalleryLocalizationsFrCh());
         }
         break;
       }
@@ -2540,11 +2527,11 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'BR':
-            return _loadLibraryForWeb(gallery_localizations_pt.loadLibrary,
-                () => gallery_localizations_pt.GalleryLocalizationsPtBr());
+            return gallery_localizations_pt.loadLibrary().then((dynamic _) =>
+                gallery_localizations_pt.GalleryLocalizationsPtBr());
           case 'PT':
-            return _loadLibraryForWeb(gallery_localizations_pt.loadLibrary,
-                () => gallery_localizations_pt.GalleryLocalizationsPtPt());
+            return gallery_localizations_pt.loadLibrary().then((dynamic _) =>
+                gallery_localizations_pt.GalleryLocalizationsPtPt());
         }
         break;
       }
@@ -2552,14 +2539,14 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
       {
         switch (locale.countryCode) {
           case 'CN':
-            return _loadLibraryForWeb(gallery_localizations_zh.loadLibrary,
-                () => gallery_localizations_zh.GalleryLocalizationsZhCn());
+            return gallery_localizations_zh.loadLibrary().then((dynamic _) =>
+                gallery_localizations_zh.GalleryLocalizationsZhCn());
           case 'HK':
-            return _loadLibraryForWeb(gallery_localizations_zh.loadLibrary,
-                () => gallery_localizations_zh.GalleryLocalizationsZhHk());
+            return gallery_localizations_zh.loadLibrary().then((dynamic _) =>
+                gallery_localizations_zh.GalleryLocalizationsZhHk());
           case 'TW':
-            return _loadLibraryForWeb(gallery_localizations_zh.loadLibrary,
-                () => gallery_localizations_zh.GalleryLocalizationsZhTw());
+            return gallery_localizations_zh.loadLibrary().then((dynamic _) =>
+                gallery_localizations_zh.GalleryLocalizationsZhTw());
         }
         break;
       }
@@ -2568,233 +2555,233 @@ Future<GalleryLocalizations> _lookupGalleryLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'af':
-      return _loadLibraryForWeb(gallery_localizations_af.loadLibrary,
-          () => gallery_localizations_af.GalleryLocalizationsAf());
+      return gallery_localizations_af.loadLibrary().then(
+          (dynamic _) => gallery_localizations_af.GalleryLocalizationsAf());
     case 'am':
-      return _loadLibraryForWeb(gallery_localizations_am.loadLibrary,
-          () => gallery_localizations_am.GalleryLocalizationsAm());
+      return gallery_localizations_am.loadLibrary().then(
+          (dynamic _) => gallery_localizations_am.GalleryLocalizationsAm());
     case 'ar':
-      return _loadLibraryForWeb(gallery_localizations_ar.loadLibrary,
-          () => gallery_localizations_ar.GalleryLocalizationsAr());
+      return gallery_localizations_ar.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ar.GalleryLocalizationsAr());
     case 'as':
-      return _loadLibraryForWeb(gallery_localizations_as.loadLibrary,
-          () => gallery_localizations_as.GalleryLocalizationsAs());
+      return gallery_localizations_as.loadLibrary().then(
+          (dynamic _) => gallery_localizations_as.GalleryLocalizationsAs());
     case 'az':
-      return _loadLibraryForWeb(gallery_localizations_az.loadLibrary,
-          () => gallery_localizations_az.GalleryLocalizationsAz());
+      return gallery_localizations_az.loadLibrary().then(
+          (dynamic _) => gallery_localizations_az.GalleryLocalizationsAz());
     case 'be':
-      return _loadLibraryForWeb(gallery_localizations_be.loadLibrary,
-          () => gallery_localizations_be.GalleryLocalizationsBe());
+      return gallery_localizations_be.loadLibrary().then(
+          (dynamic _) => gallery_localizations_be.GalleryLocalizationsBe());
     case 'bg':
-      return _loadLibraryForWeb(gallery_localizations_bg.loadLibrary,
-          () => gallery_localizations_bg.GalleryLocalizationsBg());
+      return gallery_localizations_bg.loadLibrary().then(
+          (dynamic _) => gallery_localizations_bg.GalleryLocalizationsBg());
     case 'bn':
-      return _loadLibraryForWeb(gallery_localizations_bn.loadLibrary,
-          () => gallery_localizations_bn.GalleryLocalizationsBn());
+      return gallery_localizations_bn.loadLibrary().then(
+          (dynamic _) => gallery_localizations_bn.GalleryLocalizationsBn());
     case 'bs':
-      return _loadLibraryForWeb(gallery_localizations_bs.loadLibrary,
-          () => gallery_localizations_bs.GalleryLocalizationsBs());
+      return gallery_localizations_bs.loadLibrary().then(
+          (dynamic _) => gallery_localizations_bs.GalleryLocalizationsBs());
     case 'ca':
-      return _loadLibraryForWeb(gallery_localizations_ca.loadLibrary,
-          () => gallery_localizations_ca.GalleryLocalizationsCa());
+      return gallery_localizations_ca.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ca.GalleryLocalizationsCa());
     case 'cs':
-      return _loadLibraryForWeb(gallery_localizations_cs.loadLibrary,
-          () => gallery_localizations_cs.GalleryLocalizationsCs());
+      return gallery_localizations_cs.loadLibrary().then(
+          (dynamic _) => gallery_localizations_cs.GalleryLocalizationsCs());
     case 'da':
-      return _loadLibraryForWeb(gallery_localizations_da.loadLibrary,
-          () => gallery_localizations_da.GalleryLocalizationsDa());
+      return gallery_localizations_da.loadLibrary().then(
+          (dynamic _) => gallery_localizations_da.GalleryLocalizationsDa());
     case 'de':
-      return _loadLibraryForWeb(gallery_localizations_de.loadLibrary,
-          () => gallery_localizations_de.GalleryLocalizationsDe());
+      return gallery_localizations_de.loadLibrary().then(
+          (dynamic _) => gallery_localizations_de.GalleryLocalizationsDe());
     case 'el':
-      return _loadLibraryForWeb(gallery_localizations_el.loadLibrary,
-          () => gallery_localizations_el.GalleryLocalizationsEl());
+      return gallery_localizations_el.loadLibrary().then(
+          (dynamic _) => gallery_localizations_el.GalleryLocalizationsEl());
     case 'en':
-      return _loadLibraryForWeb(gallery_localizations_en.loadLibrary,
-          () => gallery_localizations_en.GalleryLocalizationsEn());
+      return gallery_localizations_en.loadLibrary().then(
+          (dynamic _) => gallery_localizations_en.GalleryLocalizationsEn());
     case 'es':
-      return _loadLibraryForWeb(gallery_localizations_es.loadLibrary,
-          () => gallery_localizations_es.GalleryLocalizationsEs());
+      return gallery_localizations_es.loadLibrary().then(
+          (dynamic _) => gallery_localizations_es.GalleryLocalizationsEs());
     case 'et':
-      return _loadLibraryForWeb(gallery_localizations_et.loadLibrary,
-          () => gallery_localizations_et.GalleryLocalizationsEt());
+      return gallery_localizations_et.loadLibrary().then(
+          (dynamic _) => gallery_localizations_et.GalleryLocalizationsEt());
     case 'eu':
-      return _loadLibraryForWeb(gallery_localizations_eu.loadLibrary,
-          () => gallery_localizations_eu.GalleryLocalizationsEu());
+      return gallery_localizations_eu.loadLibrary().then(
+          (dynamic _) => gallery_localizations_eu.GalleryLocalizationsEu());
     case 'fa':
-      return _loadLibraryForWeb(gallery_localizations_fa.loadLibrary,
-          () => gallery_localizations_fa.GalleryLocalizationsFa());
+      return gallery_localizations_fa.loadLibrary().then(
+          (dynamic _) => gallery_localizations_fa.GalleryLocalizationsFa());
     case 'fi':
-      return _loadLibraryForWeb(gallery_localizations_fi.loadLibrary,
-          () => gallery_localizations_fi.GalleryLocalizationsFi());
+      return gallery_localizations_fi.loadLibrary().then(
+          (dynamic _) => gallery_localizations_fi.GalleryLocalizationsFi());
     case 'fil':
-      return _loadLibraryForWeb(gallery_localizations_fil.loadLibrary,
-          () => gallery_localizations_fil.GalleryLocalizationsFil());
+      return gallery_localizations_fil.loadLibrary().then(
+          (dynamic _) => gallery_localizations_fil.GalleryLocalizationsFil());
     case 'fr':
-      return _loadLibraryForWeb(gallery_localizations_fr.loadLibrary,
-          () => gallery_localizations_fr.GalleryLocalizationsFr());
+      return gallery_localizations_fr.loadLibrary().then(
+          (dynamic _) => gallery_localizations_fr.GalleryLocalizationsFr());
     case 'gl':
-      return _loadLibraryForWeb(gallery_localizations_gl.loadLibrary,
-          () => gallery_localizations_gl.GalleryLocalizationsGl());
+      return gallery_localizations_gl.loadLibrary().then(
+          (dynamic _) => gallery_localizations_gl.GalleryLocalizationsGl());
     case 'gsw':
-      return _loadLibraryForWeb(gallery_localizations_gsw.loadLibrary,
-          () => gallery_localizations_gsw.GalleryLocalizationsGsw());
+      return gallery_localizations_gsw.loadLibrary().then(
+          (dynamic _) => gallery_localizations_gsw.GalleryLocalizationsGsw());
     case 'gu':
-      return _loadLibraryForWeb(gallery_localizations_gu.loadLibrary,
-          () => gallery_localizations_gu.GalleryLocalizationsGu());
+      return gallery_localizations_gu.loadLibrary().then(
+          (dynamic _) => gallery_localizations_gu.GalleryLocalizationsGu());
     case 'he':
-      return _loadLibraryForWeb(gallery_localizations_he.loadLibrary,
-          () => gallery_localizations_he.GalleryLocalizationsHe());
+      return gallery_localizations_he.loadLibrary().then(
+          (dynamic _) => gallery_localizations_he.GalleryLocalizationsHe());
     case 'hi':
-      return _loadLibraryForWeb(gallery_localizations_hi.loadLibrary,
-          () => gallery_localizations_hi.GalleryLocalizationsHi());
+      return gallery_localizations_hi.loadLibrary().then(
+          (dynamic _) => gallery_localizations_hi.GalleryLocalizationsHi());
     case 'hr':
-      return _loadLibraryForWeb(gallery_localizations_hr.loadLibrary,
-          () => gallery_localizations_hr.GalleryLocalizationsHr());
+      return gallery_localizations_hr.loadLibrary().then(
+          (dynamic _) => gallery_localizations_hr.GalleryLocalizationsHr());
     case 'hu':
-      return _loadLibraryForWeb(gallery_localizations_hu.loadLibrary,
-          () => gallery_localizations_hu.GalleryLocalizationsHu());
+      return gallery_localizations_hu.loadLibrary().then(
+          (dynamic _) => gallery_localizations_hu.GalleryLocalizationsHu());
     case 'hy':
-      return _loadLibraryForWeb(gallery_localizations_hy.loadLibrary,
-          () => gallery_localizations_hy.GalleryLocalizationsHy());
+      return gallery_localizations_hy.loadLibrary().then(
+          (dynamic _) => gallery_localizations_hy.GalleryLocalizationsHy());
     case 'id':
-      return _loadLibraryForWeb(gallery_localizations_id.loadLibrary,
-          () => gallery_localizations_id.GalleryLocalizationsId());
+      return gallery_localizations_id.loadLibrary().then(
+          (dynamic _) => gallery_localizations_id.GalleryLocalizationsId());
     case 'is':
-      return _loadLibraryForWeb(gallery_localizations_is.loadLibrary,
-          () => gallery_localizations_is.GalleryLocalizationsIs());
+      return gallery_localizations_is.loadLibrary().then(
+          (dynamic _) => gallery_localizations_is.GalleryLocalizationsIs());
     case 'it':
-      return _loadLibraryForWeb(gallery_localizations_it.loadLibrary,
-          () => gallery_localizations_it.GalleryLocalizationsIt());
+      return gallery_localizations_it.loadLibrary().then(
+          (dynamic _) => gallery_localizations_it.GalleryLocalizationsIt());
     case 'ja':
-      return _loadLibraryForWeb(gallery_localizations_ja.loadLibrary,
-          () => gallery_localizations_ja.GalleryLocalizationsJa());
+      return gallery_localizations_ja.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ja.GalleryLocalizationsJa());
     case 'ka':
-      return _loadLibraryForWeb(gallery_localizations_ka.loadLibrary,
-          () => gallery_localizations_ka.GalleryLocalizationsKa());
+      return gallery_localizations_ka.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ka.GalleryLocalizationsKa());
     case 'kk':
-      return _loadLibraryForWeb(gallery_localizations_kk.loadLibrary,
-          () => gallery_localizations_kk.GalleryLocalizationsKk());
+      return gallery_localizations_kk.loadLibrary().then(
+          (dynamic _) => gallery_localizations_kk.GalleryLocalizationsKk());
     case 'km':
-      return _loadLibraryForWeb(gallery_localizations_km.loadLibrary,
-          () => gallery_localizations_km.GalleryLocalizationsKm());
+      return gallery_localizations_km.loadLibrary().then(
+          (dynamic _) => gallery_localizations_km.GalleryLocalizationsKm());
     case 'kn':
-      return _loadLibraryForWeb(gallery_localizations_kn.loadLibrary,
-          () => gallery_localizations_kn.GalleryLocalizationsKn());
+      return gallery_localizations_kn.loadLibrary().then(
+          (dynamic _) => gallery_localizations_kn.GalleryLocalizationsKn());
     case 'ko':
-      return _loadLibraryForWeb(gallery_localizations_ko.loadLibrary,
-          () => gallery_localizations_ko.GalleryLocalizationsKo());
+      return gallery_localizations_ko.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ko.GalleryLocalizationsKo());
     case 'ky':
-      return _loadLibraryForWeb(gallery_localizations_ky.loadLibrary,
-          () => gallery_localizations_ky.GalleryLocalizationsKy());
+      return gallery_localizations_ky.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ky.GalleryLocalizationsKy());
     case 'lo':
-      return _loadLibraryForWeb(gallery_localizations_lo.loadLibrary,
-          () => gallery_localizations_lo.GalleryLocalizationsLo());
+      return gallery_localizations_lo.loadLibrary().then(
+          (dynamic _) => gallery_localizations_lo.GalleryLocalizationsLo());
     case 'lt':
-      return _loadLibraryForWeb(gallery_localizations_lt.loadLibrary,
-          () => gallery_localizations_lt.GalleryLocalizationsLt());
+      return gallery_localizations_lt.loadLibrary().then(
+          (dynamic _) => gallery_localizations_lt.GalleryLocalizationsLt());
     case 'lv':
-      return _loadLibraryForWeb(gallery_localizations_lv.loadLibrary,
-          () => gallery_localizations_lv.GalleryLocalizationsLv());
+      return gallery_localizations_lv.loadLibrary().then(
+          (dynamic _) => gallery_localizations_lv.GalleryLocalizationsLv());
     case 'mk':
-      return _loadLibraryForWeb(gallery_localizations_mk.loadLibrary,
-          () => gallery_localizations_mk.GalleryLocalizationsMk());
+      return gallery_localizations_mk.loadLibrary().then(
+          (dynamic _) => gallery_localizations_mk.GalleryLocalizationsMk());
     case 'ml':
-      return _loadLibraryForWeb(gallery_localizations_ml.loadLibrary,
-          () => gallery_localizations_ml.GalleryLocalizationsMl());
+      return gallery_localizations_ml.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ml.GalleryLocalizationsMl());
     case 'mn':
-      return _loadLibraryForWeb(gallery_localizations_mn.loadLibrary,
-          () => gallery_localizations_mn.GalleryLocalizationsMn());
+      return gallery_localizations_mn.loadLibrary().then(
+          (dynamic _) => gallery_localizations_mn.GalleryLocalizationsMn());
     case 'mr':
-      return _loadLibraryForWeb(gallery_localizations_mr.loadLibrary,
-          () => gallery_localizations_mr.GalleryLocalizationsMr());
+      return gallery_localizations_mr.loadLibrary().then(
+          (dynamic _) => gallery_localizations_mr.GalleryLocalizationsMr());
     case 'ms':
-      return _loadLibraryForWeb(gallery_localizations_ms.loadLibrary,
-          () => gallery_localizations_ms.GalleryLocalizationsMs());
+      return gallery_localizations_ms.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ms.GalleryLocalizationsMs());
     case 'my':
-      return _loadLibraryForWeb(gallery_localizations_my.loadLibrary,
-          () => gallery_localizations_my.GalleryLocalizationsMy());
+      return gallery_localizations_my.loadLibrary().then(
+          (dynamic _) => gallery_localizations_my.GalleryLocalizationsMy());
     case 'nb':
-      return _loadLibraryForWeb(gallery_localizations_nb.loadLibrary,
-          () => gallery_localizations_nb.GalleryLocalizationsNb());
+      return gallery_localizations_nb.loadLibrary().then(
+          (dynamic _) => gallery_localizations_nb.GalleryLocalizationsNb());
     case 'ne':
-      return _loadLibraryForWeb(gallery_localizations_ne.loadLibrary,
-          () => gallery_localizations_ne.GalleryLocalizationsNe());
+      return gallery_localizations_ne.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ne.GalleryLocalizationsNe());
     case 'nl':
-      return _loadLibraryForWeb(gallery_localizations_nl.loadLibrary,
-          () => gallery_localizations_nl.GalleryLocalizationsNl());
+      return gallery_localizations_nl.loadLibrary().then(
+          (dynamic _) => gallery_localizations_nl.GalleryLocalizationsNl());
     case 'or':
-      return _loadLibraryForWeb(gallery_localizations_or.loadLibrary,
-          () => gallery_localizations_or.GalleryLocalizationsOr());
+      return gallery_localizations_or.loadLibrary().then(
+          (dynamic _) => gallery_localizations_or.GalleryLocalizationsOr());
     case 'pa':
-      return _loadLibraryForWeb(gallery_localizations_pa.loadLibrary,
-          () => gallery_localizations_pa.GalleryLocalizationsPa());
+      return gallery_localizations_pa.loadLibrary().then(
+          (dynamic _) => gallery_localizations_pa.GalleryLocalizationsPa());
     case 'pl':
-      return _loadLibraryForWeb(gallery_localizations_pl.loadLibrary,
-          () => gallery_localizations_pl.GalleryLocalizationsPl());
+      return gallery_localizations_pl.loadLibrary().then(
+          (dynamic _) => gallery_localizations_pl.GalleryLocalizationsPl());
     case 'pt':
-      return _loadLibraryForWeb(gallery_localizations_pt.loadLibrary,
-          () => gallery_localizations_pt.GalleryLocalizationsPt());
+      return gallery_localizations_pt.loadLibrary().then(
+          (dynamic _) => gallery_localizations_pt.GalleryLocalizationsPt());
     case 'ro':
-      return _loadLibraryForWeb(gallery_localizations_ro.loadLibrary,
-          () => gallery_localizations_ro.GalleryLocalizationsRo());
+      return gallery_localizations_ro.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ro.GalleryLocalizationsRo());
     case 'ru':
-      return _loadLibraryForWeb(gallery_localizations_ru.loadLibrary,
-          () => gallery_localizations_ru.GalleryLocalizationsRu());
+      return gallery_localizations_ru.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ru.GalleryLocalizationsRu());
     case 'si':
-      return _loadLibraryForWeb(gallery_localizations_si.loadLibrary,
-          () => gallery_localizations_si.GalleryLocalizationsSi());
+      return gallery_localizations_si.loadLibrary().then(
+          (dynamic _) => gallery_localizations_si.GalleryLocalizationsSi());
     case 'sk':
-      return _loadLibraryForWeb(gallery_localizations_sk.loadLibrary,
-          () => gallery_localizations_sk.GalleryLocalizationsSk());
+      return gallery_localizations_sk.loadLibrary().then(
+          (dynamic _) => gallery_localizations_sk.GalleryLocalizationsSk());
     case 'sl':
-      return _loadLibraryForWeb(gallery_localizations_sl.loadLibrary,
-          () => gallery_localizations_sl.GalleryLocalizationsSl());
+      return gallery_localizations_sl.loadLibrary().then(
+          (dynamic _) => gallery_localizations_sl.GalleryLocalizationsSl());
     case 'sq':
-      return _loadLibraryForWeb(gallery_localizations_sq.loadLibrary,
-          () => gallery_localizations_sq.GalleryLocalizationsSq());
+      return gallery_localizations_sq.loadLibrary().then(
+          (dynamic _) => gallery_localizations_sq.GalleryLocalizationsSq());
     case 'sr':
-      return _loadLibraryForWeb(gallery_localizations_sr.loadLibrary,
-          () => gallery_localizations_sr.GalleryLocalizationsSr());
+      return gallery_localizations_sr.loadLibrary().then(
+          (dynamic _) => gallery_localizations_sr.GalleryLocalizationsSr());
     case 'sv':
-      return _loadLibraryForWeb(gallery_localizations_sv.loadLibrary,
-          () => gallery_localizations_sv.GalleryLocalizationsSv());
+      return gallery_localizations_sv.loadLibrary().then(
+          (dynamic _) => gallery_localizations_sv.GalleryLocalizationsSv());
     case 'sw':
-      return _loadLibraryForWeb(gallery_localizations_sw.loadLibrary,
-          () => gallery_localizations_sw.GalleryLocalizationsSw());
+      return gallery_localizations_sw.loadLibrary().then(
+          (dynamic _) => gallery_localizations_sw.GalleryLocalizationsSw());
     case 'ta':
-      return _loadLibraryForWeb(gallery_localizations_ta.loadLibrary,
-          () => gallery_localizations_ta.GalleryLocalizationsTa());
+      return gallery_localizations_ta.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ta.GalleryLocalizationsTa());
     case 'te':
-      return _loadLibraryForWeb(gallery_localizations_te.loadLibrary,
-          () => gallery_localizations_te.GalleryLocalizationsTe());
+      return gallery_localizations_te.loadLibrary().then(
+          (dynamic _) => gallery_localizations_te.GalleryLocalizationsTe());
     case 'th':
-      return _loadLibraryForWeb(gallery_localizations_th.loadLibrary,
-          () => gallery_localizations_th.GalleryLocalizationsTh());
+      return gallery_localizations_th.loadLibrary().then(
+          (dynamic _) => gallery_localizations_th.GalleryLocalizationsTh());
     case 'tl':
-      return _loadLibraryForWeb(gallery_localizations_tl.loadLibrary,
-          () => gallery_localizations_tl.GalleryLocalizationsTl());
+      return gallery_localizations_tl.loadLibrary().then(
+          (dynamic _) => gallery_localizations_tl.GalleryLocalizationsTl());
     case 'tr':
-      return _loadLibraryForWeb(gallery_localizations_tr.loadLibrary,
-          () => gallery_localizations_tr.GalleryLocalizationsTr());
+      return gallery_localizations_tr.loadLibrary().then(
+          (dynamic _) => gallery_localizations_tr.GalleryLocalizationsTr());
     case 'uk':
-      return _loadLibraryForWeb(gallery_localizations_uk.loadLibrary,
-          () => gallery_localizations_uk.GalleryLocalizationsUk());
+      return gallery_localizations_uk.loadLibrary().then(
+          (dynamic _) => gallery_localizations_uk.GalleryLocalizationsUk());
     case 'ur':
-      return _loadLibraryForWeb(gallery_localizations_ur.loadLibrary,
-          () => gallery_localizations_ur.GalleryLocalizationsUr());
+      return gallery_localizations_ur.loadLibrary().then(
+          (dynamic _) => gallery_localizations_ur.GalleryLocalizationsUr());
     case 'uz':
-      return _loadLibraryForWeb(gallery_localizations_uz.loadLibrary,
-          () => gallery_localizations_uz.GalleryLocalizationsUz());
+      return gallery_localizations_uz.loadLibrary().then(
+          (dynamic _) => gallery_localizations_uz.GalleryLocalizationsUz());
     case 'vi':
-      return _loadLibraryForWeb(gallery_localizations_vi.loadLibrary,
-          () => gallery_localizations_vi.GalleryLocalizationsVi());
+      return gallery_localizations_vi.loadLibrary().then(
+          (dynamic _) => gallery_localizations_vi.GalleryLocalizationsVi());
     case 'zh':
-      return _loadLibraryForWeb(gallery_localizations_zh.loadLibrary,
-          () => gallery_localizations_zh.GalleryLocalizationsZh());
+      return gallery_localizations_zh.loadLibrary().then(
+          (dynamic _) => gallery_localizations_zh.GalleryLocalizationsZh());
     case 'zu':
-      return _loadLibraryForWeb(gallery_localizations_zu.loadLibrary,
-          () => gallery_localizations_zu.GalleryLocalizationsZu());
+      return gallery_localizations_zu.loadLibrary().then(
+          (dynamic _) => gallery_localizations_zu.GalleryLocalizationsZu());
   }
 
   assert(false,
