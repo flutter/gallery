@@ -182,7 +182,10 @@ class _SplashBackLayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var effectAsset = 'splash_effects/splash_effect_$effect.gif';
-    final flutterLogo = Image.asset('assets/logo/flutter_logo.png');
+    final flutterLogo = Image.asset(
+      'assets/logo/flutter_logo.png',
+      package: 'flutter_gallery_assets',
+    );
 
     Widget child;
     if (isSplashCollapsed) {

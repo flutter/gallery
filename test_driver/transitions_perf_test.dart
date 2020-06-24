@@ -22,18 +22,18 @@ import 'isolates_workaround.dart';
 // These names must match the output of GalleryDemo.describe in
 // lib/data/demos.dart.
 const List<String> _profiledDemos = <String>[
-  'Shrine@study',
-  'Rally@study',
-  'Crane@study',
-  'Fortnightly@study',
-  'Bottom navigation@material',
-  'Buttons@material',
-  'Cards@material',
-  'Chips@material',
-  'Dialogs@material',
-  'Pickers@material',
-  'Alerts@cupertino',
-  'Colors@other',
+  'shrine@study',
+  'rally@study',
+  'crane@study',
+  'fortnightly@study',
+  'bottom-navigation@material',
+  'button@material',
+  'card@material',
+  'chip@material',
+  'dialog@material',
+  'pickers@material',
+  'cupertino-alerts@cupertino',
+  'colors@other',
 ];
 
 // Demos that will be backed out of within FlutterDriver.runUnsynchronized();
@@ -41,9 +41,9 @@ const List<String> _profiledDemos = <String>[
 // These names must match the output of GalleryDemo.describe in
 // lib/data/demos.dart.
 const List<String> _unsynchronizedDemos = <String>[
-  'Progress indicators@material',
-  'Activity indicator@cupertino',
-  'Colors@reference',
+  'progress-indicator@material',
+  'cupertino-activity-indicator@cupertino',
+  'colors@other',
 ];
 
 // Demos that will be not be launched.

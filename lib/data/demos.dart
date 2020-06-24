@@ -46,6 +46,8 @@ import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/l10n/gallery_localizations_en.dart'
+    show GalleryLocalizationsEn;
 import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
@@ -79,6 +81,8 @@ class GalleryDemo {
     @required this.title,
     @required this.category,
     @required this.subtitle,
+    // This parameter is required for studies.
+    this.studyId,
     // Parameters below are required for non-study demos.
     this.slug,
     this.icon,
@@ -87,16 +91,18 @@ class GalleryDemo {
         assert(category != null),
         assert(subtitle != null),
         assert(category == GalleryDemoCategory.study ||
-            (slug != null && icon != null && configurations != null));
+            (slug != null && icon != null && configurations != null)),
+        assert(slug != null || studyId != null);
 
   final String title;
   final GalleryDemoCategory category;
   final String subtitle;
+  final String studyId;
   final String slug;
   final IconData icon;
   final List<GalleryDemoConfiguration> configurations;
 
-  String get describe => '$title@${category.name}';
+  String get describe => '${slug ?? studyId}@${category.name}';
 }
 
 class GalleryDemoConfiguration {
@@ -121,32 +127,42 @@ List<GalleryDemo> allGalleryDemos(GalleryLocalizations localizations) =>
     cupertinoDemos(localizations) +
     otherDemos(localizations);
 
+List<String> allGalleryDemoDescriptions() =>
+    allGalleryDemos(GalleryLocalizationsEn())
+        .map((demo) => demo.describe)
+        .toList();
+
 Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
   return <String, GalleryDemo>{
     'shrine': GalleryDemo(
       title: 'Shrine',
       subtitle: localizations.shrineDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'shrine',
     ),
     'rally': GalleryDemo(
       title: 'Rally',
       subtitle: localizations.rallyDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'rally',
     ),
     'crane': GalleryDemo(
       title: 'Crane',
       subtitle: localizations.craneDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'crane',
     ),
     'fortnightly': GalleryDemo(
       title: 'Fortnightly',
       subtitle: localizations.fortnightlyDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'fortnightly',
     ),
     'starterApp': GalleryDemo(
       title: localizations.starterAppTitle,
       subtitle: localizations.starterAppDescription,
       category: GalleryDemoCategory.study,
+      studyId: 'starter',
     ),
   };
 }

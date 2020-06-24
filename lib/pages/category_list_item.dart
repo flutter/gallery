@@ -195,6 +195,7 @@ class _CategoryHeader extends StatelessWidget {
                             imageString,
                             width: 64,
                             height: 64,
+                            package: 'flutter_gallery_assets',
                           ),
                         ),
                       ),
