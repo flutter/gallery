@@ -523,7 +523,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
         GalleryDemoConfiguration(
           title: localizations.demoTimePickerTitle,
           description: localizations.demoTimePickerDescription,
-          documentationUrl: '$_docsBaseUrl/material/showTimePicker.htmlhtml',
+          documentationUrl: '$_docsBaseUrl/material/showTimePicker.html',
           buildRoute: (context) => const PickerDemo(type: PickerDemoType.time),
           code: CodeSegments.pickerDemo,
         ),
