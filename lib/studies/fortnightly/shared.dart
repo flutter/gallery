@@ -565,7 +565,7 @@ ThemeData buildTheme(BuildContext context) {
       iconTheme: IconTheme.of(context).copyWith(color: Colors.black),
     ),
     highlightColor: Colors.transparent,
-    textTheme: textTheme.copyWith(
+    primaryTextTheme: textTheme.copyWith(
       // preview snippet
       bodyText2: GoogleFonts.merriweather(
         fontWeight: FontWeight.w300,
