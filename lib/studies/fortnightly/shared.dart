@@ -555,9 +555,8 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
 }
 
 ThemeData buildTheme(BuildContext context) {
-  final textTheme = Theme.of(context).textTheme;
+  final lightTextTheme = ThemeData.light().textTheme;
   return ThemeData(
-    primaryColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
       color: Colors.white,
@@ -565,25 +564,25 @@ ThemeData buildTheme(BuildContext context) {
       iconTheme: IconTheme.of(context).copyWith(color: Colors.black),
     ),
     highlightColor: Colors.transparent,
-    textTheme: textTheme.copyWith(
+    textTheme: TextTheme(
       // preview snippet
       bodyText2: GoogleFonts.merriweather(
         fontWeight: FontWeight.w300,
         fontSize: 16,
-        textStyle: textTheme.bodyText2,
+        textStyle: lightTextTheme.bodyText2,
       ),
       // time in latest updates
       bodyText1: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 11,
         color: Colors.black.withOpacity(0.5),
-        textStyle: textTheme.bodyText1,
+        textStyle: lightTextTheme.bodyText1,
       ),
       // preview headlines
       headline5: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 16,
-        textStyle: textTheme.headline5,
+        textStyle: lightTextTheme.headline5,
       ),
       // (caption 2), preview category, stock ticker
       subtitle1: GoogleFonts.robotoCondensed(
@@ -593,14 +592,14 @@ ThemeData buildTheme(BuildContext context) {
       subtitle2: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        textStyle: textTheme.subtitle2,
+        textStyle: lightTextTheme.subtitle2,
       ),
       // section titles: Top Highlights, Last Updated...
       headline6: GoogleFonts.merriweather(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.italic,
         fontSize: 14,
-        textStyle: textTheme.headline6,
+        textStyle: lightTextTheme.headline6,
       ),
     ),
   );
