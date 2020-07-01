@@ -38,7 +38,7 @@ class FadeInImagePlaceholder extends StatelessWidget {
   /// Defaults to display the [image].
   final Widget child;
 
-  /// The duration for how long the the fade out of the placeholder and
+  /// The duration for how long the fade out of the placeholder and
   /// fade in of [child] should take.
   final Duration duration;
 

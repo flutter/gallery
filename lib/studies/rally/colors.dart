@@ -4,7 +4,7 @@
 
 import 'dart:ui';
 
-/// Most color assignments in Rally are not like the the typical color
+/// Most color assignments in Rally are not like the typical color
 /// assignments that are common in other apps. Instead of primarily mapping to
 /// component type and part, they are assigned round robin based on layout.
 class RallyColors {
