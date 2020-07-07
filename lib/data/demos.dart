@@ -42,6 +42,7 @@ import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
+import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
@@ -51,6 +52,7 @@ import 'package:gallery/l10n/gallery_localizations_en.dart'
 import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
+const _docsAnimationsUrl = 'https://pub.dev/documentation/animations/latest/animations';
 
 enum GalleryDemoCategory {
   study,
@@ -935,6 +937,23 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
 
 List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
+    GalleryDemo(
+      title: localizations.demoMotionTitle,
+      icon: GalleryIcons.animation,
+      slug: 'motion',
+      subtitle: localizations.demoMotionSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoContainerTransformTitle,
+          description: localizations.demoContainerTransformDescription,
+          documentationUrl:
+          '$_docsAnimationsUrl/OpenContainer-class.html',
+          buildRoute: (_) => const OpenContainerTransformDemo(),
+          //code: CodeSegments.colorsDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.other,
+    ),
     GalleryDemo(
       title: localizations.demoColorsTitle,
       icon: GalleryIcons.colors,
