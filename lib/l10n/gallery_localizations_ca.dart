@@ -1039,6 +1039,9 @@ class GalleryLocalizationsCa extends GalleryLocalizations {
   String get demoMotionDetailsPageTitle => 'Details Page';
 
   @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
   String get demoColorsTitle => 'Colors';
 
   @override

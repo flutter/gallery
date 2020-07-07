@@ -1339,6 +1339,10 @@
   "@demoMotionDetailsPageTitle": {
     "description": "The title for the details page in the motion demos."
   },
+  "demoMotionListTileTitle": "List item",
+  "@demoMotionListTileTitle": {
+    "description": "The title for a list tile in the motion demos."
+  },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
     "description": "Title for the colors demo."

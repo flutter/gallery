@@ -225,7 +225,7 @@ class _OpenContainerTransformDemoState
                         ),
                         onTap: openContainer,
                         title: Text(
-                          'List item ${index + 1}',
+                          GalleryLocalizations.of(context).demoMotionListTileTitle + ' ${index + 1}',
                         ),
                         subtitle: Text(
                           GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle,

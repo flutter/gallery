@@ -1210,6 +1210,9 @@ abstract class GalleryLocalizations {
   // The title for the details page in the motion demos.
   String get demoMotionDetailsPageTitle;
 
+  // The title for a list tile in the motion demos.
+  String get demoMotionListTileTitle;
+
   // Title for the colors demo.
   String get demoColorsTitle;
 

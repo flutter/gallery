@@ -1042,6 +1042,9 @@ class GalleryLocalizationsMl extends GalleryLocalizations {
   String get demoMotionDetailsPageTitle => 'Details Page';
 
   @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
   String get demoColorsTitle => 'വർണ്ണങ്ങൾ';
 
   @override

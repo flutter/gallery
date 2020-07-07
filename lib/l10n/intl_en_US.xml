@@ -1230,6 +1230,10 @@
     description="The title for the details page in the motion demos."
     >Details Page</string>
   <string
+    name="demoMotionListTileTitle"
+    description="The title for a list tile in the motion demos."
+    >List item</string>
+  <string
     name="demoColorsTitle"
     description="Title for the colors demo."
     >Colors</string>

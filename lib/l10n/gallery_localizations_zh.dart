@@ -1002,6 +1002,9 @@ class GalleryLocalizationsZh extends GalleryLocalizations {
   String get demoMotionDetailsPageTitle => 'Details Page';
 
   @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
   String get demoColorsTitle => '颜色';
 
   @override
