@@ -1186,6 +1186,50 @@
     description="The placeholder for a text field where a user would enter their PIN number."
     >PIN</string>
   <string
+    name="demoMotionTitle"
+    description="Title for the motion demo."
+    >Motion</string>
+  <string
+    name="demoMotionSubtitle"
+    description="Subtitle for the motion demo."
+    >All of the predefined transition patterns</string>
+  <string
+    name="demoContainerTransformTitle"
+    description="Title for the container transform demo."
+    >Container Transform</string>
+  <string
+    name="demoContainerTransformDescription"
+    description="Description for the container transform demo."
+    >The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements</string>
+  <string
+    name="demoContainerTransformModalBottomSheetTitle"
+    description="Title for the container transform modal bottom sheet."
+    >Fade mode</string>
+  <string
+    name="demoContainerTransformTypeFade"
+    description="Description for container transform fade type setting."
+    >FADE</string>
+  <string
+    name="demoContainerTransformTypeFadeThrough"
+    description="Description for container transform fade through type setting."
+    >FADE THROUGH</string>
+  <string
+    name="demoMotionPlaceholderTitle"
+    description="The placeholder for the motion demos title properties."
+    >Title</string>
+  <string
+    name="demoMotionPlaceholderSubtitle"
+    description="The placeholder for the motion demos subtitle properties."
+    >Secondary text</string>
+  <string
+    name="demoMotionSmallPlaceholderSubtitle"
+    description="The placeholder for the motion demos shortened subtitle properties."
+    >Secondary</string>
+  <string
+    name="demoMotionDetailsPageTitle"
+    description="The title for the details page in the motion demos."
+    >Details Page</string>
+  <string
     name="demoColorsTitle"
     description="Title for the colors demo."
     >Colors</string>
