@@ -149,14 +149,14 @@ class _OpenContainerTransformDemoState
                 _OpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
-                    return _ExampleCard(openContainer: openContainer);
+                    return _DetailsCard(openContainer: openContainer);
                   },
                 ),
                 const SizedBox(height: 16),
                 _OpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
-                    return _ExampleSingleTile(openContainer: openContainer);
+                    return _DetailsListTile(openContainer: openContainer);
                   },
                 ),
                 const SizedBox(
@@ -168,7 +168,7 @@ class _OpenContainerTransformDemoState
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallerCard(
+                          return _SmallDetailsCard(
                             openContainer: openContainer,
                             subtitle:
                                 localizations.demoMotionPlaceholderSubtitle,
@@ -183,7 +183,7 @@ class _OpenContainerTransformDemoState
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallerCard(
+                          return _SmallDetailsCard(
                             openContainer: openContainer,
                             subtitle:
                                 localizations.demoMotionPlaceholderSubtitle,
@@ -202,7 +202,7 @@ class _OpenContainerTransformDemoState
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallerCard(
+                          return _SmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: localizations
                                 .demoMotionSmallPlaceholderSubtitle,
@@ -217,7 +217,7 @@ class _OpenContainerTransformDemoState
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallerCard(
+                          return _SmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: localizations
                                 .demoMotionSmallPlaceholderSubtitle,
@@ -232,7 +232,7 @@ class _OpenContainerTransformDemoState
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
                         closedBuilder: (context, openContainer) {
-                          return _SmallerCard(
+                          return _SmallDetailsCard(
                             openContainer: openContainer,
                             subtitle: localizations
                                 .demoMotionSmallPlaceholderSubtitle,
@@ -324,8 +324,8 @@ class _OpenContainerWrapper extends StatelessWidget {
   }
 }
 
-class _ExampleCard extends StatelessWidget {
-  const _ExampleCard({this.openContainer});
+class _DetailsCard extends StatelessWidget {
+  const _DetailsCard({this.openContainer});
 
   final VoidCallback openContainer;
 
@@ -380,8 +380,8 @@ class _ExampleCard extends StatelessWidget {
   }
 }
 
-class _SmallerCard extends StatelessWidget {
-  const _SmallerCard({
+class _SmallDetailsCard extends StatelessWidget {
+  const _SmallDetailsCard({
     this.openContainer,
     this.subtitle,
   });
@@ -438,8 +438,8 @@ class _SmallerCard extends StatelessWidget {
   }
 }
 
-class _ExampleSingleTile extends StatelessWidget {
-  const _ExampleSingleTile({this.openContainer});
+class _DetailsListTile extends StatelessWidget {
+  const _DetailsListTile({this.openContainer});
 
   final VoidCallback openContainer;
 
