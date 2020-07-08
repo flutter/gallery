@@ -39,7 +39,7 @@ const String _loremIpsumParagraph =
     'amet commodo nulla. Pretium viverra suspendisse potenti nullam ac tortor '
     'vitae';
 
-const double _fabDimension = 56.0;
+const double _fabDimension = 56;
 
 class OpenContainerTransformDemo extends StatefulWidget {
   const OpenContainerTransformDemo({Key key}) : super(key: key);
@@ -62,18 +62,20 @@ class _OpenContainerTransformDemoState
           builder: (context, setModalState) {
             return Container(
               height: 125,
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: [
                   Text(
                     GalleryLocalizations.of(context)
                         .demoContainerTransformModalBottomSheetTitle,
                     style: Theme.of(context).textTheme.caption,
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(
+                    height: 12,
+                  ),
                   ToggleButtons(
-                    borderRadius: BorderRadius.circular(2.0),
+                    borderRadius: BorderRadius.circular(2),
                     selectedBorderColor: Theme.of(context).colorScheme.primary,
                     onPressed: (index) {
                       setModalState(() {
@@ -88,13 +90,19 @@ class _OpenContainerTransformDemoState
                       _transitionType == ContainerTransitionType.fade,
                       _transitionType == ContainerTransitionType.fadeThrough,
                     ],
-                    children: <Widget>[
-                      Text(GalleryLocalizations.of(context)
-                          .demoContainerTransformTypeFade),
+                    children: [
+                      Text(
+                        GalleryLocalizations.of(context)
+                            .demoContainerTransformTypeFade,
+                      ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(GalleryLocalizations.of(context)
-                            .demoContainerTransformTypeFadeThrough),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Text(
+                          GalleryLocalizations.of(context)
+                              .demoContainerTransformTypeFadeThrough,
+                        ),
                       ),
                     ],
                   ),
@@ -120,10 +128,13 @@ class _OpenContainerTransformDemoState
             appBar: AppBar(
               automaticallyImplyLeading: false,
               title: Text(
-                  GalleryLocalizations.of(context).demoContainerTransformTitle),
-              actions: <Widget>[
+                GalleryLocalizations.of(context).demoContainerTransformTitle,
+              ),
+              actions: [
                 IconButton(
-                  icon: const Icon(Icons.settings),
+                  icon: const Icon(
+                    Icons.settings,
+                  ),
                   onPressed: () {
                     _showSettingsBottomModalSheet(context);
                   },
@@ -131,24 +142,26 @@ class _OpenContainerTransformDemoState
               ],
             ),
             body: ListView(
-              padding: const EdgeInsets.all(8.0),
-              children: <Widget>[
+              padding: const EdgeInsets.all(8),
+              children: [
                 _OpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
                     return _ExampleCard(openContainer: openContainer);
                   },
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 16),
                 _OpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
                     return _ExampleSingleTile(openContainer: openContainer);
                   },
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(
+                  height: 16,
+                ),
                 Row(
-                  children: <Widget>[
+                  children: [
                     Expanded(
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
@@ -161,7 +174,9 @@ class _OpenContainerTransformDemoState
                         },
                       ),
                     ),
-                    const SizedBox(width: 8.0),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Expanded(
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
@@ -176,9 +191,11 @@ class _OpenContainerTransformDemoState
                     ),
                   ],
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(
+                  height: 16,
+                ),
                 Row(
-                  children: <Widget>[
+                  children: [
                     Expanded(
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
@@ -191,7 +208,9 @@ class _OpenContainerTransformDemoState
                         },
                       ),
                     ),
-                    const SizedBox(width: 8.0),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Expanded(
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
@@ -204,7 +223,9 @@ class _OpenContainerTransformDemoState
                         },
                       ),
                     ),
-                    const SizedBox(width: 8.0),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Expanded(
                       child: _OpenContainerWrapper(
                         transitionType: _transitionType,
@@ -219,8 +240,10 @@ class _OpenContainerTransformDemoState
                     ),
                   ],
                 ),
-                const SizedBox(height: 16.0),
-                ...List<Widget>.generate(10, (index) {
+                const SizedBox(
+                  height: 16,
+                ),
+                ...List.generate(10, (index) {
                   return OpenContainer<bool>(
                     transitionType: _transitionType,
                     openBuilder: (context, openContainer) {
@@ -228,7 +251,7 @@ class _OpenContainerTransformDemoState
                     },
                     tappable: false,
                     closedShape: const RoundedRectangleBorder(),
-                    closedElevation: 0.0,
+                    closedElevation: 0,
                     closedBuilder: (context, openContainer) {
                       return ListTile(
                         leading: Image.asset(
@@ -257,7 +280,7 @@ class _OpenContainerTransformDemoState
               openBuilder: (context, openContainer) {
                 return const _DetailsPage();
               },
-              closedElevation: 6.0,
+              closedElevation: 6,
               closedShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(_fabDimension / 2),
@@ -318,7 +341,7 @@ class _ExampleCard extends StatelessWidget {
       height: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+        children: [
           Expanded(
             child: Container(
               color: Colors.black38,
@@ -333,23 +356,25 @@ class _ExampleCard extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-                GalleryLocalizations.of(context).demoMotionPlaceholderTitle),
+              GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
+            ),
             subtitle: Text(
-                GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle),
+              GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(
-              left: 16.0,
-              right: 16.0,
-              bottom: 16.0,
+              left: 16,
+              right: 16,
+              bottom: 16,
             ),
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur '
               'adipiscing elit, sed do eiusmod tempor.',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText2
-                  .copyWith(color: Colors.black54, inherit: false),
+              style: Theme.of(context).textTheme.bodyText2.copyWith(
+                    color: Colors.black54,
+                    inherit: false,
+                  ),
             ),
           ),
         ],
@@ -374,7 +399,7 @@ class _SmallerCard extends StatelessWidget {
       height: 225,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children: [
           Container(
             color: Colors.black38,
             height: 150,
@@ -388,16 +413,18 @@ class _SmallerCard extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: [
                   Text(
                     GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(
+                    height: 4,
+                  ),
                   Text(
                     subtitle,
                     style: Theme.of(context).textTheme.caption,
@@ -425,7 +452,7 @@ class _ExampleSingleTile extends StatelessWidget {
       openContainer: openContainer,
       height: height,
       child: Row(
-        children: <Widget>[
+        children: [
           Container(
             color: Colors.black38,
             height: height,
@@ -440,19 +467,22 @@ class _ExampleSingleTile extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: [
                   Text(
                     GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   Text(
-                      'Lorem ipsum dolor sit amet, consectetur '
-                      'adipiscing elit,',
-                      style: Theme.of(context).textTheme.caption),
+                    'Lorem ipsum dolor sit amet, consectetur '
+                    'adipiscing elit,',
+                    style: Theme.of(context).textTheme.caption,
+                  ),
                 ],
               ),
             ),
@@ -496,16 +526,17 @@ class _DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            Text(GalleryLocalizations.of(context).demoMotionDetailsPageTitle),
+        title: Text(
+          GalleryLocalizations.of(context).demoMotionDetailsPageTitle,
+        ),
       ),
       body: ListView(
-        children: <Widget>[
+        children: [
           Container(
             color: Colors.black38,
             height: 250,
             child: Padding(
-              padding: const EdgeInsets.all(70.0),
+              padding: const EdgeInsets.all(70),
               child: Image.asset(
                 'placeholders/placeholder_image.png',
                 package: 'flutter_gallery_assets',
@@ -513,24 +544,26 @@ class _DetailsPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 Text(
                   GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
                   style: Theme.of(context).textTheme.headline5.copyWith(
                         color: Colors.black54,
-                        fontSize: 30.0,
+                        fontSize: 30,
                       ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(
+                  height: 10,
+                ),
                 Text(
                   _loremIpsumParagraph,
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: Colors.black54,
                         height: 1.5,
-                        fontSize: 16.0,
+                        fontSize: 16,
                       ),
                 ),
               ],
