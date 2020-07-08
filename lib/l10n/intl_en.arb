@@ -1295,6 +1295,54 @@
   "@demoCupertinoTextFieldPIN": {
     "description": "The placeholder for a text field where a user would enter their PIN number."
   },
+  "demoMotionTitle": "Motion",
+  "@demoMotionTitle": {
+    "description": "Title for the motion demo."
+  },
+  "demoMotionSubtitle": "All of the predefined transition patterns",
+  "@demoMotionSubtitle": {
+    "description": "Subtitle for the motion demo."
+  },
+  "demoContainerTransformTitle": "Container Transform",
+  "@demoContainerTransformTitle": {
+    "description": "Title for the container transform demo."
+  },
+  "demoContainerTransformDescription": "The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements",
+  "@demoContainerTransformDescription": {
+    "description": "Description for the container transform demo."
+  },
+  "demoContainerTransformModalBottomSheetTitle": "Fade mode",
+  "@demoContainerTransformModalBottomSheetTitle": {
+    "description": "Title for the container transform modal bottom sheet."
+  },
+  "demoContainerTransformTypeFade": "FADE",
+  "@demoContainerTransformTypeFade": {
+    "description": "Description for container transform fade type setting."
+  },
+  "demoContainerTransformTypeFadeThrough": "FADE THROUGH",
+  "@demoContainerTransformTypeFadeThrough": {
+    "description": "Description for container transform fade through type setting."
+  },
+  "demoMotionPlaceholderTitle": "Title",
+  "@demoMotionPlaceholderTitle": {
+    "description": "The placeholder for the motion demos title properties."
+  },
+  "demoMotionPlaceholderSubtitle": "Secondary text",
+  "@demoMotionPlaceholderSubtitle": {
+    "description": "The placeholder for the motion demos subtitle properties."
+  },
+  "demoMotionSmallPlaceholderSubtitle": "Secondary",
+  "@demoMotionSmallPlaceholderSubtitle": {
+    "description": "The placeholder for the motion demos shortened subtitle properties."
+  },
+  "demoMotionDetailsPageTitle": "Details Page",
+  "@demoMotionDetailsPageTitle": {
+    "description": "The title for the details page in the motion demos."
+  },
+  "demoMotionListTileTitle": "List item",
+  "@demoMotionListTileTitle": {
+    "description": "The title for a list tile in the motion demos."
+  },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
     "description": "Title for the colors demo."

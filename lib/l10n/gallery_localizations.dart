@@ -1177,6 +1177,42 @@ abstract class GalleryLocalizations {
   // The placeholder for a text field where a user would enter their PIN number.
   String get demoCupertinoTextFieldPIN;
 
+  // Title for the motion demo.
+  String get demoMotionTitle;
+
+  // Subtitle for the motion demo.
+  String get demoMotionSubtitle;
+
+  // Title for the container transform demo.
+  String get demoContainerTransformTitle;
+
+  // Description for the container transform demo.
+  String get demoContainerTransformDescription;
+
+  // Title for the container transform modal bottom sheet.
+  String get demoContainerTransformModalBottomSheetTitle;
+
+  // Description for container transform fade type setting.
+  String get demoContainerTransformTypeFade;
+
+  // Description for container transform fade through type setting.
+  String get demoContainerTransformTypeFadeThrough;
+
+  // The placeholder for the motion demos title properties.
+  String get demoMotionPlaceholderTitle;
+
+  // The placeholder for the motion demos subtitle properties.
+  String get demoMotionPlaceholderSubtitle;
+
+  // The placeholder for the motion demos shortened subtitle properties.
+  String get demoMotionSmallPlaceholderSubtitle;
+
+  // The title for the details page in the motion demos.
+  String get demoMotionDetailsPageTitle;
+
+  // The title for a list tile in the motion demos.
+  String get demoMotionListTileTitle;
+
   // Title for the colors demo.
   String get demoColorsTitle;
 

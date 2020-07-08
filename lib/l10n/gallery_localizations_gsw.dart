@@ -1005,6 +1005,43 @@ class GalleryLocalizationsGsw extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container Transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details Page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
   String get demoColorsTitle => 'Farben';
 
   @override
