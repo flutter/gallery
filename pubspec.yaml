@@ -24,7 +24,7 @@ dependencies:
   vector_math: ^2.0.8
   shared_preferences: ^0.5.4
   collection: ^1.14.0
-  flutter_gallery_assets: ^0.2.1
+  flutter_gallery_assets: ^0.2.2
   package_info: ^0.4.0
   google_fonts: ^1.0.0
   flutter_staggered_grid_view: ^0.3.0
@@ -150,6 +150,8 @@ flutter:
     - packages/flutter_gallery_assets/places/india_tanjore_market_technology.png
     - packages/flutter_gallery_assets/places/india_pondicherry_beach.png
     - packages/flutter_gallery_assets/places/india_pondicherry_fisherman.png
+    - packages/flutter_gallery_assets/placeholders/avatar_logo.png
+    - packages/flutter_gallery_assets/placeholders/placeholder_image.png
     - packages/flutter_gallery_assets/splash_effects/splash_effect_1.gif
     - packages/flutter_gallery_assets/splash_effects/splash_effect_2.gif
     - packages/flutter_gallery_assets/splash_effects/splash_effect_3.gif
@@ -202,8 +204,6 @@ flutter:
     - packages/shrine_images/35-0.jpg
     - packages/shrine_images/36-0.jpg
     - packages/shrine_images/37-0.jpg
-    - assets/demos/motion/avatar_logo.png
-    - assets/demos/motion/placeholder_image.png
 
   uses-material-design: true
   fonts:

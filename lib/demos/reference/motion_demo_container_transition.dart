@@ -232,7 +232,8 @@ class _OpenContainerTransformDemoState
                     closedBuilder: (context, openContainer) {
                       return ListTile(
                         leading: Image.asset(
-                          'assets/demos/motion/avatar_logo.png',
+                          'placeholders/avatar_logo.png',
+                          package: 'flutter_gallery_assets',
                           width: 40,
                         ),
                         onTap: openContainer,
@@ -323,7 +324,8 @@ class _ExampleCard extends StatelessWidget {
               color: Colors.black38,
               child: Center(
                 child: Image.asset(
-                  'assets/demos/motion/placeholder_image.png',
+                  'placeholders/placeholder_image.png',
+                  package: 'flutter_gallery_assets',
                   width: 100,
                 ),
               ),
@@ -378,7 +380,8 @@ class _SmallerCard extends StatelessWidget {
             height: 150,
             child: Center(
               child: Image.asset(
-                'assets/demos/motion/placeholder_image.png',
+                'placeholders/placeholder_image.png',
+                package: 'flutter_gallery_assets',
                 width: 80,
               ),
             ),
@@ -429,7 +432,8 @@ class _ExampleSingleTile extends StatelessWidget {
             width: height,
             child: Center(
               child: Image.asset(
-                'assets/demos/motion/placeholder_image.png',
+                'placeholders/placeholder_image.png',
+                package: 'flutter_gallery_assets',
                 width: 60,
               ),
             ),
@@ -503,7 +507,8 @@ class _DetailsPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(70.0),
               child: Image.asset(
-                'assets/demos/motion/placeholder_image.png',
+                'placeholders/placeholder_image.png',
+                package: 'flutter_gallery_assets',
               ),
             ),
           ),
