@@ -949,7 +949,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           documentationUrl:
           '$_docsAnimationsUrl/OpenContainer-class.html',
           buildRoute: (_) => const OpenContainerTransformDemo(),
-          //code: CodeSegments.colorsDemo,
+          code: CodeSegments.openContainerTransformDemo,
         ),
       ],
       category: GalleryDemoCategory.other,

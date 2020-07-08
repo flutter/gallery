@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
+// BEGIN openContainerTransformDemo
+
 const String _loremIpsumParagraph =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
     'tempor incididunt ut labore et dolore magna aliqua. Vulputate dignissim '
@@ -39,7 +41,6 @@ const String _loremIpsumParagraph =
 
 const double _fabDimension = 56.0;
 
-/// The demo page for [OpenContainerTransform].
 class OpenContainerTransformDemo extends StatefulWidget {
   const OpenContainerTransformDemo({Key key}) : super(key: key);
 
@@ -66,7 +67,8 @@ class _OpenContainerTransformDemoState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    GalleryLocalizations.of(context).demoContainerTransformModalBottomSheetTitle,
+                    GalleryLocalizations.of(context)
+                        .demoContainerTransformModalBottomSheetTitle,
                     style: Theme.of(context).textTheme.caption,
                   ),
                   const SizedBox(height: 12),
@@ -87,10 +89,12 @@ class _OpenContainerTransformDemoState
                       _transitionType == ContainerTransitionType.fadeThrough,
                     ],
                     children: <Widget>[
-                      Text(GalleryLocalizations.of(context).demoContainerTransformTypeFade),
+                      Text(GalleryLocalizations.of(context)
+                          .demoContainerTransformTypeFade),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(GalleryLocalizations.of(context).demoContainerTransformTypeFadeThrough),
+                        child: Text(GalleryLocalizations.of(context)
+                            .demoContainerTransformTypeFadeThrough),
                       ),
                     ],
                   ),
@@ -106,14 +110,17 @@ class _OpenContainerTransformDemoState
   @override
   Widget build(BuildContext context) {
     return Navigator(
+      // Adding [ValueKey] to make sure that the widget gets rebuilt when
+      //  changing type.
       key: ValueKey(_transitionType),
       onGenerateRoute: (settings) {
-        return _NoAnimationMaterialPageRoute<void>(
+        return MaterialPageRoute<void>(
           builder: (context) => Scaffold(
             key: _scaffoldKey,
             appBar: AppBar(
               automaticallyImplyLeading: false,
-              title: Text(GalleryLocalizations.of(context).demoContainerTransformTitle),
+              title: Text(
+                  GalleryLocalizations.of(context).demoContainerTransformTitle),
               actions: <Widget>[
                 IconButton(
                   icon: const Icon(Icons.settings),
@@ -148,7 +155,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle,
+                            subtitle: GalleryLocalizations.of(context)
+                                .demoMotionPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -160,7 +168,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle,
+                            subtitle: GalleryLocalizations.of(context)
+                                .demoMotionPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -176,7 +185,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context).demoMotionSmallPlaceholderSubtitle,
+                            subtitle: GalleryLocalizations.of(context)
+                                .demoMotionSmallPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -188,7 +198,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context).demoMotionSmallPlaceholderSubtitle,
+                            subtitle: GalleryLocalizations.of(context)
+                                .demoMotionSmallPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -200,7 +211,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context).demoMotionSmallPlaceholderSubtitle,
+                            subtitle: GalleryLocalizations.of(context)
+                                .demoMotionSmallPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -225,10 +237,13 @@ class _OpenContainerTransformDemoState
                         ),
                         onTap: openContainer,
                         title: Text(
-                          GalleryLocalizations.of(context).demoMotionListTileTitle + ' ${index + 1}',
+                          GalleryLocalizations.of(context)
+                                  .demoMotionListTileTitle +
+                              ' ${index + 1}',
                         ),
                         subtitle: Text(
-                          GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle,
+                          GalleryLocalizations.of(context)
+                              .demoMotionPlaceholderSubtitle,
                         ),
                       );
                     },
@@ -239,8 +254,7 @@ class _OpenContainerTransformDemoState
             floatingActionButton: OpenContainer(
               transitionType: _transitionType,
               openBuilder: (context, openContainer) {
-                return const _DetailsPage(
-                    );
+                return const _DetailsPage();
               },
               closedElevation: 6.0,
               closedShape: const RoundedRectangleBorder(
@@ -266,26 +280,6 @@ class _OpenContainerTransformDemoState
         );
       },
     );
-  }
-}
-
-/// A MaterialPageRoute without any transition animations.
-class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
-  _NoAnimationMaterialPageRoute({
-    @required WidgetBuilder builder,
-    RouteSettings settings,
-    bool maintainState = true,
-    bool fullscreenDialog = false,
-  }) : super(
-            builder: builder,
-            maintainState: maintainState,
-            settings: settings,
-            fullscreenDialog: fullscreenDialog);
-
-  @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return child;
   }
 }
 
@@ -336,8 +330,10 @@ class _ExampleCard extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text(GalleryLocalizations.of(context).demoMotionPlaceholderTitle),
-            subtitle: Text(GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle),
+            title: Text(
+                GalleryLocalizations.of(context).demoMotionPlaceholderTitle),
+            subtitle: Text(
+                GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle),
           ),
           Padding(
             padding: const EdgeInsets.only(
@@ -496,7 +492,8 @@ class _DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(GalleryLocalizations.of(context).demoMotionDetailsPageTitle),
+        title:
+            Text(GalleryLocalizations.of(context).demoMotionDetailsPageTitle),
       ),
       body: ListView(
         children: <Widget>[
@@ -539,3 +536,5 @@ class _DetailsPage extends StatelessWidget {
     );
   }
 }
+
+// END openContainerTransformDemo
