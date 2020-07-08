@@ -52,7 +52,8 @@ import 'package:gallery/l10n/gallery_localizations_en.dart'
 import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
-const _docsAnimationsUrl = 'https://pub.dev/documentation/animations/latest/animations';
+const _docsAnimationsUrl =
+    'https://pub.dev/documentation/animations/latest/animations';
 
 enum GalleryDemoCategory {
   study,
@@ -946,8 +947,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
         GalleryDemoConfiguration(
           title: localizations.demoContainerTransformTitle,
           description: localizations.demoContainerTransformDescription,
-          documentationUrl:
-          '$_docsAnimationsUrl/OpenContainer-class.html',
+          documentationUrl: '$_docsAnimationsUrl/OpenContainer-class.html',
           buildRoute: (_) => const OpenContainerTransformDemo(),
           code: CodeSegments.openContainerTransformDemo,
         ),
