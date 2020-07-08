@@ -111,7 +111,7 @@ class _OpenContainerTransformDemoState
   Widget build(BuildContext context) {
     return Navigator(
       // Adding [ValueKey] to make sure that the widget gets rebuilt when
-      //  changing type.
+      // changing type.
       key: ValueKey(_transitionType),
       onGenerateRoute: (settings) {
         return MaterialPageRoute<void>(
