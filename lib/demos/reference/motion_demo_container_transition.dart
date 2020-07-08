@@ -55,6 +55,8 @@ class _OpenContainerTransformDemoState
   ContainerTransitionType _transitionType = ContainerTransitionType.fade;
 
   void _showSettingsBottomModalSheet(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
+
     showModalBottomSheet<void>(
       context: context,
       builder: (context) {
@@ -67,8 +69,7 @@ class _OpenContainerTransformDemoState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    GalleryLocalizations.of(context)
-                        .demoContainerTransformModalBottomSheetTitle,
+                    localizations.demoContainerTransformModalBottomSheetTitle,
                     style: Theme.of(context).textTheme.caption,
                   ),
                   const SizedBox(
@@ -92,16 +93,14 @@ class _OpenContainerTransformDemoState
                     ],
                     children: [
                       Text(
-                        GalleryLocalizations.of(context)
-                            .demoContainerTransformTypeFade,
+                        localizations.demoContainerTransformTypeFade,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 10,
                         ),
                         child: Text(
-                          GalleryLocalizations.of(context)
-                              .demoContainerTransformTypeFadeThrough,
+                          localizations.demoContainerTransformTypeFadeThrough,
                         ),
                       ),
                     ],
@@ -117,6 +116,9 @@ class _OpenContainerTransformDemoState
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Navigator(
       // Adding [ValueKey] to make sure that the widget gets rebuilt when
       // changing type.
@@ -128,7 +130,7 @@ class _OpenContainerTransformDemoState
             appBar: AppBar(
               automaticallyImplyLeading: false,
               title: Text(
-                GalleryLocalizations.of(context).demoContainerTransformTitle,
+                localizations.demoContainerTransformTitle,
               ),
               actions: [
                 IconButton(
@@ -168,8 +170,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context)
-                                .demoMotionPlaceholderSubtitle,
+                            subtitle:
+                                localizations.demoMotionPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -183,8 +185,8 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context)
-                                .demoMotionPlaceholderSubtitle,
+                            subtitle:
+                                localizations.demoMotionPlaceholderSubtitle,
                           );
                         },
                       ),
@@ -202,7 +204,7 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context)
+                            subtitle: localizations
                                 .demoMotionSmallPlaceholderSubtitle,
                           );
                         },
@@ -217,7 +219,7 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context)
+                            subtitle: localizations
                                 .demoMotionSmallPlaceholderSubtitle,
                           );
                         },
@@ -232,7 +234,7 @@ class _OpenContainerTransformDemoState
                         closedBuilder: (context, openContainer) {
                           return _SmallerCard(
                             openContainer: openContainer,
-                            subtitle: GalleryLocalizations.of(context)
+                            subtitle: localizations
                                 .demoMotionSmallPlaceholderSubtitle,
                           );
                         },
@@ -246,9 +248,8 @@ class _OpenContainerTransformDemoState
                 ...List.generate(10, (index) {
                   return OpenContainer<bool>(
                     transitionType: _transitionType,
-                    openBuilder: (context, openContainer) {
-                      return const _DetailsPage();
-                    },
+                    openBuilder: (context, openContainer) =>
+                        const _DetailsPage(),
                     tappable: false,
                     closedShape: const RoundedRectangleBorder(),
                     closedElevation: 0,
@@ -261,13 +262,11 @@ class _OpenContainerTransformDemoState
                         ),
                         onTap: openContainer,
                         title: Text(
-                          GalleryLocalizations.of(context)
-                                  .demoMotionListTileTitle +
+                          localizations.demoMotionListTileTitle +
                               ' ${index + 1}',
                         ),
                         subtitle: Text(
-                          GalleryLocalizations.of(context)
-                              .demoMotionPlaceholderSubtitle,
+                          localizations.demoMotionPlaceholderSubtitle,
                         ),
                       );
                     },
@@ -277,16 +276,14 @@ class _OpenContainerTransformDemoState
             ),
             floatingActionButton: OpenContainer(
               transitionType: _transitionType,
-              openBuilder: (context, openContainer) {
-                return const _DetailsPage();
-              },
+              openBuilder: (context, openContainer) => const _DetailsPage(),
               closedElevation: 6,
               closedShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(_fabDimension / 2),
                 ),
               ),
-              closedColor: Theme.of(context).colorScheme.secondary,
+              closedColor: colorScheme.secondary,
               closedBuilder: (context, openContainer) {
                 return SizedBox(
                   height: _fabDimension,
@@ -294,7 +291,7 @@ class _OpenContainerTransformDemoState
                   child: Center(
                     child: Icon(
                       Icons.add,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                      color: colorScheme.onSecondary,
                     ),
                   ),
                 );
@@ -320,9 +317,7 @@ class _OpenContainerWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return OpenContainer<bool>(
       transitionType: transitionType,
-      openBuilder: (context, openContainer) {
-        return const _DetailsPage();
-      },
+      openBuilder: (context, openContainer) => const _DetailsPage(),
       tappable: false,
       closedBuilder: closedBuilder,
     );
@@ -336,6 +331,8 @@ class _ExampleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
+
     return _InkWellOverlay(
       openContainer: openContainer,
       height: 300,
@@ -356,10 +353,10 @@ class _ExampleCard extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
+              localizations.demoMotionPlaceholderTitle,
             ),
             subtitle: Text(
-              GalleryLocalizations.of(context).demoMotionPlaceholderSubtitle,
+              localizations.demoMotionPlaceholderSubtitle,
             ),
           ),
           Padding(
@@ -394,6 +391,8 @@ class _SmallerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return _InkWellOverlay(
       openContainer: openContainer,
       height: 225,
@@ -420,14 +419,14 @@ class _SmallerCard extends StatelessWidget {
                 children: [
                   Text(
                     GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: textTheme.headline6,
                   ),
                   const SizedBox(
                     height: 4,
                   ),
                   Text(
                     subtitle,
-                    style: Theme.of(context).textTheme.caption,
+                    style: textTheme.caption,
                   ),
                 ],
               ),
@@ -446,6 +445,7 @@ class _ExampleSingleTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     const height = 100.0;
 
     return _InkWellOverlay(
@@ -473,7 +473,7 @@ class _ExampleSingleTile extends StatelessWidget {
                 children: [
                   Text(
                     GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: textTheme.subtitle1,
                   ),
                   const SizedBox(
                     height: 8,
@@ -481,7 +481,7 @@ class _ExampleSingleTile extends StatelessWidget {
                   Text(
                     'Lorem ipsum dolor sit amet, consectetur '
                     'adipiscing elit,',
-                    style: Theme.of(context).textTheme.caption,
+                    style: textTheme.caption,
                   ),
                 ],
               ),
@@ -524,10 +524,13 @@ class _DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
+    final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          GalleryLocalizations.of(context).demoMotionDetailsPageTitle,
+          localizations.demoMotionDetailsPageTitle,
         ),
       ),
       body: ListView(
@@ -549,22 +552,22 @@ class _DetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  GalleryLocalizations.of(context).demoMotionPlaceholderTitle,
-                  style: Theme.of(context).textTheme.headline5.copyWith(
-                        color: Colors.black54,
-                        fontSize: 30,
-                      ),
+                  localizations.demoMotionPlaceholderTitle,
+                  style: textTheme.headline5.copyWith(
+                    color: Colors.black54,
+                    fontSize: 30,
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
                   _loremIpsumParagraph,
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
-                        color: Colors.black54,
-                        height: 1.5,
-                        fontSize: 16,
-                      ),
+                  style: textTheme.bodyText2.copyWith(
+                    color: Colors.black54,
+                    height: 1.5,
+                    fontSize: 16,
+                  ),
                 ),
               ],
             ),
