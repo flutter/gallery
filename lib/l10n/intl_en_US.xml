@@ -1243,19 +1243,19 @@
     >The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.</string>
   <string
     name="demoFadeThroughAlbumsDestination"
-    description="Text for albums bottom navigation bar destination."
+    description="Text for albums bottom navigation bar destination in the fade through demo."
     >Albums</string>
   <string
     name="demoFadeThroughPhotosDestination"
-    description="Text for photos bottom navigation bar destination."
+    description="Text for photos bottom navigation bar destination in the fade through demo."
     >Photos</string>
   <string
     name="demoFadeThroughSearchDestination"
-    description="Text for search bottom navigation bar destination."
+    description="Text for search bottom navigation bar destination in the fade through demo."
     >Search</string>
   <string
     name="demoFadeThroughTextPlaceholder"
-    description="Placeholder for text in fade through demo."
+    description="Placeholder for example card title in the fade through demo."
     >123 photos</string>
   <string
     name="demoColorsTitle"
