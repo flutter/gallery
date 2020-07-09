@@ -957,7 +957,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           description: localizations.demoFadeThroughDescription,
           documentationUrl: '$_docsAnimationsUrl/animations-library.html',
           buildRoute: (_) => const FadeThroughTransitionDemo(),
-          //code: CodeSegments.fadeThroughTransitionDemo,
+          code: CodeSegments.fadeThroughTransitionDemo,
         ),
       ],
       category: GalleryDemoCategory.other,

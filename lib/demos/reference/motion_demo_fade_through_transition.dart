@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
-/// The demo page for [FadeThroughTransition].
+// BEGIN fadeThroughTransitionDemo
+
 class FadeThroughTransitionDemo extends StatefulWidget {
   const FadeThroughTransitionDemo();
 
@@ -202,3 +203,5 @@ class _SearchPage extends StatelessWidget {
     );
   }
 }
+
+// END fadeThroughTransitionDemo
