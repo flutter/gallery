@@ -8,8 +8,8 @@ import 'package:test/test.dart';
 import 'package:path/path.dart' as path;
 
 // Benchmark size in kB.
-const int bundleSizeBenchmark = 4076;
-const int gzipBundleSizeBenchmark = 1000;
+const int bundleSizeBenchmark = 4100;
+const int gzipBundleSizeBenchmark = 1004;
 
 void main() {
   group('Web Compile', () {

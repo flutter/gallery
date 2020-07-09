@@ -1036,6 +1036,25 @@ class GalleryLocalizationsAz extends GalleryLocalizations {
   String get demoMotionListTileTitle => 'List item';
 
   @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
   String get demoColorsTitle => 'Rənglər';
 
   @override

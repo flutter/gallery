@@ -1213,6 +1213,24 @@ abstract class GalleryLocalizations {
   // The title for a list tile in the motion demos.
   String get demoMotionListTileTitle;
 
+  // Title for the fade through demo.
+  String get demoFadeThroughTitle;
+
+  // Description for the fade through demo.
+  String get demoFadeThroughDescription;
+
+  // Text for albums bottom navigation bar destination in the fade through demo.
+  String get demoFadeThroughAlbumsDestination;
+
+  // Text for photos bottom navigation bar destination in the fade through demo.
+  String get demoFadeThroughPhotosDestination;
+
+  // Text for search bottom navigation bar destination in the fade through demo.
+  String get demoFadeThroughSearchDestination;
+
+  // Placeholder for example card title in the fade through demo.
+  String get demoFadeThroughTextPlaceholder;
+
   // Title for the colors demo.
   String get demoColorsTitle;
 
