@@ -44,6 +44,7 @@ import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
+import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
@@ -959,6 +960,14 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
               '$_docsAnimationsUrl/FadeThroughTransition-class.html',
           buildRoute: (_) => const FadeThroughTransitionDemo(),
           code: CodeSegments.fadeThroughTransitionDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoFadeScaleTitle,
+          description: localizations.demoFadeScaleDescription,
+          documentationUrl:
+              '$_docsAnimationsUrl/FadeScaleTransition-class.html',
+          buildRoute: (_) => const FadeScaleTransitionDemo(),
+          //code: CodeSegments.fadeScaleTransitionDemo,
         ),
       ],
       category: GalleryDemoCategory.other,
