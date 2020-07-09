@@ -32,9 +32,7 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          localizations.demoFadeThroughTitle,
-        ),
+        title: Text(localizations.demoFadeThroughTitle),
       ),
       body: PageTransitionSwitcher(
         transitionBuilder: (
@@ -59,28 +57,16 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.photo_library,
-            ),
-            title: Text(
-              localizations.demoFadeThroughAlbumsDestination,
-            ),
+            icon: const Icon(Icons.photo_library),
+            title: Text(localizations.demoFadeThroughAlbumsDestination),
           ),
           BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.photo,
-            ),
-            title: Text(
-              localizations.demoFadeThroughPhotosDestination,
-            ),
+            icon: const Icon(Icons.photo),
+            title: Text(localizations.demoFadeThroughPhotosDestination),
           ),
           BottomNavigationBarItem(
-            icon: const Icon(
-              Icons.search,
-            ),
-            title: Text(
-              localizations.demoFadeThroughSearchDestination,
-            ),
+            icon: const Icon(Icons.search),
+            title: Text(localizations.demoFadeThroughSearchDestination),
           ),
         ],
       ),
@@ -191,12 +177,8 @@ class _SearchPage extends StatelessWidget {
             package: 'flutter_gallery_assets',
             width: 40,
           ),
-          title: Text(
-            localizations.demoMotionListTileTitle + ' ${index + 1}',
-          ),
-          subtitle: Text(
-            localizations.demoMotionPlaceholderSubtitle,
-          ),
+          title: Text(localizations.demoMotionListTileTitle + ' ${index + 1}'),
+          subtitle: Text(localizations.demoMotionPlaceholderSubtitle),
         );
       },
       itemCount: 10,
