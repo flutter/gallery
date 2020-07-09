@@ -57,7 +57,7 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
             pageIndex = selectedIndex;
           });
         },
-        items: <BottomNavigationBarItem>[
+        items: [
           BottomNavigationBarItem(
             icon: const Icon(
               Icons.photo_library,
