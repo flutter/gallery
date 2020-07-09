@@ -17,9 +17,9 @@ class FadeThroughTransitionDemo extends StatefulWidget {
 }
 
 class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
-  int pageIndex = 0;
+  int _pageIndex = 0;
 
-  List<Widget> pageList = [
+  final _pageList = <Widget>[
     _AlbumsPage(),
     _PhotosPage(),
     _SearchPage(),
@@ -48,13 +48,13 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
             child: child,
           );
         },
-        child: pageList[pageIndex],
+        child: _pageList[_pageIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: pageIndex,
+        currentIndex: _pageIndex,
         onTap: (selectedIndex) {
           setState(() {
-            pageIndex = selectedIndex;
+            _pageIndex = selectedIndex;
           });
         },
         items: [
