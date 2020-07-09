@@ -1234,6 +1234,30 @@
     description="The title for a list tile in the motion demos."
     >List item</string>
   <string
+    name="demoFadeThroughTitle"
+    description="Title for the fade through demo."
+    >Fade through</string>
+  <string
+    name="demoFadeThroughDescription"
+    description="Description for the fade through demo."
+    >The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.</string>
+  <string
+    name="demoFadeThroughAlbumsDestination"
+    description="Text for albums bottom navigation bar destination."
+    >Albums</string>
+  <string
+    name="demoFadeThroughPhotosDestination"
+    description="Text for photos bottom navigation bar destination."
+    >Photos</string>
+  <string
+    name="demoFadeThroughSearchDestination"
+    description="Text for search bottom navigation bar destination."
+    >Search</string>
+  <string
+    name="demoFadeThroughTextPlaceholder"
+    description="Placeholder for text in fade through demo."
+    >123 photos</string>
+  <string
     name="demoColorsTitle"
     description="Title for the colors demo."
     >Colors</string>
