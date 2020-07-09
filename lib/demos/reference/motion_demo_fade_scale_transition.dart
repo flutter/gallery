@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
-/// The demo page for [FadeScaleTransition].
+// BEGIN fadeScaleTransitionDemo
+
 class FadeScaleTransitionDemo extends StatefulWidget {
   const FadeScaleTransitionDemo();
 
@@ -153,3 +154,5 @@ class _ExampleAlertDialog extends StatelessWidget {
     );
   }
 }
+
+// END fadeScaleTransitionDemo

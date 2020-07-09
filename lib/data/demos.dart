@@ -967,7 +967,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsAnimationsUrl/FadeScaleTransition-class.html',
           buildRoute: (_) => const FadeScaleTransitionDemo(),
-          //code: CodeSegments.fadeScaleTransitionDemo,
+          code: CodeSegments.fadeScaleTransitionDemo,
         ),
       ],
       category: GalleryDemoCategory.other,
