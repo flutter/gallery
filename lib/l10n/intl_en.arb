@@ -1367,6 +1367,38 @@
   "@demoFadeThroughTextPlaceholder": {
     "description": "Placeholder for example card title in the fade through demo."
   },
+  "demoFadeScaleTitle": "Fade",
+  "@demoFadeScaleTitle": {
+    "description": "Title for the fade scale demo."
+  },
+  "demoFadeScaleDescription": "The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.",
+  "@demoFadeScaleDescription": {
+    "description": "Description for the fade scale demo."
+  },
+  "demoFadeScaleShowAlertDialogButton": "SHOW MODAL",
+  "@demoFadeScaleShowAlertDialogButton": {
+    "description": "Button text to show alert dialog in the fade scale demo."
+  },
+  "demoFadeScaleShowFabButton": "SHOW FAB",
+  "@demoFadeScaleShowFabButton": {
+    "description": "Button text to show fab in the fade scale demo."
+  },
+  "demoFadeScaleHideFabButton": "HIDE FAB",
+  "@demoFadeScaleHideFabButton": {
+    "description": "Button text to hide fab in the fade scale demo."
+  },
+  "demoFadeScaleAlertDialogHeader": "Alert Dialog",
+  "@demoFadeScaleAlertDialogHeader": {
+    "description": "Generic header for alert dialog in the fade scale demo."
+  },
+  "demoFadeScaleAlertDialogCancelButton": "CANCEL",
+  "@demoFadeScaleAlertDialogCancelButton": {
+    "description": "Button text for alert dialog cancel button in the fade scale demo."
+  },
+  "demoFadeScaleAlertDialogDiscardButton": "DISCARD",
+  "@demoFadeScaleAlertDialogDiscardButton": {
+    "description": "Button text for alert dialog discard button in the fade scale demo."
+  },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
     "description": "Title for the colors demo."

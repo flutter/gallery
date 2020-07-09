@@ -1056,6 +1056,31 @@ class GalleryLocalizationsFi extends GalleryLocalizations {
   String get demoFadeThroughTextPlaceholder => '123 photos';
 
   @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+
+  @override
   String get demoColorsTitle => 'Värit';
 
   @override

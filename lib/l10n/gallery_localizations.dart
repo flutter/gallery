@@ -1231,6 +1231,30 @@ abstract class GalleryLocalizations {
   // Placeholder for example card title in the fade through demo.
   String get demoFadeThroughTextPlaceholder;
 
+  // Title for the fade scale demo.
+  String get demoFadeScaleTitle;
+
+  // Description for the fade scale demo.
+  String get demoFadeScaleDescription;
+
+  // Button text to show alert dialog in the fade scale demo.
+  String get demoFadeScaleShowAlertDialogButton;
+
+  // Button text to show fab in the fade scale demo.
+  String get demoFadeScaleShowFabButton;
+
+  // Button text to hide fab in the fade scale demo.
+  String get demoFadeScaleHideFabButton;
+
+  // Generic header for alert dialog in the fade scale demo.
+  String get demoFadeScaleAlertDialogHeader;
+
+  // Button text for alert dialog cancel button in the fade scale demo.
+  String get demoFadeScaleAlertDialogCancelButton;
+
+  // Button text for alert dialog discard button in the fade scale demo.
+  String get demoFadeScaleAlertDialogDiscardButton;
+
   // Title for the colors demo.
   String get demoColorsTitle;
 
