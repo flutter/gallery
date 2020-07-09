@@ -1343,6 +1343,30 @@
   "@demoMotionListTileTitle": {
     "description": "The title for a list tile in the motion demos."
   },
+  "demoFadeThroughTitle": "Fade through",
+  "@demoFadeThroughTitle": {
+    "description": "Title for the fade through demo."
+  },
+  "demoFadeThroughDescription": "The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.",
+  "@demoFadeThroughDescription": {
+    "description": "Description for the fade through demo."
+  },
+  "demoFadeThroughAlbumsDestination": "Albums",
+  "@demoFadeThroughAlbumsDestination": {
+    "description": "Text for albums bottom navigation bar destination in the fade through demo."
+  },
+  "demoFadeThroughPhotosDestination": "Photos",
+  "@demoFadeThroughPhotosDestination": {
+    "description": "Text for photos bottom navigation bar destination in the fade through demo."
+  },
+  "demoFadeThroughSearchDestination": "Search",
+  "@demoFadeThroughSearchDestination": {
+    "description": "Text for search bottom navigation bar destination in the fade through demo."
+  },
+  "demoFadeThroughTextPlaceholder": "123 photos",
+  "@demoFadeThroughTextPlaceholder": {
+    "description": "Placeholder for example card title in the fade through demo."
+  },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {
     "description": "Title for the colors demo."
