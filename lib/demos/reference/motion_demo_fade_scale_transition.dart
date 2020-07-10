@@ -100,9 +100,8 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
                 RaisedButton(
                   onPressed: () {
                     showModal<void>(
-                      context: context,
-                      builder: (context) => _showExampleAlertDialog()
-                    );
+                        context: context,
+                        builder: (context) => _showExampleAlertDialog());
                   },
                   child: Text(localizations.demoFadeScaleShowAlertDialogButton),
                 ),

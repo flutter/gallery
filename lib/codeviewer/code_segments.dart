@@ -21065,13 +21065,13 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '>('),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                      context'),
+          text: '\u000a                        context'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' context'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                      builder'),
+          text: '\u000a                        builder'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
@@ -21080,9 +21080,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '=>'),
       TextSpan(style: codeStyle.baseStyle, text: ' _showExampleAlertDialog'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '()'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a                    '),
-      TextSpan(style: codeStyle.punctuationStyle, text: ');'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '());'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a                  '),
       TextSpan(style: codeStyle.punctuationStyle, text: '},'),
       TextSpan(
