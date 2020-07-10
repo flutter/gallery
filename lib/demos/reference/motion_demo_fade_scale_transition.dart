@@ -22,6 +22,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
 
   @override
   void initState() {
+    super.initState();
     _controller = AnimationController(
       value: 0,
       duration: const Duration(milliseconds: 150),
@@ -34,7 +35,6 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
           // the latest value of [_controller.status].
         });
       });
-    super.initState();
   }
 
   @override
@@ -59,7 +59,6 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
-    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -100,8 +99,6 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
                       },
                     );
                   },
-                  color: colorScheme.primary,
-                  textColor: colorScheme.onPrimary,
                   child: Text(localizations.demoFadeScaleShowAlertDialogButton),
                 ),
                 const SizedBox(width: 10),
@@ -113,8 +110,6 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
                       _controller.forward();
                     }
                   },
-                  color: colorScheme.primary,
-                  textColor: colorScheme.onPrimary,
                   child: Text(
                     _isAnimationRunningForwardsOrComplete
                         ? localizations.demoFadeScaleHideFabButton
