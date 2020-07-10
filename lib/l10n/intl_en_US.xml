@@ -1258,6 +1258,38 @@
     description="Placeholder for example card title in the fade through demo."
     >123 photos</string>
   <string
+    name="demoFadeScaleTitle"
+    description="Title for the fade scale demo."
+    >Fade</string>
+  <string
+    name="demoFadeScaleDescription"
+    description="Description for the fade scale demo."
+    >The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.</string>
+  <string
+    name="demoFadeScaleShowAlertDialogButton"
+    description="Button text to show alert dialog in the fade scale demo."
+    >SHOW MODAL</string>
+  <string
+    name="demoFadeScaleShowFabButton"
+    description="Button text to show fab in the fade scale demo."
+    >SHOW FAB</string>
+  <string
+    name="demoFadeScaleHideFabButton"
+    description="Button text to hide fab in the fade scale demo."
+    >HIDE FAB</string>
+  <string
+    name="demoFadeScaleAlertDialogHeader"
+    description="Generic header for alert dialog in the fade scale demo."
+    >Alert Dialog</string>
+  <string
+    name="demoFadeScaleAlertDialogCancelButton"
+    description="Button text for alert dialog cancel button in the fade scale demo."
+    >CANCEL</string>
+  <string
+    name="demoFadeScaleAlertDialogDiscardButton"
+    description="Button text for alert dialog discard button in the fade scale demo."
+    >DISCARD</string>
+  <string
     name="demoColorsTitle"
     description="Title for the colors demo."
     >Colors</string>
