@@ -56,6 +56,13 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
     return null;
   }
 
+  Widget _showExampleAlertDialog() {
+    return Theme(
+      data: Theme.of(context),
+      child: _ExampleAlertDialog(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
@@ -94,9 +101,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
                   onPressed: () {
                     showModal<void>(
                       context: context,
-                      builder: (context) {
-                        return _ExampleAlertDialog();
-                      },
+                      builder: (context) => _showExampleAlertDialog()
                     );
                   },
                   child: Text(localizations.demoFadeScaleShowAlertDialogButton),
