@@ -45,6 +45,7 @@ import 'package:gallery/demos/material/tooltip_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
+import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
@@ -952,6 +953,14 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           documentationUrl: '$_docsAnimationsUrl/OpenContainer-class.html',
           buildRoute: (_) => const OpenContainerTransformDemo(),
           code: CodeSegments.openContainerTransformDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoSharedYAxisTitle,
+          description: localizations.demoSharedAxisDescription,
+          documentationUrl:
+              '$_docsAnimationsUrl/SharedAxisTransition-class.html',
+          buildRoute: (_) => const SharedYAxisTransitionDemo(),
+          //code: CodeSegments.sharedYAxisTransitionDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoFadeThroughTitle,
