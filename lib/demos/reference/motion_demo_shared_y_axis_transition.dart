@@ -164,7 +164,8 @@ class _AlbumTile extends StatelessWidget {
             localizations.demoSharedYAxisAlbumTileSubtitle,
           ),
           trailing: Text(
-            '${(randomNumberGenerator.nextInt(50) + 10).toString()} ${localizations.demoSharedYAxisAlbumTileDurationUnit}',
+            '${(randomNumberGenerator.nextInt(50) + 10).toString()} '
+            '${localizations.demoSharedYAxisAlbumTileDurationUnit}',
           ),
         ),
         const Divider(height: 20, thickness: 1),

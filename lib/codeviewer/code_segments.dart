@@ -30967,7 +30967,12 @@ class CodeSegments {
       TextSpan(
           style: codeStyle.stringStyle,
           text:
-              '\u0027\u0024{(randomNumberGenerator.nextInt(50) + 10).toString()} \u0024{localizations.demoSharedYAxisAlbumTileDurationUnit}\u0027'),
+              '\u0027\u0024{(randomNumberGenerator.nextInt(50) + 10).toString()} \u0027'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
+      TextSpan(
+          style: codeStyle.stringStyle,
+          text:
+              '\u0027\u0024{localizations.demoSharedYAxisAlbumTileDurationUnit}\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
