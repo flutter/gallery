@@ -1234,6 +1234,38 @@
     description="The title for a list tile in the motion demos."
     >List item</string>
   <string
+    name="demoSharedAxisDescription"
+    description="Description for the shared y axis demo."
+    >The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.</string>
+  <string
+    name="demoSharedYAxisTitle"
+    description="Title for the shared y axis demo."
+    >Shared Y Axis</string>
+  <string
+    name="demoSharedYAxisAlbumCount"
+    description="Text for album count in the shared y axis demo."
+    >268 albums</string>
+  <string
+    name="demoSharedYAxisAlphabeticalSortTitle"
+    description="Title for alphabetical sorting type in the shared y axis demo."
+    >A-Z</string>
+  <string
+    name="demoSharedYAxisRecentSortTitle"
+    description="Title for recently played sorting type in the shared y axis demo."
+    >Recently played</string>
+  <string
+    name="demoSharedYAxisAlbumTileTitle"
+    description="Title for an AlbumTile in the shared y axis demo."
+    >Album</string>
+  <string
+    name="demoSharedYAxisAlbumTileSubtitle"
+    description="Subtitle for an AlbumTile in the shared y axis demo."
+    >Artist</string>
+  <string
+    name="demoSharedYAxisAlbumTileDurationUnit"
+    description="Duration unit for an AlbumTile in the shared y axis demo."
+    >min</string>
+  <string
     name="demoFadeThroughTitle"
     description="Title for the fade through demo."
     >Fade through</string>
