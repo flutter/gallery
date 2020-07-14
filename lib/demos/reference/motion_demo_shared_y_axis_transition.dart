@@ -30,15 +30,13 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
   final _recentList = ListView(
     // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
     key: UniqueKey(),
-    children: [
-      ...List.generate(10, (index) => _AlbumTile((index + 1).toString()))
-    ],
+    children: [for (int i = 0; i < 10; i++) _AlbumTile((i + 1).toString())],
   );
 
   final _alphabeticalList = ListView(
     // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
     key: UniqueKey(),
-    children: _alphabet.map((letter) => _AlbumTile(letter)).toList(),
+    children: [for (final letter in _alphabet) _AlbumTile(letter)],
   );
 
   static const _alphabet = [
@@ -75,30 +73,35 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 7),
-                child: Row(
-                  children: [
-                    Text(_isAlphabetical
-                        ? localizations.demoSharedYAxisAlphabeticalSortTitle
-                        : localizations.demoSharedYAxisRecentSortTitle),
-                    InkWell(
-                      customBorder: const CircleBorder(),
-                      child: RotationTransition(
-                        turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+                child: InkWell(
+                  customBorder: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(4),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(_isAlphabetical
+                          ? localizations.demoSharedYAxisAlphabeticalSortTitle
+                          : localizations.demoSharedYAxisRecentSortTitle),
+                      RotationTransition(
+                        turns: Tween(begin: 0.0, end: 1.0)
+                            .animate(_controller.view),
                         child: const Icon(Icons.arrow_drop_down),
                       ),
-                      onTap: () {
-                        setState(() {
-                          if (!_isAlphabetical) {
-                            _controller.reset();
-                            _controller.animateTo(0.5);
-                          } else {
-                            _controller.animateTo(1);
-                          }
-                          _isAlphabetical = !_isAlphabetical;
-                        });
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
+                  onTap: () {
+                    if (!_isAlphabetical) {
+                      _controller.reset();
+                      _controller.animateTo(0.5);
+                    } else {
+                      _controller.animateTo(1);
+                    }
+                    setState(() {
+                      _isAlphabetical = !_isAlphabetical;
+                    });
+                  },
                 ),
               ),
             ],
@@ -141,8 +144,11 @@ class _AlbumTile extends StatelessWidget {
             height: 60,
             width: 60,
             decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(4)),
-                color: Colors.grey),
+              borderRadius: BorderRadius.all(
+                Radius.circular(4),
+              ),
+              color: Colors.grey,
+            ),
             child: Padding(
               padding: const EdgeInsets.all(6),
               child: Image.asset(
@@ -151,12 +157,15 @@ class _AlbumTile extends StatelessWidget {
               ),
             ),
           ),
-          title:
-              Text(localizations.demoSharedYAxisAlbumTileTitle + ' ' + _title),
-          subtitle: Text(localizations.demoSharedYAxisAlbumTileSubtitle),
-          trailing: Text((randomNumberGenerator.nextInt(50) + 10).toString() +
-              ' ' +
-              localizations.demoSharedYAxisAlbumTileDurationUnit),
+          title: Text(
+            '${localizations.demoSharedYAxisAlbumTileTitle} $_title',
+          ),
+          subtitle: Text(
+            localizations.demoSharedYAxisAlbumTileSubtitle,
+          ),
+          trailing: Text(
+            '${(randomNumberGenerator.nextInt(50) + 10).toString()} ${localizations.demoSharedYAxisAlbumTileDurationUnit}',
+          ),
         ),
         const Divider(height: 20, thickness: 1),
       ],
