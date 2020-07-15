@@ -130,22 +130,22 @@ class _CourseSwitch extends StatefulWidget {
 }
 
 class _CourseSwitchState extends State<_CourseSwitch> {
-  bool _value = true;
+  bool _isCourseBundled = true;
 
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
-    final subtitle = _value
+    final subtitle = _isCourseBundled
         ? localizations.demoSharedXAxisBundledCourseSubtitle
         : localizations.demoSharedXAxisIndividualCourseSubtitle;
 
     return SwitchListTile(
       title: Text(widget.course),
       subtitle: Text(subtitle),
-      value: _value,
+      value: _isCourseBundled,
       onChanged: (newValue) {
         setState(() {
-          _value = newValue;
+          _isCourseBundled = newValue;
         });
       },
     );
