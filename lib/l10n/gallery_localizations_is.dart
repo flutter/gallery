@@ -1030,6 +1030,58 @@ class GalleryLocalizationsIs extends GalleryLocalizations {
       'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
 
   @override
+  String get demoSharedXAxisTitle => 'Shared X Axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
   String get demoSharedYAxisTitle => 'Shared Y Axis';
 
   @override
