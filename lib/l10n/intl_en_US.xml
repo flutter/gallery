@@ -1238,6 +1238,74 @@
     description="Description for the shared y axis demo."
     >The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.</string>
   <string
+    name="demoSharedXAxisTitle"
+    description="Title for the shared x axis demo."
+    >Shared X Axis</string>
+  <string
+    name="demoSharedXAxisBackButtonText"
+    description="Button text for back button in the shared x axis demo."
+    >BACK</string>
+  <string
+    name="demoSharedXAxisNextButtonText"
+    description="Button text for the next button in the shared x axis demo."
+    >NEXT</string>
+  <string
+    name="demoSharedXAxisCoursePageTitle"
+    description="Title for course selection page in the shared x axis demo."
+    >Streamline your courses</string>
+  <string
+    name="demoSharedXAxisCoursePageSubtitle"
+    description="Subtitle for course selection page in the shared x axis demo."
+    >Bundled categories appear as groups in your feed. You can always change this later.</string>
+  <string
+    name="demoSharedXAxisArtsAndCraftsCourseTitle"
+    description="Title for the Arts &amp; Crafts course in the shared x axis demo."
+    >Arts &amp; Crafts</string>
+  <string
+    name="demoSharedXAxisBusinessCourseTitle"
+    description="Title for the Business course in the shared x axis demo."
+    >Business</string>
+  <string
+    name="demoSharedXAxisIllustrationCourseTitle"
+    description="Title for the Illustration course in the shared x axis demo."
+    >Illustration</string>
+  <string
+    name="demoSharedXAxisDesignCourseTitle"
+    description="Title for the Design course in the shared x axis demo."
+    >Design</string>
+  <string
+    name="demoSharedXAxisCulinaryCourseTitle"
+    description="Title for the Culinary course in the shared x axis demo."
+    >Culinary</string>
+  <string
+    name="demoSharedXAxisBundledCourseSubtitle"
+    description="Subtitle for a bundled course in the shared x axis demo."
+    >Bundled</string>
+  <string
+    name="demoSharedXAxisIndividualCourseSubtitle"
+    description="Subtitle for a individual course in the shared x axis demo."
+    >Shown Individually</string>
+  <string
+    name="demoSharedXAxisSignInWelcomeText"
+    description="Welcome text for sign in page in the shared x axis demo. David Park is a name and does not need to be translated."
+    >Hi David Park</string>
+  <string
+    name="demoSharedXAxisSignInSubtitleText"
+    description="Subtitle text for sign in page in the shared x axis demo."
+    >Sign in with your account</string>
+  <string
+    name="demoSharedXAxisSignInTextFieldLabel"
+    description="Label text for the sign in text field in the shared x axis demo."
+    >Email or phone number</string>
+  <string
+    name="demoSharedXAxisForgotEmailButtonText"
+    description="Button text for the forgot email button in the shared x axis demo."
+    >FORGOT EMAIL?</string>
+  <string
+    name="demoSharedXAxisCreateAccountButtonText"
+    description="Button text for the create account button in the shared x axis demo."
+    >CREATE ACCOUNT</string>
+  <string
     name="demoSharedYAxisTitle"
     description="Title for the shared y axis demo."
     >Shared Y Axis</string>

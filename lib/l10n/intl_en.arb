@@ -1347,6 +1347,74 @@
   "@demoSharedAxisDescription": {
     "description": "Description for the shared y axis demo."
   },
+  "demoSharedXAxisTitle": "Shared X Axis",
+  "@demoSharedXAxisTitle": {
+    "description": "Title for the shared x axis demo."
+  },
+  "demoSharedXAxisBackButtonText": "BACK",
+  "@demoSharedXAxisBackButtonText": {
+    "description": "Button text for back button in the shared x axis demo."
+  },
+  "demoSharedXAxisNextButtonText": "NEXT",
+  "@demoSharedXAxisNextButtonText": {
+    "description": "Button text for the next button in the shared x axis demo."
+  },
+  "demoSharedXAxisCoursePageTitle": "Streamline your courses",
+  "@demoSharedXAxisCoursePageTitle": {
+    "description": "Title for course selection page in the shared x axis demo."
+  },
+  "demoSharedXAxisCoursePageSubtitle": "Bundled categories appear as groups in your feed. You can always change this later.",
+  "@demoSharedXAxisCoursePageSubtitle": {
+    "description": "Subtitle for course selection page in the shared x axis demo."
+  },
+  "demoSharedXAxisArtsAndCraftsCourseTitle": "Arts & Crafts",
+  "@demoSharedXAxisArtsAndCraftsCourseTitle": {
+    "description": "Title for the Arts & Crafts course in the shared x axis demo."
+  },
+  "demoSharedXAxisBusinessCourseTitle": "Business",
+  "@demoSharedXAxisBusinessCourseTitle": {
+    "description": "Title for the Business course in the shared x axis demo."
+  },
+  "demoSharedXAxisIllustrationCourseTitle": "Illustration",
+  "@demoSharedXAxisIllustrationCourseTitle": {
+    "description": "Title for the Illustration course in the shared x axis demo."
+  },
+  "demoSharedXAxisDesignCourseTitle": "Design",
+  "@demoSharedXAxisDesignCourseTitle": {
+    "description": "Title for the Design course in the shared x axis demo."
+  },
+  "demoSharedXAxisCulinaryCourseTitle": "Culinary",
+  "@demoSharedXAxisCulinaryCourseTitle": {
+    "description": "Title for the Culinary course in the shared x axis demo."
+  },
+  "demoSharedXAxisBundledCourseSubtitle": "Bundled",
+  "@demoSharedXAxisBundledCourseSubtitle": {
+    "description": "Subtitle for a bundled course in the shared x axis demo."
+  },
+  "demoSharedXAxisIndividualCourseSubtitle": "Shown Individually",
+  "@demoSharedXAxisIndividualCourseSubtitle": {
+    "description": "Subtitle for a individual course in the shared x axis demo."
+  },
+  "demoSharedXAxisSignInWelcomeText": "Hi David Park",
+  "@demoSharedXAxisSignInWelcomeText": {
+    "description": "Welcome text for sign in page in the shared x axis demo. David Park is a name and does not need to be translated."
+  },
+  "demoSharedXAxisSignInSubtitleText": "Sign in with your account",
+  "@demoSharedXAxisSignInSubtitleText": {
+    "description": "Subtitle text for sign in page in the shared x axis demo."
+  },
+  "demoSharedXAxisSignInTextFieldLabel": "Email or phone number",
+  "@demoSharedXAxisSignInTextFieldLabel": {
+    "description": "Label text for the sign in text field in the shared x axis demo."
+  },
+  "demoSharedXAxisForgotEmailButtonText": "FORGOT EMAIL?",
+  "@demoSharedXAxisForgotEmailButtonText": {
+    "description": "Button text for the forgot email button in the shared x axis demo."
+  },
+  "demoSharedXAxisCreateAccountButtonText": "CREATE ACCOUNT",
+  "@demoSharedXAxisCreateAccountButtonText": {
+    "description": "Button text for the create account button in the shared x axis demo."
+  },
   "demoSharedYAxisTitle": "Shared Y Axis",
   "@demoSharedYAxisTitle": {
     "description": "Title for the shared y axis demo."
