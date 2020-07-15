@@ -67,7 +67,6 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
                   ),
                   RaisedButton(
                     onPressed: _isLoggedIn ? null : _toggleLoginStatus,
-                    disabledColor: Colors.black12,
                     child: Text(localizations.demoSharedXAxisNextButtonText),
                   ),
                 ],
@@ -89,13 +88,13 @@ class _CoursePage extends StatelessWidget {
 
     return ListView(
       children: [
-        const SizedBox(height:16),
+        const SizedBox(height: 16),
         Text(
           localizations.demoSharedXAxisCoursePageTitle,
           style: Theme.of(context).textTheme.headline5,
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height:16),
+        const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
@@ -163,27 +162,22 @@ class _SignInPage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final maxHeight = constraints.maxHeight;
+        final spacing = SizedBox(height: maxHeight / 25);
 
         return Column(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: maxHeight / 20),
-            ),
+            SizedBox(height: maxHeight / 10),
             Image.asset(
               'placeholders/avatar_logo.png',
               package: 'flutter_gallery_assets',
               width: 80,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: maxHeight / 50),
-            ),
+            spacing,
             Text(
               localizations.demoSharedXAxisSignInWelcomeText,
               style: Theme.of(context).textTheme.headline5,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: maxHeight / 50),
-            ),
+            spacing,
             Text(
               localizations.demoSharedXAxisSignInSubtitleText,
               style: const TextStyle(
@@ -195,10 +189,10 @@ class _SignInPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
+                  padding: const EdgeInsetsDirectional.only(
                     top: 40,
-                    left: 15,
-                    right: 15,
+                    start: 15,
+                    end: 15,
                     bottom: 10,
                   ),
                   child: TextField(
@@ -216,7 +210,7 @@ class _SignInPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsetsDirectional.only(start: 10),
                   child: FlatButton(
                     onPressed: () {},
                     child: Text(
@@ -225,7 +219,7 @@ class _SignInPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsetsDirectional.only(start: 10),
                   child: FlatButton(
                     onPressed: () {},
                     child: Text(
