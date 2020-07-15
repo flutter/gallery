@@ -89,17 +89,13 @@ class _CoursePage extends StatelessWidget {
 
     return ListView(
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 8),
-        ),
+        const SizedBox(height:16),
         Text(
           localizations.demoSharedXAxisCoursePageTitle,
           style: Theme.of(context).textTheme.headline5,
           textAlign: TextAlign.center,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 5),
-        ),
+        const SizedBox(height:16),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
