@@ -1343,6 +1343,38 @@
   "@demoMotionListTileTitle": {
     "description": "The title for a list tile in the motion demos."
   },
+  "demoSharedAxisDescription": "The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.",
+  "@demoSharedAxisDescription": {
+    "description": "Description for the shared y axis demo."
+  },
+  "demoSharedYAxisTitle": "Shared Y Axis",
+  "@demoSharedYAxisTitle": {
+    "description": "Title for the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumCount": "268 albums",
+  "@demoSharedYAxisAlbumCount": {
+    "description": "Text for album count in the shared y axis demo."
+  },
+  "demoSharedYAxisAlphabeticalSortTitle": "A-Z",
+  "@demoSharedYAxisAlphabeticalSortTitle": {
+    "description": "Title for alphabetical sorting type in the shared y axis demo."
+  },
+  "demoSharedYAxisRecentSortTitle": "Recently played",
+  "@demoSharedYAxisRecentSortTitle": {
+    "description": "Title for recently played sorting type in the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumTileTitle": "Album",
+  "@demoSharedYAxisAlbumTileTitle": {
+    "description": "Title for an AlbumTile in the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumTileSubtitle": "Artist",
+  "@demoSharedYAxisAlbumTileSubtitle": {
+    "description": "Subtitle for an AlbumTile in the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumTileDurationUnit": "min",
+  "@demoSharedYAxisAlbumTileDurationUnit": {
+    "description": "Duration unit for an AlbumTile in the shared y axis demo."
+  },
   "demoFadeThroughTitle": "Fade through",
   "@demoFadeThroughTitle": {
     "description": "Title for the fade through demo."

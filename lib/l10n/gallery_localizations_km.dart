@@ -1039,6 +1039,31 @@ class GalleryLocalizationsKm extends GalleryLocalizations {
   String get demoMotionListTileTitle => 'List item';
 
   @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared Y Axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
   String get demoFadeThroughTitle => 'Fade through';
 
   @override

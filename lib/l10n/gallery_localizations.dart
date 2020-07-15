@@ -1213,6 +1213,30 @@ abstract class GalleryLocalizations {
   // The title for a list tile in the motion demos.
   String get demoMotionListTileTitle;
 
+  // Description for the shared y axis demo.
+  String get demoSharedAxisDescription;
+
+  // Title for the shared y axis demo.
+  String get demoSharedYAxisTitle;
+
+  // Text for album count in the shared y axis demo.
+  String get demoSharedYAxisAlbumCount;
+
+  // Title for alphabetical sorting type in the shared y axis demo.
+  String get demoSharedYAxisAlphabeticalSortTitle;
+
+  // Title for recently played sorting type in the shared y axis demo.
+  String get demoSharedYAxisRecentSortTitle;
+
+  // Title for an AlbumTile in the shared y axis demo.
+  String get demoSharedYAxisAlbumTileTitle;
+
+  // Subtitle for an AlbumTile in the shared y axis demo.
+  String get demoSharedYAxisAlbumTileSubtitle;
+
+  // Duration unit for an AlbumTile in the shared y axis demo.
+  String get demoSharedYAxisAlbumTileDurationUnit;
+
   // Title for the fade through demo.
   String get demoFadeThroughTitle;
 
