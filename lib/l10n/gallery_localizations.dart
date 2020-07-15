@@ -1252,7 +1252,7 @@ abstract class GalleryLocalizations {
   // Subtitle for a individual course in the shared x axis demo.
   String get demoSharedXAxisIndividualCourseSubtitle;
 
-  // Welcome text for sign in page in the shared x axis demo.
+  // Welcome text for sign in page in the shared x axis demo. David Park is a name and does not need to be translated.
   String get demoSharedXAxisSignInWelcomeText;
 
   // Subtitle text for sign in page in the shared x axis demo.

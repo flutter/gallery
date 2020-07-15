@@ -1287,7 +1287,7 @@
     >Shown Individually</string>
   <string
     name="demoSharedXAxisSignInWelcomeText"
-    description="Welcome text for sign in page in the shared x axis demo."
+    description="Welcome text for sign in page in the shared x axis demo. David Park is a name and does not need to be translated."
     >Hi David Park</string>
   <string
     name="demoSharedXAxisSignInSubtitleText"
