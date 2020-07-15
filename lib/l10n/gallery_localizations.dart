@@ -1216,6 +1216,57 @@ abstract class GalleryLocalizations {
   // Description for the shared y axis demo.
   String get demoSharedAxisDescription;
 
+  // Title for the shared x axis demo.
+  String get demoSharedXAxisTitle;
+
+  // Button text for back button in the shared x axis demo.
+  String get demoSharedXAxisBackButtonText;
+
+  // Button text for the next button in the shared x axis demo.
+  String get demoSharedXAxisNextButtonText;
+
+  // Title for course selection page in the shared x axis demo.
+  String get demoSharedXAxisCoursePageTitle;
+
+  // Subtitle for course selection page in the shared x axis demo.
+  String get demoSharedXAxisCoursePageSubtitle;
+
+  // Title for the Arts & Crafts course in the shared x axis demo.
+  String get demoSharedXAxisArtsAndCraftsCourseTitle;
+
+  // Title for the Business course in the shared x axis demo.
+  String get demoSharedXAxisBusinessCourseTitle;
+
+  // Title for the Illustration course in the shared x axis demo.
+  String get demoSharedXAxisIllustrationCourseTitle;
+
+  // Title for the Design course in the shared x axis demo.
+  String get demoSharedXAxisDesignCourseTitle;
+
+  // Title for the Culinary course in the shared x axis demo.
+  String get demoSharedXAxisCulinaryCourseTitle;
+
+  // Subtitle for a bundled course in the shared x axis demo.
+  String get demoSharedXAxisBundledCourseSubtitle;
+
+  // Subtitle for a individual course in the shared x axis demo.
+  String get demoSharedXAxisIndividualCourseSubtitle;
+
+  // Welcome text for sign in page in the shared x axis demo.
+  String get demoSharedXAxisSignInWelcomeText;
+
+  // Subtitle text for sign in page in the shared x axis demo.
+  String get demoSharedXAxisSignInSubtitleText;
+
+  // Label text for the sign in text field in the shared x axis demo.
+  String get demoSharedXAxisSignInTextFieldLabel;
+
+  // Button text for the forgot email button in the shared x axis demo.
+  String get demoSharedXAxisForgotEmailButtonText;
+
+  // Button text for the create account button in the shared x axis demo.
+  String get demoSharedXAxisCreateAccountButtonText;
+
   // Title for the shared y axis demo.
   String get demoSharedYAxisTitle;
 
