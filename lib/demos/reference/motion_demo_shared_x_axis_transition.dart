@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
+// BEGIN sharedXAxisTransitionDemo
+
 class SharedXAxisTransitionDemo extends StatefulWidget {
   const SharedXAxisTransitionDemo();
   @override
@@ -87,13 +89,17 @@ class _CoursePage extends StatelessWidget {
 
     return ListView(
       children: [
-        const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8),
+        ),
         Text(
           localizations.demoSharedXAxisCoursePageTitle,
           style: Theme.of(context).textTheme.headline5,
           textAlign: TextAlign.center,
         ),
-        const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 5),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
@@ -212,7 +218,8 @@ class _SignInPage extends StatelessWidget {
                   child: FlatButton(
                     onPressed: () {},
                     child: Text(
-                        localizations.demoSharedXAxisForgotEmailButtonText),
+                      localizations.demoSharedXAxisForgotEmailButtonText,
+                    ),
                   ),
                 ),
                 Padding(
@@ -220,7 +227,8 @@ class _SignInPage extends StatelessWidget {
                   child: FlatButton(
                     onPressed: () {},
                     child: Text(
-                        localizations.demoSharedXAxisCreateAccountButtonText),
+                      localizations.demoSharedXAxisCreateAccountButtonText,
+                    ),
                   ),
                 ),
               ],
@@ -231,3 +239,5 @@ class _SignInPage extends StatelessWidget {
     );
   }
 }
+
+// END sharedXAxisTransitionDemo
