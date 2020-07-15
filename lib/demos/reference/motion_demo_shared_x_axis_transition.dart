@@ -170,18 +170,24 @@ class _SignInPage extends StatelessWidget {
 
         return Column(
           children: [
-            Padding(padding: EdgeInsets.symmetric(vertical: maxHeight / 20)),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: maxHeight / 20),
+            ),
             Image.asset(
               'placeholders/avatar_logo.png',
               package: 'flutter_gallery_assets',
               width: 80,
             ),
-            Padding(padding: EdgeInsets.symmetric(vertical: maxHeight / 50)),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: maxHeight / 50),
+            ),
             Text(
               localizations.demoSharedXAxisSignInWelcomeText,
               style: Theme.of(context).textTheme.headline5,
             ),
-            Padding(padding: EdgeInsets.symmetric(vertical: maxHeight / 50)),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: maxHeight / 50),
+            ),
             Text(
               localizations.demoSharedXAxisSignInSubtitleText,
               style: const TextStyle(
