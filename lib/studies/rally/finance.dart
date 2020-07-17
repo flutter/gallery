@@ -102,6 +102,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
     return Semantics.fromProperties(
       properties: SemanticsProperties(
         button: true,
+        enabled: true,
         label: semanticsLabel,
       ),
       excludeSemantics: true,

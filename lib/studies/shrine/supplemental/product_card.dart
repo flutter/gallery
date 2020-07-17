@@ -27,6 +27,7 @@ class MobileProductCard extends StatelessWidget {
     return Semantics(
       container: true,
       button: true,
+      enabled: true,
       child: _buildProductCard(
         context: context,
         product: product,

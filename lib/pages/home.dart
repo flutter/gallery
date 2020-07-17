@@ -1093,6 +1093,7 @@ class _StudyWrapperState extends State<StudyWrapper> {
                 sortKey: const OrdinalSortKey(0),
                 label: GalleryLocalizations.of(context).backToGallery,
                 button: true,
+                enabled: true,
                 excludeSemantics: true,
                 child: FloatingActionButton.extended(
                   key: const ValueKey('Back'),
