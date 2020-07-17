@@ -1465,7 +1465,7 @@
   },
   "demoSharedZAxisSandwichRecipeDescription": "Sandwich recipe",
   "@demoSharedZAxisSandwichRecipeDescription": {
-    "description": "Subtitle for the burger recipe tile in the shared z axis demo."
+    "description": "Subtitle for the sandwich recipe tile in the shared z axis demo."
   },
   "demoSharedZAxisDessertRecipeTitle": "Dessert",
   "@demoSharedZAxisDessertRecipeTitle": {
@@ -1473,7 +1473,7 @@
   },
   "demoSharedZAxisDessertRecipeDescription": "Dessert recipe",
   "@demoSharedZAxisDessertRecipeDescription": {
-    "description": "Subtitle for the burger recipe tile in the shared z axis demo."
+    "description": "Subtitle for the dessert recipe tile in the shared z axis demo."
   },
   "demoSharedZAxisShrimpPlateRecipeTitle": "Shrimp",
   "@demoSharedZAxisShrimpPlateRecipeTitle": {

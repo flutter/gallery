@@ -1303,13 +1303,13 @@ abstract class GalleryLocalizations {
   // Title for sandwich recipe tile in the shared z axis demo.
   String get demoSharedZAxisSandwichRecipeTitle;
 
-  // Subtitle for the burger recipe tile in the shared z axis demo.
+  // Subtitle for the sandwich recipe tile in the shared z axis demo.
   String get demoSharedZAxisSandwichRecipeDescription;
 
   // Title for dessert recipe tile in the shared z axis demo.
   String get demoSharedZAxisDessertRecipeTitle;
 
-  // Subtitle for the burger recipe tile in the shared z axis demo.
+  // Subtitle for the dessert recipe tile in the shared z axis demo.
   String get demoSharedZAxisDessertRecipeDescription;
 
   // Title for shrimp plate recipe tile in the shared z axis demo.

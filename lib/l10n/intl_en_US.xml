@@ -1355,7 +1355,7 @@
     >Sandwich</string>
   <string
     name="demoSharedZAxisSandwichRecipeDescription"
-    description="Subtitle for the burger recipe tile in the shared z axis demo."
+    description="Subtitle for the sandwich recipe tile in the shared z axis demo."
     >Sandwich recipe</string>
   <string
     name="demoSharedZAxisDessertRecipeTitle"
@@ -1363,7 +1363,7 @@
     >Dessert</string>
   <string
     name="demoSharedZAxisDessertRecipeDescription"
-    description="Subtitle for the burger recipe tile in the shared z axis demo."
+    description="Subtitle for the dessert recipe tile in the shared z axis demo."
     >Dessert recipe</string>
   <string
     name="demoSharedZAxisShrimpPlateRecipeTitle"
