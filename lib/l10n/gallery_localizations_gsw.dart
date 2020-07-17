@@ -1046,7 +1046,7 @@ class GalleryLocalizationsGsw extends GalleryLocalizations {
       'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared X Axis';
+  String get demoSharedXAxisTitle => 'Shared x-axis';
 
   @override
   String get demoSharedXAxisBackButtonText => 'BACK';
@@ -1098,7 +1098,7 @@ class GalleryLocalizationsGsw extends GalleryLocalizations {
   String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared Y Axis';
+  String get demoSharedYAxisTitle => 'Shared y-axis';
 
   @override
   String get demoSharedYAxisAlbumCount => '268 albums';
@@ -1117,6 +1117,57 @@ class GalleryLocalizationsGsw extends GalleryLocalizations {
 
   @override
   String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription =>
+      'Burger recipe description';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription =>
+      'Sandwich recipe description';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription =>
+      'Dessert recipe description';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe description';
+
+  @override
+  String get demoSharedZAxisLobsterPlateRecipeTitle => 'Lobster';
+
+  @override
+  String get demoSharedZAxisLobsterPlateRecipeDescription =>
+      'Lobster plate recipe description';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef Sandwich recipe description';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
 
   @override
   String get demoFadeThroughTitle => 'Fade through';
