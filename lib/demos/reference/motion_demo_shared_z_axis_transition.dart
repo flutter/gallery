@@ -4,15 +4,9 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 
 // BEGIN sharedZAxisTransitionDemo
 
-class SharedZAxisTransitionDemo extends StatefulWidget {
+class SharedZAxisTransitionDemo extends StatelessWidget {
   const SharedZAxisTransitionDemo({Key key}) : super(key: key);
 
-  @override
-  _SharedZAxisTransitionDemoState createState() =>
-      _SharedZAxisTransitionDemoState();
-}
-
-class _SharedZAxisTransitionDemoState extends State<SharedZAxisTransitionDemo> {
   @override
   Widget build(BuildContext context) {
     final sharedAxisTransitionBuilder = const SharedAxisPageTransitionsBuilder(
@@ -21,41 +15,41 @@ class _SharedZAxisTransitionDemoState extends State<SharedZAxisTransitionDemo> {
 
     return Theme(
       data: Theme.of(context).copyWith(
-        pageTransitionsTheme: PageTransitionsTheme(builders: {
-          TargetPlatform.android: sharedAxisTransitionBuilder,
-          TargetPlatform.iOS: sharedAxisTransitionBuilder,
-          TargetPlatform.fuchsia: sharedAxisTransitionBuilder,
-          TargetPlatform.linux: sharedAxisTransitionBuilder,
-          TargetPlatform.windows: sharedAxisTransitionBuilder,
-          TargetPlatform.macOS: sharedAxisTransitionBuilder,
-        }),
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {
+            for (var type in TargetPlatform.values)
+              type: sharedAxisTransitionBuilder,
+          },
+        ),
       ),
       child: Navigator(
         onGenerateRoute: (settings) {
           return MaterialPageRoute<void>(
-              builder: (context) => Scaffold(
-                    appBar: AppBar(
-                      automaticallyImplyLeading: false,
-                      title: Text(
-                        GalleryLocalizations.of(context).demoSharedZAxisTitle,
-                      ),
-                      actions: [
-                        IconButton(
-                          icon: const Icon(Icons.settings),
-                          onPressed: () {
-                            setState(() {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                    builder: (context) => const _SettingsPage(),
-                                  ));
-                            });
-                          },
-                        ),
-                      ],
+            builder: (context) {
+              return Scaffold(
+                appBar: AppBar(
+                  automaticallyImplyLeading: false,
+                  title: Text(
+                    GalleryLocalizations.of(context).demoSharedZAxisTitle,
+                  ),
+                  actions: [
+                    IconButton(
+                      icon: const Icon(Icons.settings),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (context) => const _SettingsPage(),
+                          ),
+                        );
+                      },
                     ),
-                    body: const _RecipePage(),
-                  ));
+                  ],
+                ),
+                body: const _RecipePage(),
+              );
+            },
+          );
         },
       ),
     );
@@ -115,9 +109,7 @@ class _SettingsTile extends StatelessWidget {
           leading: Icon(settingData.settingIcon),
           title: Text(settingData.settingsLabel),
         ),
-        const Divider(
-          thickness: 2,
-        )
+        const Divider(thickness: 2)
       ],
     );
   }
@@ -170,30 +162,34 @@ class _RecipePage extends StatelessWidget {
       ),
     ];
 
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const SizedBox(height: 8),
-      Row(
-        children: [
-          const SizedBox(width: 8),
-          Text(localizations.demoSharedZAxisSavedRecipesListTitle),
-        ],
-      ),
-      const SizedBox(height: 4),
-      Expanded(
-        child: ListView(
-          padding: const EdgeInsets.all(8),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 8),
+        Row(
           children: [
-            for (var recipe in savedRecipes)
-              _RecipeTile(recipe, savedRecipes.indexOf(recipe))
+            const SizedBox(width: 8),
+            Text(localizations.demoSharedZAxisSavedRecipesListTitle),
           ],
         ),
-      ),
-    ]);
+        const SizedBox(height: 4),
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.all(8),
+            children: [
+              for (var recipe in savedRecipes)
+                _RecipeTile(recipe, savedRecipes.indexOf(recipe))
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
 
 class _RecipeInfo {
   const _RecipeInfo(this.recipeName, this.recipeDescription, this.recipeImage);
+
   final String recipeName;
   final String recipeDescription;
   final String recipeImage;
