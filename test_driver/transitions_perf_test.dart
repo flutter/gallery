@@ -238,7 +238,7 @@ void main([List<String> args = const <String>[]]) {
 
       final summary = TimelineSummary.summarize(timeline);
       await summary.writeSummaryToFile('transitions-crane', pretty: true);
-    });
+    }, timeout: const Timeout(Duration(seconds: 15)));
 
     test('all demos', () async {
       if (isTestingCraneOnly) return;
