@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 
+// BEGIN sharedZAxisTransitionDemo
+
 class SharedZAxisTransitionDemo extends StatefulWidget {
   const SharedZAxisTransitionDemo({Key key}) : super(key: key);
 
@@ -65,15 +67,36 @@ class _SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
+
+    final settingsList = <_SettingsInfo>[
+      _SettingsInfo(
+        Icons.person,
+        localizations.demoSharedZAxisProfileSettingLabel,
+      ),
+      _SettingsInfo(
+        Icons.notifications,
+        localizations.demoSharedZAxisNotificationSettingLabel,
+      ),
+      _SettingsInfo(
+        Icons.security,
+        localizations.demoSharedZAxisPrivacySettingLabel,
+      ),
+      _SettingsInfo(
+        Icons.help,
+        localizations.demoSharedZAxisHelpSettingLabel,
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          GalleryLocalizations.of(context).demoSharedZAxisSettingsPageTitle,
+          localizations.demoSharedZAxisSettingsPageTitle,
         ),
       ),
       body: ListView(
         children: [
-          for (int i = 0; i < 7; i++) _SettingsTile(),
+          for (var setting in settingsList) _SettingsTile(setting),
         ],
       ),
     );
@@ -81,12 +104,16 @@ class _SettingsPage extends StatelessWidget {
 }
 
 class _SettingsTile extends StatelessWidget {
+  const _SettingsTile(this.settingData);
+  final _SettingsInfo settingData;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ListTile(
-          title: Text('Settings'),
+          leading: Icon(settingData.settingIcon),
+          title: Text(settingData.settingsLabel),
         ),
         const Divider(
           thickness: 2,
@@ -94,6 +121,13 @@ class _SettingsTile extends StatelessWidget {
       ],
     );
   }
+}
+
+class _SettingsInfo {
+  const _SettingsInfo(this.settingIcon, this.settingsLabel);
+
+  final IconData settingIcon;
+  final String settingsLabel;
 }
 
 class _RecipePage extends StatelessWidget {
@@ -105,29 +139,35 @@ class _RecipePage extends StatelessWidget {
 
     final savedRecipes = <_RecipeInfo>[
       _RecipeInfo(
-          localizations.demoSharedZAxisBurgerRecipeTitle,
-          localizations.demoSharedZAxisBurgerRecipeDescription,
-          'crane/destinations/eat_2.jpg'),
+        localizations.demoSharedZAxisBurgerRecipeTitle,
+        localizations.demoSharedZAxisBurgerRecipeDescription,
+        'crane/destinations/eat_2.jpg',
+      ),
       _RecipeInfo(
-          localizations.demoSharedZAxisSandwichRecipeTitle,
-          localizations.demoSharedZAxisSandwichRecipeDescription,
-          'crane/destinations/eat_3.jpg'),
+        localizations.demoSharedZAxisSandwichRecipeTitle,
+        localizations.demoSharedZAxisSandwichRecipeDescription,
+        'crane/destinations/eat_3.jpg',
+      ),
       _RecipeInfo(
-          localizations.demoSharedZAxisDessertRecipeTitle,
-          localizations.demoSharedZAxisDessertRecipeDescription,
-          'crane/destinations/eat_4.jpg'),
+        localizations.demoSharedZAxisDessertRecipeTitle,
+        localizations.demoSharedZAxisDessertRecipeDescription,
+        'crane/destinations/eat_4.jpg',
+      ),
       _RecipeInfo(
-          localizations.demoSharedZAxisShrimpPlateRecipeTitle,
-          localizations.demoSharedZAxisShrimpPlateRecipeDescription,
-          'crane/destinations/eat_6.jpg'),
+        localizations.demoSharedZAxisShrimpPlateRecipeTitle,
+        localizations.demoSharedZAxisShrimpPlateRecipeDescription,
+        'crane/destinations/eat_6.jpg',
+      ),
       _RecipeInfo(
-          localizations.demoSharedZAxisLobsterPlateRecipeTitle,
-          localizations.demoSharedZAxisLobsterPlateRecipeDescription,
-          'crane/destinations/eat_8.jpg'),
+        localizations.demoSharedZAxisCrabPlateRecipeTitle,
+        localizations.demoSharedZAxisCrabPlateRecipeDescription,
+        'crane/destinations/eat_8.jpg',
+      ),
       _RecipeInfo(
-          localizations.demoSharedZAxisBeefSandwichRecipeTitle,
-          localizations.demoSharedZAxisBeefSandwichRecipeDescription,
-          'crane/destinations/eat_10.jpg'),
+        localizations.demoSharedZAxisBeefSandwichRecipeTitle,
+        localizations.demoSharedZAxisBeefSandwichRecipeDescription,
+        'crane/destinations/eat_10.jpg',
+      ),
     ];
 
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -153,33 +193,28 @@ class _RecipePage extends StatelessWidget {
 }
 
 class _RecipeInfo {
-  const _RecipeInfo(
-      this._recipeName, this._recipeDescription, this._recipeImage);
-  final String _recipeName;
-  final String _recipeDescription;
-  final String _recipeImage;
+  const _RecipeInfo(this.recipeName, this.recipeDescription, this.recipeImage);
+  final String recipeName;
+  final String recipeDescription;
+  final String recipeImage;
 }
 
 class _RecipeTile extends StatelessWidget {
   const _RecipeTile(this._recipe, this._index);
   final _RecipeInfo _recipe;
   final int _index;
+
   @override
   Widget build(BuildContext context) {
-    final roundedRectangleBorder = const BorderRadius.all(Radius.circular(4));
-
     return Row(
       children: [
         Container(
           height: 70,
           width: 100,
-          decoration: BoxDecoration(
-            borderRadius: roundedRectangleBorder,
-          ),
           child: ClipRRect(
-            borderRadius: roundedRectangleBorder,
+            borderRadius: const BorderRadius.all(Radius.circular(4)),
             child: Image.asset(
-              _recipe._recipeImage,
+              _recipe.recipeImage,
               package: 'flutter_gallery_assets',
               fit: BoxFit.fill,
             ),
@@ -190,8 +225,8 @@ class _RecipeTile extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
-                title: Text(_recipe._recipeName),
-                subtitle: Text(_recipe._recipeDescription),
+                title: Text(_recipe.recipeName),
+                subtitle: Text(_recipe.recipeDescription),
                 trailing: Text('0${_index + 1}'),
               ),
               const Divider(thickness: 2),
@@ -202,3 +237,5 @@ class _RecipeTile extends StatelessWidget {
     );
   }
 }
+
+// END sharedZAxisTransitionDemo

@@ -978,7 +978,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           documentationUrl:
           '$_docsAnimationsUrl/SharedAxisTransition-class.html',
           buildRoute: (_) => const SharedZAxisTransitionDemo(),
-          //code: CodeSegments.sharedYAxisTransitionDemo,
+          code: CodeSegments.sharedZAxisTransitionDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoFadeThroughTitle,
