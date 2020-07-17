@@ -1348,7 +1348,7 @@
   <string
     name="demoSharedZAxisBurgerRecipeDescription"
     description="Subtitle for the burger recipe tile in the shared z axis demo."
-    >Burger recipe description</string>
+    >Burger recipe</string>
   <string
     name="demoSharedZAxisSandwichRecipeTitle"
     description="Title for sandwich recipe tile in the shared z axis demo."
@@ -1356,7 +1356,7 @@
   <string
     name="demoSharedZAxisSandwichRecipeDescription"
     description="Subtitle for the burger recipe tile in the shared z axis demo."
-    >Sandwich recipe description</string>
+    >Sandwich recipe</string>
   <string
     name="demoSharedZAxisDessertRecipeTitle"
     description="Title for dessert recipe tile in the shared z axis demo."
@@ -1364,7 +1364,7 @@
   <string
     name="demoSharedZAxisDessertRecipeDescription"
     description="Subtitle for the burger recipe tile in the shared z axis demo."
-    >Dessert recipe description</string>
+    >Dessert recipe</string>
   <string
     name="demoSharedZAxisShrimpPlateRecipeTitle"
     description="Title for shrimp plate recipe tile in the shared z axis demo."
@@ -1372,15 +1372,15 @@
   <string
     name="demoSharedZAxisShrimpPlateRecipeDescription"
     description="Subtitle for the shrimp plate recipe tile in the shared z axis demo."
-    >Shrimp plate recipe description</string>
+    >Shrimp plate recipe</string>
   <string
-    name="demoSharedZAxisLobsterPlateRecipeTitle"
-    description="Title for lobster plate recipe tile in the shared z axis demo."
-    >Lobster</string>
+    name="demoSharedZAxisCrabPlateRecipeTitle"
+    description="Title for crab plate recipe tile in the shared z axis demo."
+    >Crab</string>
   <string
-    name="demoSharedZAxisLobsterPlateRecipeDescription"
-    description="Subtitle for the lobster plate recipe tile in the shared z axis demo."
-    >Lobster plate recipe description</string>
+    name="demoSharedZAxisCrabPlateRecipeDescription"
+    description="Subtitle for the crab plate recipe tile in the shared z axis demo."
+    >Crab plate recipe</string>
   <string
     name="demoSharedZAxisBeefSandwichRecipeTitle"
     description="Title for beef sandwich recipe tile in the shared z axis demo."
@@ -1388,11 +1388,27 @@
   <string
     name="demoSharedZAxisBeefSandwichRecipeDescription"
     description="Subtitle for the beef sandwich recipe tile in the shared z axis demo."
-    >Beef Sandwich recipe description</string>
+    >Beef Sandwich recipe</string>
   <string
     name="demoSharedZAxisSavedRecipesListTitle"
     description="Title for list of saved recipes in the shared z axis demo."
     >Saved Recipes</string>
+  <string
+    name="demoSharedZAxisProfileSettingLabel"
+    description="Text label for profile setting tile in the shared z axis demo."
+    >Profile</string>
+  <string
+    name="demoSharedZAxisNotificationSettingLabel"
+    description="Text label for notifications setting tile in the shared z axis demo."
+    >Notifications</string>
+  <string
+    name="demoSharedZAxisPrivacySettingLabel"
+    description="Text label for the privacy setting tile in the shared z axis demo."
+    >Privacy</string>
+  <string
+    name="demoSharedZAxisHelpSettingLabel"
+    description="Text label for the help setting tile in the shared z axis demo."
+    >Help</string>
   <string
     name="demoFadeThroughTitle"
     description="Title for the fade through demo."

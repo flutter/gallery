@@ -1318,11 +1318,11 @@ abstract class GalleryLocalizations {
   // Subtitle for the shrimp plate recipe tile in the shared z axis demo.
   String get demoSharedZAxisShrimpPlateRecipeDescription;
 
-  // Title for lobster plate recipe tile in the shared z axis demo.
-  String get demoSharedZAxisLobsterPlateRecipeTitle;
+  // Title for crab plate recipe tile in the shared z axis demo.
+  String get demoSharedZAxisCrabPlateRecipeTitle;
 
-  // Subtitle for the lobster plate recipe tile in the shared z axis demo.
-  String get demoSharedZAxisLobsterPlateRecipeDescription;
+  // Subtitle for the crab plate recipe tile in the shared z axis demo.
+  String get demoSharedZAxisCrabPlateRecipeDescription;
 
   // Title for beef sandwich recipe tile in the shared z axis demo.
   String get demoSharedZAxisBeefSandwichRecipeTitle;
@@ -1332,6 +1332,18 @@ abstract class GalleryLocalizations {
 
   // Title for list of saved recipes in the shared z axis demo.
   String get demoSharedZAxisSavedRecipesListTitle;
+
+  // Text label for profile setting tile in the shared z axis demo.
+  String get demoSharedZAxisProfileSettingLabel;
+
+  // Text label for notifications setting tile in the shared z axis demo.
+  String get demoSharedZAxisNotificationSettingLabel;
+
+  // Text label for the privacy setting tile in the shared z axis demo.
+  String get demoSharedZAxisPrivacySettingLabel;
+
+  // Text label for the help setting tile in the shared z axis demo.
+  String get demoSharedZAxisHelpSettingLabel;
 
   // Title for the fade through demo.
   String get demoFadeThroughTitle;

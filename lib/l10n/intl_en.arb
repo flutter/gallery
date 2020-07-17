@@ -1455,7 +1455,7 @@
   "@demoSharedZAxisBurgerRecipeTitle": {
     "description": "Title for burger recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisBurgerRecipeDescription": "Burger recipe description",
+  "demoSharedZAxisBurgerRecipeDescription": "Burger recipe",
   "@demoSharedZAxisBurgerRecipeDescription": {
     "description": "Subtitle for the burger recipe tile in the shared z axis demo."
   },
@@ -1463,7 +1463,7 @@
   "@demoSharedZAxisSandwichRecipeTitle": {
     "description": "Title for sandwich recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisSandwichRecipeDescription": "Sandwich recipe description",
+  "demoSharedZAxisSandwichRecipeDescription": "Sandwich recipe",
   "@demoSharedZAxisSandwichRecipeDescription": {
     "description": "Subtitle for the burger recipe tile in the shared z axis demo."
   },
@@ -1471,7 +1471,7 @@
   "@demoSharedZAxisDessertRecipeTitle": {
     "description": "Title for dessert recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisDessertRecipeDescription": "Dessert recipe description",
+  "demoSharedZAxisDessertRecipeDescription": "Dessert recipe",
   "@demoSharedZAxisDessertRecipeDescription": {
     "description": "Subtitle for the burger recipe tile in the shared z axis demo."
   },
@@ -1479,29 +1479,45 @@
   "@demoSharedZAxisShrimpPlateRecipeTitle": {
     "description": "Title for shrimp plate recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisShrimpPlateRecipeDescription": "Shrimp plate recipe description",
+  "demoSharedZAxisShrimpPlateRecipeDescription": "Shrimp plate recipe",
   "@demoSharedZAxisShrimpPlateRecipeDescription": {
     "description": "Subtitle for the shrimp plate recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisLobsterPlateRecipeTitle": "Lobster",
-  "@demoSharedZAxisLobsterPlateRecipeTitle": {
-    "description": "Title for lobster plate recipe tile in the shared z axis demo."
+  "demoSharedZAxisCrabPlateRecipeTitle": "Crab",
+  "@demoSharedZAxisCrabPlateRecipeTitle": {
+    "description": "Title for crab plate recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisLobsterPlateRecipeDescription": "Lobster plate recipe description",
-  "@demoSharedZAxisLobsterPlateRecipeDescription": {
-    "description": "Subtitle for the lobster plate recipe tile in the shared z axis demo."
+  "demoSharedZAxisCrabPlateRecipeDescription": "Crab plate recipe",
+  "@demoSharedZAxisCrabPlateRecipeDescription": {
+    "description": "Subtitle for the crab plate recipe tile in the shared z axis demo."
   },
   "demoSharedZAxisBeefSandwichRecipeTitle": "Beef Sandwich",
   "@demoSharedZAxisBeefSandwichRecipeTitle": {
     "description": "Title for beef sandwich recipe tile in the shared z axis demo."
   },
-  "demoSharedZAxisBeefSandwichRecipeDescription": "Beef Sandwich recipe description",
+  "demoSharedZAxisBeefSandwichRecipeDescription": "Beef Sandwich recipe",
   "@demoSharedZAxisBeefSandwichRecipeDescription": {
     "description": "Subtitle for the beef sandwich recipe tile in the shared z axis demo."
   },
   "demoSharedZAxisSavedRecipesListTitle": "Saved Recipes",
   "@demoSharedZAxisSavedRecipesListTitle": {
     "description": "Title for list of saved recipes in the shared z axis demo."
+  },
+  "demoSharedZAxisProfileSettingLabel": "Profile",
+  "@demoSharedZAxisProfileSettingLabel": {
+    "description": "Text label for profile setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisNotificationSettingLabel": "Notifications",
+  "@demoSharedZAxisNotificationSettingLabel": {
+    "description": "Text label for notifications setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisPrivacySettingLabel": "Privacy",
+  "@demoSharedZAxisPrivacySettingLabel": {
+    "description": "Text label for the privacy setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisHelpSettingLabel": "Help",
+  "@demoSharedZAxisHelpSettingLabel": {
+    "description": "Text label for the help setting tile in the shared z axis demo."
   },
   "demoFadeThroughTitle": "Fade through",
   "@demoFadeThroughTitle": {

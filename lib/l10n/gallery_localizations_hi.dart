@@ -1131,46 +1131,54 @@ class GalleryLocalizationsHi extends GalleryLocalizations {
   String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription =>
-      'Burger recipe description';
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
 
   @override
   String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription =>
-      'Sandwich recipe description';
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
 
   @override
   String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription =>
-      'Dessert recipe description';
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe description';
+      'Shrimp plate recipe';
 
   @override
-  String get demoSharedZAxisLobsterPlateRecipeTitle => 'Lobster';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
 
   @override
-  String get demoSharedZAxisLobsterPlateRecipeDescription =>
-      'Lobster plate recipe description';
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe description';
+      'Beef Sandwich recipe';
 
   @override
   String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
 
   @override
   String get demoFadeThroughTitle => 'Fade through';
