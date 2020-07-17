@@ -11,6 +11,11 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 
 import 'isolates_workaround.dart';
 
+// To run this test for all demos:
+// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
+// To run this test for just Crane:
+// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
+
 // Demos for which timeline data will be collected using
 // FlutterDriver.traceAction().
 //
@@ -107,7 +112,8 @@ Future<bool> isPresent(SerializableFinder finder, FlutterDriver driver,
 
 /// Scrolls each each demo into view, launches it, then returns to the
 /// home screen, twice.
-Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
+Future<void> runDemos(List<String> demos, FlutterDriver driver,
+    {bool scrollToTopWhenDone = false}) async {
   String currentDemoCategory;
   SerializableFinder demoList;
   SerializableFinder demoItem;
@@ -171,13 +177,15 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver) async {
     print('< Success');
   }
 
-  await scrollToTop(demoItem, driver);
+  if (scrollToTopWhenDone) await scrollToTop(demoItem, driver);
 }
 
 void main([List<String> args = const <String>[]]) {
-  group('flutter gallery transitions', () {
+  group('Flutter Gallery transitions', () {
     FlutterDriver driver;
     IsolatesWorkaround workaround;
+
+    bool isTestingCraneOnly;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -195,6 +203,10 @@ void main([List<String> args = const <String>[]]) {
         await workaround.resumeIsolates();
       }
 
+      // See _handleMessages() in transitions_perf.dart.
+      isTestingCraneOnly =
+          await driver.requestData('isTestingCraneOnly') == 'true';
+
       if (args.contains('--with_semantics')) {
         print('Enabeling semantics...');
         await driver.setSemantics(true);
@@ -210,11 +222,31 @@ void main([List<String> args = const <String>[]]) {
       }
     });
 
+    test('only Crane', () async {
+      if (!isTestingCraneOnly) return;
+
+      // Collect timeline data for just the Crane study.
+      final timeline = await driver.traceAction(
+        () async {
+          await runDemos(['crane@study'], driver);
+        },
+        streams: const <TimelineStream>[
+          TimelineStream.dart,
+          TimelineStream.embedder,
+        ],
+      );
+
+      final summary = TimelineSummary.summarize(timeline);
+      await summary.writeSummaryToFile('transitions-crane', pretty: true);
+    });
+
     test('all demos', () async {
+      if (isTestingCraneOnly) return;
+
       // Collect timeline data for just a limited set of demos to avoid OOMs.
       final timeline = await driver.traceAction(
         () async {
-          await runDemos(_profiledDemos, driver);
+          await runDemos(_profiledDemos, driver, scrollToTopWhenDone: true);
         },
         streams: const <TimelineStream>[
           TimelineStream.dart,
