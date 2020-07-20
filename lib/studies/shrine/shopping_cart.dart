@@ -273,7 +273,6 @@ class ShoppingCartRow extends StatelessWidget {
             label: GalleryLocalizations.of(context)
                 .shrineScreenReaderRemoveProductButton(product.name(context)),
             button: true,
-            enabled: true,
             child: ExcludeSemantics(
               child: SizedBox(
                 width: _startColumnWidth,

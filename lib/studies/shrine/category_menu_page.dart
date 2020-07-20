@@ -70,7 +70,6 @@ class CategoryMenuPage extends StatelessWidget {
       builder: (context, child, model) => Semantics(
         selected: model.selectedCategory == category,
         button: true,
-        enabled: true,
         child: GestureDetector(
           onTap: () {
             model.setCategory(category);
@@ -131,7 +130,6 @@ class CategoryMenuPage extends StatelessWidget {
                   _divider(context: context),
                   Semantics(
                     button: true,
-                    enabled: true,
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushNamed(ShrineApp.loginRoute);
@@ -177,7 +175,6 @@ class CategoryMenuPage extends StatelessWidget {
                     ),
                     Semantics(
                       button: true,
-                      enabled: true,
                       child: GestureDetector(
                         onTap: () {
                           if (onCategoryTap != null) {
