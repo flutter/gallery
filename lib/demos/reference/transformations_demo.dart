@@ -18,7 +18,8 @@ class TransformationsDemo extends StatefulWidget {
   _TransformationsDemoState createState() => _TransformationsDemoState();
 }
 
-class _TransformationsDemoState extends State<TransformationsDemo> with TickerProviderStateMixin {
+class _TransformationsDemoState extends State<TransformationsDemo>
+    with TickerProviderStateMixin {
   // The radius of a hexagon tile in pixels.
   static const _kHexagonRadius = 32.0;
   // The margin between hexagons.
@@ -34,7 +35,8 @@ class _TransformationsDemoState extends State<TransformationsDemo> with TickerPr
 
   bool _firstRender = true;
   Matrix4 _homeTransformation;
-  final TransformationController _transformationController = TransformationController();
+  final TransformationController _transformationController =
+      TransformationController();
   Animation<Matrix4> _animationReset;
   AnimationController _controllerReset;
 
@@ -124,10 +126,11 @@ class _TransformationsDemoState extends State<TransformationsDemo> with TickerPr
             // viewport initially.
             if (_firstRender) {
               _firstRender = false;
-              _homeTransformation = Matrix4.identity()..translate(
-                viewportSize.width / 2,
-                viewportSize.height / 2,
-              );
+              _homeTransformation = Matrix4.identity()
+                ..translate(
+                  viewportSize.width / 2,
+                  viewportSize.height / 2,
+                );
               _transformationController.value = _homeTransformation;
             }
 
