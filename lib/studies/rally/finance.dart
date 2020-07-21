@@ -7,6 +7,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'package:animations/animations.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -106,76 +107,81 @@ class FinancialEntityCategoryView extends StatelessWidget {
         label: semanticsLabel,
       ),
       excludeSemantics: true,
-      child: FlatButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute<FinancialEntityCategoryDetailsPage>(
-              builder: (context) => FinancialEntityCategoryDetailsPage(),
-            ),
-          );
-        },
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Row(
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    height: 32 + 60 * (cappedTextScale(context) - 1),
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: VerticalFractionBar(
-                      color: indicatorColor,
-                      fraction: indicatorFraction,
-                    ),
-                  ),
-                  Expanded(
-                    child: Wrap(
-                      alignment: WrapAlignment.spaceBetween,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+      child: OpenContainer(
+        transitionDuration: const Duration(milliseconds: 800),
+        transitionType: ContainerTransitionType.fade,
+        openBuilder: (context, openContainer) =>
+            FinancialEntityCategoryDetailsPage(),
+        openColor: RallyColors.primaryBackground,
+        closedColor: Colors.transparent,
+        closedElevation: 0,
+        closedBuilder: (context, openContainer) {
+          return FlatButton(
+            onPressed: openContainer,
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Row(
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 32 + 60 * (cappedTextScale(context) - 1),
+                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        child: VerticalFractionBar(
+                          color: indicatorColor,
+                          fraction: indicatorFraction,
+                        ),
+                      ),
+                      Expanded(
+                        child: Wrap(
+                          alignment: WrapAlignment.spaceBetween,
+                          crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
-                            Text(
-                              title,
-                              style: textTheme.bodyText2.copyWith(fontSize: 16),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  title,
+                                  style: textTheme.bodyText2
+                                      .copyWith(fontSize: 16),
+                                ),
+                                Text(
+                                  subtitle,
+                                  style: textTheme.bodyText2
+                                      .copyWith(color: RallyColors.gray60),
+                                ),
+                              ],
                             ),
                             Text(
-                              subtitle,
-                              style: textTheme.bodyText2
-                                  .copyWith(color: RallyColors.gray60),
+                              amount,
+                              style: textTheme.bodyText1.copyWith(
+                                fontSize: 20,
+                                color: RallyColors.gray,
+                              ),
                             ),
                           ],
                         ),
-                        Text(
-                          amount,
-                          style: textTheme.bodyText1.copyWith(
-                            fontSize: 20,
-                            color: RallyColors.gray,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      Container(
+                        constraints: const BoxConstraints(minWidth: 32),
+                        padding: const EdgeInsetsDirectional.only(start: 12),
+                        child: suffix,
+                      ),
+                    ],
                   ),
-                  Container(
-                    constraints: const BoxConstraints(minWidth: 32),
-                    padding: const EdgeInsetsDirectional.only(start: 12),
-                    child: suffix,
-                  ),
-                ],
-              ),
+                ),
+                const Divider(
+                  height: 1,
+                  indent: 16,
+                  endIndent: 16,
+                  color: RallyColors.dividerColor,
+                ),
+              ],
             ),
-            const Divider(
-              height: 1,
-              indent: 16,
-              endIndent: 16,
-              color: RallyColors.dividerColor,
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
