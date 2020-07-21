@@ -43,7 +43,7 @@ jobs:
       run: flutter analyze
       working-directory: code
     - name: Ensure the Dart code is formatted correctly.
-      run: flutter format --set-exit-if-changed --output=none .
+      run: flutter format --set-exit-if-changed --dry-run .
       working-directory: code
     - name: Run Flutter unit tests.
       run: flutter test
