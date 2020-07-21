@@ -109,7 +109,7 @@ class _SettingsTile extends StatelessWidget {
           leading: Icon(settingData.settingIcon),
           title: Text(settingData.settingsLabel),
         ),
-        const Divider(thickness: 2)
+        const Divider(thickness: 2),
       ],
     );
   }
@@ -166,11 +166,9 @@ class _RecipePage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 8),
-        Row(
-          children: [
-            const SizedBox(width: 8),
-            Text(localizations.demoSharedZAxisSavedRecipesListTitle),
-          ],
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
+          child: Text(localizations.demoSharedZAxisSavedRecipesListTitle),
         ),
         const SizedBox(height: 4),
         Expanded(
