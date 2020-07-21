@@ -95,11 +95,6 @@ class _TransformationsDemoState extends State<TransformationsDemo>
   }
 
   @override
-  void didUpdateWidget(TransformationsDemo oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
   Widget build(BuildContext context) {
     // The scene is drawn by a CustomPaint, but user interaction is handled by
     // the InteractiveViewer parent widget.
