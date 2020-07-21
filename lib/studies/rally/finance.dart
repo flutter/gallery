@@ -108,10 +108,11 @@ class FinancialEntityCategoryView extends StatelessWidget {
       ),
       excludeSemantics: true,
       child: OpenContainer(
+        transitionDuration: const Duration(milliseconds: 800),
         transitionType: ContainerTransitionType.fade,
         openBuilder: (context, openContainer) =>
             FinancialEntityCategoryDetailsPage(),
-        tappable: false,
+        openColor: RallyColors.primaryBackground,
         closedColor: Colors.transparent,
         closedElevation: 0,
         closedBuilder: (context, openContainer) {
