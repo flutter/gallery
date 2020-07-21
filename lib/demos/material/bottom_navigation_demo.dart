@@ -25,7 +25,6 @@ class BottomNavigationDemo extends StatefulWidget {
 
 class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
   int _currentIndex = 0;
-  List<_NavigationIconView> _navigationViews;
 
   String _title(BuildContext context) {
     switch (widget.type) {
@@ -40,43 +39,46 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _navigationViews ??= <_NavigationIconView>[
-      _NavigationIconView(
-        icon: const Icon(Icons.add_comment),
-        title: GalleryLocalizations.of(context).bottomNavigationCommentsTab,
-      ),
-      _NavigationIconView(
-        icon: const Icon(Icons.calendar_today),
-        title: GalleryLocalizations.of(context).bottomNavigationCalendarTab,
-      ),
-      _NavigationIconView(
-        icon: const Icon(Icons.account_circle),
-        title: GalleryLocalizations.of(context).bottomNavigationAccountTab,
-      ),
-      _NavigationIconView(
-        icon: const Icon(Icons.alarm_on),
-        title: GalleryLocalizations.of(context).bottomNavigationAlarmTab,
-      ),
-      _NavigationIconView(
-        icon: const Icon(Icons.camera_enhance),
-        title: GalleryLocalizations.of(context).bottomNavigationCameraTab,
-      ),
-    ];
-  }
-
-  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    var bottomNavigationBarItems = _navigationViews
-        .map<BottomNavigationBarItem>((navigationView) => navigationView.item)
-        .toList();
+    var bottomNavigationBarItems = <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.add_comment),
+        title: Text(
+          GalleryLocalizations.of(context).bottomNavigationCommentsTab,
+        ),
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.calendar_today),
+        title: Text(
+          GalleryLocalizations.of(context).bottomNavigationCalendarTab,
+        ),
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.account_circle),
+        title: Text(
+          GalleryLocalizations.of(context).bottomNavigationAccountTab,
+        ),
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.alarm_on),
+        title: Text(
+          GalleryLocalizations.of(context).bottomNavigationAlarmTab,
+        ),
+      ),
+      BottomNavigationBarItem(
+        icon: const Icon(Icons.camera_enhance),
+        title: Text(
+          GalleryLocalizations.of(context).bottomNavigationCameraTab,
+        ),
+      ),
+    ];
+
     if (widget.type == BottomNavigationDemoType.withLabels) {
-      bottomNavigationBarItems =
-          bottomNavigationBarItems.sublist(0, _navigationViews.length - 2);
+      bottomNavigationBarItems = bottomNavigationBarItems.sublist(
+          0, bottomNavigationBarItems.length - 2);
       _currentIndex =
           _currentIndex.clamp(0, bottomNavigationBarItems.length - 1).toInt();
     }
@@ -88,7 +90,11 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
       ),
       body: Center(
         child: PageTransitionSwitcher(
-          child: _navigationViews[_currentIndex].destination(context),
+          child: _NavigationDestinationView(
+            // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
+            key: UniqueKey(),
+            item: bottomNavigationBarItems[_currentIndex],
+          ),
           transitionBuilder: (child, animation, secondaryAnimation) {
             return FadeThroughTransition(
               child: child,
@@ -119,23 +125,14 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
   }
 }
 
-class _NavigationIconView {
-  _NavigationIconView({
-    this.title,
-    this.icon,
-  }) : item = BottomNavigationBarItem(
-          icon: icon,
-          title: Text(title),
-        );
+class _NavigationDestinationView extends StatelessWidget {
+  _NavigationDestinationView({Key key, this.item}) : super(key: key);
 
-  final String title;
-  final Widget icon;
   final BottomNavigationBarItem item;
 
-  Stack destination(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return Stack(
-      // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
-      key: UniqueKey(),
       children: [
         ExcludeSemantics(
           child: Center(
@@ -159,8 +156,8 @@ class _NavigationIconView {
             ),
             child: Semantics(
               label: GalleryLocalizations.of(context)
-                  .bottomNavigationContentPlaceholder(title),
-              child: icon,
+                  .bottomNavigationContentPlaceholder(item.title),
+              child: item.icon,
             ),
           ),
         ),
