@@ -117,9 +117,12 @@ Future<bool> isPresent(SerializableFinder finder, FlutterDriver driver,
 /// Optionally specify a callback to perform further actions for each demo.
 /// Optionally specify whether a scroll to top should be performed after the
 /// demo has been opened twice (true by default).
-Future<void> runDemos(List<String> demos, FlutterDriver driver,
-    {Future<void> Function() additionalActions,
-    bool scrollToTopWhenDone = true}) async {
+Future<void> runDemos(
+  List<String> demos,
+  FlutterDriver driver, {
+  Future<void> Function() additionalActions,
+  bool scrollToTopWhenDone = true,
+}) async {
   String currentDemoCategory;
   SerializableFinder demoList;
   SerializableFinder demoItem;
@@ -172,7 +175,7 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver,
 
       sleep(const Duration(milliseconds: 500));
 
-      await additionalActions();
+      if (additionalActions != null) await additionalActions();
 
       if (_unsynchronizedDemos.contains(demo)) {
         await driver.runUnsynchronized<void>(() async {
