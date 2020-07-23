@@ -1288,6 +1288,63 @@ abstract class GalleryLocalizations {
   // Duration unit for an AlbumTile in the shared y axis demo.
   String get demoSharedYAxisAlbumTileDurationUnit;
 
+  // Title for the shared z axis demo.
+  String get demoSharedZAxisTitle;
+
+  // Title for the settings page in the shared z axis demo.
+  String get demoSharedZAxisSettingsPageTitle;
+
+  // Title for burger recipe tile in the shared z axis demo.
+  String get demoSharedZAxisBurgerRecipeTitle;
+
+  // Subtitle for the burger recipe tile in the shared z axis demo.
+  String get demoSharedZAxisBurgerRecipeDescription;
+
+  // Title for sandwich recipe tile in the shared z axis demo.
+  String get demoSharedZAxisSandwichRecipeTitle;
+
+  // Subtitle for the sandwich recipe tile in the shared z axis demo.
+  String get demoSharedZAxisSandwichRecipeDescription;
+
+  // Title for dessert recipe tile in the shared z axis demo.
+  String get demoSharedZAxisDessertRecipeTitle;
+
+  // Subtitle for the dessert recipe tile in the shared z axis demo.
+  String get demoSharedZAxisDessertRecipeDescription;
+
+  // Title for shrimp plate recipe tile in the shared z axis demo.
+  String get demoSharedZAxisShrimpPlateRecipeTitle;
+
+  // Subtitle for the shrimp plate recipe tile in the shared z axis demo.
+  String get demoSharedZAxisShrimpPlateRecipeDescription;
+
+  // Title for crab plate recipe tile in the shared z axis demo.
+  String get demoSharedZAxisCrabPlateRecipeTitle;
+
+  // Subtitle for the crab plate recipe tile in the shared z axis demo.
+  String get demoSharedZAxisCrabPlateRecipeDescription;
+
+  // Title for beef sandwich recipe tile in the shared z axis demo.
+  String get demoSharedZAxisBeefSandwichRecipeTitle;
+
+  // Subtitle for the beef sandwich recipe tile in the shared z axis demo.
+  String get demoSharedZAxisBeefSandwichRecipeDescription;
+
+  // Title for list of saved recipes in the shared z axis demo.
+  String get demoSharedZAxisSavedRecipesListTitle;
+
+  // Text label for profile setting tile in the shared z axis demo.
+  String get demoSharedZAxisProfileSettingLabel;
+
+  // Text label for notifications setting tile in the shared z axis demo.
+  String get demoSharedZAxisNotificationSettingLabel;
+
+  // Text label for the privacy setting tile in the shared z axis demo.
+  String get demoSharedZAxisPrivacySettingLabel;
+
+  // Text label for the help setting tile in the shared z axis demo.
+  String get demoSharedZAxisHelpSettingLabel;
+
   // Title for the fade through demo.
   String get demoFadeThroughTitle;
 
