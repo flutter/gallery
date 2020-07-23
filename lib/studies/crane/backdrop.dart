@@ -95,6 +95,7 @@ class _FrontLayerState extends State<_FrontLayer> {
             ),
           ),
           child: StaggeredGridView.countBuilder(
+            key: ValueKey('CraneListView-${widget.index}'),
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: 16.0,
             padding: isDesktop

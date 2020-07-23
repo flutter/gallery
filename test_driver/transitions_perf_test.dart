@@ -13,7 +13,7 @@ import 'isolates_workaround.dart';
 
 // To run this test for all demos:
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
-// To run this test for just Crane:
+// To run this test for just Crane, with scrolling:
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
 
 // Demos for which timeline data will be collected using
@@ -68,6 +68,7 @@ final homeList = find.byValueKey('HomeListView');
 final backButton = find.byValueKey('Back');
 final galleryHeader = find.text('Gallery');
 final categoriesHeader = find.text('Categories');
+final craneFlyList = find.byValueKey('CraneListView-0');
 
 // Let overscroll animation settle on iOS after driver.scroll.
 void handleOverscrollAnimation() {
@@ -112,8 +113,16 @@ Future<bool> isPresent(SerializableFinder finder, FlutterDriver driver,
 
 /// Scrolls each each demo into view, launches it, then returns to the
 /// home screen, twice.
-Future<void> runDemos(List<String> demos, FlutterDriver driver,
-    {bool scrollToTopWhenDone = false}) async {
+///
+/// Optionally specify a callback to perform further actions for each demo.
+/// Optionally specify whether a scroll to top should be performed after the
+/// demo has been opened twice (true by default).
+Future<void> runDemos(
+  List<String> demos,
+  FlutterDriver driver, {
+  Future<void> Function() additionalActions,
+  bool scrollToTopWhenDone = true,
+}) async {
   String currentDemoCategory;
   SerializableFinder demoList;
   SerializableFinder demoItem;
@@ -165,6 +174,8 @@ Future<void> runDemos(List<String> demos, FlutterDriver driver,
       await driver.tap(demoItem); // Launch the demo
 
       sleep(const Duration(milliseconds: 500));
+
+      if (additionalActions != null) await additionalActions();
 
       if (_unsynchronizedDemos.contains(demo)) {
         await driver.runUnsynchronized<void>(() async {
@@ -228,7 +239,17 @@ void main([List<String> args = const <String>[]]) {
       // Collect timeline data for just the Crane study.
       final timeline = await driver.traceAction(
         () async {
-          await runDemos(['crane@study'], driver);
+          await runDemos(
+            ['crane@study'],
+            driver,
+            additionalActions: () async => await driver.scroll(
+              craneFlyList,
+              0,
+              -1000,
+              const Duration(seconds: 1),
+            ),
+            scrollToTopWhenDone: false,
+          );
         },
         streams: const <TimelineStream>[
           TimelineStream.dart,
@@ -246,7 +267,7 @@ void main([List<String> args = const <String>[]]) {
       // Collect timeline data for just a limited set of demos to avoid OOMs.
       final timeline = await driver.traceAction(
         () async {
-          await runDemos(_profiledDemos, driver, scrollToTopWhenDone: true);
+          await runDemos(_profiledDemos, driver);
         },
         streams: const <TimelineStream>[
           TimelineStream.dart,
