@@ -122,6 +122,10 @@
     description="Study description for Rally."
     >A personal finance app</string>
   <string
+    name="replyDescription"
+    description="Study description for Reply."
+    >A email app</string>
+  <string
     name="rallyAccountDataChecking"
     description="Name for account made up by user."
     >Checking</string>

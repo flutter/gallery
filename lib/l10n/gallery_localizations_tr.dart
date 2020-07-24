@@ -107,6 +107,9 @@ class GalleryLocalizationsTr extends GalleryLocalizations {
   String get rallyDescription => 'Kişisel finans uygulaması';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Mevduat';
 
   @override

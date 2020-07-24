@@ -108,6 +108,9 @@ class GalleryLocalizationsDe extends GalleryLocalizations {
   String get rallyDescription => 'Persönliche Finanz-App';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Girokonto';
 
   @override

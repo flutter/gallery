@@ -107,6 +107,9 @@ class GalleryLocalizationsAs extends GalleryLocalizations {
   String get rallyDescription => 'এটা ব্যক্তিগত বিত্তীয় এপ্‌';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'চেকিং';
 
   @override

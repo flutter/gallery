@@ -377,6 +377,9 @@ abstract class GalleryLocalizations {
   // Study description for Rally.
   String get rallyDescription;
 
+  // Study description for Reply.
+  String get replyDescription;
+
   // Name for account made up by user.
   String get rallyAccountDataChecking;
 

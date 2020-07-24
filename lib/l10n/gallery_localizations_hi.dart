@@ -109,6 +109,9 @@ class GalleryLocalizationsHi extends GalleryLocalizations {
       'निजी तौर पर पैसाें से जुड़ी सुविधाएं देने वाला ऐप्लिकेशन';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'चेकिंग';
 
   @override

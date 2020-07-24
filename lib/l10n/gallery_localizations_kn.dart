@@ -106,6 +106,9 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get rallyDescription => 'ವೈಯಕ್ತಿಕ ಹಣಕಾಸು ಆ್ಯಪ್';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ';
 
   @override

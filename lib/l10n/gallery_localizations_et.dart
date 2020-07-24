@@ -107,6 +107,9 @@ class GalleryLocalizationsEt extends GalleryLocalizations {
   String get rallyDescription => 'Isiklik finantsrakendus';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Tšekikonto';
 
   @override

@@ -107,6 +107,9 @@ class GalleryLocalizationsSk extends GalleryLocalizations {
   String get rallyDescription => 'Osobná finančná aplikácia';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Bežný';
 
   @override

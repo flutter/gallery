@@ -23,6 +23,7 @@ import 'package:gallery/studies/crane/colors.dart';
 import 'package:gallery/studies/fortnightly/app.dart';
 import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
+import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/shrine/app.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/starter/app.dart';
@@ -101,6 +102,20 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF1F1F1F),
         studyRoute: FortnightlyApp.defaultRoute,
+      ),
+      _CarouselCard(
+        demo: studyDemos['reply'],
+        asset: const AssetImage(
+          'assets/studies/fortnightly_card.png',
+          package: 'flutter_gallery_assets',
+        ),
+        assetColor: Colors.white,
+        assetDark: const AssetImage(
+          'assets/studies/fortnightly_card_dark.png',
+          package: 'flutter_gallery_assets',
+        ),
+        assetDarkColor: const Color(0xFF1F1F1F),
+        studyRoute: ReplyApp.homeRoute,
       ),
       _CarouselCard(
         demo: studyDemos['starterApp'],

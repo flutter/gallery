@@ -107,6 +107,9 @@ class GalleryLocalizationsCs extends GalleryLocalizations {
   String get rallyDescription => 'Aplikace pro osobní finance';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Běžný';
 
   @override

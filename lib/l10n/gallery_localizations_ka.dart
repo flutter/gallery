@@ -107,6 +107,9 @@ class GalleryLocalizationsKa extends GalleryLocalizations {
   String get rallyDescription => 'პირადი ფინანსების აპი';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'მიმდინარე';
 
   @override

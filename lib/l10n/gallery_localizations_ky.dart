@@ -107,6 +107,9 @@ class GalleryLocalizationsKy extends GalleryLocalizations {
   String get rallyDescription => 'Жеке каржы колдонмосу';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Текшерилүүдө';
 
   @override

@@ -105,6 +105,9 @@ class GalleryLocalizationsAm extends GalleryLocalizations {
   String get rallyDescription => 'የግል የፋይናንስ መተግበሪያ';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'ተንቀሳቃሽ';
 
   @override

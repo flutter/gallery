@@ -109,6 +109,9 @@ class GalleryLocalizationsMy extends GalleryLocalizations {
   String get rallyDescription => 'ကိုယ်ပိုင် ငွေကြေးဆိုင်ရာ အက်ပ်';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'စာရင်းရှင်';
 
   @override

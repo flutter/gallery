@@ -109,6 +109,9 @@ class GalleryLocalizationsPl extends GalleryLocalizations {
       'Aplikacja do zarządzania finansami osobistymi';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Rozliczeniowe';
 
   @override

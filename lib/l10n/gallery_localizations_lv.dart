@@ -106,6 +106,9 @@ class GalleryLocalizationsLv extends GalleryLocalizations {
   String get rallyDescription => 'Personisko finanšu lietotne';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Norēķinu konts';
 
   @override

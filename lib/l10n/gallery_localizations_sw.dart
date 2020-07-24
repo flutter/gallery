@@ -109,6 +109,9 @@ class GalleryLocalizationsSw extends GalleryLocalizations {
   String get rallyDescription => 'Programu ya fedha ya binafsi';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Inakagua';
 
   @override

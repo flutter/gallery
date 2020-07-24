@@ -106,6 +106,9 @@ class GalleryLocalizationsBn extends GalleryLocalizations {
   String get rallyDescription => 'ব্যক্তিগত ফাইনান্স অ্যাপ';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'চেক করা হচ্ছে';
 
   @override

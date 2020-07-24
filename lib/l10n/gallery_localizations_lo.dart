@@ -106,6 +106,9 @@ class GalleryLocalizationsLo extends GalleryLocalizations {
   String get rallyDescription => 'ແອັບການເງິນສ່ວນຕົວ';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'ເງິນຝາກປະຈຳ';
 
   @override

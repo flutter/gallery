@@ -107,6 +107,9 @@ class GalleryLocalizationsSq extends GalleryLocalizations {
   String get rallyDescription => 'Një aplikacion për financat personale';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Rrjedhëse';
 
   @override

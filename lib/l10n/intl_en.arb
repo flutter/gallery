@@ -135,6 +135,10 @@
   "@rallyDescription": {
     "description": "Study description for Rally."
   },
+  "replyDescription": "A email app",
+  "@replyDescription": {
+    "description": "Study description for Reply."
+  },
   "rallyAccountDataChecking": "Checking",
   "@rallyAccountDataChecking": {
     "description": "Name for account made up by user."

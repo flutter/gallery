@@ -109,6 +109,9 @@ class GalleryLocalizationsTa extends GalleryLocalizations {
   String get rallyDescription => 'ஒரு பிரத்தியேக நிதி ஆப்ஸ்';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'செக்கிங்';
 
   @override

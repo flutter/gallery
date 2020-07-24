@@ -104,6 +104,9 @@ class GalleryLocalizationsJa extends GalleryLocalizations {
   String get rallyDescription => '資産管理アプリ';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => '当座預金';
 
   @override

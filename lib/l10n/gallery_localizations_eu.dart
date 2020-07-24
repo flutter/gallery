@@ -108,6 +108,9 @@ class GalleryLocalizationsEu extends GalleryLocalizations {
   String get rallyDescription => 'Finantza-aplikazio pertsonala';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Egiaztatzen';
 
   @override

@@ -108,6 +108,9 @@ class GalleryLocalizationsZu extends GalleryLocalizations {
   String get rallyDescription => 'Uhlelo lokusebenza lezezimali zomuntu';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Kuyahlolwa';
 
   @override

@@ -109,6 +109,9 @@ class GalleryLocalizationsMn extends GalleryLocalizations {
   String get rallyDescription => 'Хувийн санхүүгийн апп';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Чекийн';
 
   @override

@@ -107,6 +107,9 @@ class GalleryLocalizationsHu extends GalleryLocalizations {
   String get rallyDescription => 'Személyes pénzügyi alkalmazás';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Folyószámla';
 
   @override

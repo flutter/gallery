@@ -106,6 +106,9 @@ class GalleryLocalizationsBe extends GalleryLocalizations {
   String get rallyDescription => 'Праграма для кіравання асабістымі фінансамі';
 
   @override
+  String get replyDescription => 'A email app';
+
+  @override
   String get rallyAccountDataChecking => 'Разліковы';
 
   @override
