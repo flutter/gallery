@@ -2438,4 +2438,22 @@ class GalleryLocalizationsAs extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'পৰাগ-সংযোগত সহায়ক মৌ-মাখি দুষ্প্ৰাপ্য হ’বলৈ ধৰিছে';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

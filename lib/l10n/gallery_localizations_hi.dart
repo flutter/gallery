@@ -2460,4 +2460,22 @@ class GalleryLocalizationsHi extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'पॉलिनेशन में मदद करने वाली मधुमक्खियों की गिरती संख्या';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }
