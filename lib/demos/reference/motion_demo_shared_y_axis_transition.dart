@@ -114,6 +114,7 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
           Expanded(
             child: Container(
               child: PageTransitionSwitcher(
+                reverse: _isAlphabetical,
                 transitionBuilder: (child, animation, secondaryAnimation) {
                   return SharedAxisTransition(
                     child: child,

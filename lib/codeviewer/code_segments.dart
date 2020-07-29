@@ -31657,6 +31657,11 @@ class CodeSegments {
       TextSpan(style: codeStyle.classStyle, text: 'PageTransitionSwitcher'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
+          style: codeStyle.baseStyle, text: '\u000a                reverse'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
+      TextSpan(style: codeStyle.baseStyle, text: ' _isAlphabetical'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(
           style: codeStyle.baseStyle,
           text: '\u000a                transitionBuilder'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
