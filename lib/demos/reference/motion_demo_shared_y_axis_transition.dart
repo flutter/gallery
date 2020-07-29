@@ -63,7 +63,15 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoSharedYAxisTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoSharedYAxisTitle),
+            Text(
+              '(Sort by "Recently Played")',
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [

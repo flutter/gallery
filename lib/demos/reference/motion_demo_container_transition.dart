@@ -129,8 +129,16 @@ class _OpenContainerTransformDemoState
             key: _scaffoldKey,
             appBar: AppBar(
               automaticallyImplyLeading: false,
-              title: Text(
-                localizations.demoContainerTransformTitle,
+              title: Column(
+                children: [
+                  Text(
+                    localizations.demoContainerTransformTitle,
+                  ),
+                  Text(
+                    '(Cards, Lists & FAB)',
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                ],
               ),
               actions: [
                 IconButton(

@@ -70,7 +70,15 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoFadeScaleTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoFadeScaleTitle),
+            Text(
+              'Modal and FAB',
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: AnimatedBuilder(
         animation: _controller,

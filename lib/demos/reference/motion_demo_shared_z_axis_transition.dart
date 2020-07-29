@@ -29,8 +29,16 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
               return Scaffold(
                 appBar: AppBar(
                   automaticallyImplyLeading: false,
-                  title: Text(
-                    GalleryLocalizations.of(context).demoSharedZAxisTitle,
+                  title: Column(
+                    children: [
+                      Text(
+                        GalleryLocalizations.of(context).demoSharedZAxisTitle,
+                      ),
+                      Text(
+                        '(Settings icon button)',
+                        style: Theme.of(context).textTheme.subtitle2,
+                      ),
+                    ],
                   ),
                   actions: [
                     IconButton(

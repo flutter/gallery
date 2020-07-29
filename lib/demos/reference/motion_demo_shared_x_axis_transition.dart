@@ -32,7 +32,15 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoSharedXAxisTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoSharedXAxisTitle),
+            Text(
+              '(Next and Back Buttons)',
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: Column(
