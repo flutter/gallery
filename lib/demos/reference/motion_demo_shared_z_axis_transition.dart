@@ -35,7 +35,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
                         GalleryLocalizations.of(context).demoSharedZAxisTitle,
                       ),
                       Text(
-                        '(Settings icon button)',
+                        '(${GalleryLocalizations.of(context).demoSharedZAxisDemoInstructions})',
                         style: Theme.of(context).textTheme.subtitle2,
                       ),
                     ],

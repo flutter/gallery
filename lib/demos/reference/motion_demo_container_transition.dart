@@ -135,7 +135,7 @@ class _OpenContainerTransformDemoState
                     localizations.demoContainerTransformTitle,
                   ),
                   Text(
-                    '(Cards, Lists & FAB)',
+                    '(${localizations.demoContainerTransformDemoInstructions})',
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ],

@@ -36,7 +36,7 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
           children: [
             Text(localizations.demoSharedXAxisTitle),
             Text(
-              '(Next and Back Buttons)',
+              '(${localizations.demoSharedXAxisDemoInstructions})',
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ],

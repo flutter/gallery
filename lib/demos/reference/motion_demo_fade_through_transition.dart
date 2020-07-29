@@ -36,7 +36,7 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
           children: [
             Text(localizations.demoFadeThroughTitle),
             Text(
-              '(Bottom navigation)',
+              '(${localizations.demoFadeThroughDemoInstructions})',
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ],

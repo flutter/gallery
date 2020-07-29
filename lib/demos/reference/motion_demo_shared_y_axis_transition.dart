@@ -67,7 +67,7 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
           children: [
             Text(localizations.demoSharedYAxisTitle),
             Text(
-              '(Sort by "Recently Played")',
+              '(${localizations.demoSharedYAxisDemoInstructions})',
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ],
