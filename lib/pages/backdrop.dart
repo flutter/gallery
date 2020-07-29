@@ -298,6 +298,7 @@ class _SettingsIcon extends AnimatedWidget {
       child: Semantics(
         sortKey: const OrdinalSortKey(1),
         button: true,
+        enabled: true,
         label: _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
         child: SizedBox(
           width: _settingsButtonWidth,

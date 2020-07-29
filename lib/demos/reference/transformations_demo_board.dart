@@ -112,6 +112,15 @@ class Board extends Object with IterableMixin<BoardPoint> {
     return distanceFromCenter <= boardRadius;
   }
 
+  // Get the size in pixels of the entire board.
+  Size get size {
+    final centerToFlat = sqrt(3) / 2 * hexagonRadius;
+    return Size(
+      (boardRadius * 2 + 1) * centerToFlat * 2,
+      2 * (hexagonRadius + boardRadius * 1.5 * hexagonRadius),
+    );
+  }
+
   // Get the distance between two BoardPoints.
   static int getDistance(BoardPoint a, BoardPoint b) {
     final a3 = a.cubeCoordinates;

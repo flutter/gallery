@@ -1347,7 +1347,7 @@
   "@demoSharedAxisDescription": {
     "description": "Description for the shared y axis demo."
   },
-  "demoSharedXAxisTitle": "Shared X Axis",
+  "demoSharedXAxisTitle": "Shared x-axis",
   "@demoSharedXAxisTitle": {
     "description": "Title for the shared x axis demo."
   },
@@ -1415,7 +1415,7 @@
   "@demoSharedXAxisCreateAccountButtonText": {
     "description": "Button text for the create account button in the shared x axis demo."
   },
-  "demoSharedYAxisTitle": "Shared Y Axis",
+  "demoSharedYAxisTitle": "Shared y-axis",
   "@demoSharedYAxisTitle": {
     "description": "Title for the shared y axis demo."
   },
@@ -1442,6 +1442,82 @@
   "demoSharedYAxisAlbumTileDurationUnit": "min",
   "@demoSharedYAxisAlbumTileDurationUnit": {
     "description": "Duration unit for an AlbumTile in the shared y axis demo."
+  },
+  "demoSharedZAxisTitle": "Shared z-axis",
+  "@demoSharedZAxisTitle": {
+    "description": "Title for the shared z axis demo."
+  },
+  "demoSharedZAxisSettingsPageTitle": "Settings",
+  "@demoSharedZAxisSettingsPageTitle": {
+    "description": "Title for the settings page in the shared z axis demo."
+  },
+  "demoSharedZAxisBurgerRecipeTitle": "Burger",
+  "@demoSharedZAxisBurgerRecipeTitle": {
+    "description": "Title for burger recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisBurgerRecipeDescription": "Burger recipe",
+  "@demoSharedZAxisBurgerRecipeDescription": {
+    "description": "Subtitle for the burger recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisSandwichRecipeTitle": "Sandwich",
+  "@demoSharedZAxisSandwichRecipeTitle": {
+    "description": "Title for sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisSandwichRecipeDescription": "Sandwich recipe",
+  "@demoSharedZAxisSandwichRecipeDescription": {
+    "description": "Subtitle for the sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisDessertRecipeTitle": "Dessert",
+  "@demoSharedZAxisDessertRecipeTitle": {
+    "description": "Title for dessert recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisDessertRecipeDescription": "Dessert recipe",
+  "@demoSharedZAxisDessertRecipeDescription": {
+    "description": "Subtitle for the dessert recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisShrimpPlateRecipeTitle": "Shrimp",
+  "@demoSharedZAxisShrimpPlateRecipeTitle": {
+    "description": "Title for shrimp plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisShrimpPlateRecipeDescription": "Shrimp plate recipe",
+  "@demoSharedZAxisShrimpPlateRecipeDescription": {
+    "description": "Subtitle for the shrimp plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisCrabPlateRecipeTitle": "Crab",
+  "@demoSharedZAxisCrabPlateRecipeTitle": {
+    "description": "Title for crab plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisCrabPlateRecipeDescription": "Crab plate recipe",
+  "@demoSharedZAxisCrabPlateRecipeDescription": {
+    "description": "Subtitle for the crab plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisBeefSandwichRecipeTitle": "Beef Sandwich",
+  "@demoSharedZAxisBeefSandwichRecipeTitle": {
+    "description": "Title for beef sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisBeefSandwichRecipeDescription": "Beef Sandwich recipe",
+  "@demoSharedZAxisBeefSandwichRecipeDescription": {
+    "description": "Subtitle for the beef sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisSavedRecipesListTitle": "Saved Recipes",
+  "@demoSharedZAxisSavedRecipesListTitle": {
+    "description": "Title for list of saved recipes in the shared z axis demo."
+  },
+  "demoSharedZAxisProfileSettingLabel": "Profile",
+  "@demoSharedZAxisProfileSettingLabel": {
+    "description": "Text label for profile setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisNotificationSettingLabel": "Notifications",
+  "@demoSharedZAxisNotificationSettingLabel": {
+    "description": "Text label for notifications setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisPrivacySettingLabel": "Privacy",
+  "@demoSharedZAxisPrivacySettingLabel": {
+    "description": "Text label for the privacy setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisHelpSettingLabel": "Help",
+  "@demoSharedZAxisHelpSettingLabel": {
+    "description": "Text label for the help setting tile in the shared z axis demo."
   },
   "demoFadeThroughTitle": "Fade through",
   "@demoFadeThroughTitle": {

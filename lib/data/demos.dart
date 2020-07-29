@@ -47,6 +47,7 @@ import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_x_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dart';
+import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dart';
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
@@ -970,6 +971,14 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
               '$_docsAnimationsUrl/SharedAxisTransition-class.html',
           buildRoute: (_) => const SharedYAxisTransitionDemo(),
           code: CodeSegments.sharedYAxisTransitionDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoSharedZAxisTitle,
+          description: localizations.demoSharedAxisDescription,
+          documentationUrl:
+              '$_docsAnimationsUrl/SharedAxisTransition-class.html',
+          buildRoute: (_) => const SharedZAxisTransitionDemo(),
+          code: CodeSegments.sharedZAxisTransitionDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoFadeThroughTitle,
