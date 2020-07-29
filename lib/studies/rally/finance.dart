@@ -113,7 +113,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
         openBuilder: (context, openContainer) =>
             FinancialEntityCategoryDetailsPage(),
         openColor: RallyColors.primaryBackground,
-        closedColor: Colors.transparent,
+        closedColor: RallyColors.primaryBackground,
         closedElevation: 0,
         closedBuilder: (context, openContainer) {
           return FlatButton(
