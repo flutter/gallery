@@ -36,7 +36,10 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
                       ),
                       Text(
                         '(${GalleryLocalizations.of(context).demoSharedZAxisDemoInstructions})',
-                        style: Theme.of(context).textTheme.subtitle2,
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle2
+                            .copyWith(color: Colors.white),
                       ),
                     ],
                   ),

@@ -37,7 +37,10 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
             Text(localizations.demoFadeThroughTitle),
             Text(
               '(${localizations.demoFadeThroughDemoInstructions})',
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white),
             ),
           ],
         ),

@@ -76,7 +76,10 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
             Text(localizations.demoFadeScaleTitle),
             Text(
               '(${localizations.demoFadeScaleDemoInstructions})',
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white),
             ),
           ],
         ),
