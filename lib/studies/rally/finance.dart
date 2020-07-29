@@ -108,7 +108,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
       ),
       excludeSemantics: true,
       child: OpenContainer(
-        transitionDuration: const Duration(milliseconds: 800),
+        transitionDuration: const Duration(milliseconds: 350),
         transitionType: ContainerTransitionType.fade,
         openBuilder: (context, openContainer) =>
             FinancialEntityCategoryDetailsPage(),
