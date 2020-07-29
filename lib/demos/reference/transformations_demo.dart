@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -34,6 +35,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
     hexagonMargin: _kHexagonMargin,
   );
 
+  // TODO(justinmc): If web, simplify! No zooming, no clicking?
   final TransformationController _transformationController =
       TransformationController();
   Animation<Matrix4> _animationReset;
@@ -124,6 +126,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
                 child: Center(
                   child: InteractiveViewer(
                     key: _targetKey,
+                    scaleEnabled: !kIsWeb,
                     transformationController: _transformationController,
                     boundaryMargin: EdgeInsets.symmetric(
                       horizontal: viewportSize.width,
