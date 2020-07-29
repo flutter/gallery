@@ -20322,13 +20322,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
           style: codeStyle.stringStyle,
-          text: '\u0027package:flare_dart/transform_space.dart\u0027'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ';'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.keywordStyle, text: 'import'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(
-          style: codeStyle.stringStyle,
           text: '\u0027package:flutter/material.dart\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ';'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
