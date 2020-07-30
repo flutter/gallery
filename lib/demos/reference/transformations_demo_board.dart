@@ -138,7 +138,9 @@ class Board extends Object with IterableMixin<BoardPoint> {
       point.dy - size.height / 2,
     );
     final boardPoint = BoardPoint(
-      ((sqrt(3) / 3 * pointCentered.dx - 1 / 3 * pointCentered.dy) / hexagonRadius).round(),
+      ((sqrt(3) / 3 * pointCentered.dx - 1 / 3 * pointCentered.dy) /
+              hexagonRadius)
+          .round(),
       ((2 / 3 * pointCentered.dy) / hexagonRadius).round(),
     );
 
@@ -155,7 +157,8 @@ class Board extends Object with IterableMixin<BoardPoint> {
   Point<double> boardPointToPoint(BoardPoint boardPoint) {
     return Point<double>(
       sqrt(3) * hexagonRadius * boardPoint.q +
-          sqrt(3) / 2 * hexagonRadius * boardPoint.r + size.width / 2,
+          sqrt(3) / 2 * hexagonRadius * boardPoint.r +
+          size.width / 2,
       1.5 * hexagonRadius * boardPoint.r + size.height / 2,
     );
   }

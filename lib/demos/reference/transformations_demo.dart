@@ -81,7 +81,8 @@ class _TransformationsDemoState extends State<TransformationsDemo>
 
   void _onTapUp(TapUpDetails details) {
     final renderBox = _targetKey.currentContext.findRenderObject() as RenderBox;
-    final offset = details.globalPosition - renderBox.localToGlobal(Offset.zero);
+    final offset =
+        details.globalPosition - renderBox.localToGlobal(Offset.zero);
     final scenePoint = _transformationController.toScene(offset);
     final boardPoint = _board.pointToBoardPoint(scenePoint);
     setState(() {
@@ -121,10 +122,11 @@ class _TransformationsDemoState extends State<TransformationsDemo>
 
             // Start the first render, start the scene centered in the viewport.
             if (_homeMatrix == null) {
-              _homeMatrix = Matrix4.identity()..translate(
-                viewportSize.width / 2 - _board.size.width / 2,
-                viewportSize.height / 2 - _board.size.height / 2,
-              );
+              _homeMatrix = Matrix4.identity()
+                ..translate(
+                  viewportSize.width / 2 - _board.size.width / 2,
+                  viewportSize.height / 2 - _board.size.height / 2,
+                );
               _transformationController.value = _homeMatrix;
             }
 
