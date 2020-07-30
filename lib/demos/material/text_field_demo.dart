@@ -125,7 +125,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   void _handleSubmitted() {
     final form = _formKey.currentState;
     if (!form.validate()) {
-      _autoValidateMode = AutovalidateMode.always; // Start validating on every change.
+      _autoValidateMode =
+          AutovalidateMode.always; // Start validating on every change.
       showInSnackBar(
         GalleryLocalizations.of(context).demoTextFieldFormErrors,
       );
