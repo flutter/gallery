@@ -114,7 +114,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
     ));
   }
 
-  bool _autoValidate = false;
+  AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<FormFieldState<String>> _passwordFieldKey =
@@ -125,7 +125,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   void _handleSubmitted() {
     final form = _formKey.currentState;
     if (!form.validate()) {
-      _autoValidate = true; // Start validating on every change.
+      _autoValidateMode = AutovalidateMode.always; // Start validating on every change.
       showInSnackBar(
         GalleryLocalizations.of(context).demoTextFieldFormErrors,
       );
@@ -176,7 +176,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
       key: _scaffoldKey,
       body: Form(
         key: _formKey,
-        autovalidate: _autoValidate,
+        autovalidateMode: _autoValidateMode,
         child: Scrollbar(
           child: SingleChildScrollView(
             dragStartBehavior: DragStartBehavior.down,
