@@ -42,6 +42,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
           const _SettingsPage(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return SharedAxisTransition(
+          fillColor: Colors.transparent,
           transitionType: SharedAxisTransitionType.scaled,
           child: child,
           animation: animation,
