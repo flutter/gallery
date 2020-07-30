@@ -123,17 +123,17 @@ class _TransformationsDemoState extends State<TransformationsDemo>
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTapUp: _onTapUp,
-                child: Center(
-                  child: InteractiveViewer(
-                    key: _targetKey,
-                    scaleEnabled: !kIsWeb,
-                    transformationController: _transformationController,
-                    boundaryMargin: EdgeInsets.symmetric(
-                      horizontal: viewportSize.width,
-                      vertical: viewportSize.height,
-                    ),
-                    minScale: 0.01,
-                    onInteractionStart: _onScaleStart,
+                child: InteractiveViewer(
+                  key: _targetKey,
+                  scaleEnabled: !kIsWeb,
+                  transformationController: _transformationController,
+                  boundaryMargin: EdgeInsets.symmetric(
+                    horizontal: viewportSize.width,
+                    vertical: viewportSize.height,
+                  ),
+                  minScale: 0.01,
+                  onInteractionStart: _onScaleStart,
+                  child: SizedBox.expand(
                     child: CustomPaint(
                       size: _board.size,
                       painter: _BoardPainter(
