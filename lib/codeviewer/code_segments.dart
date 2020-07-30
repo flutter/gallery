@@ -35007,7 +35007,7 @@ class CodeSegments {
       TextSpan(
           style: codeStyle.baseStyle, text: '\u000a      _autoValidateMode '),
       TextSpan(style: codeStyle.punctuationStyle, text: '='),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
       TextSpan(style: codeStyle.classStyle, text: 'AutovalidateMode'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'always'),
