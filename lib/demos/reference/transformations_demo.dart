@@ -35,11 +35,11 @@ class _TransformationsDemoState extends State<TransformationsDemo>
     hexagonMargin: _kHexagonMargin,
   );
 
-  // TODO(justinmc): If web, simplify! No zooming, no clicking?
   final TransformationController _transformationController =
       TransformationController();
   Animation<Matrix4> _animationReset;
   AnimationController _controllerReset;
+  Matrix4 _homeMatrix;
 
   // Handle reset to home transform animation.
   void _onAnimateReset() {
@@ -56,7 +56,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
     _controllerReset.reset();
     _animationReset = Matrix4Tween(
       begin: _transformationController.value,
-      end: Matrix4.identity(),
+      end: _homeMatrix,
     ).animate(_controllerReset);
     _controllerReset.duration = const Duration(milliseconds: 400);
     _animationReset.addListener(_onAnimateReset);
@@ -119,6 +119,15 @@ class _TransformationsDemoState extends State<TransformationsDemo>
               constraints.maxHeight,
             );
 
+            // Start the first render, start the scene centered in the viewport.
+            if (_homeMatrix == null) {
+              _homeMatrix = Matrix4.identity()..translate(
+                viewportSize.width / 2 - _board.size.width / 2,
+                viewportSize.height / 2 - _board.size.height / 2,
+              );
+              _transformationController.value = _homeMatrix;
+            }
+
             return ClipRect(
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
@@ -138,11 +147,6 @@ class _TransformationsDemoState extends State<TransformationsDemo>
                       size: _board.size,
                       painter: _BoardPainter(
                         board: _board,
-                      ),
-                      // This child gives the CustomPaint an intrinsic size.
-                      child: SizedBox(
-                        width: _board.size.width,
-                        height: _board.size.height,
                       ),
                     ),
                   ),
