@@ -111,7 +111,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels:
-            widget.type == BottomNavigationDemoType.withLabels,
+        widget.type == BottomNavigationDemoType.withLabels,
         items: bottomNavigationBarItems,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
@@ -161,7 +161,10 @@ class _NavigationDestinationView extends StatelessWidget {
             ),
             child: Semantics(
               label: GalleryLocalizations.of(context)
-                  .bottomNavigationContentPlaceholder(item.title),
+                  .bottomNavigationContentPlaceholder(
+                // ignore: deprecated_member_use
+                item.title,
+              ),
               child: item.icon,
             ),
           ),
