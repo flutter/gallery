@@ -23,7 +23,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.settings),
                     onPressed: () {
-                      Navigator.of(context).push<void>(_createRoute());
+                      Navigator.of(context).push<void>(_createSettingsRoute());
                     },
                   ),
                 ],
@@ -36,7 +36,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
     );
   }
 
-  Route _createRoute() {
+  Route _createSettingsRoute() {
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const _SettingsPage(),
