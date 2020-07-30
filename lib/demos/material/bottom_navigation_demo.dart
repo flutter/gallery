@@ -111,7 +111,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels:
-        widget.type == BottomNavigationDemoType.withLabels,
+            widget.type == BottomNavigationDemoType.withLabels,
         items: bottomNavigationBarItems,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
