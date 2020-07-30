@@ -82,7 +82,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
   void _onTapUp(TapUpDetails details) {
     final renderBox = _targetKey.currentContext.findRenderObject() as RenderBox;
     final offset = details.globalPosition - renderBox.localToGlobal(Offset.zero);
-    final scenePoint = _transformationController.toScene(offset);//details.localPosition);
+    final scenePoint = _transformationController.toScene(offset);
     final boardPoint = _board.pointToBoardPoint(scenePoint);
     setState(() {
       _board = _board.copyWithSelected(boardPoint);
