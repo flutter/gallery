@@ -2085,7 +2085,7 @@ class CodeSegments {
           style: codeStyle.baseStyle,
           text: '\u000a        showUnselectedLabels'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a        widget'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a            widget'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'type '),
       TextSpan(style: codeStyle.punctuationStyle, text: '=='),
