@@ -58,14 +58,17 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.photo_library),
+            // ignore: deprecated_member_use
             title: Text(localizations.demoFadeThroughAlbumsDestination),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.photo),
+            // ignore: deprecated_member_use
             title: Text(localizations.demoFadeThroughPhotosDestination),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.search),
+            // ignore: deprecated_member_use
             title: Text(localizations.demoFadeThroughSearchDestination),
           ),
         ],

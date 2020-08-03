@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -20,12 +21,13 @@ class TransformationsDemo extends StatefulWidget {
 
 class _TransformationsDemoState extends State<TransformationsDemo>
     with TickerProviderStateMixin {
+  final GlobalKey _targetKey = GlobalKey();
   // The radius of a hexagon tile in pixels.
-  static const _kHexagonRadius = 32.0;
+  static const _kHexagonRadius = 16.0;
   // The margin between hexagons.
   static const _kHexagonMargin = 1.0;
   // The radius of the entire board in hexagons, not including the center.
-  static const _kBoardRadius = 12;
+  static const _kBoardRadius = 8;
 
   Board _board = Board(
     boardRadius: _kBoardRadius,
@@ -33,12 +35,11 @@ class _TransformationsDemoState extends State<TransformationsDemo>
     hexagonMargin: _kHexagonMargin,
   );
 
-  bool _firstRender = true;
-  Matrix4 _homeTransformation;
   final TransformationController _transformationController =
       TransformationController();
   Animation<Matrix4> _animationReset;
   AnimationController _controllerReset;
+  Matrix4 _homeMatrix;
 
   // Handle reset to home transform animation.
   void _onAnimateReset() {
@@ -55,7 +56,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
     _controllerReset.reset();
     _animationReset = Matrix4Tween(
       begin: _transformationController.value,
-      end: _homeTransformation,
+      end: _homeMatrix,
     ).animate(_controllerReset);
     _controllerReset.duration = const Duration(milliseconds: 400);
     _animationReset.addListener(_onAnimateReset);
@@ -79,7 +80,10 @@ class _TransformationsDemoState extends State<TransformationsDemo>
   }
 
   void _onTapUp(TapUpDetails details) {
-    final scenePoint = _transformationController.toScene(details.localPosition);
+    final renderBox = _targetKey.currentContext.findRenderObject() as RenderBox;
+    final offset =
+        details.globalPosition - renderBox.localToGlobal(Offset.zero);
+    final scenePoint = _transformationController.toScene(offset);
     final boardPoint = _board.pointToBoardPoint(scenePoint);
     setState(() {
       _board = _board.copyWithSelected(boardPoint);
@@ -116,42 +120,37 @@ class _TransformationsDemoState extends State<TransformationsDemo>
               constraints.maxHeight,
             );
 
-            // The board is drawn centered at the origin, which is the top left
-            // corner in InteractiveViewer, so shift it to the center of the
-            // viewport initially.
-            if (_firstRender) {
-              _firstRender = false;
-              _homeTransformation = Matrix4.identity()
+            // Start the first render, start the scene centered in the viewport.
+            if (_homeMatrix == null) {
+              _homeMatrix = Matrix4.identity()
                 ..translate(
-                  viewportSize.width / 2,
-                  viewportSize.height / 2,
+                  viewportSize.width / 2 - _board.size.width / 2,
+                  viewportSize.height / 2 - _board.size.height / 2,
                 );
-              _transformationController.value = _homeTransformation;
+              _transformationController.value = _homeMatrix;
             }
 
-            return GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTapUp: _onTapUp,
-              child: InteractiveViewer(
-                constrained: false,
-                transformationController: _transformationController,
-                boundaryMargin: EdgeInsets.fromLTRB(
-                  _board.size.width,
-                  _board.size.height * .75,
-                  -_board.size.width / 2,
-                  -_board.size.height * .75,
-                ),
-                minScale: 0.01,
-                onInteractionStart: _onScaleStart,
-                child: CustomPaint(
-                  size: _board.size,
-                  painter: _BoardPainter(
-                    board: _board,
+            return ClipRect(
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTapUp: _onTapUp,
+                child: InteractiveViewer(
+                  key: _targetKey,
+                  scaleEnabled: !kIsWeb,
+                  transformationController: _transformationController,
+                  boundaryMargin: EdgeInsets.symmetric(
+                    horizontal: viewportSize.width,
+                    vertical: viewportSize.height,
                   ),
-                  // This child gives the CustomPaint an intrinsic size.
-                  child: SizedBox(
-                    width: _board.size.width,
-                    height: _board.size.height,
+                  minScale: 0.01,
+                  onInteractionStart: _onScaleStart,
+                  child: SizedBox.expand(
+                    child: CustomPaint(
+                      size: _board.size,
+                      painter: _BoardPainter(
+                        board: _board,
+                      ),
+                    ),
                   ),
                 ),
               ),
