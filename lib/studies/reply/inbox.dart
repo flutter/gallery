@@ -91,7 +91,9 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
   @override
   void didUpdateWidget(_BuildDesktopNav oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.extended != widget.extended) _isExtended = widget.extended;
+    if (oldWidget.extended != widget.extended) {
+      _isExtended = widget.extended;
+    }
   }
 
   @override
@@ -138,7 +140,8 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
 }
 
 class _BuildMobileNav extends StatelessWidget {
-  const _BuildMobileNav({this.selectedIndex, this.destinations, this.onItemTapped});
+  const _BuildMobileNav(
+      {this.selectedIndex, this.destinations, this.onItemTapped});
   final int selectedIndex;
   final Map<String, IconData> destinations;
   final void Function(int) onItemTapped;
