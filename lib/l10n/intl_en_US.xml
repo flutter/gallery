@@ -2933,4 +2933,28 @@
     name="fortnightlyHeadlineBees"
     description="Headline for a news article about bees."
     >Farmland Bees In Short Supply</string>
+  <string
+    name="replyInboxLabel"
+    description="Text label for Inbox destination."
+    >Inbox</string>
+  <string
+    name="replyStarredLabel"
+    description="Text label for Starred destination."
+    >Starred</string>
+  <string
+    name="replySentLabel"
+    description="Text label for Sent destination."
+    >Sent</string>
+  <string
+    name="replyTrashLabel"
+    description="Text label for Trash destination."
+    >Trash</string>
+  <string
+    name="replySpamLabel"
+    description="Text label for Spam destination."
+    >Spam</string>
+  <string
+    name="replyDraftsLabel"
+    description="Text label for Drafts destination."
+    >Drafts</string>
 </resources>

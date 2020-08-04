@@ -2446,4 +2446,22 @@ class GalleryLocalizationsKm extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'ឃ្មុំ​កសិដ្ឋាន​កំពុង​ខ្វះខាត​លម្អងផ្កា';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

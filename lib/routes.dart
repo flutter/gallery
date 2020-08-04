@@ -5,6 +5,7 @@ import 'package:gallery/pages/demo.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/studies/crane/app.dart';
 import 'package:gallery/studies/fortnightly/app.dart';
+import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/shrine/app.dart';
 import 'package:gallery/studies/starter/app.dart';
@@ -56,6 +57,10 @@ class RouteConfiguration {
     Path(
       r'^' + FortnightlyApp.defaultRoute,
       (context, match) => const StudyWrapper(study: FortnightlyApp()),
+    ),
+    Path(
+      r'^' + ReplyApp.homeRoute,
+      (context, match) => const StudyWrapper(study: ReplyApp()),
     ),
     Path(
       r'^' + StarterApp.defaultRoute,
