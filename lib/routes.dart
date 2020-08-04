@@ -60,7 +60,7 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + ReplyApp.homeRoute,
-          (context, match) => const StudyWrapper(study: ReplyApp()),
+      (context, match) => const StudyWrapper(study: ReplyApp()),
     ),
     Path(
       r'^' + StarterApp.defaultRoute,
