@@ -39,23 +39,23 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         selectedIndex: _selectedIndex,
         extended: true,
         destinations: _navigationItems,
-        onItemTapped: _onItemTapped,
+        onItemTapped: _onDestinationSelected,
       ),
       tabletScreen: _BuildDesktopNav(
         selectedIndex: _selectedIndex,
         extended: false,
         destinations: _navigationItems,
-        onItemTapped: _onItemTapped,
+        onItemTapped: _onDestinationSelected,
       ),
       mobileScreen: _BuildMobileNav(
         selectedIndex: _selectedIndex,
         destinations: _navigationItems,
-        onItemTapped: _onItemTapped,
+        onItemTapped: _onDestinationSelected,
       ),
     );
   }
 
-  void _onItemTapped(int index) {
+  void _onDestinationSelected(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -72,6 +72,7 @@ class _BuildDesktopNav extends StatefulWidget {
       : super(key: key);
   final int selectedIndex;
   final bool extended;
+
   /// The dart implementation of a Map defaults to a LinkedHashMap, allowing us
   /// to preserve the order of our elements, so our destinations will always be
   /// in the same order regardless of navigation type.
