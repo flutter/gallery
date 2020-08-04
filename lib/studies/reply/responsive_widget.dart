@@ -8,6 +8,7 @@ class ResponsiveWidget extends StatelessWidget {
   ResponsiveWidget(
       {Key key, this.desktopScreen, this.tabletScreen, this.mobileScreen})
       : super(key: key);
+
   /// TODO: Re-use code from adaptive.dart
   static bool isDesktop(BuildContext context) {
     return MediaQuery.of(context).size.width > 1200;
