@@ -72,6 +72,9 @@ class _BuildDesktopNav extends StatefulWidget {
       : super(key: key);
   final int selectedIndex;
   final bool extended;
+  /// The dart implementation of a Map defaults to a LinkedHashMap, allowing us
+  /// to preserve the order of our elements, so our destinations will always be
+  /// in the same order regardless of navigation type.
   final Map<String, IconData> destinations;
   final void Function(int) onItemTapped;
 
