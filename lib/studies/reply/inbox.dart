@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/responsive_widget.dart';
 
 class InboxPage extends StatelessWidget {
@@ -137,7 +138,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
             leading: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 16),
+                const SizedBox(height: 32),
                 Row(
                   children: [
                     const SizedBox(width: 4),
@@ -172,6 +173,25 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                       ),
                       onTap: onLogoTapped,
                     ),
+                    _isExtended
+                        ? Row(
+                            children: [
+                              const SizedBox(width: 50),
+                              ClipOval(
+                                child: Image.asset(
+                                  'assets/reply/avatars/avatar_0.jpg',
+                                  width: 32,
+                                  height: 32,
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              const Icon(
+                                Icons.settings,
+                                color: ReplyColors.blue200,
+                              ),
+                            ],
+                          )
+                        : const SizedBox(),
                   ],
                 ),
                 const SizedBox(height: 32),
