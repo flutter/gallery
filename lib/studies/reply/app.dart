@@ -61,52 +61,50 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
     ),
     canvasColor: ReplyColors.white50,
     accentColor: ReplyColors.orange500,
-    textTheme: _buildReplyTextTheme(
-      GoogleFonts.workSansTextTheme(Theme.of(context).textTheme),
-    ),
+    textTheme: _buildReplyTextTheme(base.textTheme),
   );
 }
 
 TextTheme _buildReplyTextTheme(TextTheme base) {
   return base.copyWith(
-    headline4: base.headline4.copyWith(
+    headline4: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 34,
       letterSpacing: letterSpacingOrNone(0.4),
       height: 0.9,
       color: ReplyColors.black900,
     ),
-    headline5: base.headline5.copyWith(
+    headline5: GoogleFonts.workSans(
       fontWeight: FontWeight.bold,
       fontSize: 24,
       letterSpacing: letterSpacingOrNone(0.27),
       color: ReplyColors.black900,
     ),
-    headline6: base.headline6.copyWith(
+    headline6: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 20,
       letterSpacing: letterSpacingOrNone(0.18),
       color: ReplyColors.black900,
     ),
-    subtitle2: base.subtitle2.copyWith(
+    subtitle2: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.04),
       color: ReplyColors.black900,
     ),
-    bodyText1: base.bodyText1.copyWith(
+    bodyText1: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 18,
       letterSpacing: letterSpacingOrNone(0.2),
       color: ReplyColors.black900,
     ),
-    bodyText2: base.bodyText2.copyWith(
+    bodyText2: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.05),
       color: ReplyColors.black900,
     ),
-    caption: base.caption.copyWith(
+    caption: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 12,
       letterSpacing: letterSpacingOrNone(0.2),
