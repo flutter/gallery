@@ -27,13 +27,13 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
 
-    final _navigationItems = <String, IconData>{
-      localizations.replyInboxLabel: Icons.inbox,
-      localizations.replyStarredLabel: Icons.star_border,
-      localizations.replySentLabel: Icons.send,
-      localizations.replyTrashLabel: Icons.delete_outline,
-      localizations.replySpamLabel: Icons.error_outline,
-      localizations.replyDraftsLabel: Icons.drafts,
+    final _navigationItems = <String, String>{
+      localizations.replyInboxLabel: 'assets/reply/icons/twotone_inbox.png',
+      localizations.replyStarredLabel: 'assets/reply/icons/twotone_star.png',
+      localizations.replySentLabel: 'assets/reply/icons/twotone_send.png',
+      localizations.replyTrashLabel: 'assets/reply/icons/twotone_delete.png',
+      localizations.replySpamLabel: 'assets/reply/icons/twotone_error.png',
+      localizations.replyDraftsLabel: 'assets/reply/icons/twotone_drafts.png',
     };
 
     return ResponsiveWidget(
@@ -78,7 +78,7 @@ class _BuildDesktopNav extends StatefulWidget {
   /// The dart implementation of a Map defaults to a LinkedHashMap, allowing us
   /// to preserve the order of our elements, so our destinations will always be
   /// in the same order regardless of navigation type.
-  final Map<String, IconData> destinations;
+  final Map<String, String> destinations;
   final void Function(int) onItemTapped;
 
   @override
@@ -129,7 +129,11 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
             destinations: [
               for (var destination in widget.destinations.keys)
                 NavigationRailDestination(
-                  icon: Icon(widget.destinations[destination]),
+                  icon: ImageIcon(
+                    AssetImage(
+                      widget.destinations[destination],
+                    ),
+                  ),
                   label: Text(destination),
                 ),
             ],
@@ -138,7 +142,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
             leading: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 32),
+                SizedBox(height: _isExtended ? 8 : 24),
                 Row(
                   children: [
                     const SizedBox(width: 4),
@@ -177,12 +181,17 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                         ? Row(
                             children: [
                               const SizedBox(width: 50),
-                              ClipOval(
-                                child: Image.asset(
-                                  'assets/reply/avatars/avatar_0.jpg',
-                                  width: 32,
-                                  height: 32,
-                                ),
+                              Column(
+                                children: [
+                                  ClipOval(
+                                    child: Image.asset(
+                                      'assets/reply/avatars/avatar_0.jpg',
+                                      width: 32,
+                                      height: 32,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 32),
+                                ],
                               ),
                               const SizedBox(width: 10),
                               const Icon(
@@ -194,7 +203,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                         : const SizedBox(),
                   ],
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 20),
                 Padding(
                   padding: EdgeInsetsDirectional.only(
                     start: _isExtended ? 12 : 4,
@@ -224,7 +233,6 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                     ),
                   ),
                 ),
-                const SizedBox(height: 10)
               ],
             ),
             selectedIndex: widget.selectedIndex,
@@ -254,7 +262,7 @@ class _BuildMobileNav extends StatelessWidget {
   const _BuildMobileNav(
       {this.selectedIndex, this.destinations, this.onItemTapped});
   final int selectedIndex;
-  final Map<String, IconData> destinations;
+  final Map<String, String> destinations;
   final void Function(int) onItemTapped;
 
   @override
