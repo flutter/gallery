@@ -84,21 +84,39 @@ class _BuildDesktopNav extends StatefulWidget {
   _BuildDesktopNavState createState() => _BuildDesktopNavState();
 }
 
-class _BuildDesktopNavState extends State<_BuildDesktopNav> {
+class _BuildDesktopNavState extends State<_BuildDesktopNav>
+    with SingleTickerProviderStateMixin {
   bool _isExtended;
+  AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
     _isExtended = widget.extended;
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 300), vsync: this)
+      ..addListener(() {
+        if (_controller.isCompleted) {
+          _controller.reset();
+          setState(() {
+            _isExtended = !_isExtended;
+          });
+        }
+      });
   }
 
   @override
   void didUpdateWidget(_BuildDesktopNav oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.extended != widget.extended) {
-      _isExtended = widget.extended;
+      onLogoTapped();
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -119,25 +137,50 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
             leading: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 16),
                 Row(
                   children: [
-                    const SizedBox(width: 25),
+                    const SizedBox(width: 4),
                     InkWell(
-                      child: const Icon(Icons.menu),
-                      onTap: () {
-                        setState(() {
-                          _isExtended = !_isExtended;
-                        });
-                      },
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      child: Row(
+                        children: [
+                          RotationTransition(
+                            turns:
+                                Tween(begin: _isExtended ? 0.0 : 0.5, end: 1.0)
+                                    .animate(_controller.view),
+                            child: const Icon(
+                              Icons.arrow_left,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ),
+                          const ImageIcon(
+                            AssetImage('assets/reply/reply_logo.png'),
+                            size: 32,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(width: 12),
+                          Text(
+                            _isExtended ? 'REPLY' : '',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                .copyWith(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                      onTap: onLogoTapped,
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 32),
                 Padding(
                   padding: EdgeInsetsDirectional.only(
                     start: _isExtended ? 12 : 4,
                   ),
                   child: FloatingActionButton.extended(
+                    heroTag: 'Rail FAB',
                     isExtended: _isExtended,
                     onPressed: () {
                       /// TODO: Implement onPressed for FAB
@@ -161,6 +204,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 10)
               ],
             ),
             selectedIndex: widget.selectedIndex,
@@ -175,6 +219,14 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
         ],
       ),
     );
+  }
+
+  void onLogoTapped() {
+    if (_isExtended) {
+      _controller.animateTo(0.5);
+    } else {
+      _controller.animateTo(1);
+    }
   }
 }
 
