@@ -36,12 +36,12 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
       backgroundColor: ReplyColors.blue700,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange500),
       selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().copyWith().headline5.copyWith(
+          GoogleFonts.workSansTextTheme().headline5.copyWith(
                 color: ReplyColors.orange500,
               ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.blue200),
       unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().copyWith().headline5.copyWith(
+          GoogleFonts.workSansTextTheme().headline5.copyWith(
                 color: ReplyColors.blue200,
               ),
     ),
