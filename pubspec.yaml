@@ -90,6 +90,11 @@ flutter:
     - packages/flutter_gallery_assets/fonts/google_fonts/Montserrat-Regular.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Rubik-Regular.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Eczar-SemiBold.ttf
+    #- packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Regular.ttf
+    #- packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Medium.ttf
+    #- packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Bold.ttf
+    #- packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Thin.ttf
+    #- packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-SemiBold.ttf
     - packages/flutter_gallery_assets/crane/destinations/eat_1.jpg
     - packages/flutter_gallery_assets/crane/destinations/eat_2.jpg
     - packages/flutter_gallery_assets/crane/destinations/eat_3.jpg
