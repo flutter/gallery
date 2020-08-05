@@ -142,6 +142,34 @@ flutter:
     - packages/flutter_gallery_assets/fortnightly/fortnightly_stocks.png
     - packages/flutter_gallery_assets/fortnightly/fortnightly_title.png
     - packages/flutter_gallery_assets/fortnightly/fortnightly_war.png
+#    - packages/flutter_gallery_assets/reply/attachments/paris_1.jpg
+#    - packages/flutter_gallery_assets/reply/attachments/paris_2.jpg
+#    - packages/flutter_gallery_assets/reply/attachments/paris_3.jpg
+#    - packages/flutter_gallery_assets/reply/attachments/paris_4.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_0.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_1.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_2.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_3.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_4.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_5.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_6.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_7.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_8.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_9.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_10.jpg
+#    - packages/flutter_gallery_assets/reply/avatars/avatar_express.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_add_circle_outline.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_delete.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_drafts.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_error.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_folder.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_forward.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_inbox.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_send.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_star_on_background.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_star.png
+#    - packages/flutter_gallery_assets/reply/icons/twotone_stars.png
+#    - packages/flutter_gallery_assets/reply/reply_logo.png
     - packages/flutter_gallery_assets/places/india_chennai_flower_market.png
     - packages/flutter_gallery_assets/places/india_thanjavur_market.png
     - packages/flutter_gallery_assets/places/india_tanjore_bronze_works.png
