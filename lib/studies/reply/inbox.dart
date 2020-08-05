@@ -150,7 +150,13 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
                           ),
                           child: const Icon(Icons.create),
                         ),
-                        Text(_isExtended ? 'COMPOSE' : ''),
+                        Text(
+                          _isExtended ? 'COMPOSE' : '',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              .copyWith(fontSize: 16),
+                        ),
                       ],
                     ),
                   ),
