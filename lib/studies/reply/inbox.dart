@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/reply/responsive_widget.dart';
@@ -115,16 +116,44 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav> {
             ],
             extended: _isExtended,
             labelType: NavigationRailLabelType.none,
-            leading: Row(
+            leading: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(width: 25),
-                InkWell(
-                  child: const Icon(Icons.menu),
-                  onTap: () {
-                    setState(() {
-                      _isExtended = !_isExtended;
-                    });
-                  },
+                Row(
+                  children: [
+                    const SizedBox(width: 25),
+                    InkWell(
+                      child: const Icon(Icons.menu),
+                      onTap: () {
+                        setState(() {
+                          _isExtended = !_isExtended;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    start: _isExtended ? 12 : 4,
+                  ),
+                  child: FloatingActionButton.extended(
+                    isExtended: _isExtended,
+                    onPressed: () {
+                      /// TODO: Implement onPressed for FAB
+                    },
+                    label: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.only(
+                            end: _isExtended ? 16 : 0,
+                          ),
+                          child: const Icon(Icons.create),
+                        ),
+                        Text(_isExtended ? 'COMPOSE' : ''),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
