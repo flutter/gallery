@@ -88,6 +88,7 @@ class _BuildDesktopNav extends StatefulWidget {
 class _BuildDesktopNavState extends State<_BuildDesktopNav>
     with SingleTickerProviderStateMixin {
   bool _isExtended;
+  bool _hasWidgetUpdated = false;
   AnimationController _controller;
 
   @override
@@ -95,12 +96,17 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
     super.initState();
     _isExtended = widget.extended;
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this)
+        duration: const Duration(milliseconds: 350), vsync: this)
       ..addListener(() {
         if (_controller.isCompleted) {
           _controller.reset();
           setState(() {
-            _isExtended = !_isExtended;
+            if (_hasWidgetUpdated) {
+              _isExtended = widget.extended;
+              _hasWidgetUpdated = false;
+            } else {
+              _isExtended = !_isExtended;
+            }
           });
         }
       });
@@ -111,6 +117,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.extended != widget.extended) {
       onLogoTapped();
+      _hasWidgetUpdated = true;
     }
   }
 
@@ -145,11 +152,11 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                 SizedBox(height: _isExtended ? 8 : 24),
                 Row(
                   children: [
-                    const SizedBox(width: 4),
                     InkWell(
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       child: Row(
                         children: [
+                          const SizedBox(width: 4),
                           RotationTransition(
                             turns:
                                 Tween(begin: _isExtended ? 0.0 : 0.5, end: 1.0)
@@ -157,7 +164,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                             child: const Icon(
                               Icons.arrow_left,
                               color: Colors.white,
-                              size: 20,
+                              size: 16,
                             ),
                           ),
                           const ImageIcon(
@@ -165,7 +172,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                             size: 32,
                             color: Colors.white,
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 16),
                           Text(
                             _isExtended ? 'REPLY' : '',
                             style: Theme.of(context)
