@@ -9,8 +9,6 @@ import 'dart:io' show sleep;
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 
-import 'isolates_workaround.dart';
-
 // To run this test for all demos:
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
 // To run this test for just Crane, with scrolling:
@@ -194,7 +192,6 @@ Future<void> runDemos(
 void main([List<String> args = const <String>[]]) {
   group('Flutter Gallery transitions', () {
     FlutterDriver driver;
-    IsolatesWorkaround workaround;
 
     bool isTestingCraneOnly;
 
@@ -206,13 +203,6 @@ void main([List<String> args = const <String>[]]) {
         await driver.requestData('demoDescriptions'),
       ) as List<dynamic>);
       if (_allDemos.isEmpty) throw 'no demo names found';
-
-      // TODO: Remove workaround for https://github.com/flutter/flutter/issues/24703
-      final isWeb = await driver.requestData('isWeb') == 'true';
-      if (!isWeb) {
-        workaround = IsolatesWorkaround(driver);
-        await workaround.resumeIsolates();
-      }
 
       // See _handleMessages() in transitions_perf.dart.
       isTestingCraneOnly =
@@ -229,7 +219,6 @@ void main([List<String> args = const <String>[]]) {
     tearDownAll(() async {
       if (driver != null) {
         await driver.close();
-        await workaround.tearDown();
       }
     });
 
