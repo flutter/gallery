@@ -56,7 +56,7 @@ class _BannerDemoState extends State<BannerDemo> {
             )
           : null,
       actions: [
-        FlatButton(
+        TextButton(
           child: Text(GalleryLocalizations.of(context).signIn),
           onPressed: () {
             setState(() {
@@ -65,7 +65,7 @@ class _BannerDemoState extends State<BannerDemo> {
           },
         ),
         if (_showMultipleActions)
-          FlatButton(
+          TextButton(
             child: Text(GalleryLocalizations.of(context).dismiss),
             onPressed: () {
               setState(() {
