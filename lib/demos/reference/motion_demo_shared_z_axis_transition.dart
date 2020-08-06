@@ -9,49 +9,46 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sharedAxisTransitionBuilder = const SharedAxisPageTransitionsBuilder(
-      transitionType: SharedAxisTransitionType.scaled,
-    );
-
-    return Theme(
-      data: Theme.of(context).copyWith(
-        pageTransitionsTheme: PageTransitionsTheme(
-          builders: {
-            for (var type in TargetPlatform.values)
-              type: sharedAxisTransitionBuilder,
-          },
-        ),
-      ),
-      child: Navigator(
-        onGenerateRoute: (settings) {
-          return MaterialPageRoute<void>(
-            builder: (context) {
-              return Scaffold(
-                appBar: AppBar(
-                  automaticallyImplyLeading: false,
-                  title: Text(
-                    GalleryLocalizations.of(context).demoSharedZAxisTitle,
-                  ),
-                  actions: [
-                    IconButton(
-                      icon: const Icon(Icons.settings),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (context) => const _SettingsPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+    return Navigator(
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute<void>(
+          builder: (context) {
+            return Scaffold(
+              appBar: AppBar(
+                automaticallyImplyLeading: false,
+                title: Text(
+                  GalleryLocalizations.of(context).demoSharedZAxisTitle,
                 ),
-                body: const _RecipePage(),
-              );
-            },
-          );
-        },
-      ),
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.settings),
+                    onPressed: () {
+                      Navigator.of(context).push<void>(_createSettingsRoute());
+                    },
+                  ),
+                ],
+              ),
+              body: const _RecipePage(),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Route _createSettingsRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const _SettingsPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SharedAxisTransition(
+          fillColor: Colors.transparent,
+          transitionType: SharedAxisTransitionType.scaled,
+          child: child,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+        );
+      },
     );
   }
 }
