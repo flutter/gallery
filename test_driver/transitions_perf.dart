@@ -5,7 +5,6 @@
 import 'dart:async';
 import 'dart:convert' show JsonEncoder;
 
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:gallery/data/demos.dart';
@@ -18,8 +17,6 @@ Future<String> _handleMessages(String message) async {
     case 'demoDescriptions':
       final demoDescriptions = allGalleryDemoDescriptions();
       return const JsonEncoder.withIndent('  ').convert(demoDescriptions);
-    case 'isWeb':
-      return kIsWeb.toString();
     case 'isTestingCraneOnly':
       return const String.fromEnvironment('onlyCrane', defaultValue: 'false');
     default:
