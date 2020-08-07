@@ -126,8 +126,8 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -188,11 +188,12 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                                 color: ReplyColors.blue50,
                               ),
                               const SizedBox(width: 10),
-                              Text(
-                                _isExtended ? 'REPLY' : '',
-                                style: textTheme.bodyText1
-                                    .copyWith(color: ReplyColors.blue50),
-                              ),
+                              if (_isExtended)
+                                Text(
+                                  'REPLY',
+                                  style: textTheme.bodyText1
+                                      .copyWith(color: ReplyColors.blue50),
+                                ),
                             ],
                           ),
                           onTap: onLogoTapped,
@@ -237,16 +238,17 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                     heroTag: 'Rail FAB',
                     isExtended: _isExtended,
                     onPressed: () {
-                      /// TODO: Implement onPressed for FAB
+                      // TODO: Implement onPressed for FAB
                     },
                     label: Row(
                       children: [
                         const Icon(Icons.create),
                         SizedBox(width: _isExtended ? 16 : 0),
-                        Text(
-                          _isExtended ? 'COMPOSE' : '',
-                          style: textTheme.headline5.copyWith(fontSize: 16),
-                        ),
+                        if (_isExtended)
+                          Text(
+                            'COMPOSE',
+                            style: textTheme.headline5.copyWith(fontSize: 16),
+                          ),
                       ],
                     ),
                   ),
