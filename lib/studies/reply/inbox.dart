@@ -242,7 +242,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                     label: Row(
                       children: [
                         const Icon(Icons.create),
-                        SizedBox(width: _isExtended? 16 : 0),
+                        SizedBox(width: _isExtended ? 16 : 0),
                         Text(
                           _isExtended ? 'COMPOSE' : '',
                           style: textTheme.headline5.copyWith(fontSize: 16),
