@@ -4,6 +4,9 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/responsive_widget.dart';
 
+const _assetsPackage = 'flutter_gallery_assets';
+const _iconAssetLocation = 'reply/icons';
+
 class InboxPage extends StatelessWidget {
   const InboxPage();
 
@@ -28,12 +31,12 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     final localizations = GalleryLocalizations.of(context);
 
     final _navigationItems = <String, String>{
-      localizations.replyInboxLabel: 'assets/reply/icons/twotone_inbox.png',
-      localizations.replyStarredLabel: 'assets/reply/icons/twotone_star.png',
-      localizations.replySentLabel: 'assets/reply/icons/twotone_send.png',
-      localizations.replyTrashLabel: 'assets/reply/icons/twotone_delete.png',
-      localizations.replySpamLabel: 'assets/reply/icons/twotone_error.png',
-      localizations.replyDraftsLabel: 'assets/reply/icons/twotone_drafts.png',
+      localizations.replyInboxLabel: '$_iconAssetLocation/twotone_inbox.png',
+      localizations.replyStarredLabel: '$_iconAssetLocation/twotone_star.png',
+      localizations.replySentLabel: '$_iconAssetLocation/twotone_send.png',
+      localizations.replyTrashLabel: '$_iconAssetLocation/twotone_delete.png',
+      localizations.replySpamLabel: '$_iconAssetLocation/twotone_error.png',
+      localizations.replyDraftsLabel: '$_iconAssetLocation/twotone_drafts.png',
     };
 
     return ResponsiveWidget(
@@ -129,6 +132,8 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       body: Row(
         children: [
@@ -139,6 +144,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                   icon: ImageIcon(
                     AssetImage(
                       widget.destinations[destination],
+                      package: _assetsPackage,
                     ),
                   ),
                   label: Text(destination),
@@ -149,71 +155,83 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
             leading: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: _isExtended ? 8 : 24),
-                Row(
-                  children: [
-                    InkWell(
-                      borderRadius: const BorderRadius.all(Radius.circular(16)),
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 4),
-                          RotationTransition(
-                            turns:
-                                Tween(begin: _isExtended ? 0.0 : 0.5, end: 1.0)
-                                    .animate(_controller.view),
-                            child: const Icon(
-                              Icons.arrow_left,
-                              color: Colors.white,
-                              size: 16,
-                            ),
+                SizedBox(
+                  height: 56,
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 12),
+                      SizedBox(
+                        width: _isExtended ? 120 : 58,
+                        child: InkWell(
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(16),
                           ),
-                          const ImageIcon(
-                            AssetImage('assets/reply/reply_logo.png'),
-                            size: 32,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(width: 16),
-                          Text(
-                            _isExtended ? 'REPLY' : '',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .copyWith(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                      onTap: onLogoTapped,
-                    ),
-                    _isExtended
-                        ? Row(
+                          child: Row(
                             children: [
-                              const SizedBox(width: 50),
-                              Column(
-                                children: [
-                                  ClipOval(
-                                    child: Image.asset(
-                                      'assets/reply/avatars/avatar_0.jpg',
-                                      width: 32,
-                                      height: 32,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 32),
-                                ],
+                              RotationTransition(
+                                turns: Tween(
+                                  begin: _isExtended ? 0.0 : 0.5,
+                                  end: 1.0,
+                                ).animate(_controller.view),
+                                child: const Icon(
+                                  Icons.arrow_left,
+                                  color: ReplyColors.blue50,
+                                  size: 16,
+                                ),
+                              ),
+                              const ImageIcon(
+                                AssetImage(
+                                  'reply/reply_logo.png',
+                                  package: _assetsPackage,
+                                ),
+                                size: 32,
+                                color: ReplyColors.blue50,
                               ),
                               const SizedBox(width: 10),
-                              const Icon(
-                                Icons.settings,
-                                color: ReplyColors.blue200,
+                              Text(
+                                _isExtended ? 'REPLY' : '',
+                                style: textTheme.bodyText1
+                                    .copyWith(color: ReplyColors.blue50),
                               ),
                             ],
-                          )
-                        : const SizedBox(),
-                  ],
+                          ),
+                          onTap: onLogoTapped,
+                        ),
+                      ),
+                      _isExtended
+                          ? SizedBox(
+                              width: 128,
+                              child: Row(
+                                children: [
+                                  const SizedBox(width: 36),
+                                  Align(
+                                    alignment: const Alignment(0, -1.5),
+                                    child: ClipOval(
+                                      child: Image.asset(
+                                        'reply/avatars/avatar_2.jpg',
+                                        package: _assetsPackage,
+                                        width: 32,
+                                        height: 32,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  const Icon(
+                                    Icons.settings,
+                                    color: ReplyColors.blue200,
+                                  ),
+                                ],
+                              ),
+                            )
+                          : const SizedBox(),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    start: _isExtended ? 12 : 4,
+                  padding: const EdgeInsetsDirectional.only(
+                    start: 12,
+                    end: 16,
                   ),
                   child: FloatingActionButton.extended(
                     heroTag: 'Rail FAB',
@@ -231,15 +249,13 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                         ),
                         Text(
                           _isExtended ? 'COMPOSE' : '',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              .copyWith(fontSize: 16),
+                          style: textTheme.headline5.copyWith(fontSize: 16),
                         ),
                       ],
                     ),
                   ),
                 ),
+                const SizedBox(height: 8),
               ],
             ),
             selectedIndex: widget.selectedIndex,
