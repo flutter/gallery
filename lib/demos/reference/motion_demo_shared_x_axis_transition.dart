@@ -32,7 +32,18 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoSharedXAxisTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoSharedXAxisTitle),
+            Text(
+              '(${localizations.demoSharedXAxisDemoInstructions})',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white),
+            ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: Column(

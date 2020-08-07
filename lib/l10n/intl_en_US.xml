@@ -1194,6 +1194,30 @@
     description="Subtitle for the motion demo."
     >All of the predefined transition patterns</string>
   <string
+    name="demoContainerTransformDemoInstructions"
+    description="Instructions for the container transform demo located in the app bar."
+    >Cards, Lists &amp; FAB</string>
+  <string
+    name="demoSharedXAxisDemoInstructions"
+    description="Instructions for the shared x axis demo located in the app bar."
+    >Next and Back Buttons</string>
+  <string
+    name="demoSharedYAxisDemoInstructions"
+    description="Instructions for the shared y axis demo located in the app bar."
+    >Sort by &quot;Recently Played&quot;</string>
+  <string
+    name="demoSharedZAxisDemoInstructions"
+    description="Instructions for the shared z axis demo located in the app bar."
+    >Settings icon button</string>
+  <string
+    name="demoFadeThroughDemoInstructions"
+    description="Instructions for the fade through demo located in the app bar."
+    >Bottom navigation</string>
+  <string
+    name="demoFadeScaleDemoInstructions"
+    description="Instructions for the fade scale demo located in the app bar."
+    >Modal and FAB</string>
+  <string
     name="demoContainerTransformTitle"
     description="Title for the container transform demo."
     >Container Transform</string>

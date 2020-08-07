@@ -129,8 +129,19 @@ class _OpenContainerTransformDemoState
             key: _scaffoldKey,
             appBar: AppBar(
               automaticallyImplyLeading: false,
-              title: Text(
-                localizations.demoContainerTransformTitle,
+              title: Column(
+                children: [
+                  Text(
+                    localizations.demoContainerTransformTitle,
+                  ),
+                  Text(
+                    '(${localizations.demoContainerTransformDemoInstructions})',
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle2
+                        .copyWith(color: Colors.white),
+                  ),
+                ],
               ),
               actions: [
                 IconButton(
