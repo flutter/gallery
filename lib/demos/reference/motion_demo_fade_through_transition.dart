@@ -32,7 +32,18 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoFadeThroughTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoFadeThroughTitle),
+            Text(
+              '(${localizations.demoFadeThroughDemoInstructions})',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white),
+            ),
+          ],
+        ),
       ),
       body: PageTransitionSwitcher(
         transitionBuilder: (
@@ -58,14 +69,17 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.photo_library),
+            // ignore: deprecated_member_use
             title: Text(localizations.demoFadeThroughAlbumsDestination),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.photo),
+            // ignore: deprecated_member_use
             title: Text(localizations.demoFadeThroughPhotosDestination),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.search),
+            // ignore: deprecated_member_use
             title: Text(localizations.demoFadeThroughSearchDestination),
           ),
         ],

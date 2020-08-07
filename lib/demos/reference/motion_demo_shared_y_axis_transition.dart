@@ -63,7 +63,18 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoSharedYAxisTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoSharedYAxisTitle),
+            Text(
+              '(${localizations.demoSharedYAxisDemoInstructions})',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white),
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [
