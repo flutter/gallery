@@ -9,6 +9,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context);
     return Navigator(
       onGenerateRoute: (settings) {
         return MaterialPageRoute<void>(
@@ -16,8 +17,19 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
             return Scaffold(
               appBar: AppBar(
                 automaticallyImplyLeading: false,
-                title: Text(
-                  GalleryLocalizations.of(context).demoSharedZAxisTitle,
+                title: Column(
+                  children: [
+                    Text(
+                      localizations.demoSharedZAxisTitle,
+                    ),
+                    Text(
+                      '(${localizations.demoSharedZAxisDemoInstructions})',
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle2
+                          .copyWith(color: Colors.white),
+                    ),
+                  ],
                 ),
                 actions: [
                   IconButton(

@@ -1183,6 +1183,24 @@ abstract class GalleryLocalizations {
   // Subtitle for the motion demo.
   String get demoMotionSubtitle;
 
+  // Instructions for the container transform demo located in the app bar.
+  String get demoContainerTransformDemoInstructions;
+
+  // Instructions for the shared x axis demo located in the app bar.
+  String get demoSharedXAxisDemoInstructions;
+
+  // Instructions for the shared y axis demo located in the app bar.
+  String get demoSharedYAxisDemoInstructions;
+
+  // Instructions for the shared z axis demo located in the app bar.
+  String get demoSharedZAxisDemoInstructions;
+
+  // Instructions for the fade through demo located in the app bar.
+  String get demoFadeThroughDemoInstructions;
+
+  // Instructions for the fade scale demo located in the app bar.
+  String get demoFadeScaleDemoInstructions;
+
   // Title for the container transform demo.
   String get demoContainerTransformTitle;
 
