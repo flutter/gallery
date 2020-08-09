@@ -1,11 +1,16 @@
+import 'dart:math' as math;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/responsive_widget.dart';
+import 'package:gallery/studies/reply/bottom_drawer.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
+const _folderIconAssetLocation = '$_iconAssetLocation/twotone_folder.png';
+const double _kFlingVelocity = 2.0;
 
 class InboxPage extends StatelessWidget {
   const InboxPage();
@@ -39,6 +44,15 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       localizations.replyDraftsLabel: '$_iconAssetLocation/twotone_drafts.png',
     };
 
+    final _folders = <String, String>{
+      'Receipts': _folderIconAssetLocation,
+      'Pine Elementary': _folderIconAssetLocation,
+      'Taxes': _folderIconAssetLocation,
+      'Vacation': _folderIconAssetLocation,
+      'Mortgage': _folderIconAssetLocation,
+      'Freelance': _folderIconAssetLocation,
+    };
+
     return ResponsiveWidget(
       desktopScreen: _BuildDesktopNav(
         selectedIndex: _selectedIndex,
@@ -55,6 +69,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       mobileScreen: _BuildMobileNav(
         selectedIndex: _selectedIndex,
         destinations: _navigationItems,
+        folders: _folders,
         onItemTapped: _onDestinationSelected,
       ),
     );
@@ -279,30 +294,260 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
   }
 }
 
-class _BuildMobileNav extends StatelessWidget {
+class _BuildMobileNav extends StatefulWidget {
   const _BuildMobileNav(
-      {this.selectedIndex, this.destinations, this.onItemTapped});
+      {this.selectedIndex, this.destinations, this.folders, this.onItemTapped});
   final int selectedIndex;
   final Map<String, String> destinations;
+  final Map<String, String> folders;
   final void Function(int) onItemTapped;
+
+  @override
+  __BuildMobileNavState createState() => __BuildMobileNavState();
+}
+
+class __BuildMobileNavState extends State<_BuildMobileNav>
+    with TickerProviderStateMixin {
+  final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
+  AnimationController _controller;
+  AnimationController _dropArrowController;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 350),
+      value: 0,
+      vsync: this,
+    )..addListener(() {
+        if (_controller.value < 0.01) {
+          setState(() {
+            //reload State when drawer is at its smallest to toggle visibility
+          });
+        }
+      });
+
+    _dropArrowController = AnimationController(
+        duration: const Duration(milliseconds: 350), vsync: this)
+      ..addListener(() {});
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _dropArrowController.dispose();
+    super.dispose();
+  }
+
+  bool get _bottomDrawerVisible {
+    final status = _controller.status;
+    return status == AnimationStatus.completed ||
+        status == AnimationStatus.forward;
+  }
+
+  void _toggleBottomDrawerVisibility() {
+    if (_controller.value < 0.6) {
+      setState(() {});
+      _controller.animateTo(0.6, curve: Curves.easeIn);
+      _dropArrowController.animateTo(0.5, curve: Curves.easeIn);
+      return;
+    }
+
+    _dropArrowController.forward();
+    _controller.fling(
+        velocity: _bottomDrawerVisible ? -_kFlingVelocity : _kFlingVelocity);
+  }
+
+  double get _bottomDrawerHeight {
+    final renderBox =
+        _bottomDrawerKey.currentContext.findRenderObject() as RenderBox;
+    return renderBox.size.height;
+  }
+
+  void _handleDragUpdate(DragUpdateDetails details) {
+    _controller.value -= details.primaryDelta / _bottomDrawerHeight;
+  }
+
+  void _handleDragEnd(DragEndDetails details) {
+    if (_controller.isAnimating ||
+        _controller.status == AnimationStatus.completed) {
+      return;
+    }
+
+    final flingVelocity =
+        details.velocity.pixelsPerSecond.dy / _bottomDrawerHeight;
+
+    if (flingVelocity < 0.0) {
+      _controller.fling(velocity: math.max(_kFlingVelocity, -flingVelocity));
+    } else if (flingVelocity > 0.0) {
+      _dropArrowController.forward();
+      _controller.fling(velocity: math.min(-_kFlingVelocity, -flingVelocity));
+    } else {
+      if (_controller.value < 0.6) {
+        _dropArrowController.forward();
+      }
+      _controller.fling(
+          velocity:
+              _controller.value < 0.6 ? -_kFlingVelocity : _kFlingVelocity);
+    }
+  }
+
+  Widget _buildStack(BuildContext context, BoxConstraints constraints) {
+    final drawerSize = constraints.biggest;
+    final drawerTop = drawerSize.height;
+    final mainLayer = ListView.builder(
+        padding: const EdgeInsets.all(24),
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Container(
+            height: 50,
+            color: ReplyColors.orange500,
+            child: Center(child: Text('Item $index')),
+          );
+        });
+
+    final panelAnimation = RelativeRectTween(
+      begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
+      end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+    ).animate(_controller.view);
+
+    return Stack(
+      overflow: Overflow.visible,
+      key: _bottomDrawerKey,
+      children: <Widget>[
+        GestureDetector(
+          onTap: () {
+            if (_bottomDrawerVisible) {
+              _controller.reverse();
+              _dropArrowController.reverse();
+            }
+          },
+          child: mainLayer,
+        ),
+        Visibility(
+          visible: _bottomDrawerVisible,
+          child: PositionedTransition(
+            rect: panelAnimation,
+            child: BottomDrawer(
+              onVerticalDragUpdate: _handleDragUpdate,
+              onVerticalDragEnd: _handleDragEnd,
+              leading: Column(
+                children: [
+                  for (var destination in widget.destinations.keys)
+                    InkWell(
+                      onTap: () {},
+                      child: ListTile(
+                        leading: ImageIcon(
+                          AssetImage(
+                            widget.destinations[destination],
+                            package: _assetsPackage,
+                          ),
+                          color: ReplyColors.blue200,
+                        ),
+                        title: Text(
+                          destination,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2
+                              .copyWith(color: ReplyColors.blue200),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              trailing: Column(
+                children: [
+                  for (var folder in widget.folders.keys)
+                    InkWell(
+                      onTap: () {},
+                      child: ListTile(
+                        leading: ImageIcon(
+                          AssetImage(
+                            widget.folders[folder],
+                            package: _assetsPackage,
+                          ),
+                          color: ReplyColors.blue200,
+                        ),
+                        title: Text(
+                          folder,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2
+                              .copyWith(color: ReplyColors.blue200),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text('Hello World'),
+      extendBody: true,
+      body: LayoutBuilder(
+        builder: _buildStack,
       ),
-      bottomNavigationBar: const BottomAppBar(
-        shape: CircularNotchedRectangle(),
+      bottomNavigationBar: BottomAppBar(
+        color: ReplyColors.blue700,
+        shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: SizedBox(
-          height: 48,
+          height: kToolbarHeight,
+          child: Row(
+            children: [
+              InkWell(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                onTap: _toggleBottomDrawerVisibility,
+                child: Row(
+                  children: [
+                    const SizedBox(width: 16),
+                    RotationTransition(
+                      turns: Tween(
+                        begin: 0.0,
+                        end: 1.0,
+                      ).animate(_dropArrowController.view),
+                      child: const Icon(
+                        Icons.arrow_drop_up,
+                        color: ReplyColors.blue50,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    const ImageIcon(
+                      AssetImage(
+                        'reply/reply_logo.png',
+                        package: _assetsPackage,
+                      ),
+                      size: 32,
+                      color: ReplyColors.blue50,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'REPLY',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(color: ReplyColors.blue50),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.create),
-        onPressed: () => print('To do'),
-      ),
+      floatingActionButton: _bottomDrawerVisible
+          ? null
+          : FloatingActionButton(
+              heroTag: 'Bottom App Bar FAB',
+              child: const Icon(Icons.create),
+              onPressed: () => print('To do'),
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
