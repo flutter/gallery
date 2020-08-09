@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/responsive_widget.dart';
@@ -464,10 +465,10 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
             ),
           ),
         ),
-        Visibility(
-          visible: _bottomDrawerVisible,
-          child: PositionedTransition(
-            rect: panelAnimation,
+        PositionedTransition(
+          rect: panelAnimation,
+          child: Visibility(
+            visible: _bottomDrawerVisible,
             child: BottomDrawer(
               onVerticalDragUpdate: _handleDragUpdate,
               onVerticalDragEnd: _handleDragEnd,
@@ -478,7 +479,13 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                       onTap: () {
                         _controller.reverse();
                         _dropArrowController.forward();
-                        Future.delayed(const Duration(milliseconds: 250), () {
+                        Future.delayed(
+                            Duration(
+                              milliseconds:
+                                  GalleryOptions.of(context).timeDilation == 1
+                                      ? _controller.value == 1 ? 350 : 210
+                                      : _controller.value == 1 ? 1750 : 1050,
+                            ), () {
                           //Wait until animations are complete to reload the
                           //state.
                           widget.onItemTapped(_destinationsIndex[destination]);
