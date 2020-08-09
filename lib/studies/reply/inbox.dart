@@ -465,7 +465,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                       onTap: () {
                         _controller.reverse();
                         _dropArrowController.forward();
-                        Future.delayed(const Duration(milliseconds: 400), () {
+                        Future.delayed(const Duration(milliseconds: 250), () {
                           //Wait until animations are complete to reload the
                           //state.
                           widget.onItemTapped(_destinationsIndex[destination]);
@@ -568,14 +568,17 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                       color: ReplyColors.blue50,
                     ),
                     const SizedBox(width: 10),
-                    if (!_bottomDrawerVisible)
-                      Text(
+                    AnimatedOpacity(
+                      opacity: _bottomDrawerVisible ? 0.0 : 1.0,
+                      duration: const Duration(milliseconds: 250),
+                      child: Text(
                         _currentDestination,
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1
                             .copyWith(color: ReplyColors.blue50),
                       ),
+                    ),
                   ],
                 ),
               ),
