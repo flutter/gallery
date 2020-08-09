@@ -309,8 +309,10 @@ class _BuildMobileNav extends StatefulWidget {
 class __BuildMobileNavState extends State<_BuildMobileNav>
     with TickerProviderStateMixin {
   final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
+  int _destinationsCount;
   AnimationController _controller;
   AnimationController _dropArrowController;
+  Map<String, int> _destinationsIndex;
 
   @override
   void initState() {
@@ -322,7 +324,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     )..addListener(() {
         if (_controller.value < 0.01) {
           setState(() {
-            //reload State when drawer is at its smallest to toggle visibility
+            //Reload state when drawer is at its smallest to toggle visibility
           });
         }
       });
@@ -330,6 +332,15 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     _dropArrowController = AnimationController(
         duration: const Duration(milliseconds: 350), vsync: this)
       ..addListener(() {});
+    _destinationsCount = 0;
+
+    //Build a map from destinations with the name of destination as the key and
+    //a value from 0 .. # of destinations. Since our destinations are an ordered
+    //LinkedHashMap we can use this map to keep track of the indexes for each
+    //destination.
+    _destinationsIndex = {
+      for (var destination in widget.destinations.keys) destination: _nextInt
+    };
   }
 
   @override
@@ -337,6 +348,12 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     _controller.dispose();
     _dropArrowController.dispose();
     super.dispose();
+  }
+
+  int get _nextInt {
+    final _lastInt = _destinationsCount;
+    _destinationsCount = _destinationsCount + 1;
+    return _lastInt;
   }
 
   bool get _bottomDrawerVisible {
@@ -435,21 +452,34 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                 children: [
                   for (var destination in widget.destinations.keys)
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        _controller.reverse();
+                        _dropArrowController.forward();
+                        Future.delayed(const Duration(milliseconds: 400), () {
+                          //Wait until animations are complete to reload the
+                          //state.
+                          widget.onItemTapped(_destinationsIndex[destination]);
+                        });
+                      },
                       child: ListTile(
                         leading: ImageIcon(
                           AssetImage(
                             widget.destinations[destination],
                             package: _assetsPackage,
                           ),
-                          color: ReplyColors.blue200,
+                          color: _destinationsIndex[destination] ==
+                                  widget.selectedIndex
+                              ? ReplyColors.orange500
+                              : ReplyColors.blue200,
                         ),
                         title: Text(
                           destination,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2
-                              .copyWith(color: ReplyColors.blue200),
+                          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                                color: _destinationsIndex[destination] ==
+                                        widget.selectedIndex
+                                    ? ReplyColors.orange500
+                                    : ReplyColors.blue200,
+                              ),
                         ),
                       ),
                     ),
