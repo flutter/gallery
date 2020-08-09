@@ -442,14 +442,27 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
       overflow: Overflow.visible,
       key: _bottomDrawerKey,
       children: <Widget>[
+        mainLayer,
         GestureDetector(
           onTap: () {
-            if (_bottomDrawerVisible) {
-              _controller.reverse();
-              _dropArrowController.reverse();
-            }
+            _controller.reverse();
+            _dropArrowController.reverse();
           },
-          child: mainLayer,
+          child: Visibility(
+            maintainAnimation: true,
+            maintainState: true,
+            visible: _bottomDrawerVisible,
+            child: AnimatedOpacity(
+              opacity: _bottomDrawerVisible ? 1.0 : 0.0,
+              curve: Curves.easeInOut,
+              duration: const Duration(milliseconds: 350),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white.withOpacity(0.4),
+              ),
+            ),
+          ),
         ),
         Visibility(
           visible: _bottomDrawerVisible,
