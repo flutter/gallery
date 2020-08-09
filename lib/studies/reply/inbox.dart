@@ -313,6 +313,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
   AnimationController _controller;
   AnimationController _dropArrowController;
   Map<String, int> _destinationsIndex;
+  String _currentDestination;
 
   @override
   void initState() {
@@ -332,6 +333,15 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     _dropArrowController = AnimationController(
         duration: const Duration(milliseconds: 350), vsync: this)
       ..addListener(() {});
+    _destinationsCount = 0;
+
+    for (var destination in widget.destinations.keys) {
+      if (_destinationsCount == widget.selectedIndex) {
+        _currentDestination = destination;
+      }
+      _destinationsCount = _destinationsCount + 1;
+    }
+
     _destinationsCount = 0;
 
     //Build a map from destinations with the name of destination as the key and
@@ -459,6 +469,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                           //Wait until animations are complete to reload the
                           //state.
                           widget.onItemTapped(_destinationsIndex[destination]);
+                          _currentDestination = destination;
                         });
                       },
                       child: ListTile(
@@ -557,13 +568,14 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                       color: ReplyColors.blue50,
                     ),
                     const SizedBox(width: 10),
-                    Text(
-                      'REPLY',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyText1
-                          .copyWith(color: ReplyColors.blue50),
-                    ),
+                    if (!_bottomDrawerVisible)
+                      Text(
+                        _currentDestination,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: ReplyColors.blue50),
+                      ),
                   ],
                 ),
               ),
