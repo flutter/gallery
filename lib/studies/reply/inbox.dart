@@ -2,8 +2,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
-import 'package:gallery/studies/reply/responsive_widget.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -32,7 +32,10 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+    final isTablet = isDisplaySmallDesktop(context);
     final localizations = GalleryLocalizations.of(context);
+    Widget navigation;
 
     final _navigationItems = <String, String>{
       localizations.replyInboxLabel: '$_iconAssetLocation/twotone_inbox.png',
@@ -52,26 +55,38 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       'Freelance': _folderIconAssetLocation,
     };
 
-    return ResponsiveWidget(
-      desktopScreen: _BuildDesktopNav(
-        selectedIndex: _selectedIndex,
-        extended: true,
-        destinations: _navigationItems,
-        onItemTapped: _onDestinationSelected,
-      ),
-      tabletScreen: _BuildDesktopNav(
-        selectedIndex: _selectedIndex,
-        extended: false,
-        destinations: _navigationItems,
-        onItemTapped: _onDestinationSelected,
-      ),
-      mobileScreen: _BuildMobileNav(
-        selectedIndex: _selectedIndex,
-        destinations: _navigationItems,
-        folders: _folders,
-        onItemTapped: _onDestinationSelected,
-      ),
-    );
+    switch (isTablet) {
+      case true:
+        {
+          navigation = _BuildDesktopNav(
+            selectedIndex: _selectedIndex,
+            extended: false,
+            destinations: _navigationItems,
+            onItemTapped: _onDestinationSelected,
+          );
+          break;
+        }
+      case false:
+        {
+          if (isDesktop) {
+            navigation = _BuildDesktopNav(
+              selectedIndex: _selectedIndex,
+              extended: true,
+              destinations: _navigationItems,
+              onItemTapped: _onDestinationSelected,
+            );
+          } else {
+            navigation = _BuildMobileNav(
+              selectedIndex: _selectedIndex,
+              destinations: _navigationItems,
+              folders: _folders,
+              onItemTapped: _onDestinationSelected,
+            );
+          }
+          break;
+        }
+    }
+    return navigation;
   }
 
   void _onDestinationSelected(int index) {
