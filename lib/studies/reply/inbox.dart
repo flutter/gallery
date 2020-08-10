@@ -59,6 +59,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         selectedIndex: _selectedIndex,
         extended: false,
         destinations: _navigationItems,
+        folders: _folders,
         onItemTapped: _onDestinationSelected,
       );
     } else if (isDesktop) {
@@ -66,6 +67,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         selectedIndex: _selectedIndex,
         extended: true,
         destinations: _navigationItems,
+        folders: _folders,
         onItemTapped: _onDestinationSelected,
       );
     } else {
@@ -91,6 +93,7 @@ class _BuildDesktopNav extends StatefulWidget {
       this.selectedIndex,
       this.extended,
       this.destinations,
+      this.folders,
       this.onItemTapped})
       : super(key: key);
   final int selectedIndex;
@@ -100,6 +103,7 @@ class _BuildDesktopNav extends StatefulWidget {
   /// to preserve the order of our elements, so our destinations will always be
   /// in the same order regardless of navigation type.
   final Map<String, String> destinations;
+  final Map<String, String> folders;
   final void Function(int) onItemTapped;
 
   @override
@@ -155,120 +159,211 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
     return Scaffold(
       body: Row(
         children: [
-          NavigationRail(
-            destinations: [
-              for (var destination in widget.destinations.keys)
-                NavigationRailDestination(
-                  icon: ImageIcon(
-                    AssetImage(
-                      widget.destinations[destination],
-                      package: _assetsPackage,
+          LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                color: ReplyColors.blue700,
+                child: SingleChildScrollView(
+                  clipBehavior: Clip.antiAlias,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
                     ),
-                  ),
-                  label: Text(destination),
-                ),
-            ],
-            extended: _isExtended,
-            labelType: NavigationRailLabelType.none,
-            leading: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 56,
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 12),
-                      SizedBox(
-                        width: _isExtended ? 120 : 58,
-                        child: InkWell(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(16),
-                          ),
-                          child: Row(
-                            children: [
-                              RotationTransition(
-                                turns: Tween(
-                                  begin: _isExtended ? 0.0 : 0.5,
-                                  end: 1.0,
-                                ).animate(_controller.view),
-                                child: const Icon(
-                                  Icons.arrow_left,
-                                  color: ReplyColors.blue50,
-                                  size: 16,
+                    child: IntrinsicHeight(
+                      child: NavigationRail(
+                        destinations: [
+                          for (var destination in widget.destinations.keys)
+                            NavigationRailDestination(
+                              icon: ImageIcon(
+                                AssetImage(
+                                  widget.destinations[destination],
+                                  package: _assetsPackage,
                                 ),
                               ),
-                              const ReplyLogo(),
-                              const SizedBox(width: 10),
-                              if (_isExtended)
-                                Text(
-                                  'REPLY',
-                                  style: textTheme.bodyText1
-                                      .copyWith(color: ReplyColors.blue50),
-                                ),
-                            ],
-                          ),
-                          onTap: onLogoTapped,
-                        ),
-                      ),
-                      _isExtended
-                          ? SizedBox(
-                              width: 128,
+                              label: Text(destination),
+                            ),
+                        ],
+                        extended: _isExtended,
+                        labelType: NavigationRailLabelType.none,
+                        leading: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 56,
                               child: Row(
                                 children: [
-                                  const SizedBox(width: 36),
-                                  Align(
-                                    alignment: const Alignment(0, -1.5),
-                                    child: ClipOval(
-                                      child: Image.asset(
-                                        'reply/avatars/avatar_2.jpg',
-                                        package: _assetsPackage,
-                                        width: 32,
-                                        height: 32,
+                                  const SizedBox(width: 12),
+                                  SizedBox(
+                                    width: _isExtended ? 120 : 58,
+                                    child: InkWell(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(16),
                                       ),
+                                      child: Row(
+                                        children: [
+                                          RotationTransition(
+                                            turns: Tween(
+                                              begin: _isExtended ? 0.0 : 0.5,
+                                              end: 1.0,
+                                            ).animate(_controller.view),
+                                            child: const Icon(
+                                              Icons.arrow_left,
+                                              color: ReplyColors.blue50,
+                                              size: 16,
+                                            ),
+                                          ),
+                                          const ReplyLogo(),
+                                          const SizedBox(width: 10),
+                                          if (_isExtended)
+                                            Text(
+                                              'REPLY',
+                                              style: textTheme.bodyText1
+                                                  .copyWith(
+                                                      color:
+                                                          ReplyColors.blue50),
+                                            ),
+                                        ],
+                                      ),
+                                      onTap: onLogoTapped,
                                     ),
                                   ),
-                                  const SizedBox(width: 12),
-                                  const Icon(
-                                    Icons.settings,
-                                    color: ReplyColors.blue200,
-                                  ),
+                                  _isExtended
+                                      ? SizedBox(
+                                          width: 128,
+                                          child: Row(
+                                            children: [
+                                              const SizedBox(width: 36),
+                                              Align(
+                                                alignment:
+                                                    const Alignment(0, -1.5),
+                                                child: ClipOval(
+                                                  child: Image.asset(
+                                                    'reply/avatars/avatar_2.jpg',
+                                                    package: _assetsPackage,
+                                                    width: 32,
+                                                    height: 32,
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(width: 12),
+                                              const Icon(
+                                                Icons.settings,
+                                                color: ReplyColors.blue200,
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      : const SizedBox(),
                                 ],
                               ),
-                            )
-                          : const SizedBox(),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: 12,
-                    end: 16,
-                  ),
-                  child: FloatingActionButton.extended(
-                    heroTag: 'Rail FAB',
-                    isExtended: _isExtended,
-                    onPressed: () {
-                      // TODO: Implement onPressed for Rail FAB
-                    },
-                    label: Row(
-                      children: [
-                        const Icon(Icons.create),
-                        SizedBox(width: _isExtended ? 16 : 0),
-                        if (_isExtended)
-                          Text(
-                            'COMPOSE',
-                            style: textTheme.headline5.copyWith(fontSize: 16),
+                            ),
+                            const SizedBox(height: 20),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.only(
+                                start: 12,
+                                end: 16,
+                              ),
+                              child: FloatingActionButton.extended(
+                                heroTag: 'Rail FAB',
+                                isExtended: _isExtended,
+                                onPressed: () {
+                                  // TODO: Implement onPressed for Rail FAB
+                                },
+                                label: Row(
+                                  children: [
+                                    const Icon(Icons.create),
+                                    SizedBox(width: _isExtended ? 16 : 0),
+                                    if (_isExtended)
+                                      Text(
+                                        'COMPOSE',
+                                        style: textTheme.headline5
+                                            .copyWith(fontSize: 16),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        trailing: Visibility(
+                          visible: _isExtended,
+                          maintainState: true,
+                          maintainAnimation: true,
+                          child: AnimatedOpacity(
+                            duration: const Duration(milliseconds: 350),
+                            opacity: _isExtended ? 1 : 0,
+                            child: SizedBox(
+                              height: 485,
+                              width: 256,
+                              child: ListView(
+                                padding: const EdgeInsets.all(12),
+                                physics: const NeverScrollableScrollPhysics(),
+                                children: [
+                                  const Divider(
+                                    color: ReplyColors.blue200,
+                                    thickness: 0.4,
+                                    indent: 14,
+                                    endIndent: 16,
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.only(
+                                        start: 16),
+                                    child: Text(
+                                      'FOLDERS',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .caption
+                                          .copyWith(color: ReplyColors.blue200),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  for (var folder in widget.folders.keys)
+                                    InkWell(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(36),
+                                      ),
+                                      onTap: () {},
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              const SizedBox(width: 12),
+                                              ImageIcon(
+                                                AssetImage(
+                                                  widget.folders[folder],
+                                                  package: _assetsPackage,
+                                                ),
+                                                color: ReplyColors.blue300,
+                                              ),
+                                              const SizedBox(width: 24),
+                                              Text(
+                                                folder,
+                                                style: textTheme.bodyText1
+                                                    .copyWith(
+                                                  color: ReplyColors.blue200,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 72),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
                           ),
-                      ],
+                        ),
+                        selectedIndex: widget.selectedIndex,
+                        onDestinationSelected: widget.onItemTapped,
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
-              ],
-            ),
-            selectedIndex: widget.selectedIndex,
-            onDestinationSelected: widget.onItemTapped,
+              );
+            },
           ),
           const VerticalDivider(thickness: 1, width: 1),
           const Expanded(
