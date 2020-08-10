@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:animations/animations.dart';
 
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -22,6 +23,11 @@ class RallyApp extends StatelessWidget {
   static const String loginRoute = '/rally/login';
   static const String homeRoute = '/rally';
 
+  final sharedZAxisTransitionBuilder = const SharedAxisPageTransitionsBuilder(
+    fillColor: RallyColors.primaryBackground,
+    transitionType: SharedAxisTransitionType.scaled,
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,6 +35,12 @@ class RallyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _buildRallyTheme().copyWith(
         platform: GalleryOptions.of(context).platform,
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {
+            for (var type in TargetPlatform.values)
+              type: sharedZAxisTransitionBuilder,
+          },
+        ),
       ),
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
