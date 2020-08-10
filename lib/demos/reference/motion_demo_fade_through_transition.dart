@@ -32,7 +32,18 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localizations.demoFadeThroughTitle),
+        title: Column(
+          children: [
+            Text(localizations.demoFadeThroughTitle),
+            Text(
+              '(${localizations.demoFadeThroughDemoInstructions})',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2
+                  .copyWith(color: Colors.white),
+            ),
+          ],
+        ),
       ),
       body: PageTransitionSwitcher(
         transitionBuilder: (

@@ -1307,6 +1307,30 @@
   "@demoMotionSubtitle": {
     "description": "Subtitle for the motion demo."
   },
+  "demoContainerTransformDemoInstructions": "Cards, Lists & FAB",
+  "@demoContainerTransformDemoInstructions": {
+    "description": "Instructions for the container transform demo located in the app bar."
+  },
+  "demoSharedXAxisDemoInstructions": "Next and Back Buttons",
+  "@demoSharedXAxisDemoInstructions": {
+    "description": "Instructions for the shared x axis demo located in the app bar."
+  },
+  "demoSharedYAxisDemoInstructions": "Sort by \"Recently Played\"",
+  "@demoSharedYAxisDemoInstructions": {
+    "description": "Instructions for the shared y axis demo located in the app bar."
+  },
+  "demoSharedZAxisDemoInstructions": "Settings icon button",
+  "@demoSharedZAxisDemoInstructions": {
+    "description": "Instructions for the shared z axis demo located in the app bar."
+  },
+  "demoFadeThroughDemoInstructions": "Bottom navigation",
+  "@demoFadeThroughDemoInstructions": {
+    "description": "Instructions for the fade through demo located in the app bar."
+  },
+  "demoFadeScaleDemoInstructions": "Modal and FAB",
+  "@demoFadeScaleDemoInstructions": {
+    "description": "Instructions for the fade scale demo located in the app bar."
+  },
   "demoContainerTransformTitle": "Container Transform",
   "@demoContainerTransformTitle": {
     "description": "Title for the container transform demo."

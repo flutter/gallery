@@ -1013,6 +1013,24 @@ class GalleryLocalizationsHy extends GalleryLocalizations {
   String get demoMotionSubtitle => 'All of the predefined transition patterns';
 
   @override
+  String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
+
+  @override
+  String get demoSharedXAxisDemoInstructions => 'Next and Back Buttons';
+
+  @override
+  String get demoSharedYAxisDemoInstructions => 'Sort by \"Recently Played\"';
+
+  @override
+  String get demoSharedZAxisDemoInstructions => 'Settings icon button';
+
+  @override
+  String get demoFadeThroughDemoInstructions => 'Bottom navigation';
+
+  @override
+  String get demoFadeScaleDemoInstructions => 'Modal and FAB';
+
+  @override
   String get demoContainerTransformTitle => 'Container Transform';
 
   @override
