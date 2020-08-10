@@ -424,8 +424,9 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
       });
 
     _dropArrowController = AnimationController(
-        duration: const Duration(milliseconds: 350), vsync: this)
-      ..addListener(() {});
+      duration: const Duration(milliseconds: 350),
+      vsync: this,
+    );
     _destinationsCount = 0;
 
     for (var destination in widget.destinations.keys) {
@@ -467,7 +468,6 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
 
   void _toggleBottomDrawerVisibility() {
     if (_drawerController.value < 0.6) {
-      setState(() {});
       _drawerController.animateTo(0.6, curve: Curves.easeIn);
       _dropArrowController.animateTo(0.5, curve: Curves.easeIn);
       return;
