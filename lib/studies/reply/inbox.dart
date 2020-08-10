@@ -472,6 +472,15 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
             child: BottomDrawer(
               onVerticalDragUpdate: _handleDragUpdate,
               onVerticalDragEnd: _handleDragEnd,
+              header: Container(
+                decoration: const BoxDecoration(
+                  color: ReplyColors.blue800,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(12),
+                    topLeft: Radius.circular(12),
+                  ),
+                ),
+              ),
               leading: Column(
                 children: [
                   for (var destination in widget.destinations.keys)
