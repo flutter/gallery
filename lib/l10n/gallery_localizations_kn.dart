@@ -91,7 +91,7 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get cardsDemoTravelDestinationDescription3 => 'ದೇವಾಲಯಗಳು';
 
   @override
-  String get homeHeaderGallery => 'ಗ್ಯಾಲರಿ';
+  String get homeHeaderGallery => 'Gallery';
 
   @override
   String get homeHeaderCategories => 'ವರ್ಗಗಳು';
@@ -977,7 +977,7 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get cupertinoTabBarHomeTab => 'ಹೋಮ್';
 
   @override
-  String get cupertinoTabBarChatTab => 'ಚಾಟ್';
+  String get cupertinoTabBarChatTab => 'Chat';
 
   @override
   String get cupertinoTabBarProfileTab => 'ಪ್ರೊಫೈಲ್';
@@ -996,10 +996,11 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'ಪಿನ್';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'ಮೋಷನ್';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle =>
+      'ಎಲ್ಲಾ ಪೂರ್ವನಿರ್ಧರಿತ ಪರಿವರ್ತನೆಯ ಪ್ಯಾಟರ್ನ್‌ಗಳು';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1020,215 +1021,216 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'ಕಂಟೈನರ್ ಪರಿವರ್ತನೆ';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'ಕಂಟೈನರ್ ಪರಿವರ್ತನೆಯ ಪ್ಯಾಟರ್ನ್ ಅನ್ನು ಕಂಟೈನರ್ ಅನ್ನು ಒಳಗೊಂಡಿರುವ UI ಅಂಶಗಳ ನಡುವಿನ ಪರಿವರ್ತನೆಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಇದು ಎರಡು UI ಅಂಶಗಳ ನಡುವೆ ಗೋಚರಿಸುವ ಸಂಪರ್ಕವನ್ನು ರಚಿಸುತ್ತದೆ';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => 'ಫೇಡ್ ಮೋಡ್';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'ಫೇಡ್';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'ಫೇಡ್ ಥ್ರೂ';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'ಶೀರ್ಷಿಕೆ';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'ದ್ವಿತೀಯ ಹಂತದ ಪಠ್ಯ';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'ದ್ವಿತೀಯ';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'ವಿವರಗಳ ಪುಟ';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'ಪಟ್ಟಿ ಐಟಂ';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'ಪ್ರಾದೇಶಿಕ ಅಥವಾ ನ್ಯಾವಿಗೇಶನಲ್ ಸಂಬಂಧ ಹೊಂದಿರುವ UI ಅಂಶಗಳ ನಡುವಿನ ಪರಿವರ್ತನೆಗಳಿಗಾಗಿ ಹಂಚಿದ ಅಕ್ಷದ ಪ್ಯಾಟರ್ನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಈ ಪ್ಯಾಟರ್ನ್ ಅಂಶಗಳ ನಡುವಿನ ಸಂಬಂಧವನ್ನು ಬಲಪಡಿಸಲು x, y, ಅಥವಾ z ಅಕ್ಷಗಳ ಮೇಲೆ ಹಂಚಿದ ಪರಿವರ್ತನೆಯನ್ನು ಬಳಸುತ್ತದೆ.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'ಹಂಚಿದ x-ಅಕ್ಷ';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'ಹಿಂದೆ';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'ಮುಂದೆ';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => 'ನಿಮ್ಮ ಕೋರ್ಸ್‌ಗಳನ್ನು ಸುಗಮಗೊಳಿಸಿ';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'ಬಂಡಲ್ ಮಾಡಲಾದ ವಿಭಾಗಗಳು ನಿಮ್ಮ ಫೀಡ್‌ನಲ್ಲಿ ಗುಂಪುಗಳಾಗಿ ಗೋಚರಿಸುತ್ತವೆ. ನೀವು ಇದನ್ನು ಯಾವಾಗಲಾದರೂ ಬದಲಾಯಿಸಬಹುದು.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'ಕಲೆ ಮತ್ತು ಕರಕುಶಲತೆ';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'ವ್ಯಾಪಾರ';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'ಉದಾಹರಣೆ';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => 'ವಿನ್ಯಾಸ';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'ಪಾಕಶಾಲೆ';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'ಬಂಡಲ್ ಮಾಡಿರುವುದು';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => 'ಪ್ರತ್ಯೇಕವಾಗಿ ತೋರಿಸಿ';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'ನಮಸ್ಕಾರ, David Park';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText =>
+      'ನಿಮ್ಮ ಖಾತೆಯ ಮೂಲಕ ಸೈನ್ ಇನ್ ಮಾಡಿ';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel => 'ಇಮೇಲ್‌ ಅಥವಾ ಫೋನ್‌ ಸಂಖ್ಯೆ';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => 'ಇಮೇಲ್ ಮರೆತಿರುವಿರಾ?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'ಖಾತೆಯನ್ನು ರಚಿಸಿ';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'ಹಂಚಿದ y-ಅಕ್ಷ';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '268 ಆಲ್ಬಮ್‌ಗಳು';
 
   @override
   String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'ಇತ್ತೀಚೆಗೆ ಪ್ಲೇ ಮಾಡಿರುವುದು';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => 'ಆಲ್ಬಮ್‌';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => 'ಕಲಾವಿದರು';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => 'ನಿಮಿ';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'ಹಂಚಿದ z-ಅಕ್ಷ';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'ಸೆಟ್ಟಿಂಗ್‌ಗಳು';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'ಬರ್ಗರ್';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'ಬರ್ಗರ್ ರೆಸಿಪಿ';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'ಸ್ಯಾಂಡ್‌ವಿಚ್';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => 'ಸ್ಯಾಂಡ್‌ವಿಚ್ ರೆಸಿಪಿ';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'ಡೆಸರ್ಟ್';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'ಡೆಸರ್ಟ್ ರೆಸಿಪಿ';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'ಸೀಗಡಿ';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'ಸೀಗಡಿ ಪ್ಲೇಟ್ ರೆಸಿಪಿ';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'ಏಡಿ';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'ಏಡಿ ಪ್ಲೇಟ್ ರೆಸಿಪಿ';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'ಬೀಫ್ ಸ್ಯಾಂಡ್‌ವಿಚ್';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'ಬೀಫ್ ಸ್ಯಾಂಡ್‌ವಿಚ್ ರೆಸಿಪಿ';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'ಉಳಿಸಲಾದ ರೆಸಿಪಿಗಳು';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'ಪ್ರೊಫೈಲ್';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'ಅಧಿಸೂಚನೆಗಳು';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'ಗೌಪ್ಯತೆ';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'ಸಹಾಯ';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'ಫೇಡ್ ಥ್ರೂ';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'ಪರಸ್ಪರ ಬಲವಾದ ಸಂಬಂಧವನ್ನು ಹೊಂದಿರದ UI ಅಂಶಗಳ ನಡುವಿನ ಪರಿವರ್ತನೆಗಾಗಿ ಫೇಡ್ ಥ್ರೂ ಪ್ಯಾಟರ್ನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ.';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'ಆಲ್ಬಮ್‌ಗಳು';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'ಫೋಟೋಗಳು';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'ಹುಡುಕಿ';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 ಫೋಟೋಗಳು';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'ಫೇಡ್';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'ಸ್ಕ್ರೀನ್ ಪರಿಧಿಯಲ್ಲಿ ಪ್ರವೇಶಿಸುವ ಅಥವಾ ನಿರ್ಗಮಿಸುವ UI ಅಂಶಗಳಿಗೆ ಫೇಡ್ ಪ್ಯಾಟರ್ನ್ ಅನ್ನು ಬಳಸಲಾಗುತ್ತದೆ, ಉದಾಹರಣೆಗೆ ಸ್ಕ್ರೀನ್‌ನ ಮಧ್ಯದಲ್ಲಿ ಮಸುಕಾಗುವ ಡೈಲಾಗ್.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'ಮೋಡಲ್ ತೋರಿಸಿ';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'FAB ತೋರಿಸಿ';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'FAB ಅನ್ನು ಮರೆಮಾಡಿ';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'ಎಚ್ಚರಿಕೆ ಸಂವಾದ';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'ರದ್ದುಮಾಡಿ';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'ತ್ಯಜಿಸಿ';
 
   @override
   String get demoColorsTitle => 'ಬಣ್ಣಗಳು';
@@ -1553,7 +1555,7 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get bottomNavigationCommentsTab => 'ಕಾಮೆಂಟ್‌ಗಳು';
 
   @override
-  String get bottomNavigationCalendarTab => 'ಕ್ಯಾಲೆಂಡರ್‌';
+  String get bottomNavigationCalendarTab => 'Calendar';
 
   @override
   String get bottomNavigationAccountTab => 'ಖಾತೆ';

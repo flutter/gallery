@@ -3425,6 +3425,223 @@ class GalleryLocalizationsEnAu extends GalleryLocalizationsEn {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+
+  @override
   String get demoColorsTitle => 'Colours';
 
   @override
@@ -5621,6 +5838,223 @@ class GalleryLocalizationsEnCa extends GalleryLocalizationsEn {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
 
   @override
   String get demoColorsTitle => 'Colours';
@@ -7821,6 +8255,223 @@ class GalleryLocalizationsEnGb extends GalleryLocalizationsEn {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+
+  @override
   String get demoColorsTitle => 'Colours';
 
   @override
@@ -10017,6 +10668,223 @@ class GalleryLocalizationsEnIe extends GalleryLocalizationsEn {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
 
   @override
   String get demoColorsTitle => 'Colours';
@@ -12217,6 +13085,223 @@ class GalleryLocalizationsEnIn extends GalleryLocalizationsEn {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+
+  @override
   String get demoColorsTitle => 'Colours';
 
   @override
@@ -14413,6 +15498,223 @@ class GalleryLocalizationsEnNz extends GalleryLocalizationsEn {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
 
   @override
   String get demoColorsTitle => 'Colours';
@@ -16613,6 +17915,223 @@ class GalleryLocalizationsEnSg extends GalleryLocalizationsEn {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+
+  @override
   String get demoColorsTitle => 'Colours';
 
   @override
@@ -18809,6 +20328,223 @@ class GalleryLocalizationsEnZa extends GalleryLocalizationsEn {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Motion';
+
+  @override
+  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+
+  @override
+  String get demoContainerTransformTitle => 'Container transform';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+
+  @override
+  String get demoContainerTransformTypeFade => 'FADE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Title';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Details page';
+
+  @override
+  String get demoMotionListTileTitle => 'List item';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y or z axis to reinforce the relationship between elements.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Shared x-axis';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'BACK';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'NEXT';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Bundled categories appear as groups in your feed. You can always change this later.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts and crafts';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Design';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown individually';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+
+  @override
+  String get demoSharedYAxisTitle => 'Shared y-axis';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albums';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Shared z-axis';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Shrimp plate recipe';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef sandwich';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Beef sandwich recipe';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Saved recipes';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Help';
+
+  @override
+  String get demoFadeThroughTitle => 'Fade through';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'The fade-through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albums';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Photos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Search';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 photos';
+
+  @override
+  String get demoFadeScaleTitle => 'Fade';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialogue that fades in the centre of the screen.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Alert dialogue';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
 
   @override
   String get demoColorsTitle => 'Colours';
