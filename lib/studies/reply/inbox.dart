@@ -376,7 +376,8 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
 
     _dropArrowController.forward();
     _drawerController.fling(
-        velocity: _bottomDrawerVisible ? -_kFlingVelocity : _kFlingVelocity);
+      velocity: _bottomDrawerVisible ? -_kFlingVelocity : _kFlingVelocity,
+    );
   }
 
   double get _bottomDrawerHeight {
@@ -400,11 +401,13 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
 
     if (flingVelocity < 0.0) {
       _drawerController.fling(
-          velocity: math.max(_kFlingVelocity, -flingVelocity));
+        velocity: math.max(_kFlingVelocity, -flingVelocity),
+      );
     } else if (flingVelocity > 0.0) {
       _dropArrowController.forward();
       _drawerController.fling(
-          velocity: math.min(-_kFlingVelocity, -flingVelocity));
+        velocity: math.min(-_kFlingVelocity, -flingVelocity),
+      );
     } else {
       if (_drawerController.value < 0.6) {
         _dropArrowController.forward();
@@ -434,7 +437,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     return Stack(
       overflow: Overflow.visible,
       key: _bottomDrawerKey,
-      children: <Widget>[
+      children: [
         mainLayer,
         GestureDetector(
           onTap: () {

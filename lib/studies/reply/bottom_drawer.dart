@@ -24,13 +24,13 @@ class BottomDrawer extends StatelessWidget {
       child: Material(
         color: ReplyColors.blue700,
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(12.0),
-          topRight: Radius.circular(12.0),
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
         ),
         child: ListView(
           padding: const EdgeInsets.all(12),
           physics: const NeverScrollableScrollPhysics(),
-          children: <Widget>[
+          children: [
             const SizedBox(height: 28),
             leading,
             const SizedBox(height: 8),
@@ -52,7 +52,7 @@ class BottomDrawer extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            trailing
+            trailing,
           ],
         ),
       ),
