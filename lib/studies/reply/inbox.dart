@@ -193,14 +193,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                                   size: 16,
                                 ),
                               ),
-                              const ImageIcon(
-                                AssetImage(
-                                  'reply/reply_logo.png',
-                                  package: _assetsPackage,
-                                ),
-                                size: 32,
-                                color: ReplyColors.blue50,
-                              ),
+                              const ReplyLogo(),
                               const SizedBox(width: 10),
                               if (_isExtended)
                                 Text(
@@ -309,22 +302,24 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     with TickerProviderStateMixin {
   final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   int _destinationsCount;
-  AnimationController _controller;
+  AnimationController _drawerController;
   AnimationController _dropArrowController;
-  Map<String, int> _destinationsIndex;
+  Map<String, int> _destinationsWithIndex;
   String _currentDestination;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    _drawerController = AnimationController(
       duration: const Duration(milliseconds: 350),
       value: 0,
       vsync: this,
     )..addListener(() {
-        if (_controller.value < 0.01) {
+        if (_drawerController.value < 0.01) {
           setState(() {
             //Reload state when drawer is at its smallest to toggle visibility
+            //If state is reloaded before this drawer closes abruptly instead
+            //of animating.
           });
         }
       });
@@ -347,14 +342,14 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     //a value from 0 .. # of destinations. Since our destinations are an ordered
     //LinkedHashMap we can use this map to keep track of the indexes for each
     //destination.
-    _destinationsIndex = {
+    _destinationsWithIndex = {
       for (var destination in widget.destinations.keys) destination: _nextInt
     };
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _drawerController.dispose();
     _dropArrowController.dispose();
     super.dispose();
   }
@@ -366,21 +361,21 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
   }
 
   bool get _bottomDrawerVisible {
-    final status = _controller.status;
+    final status = _drawerController.status;
     return status == AnimationStatus.completed ||
         status == AnimationStatus.forward;
   }
 
   void _toggleBottomDrawerVisibility() {
-    if (_controller.value < 0.6) {
+    if (_drawerController.value < 0.6) {
       setState(() {});
-      _controller.animateTo(0.6, curve: Curves.easeIn);
+      _drawerController.animateTo(0.6, curve: Curves.easeIn);
       _dropArrowController.animateTo(0.5, curve: Curves.easeIn);
       return;
     }
 
     _dropArrowController.forward();
-    _controller.fling(
+    _drawerController.fling(
         velocity: _bottomDrawerVisible ? -_kFlingVelocity : _kFlingVelocity);
   }
 
@@ -391,12 +386,12 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
   }
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    _controller.value -= details.primaryDelta / _bottomDrawerHeight;
+    _drawerController.value -= details.primaryDelta / _bottomDrawerHeight;
   }
 
   void _handleDragEnd(DragEndDetails details) {
-    if (_controller.isAnimating ||
-        _controller.status == AnimationStatus.completed) {
+    if (_drawerController.isAnimating ||
+        _drawerController.status == AnimationStatus.completed) {
       return;
     }
 
@@ -404,23 +399,27 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
         details.velocity.pixelsPerSecond.dy / _bottomDrawerHeight;
 
     if (flingVelocity < 0.0) {
-      _controller.fling(velocity: math.max(_kFlingVelocity, -flingVelocity));
+      _drawerController.fling(
+          velocity: math.max(_kFlingVelocity, -flingVelocity));
     } else if (flingVelocity > 0.0) {
       _dropArrowController.forward();
-      _controller.fling(velocity: math.min(-_kFlingVelocity, -flingVelocity));
+      _drawerController.fling(
+          velocity: math.min(-_kFlingVelocity, -flingVelocity));
     } else {
-      if (_controller.value < 0.6) {
+      if (_drawerController.value < 0.6) {
         _dropArrowController.forward();
       }
-      _controller.fling(
-          velocity:
-              _controller.value < 0.6 ? -_kFlingVelocity : _kFlingVelocity);
+      _drawerController.fling(
+          velocity: _drawerController.value < 0.6
+              ? -_kFlingVelocity
+              : _kFlingVelocity);
     }
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
+    final textTheme = Theme.of(context).textTheme;
     final mainLayer = Center(
       child: Container(
         child: const Text('Hello World'),
@@ -430,7 +429,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
       end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
-    ).animate(_controller.view);
+    ).animate(_drawerController.view);
 
     return Stack(
       overflow: Overflow.visible,
@@ -439,7 +438,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
         mainLayer,
         GestureDetector(
           onTap: () {
-            _controller.reverse();
+            _drawerController.reverse();
             _dropArrowController.reverse();
           },
           child: Visibility(
@@ -470,18 +469,22 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                   for (var destination in widget.destinations.keys)
                     InkWell(
                       onTap: () {
-                        _controller.reverse();
+                        _drawerController.reverse();
                         _dropArrowController.forward();
                         Future.delayed(
                             Duration(
                               milliseconds:
                                   GalleryOptions.of(context).timeDilation == 1
-                                      ? _controller.value == 1 ? 350 : 210
-                                      : _controller.value == 1 ? 1750 : 1050,
+                                      ? _drawerController.value == 1 ? 350 : 210
+                                      : _drawerController.value == 1
+                                          ? 1750
+                                          : 1050,
                             ), () {
                           //Wait until animations are complete to reload the
-                          //state.
-                          widget.onItemTapped(_destinationsIndex[destination]);
+                          //state. Delay is variable based on if the gallery
+                          //is in slow motion mode or not.
+                          widget.onItemTapped(
+                              _destinationsWithIndex[destination]);
                           _currentDestination = destination;
                         });
                       },
@@ -491,19 +494,19 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                             widget.destinations[destination],
                             package: _assetsPackage,
                           ),
-                          color: _destinationsIndex[destination] ==
+                          color: _destinationsWithIndex[destination] ==
                                   widget.selectedIndex
                               ? ReplyColors.orange500
                               : ReplyColors.blue200,
                         ),
                         title: Text(
                           destination,
-                          style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                color: _destinationsIndex[destination] ==
-                                        widget.selectedIndex
-                                    ? ReplyColors.orange500
-                                    : ReplyColors.blue200,
-                              ),
+                          style: textTheme.bodyText2.copyWith(
+                            color: _destinationsWithIndex[destination] ==
+                                    widget.selectedIndex
+                                ? ReplyColors.orange500
+                                : ReplyColors.blue200,
+                          ),
                         ),
                       ),
                     ),
@@ -524,9 +527,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                         ),
                         title: Text(
                           folder,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2
+                          style: textTheme.bodyText2
                               .copyWith(color: ReplyColors.blue200),
                         ),
                       ),
@@ -572,14 +573,7 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                       ),
                     ),
                     const SizedBox(width: 8),
-                    const ImageIcon(
-                      AssetImage(
-                        'reply/reply_logo.png',
-                        package: _assetsPackage,
-                      ),
-                      size: 32,
-                      color: ReplyColors.blue50,
-                    ),
+                    const ReplyLogo(),
                     const SizedBox(width: 10),
                     AnimatedOpacity(
                       opacity: _bottomDrawerVisible ? 0.0 : 1.0,
@@ -609,6 +603,22 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
               },
             ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+class ReplyLogo extends StatelessWidget {
+  const ReplyLogo({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const ImageIcon(
+      AssetImage(
+        'reply/reply_logo.png',
+        package: _assetsPackage,
+      ),
+      size: 32,
+      color: ReplyColors.blue50,
     );
   }
 }
