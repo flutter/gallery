@@ -2,8 +2,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
-import 'package:gallery/studies/reply/responsive_widget.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -32,6 +32,8 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+    final isTablet = isDisplaySmallDesktop(context);
     final localizations = GalleryLocalizations.of(context);
 
     final _navigationItems = <String, String>{
@@ -52,26 +54,28 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       'Freelance': _folderIconAssetLocation,
     };
 
-    return ResponsiveWidget(
-      desktopScreen: _BuildDesktopNav(
-        selectedIndex: _selectedIndex,
-        extended: true,
-        destinations: _navigationItems,
-        onItemTapped: _onDestinationSelected,
-      ),
-      tabletScreen: _BuildDesktopNav(
+    if (isTablet) {
+      return _BuildDesktopNav(
         selectedIndex: _selectedIndex,
         extended: false,
         destinations: _navigationItems,
         onItemTapped: _onDestinationSelected,
-      ),
-      mobileScreen: _BuildMobileNav(
+      );
+    } else if (isDesktop) {
+      return _BuildDesktopNav(
+        selectedIndex: _selectedIndex,
+        extended: true,
+        destinations: _navigationItems,
+        onItemTapped: _onDestinationSelected,
+      );
+    } else {
+      return _BuildMobileNav(
         selectedIndex: _selectedIndex,
         destinations: _navigationItems,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
-      ),
-    );
+      );
+    }
   }
 
   void _onDestinationSelected(int index) {
