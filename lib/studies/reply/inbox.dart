@@ -421,16 +421,11 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
-    final mainLayer = ListView.builder(
-        padding: const EdgeInsets.all(24),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Container(
-            height: 50,
-            color: ReplyColors.orange500,
-            child: Center(child: Text('Item $index')),
-          );
-        });
+    final mainLayer = Center(
+      child: Container(
+        child: const Text('Hello World'),
+      ),
+    );
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
