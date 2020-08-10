@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/studies/reply/colors.dart';
 
 class BottomDrawer extends StatelessWidget {
-  BottomDrawer({
+  const BottomDrawer({
     Key key,
     this.onVerticalDragUpdate,
     this.onVerticalDragEnd,
@@ -34,10 +34,6 @@ class BottomDrawer extends StatelessWidget {
             right: 0,
             child: SizedBox(child: header),
           ),
-//          Transform.translate(
-//            offset: const Offset(0,-24),
-//            child: SizedBox(child: header),
-//          ),
           Material(
             color: ReplyColors.blue700,
             borderRadius: const BorderRadius.only(
