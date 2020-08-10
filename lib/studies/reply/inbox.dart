@@ -309,7 +309,8 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                                   const SizedBox(height: 16),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.only(
-                                        start: 16),
+                                      start: 16,
+                                    ),
                                     child: Text(
                                       'FOLDERS',
                                       style: Theme.of(context)
@@ -574,21 +575,24 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
                         _drawerController.reverse();
                         _dropArrowController.forward();
                         Future.delayed(
-                            Duration(
-                              milliseconds:
-                                  GalleryOptions.of(context).timeDilation == 1
-                                      ? _drawerController.value == 1 ? 350 : 210
-                                      : _drawerController.value == 1
-                                          ? 1750
-                                          : 1050,
-                            ), () {
-                          //Wait until animations are complete to reload the
-                          //state. Delay is variable based on if the gallery
-                          //is in slow motion mode or not.
-                          widget.onItemTapped(
-                              _destinationsWithIndex[destination]);
-                          _currentDestination = destination;
-                        });
+                          Duration(
+                            milliseconds:
+                                GalleryOptions.of(context).timeDilation == 1
+                                    ? _drawerController.value == 1 ? 350 : 210
+                                    : _drawerController.value == 1
+                                        ? 1750
+                                        : 1050,
+                          ),
+                          () {
+                            //Wait until animations are complete to reload the
+                            //state. Delay is variable based on if the gallery
+                            //is in slow motion mode or not.
+                            widget.onItemTapped(
+                              _destinationsWithIndex[destination],
+                            );
+                            _currentDestination = destination;
+                          },
+                        );
                       },
                       child: ListTile(
                         leading: ImageIcon(
