@@ -974,10 +974,10 @@ class GalleryLocalizationsKo extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => '모션';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle => '사전 정의된 전환 패턴 전체';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -998,215 +998,213 @@ class GalleryLocalizationsKo extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => '컨테이너 변환';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      '컨테이너 변환 패턴은 컨테이너가 포함된 UI 요소 간의 전환을 위해 디자인되었습니다. 이 패턴은 두 UI 요소 간 시각적인 연결을 만들어 줍니다.';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => '페이드 모드';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => '페이드';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => '페이드 스루';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => '제목';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => '보조 텍스트';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => '보조';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => '세부정보 페이지';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => '목록 항목';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      '공유된 축 패턴은 공간 또는 탐색 관계를 가진 UI 패턴 간의 전환에 사용됩니다. 이 패턴은 x, y 또는 z축의 공유된 변환을 사용하여 요소 간 관계를 강화해 줍니다.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => '공유된 x축';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => '뒤로';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => '다음';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => '과정 간소화';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      '번들 카테고리가 피드에 그룹으로 표시됩니다. 나중에 언제든지 변경할 수 있습니다.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => '예술 및 공예';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => '비즈니스';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => '일러스트레이션';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => '디자인';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => '요리';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => '번들';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => '개별적으로 표시됨';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'David Park님, 안녕하세요.';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => '내 계정으로 로그인';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel => '이메일 주소 또는 전화번호';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => '이메일을 잊으셨나요?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => '계정 만들기';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => '공유된 y축';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '앨범 268개';
 
   @override
-  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+  String get demoSharedYAxisAlphabeticalSortTitle => '가나다순';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => '최근 재생한 항목';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => '앨범';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => '아티스트';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => '분';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => '공유된 z축';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => '설정';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => '햄버거';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => '햄버거 레시피';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => '샌드위치';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => '샌드위치 레시피';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => '디저트';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => '디저트 레시피';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => '새우';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+  String get demoSharedZAxisShrimpPlateRecipeDescription => '새우 요리 레시피';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => '게';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription => '게 요리 레시피';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => '비프 샌드위치';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+  String get demoSharedZAxisBeefSandwichRecipeDescription => '비프 샌드위치 레시피';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => '저장된 레시피';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => '프로필';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => '알림';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => '개인정보 보호';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => '도움말';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => '페이드 스루';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      '페이드 스루 패턴은 서로 큰 관련이 없는 UI 요소 간의 전환에 사용됩니다.';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => '앨범';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => '사진';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => '검색';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '사진 123장';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => '페이드';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      '페이드 패턴은 화면 중앙에서 점점 뚜렷해지며 나타나는 대화상자와 같이 화면 경계 내에서 나타나거나 사라지는 UI 요소에 사용됩니다.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => '모달 표시';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'FAB 표시';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'FAB 숨기기';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => '알림 대화상자';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => '취소';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => '삭제';
 
   @override
   String get demoColorsTitle => '색상';

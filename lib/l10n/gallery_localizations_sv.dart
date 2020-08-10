@@ -996,10 +996,10 @@ class GalleryLocalizationsSv extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'Pinkod';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'Rörelse';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle => 'Alla fördefinierade övergångsmönster';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1020,103 +1020,105 @@ class GalleryLocalizationsSv extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'Behållartransformering';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'Mönstret med behållartransformering är avsett för övergångar mellan element i användargränssnittet där en behållare är inblandad. Mönstret ger en synlig koppling mellan två element i användargränssnittet';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => 'Intoningsläge';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'TONA IN/UT';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'TONA GENOM';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'Namn';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'Sekundär text';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'Sekundärt';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'Informationssida';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'Post i lista';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'Mönstret med delad axel används för övergångar mellan element i användargränssnittet som hänger ihop rumsligt eller navigeringsmässigt. Mönstret förstärker den inbördes relationen mellan element med hjälp av en övergång längs en gemensam x-, y- eller z-axel.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'Delad x-axel';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'TILLBAKA';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'NÄSTA';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => 'Skräddarsy dina kurser';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'Grupperade kategorier visas som grupper i flödet. Du kan alltid ändra detta senare.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Konst och hantverk';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'Ekonomi';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'Bild';
 
   @override
   String get demoSharedXAxisDesignCourseTitle => 'Design';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'Matlagning';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'Grupperad';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Visas enskilt';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'Hej, David Park!';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => 'Logga in på ditt konto';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'E-postadress eller telefonnummer';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText =>
+      'HAR DU GLÖMT DIN E-POSTADRESS?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'SKAPA KONTO';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'Delad y-axel';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '268 album';
 
   @override
-  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Ö';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'Nyligen spelade';
 
   @override
   String get demoSharedYAxisAlbumTileTitle => 'Album';
@@ -1128,107 +1130,108 @@ class GalleryLocalizationsSv extends GalleryLocalizations {
   String get demoSharedYAxisAlbumTileDurationUnit => 'min';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'Delad z-axel';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'Inställningar';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburgare';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'Recept på hamburgare';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'Dubbelmacka';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription =>
+      'Recept på dubbelmacka';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'Efterrätt';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'Recept på efterrätt';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Räkor';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'Recept på räktallrik';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Krabba';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'Recept på krabba';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Biffmacka';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'Recept på biffmacka';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'Sparade recept';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'Profil';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'Aviseringar';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'Sekretess';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'Hjälp';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'Tona genom';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'Mönstret med genomtoning används för övergångar mellan element i användargränssnittet som inte har någon tydlig inbördes koppling.';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'Album';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'Foton';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'Sök';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 foton';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'Tona in/ut';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'Mönstret med objekt som tonar in/ut används för element i användargränssnittet som kommer in på eller lämnar skärmen, t.ex. en dialogruta som tonar in mitt på skärmen.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'VISA MODALT ARK';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'VISA FLYTANDE ÅTGÄRDSKNAPP';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'DÖLJ FLYTANDE ÅTGÄRDSKNAPP';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'Varningsdialogruta';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'AVBRYT';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'IGNORERA';
 
   @override
   String get demoColorsTitle => 'Färger';

@@ -424,7 +424,7 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
   String get settingsSlowMotion => 'التصوير البطيء';
 
   @override
-  String get settingsAbout => 'نبذة عن معرض Flutter';
+  String get settingsAbout => 'لمحة عن معرض Flutter';
 
   @override
   String get settingsFeedback => 'إرسال التعليقات';
@@ -998,10 +998,10 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'رقم التعريف الشخصي';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'الحركة';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle => 'كل أنماط الانتقال المُعرَّفة مسبقًا';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1022,215 +1022,216 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'تحويل الحاوية';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'تم تصميم نمط تحويل الحاوية لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تتضمّن حاوية. ينشئ هذا النمط تأثير ربط مرئي بين عنصرين في واجهة المستخدم.';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => 'وضع التلاشي';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'التلاشي';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'التلاشي التدريجي';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'عنوان';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'نص ثانوي';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'ثانوي';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'صفحة تفاصيل';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'عنصر قائمة';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'يتم استخدام نمط المحور المشترك لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تربطها علاقة انتقال أو علاقة مكانية. يستخدم هذا النمط التحويل المشترك على محور \"س\" أو \"ص\" أو \"ع\" لتعزيز العلاقة بين العناصر.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'محور \"س\" المشترك';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'رجوع';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'التالي';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => 'تقديم دوراتك بسلاسة';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'تظهر الفئات المجمّعة كمجموعات في الخلاصة. يمكنك دائمًا تغيير هذا لاحقًا.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'فنون وأعمال حِرَفية';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'أنشطة تجارية';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'صور توضيحية';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => 'تصميمات';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'طهي';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'مجمّع';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => 'تظهر بشكل فردي';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'مرحبًا David Park';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => 'تسجيل الدخول باستخدام حسابك';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'البريد الإلكتروني أو رقم الهاتف';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText =>
+      'هل نسيت البريد الإلكتروني؟';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'إنشاء حساب';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'محور \"ص\" المشترك';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '268 ألبومًا';
 
   @override
-  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+  String get demoSharedYAxisAlphabeticalSortTitle => 'أ-ي';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'شغلت مؤخرًا';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => 'ألبوم';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => 'فنان';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => 'دقيقة';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'محور \"ع\" المشترك';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'الإعدادات';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'برغر';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'وصفة البرغر';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'شطيرة';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => 'وصفة الشطيرة';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'حلويات';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'وصفة الحلويات';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'روبيان';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+  String get demoSharedZAxisShrimpPlateRecipeDescription => 'وصفة طبق الروبيان';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'سلطعون';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'وصفة طبق السلطعون';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'شطيرة لحم بقري';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'وصفة شطيرة اللحم البقري';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'الوصفات المحفوظة';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'الملف الشخصي';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'الإشعارات';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'الخصوصية';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'مساعدة';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'التلاشي التدريجي';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'يتم استخدام نمط التلاشي التدريجي لتأثيرات الانتقال بين عناصر واجهة المستخدم التي لا تربطها علاقة قوية ببعضها.';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'ألبومات';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'صور';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'بحث';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 صورة';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'التلاشي';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'يتم استخدام نمط التلاشي مع عناصر واجهة المستخدم التي تدخل في حدود الشاشة أو تخرج منها، مثلاً مربّع حوار يتلاشى في مركز الشاشة.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'إظهار مربّع حوار مشروط';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'إظهار زر الإجراء الرئيسي (FAB)';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'إخفاء زر الإجراء الرئيسي (FAB)';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'مربّع حوار تنبيه';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'إلغاء';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'تجاهل';
 
   @override
   String get demoColorsTitle => 'الألوان';
@@ -1416,7 +1417,7 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
       'مربّعات الاختيار وأزرار الاختيار ومفاتيح التبديل';
 
   @override
-  String get demoSelectionControlsCheckboxTitle => 'مربّع اختيار';
+  String get demoSelectionControlsCheckboxTitle => 'مربع اختيار';
 
   @override
   String get demoSelectionControlsCheckboxDescription =>
@@ -1623,7 +1624,7 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
   String get dialogAgree => 'موافق';
 
   @override
-  String get dialogSetBackup => 'تحديد حساب النسخة الاحتياطية';
+  String get dialogSetBackup => 'اختيار الحساب الاحتياطي';
 
   @override
   String get dialogAddAccount => 'إضافة حساب';
@@ -2883,7 +2884,7 @@ class GalleryLocalizationsArEg extends GalleryLocalizationsAr {
   String get settingsSlowMotion => 'التصوير البطيء';
 
   @override
-  String get settingsAbout => 'نبذة عن معرض Flutter';
+  String get settingsAbout => 'لمحة عن معرض Flutter';
 
   @override
   String get settingsFeedback => 'إرسال التعليقات';
@@ -3457,6 +3458,224 @@ class GalleryLocalizationsArEg extends GalleryLocalizationsAr {
   String get demoCupertinoTextFieldPIN => 'رقم التعريف الشخصي';
 
   @override
+  String get demoMotionTitle => 'الحركة';
+
+  @override
+  String get demoMotionSubtitle => 'كل أنماط الانتقال المُعرَّفة مسبقًا';
+
+  @override
+  String get demoContainerTransformTitle => 'تحويل الحاوية';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'تم تصميم نمط تحويل الحاوية لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تتضمّن حاوية. ينشئ هذا النمط تأثير ربط مرئي بين عنصرين في واجهة المستخدم.';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'وضع التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFade => 'التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'التلاشي التدريجي';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'عنوان';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'نص ثانوي';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'ثانوي';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'صفحة تفاصيل';
+
+  @override
+  String get demoMotionListTileTitle => 'عنصر قائمة';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'يتم استخدام نمط المحور المشترك لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تربطها علاقة انتقال أو علاقة مكانية. يستخدم هذا النمط التحويل المشترك على محور \"س\" أو \"ص\" أو \"ع\" لتعزيز العلاقة بين العناصر.';
+
+  @override
+  String get demoSharedXAxisTitle => 'محور \"س\" المشترك';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'رجوع';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'التالي';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'تقديم دوراتك بسلاسة';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'تظهر الفئات المجمّعة كمجموعات في الخلاصة. يمكنك دائمًا تغيير هذا لاحقًا.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'فنون وأعمال حِرَفية';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'أنشطة تجارية';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'صور توضيحية';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'تصميمات';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'طهي';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'مجمّع';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'تظهر بشكل فردي';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'مرحبًا David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'تسجيل الدخول باستخدام حسابك';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'البريد الإلكتروني أو رقم الهاتف';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      'هل نسيت البريد الإلكتروني؟';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'إنشاء حساب';
+
+  @override
+  String get demoSharedYAxisTitle => 'محور \"ص\" المشترك';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 ألبومًا';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'أ-ي';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'شغلت مؤخرًا';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'ألبوم';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'فنان';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'دقيقة';
+
+  @override
+  String get demoSharedZAxisTitle => 'محور \"ع\" المشترك';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'الإعدادات';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'برغر';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'وصفة البرغر';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'شطيرة';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'وصفة الشطيرة';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'حلويات';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'وصفة الحلويات';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'روبيان';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => 'وصفة طبق الروبيان';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'سلطعون';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'وصفة طبق السلطعون';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'شطيرة لحم بقري';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'وصفة شطيرة اللحم البقري';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'الوصفات المحفوظة';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'الملف الشخصي';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'الإشعارات';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'الخصوصية';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'مساعدة';
+
+  @override
+  String get demoFadeThroughTitle => 'التلاشي التدريجي';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'يتم استخدام نمط التلاشي التدريجي لتأثيرات الانتقال بين عناصر واجهة المستخدم التي لا تربطها علاقة قوية ببعضها.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'ألبومات';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'صور';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'بحث';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 صورة';
+
+  @override
+  String get demoFadeScaleTitle => 'التلاشي';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'يتم استخدام نمط التلاشي مع عناصر واجهة المستخدم التي تدخل في حدود الشاشة أو تخرج منها، مثلاً مربّع حوار يتلاشى في مركز الشاشة.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'إظهار مربّع حوار مشروط';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'إظهار زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'إخفاء زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'مربّع حوار تنبيه';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'إلغاء';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'تجاهل';
+
+  @override
   String get demoColorsTitle => 'الألوان';
 
   @override
@@ -3640,7 +3859,7 @@ class GalleryLocalizationsArEg extends GalleryLocalizationsAr {
       'مربّعات الاختيار وأزرار الاختيار ومفاتيح التبديل';
 
   @override
-  String get demoSelectionControlsCheckboxTitle => 'مربّع اختيار';
+  String get demoSelectionControlsCheckboxTitle => 'مربع اختيار';
 
   @override
   String get demoSelectionControlsCheckboxDescription =>
@@ -3847,7 +4066,7 @@ class GalleryLocalizationsArEg extends GalleryLocalizationsAr {
   String get dialogAgree => 'موافق';
 
   @override
-  String get dialogSetBackup => 'تحديد حساب النسخة الاحتياطية';
+  String get dialogSetBackup => 'اختيار الحساب الاحتياطي';
 
   @override
   String get dialogAddAccount => 'إضافة حساب';
@@ -5107,7 +5326,7 @@ class GalleryLocalizationsArJo extends GalleryLocalizationsAr {
   String get settingsSlowMotion => 'التصوير البطيء';
 
   @override
-  String get settingsAbout => 'نبذة عن معرض Flutter';
+  String get settingsAbout => 'لمحة عن معرض Flutter';
 
   @override
   String get settingsFeedback => 'إرسال التعليقات';
@@ -5681,6 +5900,224 @@ class GalleryLocalizationsArJo extends GalleryLocalizationsAr {
   String get demoCupertinoTextFieldPIN => 'رقم التعريف الشخصي';
 
   @override
+  String get demoMotionTitle => 'الحركة';
+
+  @override
+  String get demoMotionSubtitle => 'كل أنماط الانتقال المُعرَّفة مسبقًا';
+
+  @override
+  String get demoContainerTransformTitle => 'تحويل الحاوية';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'تم تصميم نمط تحويل الحاوية لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تتضمّن حاوية. ينشئ هذا النمط تأثير ربط مرئي بين عنصرين في واجهة المستخدم.';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'وضع التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFade => 'التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'التلاشي التدريجي';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'عنوان';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'نص ثانوي';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'ثانوي';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'صفحة تفاصيل';
+
+  @override
+  String get demoMotionListTileTitle => 'عنصر قائمة';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'يتم استخدام نمط المحور المشترك لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تربطها علاقة انتقال أو علاقة مكانية. يستخدم هذا النمط التحويل المشترك على محور \"س\" أو \"ص\" أو \"ع\" لتعزيز العلاقة بين العناصر.';
+
+  @override
+  String get demoSharedXAxisTitle => 'محور \"س\" المشترك';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'رجوع';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'التالي';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'تقديم دوراتك بسلاسة';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'تظهر الفئات المجمّعة كمجموعات في الخلاصة. يمكنك دائمًا تغيير هذا لاحقًا.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'فنون وأعمال حِرَفية';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'أنشطة تجارية';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'صور توضيحية';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'تصميمات';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'طهي';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'مجمّع';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'تظهر بشكل فردي';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'مرحبًا David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'تسجيل الدخول باستخدام حسابك';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'البريد الإلكتروني أو رقم الهاتف';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      'هل نسيت البريد الإلكتروني؟';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'إنشاء حساب';
+
+  @override
+  String get demoSharedYAxisTitle => 'محور \"ص\" المشترك';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 ألبومًا';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'أ-ي';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'شغلت مؤخرًا';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'ألبوم';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'فنان';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'دقيقة';
+
+  @override
+  String get demoSharedZAxisTitle => 'محور \"ع\" المشترك';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'الإعدادات';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'برغر';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'وصفة البرغر';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'شطيرة';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'وصفة الشطيرة';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'حلويات';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'وصفة الحلويات';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'روبيان';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => 'وصفة طبق الروبيان';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'سلطعون';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'وصفة طبق السلطعون';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'شطيرة لحم بقري';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'وصفة شطيرة اللحم البقري';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'الوصفات المحفوظة';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'الملف الشخصي';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'الإشعارات';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'الخصوصية';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'مساعدة';
+
+  @override
+  String get demoFadeThroughTitle => 'التلاشي التدريجي';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'يتم استخدام نمط التلاشي التدريجي لتأثيرات الانتقال بين عناصر واجهة المستخدم التي لا تربطها علاقة قوية ببعضها.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'ألبومات';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'صور';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'بحث';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 صورة';
+
+  @override
+  String get demoFadeScaleTitle => 'التلاشي';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'يتم استخدام نمط التلاشي مع عناصر واجهة المستخدم التي تدخل في حدود الشاشة أو تخرج منها، مثلاً مربّع حوار يتلاشى في مركز الشاشة.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'إظهار مربّع حوار مشروط';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'إظهار زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'إخفاء زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'مربّع حوار تنبيه';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'إلغاء';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'تجاهل';
+
+  @override
   String get demoColorsTitle => 'الألوان';
 
   @override
@@ -5864,7 +6301,7 @@ class GalleryLocalizationsArJo extends GalleryLocalizationsAr {
       'مربّعات الاختيار وأزرار الاختيار ومفاتيح التبديل';
 
   @override
-  String get demoSelectionControlsCheckboxTitle => 'مربّع اختيار';
+  String get demoSelectionControlsCheckboxTitle => 'مربع اختيار';
 
   @override
   String get demoSelectionControlsCheckboxDescription =>
@@ -6071,7 +6508,7 @@ class GalleryLocalizationsArJo extends GalleryLocalizationsAr {
   String get dialogAgree => 'موافق';
 
   @override
-  String get dialogSetBackup => 'تحديد حساب النسخة الاحتياطية';
+  String get dialogSetBackup => 'اختيار الحساب الاحتياطي';
 
   @override
   String get dialogAddAccount => 'إضافة حساب';
@@ -7331,7 +7768,7 @@ class GalleryLocalizationsArMa extends GalleryLocalizationsAr {
   String get settingsSlowMotion => 'التصوير البطيء';
 
   @override
-  String get settingsAbout => 'نبذة عن معرض Flutter';
+  String get settingsAbout => 'لمحة عن معرض Flutter';
 
   @override
   String get settingsFeedback => 'إرسال التعليقات';
@@ -7905,6 +8342,224 @@ class GalleryLocalizationsArMa extends GalleryLocalizationsAr {
   String get demoCupertinoTextFieldPIN => 'رقم التعريف الشخصي';
 
   @override
+  String get demoMotionTitle => 'الحركة';
+
+  @override
+  String get demoMotionSubtitle => 'كل أنماط الانتقال المُعرَّفة مسبقًا';
+
+  @override
+  String get demoContainerTransformTitle => 'تحويل الحاوية';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'تم تصميم نمط تحويل الحاوية لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تتضمّن حاوية. ينشئ هذا النمط تأثير ربط مرئي بين عنصرين في واجهة المستخدم.';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'وضع التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFade => 'التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'التلاشي التدريجي';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'عنوان';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'نص ثانوي';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'ثانوي';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'صفحة تفاصيل';
+
+  @override
+  String get demoMotionListTileTitle => 'عنصر قائمة';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'يتم استخدام نمط المحور المشترك لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تربطها علاقة انتقال أو علاقة مكانية. يستخدم هذا النمط التحويل المشترك على محور \"س\" أو \"ص\" أو \"ع\" لتعزيز العلاقة بين العناصر.';
+
+  @override
+  String get demoSharedXAxisTitle => 'محور \"س\" المشترك';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'رجوع';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'التالي';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'تقديم دوراتك بسلاسة';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'تظهر الفئات المجمّعة كمجموعات في الخلاصة. يمكنك دائمًا تغيير هذا لاحقًا.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'فنون وأعمال حِرَفية';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'أنشطة تجارية';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'صور توضيحية';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'تصميمات';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'طهي';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'مجمّع';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'تظهر بشكل فردي';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'مرحبًا David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'تسجيل الدخول باستخدام حسابك';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'البريد الإلكتروني أو رقم الهاتف';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      'هل نسيت البريد الإلكتروني؟';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'إنشاء حساب';
+
+  @override
+  String get demoSharedYAxisTitle => 'محور \"ص\" المشترك';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 ألبومًا';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'أ-ي';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'شغلت مؤخرًا';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'ألبوم';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'فنان';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'دقيقة';
+
+  @override
+  String get demoSharedZAxisTitle => 'محور \"ع\" المشترك';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'الإعدادات';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'برغر';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'وصفة البرغر';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'شطيرة';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'وصفة الشطيرة';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'حلويات';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'وصفة الحلويات';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'روبيان';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => 'وصفة طبق الروبيان';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'سلطعون';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'وصفة طبق السلطعون';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'شطيرة لحم بقري';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'وصفة شطيرة اللحم البقري';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'الوصفات المحفوظة';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'الملف الشخصي';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'الإشعارات';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'الخصوصية';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'مساعدة';
+
+  @override
+  String get demoFadeThroughTitle => 'التلاشي التدريجي';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'يتم استخدام نمط التلاشي التدريجي لتأثيرات الانتقال بين عناصر واجهة المستخدم التي لا تربطها علاقة قوية ببعضها.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'ألبومات';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'صور';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'بحث';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 صورة';
+
+  @override
+  String get demoFadeScaleTitle => 'التلاشي';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'يتم استخدام نمط التلاشي مع عناصر واجهة المستخدم التي تدخل في حدود الشاشة أو تخرج منها، مثلاً مربّع حوار يتلاشى في مركز الشاشة.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'إظهار مربّع حوار مشروط';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'إظهار زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'إخفاء زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'مربّع حوار تنبيه';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'إلغاء';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'تجاهل';
+
+  @override
   String get demoColorsTitle => 'الألوان';
 
   @override
@@ -8088,7 +8743,7 @@ class GalleryLocalizationsArMa extends GalleryLocalizationsAr {
       'مربّعات الاختيار وأزرار الاختيار ومفاتيح التبديل';
 
   @override
-  String get demoSelectionControlsCheckboxTitle => 'مربّع اختيار';
+  String get demoSelectionControlsCheckboxTitle => 'مربع اختيار';
 
   @override
   String get demoSelectionControlsCheckboxDescription =>
@@ -8295,7 +8950,7 @@ class GalleryLocalizationsArMa extends GalleryLocalizationsAr {
   String get dialogAgree => 'موافق';
 
   @override
-  String get dialogSetBackup => 'تحديد حساب النسخة الاحتياطية';
+  String get dialogSetBackup => 'اختيار الحساب الاحتياطي';
 
   @override
   String get dialogAddAccount => 'إضافة حساب';
@@ -9555,7 +10210,7 @@ class GalleryLocalizationsArSa extends GalleryLocalizationsAr {
   String get settingsSlowMotion => 'التصوير البطيء';
 
   @override
-  String get settingsAbout => 'نبذة عن معرض Flutter';
+  String get settingsAbout => 'لمحة عن معرض Flutter';
 
   @override
   String get settingsFeedback => 'إرسال التعليقات';
@@ -10129,6 +10784,224 @@ class GalleryLocalizationsArSa extends GalleryLocalizationsAr {
   String get demoCupertinoTextFieldPIN => 'رقم التعريف الشخصي';
 
   @override
+  String get demoMotionTitle => 'الحركة';
+
+  @override
+  String get demoMotionSubtitle => 'كل أنماط الانتقال المُعرَّفة مسبقًا';
+
+  @override
+  String get demoContainerTransformTitle => 'تحويل الحاوية';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'تم تصميم نمط تحويل الحاوية لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تتضمّن حاوية. ينشئ هذا النمط تأثير ربط مرئي بين عنصرين في واجهة المستخدم.';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => 'وضع التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFade => 'التلاشي';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'التلاشي التدريجي';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'عنوان';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'نص ثانوي';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'ثانوي';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'صفحة تفاصيل';
+
+  @override
+  String get demoMotionListTileTitle => 'عنصر قائمة';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'يتم استخدام نمط المحور المشترك لتأثيرات الانتقال بين العناصر في واجهة المستخدم التي تربطها علاقة انتقال أو علاقة مكانية. يستخدم هذا النمط التحويل المشترك على محور \"س\" أو \"ص\" أو \"ع\" لتعزيز العلاقة بين العناصر.';
+
+  @override
+  String get demoSharedXAxisTitle => 'محور \"س\" المشترك';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'رجوع';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'التالي';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'تقديم دوراتك بسلاسة';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'تظهر الفئات المجمّعة كمجموعات في الخلاصة. يمكنك دائمًا تغيير هذا لاحقًا.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'فنون وأعمال حِرَفية';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'أنشطة تجارية';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'صور توضيحية';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'تصميمات';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'طهي';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'مجمّع';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => 'تظهر بشكل فردي';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'مرحبًا David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'تسجيل الدخول باستخدام حسابك';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'البريد الإلكتروني أو رقم الهاتف';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      'هل نسيت البريد الإلكتروني؟';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'إنشاء حساب';
+
+  @override
+  String get demoSharedYAxisTitle => 'محور \"ص\" المشترك';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 ألبومًا';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'أ-ي';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'شغلت مؤخرًا';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'ألبوم';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'فنان';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'دقيقة';
+
+  @override
+  String get demoSharedZAxisTitle => 'محور \"ع\" المشترك';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'الإعدادات';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'برغر';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'وصفة البرغر';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'شطيرة';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'وصفة الشطيرة';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'حلويات';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'وصفة الحلويات';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'روبيان';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => 'وصفة طبق الروبيان';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'سلطعون';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'وصفة طبق السلطعون';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'شطيرة لحم بقري';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'وصفة شطيرة اللحم البقري';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'الوصفات المحفوظة';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'الملف الشخصي';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'الإشعارات';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'الخصوصية';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'مساعدة';
+
+  @override
+  String get demoFadeThroughTitle => 'التلاشي التدريجي';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'يتم استخدام نمط التلاشي التدريجي لتأثيرات الانتقال بين عناصر واجهة المستخدم التي لا تربطها علاقة قوية ببعضها.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'ألبومات';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'صور';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'بحث';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 صورة';
+
+  @override
+  String get demoFadeScaleTitle => 'التلاشي';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'يتم استخدام نمط التلاشي مع عناصر واجهة المستخدم التي تدخل في حدود الشاشة أو تخرج منها، مثلاً مربّع حوار يتلاشى في مركز الشاشة.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'إظهار مربّع حوار مشروط';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'إظهار زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'إخفاء زر الإجراء الرئيسي (FAB)';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'مربّع حوار تنبيه';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'إلغاء';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'تجاهل';
+
+  @override
   String get demoColorsTitle => 'الألوان';
 
   @override
@@ -10312,7 +11185,7 @@ class GalleryLocalizationsArSa extends GalleryLocalizationsAr {
       'مربّعات الاختيار وأزرار الاختيار ومفاتيح التبديل';
 
   @override
-  String get demoSelectionControlsCheckboxTitle => 'مربّع اختيار';
+  String get demoSelectionControlsCheckboxTitle => 'مربع اختيار';
 
   @override
   String get demoSelectionControlsCheckboxDescription =>
@@ -10519,7 +11392,7 @@ class GalleryLocalizationsArSa extends GalleryLocalizationsAr {
   String get dialogAgree => 'موافق';
 
   @override
-  String get dialogSetBackup => 'تحديد حساب النسخة الاحتياطية';
+  String get dialogSetBackup => 'اختيار الحساب الاحتياطي';
 
   @override
   String get dialogAddAccount => 'إضافة حساب';
