@@ -413,9 +413,9 @@ class __BuildMobileNavState extends State<_BuildMobileNav>
         _dropArrowController.forward();
       }
       _drawerController.fling(
-          velocity: _drawerController.value < 0.6
-              ? -_kFlingVelocity
-              : _kFlingVelocity);
+        velocity:
+            _drawerController.value < 0.6 ? -_kFlingVelocity : _kFlingVelocity,
+      );
     }
   }
 
