@@ -35,7 +35,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
     final localizations = GalleryLocalizations.of(context);
-    Widget navigation;
 
     final _navigationItems = <String, String>{
       localizations.replyInboxLabel: '$_iconAssetLocation/twotone_inbox.png',
@@ -55,38 +54,28 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       'Freelance': _folderIconAssetLocation,
     };
 
-    switch (isTablet) {
-      case true:
-        {
-          navigation = _BuildDesktopNav(
-            selectedIndex: _selectedIndex,
-            extended: false,
-            destinations: _navigationItems,
-            onItemTapped: _onDestinationSelected,
-          );
-          break;
-        }
-      case false:
-        {
-          if (isDesktop) {
-            navigation = _BuildDesktopNav(
-              selectedIndex: _selectedIndex,
-              extended: true,
-              destinations: _navigationItems,
-              onItemTapped: _onDestinationSelected,
-            );
-          } else {
-            navigation = _BuildMobileNav(
-              selectedIndex: _selectedIndex,
-              destinations: _navigationItems,
-              folders: _folders,
-              onItemTapped: _onDestinationSelected,
-            );
-          }
-          break;
-        }
+    if (isTablet) {
+      return _BuildDesktopNav(
+        selectedIndex: _selectedIndex,
+        extended: false,
+        destinations: _navigationItems,
+        onItemTapped: _onDestinationSelected,
+      );
+    } else if (isDesktop) {
+      return _BuildDesktopNav(
+        selectedIndex: _selectedIndex,
+        extended: true,
+        destinations: _navigationItems,
+        onItemTapped: _onDestinationSelected,
+      );
+    } else {
+      return _BuildMobileNav(
+        selectedIndex: _selectedIndex,
+        destinations: _navigationItems,
+        folders: _folders,
+        onItemTapped: _onDestinationSelected,
+      );
     }
-    return navigation;
   }
 
   void _onDestinationSelected(int index) {
