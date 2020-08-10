@@ -1,10 +1,15 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
-import 'package:gallery/studies/reply/responsive_widget.dart';
+import 'package:gallery/studies/reply/bottom_drawer.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
+const _folderIconAssetLocation = '$_iconAssetLocation/twotone_folder.png';
+const double _kFlingVelocity = 2.0;
 
 class InboxPage extends StatelessWidget {
   const InboxPage();
@@ -27,6 +32,8 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+    final isTablet = isDisplaySmallDesktop(context);
     final localizations = GalleryLocalizations.of(context);
 
     final _navigationItems = <String, String>{
@@ -38,25 +45,37 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       localizations.replyDraftsLabel: '$_iconAssetLocation/twotone_drafts.png',
     };
 
-    return ResponsiveWidget(
-      desktopScreen: _BuildDesktopNav(
-        selectedIndex: _selectedIndex,
-        extended: true,
-        destinations: _navigationItems,
-        onItemTapped: _onDestinationSelected,
-      ),
-      tabletScreen: _BuildDesktopNav(
+    final _folders = <String, String>{
+      'Receipts': _folderIconAssetLocation,
+      'Pine Elementary': _folderIconAssetLocation,
+      'Taxes': _folderIconAssetLocation,
+      'Vacation': _folderIconAssetLocation,
+      'Mortgage': _folderIconAssetLocation,
+      'Freelance': _folderIconAssetLocation,
+    };
+
+    if (isTablet) {
+      return _BuildDesktopNav(
         selectedIndex: _selectedIndex,
         extended: false,
         destinations: _navigationItems,
         onItemTapped: _onDestinationSelected,
-      ),
-      mobileScreen: _BuildMobileNav(
+      );
+    } else if (isDesktop) {
+      return _BuildDesktopNav(
         selectedIndex: _selectedIndex,
+        extended: true,
         destinations: _navigationItems,
         onItemTapped: _onDestinationSelected,
-      ),
-    );
+      );
+    } else {
+      return _BuildMobileNav(
+        selectedIndex: _selectedIndex,
+        destinations: _navigationItems,
+        folders: _folders,
+        onItemTapped: _onDestinationSelected,
+      );
+    }
   }
 
   void _onDestinationSelected(int index) {
@@ -178,14 +197,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                                   size: 16,
                                 ),
                               ),
-                              const ImageIcon(
-                                AssetImage(
-                                  'reply/reply_logo.png',
-                                  package: _assetsPackage,
-                                ),
-                                size: 32,
-                                color: ReplyColors.blue50,
-                              ),
+                              const ReplyLogo(),
                               const SizedBox(width: 10),
                               if (_isExtended)
                                 Text(
@@ -237,7 +249,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
                     heroTag: 'Rail FAB',
                     isExtended: _isExtended,
                     onPressed: () {
-                      // TODO: Implement onPressed for FAB
+                      // TODO: Implement onPressed for Rail FAB
                     },
                     label: Row(
                       children: [
@@ -278,31 +290,342 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
   }
 }
 
-class _BuildMobileNav extends StatelessWidget {
+class _BuildMobileNav extends StatefulWidget {
   const _BuildMobileNav(
-      {this.selectedIndex, this.destinations, this.onItemTapped});
+      {this.selectedIndex, this.destinations, this.folders, this.onItemTapped});
   final int selectedIndex;
   final Map<String, String> destinations;
+  final Map<String, String> folders;
   final void Function(int) onItemTapped;
+
+  @override
+  __BuildMobileNavState createState() => __BuildMobileNavState();
+}
+
+class __BuildMobileNavState extends State<_BuildMobileNav>
+    with TickerProviderStateMixin {
+  final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
+  int _destinationsCount;
+  AnimationController _drawerController;
+  AnimationController _dropArrowController;
+  Map<String, int> _destinationsWithIndex;
+  String _currentDestination;
+
+  @override
+  void initState() {
+    super.initState();
+    _drawerController = AnimationController(
+      duration: const Duration(milliseconds: 350),
+      value: 0,
+      vsync: this,
+    )..addListener(() {
+        if (_drawerController.value < 0.01) {
+          setState(() {
+            //Reload state when drawer is at its smallest to toggle visibility
+            //If state is reloaded before this drawer closes abruptly instead
+            //of animating.
+          });
+        }
+      });
+
+    _dropArrowController = AnimationController(
+      duration: const Duration(milliseconds: 350),
+      vsync: this,
+    );
+    _destinationsCount = 0;
+
+    for (var destination in widget.destinations.keys) {
+      if (_destinationsCount == widget.selectedIndex) {
+        _currentDestination = destination;
+      }
+      _destinationsCount = _destinationsCount + 1;
+    }
+
+    _destinationsCount = 0;
+
+    //Build a map from destinations with the name of destination as the key and
+    //a value from 0 .. # of destinations. Since our destinations are an ordered
+    //LinkedHashMap we can use this map to keep track of the indexes for each
+    //destination.
+    _destinationsWithIndex = {
+      for (var destination in widget.destinations.keys) destination: _nextInt
+    };
+  }
+
+  @override
+  void dispose() {
+    _drawerController.dispose();
+    _dropArrowController.dispose();
+    super.dispose();
+  }
+
+  int get _nextInt {
+    final _lastInt = _destinationsCount;
+    _destinationsCount = _destinationsCount + 1;
+    return _lastInt;
+  }
+
+  bool get _bottomDrawerVisible {
+    final status = _drawerController.status;
+    return status == AnimationStatus.completed ||
+        status == AnimationStatus.forward;
+  }
+
+  void _toggleBottomDrawerVisibility() {
+    if (_drawerController.value < 0.6) {
+      _drawerController.animateTo(0.6, curve: Curves.easeIn);
+      _dropArrowController.animateTo(0.5, curve: Curves.easeIn);
+      return;
+    }
+
+    _dropArrowController.forward();
+    _drawerController.fling(
+      velocity: _bottomDrawerVisible ? -_kFlingVelocity : _kFlingVelocity,
+    );
+  }
+
+  double get _bottomDrawerHeight {
+    final renderBox =
+        _bottomDrawerKey.currentContext.findRenderObject() as RenderBox;
+    return renderBox.size.height;
+  }
+
+  void _handleDragUpdate(DragUpdateDetails details) {
+    _drawerController.value -= details.primaryDelta / _bottomDrawerHeight;
+  }
+
+  void _handleDragEnd(DragEndDetails details) {
+    if (_drawerController.isAnimating ||
+        _drawerController.status == AnimationStatus.completed) {
+      return;
+    }
+
+    final flingVelocity =
+        details.velocity.pixelsPerSecond.dy / _bottomDrawerHeight;
+
+    if (flingVelocity < 0.0) {
+      _drawerController.fling(
+        velocity: math.max(_kFlingVelocity, -flingVelocity),
+      );
+    } else if (flingVelocity > 0.0) {
+      _dropArrowController.forward();
+      _drawerController.fling(
+        velocity: math.min(-_kFlingVelocity, -flingVelocity),
+      );
+    } else {
+      if (_drawerController.value < 0.6) {
+        _dropArrowController.forward();
+      }
+      _drawerController.fling(
+        velocity:
+            _drawerController.value < 0.6 ? -_kFlingVelocity : _kFlingVelocity,
+      );
+    }
+  }
+
+  Widget _buildStack(BuildContext context, BoxConstraints constraints) {
+    final drawerSize = constraints.biggest;
+    final drawerTop = drawerSize.height;
+    final textTheme = Theme.of(context).textTheme;
+    final mainLayer = Center(
+      child: Container(
+        child: const Text('Hello World'),
+      ),
+    );
+
+    final drawerAnimation = RelativeRectTween(
+      begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
+      end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+    ).animate(_drawerController.view);
+
+    return Stack(
+      overflow: Overflow.visible,
+      key: _bottomDrawerKey,
+      children: [
+        mainLayer,
+        GestureDetector(
+          onTap: () {
+            _drawerController.reverse();
+            _dropArrowController.reverse();
+          },
+          child: Visibility(
+            maintainAnimation: true,
+            maintainState: true,
+            visible: _bottomDrawerVisible,
+            child: AnimatedOpacity(
+              opacity: _bottomDrawerVisible ? 1.0 : 0.0,
+              curve: Curves.easeInOut,
+              duration: const Duration(milliseconds: 350),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white.withOpacity(0.4),
+              ),
+            ),
+          ),
+        ),
+        PositionedTransition(
+          rect: drawerAnimation,
+          child: Visibility(
+            visible: _bottomDrawerVisible,
+            child: BottomDrawer(
+              onVerticalDragUpdate: _handleDragUpdate,
+              onVerticalDragEnd: _handleDragEnd,
+              leading: Column(
+                children: [
+                  for (var destination in widget.destinations.keys)
+                    InkWell(
+                      onTap: () {
+                        _drawerController.reverse();
+                        _dropArrowController.forward();
+                        Future.delayed(
+                            Duration(
+                              milliseconds:
+                                  GalleryOptions.of(context).timeDilation == 1
+                                      ? _drawerController.value == 1 ? 350 : 210
+                                      : _drawerController.value == 1
+                                          ? 1750
+                                          : 1050,
+                            ), () {
+                          //Wait until animations are complete to reload the
+                          //state. Delay is variable based on if the gallery
+                          //is in slow motion mode or not.
+                          widget.onItemTapped(
+                              _destinationsWithIndex[destination]);
+                          _currentDestination = destination;
+                        });
+                      },
+                      child: ListTile(
+                        leading: ImageIcon(
+                          AssetImage(
+                            widget.destinations[destination],
+                            package: _assetsPackage,
+                          ),
+                          color: _destinationsWithIndex[destination] ==
+                                  widget.selectedIndex
+                              ? ReplyColors.orange500
+                              : ReplyColors.blue200,
+                        ),
+                        title: Text(
+                          destination,
+                          style: textTheme.bodyText2.copyWith(
+                            color: _destinationsWithIndex[destination] ==
+                                    widget.selectedIndex
+                                ? ReplyColors.orange500
+                                : ReplyColors.blue200,
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              trailing: Column(
+                children: [
+                  for (var folder in widget.folders.keys)
+                    InkWell(
+                      onTap: () {},
+                      child: ListTile(
+                        leading: ImageIcon(
+                          AssetImage(
+                            widget.folders[folder],
+                            package: _assetsPackage,
+                          ),
+                          color: ReplyColors.blue200,
+                        ),
+                        title: Text(
+                          folder,
+                          style: textTheme.bodyText2
+                              .copyWith(color: ReplyColors.blue200),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text('Hello World'),
+      extendBody: true,
+      body: LayoutBuilder(
+        builder: _buildStack,
       ),
-      bottomNavigationBar: const BottomAppBar(
-        shape: CircularNotchedRectangle(),
+      bottomNavigationBar: BottomAppBar(
+        color: ReplyColors.blue700,
+        shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: SizedBox(
-          height: 48,
+          height: kToolbarHeight,
+          child: Row(
+            children: [
+              InkWell(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                onTap: _toggleBottomDrawerVisibility,
+                child: Row(
+                  children: [
+                    const SizedBox(width: 16),
+                    RotationTransition(
+                      turns: Tween(
+                        begin: 0.0,
+                        end: 1.0,
+                      ).animate(_dropArrowController.view),
+                      child: const Icon(
+                        Icons.arrow_drop_up,
+                        color: ReplyColors.blue50,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    const ReplyLogo(),
+                    const SizedBox(width: 10),
+                    AnimatedOpacity(
+                      opacity: _bottomDrawerVisible ? 0.0 : 1.0,
+                      duration: const Duration(milliseconds: 250),
+                      child: Text(
+                        _currentDestination,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(color: ReplyColors.blue50),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.create),
-        onPressed: () => print('To do'),
-      ),
+      floatingActionButton: _bottomDrawerVisible
+          ? null
+          : FloatingActionButton(
+              heroTag: 'Bottom App Bar FAB',
+              child: const Icon(Icons.create),
+              onPressed: () {
+                // TODO: Implement onPressed for Bottom App Bar FAB
+              },
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+class ReplyLogo extends StatelessWidget {
+  const ReplyLogo({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const ImageIcon(
+      AssetImage(
+        'reply/reply_logo.png',
+        package: _assetsPackage,
+      ),
+      size: 32,
+      color: ReplyColors.blue50,
     );
   }
 }
