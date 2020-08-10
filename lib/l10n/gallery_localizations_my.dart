@@ -1016,7 +1016,8 @@ class GalleryLocalizationsMy extends GalleryLocalizations {
   String get demoMotionTitle => 'Motion';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle =>
+      'ကြိုတင်သတ်မှတ်ထားသည့် ကူးပြောင်းမှုပုံစံအားလုံး';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1037,215 +1038,222 @@ class GalleryLocalizationsMy extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'ကွန်တိန်နာ အသွင်ပြောင်းရန်';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'ကွန်တိန်နာ အသွင်ပြောင်းရန်ပုံစံကို ကွန်တိန်နာတစ်ခုပါသော UI အစိတ်အပိုင်းများကြားတွင် ကူးပြောင်းမှုများအတွက် ပုံစံထုတ်ထားခြင်းဖြစ်သည်။ ဤပုံစံများသည် UI အစိတ်အပိုင်းနှစ်ခုကြားတွင် မြင်နိုင်သောချိတ်ဆက်မှုတစ်ခုကို ဖန်တီးပေးသည်';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => 'အမှိန်မုဒ်';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'မှိန်ရန်';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'မှိန်သွားသည်';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'ခေါင်းစဉ်';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'ဒုတိယစာသား';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'ဒုတိယ ဦးစားပေး';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'အသေးစိတ် စာမျက်နှာ';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'စာရင်းပါ အရာ';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'မျှဝေထားသော ဝင်ရိုးပုံစံကို နေရာခြား သို့မဟုတ် နေရာပြ ဆက်စပ်မှုတစ်ခုရှိသော UI အစိတ်အပိုင်းများကြားတွင် ကူးပြောင်းမှုအတွက် အသုံးပြုသည်။ ၎င်းပုံစံသည် အစိတ်အပိုင်းများကြားရှိ ဆက်နွယ်မှုကို အားဖြည့်ပေးရန်အတွက် x၊ y သို့မဟုတ် z ဝင်ရိုးများပေါ်တွင် မျှဝေထားသော အသွင်ပြောင်းမှုကို အသုံးပြုသည်။';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'မျှဝေထားသော x ဝင်ရိုး';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'နောက်သို့';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'ရှေ့သို့';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle =>
+      'သင်၏သင်တန်းများ စနစ်တကျ ရှိပါစေ';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'သင့်ဖိဒ်တွင် အဖွဲ့များအဖြစ်ပေါ်လာသော ပေါင်းချုပ်ထားသည့် အမျိုးအစားများ။ ဤအရာကို နောက်ပိုင်းတွင် အချိန်မရွေးပြောင်းနိုင်သည်။';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle =>
+      'အနုပညာနှင့် လက်မှုပညာများ';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'လုပ်ငန်း';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'သရုပ်ဖော်ပုံ';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => 'ဒီဇိုင်း';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'အချက်အပြုတ်';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'ပေါင်းချုပ်ထားသည်';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => 'တစ်ခုချင်းစီပြသထားသည်';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'မင်္ဂလာပါ David Park';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText =>
+      'သင့်အကောင့်ဖြင့် လက်မှတ်ထိုးဝင်ပါ';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'အီးမေးလ် သို့မဟုတ် ဖုန်းနံပါတ်';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => 'အီးမေးလ်ကို မေ့နေပါသလား။';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'အကောင့် ဖန်တီးရန်';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'မျှဝေထားသော y ဝင်ရိုး';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => 'အယ်လ်ဘမ် ၂၆၈ ခု';
 
   @override
   String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'မကြာသေးမီက ဖွင့်ခဲ့သည်';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => 'အယ်လ်ဘမ်';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => 'အနုပညာရှင်';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => 'မိနစ်';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'မျှဝေထားသော z ဝင်ရိုး';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'ဆက်တင်များ';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'ဘာဂါ';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'ဘာဂါလုပ်နည်း';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'အသားညှပ်ပေါင်မုန့်';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription =>
+      'အသားညှပ်ပေါင်မုန့်လုပ်နည်း';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'အချိုပွဲ';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'အချိုပွဲလုပ်နည်း';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'ပုစွန်';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'ပုစွန်ဟင်းချက်နည်း';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'ကဏန်း';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription => 'ကဏန်းဟင်းချက်နည်း';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'အမဲသား အသားညှပ်ပေါင်မုန့်';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'အမဲသား အသားညှပ်ပေါင်မုန့်လုပ်နည်း';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle =>
+      'သိမ်းထားသော ဟင်းချက်နည်းများ';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'ပရိုဖိုင်';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'သတိပေးချက်များ';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'ပုဂ္ဂိုလ်ရေး';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'အကူအညီ';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'မှိန်သွားသည်';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'မှိန်သွားသည့်ပုံစံကို တစ်ခုနှင့်တစ်ခု ခိုင်မာသည့်ဆက်နွယ်မှုမရှိသော UI အစိတ်အပိုင်းများကြားတွင် ကူပြောင်းမှုများအတွက် အသုံးပြုသည်။';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'အယ်လ်ဘမ်များ';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'ဓာတ်ပုံများ';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'ရှာရန်';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => 'ဓာတ်ပုံ ၁၂၃ ပုံ';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'မှိန်ရန်';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'မှိန်သွားသောပုံစံကို ဖန်သားပြင်အလယ်တွင် မှိန်သွားသော ဒိုင်ယာလော့ဂ်တစ်ခုကဲ့သို့ ဖန်သားပြင်၏ဘောင်များအတွင်း ဝင်သော သို့မဟုတ် ထွက်သော UI အစိတ်အပိုင်းများအတွက် အသုံးပြုသည်။';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'MODAL ပြရန်';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'FAB ပြရန်';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'FAB ဖျောက်ရန်';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'သတိပေး ဒိုင်ယာလော့';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'ပယ်ရန်';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'ဖယ်ပစ်ရန်';
 
   @override
   String get demoColorsTitle => 'အရောင်များ';

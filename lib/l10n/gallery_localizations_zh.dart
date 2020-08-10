@@ -971,10 +971,10 @@ class GalleryLocalizationsZh extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'PIN 码';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => '动态效果';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle => '所有预定义的转换模式';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -995,215 +995,212 @@ class GalleryLocalizationsZh extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => '容器转换';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      '容器转换模式用于转换包含容器的界面元素，这个模式可在两个界面元素之间创建可视化连接';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => '淡化模式';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => '淡入';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => '淡出后淡入';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => '标题';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => '副标题';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => '副';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => '详情页面';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => '列表项';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      '共用轴模式可用于转换存在空间或导航关系的界面元素。这个模式会让元素在转换时共用 x 轴、y 轴或 z 轴，用以强调元素间的关系。';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => '共用 X 轴';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => '返回';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => '继续';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => '将课程化繁为简';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      '在您的 Feed 中，捆绑式类别会显示为群组。您以后可随时进行更改。';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => '艺术与手工艺';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => '商务';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => '插图';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => '设计';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => '烹饪';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => '捆绑课程';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => '单独显示的课程';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'David Park，您好';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => '使用您的帐号登录';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel => '电子邮件地址或电话号码';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => '忘记了电子邮件地址？';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => '创建帐号';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => '共用 Y 轴';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '268 个专辑';
 
   @override
-  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+  String get demoSharedYAxisAlphabeticalSortTitle => '按字母升序排列 (A-Z)';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => '最近播放';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => '专辑';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => '音乐人';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => '分钟';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => '共用 Z 轴';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => '设置';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => '汉堡包';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => '汉堡包食谱';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => '三明治';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => '三明治食谱';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => '甜品';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => '甜品食谱';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => '虾';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+  String get demoSharedZAxisShrimpPlateRecipeDescription => '虾食谱';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => '螃蟹';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription => '螃蟹食谱';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => '牛肉三明治';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+  String get demoSharedZAxisBeefSandwichRecipeDescription => '牛肉三明治食谱';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => '保存的食谱';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => '个人资料';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => '通知';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => '隐私设置';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => '帮助';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => '淡出后淡入';
 
   @override
-  String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+  String get demoFadeThroughDescription => '淡出后淡入模式可用于转换彼此间关系不太紧密的界面元素。';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => '专辑';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => '照片';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => '搜索';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 张照片';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => '淡入';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      '淡化模式可用于让界面元素进入或退出屏幕画面范围，例如对话框会以淡入的方式显示在画面中央。';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => '显示模态';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => '显示悬浮操作按钮';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => '隐藏悬浮操作按钮';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => '提醒对话框';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => '取消';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => '舍弃';
 
   @override
   String get demoColorsTitle => '颜色';
@@ -3371,6 +3368,220 @@ class GalleryLocalizationsZhCn extends GalleryLocalizationsZh {
   String get demoCupertinoTextFieldPIN => 'PIN 码';
 
   @override
+  String get demoMotionTitle => '动态效果';
+
+  @override
+  String get demoMotionSubtitle => '所有预定义的转换模式';
+
+  @override
+  String get demoContainerTransformTitle => '容器转换';
+
+  @override
+  String get demoContainerTransformDescription =>
+      '容器转换模式用于转换包含容器的界面元素，这个模式可在两个界面元素之间创建可视化连接';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => '淡化模式';
+
+  @override
+  String get demoContainerTransformTypeFade => '淡入';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => '淡出后淡入';
+
+  @override
+  String get demoMotionPlaceholderTitle => '标题';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => '副标题';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => '副';
+
+  @override
+  String get demoMotionDetailsPageTitle => '详情页面';
+
+  @override
+  String get demoMotionListTileTitle => '列表项';
+
+  @override
+  String get demoSharedAxisDescription =>
+      '共用轴模式可用于转换存在空间或导航关系的界面元素。这个模式会让元素在转换时共用 x 轴、y 轴或 z 轴，用以强调元素间的关系。';
+
+  @override
+  String get demoSharedXAxisTitle => '共用 X 轴';
+
+  @override
+  String get demoSharedXAxisBackButtonText => '返回';
+
+  @override
+  String get demoSharedXAxisNextButtonText => '继续';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => '将课程化繁为简';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      '在您的 Feed 中，捆绑式类别会显示为群组。您以后可随时进行更改。';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => '艺术与手工艺';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => '商务';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => '插图';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => '设计';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => '烹饪';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => '捆绑课程';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => '单独显示的课程';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'David Park，您好';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => '使用您的帐号登录';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => '电子邮件地址或电话号码';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => '忘记了电子邮件地址？';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => '创建帐号';
+
+  @override
+  String get demoSharedYAxisTitle => '共用 Y 轴';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 个专辑';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => '按字母升序排列 (A-Z)';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => '最近播放';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => '专辑';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => '音乐人';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => '分钟';
+
+  @override
+  String get demoSharedZAxisTitle => '共用 Z 轴';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => '设置';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => '汉堡包';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => '汉堡包食谱';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => '三明治';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => '三明治食谱';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => '甜品';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => '甜品食谱';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => '虾';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => '虾食谱';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => '螃蟹';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => '螃蟹食谱';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => '牛肉三明治';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription => '牛肉三明治食谱';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => '保存的食谱';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => '个人资料';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => '通知';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => '隐私设置';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => '帮助';
+
+  @override
+  String get demoFadeThroughTitle => '淡出后淡入';
+
+  @override
+  String get demoFadeThroughDescription => '淡出后淡入模式可用于转换彼此间关系不太紧密的界面元素。';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => '专辑';
+
+  @override
+  String get demoFadeThroughPhotosDestination => '照片';
+
+  @override
+  String get demoFadeThroughSearchDestination => '搜索';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 张照片';
+
+  @override
+  String get demoFadeScaleTitle => '淡入';
+
+  @override
+  String get demoFadeScaleDescription =>
+      '淡化模式可用于让界面元素进入或退出屏幕画面范围，例如对话框会以淡入的方式显示在画面中央。';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => '显示模态';
+
+  @override
+  String get demoFadeScaleShowFabButton => '显示悬浮操作按钮';
+
+  @override
+  String get demoFadeScaleHideFabButton => '隐藏悬浮操作按钮';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => '提醒对话框';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => '取消';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => '舍弃';
+
+  @override
   String get demoColorsTitle => '颜色';
 
   @override
@@ -5513,6 +5724,220 @@ class GalleryLocalizationsZhHk extends GalleryLocalizationsZh {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => '動態';
+
+  @override
+  String get demoMotionSubtitle => '所有預先定義的轉移模式';
+
+  @override
+  String get demoContainerTransformTitle => '容器變形';
+
+  @override
+  String get demoContainerTransformDescription =>
+      '容器變形模式用於轉移包含容器的使用者介面元素。此模式以視覺元素連結兩個不同使用者介面元素';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => '淡出模式';
+
+  @override
+  String get demoContainerTransformTypeFade => '淡出';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => '交匯淡出';
+
+  @override
+  String get demoMotionPlaceholderTitle => '標題';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => '次行文字';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => '次行';
+
+  @override
+  String get demoMotionDetailsPageTitle => '詳情頁面';
+
+  @override
+  String get demoMotionListTileTitle => '清單項目';
+
+  @override
+  String get demoSharedAxisDescription =>
+      '共用軸線模式用於轉移有空間或導覽關係的使用者介面元素。此模式利用共用的 X、Y 或 Z 軸進行變形，以突顯元素之間的關係。';
+
+  @override
+  String get demoSharedXAxisTitle => '共用 X 軸';
+
+  @override
+  String get demoSharedXAxisBackButtonText => '返回';
+
+  @override
+  String get demoSharedXAxisNextButtonText => '繼續';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => '精簡課程';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      '分類組合會以群組形式在您的資訊提供中顯示。您稍後可以隨時變更。';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => '藝術與手工藝';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => '商業';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => '插圖';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => '設計';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => '烹飪';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => '組合';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => '分別顯示';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'David Park，您好';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => '使用您的帳戶登入';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => '電郵地址或電話號碼';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => '忘記電郵地址嗎？';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => '建立帳戶';
+
+  @override
+  String get demoSharedYAxisTitle => '共用 Y 軸';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 張專輯';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => '最近播放';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => '專輯';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => '歌手';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => '分鐘';
+
+  @override
+  String get demoSharedZAxisTitle => '共用 Z 軸';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => '設定';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => '漢堡包';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => '漢堡包食譜';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => '三文治';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => '三文治食譜';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => '甜品';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => '甜品食譜';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => '蝦';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => '鮮蝦拼盤食譜';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => '螃蟹';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => '螃蟹拼盤食譜';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => '牛肉三文治';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription => '牛肉三文治食譜';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => '已儲存的食譜';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => '個人檔案';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => '通知';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => '私隱';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => '說明';
+
+  @override
+  String get demoFadeThroughTitle => '交匯淡出';
+
+  @override
+  String get demoFadeThroughDescription => '交匯淡出模式用於轉移沒有明確關係的使用者介面元素。';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => '專輯';
+
+  @override
+  String get demoFadeThroughPhotosDestination => '相片';
+
+  @override
+  String get demoFadeThroughSearchDestination => '搜尋';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 張相片';
+
+  @override
+  String get demoFadeScaleTitle => '淡出';
+
+  @override
+  String get demoFadeScaleDescription =>
+      '淡出模式用於進入或離開螢幕範圍的使用者介面元素，如在螢幕正中淡入的對話框。';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => '顯示模態框';
+
+  @override
+  String get demoFadeScaleShowFabButton => '顯示懸浮動作';
+
+  @override
+  String get demoFadeScaleHideFabButton => '隱藏懸浮動作';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => '警示對話框';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => '取消';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => '捨棄';
 
   @override
   String get demoColorsTitle => '顏色';
@@ -7659,6 +8084,220 @@ class GalleryLocalizationsZhTw extends GalleryLocalizationsZh {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN 碼';
+
+  @override
+  String get demoMotionTitle => '動態效果';
+
+  @override
+  String get demoMotionSubtitle => '所有預先定義的轉換模式';
+
+  @override
+  String get demoContainerTransformTitle => '容器轉換';
+
+  @override
+  String get demoContainerTransformDescription =>
+      '容器轉換模式是用於轉換含有容器的 UI 元素，這個模式可在兩個 UI 元素之間建立起可見的連結';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle => '淡化模式';
+
+  @override
+  String get demoContainerTransformTypeFade => '淡化';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => '淡出淡入切換';
+
+  @override
+  String get demoMotionPlaceholderTitle => '標題';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => '次要文字';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => '次要';
+
+  @override
+  String get demoMotionDetailsPageTitle => '詳細資料頁面';
+
+  @override
+  String get demoMotionListTileTitle => '清單項目';
+
+  @override
+  String get demoSharedAxisDescription =>
+      '共用軸模式可用於轉換 UI 元素，這些 UI 元素彼此間具有空間或導覽的關係。這個模式會讓元素在轉換時共用 X、Y 或 Z 軸，藉此強調元素間的關係。';
+
+  @override
+  String get demoSharedXAxisTitle => '共用 X 軸';
+
+  @override
+  String get demoSharedXAxisBackButtonText => '返回';
+
+  @override
+  String get demoSharedXAxisNextButtonText => '繼續';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => '將課程化繁為簡';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      '組合類別會以群組方式顯示在動態饋給中，你之後隨時可以進行變更。';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => '藝術與工藝';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => '商業';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => '插圖';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => '設計';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => '烹飪';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => '組合';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle => '個別顯示';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'David Park 你好';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => '登入帳戶';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => '電子郵件地址或電話號碼';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => '忘記電子郵件地址？';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => '建立帳戶';
+
+  @override
+  String get demoSharedYAxisTitle => '共用 Y 軸';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 張專輯';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A - Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => '最近播放';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => '專輯';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => '演出者';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => '分鐘';
+
+  @override
+  String get demoSharedZAxisTitle => '共用 Z 軸';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => '設定';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => '漢堡';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => '漢堡食譜';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => '三明治';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => '三明治食譜';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => '甜點';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => '甜點食譜';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => '蝦子';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription => '蝦子料理食譜';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => '螃蟹';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription => '螃蟹料理食譜';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => '牛肉三明治';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription => '牛肉三明治食譜';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => '已儲存的食譜';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => '個人資料';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => '通知';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => '隱私權';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => '說明';
+
+  @override
+  String get demoFadeThroughTitle => '淡出淡入切換';
+
+  @override
+  String get demoFadeThroughDescription => '淡出淡入切換模式可用於轉換彼此間沒有緊密關係的 UI 元素。';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => '相簿';
+
+  @override
+  String get demoFadeThroughPhotosDestination => '相片';
+
+  @override
+  String get demoFadeThroughSearchDestination => '搜尋';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 張相片';
+
+  @override
+  String get demoFadeScaleTitle => '淡化';
+
+  @override
+  String get demoFadeScaleDescription =>
+      '淡化模式可用於讓 UI 元素進入或退出畫面範圍，例如對話方塊會以淡入的方式顯示在畫面中央。';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => '顯示強制回應對話方塊';
+
+  @override
+  String get demoFadeScaleShowFabButton => '顯示懸浮動作按鈕 (FAB)';
+
+  @override
+  String get demoFadeScaleHideFabButton => '隱藏懸浮動作按鈕 (FAB)';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => '快訊對話方塊';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => '取消';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => '捨棄';
 
   @override
   String get demoColorsTitle => '顏色';
