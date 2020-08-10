@@ -15,7 +15,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String aboutDialogDescription(Object repoLink) {
-    return 'यो अनुप्रयोगको सोर्स कोड हेर्न कृपया ${repoLink} मा जानुहोस्।';
+    return 'यो एपको सोर्स कोड हेर्न कृपया ${repoLink} मा जानुहोस्।';
   }
 
   @override
@@ -56,7 +56,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String cardsDemoShareSemantics(Object destinationName) {
-    return '${destinationName} आदान प्रदान गर्नुहोस्';
+    return '${destinationName} सेयर गर्नुहोस्';
   }
 
   @override
@@ -98,13 +98,13 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get shrineDescription =>
-      'फेसनसँग सम्बन्धित कुराहरू खुद्रा बिक्री गरिने अनुप्रयोग';
+      'फेसनसँग सम्बन्धित कुराहरू खुद्रा बिक्री गरिने एप';
 
   @override
   String get fortnightlyDescription => 'सामग्रीमा केन्द्रित समाचार एप';
 
   @override
-  String get rallyDescription => 'व्यक्तिगत वित्त व्यवस्थापनसम्बन्धी अनुप्रयोग';
+  String get rallyDescription => 'व्यक्तिगत वित्त व्यवस्थापनसम्बन्धी एप';
 
   @override
   String get replyDescription => 'A email app';
@@ -324,7 +324,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   }
 
   @override
-  String get craneDescription => 'यात्रासम्बन्धी वैयक्तीकृत अनुप्रयोग';
+  String get craneDescription => 'यात्रासम्बन्धी वैयक्तीकृत एप';
 
   @override
   String get homeCategoryReference => 'शैली तथा अन्य';
@@ -345,7 +345,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get demoDocumentationTooltip => 'API कागजात';
 
   @override
-  String get demoFullscreenTooltip => 'पूर्ण स्क्रिन';
+  String get demoFullscreenTooltip => 'फुल स्क्रिन';
 
   @override
   String get demoCodeViewerCopyAll => 'सबै प्रतिलिपि गर्नुहोस्';
@@ -433,7 +433,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get settingsAttribution => 'TOASTER द्वारा लन्डनमा डिजाइन गरिएको';
 
   @override
-  String get demoBottomAppBarTitle => 'अनुप्रयोग फेदको बार';
+  String get demoBottomAppBarTitle => 'एप फेदको बार';
 
   @override
   String get demoBottomAppBarSubtitle => 'नेभिगेसन र कार्यहरू फेदमा देखाउँछ';
@@ -654,7 +654,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get demoDialogTitle => 'संवादहरू';
 
   @override
-  String get demoDialogSubtitle => 'सामान्य, सतर्कता र पूर्ण स्क्रिन';
+  String get demoDialogSubtitle => 'सामान्य, सतर्कता र फुल स्क्रिन';
 
   @override
   String get demoAlertDialogTitle => 'अलर्ट';
@@ -802,7 +802,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get demoMenuPreview => 'पूर्वावलोकन';
 
   @override
-  String get demoMenuShare => 'आदान प्रदान गर्नुहोस्';
+  String get demoMenuShare => 'सेयर गर्नुहोस्';
 
   @override
   String get demoMenuGetLink => 'लिंक प्राप्त गर्नुहोस्';
@@ -827,11 +827,11 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get demoMenuAnItemWithAChecklistMenu => 'चेकलिस्ट मेनुमा भएको वस्तु';
 
   @override
-  String get demoFullscreenDialogTitle => 'पूर्ण स्क्रिन';
+  String get demoFullscreenDialogTitle => 'फुल स्क्रिन';
 
   @override
   String get demoFullscreenDialogDescription =>
-      'पूर्ण स्क्रिनका संवादको विशेषताले आउँदो पृष्ठ पूर्ण स्क्रिन मोडल संवाद हो वा होइन भन्ने कुरा निर्दिष्ट गर्दछ';
+      'फुल स्क्रिनका संवादको विशेषताले आउँदो पृष्ठ फुल स्क्रिन मोडल संवाद हो वा होइन भन्ने कुरा निर्दिष्ट गर्दछ';
 
   @override
   String get demoCupertinoActivityIndicatorTitle => 'गतिविधि सूचक';
@@ -999,10 +999,10 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'मोसन';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle => 'पहिले नै तय गरिएका सबै ट्रान्जिसन प्याटर्न';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1023,215 +1023,219 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'कन्टेनर ट्रान्सफर्म';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'कन्टेनर ट्रान्सफर्म प्याटर्न कन्टेनर भएका UI एलिमेन्टहरूबिच हुने ट्रान्जिसनका लागि प्रयोग गर्न बनाइएको हो। यो प्याटर्नले दुई UI एलिमेन्टबिच देखिने खाले सम्बन्ध सिर्जना गर्छ';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => 'फेड मोड';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'फेड';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'फेड थ्रु';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'शीर्षक';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'सबटाइटलको पाठ';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'छोट्याइएको सबटाइटलको पाठ';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'विवरण पृष्ठ';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'सूचीमा रहेको वस्तु';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'सेयर्ड एक्सिस प्याटर्न स्थानिक वा नेभिगेसनको सम्बन्ध भएका UI एलिमेन्टहरूबिच हुने ट्रान्जिसनका लागि प्रयोग गरिन्छ। यो प्याटर्नमा UI एलिमेन्टहरूबिचको सम्बन्ध सुदृढ बनाउन x, y वा z एक्सिसमा साझा ट्रान्सफर्मेसन प्रयोग गरिन्छ।';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'साझा एक्स-एक्सिस';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'पछाडि';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'अर्को';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle =>
+      'आफ्ना कोर्सहरू सुव्यवस्थित बनाउनुहोस्';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'बन्डल बनाइएका कोटीहरू तपाईंको फिडमा समूहका रूपमा देखिन्छन्। तपाईं पछि जुनसुकै बेला यो सेटिङ परिवर्तन गर्न सक्नुहुन्छ।';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'कला र शिल्पकला';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'व्यवसाय';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'चित्रण';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => 'डिजाइन';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'पाक कला';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'बन्डल बनाइएका';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => 'छुट्टा छुट्टै देखाइने';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'नमस्ते David Park';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText =>
+      'आफ्नो खातामार्फत साइन इन गर्नुहोस्';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel => 'इमेल ठेगाना वा फोन नम्बर';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => 'इमेल ठेगाना बिर्सनुभयो?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'खाता बनाउनुहोस्';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'साझा वाइ-एक्सिस';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '२६८ वटा एल्बम';
 
   @override
   String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'हालसालै प्ले गरिएका';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => 'एल्बम';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => 'कलाकार';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => 'मिनेट';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'साझा जेड-एक्सिस';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'सेटिङ';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'बर्गर';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'बर्गर बनाउने तरिका';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'स्यान्डविच';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription =>
+      'स्यान्डविच बनाउने तरिका';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'डेजर्ट';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'डेजर्ट बनाउने तरिका';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'झिँगे माछा';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'झिँगे माछाको परिकार बनाउने तरिका';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'गँगटो';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'गँगटोको परिकार बनाउने तरिका';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'बिफ स्यान्डविच';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'बिफ स्यान्डविच बनाउने तरिका';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'सुरक्षित गरिएका पाकविधि';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'प्रोफाइल';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'सूचना';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'गोपनीयता';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'मद्दत';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'फेड थ्रु';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'फेड थ्रु प्याटर्न एक आपसमा बलियो सम्बन्ध भएका UI एलिमेन्टहरूबिच हुने ट्रान्जिसनका लागि प्रयोग गरिन्छ।';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'एल्बम';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'फोटो';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'खोज';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '१२३ वटा फोटो';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'फेड';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'फेड प्याटर्न स्क्रिनको फ्रेमभित्र देखा पर्ने तथा बिलाउने UI एलिमेन्टहरूका लागि प्रयोग गरिन्छ। स्क्रिनको मध्य भागमा देखा परी आफै बिलाउने डायलग त्यस्तो UI एलिमेन्टको एउटा उदाहरण हो।';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'अलर्ट देखाउनुहोस्';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'FAB देखाउनुहोस्';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'FAB लुकाउनुहोस्';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'अलर्टसम्बन्धी डायलग';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'रद्द गर्नुहोस्';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'खारेज गर्नुहोस्';
 
   @override
   String get demoColorsTitle => 'रङहरू';
@@ -1241,7 +1245,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get demoColorsDescription =>
-      'सामग्री डिजाइनको रङको प्यालेटको प्रतिनिधित्व गर्ने रङ तथा रङको नमुनाका अचलराशिहरू।';
+      'सामग्री डिजाइनको रङ्गको प्यालेटको प्रतिनिधित्व गर्ने रङ्ग तथा रङ्गको नमुनाका अचलराशिहरू।';
 
   @override
   String get demoTypographyTitle => 'टाइपोग्राफी';
@@ -1285,7 +1289,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get demoBottomSheetPersistentDescription =>
-      'सधैँ देखिइरहने फेदको पानाले अनुप्रयोगको मुख्य सामग्रीसँग सम्बन्धित सहायक सामग्री देखाउँछ। सधैँ देखिइरहने फेदको पाना प्रयोगकर्ताले अनुप्रयोगका अन्य भागसँग अन्तर्क्रिया गर्दा समेत देखिइरहन्छ।';
+      'सधैँ देखिइरहने फेदको पानाले एपको मुख्य सामग्रीसँग सम्बन्धित सहायक सामग्री देखाउँछ। सधैँ देखिइरहने फेदको पाना प्रयोगकर्ताले अनुप्रयोगका अन्य भागसँग अन्तर्क्रिया गर्दा समेत देखिइरहन्छ।';
 
   @override
   String get demoBottomSheetModalTitle => 'मोडल नामक फेदको पाना';
@@ -1338,7 +1342,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get demoCircularProgressIndicatorDescription =>
-      'अनुप्रयोग कार्यरत छ भनेर सूचित गर्न घुम्ने सामग्री डिजाइनको गोलाकार प्रगति सूचक।';
+      'एप कार्यरत छ भनेर सूचित गर्न घुम्ने सामग्री डिजाइनको गोलाकार प्रगति सूचक।';
 
   @override
   String get demoLinearProgressIndicatorTitle => 'रेखीय प्रगति सूचक';
@@ -1614,7 +1618,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get dialogLocationDescription =>
-      'Google लाई अनुप्रयोगहरूलाई स्थान निर्धारण गर्ने कार्यमा मद्दत गर्न दिनुहोस्। यसले कुनै पनि अनुप्रयोग सञ्चालन नभएको बेला पनि Google मा स्थानसम्बन्धी बेनामी डेटा पठाइन्छ भन्ने कुरा बुझाउँछ।';
+      'Google लाई एपहरूलाई स्थान निर्धारण गर्ने कार्यमा मद्दत गर्न दिनुहोस्। यसले कुनै पनि एप सञ्चालन नभएको बेला पनि Google मा स्थानसम्बन्धी बेनामी डेटा पठाइन्छ भन्ने कुरा बुझाउँछ।';
 
   @override
   String get dialogCancel => 'रद्द गर्नुहोस्';
@@ -1638,13 +1642,13 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get dialogShow => 'संवाद देखाउनुहोस्';
 
   @override
-  String get dialogFullscreenTitle => 'पूर्ण स्क्रिन संवाद';
+  String get dialogFullscreenTitle => 'फुल स्क्रिन संवाद';
 
   @override
   String get dialogFullscreenSave => 'सुरक्षित गर्नुहोस्';
 
   @override
-  String get dialogFullscreenDescription => 'संवादको पूर्ण स्क्रिन डेमो';
+  String get dialogFullscreenDescription => 'संवादको फुल स्क्रिन डेमो';
 
   @override
   String get cupertinoButton => 'बटन';
@@ -1660,7 +1664,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get cupertinoAlertLocationTitle =>
-      'अनुप्रयोगको प्रयोग गर्दा \"नक्सा\" लाई आफ्नो स्थानसम्बन्धी जानकारीमाथि पहुँच राख्न दिने हो?';
+      'एपको प्रयोग गर्दा \"नक्सा\" लाई आफ्नो स्थानसम्बन्धी जानकारीमाथि पहुँच राख्न दिने हो?';
 
   @override
   String get cupertinoAlertLocationDescription =>
@@ -1719,7 +1723,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get colorsCyan => 'सायन';
 
   @override
-  String get colorsTeal => 'निलोमिश्रित हरियो रङ';
+  String get colorsTeal => 'निलोमिश्रित हरियो रङ्ग';
 
   @override
   String get colorsGreen => 'हरियो';
@@ -1728,7 +1732,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get colorsLightGreen => 'हल्का हरियो';
 
   @override
-  String get colorsLime => 'कागती रङ';
+  String get colorsLime => 'कागती रङ्ग';
 
   @override
   String get colorsYellow => 'पहेँलो';
@@ -1737,10 +1741,10 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get colorsAmber => 'एम्बर';
 
   @override
-  String get colorsOrange => 'सुन्तले रङ';
+  String get colorsOrange => 'सुन्तले रङ्ग';
 
   @override
-  String get colorsDeepOrange => 'गाढा सुन्तला रङ';
+  String get colorsDeepOrange => 'गाढा सुन्तला रङ्ग';
 
   @override
   String get colorsBrown => 'खैरो';
@@ -1794,7 +1798,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get placeFisherman => 'माझी';
 
   @override
-  String get starterAppTitle => 'सुरुमा खुल्ने अनुप्रयोग';
+  String get starterAppTitle => 'सुरुमा खुल्ने एप';
 
   @override
   String get starterAppDescription =>
@@ -1810,7 +1814,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
   String get starterAppTooltipFavorite => 'मन पर्ने';
 
   @override
-  String get starterAppTooltipShare => 'आदान प्रदान गर्नुहोस्';
+  String get starterAppTooltipShare => 'सेयर गर्नुहोस्';
 
   @override
   String get starterAppTooltipSearch => 'खोज्नुहोस्';
@@ -2293,7 +2297,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get craneFly9SemanticLabel =>
-      'पुरानो मोडलको नीलो कारमा अढेस लागेको मान्छे';
+      'पुरानो मोडलको निलो कारमा अढेस लागेको मान्छे';
 
   @override
   String get craneFly10SemanticLabel =>
@@ -2320,7 +2324,7 @@ class GalleryLocalizationsNe extends GalleryLocalizations {
 
   @override
   String get craneSleep3SemanticLabel =>
-      'पुरानो मोडलको नीलो कारमा अढेस लागेको मान्छे';
+      'पुरानो मोडलको निलो कारमा अढेस लागेको मान्छे';
 
   @override
   String get craneSleep4SemanticLabel => 'पहाडका नजिकमा रहेको झील छेउको होटेल';
