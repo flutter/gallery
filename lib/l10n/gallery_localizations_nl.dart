@@ -32,7 +32,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
   String get bannerDemoMultipleText => 'Meerdere acties';
 
   @override
-  String get bannerDemoLeadingText => 'Pictogram vóór tekst';
+  String get bannerDemoLeadingText => 'Icoon vóór tekst';
 
   @override
   String get dismiss => 'SLUITEN';
@@ -483,7 +483,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
 
   @override
   String get demoBottomNavigationDescription =>
-      'Navigatiebalken onderaan geven drie tot vijf bestemmingen weer onderaan een scherm. Elke bestemming wordt weergegeven als een pictogram en een optioneel tekstlabel. Als er op een navigatiepictogram onderaan wordt getikt, gaat de gebruiker naar de bestemming op hoofdniveau die aan dat pictogram is gekoppeld.';
+      'Navigatiebalken onderaan geven drie tot vijf bestemmingen weer onderaan een scherm. Elke bestemming wordt weergegeven als een icoon en een optioneel tekstlabel. Als er op een navigatieicoon onderaan wordt getikt, gaat de gebruiker naar de bestemming op hoofdniveau die aan dat icoon is gekoppeld.';
 
   @override
   String get demoButtonTitle => 'Knoppen';
@@ -524,7 +524,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
 
   @override
   String get demoFloatingButtonDescription =>
-      'Een zwevende actieknop is een knop met een rond pictogram die boven content zweeft om een primaire actie in de app te promoten.';
+      'Een zwevende actieknop is een knop met een rond icoon die boven content zweeft om een primaire actie in de app te promoten.';
 
   @override
   String get demoCardTitle => 'Kaarten';
@@ -580,7 +580,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
 
   @override
   String get demoDataTableDescription =>
-      'Gegevenstabellen tonen informatie in een rasterindeling met rijen en kolommen. Op die manier is de informatie gemakkelijk snel te bekijken, zodat gebruikers patronen kunnen herkennen of insights kunnen opdoen.';
+      'Gegevenstabellen tonen informatie in een rasterindeling met rijen en kolommen. Op die manier is de informatie gemakkelijk snel te bekijken, zodat gebruikers patronen kunnen herkennen of inzichten kunnen opdoen.';
 
   @override
   String get dataTableHeader => 'Voedingswaarde';
@@ -852,7 +852,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
 
   @override
   String get demoCupertinoButtonsDescription =>
-      'Een knop in iOS-stijl. Deze bevat tekst en/of een pictogram dat vervaagt en tevoorschijnkomt bij aanraking. Mag een achtergrond hebben.';
+      'Een knop in iOS-stijl. Deze bevat tekst en/of een icoon dat vervaagt en tevoorschijnkomt bij aanraking. Mag een achtergrond hebben.';
 
   @override
   String get demoCupertinoAlertsTitle => 'Meldingen';
@@ -999,10 +999,11 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'Pincode';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'Beweging';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle =>
+      'Alle vooraf gedefinieerde overgangspatronen';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1023,94 +1024,96 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'Containertransformatie';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'Het patroon \'Containertransformatie\' is ontworpen voor overgangen tussen UI-elementen die een container bevatten. Dit patroon zorgt voor een zichtbare connectie tussen twee UI-elementen.';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle => 'Vervagingsmodus';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'VERVAGEN';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'FADE-THROUGH';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'Titel';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'Secundaire tekst';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundair';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'Detailpagina';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'Lijstitem';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'Het patroon \'Gedeelde as\' wordt gebruikt voor overgangen tussen UI-elementen die een ruimtelijke of navigatiegebonden relatie hebben. Dit patroon gebruikt een gedeelde transformatie op de X-, Y- of Z-as om de relatie tussen elementen te benadrukken.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'Gedeelde X-as';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'TERUG';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'VOLGENDE';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => 'Je cursussen stroomlijnen';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'Gebundelde categorieën worden als groepen weergegeven in je feed. Je kunt dit later altijd wijzigen.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Kunst en creatief';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'Zakelijk';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'Illustratie';
 
   @override
   String get demoSharedXAxisDesignCourseTitle => 'Design';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'Culinair';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'Gebundeld';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Afzonderlijk weergegeven';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'Hallo David Park';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => 'Inloggen met je account';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'E-mailadres of telefoonnummer';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => 'E-MAILADRES VERGETEN?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'ACCOUNT MAKEN';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'Gedeelde Y-as';
 
   @override
   String get demoSharedYAxisAlbumCount => '268 albums';
@@ -1119,7 +1122,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
   String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'Onlangs geluisterd';
 
   @override
   String get demoSharedYAxisAlbumTileTitle => 'Album';
@@ -1131,107 +1134,108 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
   String get demoSharedYAxisAlbumTileDurationUnit => 'min';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'Gedeelde Z-as';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'Instellingen';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburger';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'Recept voor hamburger';
 
   @override
   String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => 'Recept voor sandwich';
 
   @override
   String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'Recept voor dessert';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Garnalen';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'Recept voor gerecht met garnalen';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Krab';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Recept voor gerecht met krab';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Sandwich met rundvlees';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'Recept voor sandwich met rundvlees';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'Opgeslagen recepten';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'Profiel';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'Meldingen';
 
   @override
   String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'Hulp';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'Fade-through';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'Het patroon \'Fade-through\' wordt gebruikt voor overgangen tussen UI-elementen die geen sterk onderling verband hebben.';
 
   @override
   String get demoFadeThroughAlbumsDestination => 'Albums';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'Foto\'s';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'Zoeken';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 foto\'s';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'Vervagen';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'Het patroon \'Vervagen\' wordt gebruikt voor UI-elementen die binnen de begrenzing van het scherm verschijnen of verdwijnen, zoals een dialoogvenster dat vervaagt in het midden van het scherm.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'MODAAL VENSTER WEERGEVEN';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'ZWEVENDE ACTIEKNOP WEERGEVEN';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'ZWEVENDE ACTIEKNOP VERBERGEN';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'Dialoogvenster voor meldingen';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'ANNULEREN';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'NIET OPSLAAN';
 
   @override
   String get demoColorsTitle => 'Kleuren';
@@ -1314,7 +1318,7 @@ class GalleryLocalizationsNl extends GalleryLocalizations {
 
   @override
   String get demoListsDescription =>
-      'Eén rij met een vaste hoogte die meestal wat tekst bevat die wordt voorafgegaan of gevolgd door een pictogram.';
+      'Eén rij met een vaste hoogte die meestal wat tekst bevat die wordt voorafgegaan of gevolgd door een icoon.';
 
   @override
   String get demoOneLineListsTitle => 'Eén regel';

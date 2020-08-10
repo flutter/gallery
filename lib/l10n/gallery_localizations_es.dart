@@ -1009,10 +1009,11 @@ class GalleryLocalizationsEs extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'Movimiento';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1033,215 +1034,219 @@ class GalleryLocalizationsEs extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'El patrón \"Transformación de contenedores\" está diseñado para usarse en transiciones entre elementos de la interfaz que incluyen un contenedor. Este patrón crea una conexión visible entre 2 elementos de la interfaz.';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade => 'ATENUAR';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'CAMBIAR CON ATENUACIÓN';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'Título';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'Elementos secundarios';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'Elemento de lista';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'El patrón \"Eje compartido\" se utiliza en transiciones entre elementos de la interfaz que tienen una relación espacial o de navegación. Este patrón hace una transición basándose en el eje X, Y o Z para reforzar la relación que hay entre los elementos.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'Eje X compartido';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza tus cursos';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'Las categorías agrupadas aparecen como grupos en tu feed. Puedes cambiarlo en cualquier momento.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arte y artesanía';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'Gastronomía';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'Agrupado';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle => 'Por separado';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => 'Inicia sesión con tu cuenta';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿HAS OLVIDADO TU CORREO ELECTRÓNICO?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
 
   @override
   String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
 
   @override
   String get demoSharedYAxisAlbumTileDurationUnit => 'min';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'Ajustes';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'Bocadillo';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de bocadillo';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Gamba';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'Receta de plato de gambas';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de plato de cangrejo';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Bocadillo de ternera';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'Receta de bocadillo de ternera';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'Cambiar con atenuación';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'El patrón \"Cambiar con atenuación\" se utiliza en las transiciones entre elementos de la interfaz que no están estrechamente relacionados.';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'Fotos';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'Buscar';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'Atenuar';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'El patrón \"Atenuar\" se utiliza en elementos de la interfaz que se abren o se cierran dentro de los límites de la pantalla; por ejemplo, cuando un cuadro de diálogo se atenúa en el centro de la pantalla.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'VER MODAL';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'VER BAF';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -1713,7 +1718,7 @@ class GalleryLocalizationsEs extends GalleryLocalizations {
   String get colorsPink => 'ROSA';
 
   @override
-  String get colorsPurple => 'VIOLETA';
+  String get colorsPurple => 'MORADO';
 
   @override
   String get colorsDeepPurple => 'VIOLETA INTENSO';
@@ -3482,6 +3487,230 @@ class GalleryLocalizationsEs419 extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -5726,6 +5955,230 @@ class GalleryLocalizationsEsAr extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -7966,6 +8419,230 @@ class GalleryLocalizationsEsBo extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -10210,6 +10887,230 @@ class GalleryLocalizationsEsCl extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -12450,6 +13351,230 @@ class GalleryLocalizationsEsCo extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -14694,6 +15819,230 @@ class GalleryLocalizationsEsCr extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -16934,6 +18283,230 @@ class GalleryLocalizationsEsDo extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -19178,6 +20751,230 @@ class GalleryLocalizationsEsEc extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -21418,6 +23215,230 @@ class GalleryLocalizationsEsGt extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -23662,6 +25683,230 @@ class GalleryLocalizationsEsHn extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -25902,6 +28147,230 @@ class GalleryLocalizationsEsMx extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -28146,6 +30615,230 @@ class GalleryLocalizationsEsNi extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -30386,6 +33079,230 @@ class GalleryLocalizationsEsPa extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -32630,6 +35547,230 @@ class GalleryLocalizationsEsPe extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -34870,6 +38011,230 @@ class GalleryLocalizationsEsPr extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -37114,6 +40479,230 @@ class GalleryLocalizationsEsPy extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -39354,6 +42943,230 @@ class GalleryLocalizationsEsSv extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';
@@ -41598,6 +45411,230 @@ class GalleryLocalizationsEsUs extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -43840,6 +47877,230 @@ class GalleryLocalizationsEsUy extends GalleryLocalizationsEs {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
+
+  @override
   String get demoColorsTitle => 'Colores';
 
   @override
@@ -46080,6 +50341,230 @@ class GalleryLocalizationsEsVe extends GalleryLocalizationsEs {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Movimiento';
+
+  @override
+  String get demoMotionSubtitle =>
+      'Todos los patrones de transición predefinidos';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformación de contenedores';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'El patrón de transformación de contenedores está diseñado para hacer transiciones entre elementos de la IU que incluyen un contenedor. Este patrón crea una conexión visible entre dos elementos de la IU';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Modo de atenuación';
+
+  @override
+  String get demoContainerTransformTypeFade => 'ATENUACIÓN';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'ATENUACIÓN RÁPIDA';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Título';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Texto secundario';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Secundario';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Página de detalles';
+
+  @override
+  String get demoMotionListTileTitle => 'Elemento de la lista';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'El patrón de eje compartido se usa para hacer transiciones entre los elementos de la IU que tienen una relación espacial o de navegación. Este patrón utiliza una transformación compartida en los ejes X, Y o Z para reforzar la relación entre los elementos.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Eje X compartido';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'ATRÁS';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'SIGUIENTE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle => 'Optimiza los cursos';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Las categorías adheridas aparecen como grupos en tu feed. Puedes modificar esto más adelante.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Artes y manualidades';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Empresa';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustración';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Diseño';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Cocina';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'Adherido';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Mostrados por separado';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Hola, David Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Accede con tu cuenta';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel =>
+      'Correo electrónico o número de teléfono';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText =>
+      '¿OLVIDASTE EL CORREO ELECTRÓNICO?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'CREAR CUENTA';
+
+  @override
+  String get demoSharedYAxisTitle => 'Eje Y compartido';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 álbumes';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Reproducido recientemente';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Álbum';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Artista';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Eje Z compartido';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Configuración';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Hamburguesa';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Receta de hamburguesa';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sándwich';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Receta de sándwich';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Postre';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Receta de postre';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Camarón';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Receta de bandeja de camarones';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Cangrejo';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Receta de bandeja de cangrejos';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle =>
+      'Sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Receta de sándwich de carne de res';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Recetas guardadas';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Perfil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Notificaciones';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privacidad';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Ayuda';
+
+  @override
+  String get demoFadeThroughTitle => 'Atenuación rápida';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'El patrón de atenuación rápida se usa para hacer transiciones entre elementos de la IU que no tienen una relación estrecha entre sí.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Álbumes';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Fotos';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Buscar';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 fotos';
+
+  @override
+  String get demoFadeScaleTitle => 'Atenuación';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'El patrón de atenuación se usa para los elementos de la IU que entran o salen dentro de los límites de la pantalla, como un diálogo que se atenúa en el centro de ella.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'MOSTRAR CUADRO';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'MOSTRAR BAF';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'OCULTAR BAF';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Cuadro de diálogo de alerta';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'CANCELAR';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'DESCARTAR';
 
   @override
   String get demoColorsTitle => 'Colores';

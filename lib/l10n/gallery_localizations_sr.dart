@@ -1006,10 +1006,10 @@ class GalleryLocalizationsSr extends GalleryLocalizations {
   String get demoCupertinoTextFieldPIN => 'PIN';
 
   @override
-  String get demoMotionTitle => 'Motion';
+  String get demoMotionTitle => 'Покрет';
 
   @override
-  String get demoMotionSubtitle => 'All of the predefined transition patterns';
+  String get demoMotionSubtitle => 'Сви унапред дефинисани шаблони прелаза';
 
   @override
   String get demoContainerTransformDemoInstructions => 'Cards, Lists & FAB';
@@ -1030,215 +1030,220 @@ class GalleryLocalizationsSr extends GalleryLocalizations {
   String get demoFadeScaleDemoInstructions => 'Modal and FAB';
 
   @override
-  String get demoContainerTransformTitle => 'Container Transform';
+  String get demoContainerTransformTitle => 'Трансформисање контејнера';
 
   @override
   String get demoContainerTransformDescription =>
-      'The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements';
+      'Шаблон трансформисања контејнера је направљен за прелаз између елемената корисничког интерфејса који садрже контејнер. Овај шаблон прави видљиву везу између два елемента корисничког интерфејса';
 
   @override
-  String get demoContainerTransformModalBottomSheetTitle => 'Fade mode';
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Режим постепеног појављивања и нестајања';
 
   @override
-  String get demoContainerTransformTypeFade => 'FADE';
+  String get demoContainerTransformTypeFade =>
+      'ПОСТЕПЕНО ПОЈАВЉИВАЊЕ И НЕСТАЈАЊЕ';
 
   @override
-  String get demoContainerTransformTypeFadeThrough => 'FADE THROUGH';
+  String get demoContainerTransformTypeFadeThrough => 'ПОСТЕПЕНИ ПРЕЛАЗ';
 
   @override
-  String get demoMotionPlaceholderTitle => 'Title';
+  String get demoMotionPlaceholderTitle => 'Наслов';
 
   @override
-  String get demoMotionPlaceholderSubtitle => 'Secondary text';
+  String get demoMotionPlaceholderSubtitle => 'Секундарни текст';
 
   @override
-  String get demoMotionSmallPlaceholderSubtitle => 'Secondary';
+  String get demoMotionSmallPlaceholderSubtitle => 'Секундарнo';
 
   @override
-  String get demoMotionDetailsPageTitle => 'Details Page';
+  String get demoMotionDetailsPageTitle => 'Страница са детаљима';
 
   @override
-  String get demoMotionListTileTitle => 'List item';
+  String get demoMotionListTileTitle => 'Ставка листе';
 
   @override
   String get demoSharedAxisDescription =>
-      'The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.';
+      'Шаблон заједничке осе се користи за прелаз између елемената корисничког интерфејса који имају просторни или навигациони однос. Овај шаблон користи заједничку трансформацију по X, Y или Z оси за наглашавање односа између елемената.';
 
   @override
-  String get demoSharedXAxisTitle => 'Shared x-axis';
+  String get demoSharedXAxisTitle => 'Заједничка X оса';
 
   @override
-  String get demoSharedXAxisBackButtonText => 'BACK';
+  String get demoSharedXAxisBackButtonText => 'НАЗАД';
 
   @override
-  String get demoSharedXAxisNextButtonText => 'NEXT';
+  String get demoSharedXAxisNextButtonText => 'ДАЉЕ';
 
   @override
-  String get demoSharedXAxisCoursePageTitle => 'Streamline your courses';
+  String get demoSharedXAxisCoursePageTitle =>
+      'Побољшајте организацију курсева';
 
   @override
   String get demoSharedXAxisCoursePageSubtitle =>
-      'Bundled categories appear as groups in your feed. You can always change this later.';
+      'Категорије у пакету се приказују као групе у фиду. Ово можете да промените кад год пожелите.';
 
   @override
-  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Arts & Crafts';
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Уметност и занати';
 
   @override
-  String get demoSharedXAxisBusinessCourseTitle => 'Business';
+  String get demoSharedXAxisBusinessCourseTitle => 'Пословање';
 
   @override
-  String get demoSharedXAxisIllustrationCourseTitle => 'Illustration';
+  String get demoSharedXAxisIllustrationCourseTitle => 'Илустрација';
 
   @override
-  String get demoSharedXAxisDesignCourseTitle => 'Design';
+  String get demoSharedXAxisDesignCourseTitle => 'Дизајн';
 
   @override
-  String get demoSharedXAxisCulinaryCourseTitle => 'Culinary';
+  String get demoSharedXAxisCulinaryCourseTitle => 'Кулинарство';
 
   @override
-  String get demoSharedXAxisBundledCourseSubtitle => 'Bundled';
+  String get demoSharedXAxisBundledCourseSubtitle => 'У пакету';
 
   @override
-  String get demoSharedXAxisIndividualCourseSubtitle => 'Shown Individually';
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Приказује се појединачно';
 
   @override
-  String get demoSharedXAxisSignInWelcomeText => 'Hi David Park';
+  String get demoSharedXAxisSignInWelcomeText => 'Здраво, Дејвид Парк';
 
   @override
-  String get demoSharedXAxisSignInSubtitleText => 'Sign in with your account';
+  String get demoSharedXAxisSignInSubtitleText => 'Пријавите се помоћу налога';
 
   @override
-  String get demoSharedXAxisSignInTextFieldLabel => 'Email or phone number';
+  String get demoSharedXAxisSignInTextFieldLabel => 'Имејл или број телефона';
 
   @override
-  String get demoSharedXAxisForgotEmailButtonText => 'FORGOT EMAIL?';
+  String get demoSharedXAxisForgotEmailButtonText => 'ЗАБОРАВИЛИ СТЕ ИМЕЈЛ?';
 
   @override
-  String get demoSharedXAxisCreateAccountButtonText => 'CREATE ACCOUNT';
+  String get demoSharedXAxisCreateAccountButtonText => 'ОТВОРИ НАЛОГ';
 
   @override
-  String get demoSharedYAxisTitle => 'Shared y-axis';
+  String get demoSharedYAxisTitle => 'Заједничка Y оса';
 
   @override
-  String get demoSharedYAxisAlbumCount => '268 albums';
+  String get demoSharedYAxisAlbumCount => '268 албума';
 
   @override
-  String get demoSharedYAxisAlphabeticalSortTitle => 'A-Z';
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
 
   @override
-  String get demoSharedYAxisRecentSortTitle => 'Recently played';
+  String get demoSharedYAxisRecentSortTitle => 'Недавно слушано';
 
   @override
-  String get demoSharedYAxisAlbumTileTitle => 'Album';
+  String get demoSharedYAxisAlbumTileTitle => 'Албум';
 
   @override
-  String get demoSharedYAxisAlbumTileSubtitle => 'Artist';
+  String get demoSharedYAxisAlbumTileSubtitle => 'Извођач';
 
   @override
-  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+  String get demoSharedYAxisAlbumTileDurationUnit => 'мин';
 
   @override
-  String get demoSharedZAxisTitle => 'Shared z-axis';
+  String get demoSharedZAxisTitle => 'Заједничка Z оса';
 
   @override
-  String get demoSharedZAxisSettingsPageTitle => 'Settings';
+  String get demoSharedZAxisSettingsPageTitle => 'Подешавања';
 
   @override
-  String get demoSharedZAxisBurgerRecipeTitle => 'Burger';
+  String get demoSharedZAxisBurgerRecipeTitle => 'Пљескавица';
 
   @override
-  String get demoSharedZAxisBurgerRecipeDescription => 'Burger recipe';
+  String get demoSharedZAxisBurgerRecipeDescription => 'Рецепт за пљескавицу';
 
   @override
-  String get demoSharedZAxisSandwichRecipeTitle => 'Sandwich';
+  String get demoSharedZAxisSandwichRecipeTitle => 'Сендвич';
 
   @override
-  String get demoSharedZAxisSandwichRecipeDescription => 'Sandwich recipe';
+  String get demoSharedZAxisSandwichRecipeDescription => 'Рецепт за сендвич';
 
   @override
-  String get demoSharedZAxisDessertRecipeTitle => 'Dessert';
+  String get demoSharedZAxisDessertRecipeTitle => 'Дезерт';
 
   @override
-  String get demoSharedZAxisDessertRecipeDescription => 'Dessert recipe';
+  String get demoSharedZAxisDessertRecipeDescription => 'Рецепт за дезерт';
 
   @override
-  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Shrimp';
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Шкамп';
 
   @override
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
-      'Shrimp plate recipe';
+      'Рецепт за јело са шкампима';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeTitle => 'Crab';
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Рак';
 
   @override
-  String get demoSharedZAxisCrabPlateRecipeDescription => 'Crab plate recipe';
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Рецепт за јело са раковима';
 
   @override
-  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Beef Sandwich';
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Сендвич са говедином';
 
   @override
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
-      'Beef Sandwich recipe';
+      'Рецепт за сендвич са говедином';
 
   @override
-  String get demoSharedZAxisSavedRecipesListTitle => 'Saved Recipes';
+  String get demoSharedZAxisSavedRecipesListTitle => 'Сачувани рецепти';
 
   @override
-  String get demoSharedZAxisProfileSettingLabel => 'Profile';
+  String get demoSharedZAxisProfileSettingLabel => 'Профил';
 
   @override
-  String get demoSharedZAxisNotificationSettingLabel => 'Notifications';
+  String get demoSharedZAxisNotificationSettingLabel => 'Обавештења';
 
   @override
-  String get demoSharedZAxisPrivacySettingLabel => 'Privacy';
+  String get demoSharedZAxisPrivacySettingLabel => 'Приватност';
 
   @override
-  String get demoSharedZAxisHelpSettingLabel => 'Help';
+  String get demoSharedZAxisHelpSettingLabel => 'Помоћ';
 
   @override
-  String get demoFadeThroughTitle => 'Fade through';
+  String get demoFadeThroughTitle => 'Постепени прелаз';
 
   @override
   String get demoFadeThroughDescription =>
-      'The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.';
+      'Шаблон постепеног прелаза се користи за прелаз између елемената корисничког интерфејса који немају јак међусобни однос.';
 
   @override
-  String get demoFadeThroughAlbumsDestination => 'Albums';
+  String get demoFadeThroughAlbumsDestination => 'Албуми';
 
   @override
-  String get demoFadeThroughPhotosDestination => 'Photos';
+  String get demoFadeThroughPhotosDestination => 'Слике';
 
   @override
-  String get demoFadeThroughSearchDestination => 'Search';
+  String get demoFadeThroughSearchDestination => 'Претрага';
 
   @override
-  String get demoFadeThroughTextPlaceholder => '123 photos';
+  String get demoFadeThroughTextPlaceholder => '123 слике';
 
   @override
-  String get demoFadeScaleTitle => 'Fade';
+  String get demoFadeScaleTitle => 'Постепено појављивање и нестајање';
 
   @override
   String get demoFadeScaleDescription =>
-      'The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.';
+      'Шаблон постепеног појављивања и нестајања се користи за елементе корисничког система који се појављују или нестају унутар граница екрана, попут дијалога који се постепено појављује и нестаје у центру екрана.';
 
   @override
-  String get demoFadeScaleShowAlertDialogButton => 'SHOW MODAL';
+  String get demoFadeScaleShowAlertDialogButton => 'ПРИКАЖИ ИСКАЧУЋИ ПРОЗОР';
 
   @override
-  String get demoFadeScaleShowFabButton => 'SHOW FAB';
+  String get demoFadeScaleShowFabButton => 'ПРИКАЖИ ПЛУТАЈУЋЕ ДУГМЕ ЗА РАДЊУ';
 
   @override
-  String get demoFadeScaleHideFabButton => 'HIDE FAB';
+  String get demoFadeScaleHideFabButton => 'САКРИЈ ПЛУТАЈУЋЕ ДУГМЕ ЗА РАДЊУ';
 
   @override
-  String get demoFadeScaleAlertDialogHeader => 'Alert Dialog';
+  String get demoFadeScaleAlertDialogHeader => 'Дијалог обавештења';
 
   @override
-  String get demoFadeScaleAlertDialogCancelButton => 'CANCEL';
+  String get demoFadeScaleAlertDialogCancelButton => 'ОТКАЖИ';
 
   @override
-  String get demoFadeScaleAlertDialogDiscardButton => 'DISCARD';
+  String get demoFadeScaleAlertDialogDiscardButton => 'ОДБАЦИ';
 
   @override
   String get demoColorsTitle => 'Боје';
@@ -3472,6 +3477,228 @@ class GalleryLocalizationsSrLatn extends GalleryLocalizationsSr {
 
   @override
   String get demoCupertinoTextFieldPIN => 'PIN';
+
+  @override
+  String get demoMotionTitle => 'Pokret';
+
+  @override
+  String get demoMotionSubtitle => 'Svi unapred definisani šabloni prelaza';
+
+  @override
+  String get demoContainerTransformTitle => 'Transformisanje kontejnera';
+
+  @override
+  String get demoContainerTransformDescription =>
+      'Šablon transformisanja kontejnera je napravljen za prelaz između elemenata korisničkog interfejsa koji sadrže kontejner. Ovaj šablon pravi vidljivu vezu između dva elementa korisničkog interfejsa';
+
+  @override
+  String get demoContainerTransformModalBottomSheetTitle =>
+      'Režim postepenog pojavljivanja i nestajanja';
+
+  @override
+  String get demoContainerTransformTypeFade =>
+      'POSTEPENO POJAVLJIVANJE I NESTAJANJE';
+
+  @override
+  String get demoContainerTransformTypeFadeThrough => 'POSTEPENI PRELAZ';
+
+  @override
+  String get demoMotionPlaceholderTitle => 'Naslov';
+
+  @override
+  String get demoMotionPlaceholderSubtitle => 'Sekundarni tekst';
+
+  @override
+  String get demoMotionSmallPlaceholderSubtitle => 'Sekundarno';
+
+  @override
+  String get demoMotionDetailsPageTitle => 'Stranica sa detaljima';
+
+  @override
+  String get demoMotionListTileTitle => 'Stavka liste';
+
+  @override
+  String get demoSharedAxisDescription =>
+      'Šablon zajedničke ose se koristi za prelaz između elemenata korisničkog interfejsa koji imaju prostorni ili navigacioni odnos. Ovaj šablon koristi zajedničku transformaciju po X, Y ili Z osi za naglašavanje odnosa između elemenata.';
+
+  @override
+  String get demoSharedXAxisTitle => 'Zajednička X osa';
+
+  @override
+  String get demoSharedXAxisBackButtonText => 'NAZAD';
+
+  @override
+  String get demoSharedXAxisNextButtonText => 'DALJE';
+
+  @override
+  String get demoSharedXAxisCoursePageTitle =>
+      'Poboljšajte organizaciju kurseva';
+
+  @override
+  String get demoSharedXAxisCoursePageSubtitle =>
+      'Kategorije u paketu se prikazuju kao grupe u fidu. Ovo možete da promenite kad god poželite.';
+
+  @override
+  String get demoSharedXAxisArtsAndCraftsCourseTitle => 'Umetnost i zanati';
+
+  @override
+  String get demoSharedXAxisBusinessCourseTitle => 'Poslovanje';
+
+  @override
+  String get demoSharedXAxisIllustrationCourseTitle => 'Ilustracija';
+
+  @override
+  String get demoSharedXAxisDesignCourseTitle => 'Dizajn';
+
+  @override
+  String get demoSharedXAxisCulinaryCourseTitle => 'Kulinarstvo';
+
+  @override
+  String get demoSharedXAxisBundledCourseSubtitle => 'U paketu';
+
+  @override
+  String get demoSharedXAxisIndividualCourseSubtitle =>
+      'Prikazuje se pojedinačno';
+
+  @override
+  String get demoSharedXAxisSignInWelcomeText => 'Zdravo, Dejvid Park';
+
+  @override
+  String get demoSharedXAxisSignInSubtitleText => 'Prijavite se pomoću naloga';
+
+  @override
+  String get demoSharedXAxisSignInTextFieldLabel => 'Imejl ili broj telefona';
+
+  @override
+  String get demoSharedXAxisForgotEmailButtonText => 'ZABORAVILI STE IMEJL?';
+
+  @override
+  String get demoSharedXAxisCreateAccountButtonText => 'OTVORI NALOG';
+
+  @override
+  String get demoSharedYAxisTitle => 'Zajednička Y osa';
+
+  @override
+  String get demoSharedYAxisAlbumCount => '268 albuma';
+
+  @override
+  String get demoSharedYAxisAlphabeticalSortTitle => 'A–Z';
+
+  @override
+  String get demoSharedYAxisRecentSortTitle => 'Nedavno slušano';
+
+  @override
+  String get demoSharedYAxisAlbumTileTitle => 'Album';
+
+  @override
+  String get demoSharedYAxisAlbumTileSubtitle => 'Izvođač';
+
+  @override
+  String get demoSharedYAxisAlbumTileDurationUnit => 'min';
+
+  @override
+  String get demoSharedZAxisTitle => 'Zajednička Z osa';
+
+  @override
+  String get demoSharedZAxisSettingsPageTitle => 'Podešavanja';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeTitle => 'Pljeskavica';
+
+  @override
+  String get demoSharedZAxisBurgerRecipeDescription => 'Recept za pljeskavicu';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeTitle => 'Sendvič';
+
+  @override
+  String get demoSharedZAxisSandwichRecipeDescription => 'Recept za sendvič';
+
+  @override
+  String get demoSharedZAxisDessertRecipeTitle => 'Dezert';
+
+  @override
+  String get demoSharedZAxisDessertRecipeDescription => 'Recept za dezert';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeTitle => 'Škamp';
+
+  @override
+  String get demoSharedZAxisShrimpPlateRecipeDescription =>
+      'Recept za jelo sa škampima';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeTitle => 'Rak';
+
+  @override
+  String get demoSharedZAxisCrabPlateRecipeDescription =>
+      'Recept za jelo sa rakovima';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeTitle => 'Sendvič sa govedinom';
+
+  @override
+  String get demoSharedZAxisBeefSandwichRecipeDescription =>
+      'Recept za sendvič sa govedinom';
+
+  @override
+  String get demoSharedZAxisSavedRecipesListTitle => 'Sačuvani recepti';
+
+  @override
+  String get demoSharedZAxisProfileSettingLabel => 'Profil';
+
+  @override
+  String get demoSharedZAxisNotificationSettingLabel => 'Obaveštenja';
+
+  @override
+  String get demoSharedZAxisPrivacySettingLabel => 'Privatnost';
+
+  @override
+  String get demoSharedZAxisHelpSettingLabel => 'Pomoć';
+
+  @override
+  String get demoFadeThroughTitle => 'Postepeni prelaz';
+
+  @override
+  String get demoFadeThroughDescription =>
+      'Šablon postepenog prelaza se koristi za prelaz između elemenata korisničkog interfejsa koji nemaju jak međusobni odnos.';
+
+  @override
+  String get demoFadeThroughAlbumsDestination => 'Albumi';
+
+  @override
+  String get demoFadeThroughPhotosDestination => 'Slike';
+
+  @override
+  String get demoFadeThroughSearchDestination => 'Pretraga';
+
+  @override
+  String get demoFadeThroughTextPlaceholder => '123 slike';
+
+  @override
+  String get demoFadeScaleTitle => 'Postepeno pojavljivanje i nestajanje';
+
+  @override
+  String get demoFadeScaleDescription =>
+      'Šablon postepenog pojavljivanja i nestajanja se koristi za elemente korisničkog sistema koji se pojavljuju ili nestaju unutar granica ekrana, poput dijaloga koji se postepeno pojavljuje i nestaje u centru ekrana.';
+
+  @override
+  String get demoFadeScaleShowAlertDialogButton => 'PRIKAŽI ISKAČUĆI PROZOR';
+
+  @override
+  String get demoFadeScaleShowFabButton => 'PRIKAŽI PLUTAJUĆE DUGME ZA RADNJU';
+
+  @override
+  String get demoFadeScaleHideFabButton => 'SAKRIJ PLUTAJUĆE DUGME ZA RADNJU';
+
+  @override
+  String get demoFadeScaleAlertDialogHeader => 'Dijalog obaveštenja';
+
+  @override
+  String get demoFadeScaleAlertDialogCancelButton => 'OTKAŽI';
+
+  @override
+  String get demoFadeScaleAlertDialogDiscardButton => 'ODBACI';
 
   @override
   String get demoColorsTitle => 'Boje';
