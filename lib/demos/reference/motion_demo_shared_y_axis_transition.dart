@@ -57,6 +57,12 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
   ];
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
 
