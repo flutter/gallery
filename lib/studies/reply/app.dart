@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/studies/reply/inbox.dart';
+import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 
@@ -22,7 +22,7 @@ class ReplyApp extends StatelessWidget {
       locale: GalleryOptions.of(context).locale,
       initialRoute: homeRoute,
       routes: <String, WidgetBuilder>{
-        homeRoute: (context) => const InboxPage(),
+        homeRoute: (context) => const AdaptiveNav(),
       },
     );
   }
