@@ -9,6 +9,7 @@ class InboxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
+    final horizontalPadding = isTablet ? 60.0 : isDesktop ? 120.0 : 6.0;
 
     return Navigator(
       onGenerateRoute: (settings) {
@@ -20,8 +21,8 @@ class InboxPage extends StatelessWidget {
                 Expanded(
                   child: ListView.separated(
                     padding: EdgeInsetsDirectional.only(
-                      start: isTablet ? 60 : isDesktop ? 120 : 6,
-                      end: isTablet ? 60 : isDesktop ? 120 : 6,
+                      start: horizontalPadding,
+                      end: horizontalPadding,
                       top: isDesktop ? 28 : 6,
                     ),
                     itemCount: 2,

@@ -41,23 +41,7 @@ class MailViewPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Row(
-                        children: [
-                          const Text('Google Express'),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              start: 8,
-                              end: 8,
-                            ),
-                            child: Container(
-                              height: 1,
-                              width: 8,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Text('4 hrs ago'),
-                        ],
-                      ),
+                      const Text('Google Express - 4 hrs ago'),
                       const SizedBox(height: 4),
                       Text(
                         'To Jeff,',
