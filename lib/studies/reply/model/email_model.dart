@@ -1,14 +1,14 @@
 class Email {
   const Email(
       {this.sender,
-        this.time,
-        this.subject,
-        this.message,
-        this.avatar,
-        this.recipients,
-        this.hasAttachment,
-        this.containsPictures,
-        this.isRead});
+      this.time,
+      this.subject,
+      this.message,
+      this.avatar,
+      this.recipients,
+      this.hasAttachment,
+      this.containsPictures,
+      this.isRead});
 
   final String sender;
   final String time;

@@ -44,7 +44,6 @@ class MailPreviewCard extends StatelessWidget {
                 constraints: BoxConstraints(maxHeight: constraints.maxHeight),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
                       children: [
