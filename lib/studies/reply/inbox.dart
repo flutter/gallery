@@ -8,6 +8,7 @@ class InboxPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isTablet = isDisplaySmallDesktop(context);
 
     return Navigator(
       onGenerateRoute: (settings) {
@@ -19,8 +20,8 @@ class InboxPage extends StatelessWidget {
                 Expanded(
                   child: ListView.separated(
                     padding: EdgeInsetsDirectional.only(
-                      start: isDesktop ? 120 : 6,
-                      end: isDesktop ? 120 : 6,
+                      start: isTablet ? 60 : isDesktop ? 120 : 6,
+                      end: isTablet ? 60 : isDesktop ? 120 : 6,
                       top: isDesktop ? 28 : 6,
                     ),
                     itemCount: 2,
