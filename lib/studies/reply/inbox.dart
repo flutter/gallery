@@ -28,7 +28,7 @@ class InboxPage extends StatelessWidget {
                     separatorBuilder: (context, index) =>
                         const SizedBox(height: 6),
                     itemBuilder: (context, index) {
-                      return const MailCardPreview();
+                      return const MailPreviewCard();
                     },
                   ),
                 ),
