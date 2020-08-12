@@ -5,6 +5,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/layout/letter_spacing.dart';
+import 'package:provider/provider.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 
 class ReplyApp extends StatelessWidget {
   const ReplyApp();
@@ -13,17 +15,22 @@ class ReplyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Reply',
-      debugShowCheckedModeBanner: false,
-      theme: _buildReplyLightTheme(context),
-      localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-      supportedLocales: GalleryLocalizations.supportedLocales,
-      locale: GalleryOptions.of(context).locale,
-      initialRoute: homeRoute,
-      routes: <String, WidgetBuilder>{
-        homeRoute: (context) => const AdaptiveNav(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<EmailStore>.value(value: EmailStore()),
+      ],
+      child: MaterialApp(
+        title: 'Reply',
+        debugShowCheckedModeBanner: false,
+        theme: _buildReplyLightTheme(context),
+        localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+        supportedLocales: GalleryLocalizations.supportedLocales,
+        locale: GalleryOptions.of(context).locale,
+        initialRoute: homeRoute,
+        routes: <String, WidgetBuilder>{
+          homeRoute: (context) => const AdaptiveNav(),
+        },
+      ),
     );
   }
 }

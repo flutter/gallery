@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/studies/reply/colors.dart';
 
+import 'package:gallery/studies/reply/model/email_model.dart';
+
 class MailViewPage extends StatelessWidget {
-  const MailViewPage({Key key}) : super(key: key);
+  const MailViewPage({Key key, @required this.id, @required this.email})
+      : super(key: key);
+
+  final int id;
+  final Email email;
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -19,15 +26,13 @@ class MailViewPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      'Package shipped!',
+                      email.subject,
                       style: textTheme.headline4.copyWith(height: 1.1),
                     ),
                   ),
                   IconButton(
                     icon: const Icon(Icons.keyboard_arrow_down),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onPressed: () => Navigator.pop(context),
                     splashRadius: 20,
                   ),
                 ],
@@ -41,10 +46,10 @@ class MailViewPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text('Google Express - 4 hrs ago'),
+                      Text('${email.sender} - ${email.time}'),
                       const SizedBox(height: 4),
                       Text(
-                        'To Jeff,',
+                        'To ${email.recipients},',
                         style: textTheme.caption
                             .copyWith(color: ReplyColors.black900Alpha060),
                       ),
@@ -54,7 +59,7 @@ class MailViewPage extends StatelessWidget {
                     offset: const Offset(-8, 0),
                     child: ClipOval(
                       child: Image.asset(
-                        'reply/avatars/avatar_0.jpg',
+                        email.avatar,
                         package: 'flutter_gallery_assets',
                         height: 36,
                         width: 36,
@@ -67,10 +72,7 @@ class MailViewPage extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Text(
-                    'Cucumber Mask Facial has shipped.\n\n'
-                    'Keep an eye out for a package to arrive between this Thursday and next Tuesday. '
-                    'If for any reason you don\'t receive your package before the end of next week, please reach out to use for details on your shipment.\n\n'
-                    'As always, thank you for shopping with us and we hope you love our specially formulated Cucumber Mask!',
+                    email.message,
                     style: textTheme.bodyText2.copyWith(fontSize: 16),
                   ),
                 ),
