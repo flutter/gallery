@@ -9,7 +9,7 @@ class InboxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    return Center(
+    return SafeArea(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
