@@ -80,12 +80,16 @@ class MailViewPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 32),
-              Text(
-                'Cucumber Mask Facial has shipped. '
-                'Keep an eye out for a package to arrive between this Thursday and next Tuesday. '
-                'If for any reason you don\'t receive your package before the end of next week, please reach out to use for details on your shipment. '
-                'As always, thank you for shopping with us and we hope you love our specially formulated Cucumber Mask!',
-                style: textTheme.bodyText2.copyWith(fontSize: 16),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Text(
+                    'Cucumber Mask Facial has shipped.\n\n'
+                    'Keep an eye out for a package to arrive between this Thursday and next Tuesday. '
+                    'If for any reason you don\'t receive your package before the end of next week, please reach out to use for details on your shipment.\n\n'
+                    'As always, thank you for shopping with us and we hope you love our specially formulated Cucumber Mask!',
+                    style: textTheme.bodyText2.copyWith(fontSize: 16),
+                  ),
+                ),
               ),
             ],
           ),
