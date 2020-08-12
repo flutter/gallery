@@ -7,8 +7,8 @@ import 'package:gallery/studies/reply/mail_view_page.dart';
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
 
-class MailCardPreview extends StatelessWidget {
-  const MailCardPreview({Key key}) : super(key: key);
+class MailPreviewCard extends StatelessWidget {
+  const MailPreviewCard({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,8 @@ class MailCardPreview extends StatelessWidget {
                         children: [
                           Text('Google Express', style: textTheme.caption),
                           Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              start: 4,
-                              end: 4,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 4,
                             ),
                             child: Container(
                               color: Colors.black,
