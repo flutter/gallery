@@ -47,7 +47,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     };
 
     if (isTablet) {
-      return _BuildDesktopNav(
+      return _DesktopNav(
         selectedIndex: _selectedIndex,
         extended: false,
         destinations: _navigationItems,
@@ -55,7 +55,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         onItemTapped: _onDestinationSelected,
       );
     } else if (isDesktop) {
-      return _BuildDesktopNav(
+      return _DesktopNav(
         selectedIndex: _selectedIndex,
         extended: true,
         destinations: _navigationItems,
@@ -63,7 +63,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         onItemTapped: _onDestinationSelected,
       );
     } else {
-      return _BuildMobileNav(
+      return _MobileNav(
         selectedIndex: _selectedIndex,
         destinations: _navigationItems,
         folders: _folders,
@@ -79,15 +79,15 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
   }
 }
 
-class _BuildDesktopNav extends StatefulWidget {
-  const _BuildDesktopNav(
-      {Key key,
-      this.selectedIndex,
-      this.extended,
-      this.destinations,
-      this.folders,
-      this.onItemTapped})
-      : super(key: key);
+class _DesktopNav extends StatefulWidget {
+  const _DesktopNav({
+    Key key,
+    this.selectedIndex,
+    this.extended,
+    this.destinations,
+    this.folders,
+    this.onItemTapped,
+  }) : super(key: key);
   final int selectedIndex;
   final bool extended;
 
@@ -99,10 +99,10 @@ class _BuildDesktopNav extends StatefulWidget {
   final void Function(int) onItemTapped;
 
   @override
-  _BuildDesktopNavState createState() => _BuildDesktopNavState();
+  _DesktopNavState createState() => _DesktopNavState();
 }
 
-class _BuildDesktopNavState extends State<_BuildDesktopNav>
+class _DesktopNavState extends State<_DesktopNav>
     with SingleTickerProviderStateMixin {
   bool _isExtended;
   bool _hasWidgetUpdated = false;
@@ -130,7 +130,7 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
   }
 
   @override
-  void didUpdateWidget(_BuildDesktopNav oldWidget) {
+  void didUpdateWidget(_DesktopNav oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.extended != widget.extended) {
       onLogoTapped();
@@ -376,8 +376,8 @@ class _BuildDesktopNavState extends State<_BuildDesktopNav>
   }
 }
 
-class _BuildMobileNav extends StatefulWidget {
-  const _BuildMobileNav(
+class _MobileNav extends StatefulWidget {
+  const _MobileNav(
       {this.selectedIndex, this.destinations, this.folders, this.onItemTapped});
   final int selectedIndex;
   final Map<String, String> destinations;
@@ -385,11 +385,10 @@ class _BuildMobileNav extends StatefulWidget {
   final void Function(int) onItemTapped;
 
   @override
-  __BuildMobileNavState createState() => __BuildMobileNavState();
+  _MobileNavState createState() => _MobileNavState();
 }
 
-class __BuildMobileNavState extends State<_BuildMobileNav>
-    with TickerProviderStateMixin {
+class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   int _destinationsCount;
   AnimationController _drawerController;
