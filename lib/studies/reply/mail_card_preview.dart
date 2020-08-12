@@ -100,7 +100,7 @@ class MailCardPreview extends StatelessWidget {
                           width: 36,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/studies/reply/colors.dart';
 
 class MailViewPage extends StatelessWidget {
   const MailViewPage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding:
-              const EdgeInsetsDirectional.only(top: 32, start: 20, end: 20),
+              const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
                   Expanded(
                     child: Text(
                       'Package shipped!',
-                      style: Theme.of(context).textTheme.headline4,
+                      style: textTheme.headline4.copyWith(height: 1.1),
                     ),
                   ),
                   IconButton(
@@ -26,27 +28,65 @@ class MailViewPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
+                    splashRadius: 20,
                   ),
                 ],
               ),
+              const SizedBox(height: 16),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Row(
                         children: [
                           const Text('Google Express'),
-                          Container(),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(
+                              start: 8,
+                              end: 8,
+                            ),
+                            child: Container(
+                              height: 1,
+                              width: 8,
+                              color: Colors.black,
+                            ),
+                          ),
                           const Text('4 hrs ago'),
                         ],
                       ),
-                      const Text('To Jeff,'),
+                      const SizedBox(height: 4),
+                      Text(
+                        'To Jeff,',
+                        style: textTheme.caption
+                            .copyWith(color: ReplyColors.black900Alpha060),
+                      ),
                     ],
+                  ),
+                  Transform.translate(
+                    offset: const Offset(-8, 0),
+                    child: ClipOval(
+                      child: Image.asset(
+                        'reply/avatars/avatar_0.jpg',
+                        package: 'flutter_gallery_assets',
+                        height: 36,
+                        width: 36,
+                      ),
+                    ),
                   ),
                 ],
               ),
-              const Text('Message'),
+              const SizedBox(height: 32),
+              Text(
+                'Cucumber Mask Facial has shipped. '
+                'Keep an eye out for a package to arrive between this Thursday and next Tuesday. '
+                'If for any reason you don\'t receive your package before the end of next week, please reach out to use for details on your shipment. '
+                'As always, thank you for shopping with us and we hope you love our specially formulated Cucumber Mask!',
+                style: textTheme.bodyText2.copyWith(fontSize: 16),
+              ),
             ],
           ),
         ),
