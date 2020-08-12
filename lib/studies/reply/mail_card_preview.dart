@@ -35,21 +35,9 @@ class MailPreviewCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Row(
-                        children: [
-                          Text('Google Express', style: textTheme.caption),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 4,
-                            ),
-                            child: Container(
-                              color: Colors.black,
-                              width: 12,
-                              height: 0.5,
-                            ),
-                          ),
-                          Text('15 mins ago', style: textTheme.caption),
-                        ],
+                      Text(
+                        'Google Express - 4 hrs ago',
+                        style: textTheme.caption,
                       ),
                       const SizedBox(height: 4),
                       Text('Package Shipped!', style: textTheme.headline6),
@@ -99,7 +87,7 @@ class MailPreviewCard extends StatelessWidget {
                           width: 36,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -219,33 +219,31 @@ class _DesktopNavState extends State<_DesktopNav>
                                       onTap: onLogoTapped,
                                     ),
                                   ),
-                                  _isExtended
-                                      ? SizedBox(
-                                          width: 128,
-                                          child: Row(
-                                            children: [
-                                              const SizedBox(width: 36),
-                                              Align(
-                                                alignment:
-                                                    const Alignment(0, -1.5),
-                                                child: ClipOval(
-                                                  child: Image.asset(
-                                                    'reply/avatars/avatar_2.jpg',
-                                                    package: _assetsPackage,
-                                                    width: 32,
-                                                    height: 32,
-                                                  ),
-                                                ),
+                                  if (_isExtended)
+                                    SizedBox(
+                                      width: 128,
+                                      child: Row(
+                                        children: [
+                                          const SizedBox(width: 36),
+                                          Align(
+                                            alignment: const Alignment(0, -1.5),
+                                            child: ClipOval(
+                                              child: Image.asset(
+                                                'reply/avatars/avatar_2.jpg',
+                                                package: _assetsPackage,
+                                                width: 32,
+                                                height: 32,
                                               ),
-                                              const SizedBox(width: 12),
-                                              const Icon(
-                                                Icons.settings,
-                                                color: ReplyColors.blue200,
-                                              ),
-                                            ],
+                                            ),
                                           ),
-                                        )
-                                      : const SizedBox(),
+                                          const SizedBox(width: 12),
+                                          const Icon(
+                                            Icons.settings,
+                                            color: ReplyColors.blue200,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                 ],
                               ),
                             ),
