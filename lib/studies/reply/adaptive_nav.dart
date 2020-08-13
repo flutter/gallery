@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -619,16 +621,23 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                     const SizedBox(width: 8),
                     const _ReplyLogo(),
                     const SizedBox(width: 10),
-                    AnimatedOpacity(
-                      opacity: _bottomDrawerVisible ? 0.0 : 1.0,
-                      duration: const Duration(milliseconds: 350),
-                      child: Text(
-                        _currentDestination,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1
-                            .copyWith(color: ReplyColors.blue50),
-                      ),
+                    Consumer<EmailStore>(
+                      builder: (context, model, child) {
+                        final onMailView = model.currentlySelectedEmailId >= 0;
+
+                        return AnimatedOpacity(
+                          opacity:
+                              _bottomDrawerVisible | onMailView ? 0.0 : 1.0,
+                          duration: const Duration(milliseconds: 350),
+                          child: Text(
+                            _currentDestination,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                .copyWith(color: ReplyColors.blue50),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
