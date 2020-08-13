@@ -117,10 +117,9 @@ class MailPreviewCard extends StatelessWidget {
                         bottom: 20,
                       ),
                       child: Text(
-                        email.message.substring(
-                          0,
-                          email.message.indexOf(RegExp(r'[\n\n]|!|[.]'), 0) + 1,
-                        ),
+                        email.message,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: textTheme.bodyText2,
                       ),
                     ),
