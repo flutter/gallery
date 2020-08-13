@@ -19,25 +19,29 @@ class InboxPage extends StatelessWidget {
           onGenerateRoute: (settings) {
             return MaterialPageRoute<void>(builder: (context) {
               return SafeArea(
+                bottom: false,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: ListView.separated(
+                      child: ListView(
                         padding: EdgeInsetsDirectional.only(
                           start: horizontalPadding,
                           end: horizontalPadding,
                           top: isDesktop ? 28 : 0,
                         ),
-                        itemCount: model.emails.length,
-                        separatorBuilder: (context, index) =>
+                        children: [
+                          for (int index = 0;
+                              index < model.emails.length;
+                              index++) ...[
+                            MailPreviewCard(
+                              id: index,
+                              email: model.emails[index],
+                            ),
                             const SizedBox(height: 4),
-                        itemBuilder: (context, index) {
-                          return MailPreviewCard(
-                            id: index,
-                            email: model.emails[index],
-                          );
-                        },
+                          ],
+                          const SizedBox(height: kToolbarHeight),
+                        ],
                       ),
                     ),
                   ],
