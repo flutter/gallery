@@ -401,7 +401,7 @@ class _MobileNav extends StatefulWidget {
 }
 
 class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
-  final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
+  final _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   int _destinationsCount;
   AnimationController _drawerController;
   AnimationController _dropArrowController;
