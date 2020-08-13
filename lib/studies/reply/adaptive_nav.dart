@@ -6,6 +6,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
+import 'package:gallery/studies/reply/profile_avatar.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
@@ -223,21 +224,19 @@ class _DesktopNavState extends State<_DesktopNav>
                                     SizedBox(
                                       width: 128,
                                       child: Row(
-                                        children: [
-                                          const SizedBox(width: 36),
+                                        children: const [
+                                          SizedBox(width: 36),
                                           Align(
-                                            alignment: const Alignment(0, -1.5),
-                                            child: ClipOval(
-                                              child: Image.asset(
-                                                'reply/avatars/avatar_2.jpg',
-                                                package: _assetsPackage,
-                                                width: 32,
-                                                height: 32,
-                                              ),
+                                            alignment: Alignment(0, -1.5),
+                                            child: ProfileAvatar(
+                                              avatar:
+                                                  'reply/avatars/avatar_2.jpg',
+                                              height: 32,
+                                              width: 32,
                                             ),
                                           ),
-                                          const SizedBox(width: 12),
-                                          const Icon(
+                                          SizedBox(width: 12),
+                                          Icon(
                                             Icons.settings,
                                             color: ReplyColors.blue200,
                                           ),

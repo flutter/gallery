@@ -5,6 +5,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/mail_view_page.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
+import 'package:gallery/studies/reply/profile_avatar.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
@@ -99,13 +100,10 @@ class MailPreviewCard extends StatelessWidget {
                               const SizedBox(width: 20),
                               Transform.translate(
                                 offset: Offset(0, isDesktop ? -16 : 8),
-                                child: ClipOval(
-                                  child: Image.asset(
-                                    email.avatar,
-                                    package: _assetsPackage,
-                                    height: 36,
-                                    width: 36,
-                                  ),
+                                child: ProfileAvatar(
+                                  avatar: email.avatar,
+                                  height: 36,
+                                  width: 36,
                                 ),
                               ),
                             ],
