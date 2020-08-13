@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "7.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.39.10"
+    version: "0.39.17"
   animations:
     dependency: "direct main"
     description:
@@ -112,7 +112,7 @@ packages:
       name: csslib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.1"
+    version: "0.16.2"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -154,7 +154,7 @@ packages:
       name: flare_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.6"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -171,7 +171,7 @@ packages:
       name: flutter_gallery_assets
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.4"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -190,7 +190,7 @@ packages:
       name: flutter_staggered_grid_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -240,7 +240,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.1"
+    version: "0.12.2"
   http_multi_server:
     dependency: transitive
     description:
@@ -317,7 +317,14 @@ packages:
       name: mime
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.6+3"
+    version: "0.9.7"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   node_interop:
     dependency: transitive
     description:
@@ -373,7 +380,7 @@ packages:
       name: path_provider_linux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1+1"
+    version: "0.0.1+2"
   path_provider_macos:
     dependency: transitive
     description:
@@ -401,7 +408,7 @@ packages:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.4"
+    version: "3.1.0"
   platform:
     dependency: transitive
     description:
@@ -437,6 +444,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
+  provider:
+    dependency: "direct main"
+    description:
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.3.2"
   pub_semver:
     dependency: transitive
     description:
@@ -464,7 +478,14 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.7+3"
+    version: "0.5.8"
+  shared_preferences_linux:
+    dependency: transitive
+    description:
+      name: shared_preferences_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2+1"
   shared_preferences_macos:
     dependency: transitive
     description:
@@ -492,7 +513,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.6"
+    version: "0.7.8"
   shelf_packages_handler:
     dependency: transitive
     description:
@@ -616,7 +637,14 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.11"
+    version: "5.5.0"
+  url_launcher_linux:
+    dependency: transitive
+    description:
+      name: url_launcher_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+1"
   url_launcher_macos:
     dependency: transitive
     description:
@@ -637,7 +665,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1+6"
+    version: "0.1.2"
   vector_math:
     dependency: "direct main"
     description:
@@ -651,7 +679,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.2.0"
   vm_service_client:
     dependency: transitive
     description:
