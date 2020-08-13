@@ -308,24 +308,7 @@ class _NavigationRailHeader extends StatelessWidget {
             start: 12,
             end: 16,
           ),
-          child: FloatingActionButton.extended(
-            heroTag: 'Rail FAB',
-            isExtended: extended,
-            onPressed: () {
-              // TODO: Implement onPressed for Rail FAB
-            },
-            label: Row(
-              children: [
-                const Icon(Icons.create),
-                SizedBox(width: extended ? 16 : 0),
-                if (extended)
-                  Text(
-                    'COMPOSE',
-                    style: textTheme.headline5.copyWith(fontSize: 16),
-                  ),
-              ],
-            ),
-          ),
+          child: _ReplyFab(extended: extended),
         ),
         const SizedBox(height: 8),
       ],
@@ -654,15 +637,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           ),
         ),
       ),
-      floatingActionButton: _bottomDrawerVisible
-          ? null
-          : FloatingActionButton(
-              heroTag: 'Bottom App Bar FAB',
-              child: const Icon(Icons.create),
-              onPressed: () {
-                // TODO: Implement onPressed for Bottom App Bar FAB
-              },
-            ),
+      floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -812,5 +787,48 @@ class _ReplyLogo extends StatelessWidget {
       size: 32,
       color: ReplyColors.blue50,
     );
+  }
+}
+
+class _ReplyFab extends StatelessWidget {
+  const _ReplyFab({this.extended});
+
+  final bool extended;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+
+    if (isDesktop) {
+      return FloatingActionButton.extended(
+        heroTag: 'Rail FAB',
+        isExtended: extended,
+        onPressed: () {
+          // TODO: Implement onPressed for Rail FAB
+        },
+        label: Row(
+          children: [
+            const Icon(Icons.create),
+            SizedBox(width: extended ? 16 : 0),
+            if (extended)
+              Text(
+                'COMPOSE',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5
+                    .copyWith(fontSize: 16),
+              ),
+          ],
+        ),
+      );
+    } else {
+      return FloatingActionButton(
+        heroTag: 'Bottom App Bar FAB',
+        child: const Icon(Icons.create),
+        onPressed: () {
+          // TODO: Implement onPressed for Bottom App Bar FAB
+        },
+      );
+    }
   }
 }
