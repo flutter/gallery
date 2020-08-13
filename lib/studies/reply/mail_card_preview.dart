@@ -38,7 +38,7 @@ class MailPreviewCard extends StatelessWidget {
           subject: email.subject,
           avatar: email.avatar,
           message: email.message,
-          openContainer: openContainer,
+          onTap: openContainer,
         );
       },
     );
@@ -52,20 +52,20 @@ class _MailPreview extends StatelessWidget {
     @required this.subject,
     @required this.avatar,
     @required this.message,
-    @required this.openContainer,
+    @required this.onTap,
   })  : assert(sender != null),
         assert(time != null),
         assert(subject != null),
         assert(avatar != null),
         assert(message != null),
-        assert(openContainer != null);
+        assert(onTap != null);
 
   final String sender;
   final String time;
   final String subject;
   final String avatar;
   final String message;
-  final VoidCallback openContainer;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class _MailPreview extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return InkWell(
-      onTap: openContainer,
+      onTap: onTap,
       child: LayoutBuilder(
         builder: (context, constraints) {
           return ConstrainedBox(
