@@ -520,7 +520,15 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       overflow: Overflow.visible,
       key: _bottomDrawerKey,
       children: [
-        mainLayer,
+        Navigator(
+          onGenerateRoute: (settings) {
+            return MaterialPageRoute<void>(
+              builder: (context) {
+                return mainLayer;
+              },
+            );
+          },
+        ),
         GestureDetector(
           onTap: () {
             _drawerController.reverse();

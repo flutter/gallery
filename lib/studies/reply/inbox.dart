@@ -15,40 +15,34 @@ class InboxPage extends StatelessWidget {
 
     return Consumer<EmailStore>(
       builder: (context, model, child) {
-        return Navigator(
-          onGenerateRoute: (settings) {
-            return MaterialPageRoute<void>(builder: (context) {
-              return SafeArea(
-                bottom: false,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        return SafeArea(
+          bottom: false,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsetsDirectional.only(
+                    start: horizontalPadding,
+                    end: horizontalPadding,
+                    top: isDesktop ? 28 : 0,
+                  ),
                   children: [
-                    Expanded(
-                      child: ListView(
-                        padding: EdgeInsetsDirectional.only(
-                          start: horizontalPadding,
-                          end: horizontalPadding,
-                          top: isDesktop ? 28 : 0,
-                        ),
-                        children: [
-                          for (int index = 0;
-                              index < model.emails.length;
-                              index++) ...[
-                            MailPreviewCard(
-                              id: index,
-                              email: model.emails[index],
-                            ),
-                            const SizedBox(height: 4),
-                          ],
-                          const SizedBox(height: kToolbarHeight),
-                        ],
+                    for (int index = 0;
+                        index < model.emails.length;
+                        index++) ...[
+                      MailPreviewCard(
+                        id: index,
+                        email: model.emails[index],
                       ),
-                    ),
+                      const SizedBox(height: 4),
+                    ],
+                    const SizedBox(height: kToolbarHeight),
                   ],
                 ),
-              );
-            });
-          },
+              ),
+            ],
+          ),
         );
       },
     );
