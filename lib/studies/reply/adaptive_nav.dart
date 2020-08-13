@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -599,6 +601,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         child: SizedBox(
           height: kToolbarHeight,
           child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -633,12 +637,92 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                   ],
                 ),
               ),
+              _BottomAppBarActionItems(drawerVisible: _bottomDrawerVisible),
             ],
           ),
         ),
       ),
       floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+class _BottomAppBarActionItems extends StatefulWidget {
+  const _BottomAppBarActionItems({@required this.drawerVisible})
+      : assert(drawerVisible != null);
+
+  final bool drawerVisible;
+  @override
+  _BottomAppBarActionItemsState createState() =>
+      _BottomAppBarActionItemsState();
+}
+
+class _BottomAppBarActionItemsState extends State<_BottomAppBarActionItems>
+    with SingleTickerProviderStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 350),
+      vsync: this,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 350),
+        transitionBuilder: (child, animation) => ScaleTransition(
+          child: child,
+          scale: animation,
+        ),
+        child: Consumer<EmailStore>(
+          builder: (context, model, child) {
+            final onMailView = model.currentlySelectedEmailId >= 0;
+            if (widget.drawerVisible) {
+              return IconButton(
+                key: UniqueKey(),
+                icon: const Icon(Icons.settings),
+                color: ReplyColors.white50,
+                onPressed: () {},
+              );
+            } else {
+              if (onMailView) {
+                return Row(
+                  children: [
+                    IconButton(
+                      icon: const ImageIcon(
+                        AssetImage(
+                          '$_iconAssetLocation/twotone_star.png',
+                          package: _assetsPackage,
+                        ),
+                      ),
+                      onPressed: () {},
+                      color: ReplyColors.white50,
+                    ),
+                    IconButton(
+                      icon: const ImageIcon(
+                        AssetImage(
+                          '$_iconAssetLocation/twotone_delete.png',
+                          package: _assetsPackage,
+                        ),
+                      ),
+                      onPressed: () {},
+                      color: ReplyColors.white50,
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.more_vert),
+                      onPressed: () {},
+                      color: ReplyColors.white50,
+                    ),
+                  ],
+                );
+              } else {
+                return IconButton(
+                  icon: const Icon(Icons.search),
+                  color: ReplyColors.white50,
+                  onPressed: () {},
+                );
+              }
+            }
+          },
+        ),
+      ),
     );
   }
 }
