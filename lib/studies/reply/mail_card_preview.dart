@@ -14,7 +14,9 @@ class MailPreviewCard extends StatelessWidget {
     Key key,
     @required this.id,
     @required this.email,
-  }) : super(key: key);
+  })  : assert(id != null),
+        assert(email != null),
+        super(key: key);
 
   final int id;
   final Email email;
@@ -88,8 +90,10 @@ class MailPreviewCard extends StatelessWidget {
                                       color: ReplyColors.blue600,
                                     ),
                                     SizedBox(width: 20),
-                                    Icon(Icons.more_vert,
-                                        color: ReplyColors.blue700),
+                                    Icon(
+                                      Icons.more_vert,
+                                      color: ReplyColors.blue700,
+                                    ),
                                   ],
                                 ),
                               const SizedBox(width: 20),

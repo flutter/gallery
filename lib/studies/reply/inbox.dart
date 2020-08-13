@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/mail_card_preview.dart';
-
 import 'package:provider/provider.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 
