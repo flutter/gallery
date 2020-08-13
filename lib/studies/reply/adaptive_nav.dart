@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -7,6 +8,7 @@ import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
@@ -637,7 +639,14 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           ),
         ),
       ),
-      floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
+      floatingActionButton: _bottomDrawerVisible
+          ? null
+          : Consumer<EmailStore>(
+              builder: (context, model, child) {
+                final onMailView = model.currentlySelectedEmailId == -1;
+                return _ReplyFab(onMailView: onMailView);
+              },
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -791,9 +800,10 @@ class _ReplyLogo extends StatelessWidget {
 }
 
 class _ReplyFab extends StatelessWidget {
-  const _ReplyFab({this.extended});
+  const _ReplyFab({this.extended, this.onMailView});
 
   final bool extended;
+  final bool onMailView;
 
   @override
   Widget build(BuildContext context) {
@@ -824,7 +834,22 @@ class _ReplyFab extends StatelessWidget {
     } else {
       return FloatingActionButton(
         heroTag: 'Bottom App Bar FAB',
-        child: const Icon(Icons.create),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 350),
+          transitionBuilder: (child, animation) => ScaleTransition(
+            child: child,
+            scale: animation,
+          ),
+          child: onMailView
+              ? Icon(
+                  Icons.create,
+                  key: UniqueKey(),
+                )
+              : Icon(
+                  Icons.reply_all,
+                  key: UniqueKey(),
+                ),
+        ),
         onPressed: () {
           // TODO: Implement onPressed for Bottom App Bar FAB
         },

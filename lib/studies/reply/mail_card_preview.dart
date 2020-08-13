@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:animations/animations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/mail_view_page.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
@@ -33,6 +35,7 @@ class MailPreviewCard extends StatelessWidget {
       closedElevation: 0,
       closedBuilder: (context, openContainer) {
         return _MailPreview(
+          id: id,
           sender: email.sender,
           time: email.time,
           subject: email.subject,
@@ -47,19 +50,22 @@ class MailPreviewCard extends StatelessWidget {
 
 class _MailPreview extends StatelessWidget {
   const _MailPreview({
+    @required this.id,
     @required this.sender,
     @required this.time,
     @required this.subject,
     @required this.avatar,
     @required this.message,
     @required this.onTap,
-  })  : assert(sender != null),
+  })  : assert(id != null),
+        assert(sender != null),
         assert(time != null),
         assert(subject != null),
         assert(avatar != null),
         assert(message != null),
         assert(onTap != null);
 
+  final int id;
   final String sender;
   final String time;
   final String subject;
@@ -73,7 +79,13 @@ class _MailPreview extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return InkWell(
-      onTap: onTap,
+      onTap: () {
+        Provider.of<EmailStore>(
+          context,
+          listen: false,
+        ).currentlySelectedEmailId = id;
+        onTap.call();
+      },
       child: LayoutBuilder(
         builder: (context, constraints) {
           return ConstrainedBox(
