@@ -68,14 +68,7 @@ class GalleryOptions {
     }
   }
 
-  Locale get locale =>
-      _locale ??
-      deviceLocale ??
-      // TODO: When deviceLocale can be obtained on desktop, this won't be necessary
-      // https://github.com/flutter/flutter/issues/45152
-      (!kIsWeb && (Platform.isMacOS || Platform.isWindows || Platform.isLinux)
-          ? const Locale('en', 'US')
-          : null);
+  Locale get locale => _locale ?? deviceLocale;
 
   /// Returns a text direction based on the [CustomTextDirection] setting.
   /// If it is based on locale and the locale cannot be determined, returns
