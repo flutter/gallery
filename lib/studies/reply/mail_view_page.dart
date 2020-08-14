@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:provider/provider.dart';
 
 class MailViewPage extends StatelessWidget {
   const MailViewPage({Key key, @required this.id, @required this.email})
@@ -67,7 +69,13 @@ class _MailViewHeader extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.keyboard_arrow_down),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                Provider.of<EmailStore>(
+                  context,
+                  listen: false,
+                ).currentlySelectedEmailId = -1;
+                Navigator.pop(context);
+              },
               splashRadius: 20,
             ),
           ],
