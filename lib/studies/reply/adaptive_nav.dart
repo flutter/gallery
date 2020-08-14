@@ -350,10 +350,7 @@ class _NavigationRailFolderSection extends StatelessWidget {
             child: Text(
               'FOLDERS',
               style: textTheme.caption.copyWith(
-                color: Theme.of(context)
-                    .navigationRailTheme
-                    .unselectedLabelTextStyle
-                    .color,
+                color: navigationRailTheme.unselectedLabelTextStyle.color,
               ),
             ),
           ),
@@ -714,11 +711,8 @@ class _BottomDrawerDestinations extends StatelessWidget {
                   package: _assetsPackage,
                 ),
                 color: destinationsWithIndex[destination] == selectedIndex
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context)
-                        .navigationRailTheme
-                        .unselectedLabelTextStyle
-                        .color,
+                    ? theme.colorScheme.secondary
+                    : theme.navigationRailTheme.unselectedLabelTextStyle.color,
               ),
               title: Text(
                 destination,
