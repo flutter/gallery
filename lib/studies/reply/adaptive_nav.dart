@@ -812,6 +812,7 @@ class _ReplyFab extends StatelessWidget {
     if (isDesktop) {
       return FloatingActionButton.extended(
         heroTag: 'Rail FAB',
+        tooltip: 'Compose',
         isExtended: extended,
         onPressed: () {
           // TODO: Implement onPressed for Rail FAB
@@ -834,6 +835,7 @@ class _ReplyFab extends StatelessWidget {
     } else {
       return FloatingActionButton(
         heroTag: 'Bottom App Bar FAB',
+        tooltip: onMailView ? 'Reply' : 'Compose',
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
           transitionBuilder: (child, animation) => ScaleTransition(
