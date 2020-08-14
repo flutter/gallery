@@ -7,7 +7,6 @@ import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
-import 'package:gallery/studies/reply/darkmode_helper.dart';
 
 class ReplyApp extends StatelessWidget {
   const ReplyApp();
@@ -16,7 +15,7 @@ class ReplyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     final replyTheme =
         isDark ? _buildReplyDarkTheme(context) : _buildReplyLightTheme(context);

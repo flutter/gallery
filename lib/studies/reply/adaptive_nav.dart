@@ -4,7 +4,6 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
-import 'package:gallery/studies/reply/darkmode_helper.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
@@ -148,7 +147,7 @@ class _DesktopNavState extends State<_DesktopNav>
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Scaffold(
       body: Row(
@@ -329,7 +328,7 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
     final textTheme = Theme.of(context).textTheme;
 
     return SizedBox(
@@ -538,7 +537,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
     final mainLayer = const InboxPage();
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
@@ -600,7 +599,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Scaffold(
       extendBody: true,
@@ -690,7 +689,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Column(
       children: [
@@ -753,7 +752,7 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Column(
       children: [

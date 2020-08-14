@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/studies/reply/colors.dart';
-import 'package:gallery/studies/reply/darkmode_helper.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 
@@ -15,7 +15,7 @@ class MailViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Scaffold(
       body: SafeArea(
@@ -72,7 +72,7 @@ class _MailViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final isDark = isDarkTheme(context);
+    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Column(
       children: [
