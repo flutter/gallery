@@ -694,9 +694,9 @@ class _BottomDrawerDestinations extends StatelessWidget {
                       : drawerController.value == 1 ? 1750 : 1050,
                 ),
                 () {
-                  //Wait until animations are complete to reload the
-                  //state. Delay is variable based on if the gallery
-                  //is in slow motion mode or not.
+                  // Wait until animations are complete to reload the state.
+                  // Delay is variable based on if the gallery is in slow motion
+                  // mode or not.
                   onItemTapped(
                     destinationsWithIndex[destination],
                   );
