@@ -27,7 +27,6 @@ class ReplyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Reply',
         debugShowCheckedModeBanner: false,
-        darkTheme: replyTheme,
         theme: replyTheme,
         localizationsDelegates: GalleryLocalizations.localizationsDelegates,
         supportedLocales: GalleryLocalizations.supportedLocales,
