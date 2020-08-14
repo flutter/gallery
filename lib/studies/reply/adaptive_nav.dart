@@ -677,92 +677,82 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   }
 }
 
-class _BottomAppBarActionItems extends StatefulWidget {
+class _BottomAppBarActionItems extends StatelessWidget {
   const _BottomAppBarActionItems({@required this.drawerVisible})
       : assert(drawerVisible != null);
 
   final bool drawerVisible;
-  @override
-  _BottomAppBarActionItemsState createState() =>
-      _BottomAppBarActionItemsState();
-}
 
-class _BottomAppBarActionItemsState extends State<_BottomAppBarActionItems>
-    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Consumer<EmailStore>(
       builder: (context, model, child) {
         final onMailView = model.currentlySelectedEmailId >= 0;
 
-        return AnimatedSize(
+        return AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
-          vsync: this,
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 350),
-            transitionBuilder: (child, animation) => ScaleTransition(
-              alignment: const Alignment(1, 0),
-              child: child,
-              scale: animation,
-            ),
-            child: widget.drawerVisible
-                ? Row(
-                    key: UniqueKey(),
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.settings),
-                        color: ReplyColors.white50,
-                        onPressed: () {},
-                      ),
-                    ],
-                  )
-                : onMailView
-                    ? Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            icon: const ImageIcon(
-                              AssetImage(
-                                '$_iconAssetLocation/twotone_star.png',
-                                package: _assetsPackage,
-                              ),
-                            ),
-                            onPressed: () {},
-                            color: ReplyColors.white50,
-                          ),
-                          IconButton(
-                            icon: const ImageIcon(
-                              AssetImage(
-                                '$_iconAssetLocation/twotone_delete.png',
-                                package: _assetsPackage,
-                              ),
-                            ),
-                            onPressed: () {},
-                            color: ReplyColors.white50,
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.more_vert),
-                            onPressed: () {},
-                            color: ReplyColors.white50,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        key: UniqueKey(),
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.search),
-                            color: ReplyColors.white50,
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
+          transitionBuilder: (child, animation) => ScaleTransition(
+            alignment: const Alignment(1, 0),
+            child: child,
+            scale: animation,
           ),
+          child: drawerVisible
+              ? Row(
+                  key: UniqueKey(),
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.settings),
+                      color: ReplyColors.white50,
+                      onPressed: () {},
+                    ),
+                  ],
+                )
+              : onMailView
+                  ? Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: const ImageIcon(
+                            AssetImage(
+                              '$_iconAssetLocation/twotone_star.png',
+                              package: _assetsPackage,
+                            ),
+                          ),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                        IconButton(
+                          icon: const ImageIcon(
+                            AssetImage(
+                              '$_iconAssetLocation/twotone_delete.png',
+                              package: _assetsPackage,
+                            ),
+                          ),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.more_vert),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                      ],
+                    )
+                  : Row(
+                      key: UniqueKey(),
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.search),
+                          color: ReplyColors.white50,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
         );
       },
     );
