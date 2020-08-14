@@ -147,17 +147,13 @@ class _DesktopNavState extends State<_DesktopNav>
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
-
     return Scaffold(
       body: Row(
         children: [
           LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: isDark
-                    ? ReplyColors.darkBottomAppBarBackground
-                    : ReplyColors.blue700,
+                color: Theme.of(context).navigationRailTheme.backgroundColor,
                 child: SingleChildScrollView(
                   clipBehavior: Clip.antiAlias,
                   child: ConstrainedBox(
@@ -329,8 +325,9 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
-    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final navigationRailTheme = theme.navigationRailTheme;
 
     return SizedBox(
       height: 485,
@@ -353,7 +350,10 @@ class _NavigationRailFolderSection extends StatelessWidget {
             child: Text(
               'FOLDERS',
               style: textTheme.caption.copyWith(
-                color: isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
+                color: Theme.of(context)
+                    .navigationRailTheme
+                    .unselectedLabelTextStyle
+                    .color,
               ),
             ),
           ),
@@ -374,17 +374,15 @@ class _NavigationRailFolderSection extends StatelessWidget {
                           folders[folder],
                           package: _assetsPackage,
                         ),
-                        color: isDark
-                            ? ReplyColors.greyLabel
-                            : ReplyColors.blue300,
+                        color:
+                            navigationRailTheme.unselectedLabelTextStyle.color,
                       ),
                       const SizedBox(width: 24),
                       Text(
                         folder,
                         style: textTheme.bodyText1.copyWith(
-                          color: isDark
-                              ? ReplyColors.greyLabel
-                              : ReplyColors.blue200,
+                          color: navigationRailTheme
+                              .unselectedLabelTextStyle.color,
                         ),
                       ),
                       const SizedBox(height: 72),
@@ -539,7 +537,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
     final mainLayer = const InboxPage();
-    final isDark = GalleryOptions.isDarkTheme(context);
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
@@ -567,9 +564,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                color: isDark
-                    ? Colors.black.withOpacity(0.8)
-                    : Colors.white.withOpacity(0.4),
+                color: Theme.of(context).bottomSheetTheme.modalBackgroundColor,
               ),
             ),
           ),
@@ -601,7 +596,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
       extendBody: true,
@@ -609,9 +604,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         builder: _buildStack,
       ),
       bottomNavigationBar: BottomAppBar(
-        color: isDark
-            ? ReplyColors.darkBottomAppBarBackground
-            : ReplyColors.blue700,
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: SizedBox(
@@ -642,9 +634,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                       duration: const Duration(milliseconds: 350),
                       child: Text(
                         _currentDestination,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1
+                        style: theme.textTheme.bodyText1
                             .copyWith(color: ReplyColors.white50),
                       ),
                     ),
@@ -691,7 +681,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
+    final theme = Theme.of(context);
 
     return Column(
       children: [
@@ -724,20 +714,20 @@ class _BottomDrawerDestinations extends StatelessWidget {
                   package: _assetsPackage,
                 ),
                 color: destinationsWithIndex[destination] == selectedIndex
-                    ? isDark ? ReplyColors.orange300 : ReplyColors.orange500
-                    : isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
+                    ? Theme.of(context).colorScheme.secondary
+                    : Theme.of(context)
+                        .navigationRailTheme
+                        .unselectedLabelTextStyle
+                        .color,
               ),
               title: Text(
                 destination,
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      color: destinationsWithIndex[destination] == selectedIndex
-                          ? isDark
-                              ? ReplyColors.orange300
-                              : ReplyColors.orange500
-                          : isDark
-                              ? ReplyColors.greyLabel
-                              : ReplyColors.blue200,
-                    ),
+                style: theme.textTheme.bodyText2.copyWith(
+                  color: destinationsWithIndex[destination] == selectedIndex
+                      ? theme.colorScheme.secondary
+                      : theme
+                          .navigationRailTheme.unselectedLabelTextStyle.color,
+                ),
               ),
             ),
           ),
@@ -754,7 +744,8 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
+    final theme = Theme.of(context);
+    final navigationRailTheme = theme.navigationRailTheme;
 
     return Column(
       children: [
@@ -767,14 +758,13 @@ class _BottomDrawerFolderSection extends StatelessWidget {
                   folders[folder],
                   package: _assetsPackage,
                 ),
-                color: isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
+                color: navigationRailTheme.unselectedLabelTextStyle.color,
               ),
               title: Text(
                 folder,
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      color:
-                          isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
-                    ),
+                style: theme.textTheme.bodyText2.copyWith(
+                  color: navigationRailTheme.unselectedLabelTextStyle.color,
+                ),
               ),
             ),
           ),

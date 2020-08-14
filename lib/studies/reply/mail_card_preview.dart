@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/mail_view_page.dart';
@@ -24,19 +23,18 @@ class MailPreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
+    final theme = Theme.of(context);
 
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);
       },
-      openColor: isDark ? ReplyColors.darkCardBackground : ReplyColors.blue200,
+      openColor: theme.cardColor,
       closedShape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(0)),
       ),
       closedElevation: 0,
-      closedColor:
-          isDark ? ReplyColors.darkCardBackground : ReplyColors.white50,
+      closedColor: theme.cardColor,
       closedBuilder: (context, openContainer) {
         return _MailPreview(
           sender: email.sender,

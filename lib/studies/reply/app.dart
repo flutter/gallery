@@ -15,7 +15,10 @@ class ReplyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
+    final galleryThemeMode = GalleryOptions.of(context).themeMode;
+    final isDark = galleryThemeMode == ThemeMode.system
+        ? MediaQuery.of(context).platformBrightness == Brightness.dark
+        : galleryThemeMode == ThemeMode.dark;
 
     final replyTheme =
         isDark ? _buildReplyDarkTheme(context) : _buildReplyLightTheme(context);
@@ -44,6 +47,11 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
   final base = ThemeData.light();
   return base.copyWith(
     scaffoldBackgroundColor: ReplyColors.blue50,
+    bottomAppBarColor: ReplyColors.blue700,
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: ReplyColors.blue700,
+      modalBackgroundColor: Colors.white.withOpacity(0.4),
+    ),
     navigationRailTheme: NavigationRailThemeData(
       backgroundColor: ReplyColors.blue700,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange500),
@@ -71,6 +79,7 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
       onError: ReplyColors.black900,
       background: ReplyColors.blue50,
     ),
+    cardColor: ReplyColors.white50,
     canvasColor: ReplyColors.white50,
     accentColor: ReplyColors.orange500,
     textTheme: _buildReplyLightTextTheme(base.textTheme),
@@ -81,6 +90,11 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
   final base = ThemeData.dark();
   return base.copyWith(
     scaffoldBackgroundColor: ReplyColors.black900,
+    bottomAppBarColor: ReplyColors.darkBottomAppBarBackground,
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: ReplyColors.darkDrawerBackground,
+      modalBackgroundColor: Colors.black.withOpacity(0.8),
+    ),
     navigationRailTheme: NavigationRailThemeData(
       backgroundColor: ReplyColors.darkBottomAppBarBackground,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange300),
@@ -94,7 +108,7 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
                 color: ReplyColors.greyLabel,
               ),
     ),
-    colorScheme: const ColorScheme.light(
+    colorScheme: const ColorScheme.dark(
       primary: ReplyColors.blue200,
       primaryVariant: ReplyColors.blue300,
       secondary: ReplyColors.orange300,
@@ -108,6 +122,7 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
       onError: ReplyColors.black900,
       background: ReplyColors.black900Alpha087,
     ),
+    cardColor: ReplyColors.darkCardBackground,
     canvasColor: ReplyColors.black900,
     accentColor: ReplyColors.orange300,
     textTheme: _buildReplyDarkTextTheme(base.textTheme),

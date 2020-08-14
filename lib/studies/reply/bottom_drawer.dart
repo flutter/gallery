@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/studies/reply/colors.dart';
 
 class BottomDrawer extends StatelessWidget {
@@ -18,14 +17,14 @@ class BottomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
+    final theme = Theme.of(context);
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onVerticalDragUpdate: onVerticalDragUpdate,
       onVerticalDragEnd: onVerticalDragEnd,
       child: Material(
-        color: isDark ? ReplyColors.darkDrawerBackground : ReplyColors.blue700,
+        color: theme.bottomSheetTheme.backgroundColor,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12),
@@ -48,10 +47,9 @@ class BottomDrawer extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 18),
               child: Text(
                 'FOLDERS',
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: ReplyColors.blue200),
+                style: theme.textTheme.caption.copyWith(
+                  color: ReplyColors.blue200,
+                ),
               ),
             ),
             const SizedBox(height: 4),

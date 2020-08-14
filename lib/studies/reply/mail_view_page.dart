@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/data/gallery_options.dart';
-import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 
@@ -15,13 +13,11 @@ class MailViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.isDarkTheme(context);
-
     return Scaffold(
       body: SafeArea(
         bottom: false,
         child: Container(
-          color: isDark ? ReplyColors.darkCardBackground : ReplyColors.white50,
+          color: Theme.of(context).cardColor,
           child: Padding(
             padding: const EdgeInsetsDirectional.only(
               top: 42,
@@ -73,7 +69,6 @@ class _MailViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final isDark = GalleryOptions.isDarkTheme(context);
 
     return Column(
       children: [
@@ -107,7 +102,10 @@ class _MailViewHeader extends StatelessWidget {
                 Text(
                   'To $recipients,',
                   style: textTheme.caption.copyWith(
-                    color: isDark ? Colors.grey : ReplyColors.black900Alpha060,
+                    color: Theme.of(context)
+                        .navigationRailTheme
+                        .unselectedLabelTextStyle
+                        .color,
                   ),
                 ),
               ],
