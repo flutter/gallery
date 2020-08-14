@@ -3,12 +3,23 @@ import 'package:animations/animations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/mail_view_page.dart';
+import 'package:gallery/studies/reply/model/email_model.dart';
+import 'package:gallery/studies/reply/profile_avatar.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
 
 class MailPreviewCard extends StatelessWidget {
-  const MailPreviewCard({Key key}) : super(key: key);
+  const MailPreviewCard({
+    Key key,
+    @required this.id,
+    @required this.email,
+  })  : assert(id != null),
+        assert(email != null),
+        super(key: key);
+
+  final int id;
+  final Email email;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +28,10 @@ class MailPreviewCard extends StatelessWidget {
 
     return OpenContainer(
       openBuilder: (context, closedContainer) {
-        return const MailViewPage();
+        return MailViewPage(
+          id: id,
+          email: email,
+        );
       },
       closedShape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(0)),
@@ -26,72 +40,93 @@ class MailPreviewCard extends StatelessWidget {
       closedBuilder: (context, openContainer) {
         return InkWell(
           onTap: openContainer,
-          child: Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Google Express - 4 hrs ago',
-                        style: textTheme.caption,
-                      ),
-                      const SizedBox(height: 4),
-                      Text('Package Shipped!', style: textTheme.headline6),
-                      const SizedBox(height: 16),
-                      Text(
-                        'Cucumber Mask Facial has shipped',
-                        style: textTheme.bodyText2,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(-20, -24),
-                child: Row(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: constraints.maxHeight),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (isDesktop)
-                      Row(
-                        children: const [
-                          ImageIcon(
-                            AssetImage(
-                              '$_iconAssetLocation/twotone_star.png',
-                              package: _assetsPackage,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  '${email.sender} - ${email.time}',
+                                  style: textTheme.caption,
+                                ),
+                                const SizedBox(height: 4),
+                                Text(email.subject, style: textTheme.headline6),
+                                const SizedBox(height: 16),
+                              ],
                             ),
-                            color: ReplyColors.blue600,
                           ),
-                          SizedBox(width: 20),
-                          ImageIcon(
-                            AssetImage(
-                              '$_iconAssetLocation/twotone_delete.png',
-                              package: _assetsPackage,
-                            ),
-                            color: ReplyColors.blue600,
-                          ),
-                          SizedBox(width: 20),
-                          Icon(Icons.more_vert, color: ReplyColors.blue700),
-                        ],
-                      ),
-                    const SizedBox(width: 20),
-                    Transform.translate(
-                      offset: Offset(0, isDesktop ? -18.5 : 0),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'reply/avatars/avatar_0.jpg',
-                          package: _assetsPackage,
-                          height: 36,
-                          width: 36,
                         ),
+                        Transform.translate(
+                          offset: const Offset(-20, -20),
+                          child: Row(
+                            children: [
+                              if (isDesktop)
+                                Row(
+                                  children: const [
+                                    ImageIcon(
+                                      AssetImage(
+                                        '$_iconAssetLocation/twotone_star.png',
+                                        package: _assetsPackage,
+                                      ),
+                                      color: ReplyColors.blue600,
+                                    ),
+                                    SizedBox(width: 20),
+                                    ImageIcon(
+                                      AssetImage(
+                                        '$_iconAssetLocation/twotone_delete.png',
+                                        package: _assetsPackage,
+                                      ),
+                                      color: ReplyColors.blue600,
+                                    ),
+                                    SizedBox(width: 20),
+                                    Icon(
+                                      Icons.more_vert,
+                                      color: ReplyColors.blue700,
+                                    ),
+                                  ],
+                                ),
+                              const SizedBox(width: 20),
+                              Transform.translate(
+                                offset: Offset(0, isDesktop ? -16 : 8),
+                                child: ProfileAvatar(
+                                  avatar: email.avatar,
+                                  height: 36,
+                                  width: 36,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        start: 20,
+                        end: 20,
+                        bottom: 20,
+                      ),
+                      child: Text(
+                        email.message,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: textTheme.bodyText2,
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+              );
+            },
           ),
         );
       },
