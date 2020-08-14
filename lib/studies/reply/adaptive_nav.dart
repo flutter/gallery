@@ -260,7 +260,7 @@ class _NavigationRailHeader extends StatelessWidget {
                         ).animate(animation),
                         child: const Icon(
                           Icons.arrow_left,
-                          color: ReplyColors.blue50,
+                          color: ReplyColors.white50,
                           size: 16,
                         ),
                       ),
@@ -270,7 +270,7 @@ class _NavigationRailHeader extends StatelessWidget {
                         Text(
                           'REPLY',
                           style: textTheme.bodyText1
-                              .copyWith(color: ReplyColors.blue50),
+                              .copyWith(color: ReplyColors.white50),
                         ),
                     ],
                   ),
@@ -294,7 +294,7 @@ class _NavigationRailHeader extends StatelessWidget {
                       SizedBox(width: 12),
                       Icon(
                         Icons.settings,
-                        color: ReplyColors.blue200,
+                        color: ReplyColors.white50,
                       ),
                     ],
                   ),
@@ -324,6 +324,9 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final textTheme = Theme.of(context).textTheme;
+
     return SizedBox(
       height: 485,
       width: 256,
@@ -344,10 +347,8 @@ class _NavigationRailFolderSection extends StatelessWidget {
             ),
             child: Text(
               'FOLDERS',
-              style: Theme.of(context)
-                  .textTheme
-                  .caption
-                  .copyWith(color: ReplyColors.blue200),
+              style: textTheme.caption.copyWith(
+                  color: isDark ? ReplyColors.greyLabel : ReplyColors.blue200),
             ),
           ),
           const SizedBox(height: 8),
@@ -367,14 +368,18 @@ class _NavigationRailFolderSection extends StatelessWidget {
                           folders[folder],
                           package: _assetsPackage,
                         ),
-                        color: ReplyColors.blue300,
+                        color: isDark
+                            ? ReplyColors.greyLabel
+                            : ReplyColors.blue300,
                       ),
                       const SizedBox(width: 24),
                       Text(
                         folder,
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
-                              color: ReplyColors.blue200,
-                            ),
+                        style: textTheme.bodyText1.copyWith(
+                          color: isDark
+                              ? ReplyColors.greyLabel
+                              : ReplyColors.blue200,
+                        ),
                       ),
                       const SizedBox(height: 72),
                     ],
@@ -528,6 +533,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
     final mainLayer = const InboxPage();
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
@@ -555,7 +561,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.white.withOpacity(0.4),
+                color: isDark
+                    ? Colors.black.withOpacity(0.8)
+                    : Colors.white.withOpacity(0.4),
               ),
             ),
           ),
@@ -587,13 +595,17 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Scaffold(
       extendBody: true,
       body: LayoutBuilder(
         builder: _buildStack,
       ),
       bottomNavigationBar: BottomAppBar(
-        color: ReplyColors.blue700,
+        color: isDark
+            ? ReplyColors.darkBottomAppBarBackground
+            : ReplyColors.blue700,
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: SizedBox(
@@ -613,7 +625,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                       ).animate(_dropArrowController.view),
                       child: const Icon(
                         Icons.arrow_drop_up,
-                        color: ReplyColors.blue50,
+                        color: ReplyColors.white50,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -627,7 +639,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1
-                            .copyWith(color: ReplyColors.blue50),
+                            .copyWith(color: ReplyColors.white50),
                       ),
                     ),
                   ],
@@ -673,6 +685,8 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Column(
       children: [
         for (var destination in destinations.keys)
@@ -704,15 +718,19 @@ class _BottomDrawerDestinations extends StatelessWidget {
                   package: _assetsPackage,
                 ),
                 color: destinationsWithIndex[destination] == selectedIndex
-                    ? ReplyColors.orange500
-                    : ReplyColors.blue200,
+                    ? isDark ? ReplyColors.orange300 : ReplyColors.orange500
+                    : isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
               ),
               title: Text(
                 destination,
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: destinationsWithIndex[destination] == selectedIndex
-                          ? ReplyColors.orange500
-                          : ReplyColors.blue200,
+                          ? isDark
+                              ? ReplyColors.orange300
+                              : ReplyColors.orange500
+                          : isDark
+                              ? ReplyColors.greyLabel
+                              : ReplyColors.blue200,
                     ),
               ),
             ),
@@ -785,7 +803,7 @@ class _ReplyLogo extends StatelessWidget {
         package: _assetsPackage,
       ),
       size: 32,
-      color: ReplyColors.blue50,
+      color: ReplyColors.white50,
     );
   }
 }
@@ -816,7 +834,7 @@ class _ReplyFab extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headline5
-                    .copyWith(fontSize: 16),
+                    .copyWith(fontSize: 16, color: ReplyColors.black900),
               ),
           ],
         ),

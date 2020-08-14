@@ -16,24 +16,30 @@ class MailViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding:
-              const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _MailViewHeader(
-                subject: email.subject,
-                sender: email.sender,
-                recipients: email.recipients,
-                time: email.time,
-                avatar: email.avatar,
-              ),
-              const SizedBox(height: 32),
-              Expanded(
-                child: _MailViewBody(message: email.message),
-              ),
-            ],
+        bottom: false,
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: ReplyColors.darkCardBackground,
+          child: Padding(
+            padding:
+                const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _MailViewHeader(
+                  subject: email.subject,
+                  sender: email.sender,
+                  recipients: email.recipients,
+                  time: email.time,
+                  avatar: email.avatar,
+                ),
+                const SizedBox(height: 32),
+                Expanded(
+                  child: _MailViewBody(message: email.message),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -63,6 +69,7 @@ class _MailViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return Column(
       children: [
@@ -96,7 +103,7 @@ class _MailViewHeader extends StatelessWidget {
                 Text(
                   'To $recipients,',
                   style: textTheme.caption.copyWith(
-                    color: ReplyColors.black900Alpha060,
+                    color: isDark ? Colors.grey : ReplyColors.black900Alpha060,
                   ),
                 ),
               ],

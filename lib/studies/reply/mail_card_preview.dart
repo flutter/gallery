@@ -23,14 +23,19 @@ class MailPreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);
       },
+      openColor: isDark ? ReplyColors.darkCardBackground : ReplyColors.blue200,
       closedShape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(0)),
       ),
       closedElevation: 0,
+      closedColor:
+          isDark ? ReplyColors.darkCardBackground : ReplyColors.white50,
       closedBuilder: (context, openContainer) {
         return _MailPreview(
           sender: email.sender,
@@ -154,7 +159,7 @@ class _MailPreviewActionBar extends StatelessWidget {
             '$_iconAssetLocation/twotone_star.png',
             package: _assetsPackage,
           ),
-          color: ReplyColors.blue600,
+          color: ReplyColors.white50,
         ),
         SizedBox(width: 20),
         ImageIcon(
@@ -162,12 +167,12 @@ class _MailPreviewActionBar extends StatelessWidget {
             '$_iconAssetLocation/twotone_delete.png',
             package: _assetsPackage,
           ),
-          color: ReplyColors.blue600,
+          color: ReplyColors.white50,
         ),
         SizedBox(width: 20),
         Icon(
           Icons.more_vert,
-          color: ReplyColors.blue700,
+          color: ReplyColors.white50,
         ),
       ],
     );

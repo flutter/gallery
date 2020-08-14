@@ -28,4 +28,9 @@ class ReplyColors {
   static const Color black900Alpha020 = Color(0x33000000);
   static const Color black900Alpha087 = Color(0xDE000000);
   static const Color black900Alpha060 = Color(0x99000000);
+
+  static const Color greyLabel = Color(0xFFAEAEAE);
+  static const Color darkBottomAppBarBackground = Color(0xFF2D2D2D);
+  static const Color darkDrawerBackground = Color(0xFF353535);
+  static const Color darkCardBackground = Color(0xFF1E1E1E);
 }

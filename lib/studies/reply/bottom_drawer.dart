@@ -17,12 +17,14 @@ class BottomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onVerticalDragUpdate: onVerticalDragUpdate,
       onVerticalDragEnd: onVerticalDragEnd,
       child: Material(
-        color: ReplyColors.blue700,
+        color: isDark ? ReplyColors.darkDrawerBackground : ReplyColors.blue700,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12),
