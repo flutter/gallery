@@ -656,8 +656,11 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                 ),
               ),
               Expanded(
-                child: _BottomAppBarActionItems(
-                  drawerVisible: _bottomDrawerVisible,
+                child: Container(
+                  color: Colors.transparent,
+                  child: _BottomAppBarActionItems(
+                    drawerVisible: _bottomDrawerVisible,
+                  ),
                 ),
               ),
             ],
@@ -714,30 +717,36 @@ class _BottomAppBarActionItems extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        IconButton(
-                          icon: const ImageIcon(
-                            AssetImage(
-                              '$_iconAssetLocation/twotone_star.png',
-                              package: _assetsPackage,
+                        Expanded(
+                          child: IconButton(
+                            icon: const ImageIcon(
+                              AssetImage(
+                                '$_iconAssetLocation/twotone_star.png',
+                                package: _assetsPackage,
+                              ),
                             ),
+                            onPressed: () {},
+                            color: ReplyColors.white50,
                           ),
-                          onPressed: () {},
-                          color: ReplyColors.white50,
                         ),
-                        IconButton(
-                          icon: const ImageIcon(
-                            AssetImage(
-                              '$_iconAssetLocation/twotone_delete.png',
-                              package: _assetsPackage,
+                        Expanded(
+                          child: IconButton(
+                            icon: const ImageIcon(
+                              AssetImage(
+                                '$_iconAssetLocation/twotone_delete.png',
+                                package: _assetsPackage,
+                              ),
                             ),
+                            onPressed: () {},
+                            color: ReplyColors.white50,
                           ),
-                          onPressed: () {},
-                          color: ReplyColors.white50,
                         ),
-                        IconButton(
-                          icon: const Icon(Icons.more_vert),
-                          onPressed: () {},
-                          color: ReplyColors.white50,
+                        Expanded(
+                          child: IconButton(
+                            icon: const Icon(Icons.more_vert),
+                            onPressed: () {},
+                            color: ReplyColors.white50,
+                          ),
                         ),
                       ],
                     )
