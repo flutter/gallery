@@ -642,7 +642,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1
-                                .copyWith(color: ReplyColors.blue50),
+                                .copyWith(color: ReplyColors.white50),
                           ),
                         );
                       },
