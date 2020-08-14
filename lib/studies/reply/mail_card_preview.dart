@@ -151,27 +151,30 @@ class _MailPreviewActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final color = isDark ? ReplyColors.white50 : ReplyColors.blue600;
+
     return Row(
-      children: const [
+      children: [
         ImageIcon(
-          AssetImage(
+          const AssetImage(
             '$_iconAssetLocation/twotone_star.png',
             package: _assetsPackage,
           ),
-          color: ReplyColors.white50,
+          color: color,
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         ImageIcon(
-          AssetImage(
+          const AssetImage(
             '$_iconAssetLocation/twotone_delete.png',
             package: _assetsPackage,
           ),
-          color: ReplyColors.white50,
+          color: color,
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Icon(
           Icons.more_vert,
-          color: ReplyColors.white50,
+          color: color,
         ),
       ],
     );

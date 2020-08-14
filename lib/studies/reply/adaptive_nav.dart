@@ -593,8 +593,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
       extendBody: true,
       body: LayoutBuilder(
@@ -631,7 +629,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                       duration: const Duration(milliseconds: 350),
                       child: Text(
                         _currentDestination,
-                        style: theme.textTheme.bodyText1
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
                             .copyWith(color: ReplyColors.white50),
                       ),
                     ),

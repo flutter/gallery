@@ -48,7 +48,8 @@ class BottomDrawer extends StatelessWidget {
               child: Text(
                 'FOLDERS',
                 style: theme.textTheme.caption.copyWith(
-                  color: ReplyColors.blue200,
+                  color:
+                      theme.navigationRailTheme.unselectedLabelTextStyle.color,
                 ),
               ),
             ),
