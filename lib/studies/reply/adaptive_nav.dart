@@ -1,14 +1,15 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
-import 'package:gallery/studies/reply/bottom_drawer.dart';
-import 'package:gallery/studies/reply/profile_avatar.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:provider/provider.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';

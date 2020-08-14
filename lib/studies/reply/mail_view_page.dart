@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
-import 'package:gallery/studies/reply/profile_avatar.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:provider/provider.dart';
 
 class MailViewPage extends StatelessWidget {
   const MailViewPage({Key key, @required this.id, @required this.email})
