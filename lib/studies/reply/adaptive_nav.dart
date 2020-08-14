@@ -1,14 +1,15 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
-import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:provider/provider.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
@@ -155,7 +156,7 @@ class _DesktopNavState extends State<_DesktopNav>
           LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: ReplyColors.blue700,
+                color: Theme.of(context).navigationRailTheme.backgroundColor,
                 child: SingleChildScrollView(
                   clipBehavior: Clip.antiAlias,
                   child: ConstrainedBox(
@@ -262,7 +263,7 @@ class _NavigationRailHeader extends StatelessWidget {
                         ).animate(animation),
                         child: const Icon(
                           Icons.arrow_left,
-                          color: ReplyColors.blue50,
+                          color: ReplyColors.white50,
                           size: 16,
                         ),
                       ),
@@ -271,8 +272,9 @@ class _NavigationRailHeader extends StatelessWidget {
                       if (extended)
                         Text(
                           'REPLY',
-                          style: textTheme.bodyText1
-                              .copyWith(color: ReplyColors.blue50),
+                          style: textTheme.bodyText1.copyWith(
+                            color: ReplyColors.white50,
+                          ),
                         ),
                     ],
                   ),
@@ -296,7 +298,7 @@ class _NavigationRailHeader extends StatelessWidget {
                       SizedBox(width: 12),
                       Icon(
                         Icons.settings,
-                        color: ReplyColors.blue200,
+                        color: ReplyColors.white50,
                       ),
                     ],
                   ),
@@ -326,6 +328,10 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final navigationRailTheme = theme.navigationRailTheme;
+
     return SizedBox(
       height: 485,
       width: 256,
@@ -346,10 +352,9 @@ class _NavigationRailFolderSection extends StatelessWidget {
             ),
             child: Text(
               'FOLDERS',
-              style: Theme.of(context)
-                  .textTheme
-                  .caption
-                  .copyWith(color: ReplyColors.blue200),
+              style: textTheme.caption.copyWith(
+                color: navigationRailTheme.unselectedLabelTextStyle.color,
+              ),
             ),
           ),
           const SizedBox(height: 8),
@@ -369,14 +374,16 @@ class _NavigationRailFolderSection extends StatelessWidget {
                           folders[folder],
                           package: _assetsPackage,
                         ),
-                        color: ReplyColors.blue300,
+                        color:
+                            navigationRailTheme.unselectedLabelTextStyle.color,
                       ),
                       const SizedBox(width: 24),
                       Text(
                         folder,
-                        style: Theme.of(context).textTheme.bodyText1.copyWith(
-                              color: ReplyColors.blue200,
-                            ),
+                        style: textTheme.bodyText1.copyWith(
+                          color: navigationRailTheme
+                              .unselectedLabelTextStyle.color,
+                        ),
                       ),
                       const SizedBox(height: 72),
                     ],
@@ -557,7 +564,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.white.withOpacity(0.4),
+                color: Theme.of(context).bottomSheetTheme.modalBackgroundColor,
               ),
             ),
           ),
@@ -595,7 +602,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         builder: _buildStack,
       ),
       bottomNavigationBar: BottomAppBar(
-        color: ReplyColors.blue700,
         shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         child: SizedBox(
@@ -615,7 +621,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                       ).animate(_dropArrowController.view),
                       child: const Icon(
                         Icons.arrow_drop_up,
-                        color: ReplyColors.blue50,
+                        color: ReplyColors.white50,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -646,7 +652,14 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           ),
         ),
       ),
-      floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
+      floatingActionButton: _bottomDrawerVisible
+          ? null
+          : Consumer<EmailStore>(
+              builder: (context, model, child) {
+                final onMailView = model.currentlySelectedEmailId == -1;
+                return _ReplyFab(onMailView: onMailView);
+              },
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -682,6 +695,8 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         for (var destination in destinations.keys)
@@ -696,9 +711,9 @@ class _BottomDrawerDestinations extends StatelessWidget {
                       : drawerController.value == 1 ? 1750 : 1050,
                 ),
                 () {
-                  //Wait until animations are complete to reload the
-                  //state. Delay is variable based on if the gallery
-                  //is in slow motion mode or not.
+                  // Wait until animations are complete to reload the state.
+                  // Delay is variable based on if the gallery is in slow motion
+                  // mode or not.
                   onItemTapped(
                     destinationsWithIndex[destination],
                   );
@@ -713,16 +728,17 @@ class _BottomDrawerDestinations extends StatelessWidget {
                   package: _assetsPackage,
                 ),
                 color: destinationsWithIndex[destination] == selectedIndex
-                    ? ReplyColors.orange500
-                    : ReplyColors.blue200,
+                    ? theme.colorScheme.secondary
+                    : theme.navigationRailTheme.unselectedLabelTextStyle.color,
               ),
               title: Text(
                 destination,
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      color: destinationsWithIndex[destination] == selectedIndex
-                          ? ReplyColors.orange500
-                          : ReplyColors.blue200,
-                    ),
+                style: theme.textTheme.bodyText2.copyWith(
+                  color: destinationsWithIndex[destination] == selectedIndex
+                      ? theme.colorScheme.secondary
+                      : theme
+                          .navigationRailTheme.unselectedLabelTextStyle.color,
+                ),
               ),
             ),
           ),
@@ -739,6 +755,9 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final navigationRailTheme = theme.navigationRailTheme;
+
     return Column(
       children: [
         for (var folder in folders.keys)
@@ -750,14 +769,13 @@ class _BottomDrawerFolderSection extends StatelessWidget {
                   folders[folder],
                   package: _assetsPackage,
                 ),
-                color: ReplyColors.blue200,
+                color: navigationRailTheme.unselectedLabelTextStyle.color,
               ),
               title: Text(
                 folder,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    .copyWith(color: ReplyColors.blue200),
+                style: theme.textTheme.bodyText2.copyWith(
+                  color: navigationRailTheme.unselectedLabelTextStyle.color,
+                ),
               ),
             ),
           ),
@@ -794,15 +812,16 @@ class _ReplyLogo extends StatelessWidget {
         package: _assetsPackage,
       ),
       size: 32,
-      color: ReplyColors.blue50,
+      color: ReplyColors.white50,
     );
   }
 }
 
 class _ReplyFab extends StatelessWidget {
-  const _ReplyFab({this.extended});
+  const _ReplyFab({this.extended, this.onMailView});
 
   final bool extended;
+  final bool onMailView;
 
   @override
   Widget build(BuildContext context) {
@@ -811,6 +830,7 @@ class _ReplyFab extends StatelessWidget {
     if (isDesktop) {
       return FloatingActionButton.extended(
         heroTag: 'Rail FAB',
+        tooltip: 'Compose',
         isExtended: extended,
         onPressed: () {
           // TODO: Implement onPressed for Rail FAB
@@ -825,7 +845,7 @@ class _ReplyFab extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headline5
-                    .copyWith(fontSize: 16),
+                    .copyWith(fontSize: 16, color: ReplyColors.black900),
               ),
           ],
         ),
@@ -833,7 +853,23 @@ class _ReplyFab extends StatelessWidget {
     } else {
       return FloatingActionButton(
         heroTag: 'Bottom App Bar FAB',
-        child: const Icon(Icons.create),
+        tooltip: onMailView ? 'Reply' : 'Compose',
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 350),
+          transitionBuilder: (child, animation) => ScaleTransition(
+            child: child,
+            scale: animation,
+          ),
+          child: onMailView
+              ? Icon(
+                  Icons.create,
+                  key: UniqueKey(),
+                )
+              : Icon(
+                  Icons.reply_all,
+                  key: UniqueKey(),
+                ),
+        ),
         onPressed: () {
           // TODO: Implement onPressed for Bottom App Bar FAB
         },

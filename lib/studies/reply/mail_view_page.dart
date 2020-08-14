@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:provider/provider.dart';
 
 class MailViewPage extends StatelessWidget {
   const MailViewPage({Key key, @required this.id, @required this.email})
@@ -16,24 +17,27 @@ class MailViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding:
-              const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _MailViewHeader(
-                subject: email.subject,
-                sender: email.sender,
-                recipients: email.recipients,
-                time: email.time,
-                avatar: email.avatar,
-              ),
-              const SizedBox(height: 32),
-              Expanded(
-                child: _MailViewBody(message: email.message),
-              ),
-            ],
+        bottom: false,
+        child: Container(
+          color: Theme.of(context).cardColor,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              top: 42,
+              start: 20,
+              end: 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _MailViewHeader(
+                  email: email,
+                ),
+                const SizedBox(height: 32),
+                Expanded(
+                  child: _MailViewBody(message: email.message),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -43,22 +47,10 @@ class MailViewPage extends StatelessWidget {
 
 class _MailViewHeader extends StatelessWidget {
   const _MailViewHeader({
-    @required this.subject,
-    @required this.sender,
-    @required this.recipients,
-    @required this.time,
-    @required this.avatar,
-  })  : assert(subject != null),
-        assert(sender != null),
-        assert(recipients != null),
-        assert(time != null),
-        assert(avatar != null);
+    @required this.email,
+  }) : assert(email != null);
 
-  final String subject;
-  final String sender;
-  final String recipients;
-  final String time;
-  final String avatar;
+  final Email email;
 
   @override
   Widget build(BuildContext context) {
@@ -71,13 +63,19 @@ class _MailViewHeader extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                subject,
+                email.subject,
                 style: textTheme.headline4.copyWith(height: 1.1),
               ),
             ),
             IconButton(
               icon: const Icon(Icons.keyboard_arrow_down),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                Provider.of<EmailStore>(
+                  context,
+                  listen: false,
+                ).currentlySelectedEmailId = -1;
+                Navigator.pop(context);
+              },
               splashRadius: 20,
             ),
           ],
@@ -91,12 +89,15 @@ class _MailViewHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('$sender - $time'),
+                Text('${email.sender} - ${email.time}'),
                 const SizedBox(height: 4),
                 Text(
-                  'To $recipients,',
+                  'To ${email.recipients},',
                   style: textTheme.caption.copyWith(
-                    color: ReplyColors.black900Alpha060,
+                    color: Theme.of(context)
+                        .navigationRailTheme
+                        .unselectedLabelTextStyle
+                        .color,
                   ),
                 ),
               ],
@@ -104,7 +105,7 @@ class _MailViewHeader extends StatelessWidget {
             Transform.translate(
               offset: const Offset(-8, 0),
               child: ProfileAvatar(
-                avatar: avatar,
+                avatar: email.avatar,
                 height: 36,
                 width: 36,
               ),
