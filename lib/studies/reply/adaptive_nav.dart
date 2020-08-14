@@ -273,8 +273,9 @@ class _NavigationRailHeader extends StatelessWidget {
                       if (extended)
                         Text(
                           'REPLY',
-                          style: textTheme.bodyText1
-                              .copyWith(color: ReplyColors.white50),
+                          style: textTheme.bodyText1.copyWith(
+                            color: ReplyColors.white50,
+                          ),
                         ),
                     ],
                   ),
@@ -352,7 +353,8 @@ class _NavigationRailFolderSection extends StatelessWidget {
             child: Text(
               'FOLDERS',
               style: textTheme.caption.copyWith(
-                  color: isDark ? ReplyColors.greyLabel : ReplyColors.blue200),
+                color: isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
+              ),
             ),
           ),
           const SizedBox(height: 8),

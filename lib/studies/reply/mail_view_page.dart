@@ -21,12 +21,13 @@ class MailViewPage extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: Container(
-          width: double.infinity,
-          height: double.infinity,
           color: isDark ? ReplyColors.darkCardBackground : ReplyColors.white50,
           child: Padding(
-            padding:
-                const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
+            padding: const EdgeInsetsDirectional.only(
+              top: 42,
+              start: 20,
+              end: 20,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
