@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 
@@ -16,20 +15,27 @@ class MailViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding:
-              const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _MailViewHeader(
-                email: email,
-              ),
-              const SizedBox(height: 32),
-              Expanded(
-                child: _MailViewBody(message: email.message),
-              ),
-            ],
+        bottom: false,
+        child: Container(
+          color: Theme.of(context).cardColor,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              top: 42,
+              start: 20,
+              end: 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _MailViewHeader(
+                  email: email,
+                ),
+                const SizedBox(height: 32),
+                Expanded(
+                  child: _MailViewBody(message: email.message),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -80,7 +86,10 @@ class _MailViewHeader extends StatelessWidget {
                 Text(
                   'To ${email.recipients},',
                   style: textTheme.caption.copyWith(
-                    color: ReplyColors.black900Alpha060,
+                    color: Theme.of(context)
+                        .navigationRailTheme
+                        .unselectedLabelTextStyle
+                        .color,
                   ),
                 ),
               ],
