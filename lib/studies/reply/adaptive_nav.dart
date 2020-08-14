@@ -147,8 +147,6 @@ class _DesktopNavState extends State<_DesktopNav>
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
       body: Row(
         children: [
@@ -178,102 +176,10 @@ class _DesktopNavState extends State<_DesktopNav>
                         ],
                         extended: _isExtended,
                         labelType: NavigationRailLabelType.none,
-                        leading: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 56,
-                              child: Row(
-                                children: [
-                                  const SizedBox(width: 12),
-                                  SizedBox(
-                                    width: _isExtended ? 120 : 58,
-                                    child: InkWell(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(16),
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          RotationTransition(
-                                            turns: Tween(
-                                              begin: _isExtended ? 0.0 : 0.5,
-                                              end: 1.0,
-                                            ).animate(_controller.view),
-                                            child: const Icon(
-                                              Icons.arrow_left,
-                                              color: ReplyColors.blue50,
-                                              size: 16,
-                                            ),
-                                          ),
-                                          const ReplyLogo(),
-                                          const SizedBox(width: 10),
-                                          if (_isExtended)
-                                            Text(
-                                              'REPLY',
-                                              style: textTheme.bodyText1
-                                                  .copyWith(
-                                                      color:
-                                                          ReplyColors.blue50),
-                                            ),
-                                        ],
-                                      ),
-                                      onTap: onLogoTapped,
-                                    ),
-                                  ),
-                                  if (_isExtended)
-                                    SizedBox(
-                                      width: 128,
-                                      child: Row(
-                                        children: const [
-                                          SizedBox(width: 36),
-                                          Align(
-                                            alignment: Alignment(0, -1.5),
-                                            child: ProfileAvatar(
-                                              avatar:
-                                                  'reply/avatars/avatar_2.jpg',
-                                              height: 32,
-                                              width: 32,
-                                            ),
-                                          ),
-                                          SizedBox(width: 12),
-                                          Icon(
-                                            Icons.settings,
-                                            color: ReplyColors.blue200,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.only(
-                                start: 12,
-                                end: 16,
-                              ),
-                              child: FloatingActionButton.extended(
-                                heroTag: 'Rail FAB',
-                                isExtended: _isExtended,
-                                onPressed: () {
-                                  // TODO: Implement onPressed for Rail FAB
-                                },
-                                label: Row(
-                                  children: [
-                                    const Icon(Icons.create),
-                                    SizedBox(width: _isExtended ? 16 : 0),
-                                    if (_isExtended)
-                                      Text(
-                                        'COMPOSE',
-                                        style: textTheme.headline5
-                                            .copyWith(fontSize: 16),
-                                      ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                          ],
+                        leading: _NavigationRailHeader(
+                          extended: _isExtended,
+                          animation: _controller.view,
+                          onLogoTapped: onLogoTapped,
                         ),
                         trailing: Visibility(
                           visible: _isExtended,
@@ -282,67 +188,8 @@ class _DesktopNavState extends State<_DesktopNav>
                           child: AnimatedOpacity(
                             duration: const Duration(milliseconds: 350),
                             opacity: _isExtended ? 1 : 0,
-                            child: SizedBox(
-                              height: 485,
-                              width: 256,
-                              child: ListView(
-                                padding: const EdgeInsets.all(12),
-                                physics: const NeverScrollableScrollPhysics(),
-                                children: [
-                                  const Divider(
-                                    color: ReplyColors.blue200,
-                                    thickness: 0.4,
-                                    indent: 14,
-                                    endIndent: 16,
-                                  ),
-                                  const SizedBox(height: 16),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.only(
-                                      start: 16,
-                                    ),
-                                    child: Text(
-                                      'FOLDERS',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .caption
-                                          .copyWith(color: ReplyColors.blue200),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  for (var folder in widget.folders.keys)
-                                    InkWell(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(36),
-                                      ),
-                                      onTap: () {},
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              const SizedBox(width: 12),
-                                              ImageIcon(
-                                                AssetImage(
-                                                  widget.folders[folder],
-                                                  package: _assetsPackage,
-                                                ),
-                                                color: ReplyColors.blue300,
-                                              ),
-                                              const SizedBox(width: 24),
-                                              Text(
-                                                folder,
-                                                style: textTheme.bodyText1
-                                                    .copyWith(
-                                                  color: ReplyColors.blue200,
-                                                ),
-                                              ),
-                                              const SizedBox(height: 72),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                ],
-                              ),
+                            child: _NavigationRailFolderSection(
+                              folders: widget.folders,
                             ),
                           ),
                         ),
@@ -357,7 +204,7 @@ class _DesktopNavState extends State<_DesktopNav>
           ),
           const VerticalDivider(thickness: 1, width: 1),
           const Expanded(
-            child: InboxPage(),
+            child: _MailNavigator(child: InboxPage()),
           ),
         ],
       ),
@@ -370,6 +217,174 @@ class _DesktopNavState extends State<_DesktopNav>
     } else {
       _controller.animateTo(1);
     }
+  }
+}
+
+class _NavigationRailHeader extends StatelessWidget {
+  const _NavigationRailHeader({
+    @required this.extended,
+    @required this.animation,
+    @required this.onLogoTapped,
+  })  : assert(extended != null),
+        assert(animation != null),
+        assert(onLogoTapped != null);
+
+  final bool extended;
+  final Animation<double> animation;
+  final VoidCallback onLogoTapped;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 56,
+          child: Row(
+            children: [
+              const SizedBox(width: 12),
+              SizedBox(
+                width: extended ? 120 : 58,
+                child: InkWell(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(16),
+                  ),
+                  child: Row(
+                    children: [
+                      RotationTransition(
+                        turns: Tween(
+                          begin: extended ? 0.0 : 0.5,
+                          end: 1.0,
+                        ).animate(animation),
+                        child: const Icon(
+                          Icons.arrow_left,
+                          color: ReplyColors.blue50,
+                          size: 16,
+                        ),
+                      ),
+                      const _ReplyLogo(),
+                      const SizedBox(width: 10),
+                      if (extended)
+                        Text(
+                          'REPLY',
+                          style: textTheme.bodyText1
+                              .copyWith(color: ReplyColors.blue50),
+                        ),
+                    ],
+                  ),
+                  onTap: onLogoTapped,
+                ),
+              ),
+              if (extended)
+                SizedBox(
+                  width: 128,
+                  child: Row(
+                    children: const [
+                      SizedBox(width: 36),
+                      Align(
+                        alignment: Alignment(0, -1.5),
+                        child: ProfileAvatar(
+                          avatar: 'reply/avatars/avatar_2.jpg',
+                          height: 32,
+                          width: 32,
+                        ),
+                      ),
+                      SizedBox(width: 12),
+                      Icon(
+                        Icons.settings,
+                        color: ReplyColors.blue200,
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsetsDirectional.only(
+            start: 12,
+            end: 16,
+          ),
+          child: _ReplyFab(extended: extended),
+        ),
+        const SizedBox(height: 8),
+      ],
+    );
+  }
+}
+
+class _NavigationRailFolderSection extends StatelessWidget {
+  const _NavigationRailFolderSection({@required this.folders})
+      : assert(folders != null);
+
+  final Map<String, String> folders;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 485,
+      width: 256,
+      child: ListView(
+        padding: const EdgeInsets.all(12),
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          const Divider(
+            color: ReplyColors.blue200,
+            thickness: 0.4,
+            indent: 14,
+            endIndent: 16,
+          ),
+          const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: 16,
+            ),
+            child: Text(
+              'FOLDERS',
+              style: Theme.of(context)
+                  .textTheme
+                  .caption
+                  .copyWith(color: ReplyColors.blue200),
+            ),
+          ),
+          const SizedBox(height: 8),
+          for (var folder in folders.keys)
+            InkWell(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(36),
+              ),
+              onTap: () {},
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const SizedBox(width: 12),
+                      ImageIcon(
+                        AssetImage(
+                          folders[folder],
+                          package: _assetsPackage,
+                        ),
+                        color: ReplyColors.blue300,
+                      ),
+                      const SizedBox(width: 24),
+                      Text(
+                        folder,
+                        style: Theme.of(context).textTheme.bodyText1.copyWith(
+                              color: ReplyColors.blue200,
+                            ),
+                      ),
+                      const SizedBox(height: 72),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
   }
 }
 
@@ -386,7 +401,7 @@ class _MobileNav extends StatefulWidget {
 }
 
 class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
-  final GlobalKey _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
+  final _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   int _destinationsCount;
   AnimationController _drawerController;
   AnimationController _dropArrowController;
@@ -505,10 +520,13 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     }
   }
 
+  void _updateCurrentDestination(String selectedDestination) {
+    _currentDestination = selectedDestination;
+  }
+
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
-    final textTheme = Theme.of(context).textTheme;
     final mainLayer = const InboxPage();
 
     final drawerAnimation = RelativeRectTween(
@@ -520,15 +538,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       overflow: Overflow.visible,
       key: _bottomDrawerKey,
       children: [
-        Navigator(
-          onGenerateRoute: (settings) {
-            return MaterialPageRoute<void>(
-              builder: (context) {
-                return mainLayer;
-              },
-            );
-          },
-        ),
+        _MailNavigator(child: mainLayer),
         GestureDetector(
           onTap: () {
             _drawerController.reverse();
@@ -557,79 +567,17 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
             child: BottomDrawer(
               onVerticalDragUpdate: _handleDragUpdate,
               onVerticalDragEnd: _handleDragEnd,
-              leading: Column(
-                children: [
-                  for (var destination in widget.destinations.keys)
-                    InkWell(
-                      onTap: () {
-                        _drawerController.reverse();
-                        _dropArrowController.forward();
-                        Future.delayed(
-                          Duration(
-                            milliseconds:
-                                GalleryOptions.of(context).timeDilation == 1
-                                    ? _drawerController.value == 1 ? 350 : 210
-                                    : _drawerController.value == 1
-                                        ? 1750
-                                        : 1050,
-                          ),
-                          () {
-                            //Wait until animations are complete to reload the
-                            //state. Delay is variable based on if the gallery
-                            //is in slow motion mode or not.
-                            widget.onItemTapped(
-                              _destinationsWithIndex[destination],
-                            );
-                            _currentDestination = destination;
-                          },
-                        );
-                      },
-                      child: ListTile(
-                        leading: ImageIcon(
-                          AssetImage(
-                            widget.destinations[destination],
-                            package: _assetsPackage,
-                          ),
-                          color: _destinationsWithIndex[destination] ==
-                                  widget.selectedIndex
-                              ? ReplyColors.orange500
-                              : ReplyColors.blue200,
-                        ),
-                        title: Text(
-                          destination,
-                          style: textTheme.bodyText2.copyWith(
-                            color: _destinationsWithIndex[destination] ==
-                                    widget.selectedIndex
-                                ? ReplyColors.orange500
-                                : ReplyColors.blue200,
-                          ),
-                        ),
-                      ),
-                    ),
-                ],
+              leading: _BottomDrawerDestinations(
+                destinations: widget.destinations,
+                destinationsWithIndex: _destinationsWithIndex,
+                drawerController: _drawerController,
+                dropArrowController: _dropArrowController,
+                selectedIndex: widget.selectedIndex,
+                onItemTapped: widget.onItemTapped,
+                currentDestination: _currentDestination,
+                updateCurrentDestination: _updateCurrentDestination,
               ),
-              trailing: Column(
-                children: [
-                  for (var folder in widget.folders.keys)
-                    InkWell(
-                      onTap: () {},
-                      child: ListTile(
-                        leading: ImageIcon(
-                          AssetImage(
-                            widget.folders[folder],
-                            package: _assetsPackage,
-                          ),
-                          color: ReplyColors.blue200,
-                        ),
-                        title: Text(
-                          folder,
-                          style: textTheme.bodyText2
-                              .copyWith(color: ReplyColors.blue200),
-                        ),
-                      ),
-                    ),
-                ],
-              ),
+              trailing: _BottomDrawerFolderSection(folders: widget.folders),
             ),
           ),
         ),
@@ -669,11 +617,11 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    const ReplyLogo(),
+                    const _ReplyLogo(),
                     const SizedBox(width: 10),
                     AnimatedOpacity(
                       opacity: _bottomDrawerVisible ? 0.0 : 1.0,
-                      duration: const Duration(milliseconds: 250),
+                      duration: const Duration(milliseconds: 350),
                       child: Text(
                         _currentDestination,
                         style: Theme.of(context)
@@ -689,22 +637,145 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           ),
         ),
       ),
-      floatingActionButton: _bottomDrawerVisible
-          ? null
-          : FloatingActionButton(
-              heroTag: 'Bottom App Bar FAB',
-              child: const Icon(Icons.create),
-              onPressed: () {
-                // TODO: Implement onPressed for Bottom App Bar FAB
-              },
-            ),
+      floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
 
-class ReplyLogo extends StatelessWidget {
-  const ReplyLogo({Key key}) : super(key: key);
+class _BottomDrawerDestinations extends StatelessWidget {
+  _BottomDrawerDestinations({
+    @required this.destinations,
+    @required this.destinationsWithIndex,
+    @required this.drawerController,
+    @required this.dropArrowController,
+    @required this.selectedIndex,
+    @required this.onItemTapped,
+    @required this.currentDestination,
+    @required this.updateCurrentDestination,
+  })  : assert(destinations != null),
+        assert(destinationsWithIndex != null),
+        assert(drawerController != null),
+        assert(dropArrowController != null),
+        assert(selectedIndex != null),
+        assert(onItemTapped != null),
+        assert(currentDestination != null),
+        assert(updateCurrentDestination != null);
+
+  final Map<String, String> destinations;
+  final Map<String, int> destinationsWithIndex;
+  final AnimationController drawerController;
+  final AnimationController dropArrowController;
+  final int selectedIndex;
+  final String currentDestination;
+  final void Function(int) onItemTapped;
+  final void Function(String) updateCurrentDestination;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        for (var destination in destinations.keys)
+          InkWell(
+            onTap: () {
+              drawerController.reverse();
+              dropArrowController.forward();
+              Future.delayed(
+                Duration(
+                  milliseconds: GalleryOptions.of(context).timeDilation == 1
+                      ? drawerController.value == 1 ? 350 : 210
+                      : drawerController.value == 1 ? 1750 : 1050,
+                ),
+                () {
+                  // Wait until animations are complete to reload the state.
+                  // Delay is variable based on if the gallery is in slow motion
+                  // mode or not.
+                  onItemTapped(
+                    destinationsWithIndex[destination],
+                  );
+                  updateCurrentDestination(destination);
+                },
+              );
+            },
+            child: ListTile(
+              leading: ImageIcon(
+                AssetImage(
+                  destinations[destination],
+                  package: _assetsPackage,
+                ),
+                color: destinationsWithIndex[destination] == selectedIndex
+                    ? ReplyColors.orange500
+                    : ReplyColors.blue200,
+              ),
+              title: Text(
+                destination,
+                style: Theme.of(context).textTheme.bodyText2.copyWith(
+                      color: destinationsWithIndex[destination] == selectedIndex
+                          ? ReplyColors.orange500
+                          : ReplyColors.blue200,
+                    ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _BottomDrawerFolderSection extends StatelessWidget {
+  const _BottomDrawerFolderSection({@required this.folders})
+      : assert(folders != null);
+
+  final Map<String, String> folders;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        for (var folder in folders.keys)
+          InkWell(
+            onTap: () {},
+            child: ListTile(
+              leading: ImageIcon(
+                AssetImage(
+                  folders[folder],
+                  package: _assetsPackage,
+                ),
+                color: ReplyColors.blue200,
+              ),
+              title: Text(
+                folder,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2
+                    .copyWith(color: ReplyColors.blue200),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _MailNavigator extends StatelessWidget {
+  const _MailNavigator({@required this.child}) : assert(child != null);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute<void>(builder: (context) {
+          return child;
+        });
+      },
+    );
+  }
+}
+
+class _ReplyLogo extends StatelessWidget {
+  const _ReplyLogo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -716,5 +787,48 @@ class ReplyLogo extends StatelessWidget {
       size: 32,
       color: ReplyColors.blue50,
     );
+  }
+}
+
+class _ReplyFab extends StatelessWidget {
+  const _ReplyFab({this.extended});
+
+  final bool extended;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+
+    if (isDesktop) {
+      return FloatingActionButton.extended(
+        heroTag: 'Rail FAB',
+        isExtended: extended,
+        onPressed: () {
+          // TODO: Implement onPressed for Rail FAB
+        },
+        label: Row(
+          children: [
+            const Icon(Icons.create),
+            SizedBox(width: extended ? 16 : 0),
+            if (extended)
+              Text(
+                'COMPOSE',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5
+                    .copyWith(fontSize: 16),
+              ),
+          ],
+        ),
+      );
+    } else {
+      return FloatingActionButton(
+        heroTag: 'Bottom App Bar FAB',
+        child: const Icon(Icons.create),
+        onPressed: () {
+          // TODO: Implement onPressed for Bottom App Bar FAB
+        },
+      );
+    }
   }
 }
