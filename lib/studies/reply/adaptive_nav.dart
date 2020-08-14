@@ -147,13 +147,24 @@ class _DesktopNavState extends State<_DesktopNav>
 
   @override
   Widget build(BuildContext context) {
+    bool isDark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
+
     return Scaffold(
       body: Row(
         children: [
           LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                color: ReplyColors.blue700,
+                color: isDark
+                    ? ReplyColors.darkBottomAppBarBackground
+                    : ReplyColors.blue700,
                 child: SingleChildScrollView(
                   clipBehavior: Clip.antiAlias,
                   child: ConstrainedBox(
