@@ -25,14 +25,18 @@ class MailPreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);
       },
+      openColor: theme.cardColor,
       closedShape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(0)),
       ),
       closedElevation: 0,
+      closedColor: theme.cardColor,
       closedBuilder: (context, openContainer) {
         return _MailPreview(
           id: id,
@@ -159,27 +163,30 @@ class _MailPreviewActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final color = isDark ? ReplyColors.white50 : ReplyColors.blue600;
+
     return Row(
-      children: const [
+      children: [
         ImageIcon(
-          AssetImage(
+          const AssetImage(
             '$_iconAssetLocation/twotone_star.png',
             package: _assetsPackage,
           ),
-          color: ReplyColors.blue600,
+          color: color,
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         ImageIcon(
-          AssetImage(
+          const AssetImage(
             '$_iconAssetLocation/twotone_delete.png',
             package: _assetsPackage,
           ),
-          color: ReplyColors.blue600,
+          color: color,
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Icon(
           Icons.more_vert,
-          color: ReplyColors.blue700,
+          color: color,
         ),
       ],
     );
