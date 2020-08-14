@@ -1,14 +1,15 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
-import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:provider/provider.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
@@ -637,7 +638,16 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                   ],
                 ),
               ),
-              _BottomAppBarActionItems(drawerVisible: _bottomDrawerVisible),
+              Expanded(
+                child: Container(
+                  color: Colors.transparent,
+                ),
+              ),
+              Expanded(
+                child: _BottomAppBarActionItems(
+                  drawerVisible: _bottomDrawerVisible,
+                ),
+              ),
             ],
           ),
         ),
@@ -672,18 +682,27 @@ class _BottomAppBarActionItemsState extends State<_BottomAppBarActionItems>
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 350),
             transitionBuilder: (child, animation) => ScaleTransition(
+              alignment: const Alignment(1, 0),
               child: child,
               scale: animation,
             ),
             child: widget.drawerVisible
-                ? IconButton(
+                ? Row(
                     key: UniqueKey(),
-                    icon: const Icon(Icons.settings),
-                    color: ReplyColors.white50,
-                    onPressed: () {},
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.settings),
+                        color: ReplyColors.white50,
+                        onPressed: () {},
+                      ),
+                    ],
                   )
                 : onMailView
                     ? Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           IconButton(
                             icon: const ImageIcon(
@@ -712,10 +731,17 @@ class _BottomAppBarActionItemsState extends State<_BottomAppBarActionItems>
                           ),
                         ],
                       )
-                    : IconButton(
-                        icon: const Icon(Icons.search),
-                        color: ReplyColors.white50,
-                        onPressed: () {},
+                    : Row(
+                        key: UniqueKey(),
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.search),
+                            color: ReplyColors.white50,
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
           ),
         );
