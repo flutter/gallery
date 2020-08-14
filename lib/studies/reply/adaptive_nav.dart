@@ -662,67 +662,64 @@ class _BottomAppBarActionItemsState extends State<_BottomAppBarActionItems>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return AnimatedSize(
-      duration: const Duration(milliseconds: 350),
-      vsync: this,
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 350),
-        transitionBuilder: (child, animation) => ScaleTransition(
-          child: child,
-          scale: animation,
-        ),
-        child: Consumer<EmailStore>(
-          builder: (context, model, child) {
-            final onMailView = model.currentlySelectedEmailId >= 0;
-            if (widget.drawerVisible) {
-              return IconButton(
-                key: UniqueKey(),
-                icon: const Icon(Icons.settings),
-                color: ReplyColors.white50,
-                onPressed: () {},
-              );
-            } else {
-              if (onMailView) {
-                return Row(
-                  children: [
-                    IconButton(
-                      icon: const ImageIcon(
-                        AssetImage(
-                          '$_iconAssetLocation/twotone_star.png',
-                          package: _assetsPackage,
-                        ),
+    return Consumer<EmailStore>(
+      builder: (context, model, child) {
+        final onMailView = model.currentlySelectedEmailId >= 0;
+
+        return AnimatedSize(
+          duration: const Duration(milliseconds: 350),
+          vsync: this,
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 350),
+            transitionBuilder: (child, animation) => ScaleTransition(
+              child: child,
+              scale: animation,
+            ),
+            child: widget.drawerVisible
+                ? IconButton(
+                    key: UniqueKey(),
+                    icon: const Icon(Icons.settings),
+                    color: ReplyColors.white50,
+                    onPressed: () {},
+                  )
+                : onMailView
+                    ? Row(
+                        children: [
+                          IconButton(
+                            icon: const ImageIcon(
+                              AssetImage(
+                                '$_iconAssetLocation/twotone_star.png',
+                                package: _assetsPackage,
+                              ),
+                            ),
+                            onPressed: () {},
+                            color: ReplyColors.white50,
+                          ),
+                          IconButton(
+                            icon: const ImageIcon(
+                              AssetImage(
+                                '$_iconAssetLocation/twotone_delete.png',
+                                package: _assetsPackage,
+                              ),
+                            ),
+                            onPressed: () {},
+                            color: ReplyColors.white50,
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.more_vert),
+                            onPressed: () {},
+                            color: ReplyColors.white50,
+                          ),
+                        ],
+                      )
+                    : IconButton(
+                        icon: const Icon(Icons.search),
+                        color: ReplyColors.white50,
+                        onPressed: () {},
                       ),
-                      onPressed: () {},
-                      color: ReplyColors.white50,
-                    ),
-                    IconButton(
-                      icon: const ImageIcon(
-                        AssetImage(
-                          '$_iconAssetLocation/twotone_delete.png',
-                          package: _assetsPackage,
-                        ),
-                      ),
-                      onPressed: () {},
-                      color: ReplyColors.white50,
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.more_vert),
-                      onPressed: () {},
-                      color: ReplyColors.white50,
-                    ),
-                  ],
-                );
-              } else {
-                return IconButton(
-                  icon: const Icon(Icons.search),
-                  color: ReplyColors.white50,
-                  onPressed: () {},
-                );
-              }
-            }
-          },
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
