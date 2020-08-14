@@ -78,7 +78,7 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
   return base.copyWith(
     scaffoldBackgroundColor: ReplyColors.black900,
     navigationRailTheme: NavigationRailThemeData(
-      backgroundColor: Color(0xFF2D2D2D),
+      backgroundColor: ReplyColors.darkBottomAppBarBackground,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange300),
       selectedLabelTextStyle:
           GoogleFonts.workSansTextTheme().headline5.copyWith(
@@ -87,7 +87,7 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
       unselectedIconTheme: const IconThemeData(color: Color(0xFFAEAEAE)),
       unselectedLabelTextStyle:
           GoogleFonts.workSansTextTheme().headline5.copyWith(
-                color: Color(0xFFAEAEAE),
+                color: ReplyColors.greyLabel,
               ),
     ),
     colorScheme: const ColorScheme.light(

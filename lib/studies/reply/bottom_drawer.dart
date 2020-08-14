@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/studies/reply/colors.dart';
 
 class BottomDrawer extends StatelessWidget {
@@ -17,7 +18,7 @@ class BottomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/mail_view_page.dart';
@@ -23,7 +24,7 @@ class MailPreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
 
     return OpenContainer(
       openBuilder: (context, closedContainer) {

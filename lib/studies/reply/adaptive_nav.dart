@@ -324,7 +324,7 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
     final textTheme = Theme.of(context).textTheme;
 
     return SizedBox(
@@ -533,7 +533,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
     final mainLayer = const InboxPage();
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
@@ -595,7 +595,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
 
     return Scaffold(
       extendBody: true,
@@ -685,7 +685,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
 
     return Column(
       children: [
@@ -748,6 +748,8 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+
     return Column(
       children: [
         for (var folder in folders.keys)
@@ -759,14 +761,14 @@ class _BottomDrawerFolderSection extends StatelessWidget {
                   folders[folder],
                   package: _assetsPackage,
                 ),
-                color: ReplyColors.blue200,
+                color: isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
               ),
               title: Text(
                 folder,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    .copyWith(color: ReplyColors.blue200),
+                style: Theme.of(context).textTheme.bodyText2.copyWith(
+                      color:
+                          isDark ? ReplyColors.greyLabel : ReplyColors.blue200,
+                    ),
               ),
             ),
           ),

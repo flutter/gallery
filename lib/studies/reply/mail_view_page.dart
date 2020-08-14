@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
@@ -14,13 +15,15 @@ class MailViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+
     return Scaffold(
       body: SafeArea(
         bottom: false,
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          color: ReplyColors.darkCardBackground,
+          color: isDark ? ReplyColors.darkCardBackground : ReplyColors.white50,
           child: Padding(
             padding:
                 const EdgeInsetsDirectional.only(top: 42, start: 20, end: 20),
