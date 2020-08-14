@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
+import 'package:gallery/studies/reply/darkmode_helper.dart';
 import 'package:gallery/studies/reply/mail_view_page.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
@@ -24,14 +24,8 @@ class MailPreviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final galleryTheme = GalleryOptions.of(context).themeMode;
-    bool isDark;
+    final isDark = isDarkTheme(context);
 
-    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
-      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
-    } else {
-      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    }
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);
