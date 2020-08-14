@@ -324,7 +324,14 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    bool isDark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
     final textTheme = Theme.of(context).textTheme;
 
     return SizedBox(
@@ -533,7 +540,14 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
     final mainLayer = const InboxPage();
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
@@ -595,8 +609,14 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
 
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
     return Scaffold(
       extendBody: true,
       body: LayoutBuilder(
@@ -685,7 +705,14 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
 
     return Column(
       children: [
@@ -748,7 +775,14 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
 
     return Column(
       children: [

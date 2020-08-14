@@ -15,7 +15,14 @@ class MailViewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
 
     return Scaffold(
       body: SafeArea(
@@ -72,7 +79,14 @@ class _MailViewHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
 
     return Column(
       children: [

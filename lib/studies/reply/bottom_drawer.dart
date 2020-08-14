@@ -18,7 +18,14 @@ class BottomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
 
     return GestureDetector(
       behavior: HitTestBehavior.opaque,

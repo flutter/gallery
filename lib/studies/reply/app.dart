@@ -15,6 +15,17 @@ class ReplyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final galleryTheme = GalleryOptions.of(context).themeMode;
+    bool isDark;
+
+    if ((galleryTheme == ThemeMode.dark) | (galleryTheme == ThemeMode.light)) {
+      isDark = GalleryOptions.of(context).themeMode == ThemeMode.dark;
+    } else {
+      isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    }
+    final replyTheme =
+        isDark ? _buildReplyDarkTheme(context) : _buildReplyLightTheme(context);
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<EmailStore>.value(value: EmailStore()),
@@ -22,8 +33,8 @@ class ReplyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Reply',
         debugShowCheckedModeBanner: false,
-        darkTheme: _buildReplyDarkTheme(context),
-        theme: _buildReplyLightTheme(context),
+        darkTheme: replyTheme,
+        theme: replyTheme,
         localizationsDelegates: GalleryLocalizations.localizationsDelegates,
         supportedLocales: GalleryLocalizations.supportedLocales,
         locale: GalleryOptions.of(context).locale,
