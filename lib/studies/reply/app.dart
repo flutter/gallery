@@ -80,6 +80,11 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
       background: ReplyColors.blue50,
     ),
     cardColor: ReplyColors.white50,
+    chipTheme: _buildChipTheme(
+      ReplyColors.blue700,
+      ReplyColors.lightChipBackground,
+      Brightness.light,
+    ),
     canvasColor: ReplyColors.white50,
     accentColor: ReplyColors.orange500,
     textTheme: _buildReplyLightTextTheme(base.textTheme),
@@ -123,9 +128,33 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
       background: ReplyColors.black900Alpha087,
     ),
     cardColor: ReplyColors.darkCardBackground,
+    chipTheme: _buildChipTheme(
+      ReplyColors.blue200,
+      ReplyColors.darkChipBackground,
+      Brightness.dark,
+    ),
     canvasColor: ReplyColors.black900,
     accentColor: ReplyColors.orange300,
     textTheme: _buildReplyDarkTextTheme(base.textTheme),
+  );
+}
+
+ChipThemeData _buildChipTheme(
+    Color primaryColor, Color chipBackground, Brightness brightness) {
+  return ChipThemeData(
+    backgroundColor: primaryColor.withOpacity(0.12),
+    disabledColor: primaryColor.withOpacity(0.87),
+    selectedColor: primaryColor.withOpacity(0.05),
+    secondarySelectedColor: chipBackground,
+    padding: const EdgeInsets.all(4),
+    shape: const StadiumBorder(),
+    labelStyle: GoogleFonts.workSansTextTheme().bodyText2.copyWith(
+          color: brightness == Brightness.dark
+              ? ReplyColors.white50
+              : ReplyColors.black900,
+        ),
+    secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyText2.copyWith(),
+    brightness: brightness,
   );
 }
 

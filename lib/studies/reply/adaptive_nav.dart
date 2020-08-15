@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
+import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
@@ -312,7 +314,12 @@ class _NavigationRailHeader extends StatelessWidget {
             start: 12,
             end: 16,
           ),
-          child: _ReplyFab(extended: extended),
+          child: Consumer<EmailStore>(
+            builder: (context, model, child) {
+              final onMailView = model.currentlySelectedEmailId != -1;
+              return _ReplyFab(extended: extended, onMailView: onMailView);
+            },
+          ),
         ),
         const SizedBox(height: 8),
       ],
@@ -666,7 +673,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           ? null
           : Consumer<EmailStore>(
               builder: (context, model, child) {
-                final onMailView = model.currentlySelectedEmailId == -1;
+                final onMailView = model.currentlySelectedEmailId != -1;
                 return _ReplyFab(onMailView: onMailView);
               },
             ),
@@ -909,63 +916,99 @@ class _ReplyLogo extends StatelessWidget {
   }
 }
 
-class _ReplyFab extends StatelessWidget {
-  const _ReplyFab({this.extended, this.onMailView});
+class _ReplyFab extends StatefulWidget {
+  const _ReplyFab({this.extended = false, @required this.onMailView})
+      : assert(onMailView != null);
 
   final bool extended;
   final bool onMailView;
 
   @override
+  __ReplyFabState createState() => __ReplyFabState();
+}
+
+class __ReplyFabState extends State<_ReplyFab>
+    with SingleTickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final theme = Theme.of(context);
 
-    if (isDesktop) {
-      return FloatingActionButton.extended(
-        heroTag: 'Rail FAB',
-        tooltip: 'Compose',
-        isExtended: extended,
-        onPressed: () {
-          // TODO: Implement onPressed for Rail FAB
-        },
-        label: Row(
-          children: [
-            const Icon(Icons.create),
-            SizedBox(width: extended ? 16 : 0),
-            if (extended)
-              Text(
-                'COMPOSE',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(fontSize: 16, color: ReplyColors.black900),
+    return OpenContainer(
+      openBuilder: (context, closedContainer) {
+        return const ComposePage();
+      },
+      openColor: theme.cardColor,
+      closedShape: isDesktop & widget.extended
+          ? const StadiumBorder()
+          : const CircleBorder(),
+      closedColor: theme.colorScheme.secondary,
+      closedBuilder: (context, openContainer) {
+        if (isDesktop) {
+          return AnimatedSize(
+            vsync: this,
+            curve: Curves.easeInOut,
+            duration: kThemeAnimationDuration,
+            child: FloatingActionButton.extended(
+              heroTag: 'Rail FAB',
+              tooltip: widget.onMailView ? 'Reply' : 'Compose',
+              isExtended: widget.extended,
+              onPressed: openContainer,
+              label: Row(
+                children: [
+                  _FabSwitcher(
+                    onMailView: widget.onMailView,
+                  ),
+                  SizedBox(width: widget.extended ? 16 : 0),
+                  if (widget.extended)
+                    Text(
+                      widget.onMailView ? 'REPLY' : 'COMPOSE',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5
+                          .copyWith(fontSize: 16, color: ReplyColors.black900),
+                    ),
+                ],
               ),
-          ],
-        ),
-      );
-    } else {
-      return FloatingActionButton(
-        heroTag: 'Bottom App Bar FAB',
-        tooltip: onMailView ? 'Reply' : 'Compose',
-        child: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 350),
-          transitionBuilder: (child, animation) => ScaleTransition(
-            child: child,
-            scale: animation,
-          ),
-          child: onMailView
-              ? Icon(
-                  Icons.create,
-                  key: UniqueKey(),
-                )
-              : Icon(
-                  Icons.reply_all,
-                  key: UniqueKey(),
-                ),
-        ),
-        onPressed: () {
-          // TODO: Implement onPressed for Bottom App Bar FAB
-        },
-      );
-    }
+            ),
+          );
+        } else {
+          return FloatingActionButton(
+            heroTag: 'Bottom App Bar FAB',
+            tooltip: widget.onMailView ? 'Reply' : 'Compose',
+            child: _FabSwitcher(
+              onMailView: widget.onMailView,
+            ),
+            onPressed: openContainer,
+          );
+        }
+      },
+    );
+  }
+}
+
+class _FabSwitcher extends StatelessWidget {
+  const _FabSwitcher({@required this.onMailView}) : assert(onMailView != null);
+
+  final bool onMailView;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 350),
+      transitionBuilder: (child, animation) => ScaleTransition(
+        child: child,
+        scale: animation,
+      ),
+      child: onMailView
+          ? Icon(
+              Icons.reply_all,
+              key: UniqueKey(),
+            )
+          : Icon(
+              Icons.create,
+              key: UniqueKey(),
+            ),
+    );
   }
 }
