@@ -21,6 +21,22 @@ const double _kFlingVelocity = 2.0;
 class AdaptiveNav extends StatefulWidget {
   const AdaptiveNav({Key key}) : super(key: key);
 
+  static Route createSearchRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const SearchPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SharedAxisTransition(
+          fillColor: Theme.of(context).cardColor,
+          transitionType: SharedAxisTransitionType.scaled,
+          child: child,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+        );
+      },
+    );
+  }
+
   @override
   _AdaptiveNavState createState() => _AdaptiveNavState();
 }
@@ -685,22 +701,6 @@ class _BottomAppBarActionItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Route _createSearchRoute() {
-      return PageRouteBuilder<void>(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const SearchPage(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return SharedAxisTransition(
-            fillColor: Theme.of(context).cardColor,
-            transitionType: SharedAxisTransitionType.scaled,
-            child: child,
-            animation: animation,
-            secondaryAnimation: secondaryAnimation,
-          );
-        },
-      );
-    }
-
     return Consumer<EmailStore>(
       builder: (context, model, child) {
         final onMailView = model.currentlySelectedEmailId >= 0;
@@ -766,7 +766,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
                           icon: const Icon(Icons.search),
                           color: ReplyColors.white50,
                           onPressed: () => Navigator.of(context).push<void>(
-                            _createSearchRoute(),
+                            AdaptiveNav.createSearchRoute(),
                           ),
                         ),
                       ],
