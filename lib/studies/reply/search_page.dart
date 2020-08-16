@@ -10,35 +10,36 @@ class SearchPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Material(
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).colorScheme.surface,
           child: Column(
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    onPressed: () => Navigator.of(context).pop(),
-                    splashRadius: splashRadius,
-                  ),
-                  const Expanded(
-                    child: TextField(
-                      decoration: InputDecoration.collapsed(
-                        hintText: 'Search email',
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () => Navigator.of(context).pop(),
+                      splashRadius: splashRadius,
+                    ),
+                    const Expanded(
+                      child: TextField(
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Search email',
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.mic),
-                    onPressed: () {},
-                    splashRadius: splashRadius,
-                  )
-                ],
+                    IconButton(
+                      icon: const Icon(Icons.mic),
+                      onPressed: () {},
+                      splashRadius: splashRadius,
+                    )
+                  ],
+                ),
               ),
-              const Divider(
-                thickness: 1.1,
-              ),
+              const Divider(thickness: 1.1),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
