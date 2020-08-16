@@ -5,7 +5,16 @@ import 'email_model.dart';
 const _avatarsLocation = 'reply/avatars';
 
 class EmailStore with ChangeNotifier {
-  final List<Email> _emails = const [
+  final Map<String, List<Email>> _categories = {
+    'Inbox': _mainInbox,
+    'Starred': _starredInbox,
+    'Sent': _outbox,
+    'Trash': _trash,
+    'Spam': _spam,
+    'Drafts': _drafts,
+  };
+
+  static final List<Email> _mainInbox = const [
     Email(
       sender: 'Google Express',
       time: '15 minutes ago',
@@ -85,6 +94,11 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
       isRead: false,
     ),
+  ];
+
+  static final List<Email> _starredInbox = [];
+
+  static final List<Email> _outbox = const [
     Email(
       sender: 'Kim Alen',
       time: '4 hrs ago',
@@ -112,6 +126,9 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
       isRead: false,
     ),
+  ];
+
+  static final List<Email> _trash = const [
     Email(
       sender: 'Frank Hawkins',
       time: '4 hrs ago',
@@ -138,6 +155,9 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
       isRead: false,
     ),
+  ];
+
+  static final List<Email> _spam = const [
     Email(
       sender: 'Allison Trabucco',
       time: '4 hrs ago',
@@ -150,6 +170,9 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
       isRead: false,
     ),
+  ];
+
+  static final List<Email> _drafts = const [
     Email(
       sender: 'Sandra Adams',
       time: '2 hrs ago',
@@ -166,10 +189,11 @@ class EmailStore with ChangeNotifier {
 
   int _currentlySelectedEmailId = -1;
 
-  List<Email> get emails => List<Email>.unmodifiable(_emails);
+  Map<String, List<Email>> get emails =>
+      Map<String, List<Email>>.unmodifiable(_categories);
 
-  void deleteEmail(int id) {
-    _emails.removeAt(id);
+  void deleteEmail(String category, int id) {
+    _categories[category].removeAt(id);
     notifyListeners();
   }
 

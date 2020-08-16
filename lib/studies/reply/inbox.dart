@@ -5,7 +5,11 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class InboxPage extends StatelessWidget {
-  const InboxPage({Key key}) : super(key: key);
+  const InboxPage({Key key, @required this.destination})
+      : assert(destination != null),
+        super(key: key);
+
+  final String destination;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +33,11 @@ class InboxPage extends StatelessWidget {
                   ),
                   children: [
                     for (int index = 0;
-                        index < model.emails.length;
+                        index < model.emails[destination].length;
                         index++) ...[
                       MailPreviewCard(
                         id: index,
-                        email: model.emails[index],
+                        email: model.emails[destination][index],
                       ),
                       const SizedBox(height: 4),
                     ],

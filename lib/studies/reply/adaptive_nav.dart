@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -111,6 +112,9 @@ class _DesktopNavState extends State<_DesktopNav>
   bool _isExtended;
   bool _hasWidgetUpdated = false;
   AnimationController _controller;
+  Map<int, String> _indexWithDestinations;
+  int _destinationsCount;
+  Widget _currentInbox;
 
   @override
   void initState() {
@@ -131,6 +135,22 @@ class _DesktopNavState extends State<_DesktopNav>
           });
         }
       });
+    _destinationsCount = 0;
+
+    _indexWithDestinations = {
+      for (var destination in widget.destinations.keys) _nextInt: destination
+    };
+
+    _currentInbox = InboxPage(
+      key: UniqueKey(),
+      destination: _indexWithDestinations[widget.selectedIndex],
+    );
+  }
+
+  int get _nextInt {
+    final _lastInt = _destinationsCount;
+    _destinationsCount = _destinationsCount + 1;
+    return _lastInt;
   }
 
   @override
@@ -139,6 +159,13 @@ class _DesktopNavState extends State<_DesktopNav>
     if (oldWidget.extended != widget.extended) {
       onLogoTapped();
       _hasWidgetUpdated = true;
+    }
+
+    if (oldWidget.selectedIndex != widget.selectedIndex) {
+      _currentInbox = InboxPage(
+        key: UniqueKey(),
+        destination: _indexWithDestinations[widget.selectedIndex],
+      );
     }
   }
 
@@ -206,8 +233,12 @@ class _DesktopNavState extends State<_DesktopNav>
             },
           ),
           const VerticalDivider(thickness: 1, width: 1),
-          const Expanded(
-            child: _MailNavigator(child: InboxPage()),
+          Expanded(
+            child: _MailNavigator(
+              child: _InboxTransitionSwitcher(
+                child: _currentInbox,
+              ),
+            ),
           ),
         ],
       ),
@@ -416,6 +447,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   AnimationController _dropArrowController;
   Map<String, int> _destinationsWithIndex;
   String _currentDestination;
+  Widget _currentInbox;
 
   @override
   void initState() {
@@ -456,6 +488,22 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     _destinationsWithIndex = {
       for (var destination in widget.destinations.keys) destination: _nextInt
     };
+
+    _currentInbox = InboxPage(
+      key: UniqueKey(),
+      destination: _currentDestination,
+    );
+  }
+
+  @override
+  void didUpdateWidget(_MobileNav oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedIndex != widget.selectedIndex) {
+      _currentInbox = InboxPage(
+        key: UniqueKey(),
+        destination: _currentDestination,
+      );
+    }
   }
 
   @override
@@ -536,7 +584,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
-    final mainLayer = const InboxPage();
 
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
@@ -547,7 +594,11 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       overflow: Overflow.visible,
       key: _bottomDrawerKey,
       children: [
-        _MailNavigator(child: mainLayer),
+        _MailNavigator(
+          child: _InboxTransitionSwitcher(
+            child: _currentInbox,
+          ),
+        ),
         GestureDetector(
           onTap: () {
             _drawerController.reverse();
@@ -876,17 +927,22 @@ class _BottomDrawerFolderSection extends StatelessWidget {
   }
 }
 
-class _MailNavigator extends StatelessWidget {
+class _MailNavigator extends StatefulWidget {
   const _MailNavigator({@required this.child}) : assert(child != null);
 
   final Widget child;
 
   @override
+  __MailNavigatorState createState() => __MailNavigatorState();
+}
+
+class __MailNavigatorState extends State<_MailNavigator> {
+  @override
   Widget build(BuildContext context) {
     return Navigator(
       onGenerateRoute: (settings) {
         return MaterialPageRoute<void>(builder: (context) {
-          return child;
+          return widget.child;
         });
       },
     );
@@ -967,5 +1023,27 @@ class _ReplyFab extends StatelessWidget {
         },
       );
     }
+  }
+}
+
+class _InboxTransitionSwitcher extends StatelessWidget {
+  const _InboxTransitionSwitcher({@required this.child})
+      : assert(child != null);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return PageTransitionSwitcher(
+      transitionBuilder: (child, animation, secondaryAnimation) {
+        return FadeThroughTransition(
+          fillColor: Theme.of(context).scaffoldBackgroundColor,
+          child: child,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+        );
+      },
+      child: child,
+    );
   }
 }
