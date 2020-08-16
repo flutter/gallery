@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -5,13 +6,17 @@ import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:gallery/studies/reply/search_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+final rootNavKey = GlobalKey<NavigatorState>();
 
 class ReplyApp extends StatelessWidget {
   const ReplyApp();
 
   static const String homeRoute = '/reply';
+  static const String searchRoute = '/search';
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +33,7 @@ class ReplyApp extends StatelessWidget {
         ChangeNotifierProvider<EmailStore>.value(value: EmailStore()),
       ],
       child: MaterialApp(
+        navigatorKey: rootNavKey,
         title: 'Reply',
         debugShowCheckedModeBanner: false,
         theme: replyTheme,
@@ -37,6 +43,42 @@ class ReplyApp extends StatelessWidget {
         initialRoute: homeRoute,
         routes: <String, WidgetBuilder>{
           homeRoute: (context) => const AdaptiveNav(),
+        },
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case homeRoute:
+              {
+                return MaterialPageRoute<void>(
+                  builder: (context) {
+                    return const AdaptiveNav();
+                  },
+                );
+              }
+              break;
+            case searchRoute:
+              {
+                return PageRouteBuilder<void>(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const SearchPage(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return SharedAxisTransition(
+                      fillColor: Theme.of(context).cardColor,
+                      transitionType: SharedAxisTransitionType.scaled,
+                      child: child,
+                      animation: animation,
+                      secondaryAnimation: secondaryAnimation,
+                    );
+                  },
+                );
+              }
+              break;
+            default:
+              {
+                return null;
+              }
+              break;
+          }
         },
       ),
     );
