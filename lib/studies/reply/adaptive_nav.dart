@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -9,6 +10,7 @@ import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
+import 'package:gallery/studies/reply/search_page.dart';
 import 'package:provider/provider.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -683,6 +685,22 @@ class _BottomAppBarActionItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Route _createSearchRoute() {
+      return PageRouteBuilder<void>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const SearchPage(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return SharedAxisTransition(
+            fillColor: Theme.of(context).cardColor,
+            transitionType: SharedAxisTransitionType.scaled,
+            child: child,
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+          );
+        },
+      );
+    }
+
     return Consumer<EmailStore>(
       builder: (context, model, child) {
         final onMailView = model.currentlySelectedEmailId >= 0;
@@ -747,7 +765,9 @@ class _BottomAppBarActionItems extends StatelessWidget {
                         IconButton(
                           icon: const Icon(Icons.search),
                           color: ReplyColors.white50,
-                          onPressed: () {},
+                          onPressed: () => Navigator.of(context).push<void>(
+                            _createSearchRoute(),
+                          ),
                         ),
                       ],
                     ),
