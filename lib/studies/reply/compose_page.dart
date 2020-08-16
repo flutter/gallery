@@ -25,40 +25,42 @@ class ComposePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Container(
+        child: SizedBox(
           height: double.infinity,
-          color: Theme.of(context).cardColor,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _SubjectRow(
-                  subject: _subject,
-                ),
-                const _SectionDivider(),
-                _SenderAddressRow(
-                  senderEmail: _senderEmail,
-                ),
-                const _SectionDivider(),
-                _RecipientsRow(
-                  recipients: _recipient,
-                  avatar: _recipientAvatar,
-                ),
-                const _SectionDivider(),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: TextField(
-                    minLines: 6,
-                    maxLines: 20,
-                    decoration: const InputDecoration.collapsed(
-                      hintText: 'New Message...',
-                    ),
-                    autofocus: false,
-                    style: Theme.of(context).textTheme.bodyText2,
+          child: Material(
+            color: Theme.of(context).cardColor,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _SubjectRow(
+                    subject: _subject,
                   ),
-                ),
-              ],
+                  const _SectionDivider(),
+                  _SenderAddressRow(
+                    senderEmail: _senderEmail,
+                  ),
+                  const _SectionDivider(),
+                  _RecipientsRow(
+                    recipients: _recipient,
+                    avatar: _recipientAvatar,
+                  ),
+                  const _SectionDivider(),
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: TextField(
+                      minLines: 6,
+                      maxLines: 20,
+                      decoration: const InputDecoration.collapsed(
+                        hintText: 'New Message...',
+                      ),
+                      autofocus: false,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -179,14 +181,14 @@ class __SenderAddressRowState extends State<_SenderAddressRow> {
         PopupMenuItem<String>(
           value: accounts[0],
           child: Text(
-            'from.${accounts[0]}',
+            accounts[0],
             style: textTheme.bodyText2,
           ),
         ),
         PopupMenuItem<String>(
           value: accounts[1],
           child: Text(
-            'from.${accounts[1]}',
+            accounts[1],
             style: textTheme.bodyText2,
           ),
         ),
@@ -255,9 +257,11 @@ class _RecipientsRow extends StatelessWidget {
               ],
             ),
           ),
-          Icon(
-            Icons.add_circle_outline,
-            color: theme.colorScheme.onSurface,
+          InkResponse(
+            customBorder: const CircleBorder(),
+            child: const Icon(Icons.add_circle_outline),
+            onTap: () {},
+            radius: 24,
           ),
         ],
       ),
