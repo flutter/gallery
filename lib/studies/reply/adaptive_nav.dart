@@ -933,10 +933,10 @@ class _MailNavigator extends StatefulWidget {
   final Widget child;
 
   @override
-  __MailNavigatorState createState() => __MailNavigatorState();
+  _MailNavigatorState createState() => _MailNavigatorState();
 }
 
-class __MailNavigatorState extends State<_MailNavigator> {
+class _MailNavigatorState extends State<_MailNavigator> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
