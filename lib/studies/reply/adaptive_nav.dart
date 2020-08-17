@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/inbox.dart';
@@ -741,7 +742,12 @@ class _BottomAppBarActionItems extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(Icons.search),
                         color: ReplyColors.white50,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            ReplyApp.searchRoute,
+                          );
+                        },
                       ),
                     ),
         );
