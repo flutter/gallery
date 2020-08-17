@@ -25,7 +25,7 @@ class ComposePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: SizedBox(
+        child: Container(
           height: double.infinity,
           child: Material(
             color: Theme.of(context).cardColor,
