@@ -168,10 +168,13 @@ class _DesktopNavState extends State<_DesktopNav>
                         destinations: [
                           for (var destination in widget.destinations.keys)
                             NavigationRailDestination(
-                              icon: ImageIcon(
-                                AssetImage(
-                                  widget.destinations[destination],
-                                  package: _assetsPackage,
+                              icon: Material(
+                                color: Colors.transparent,
+                                child: ImageIcon(
+                                  AssetImage(
+                                    widget.destinations[destination],
+                                    package: _assetsPackage,
+                                  ),
                                 ),
                               ),
                               label: Text(destination),
