@@ -607,6 +607,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         child: SizedBox(
           height: kToolbarHeight,
           child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -648,6 +650,14 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                   ],
                 ),
               ),
+              Expanded(
+                child: Container(
+                  color: Colors.transparent,
+                  child: _BottomAppBarActionItems(
+                    drawerVisible: _bottomDrawerVisible,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -661,6 +671,81 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               },
             ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+class _BottomAppBarActionItems extends StatelessWidget {
+  const _BottomAppBarActionItems({@required this.drawerVisible})
+      : assert(drawerVisible != null);
+
+  final bool drawerVisible;
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<EmailStore>(
+      builder: (context, model, child) {
+        final onMailView = model.currentlySelectedEmailId >= 0;
+
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 350),
+          transitionBuilder: (child, animation) => ScaleTransition(
+            alignment: Alignment.centerRight,
+            child: child,
+            scale: animation,
+          ),
+          child: drawerVisible
+              ? Align(
+                  key: UniqueKey(),
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    icon: const Icon(Icons.settings),
+                    color: ReplyColors.white50,
+                    onPressed: () {},
+                  ),
+                )
+              : onMailView
+                  ? Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: const ImageIcon(
+                            AssetImage(
+                              '$_iconAssetLocation/twotone_star.png',
+                              package: _assetsPackage,
+                            ),
+                          ),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                        IconButton(
+                          icon: const ImageIcon(
+                            AssetImage(
+                              '$_iconAssetLocation/twotone_delete.png',
+                              package: _assetsPackage,
+                            ),
+                          ),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.more_vert),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                      ],
+                    )
+                  : Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                        icon: const Icon(Icons.search),
+                        color: ReplyColors.white50,
+                        onPressed: () {},
+                      ),
+                    ),
+        );
+      },
     );
   }
 }
