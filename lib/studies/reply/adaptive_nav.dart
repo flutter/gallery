@@ -627,16 +627,23 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                     const SizedBox(width: 8),
                     const _ReplyLogo(),
                     const SizedBox(width: 10),
-                    AnimatedOpacity(
-                      opacity: _bottomDrawerVisible ? 0.0 : 1.0,
-                      duration: const Duration(milliseconds: 350),
-                      child: Text(
-                        _currentDestination,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1
-                            .copyWith(color: ReplyColors.white50),
-                      ),
+                    Consumer<EmailStore>(
+                      builder: (context, model, child) {
+                        final onMailView = model.currentlySelectedEmailId >= 0;
+
+                        return AnimatedOpacity(
+                          opacity:
+                              _bottomDrawerVisible | onMailView ? 0.0 : 1.0,
+                          duration: const Duration(milliseconds: 350),
+                          child: Text(
+                            _currentDestination,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                .copyWith(color: ReplyColors.white50),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
