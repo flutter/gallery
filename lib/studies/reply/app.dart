@@ -16,7 +16,7 @@ class ReplyApp extends StatelessWidget {
   const ReplyApp();
 
   static const String homeRoute = '/reply';
-  static const String searchRoute = '/search';
+  static const String searchRoute = '/reply/search';
 
   @override
   Widget build(BuildContext context) {

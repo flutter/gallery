@@ -5,8 +5,6 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final splashRadius = 24.0;
-
     return Scaffold(
       body: SafeArea(
         child: Material(
@@ -14,15 +12,13 @@ class SearchPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back),
+                    BackButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      splashRadius: splashRadius,
                     ),
                     const Expanded(
                       child: TextField(
@@ -34,12 +30,11 @@ class SearchPage extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.mic),
                       onPressed: () {},
-                      splashRadius: splashRadius,
                     )
                   ],
                 ),
               ),
-              const Divider(thickness: 1.1),
+              const Divider(thickness: 1),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
