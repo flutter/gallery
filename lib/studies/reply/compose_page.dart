@@ -221,8 +221,10 @@ class __SenderAddressRowState extends State<_SenderAddressRow> {
 }
 
 class _RecipientsRow extends StatelessWidget {
-  const _RecipientsRow({@required this.recipients, @required this.avatar})
-      : assert(recipients != null),
+  const _RecipientsRow({
+    @required this.recipients,
+    @required this.avatar,
+  })  : assert(recipients != null),
         assert(avatar != null);
 
   final String recipients;
@@ -257,9 +259,9 @@ class _RecipientsRow extends StatelessWidget {
           ),
           InkResponse(
             customBorder: const CircleBorder(),
-            child: const Icon(Icons.add_circle_outline),
             onTap: () {},
             radius: 24,
+            child: const Icon(Icons.add_circle_outline),
           ),
         ],
       ),

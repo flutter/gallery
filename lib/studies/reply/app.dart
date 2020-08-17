@@ -140,7 +140,10 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
 }
 
 ChipThemeData _buildChipTheme(
-    Color primaryColor, Color chipBackground, Brightness brightness) {
+  Color primaryColor,
+  Color chipBackground,
+  Brightness brightness,
+) {
   return ChipThemeData(
     backgroundColor: primaryColor.withOpacity(0.12),
     disabledColor: primaryColor.withOpacity(0.87),
@@ -153,7 +156,7 @@ ChipThemeData _buildChipTheme(
               ? ReplyColors.white50
               : ReplyColors.black900,
         ),
-    secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyText2.copyWith(),
+    secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyText2,
     brightness: brightness,
   );
 }

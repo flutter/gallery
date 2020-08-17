@@ -963,10 +963,8 @@ class __ReplyFabState extends State<_ReplyFab>
                   if (widget.extended)
                     Text(
                       widget.onMailView ? 'REPLY' : 'COMPOSE',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          .copyWith(fontSize: 16, color: ReplyColors.black900),
+                      style: Theme.of(context).textTheme.headline5.copyWith(
+                          fontSize: 16, color: theme.colorScheme.onSecondary),
                     ),
                 ],
               ),
