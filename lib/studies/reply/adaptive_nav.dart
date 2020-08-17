@@ -924,10 +924,10 @@ class _ReplyFab extends StatefulWidget {
   final bool onMailView;
 
   @override
-  __ReplyFabState createState() => __ReplyFabState();
+  _ReplyFabState createState() => _ReplyFabState();
 }
 
-class __ReplyFabState extends State<_ReplyFab>
+class _ReplyFabState extends State<_ReplyFab>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
@@ -964,7 +964,9 @@ class __ReplyFabState extends State<_ReplyFab>
                     Text(
                       widget.onMailView ? 'REPLY' : 'COMPOSE',
                       style: Theme.of(context).textTheme.headline5.copyWith(
-                          fontSize: 16, color: theme.colorScheme.onSecondary),
+                            fontSize: 16,
+                            color: theme.colorScheme.onSecondary,
+                          ),
                     ),
                 ],
               ),

@@ -75,10 +75,10 @@ class _SubjectRow extends StatefulWidget {
   final String subject;
 
   @override
-  __SubjectRowState createState() => __SubjectRowState();
+  _SubjectRowState createState() => _SubjectRowState();
 }
 
-class __SubjectRowState extends State<_SubjectRow> {
+class _SubjectRowState extends State<_SubjectRow> {
   TextEditingController _subjectController;
 
   @override
