@@ -690,22 +690,19 @@ class _BottomAppBarActionItems extends StatelessWidget {
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
           transitionBuilder: (child, animation) => ScaleTransition(
-            alignment: const Alignment(1, 0),
+            alignment: Alignment.centerRight,
             child: child,
             scale: animation,
           ),
           child: drawerVisible
-              ? Row(
+              ? Align(
                   key: UniqueKey(),
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.settings),
-                      color: ReplyColors.white50,
-                      onPressed: () {},
-                    ),
-                  ],
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    icon: const Icon(Icons.settings),
+                    color: ReplyColors.white50,
+                    onPressed: () {},
+                  ),
                 )
               : onMailView
                   ? Row(
@@ -739,17 +736,13 @@ class _BottomAppBarActionItems extends StatelessWidget {
                         ),
                       ],
                     )
-                  : Row(
-                      key: UniqueKey(),
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.search),
-                          color: ReplyColors.white50,
-                          onPressed: () {},
-                        ),
-                      ],
+                  : Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                        icon: const Icon(Icons.search),
+                        color: ReplyColors.white50,
+                        onPressed: () {},
+                      ),
                     ),
         );
       },
