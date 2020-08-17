@@ -47,38 +47,31 @@ class ReplyApp extends StatelessWidget {
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case homeRoute:
-              {
-                return MaterialPageRoute<void>(
-                  builder: (context) {
-                    return const AdaptiveNav();
-                  },
-                );
-              }
+              return MaterialPageRoute<void>(
+                builder: (context) {
+                  return const AdaptiveNav();
+                },
+              );
               break;
             case searchRoute:
-              {
-                return PageRouteBuilder<void>(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const SearchPage(),
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
-                    return SharedAxisTransition(
-                      fillColor: Theme.of(context).cardColor,
-                      transitionType: SharedAxisTransitionType.scaled,
-                      child: child,
-                      animation: animation,
-                      secondaryAnimation: secondaryAnimation,
-                    );
-                  },
-                );
-              }
-              break;
-            default:
-              {
-                return null;
-              }
+              return PageRouteBuilder<void>(
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return const SearchPage();
+                },
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return SharedAxisTransition(
+                    fillColor: Theme.of(context).cardColor,
+                    transitionType: SharedAxisTransitionType.scaled,
+                    child: child,
+                    animation: animation,
+                    secondaryAnimation: secondaryAnimation,
+                  );
+                },
+              );
               break;
           }
+          return null;
         },
       ),
     );

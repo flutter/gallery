@@ -81,7 +81,9 @@ class SearchPage extends StatelessWidget {
 }
 
 class _SectionHeader extends StatelessWidget {
-  const _SectionHeader({@required this.title}) : assert(title != null);
+  const _SectionHeader({
+    @required this.title,
+  }) : assert(title != null);
   final String title;
 
   @override

@@ -748,10 +748,12 @@ class _BottomAppBarActionItems extends StatelessWidget {
                         IconButton(
                           icon: const Icon(Icons.search),
                           color: ReplyColors.white50,
-                          onPressed: () => Navigator.pushNamed(
-                            context,
-                            ReplyApp.searchRoute,
-                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              ReplyApp.searchRoute,
+                            );
+                          },
                         ),
                       ],
                     ),

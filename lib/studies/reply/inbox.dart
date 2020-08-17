@@ -50,9 +50,11 @@ class InboxPage extends StatelessWidget {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.search),
-                        onPressed: () => rootNavKey.currentState.pushNamed(
-                          ReplyApp.searchRoute,
-                        ),
+                        onPressed: () {
+                          rootNavKey.currentState.pushNamed(
+                            ReplyApp.searchRoute,
+                          );
+                        },
                       ),
                       SizedBox(width: isTablet ? 30 : 60),
                     ],
