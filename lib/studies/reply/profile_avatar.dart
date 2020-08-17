@@ -15,12 +15,15 @@ class ProfileAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipOval(
+    return Material(
+      color: Colors.transparent,
+      shape: const CircleBorder(),
+      clipBehavior: Clip.antiAlias,
       child: Image.asset(
         avatar,
         package: 'flutter_gallery_assets',
-        height: height,
         width: width,
+        height: height,
       ),
     );
   }

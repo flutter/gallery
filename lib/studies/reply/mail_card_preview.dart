@@ -33,12 +33,16 @@ class MailPreviewCard extends StatelessWidget {
       },
       openColor: theme.cardColor,
       closedShape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(0)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(0),
+        ),
       ),
       closedElevation: 0,
       closedColor: theme.cardColor,
       closedBuilder: (context, openContainer) {
-        return _MailPreview(
+        final isDesktop = isDisplayDesktop(context);
+        final colorScheme = theme.colorScheme;
+        final mailPreview = _MailPreview(
           id: id,
           sender: email.sender,
           time: email.time,
@@ -47,7 +51,83 @@ class MailPreviewCard extends StatelessWidget {
           message: email.message,
           onTap: openContainer,
         );
+
+        if (isDesktop) {
+          return mailPreview;
+        } else {
+          return Dismissible(
+            key: ObjectKey(email),
+            dismissThresholds: const {
+              DismissDirection.startToEnd: 0.4,
+              DismissDirection.endToStart: 1,
+            },
+            onDismissed: (direction) {
+              switch (direction) {
+                case DismissDirection.endToStart:
+                  break;
+                case DismissDirection.startToEnd:
+                  break;
+                default:
+              }
+            },
+            background: _DismissibleContainer(
+              icon: 'twotone_delete',
+              backgroundColor: colorScheme.primary,
+              iconColor: ReplyColors.blue50,
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsetsDirectional.only(start: 20),
+            ),
+            secondaryBackground: _DismissibleContainer(
+              icon: 'twotone_star',
+              backgroundColor: colorScheme.secondary,
+              iconColor: ReplyColors.black900,
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsetsDirectional.only(end: 20),
+            ),
+            child: mailPreview,
+          );
+        }
       },
+    );
+  }
+}
+
+class _DismissibleContainer extends StatelessWidget {
+  const _DismissibleContainer({
+    @required this.icon,
+    @required this.backgroundColor,
+    @required this.iconColor,
+    @required this.alignment,
+    @required this.padding,
+  })  : assert(icon != null),
+        assert(backgroundColor != null),
+        assert(iconColor != null),
+        assert(alignment != null),
+        assert(padding != null);
+
+  final String icon;
+  final Color backgroundColor;
+  final Color iconColor;
+  final Alignment alignment;
+  final EdgeInsetsDirectional padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: backgroundColor,
+      alignment: alignment,
+      padding: padding,
+      child: Material(
+        color: Colors.transparent,
+        child: ImageIcon(
+          AssetImage(
+            'reply/icons/$icon.png',
+            package: 'flutter_gallery_assets',
+          ),
+          size: 36,
+          color: iconColor,
+        ),
+      ),
     );
   }
 }
@@ -79,7 +159,6 @@ class _MailPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
     final textTheme = Theme.of(context).textTheme;
 
     return InkWell(
@@ -94,14 +173,16 @@ class _MailPreview extends StatelessWidget {
         builder: (context, constraints) {
           return ConstrainedBox(
             constraints: BoxConstraints(maxHeight: constraints.maxHeight),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -116,40 +197,24 @@ class _MailPreview extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ),
-                    Transform.translate(
-                      offset: const Offset(-20, -20),
-                      child: Row(
-                        children: [
-                          if (isDesktop) const _MailPreviewActionBar(),
-                          const SizedBox(width: 20),
-                          Transform.translate(
-                            offset: Offset(0, isDesktop ? -16 : 8),
-                            child: ProfileAvatar(
-                              avatar: avatar,
-                              height: 36,
-                              width: 36,
-                            ),
-                          ),
-                        ],
+                      _MailPreviewActionBar(
+                        avatar: avatar,
                       ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      end: 20,
                     ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: 20,
-                    end: 20,
-                    bottom: 20,
+                    child: Text(
+                      message,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: textTheme.bodyText2,
+                    ),
                   ),
-                  child: Text(
-                    message,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: textTheme.bodyText2,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
@@ -159,34 +224,45 @@ class _MailPreview extends StatelessWidget {
 }
 
 class _MailPreviewActionBar extends StatelessWidget {
-  const _MailPreviewActionBar();
+  const _MailPreviewActionBar({this.avatar});
+
+  final String avatar;
 
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final color = isDark ? ReplyColors.white50 : ReplyColors.blue600;
+    final isDesktop = isDisplayDesktop(context);
 
     return Row(
       children: [
-        ImageIcon(
-          const AssetImage(
-            '$_iconAssetLocation/twotone_star.png',
-            package: _assetsPackage,
+        if (isDesktop) ...[
+          ImageIcon(
+            const AssetImage(
+              '$_iconAssetLocation/twotone_star.png',
+              package: _assetsPackage,
+            ),
+            color: color,
           ),
-          color: color,
-        ),
-        const SizedBox(width: 20),
-        ImageIcon(
-          const AssetImage(
-            '$_iconAssetLocation/twotone_delete.png',
-            package: _assetsPackage,
+          const SizedBox(width: 20),
+          ImageIcon(
+            const AssetImage(
+              '$_iconAssetLocation/twotone_delete.png',
+              package: _assetsPackage,
+            ),
+            color: color,
           ),
-          color: color,
-        ),
-        const SizedBox(width: 20),
-        Icon(
-          Icons.more_vert,
-          color: color,
+          const SizedBox(width: 20),
+          Icon(
+            Icons.more_vert,
+            color: color,
+          ),
+          const SizedBox(width: 16),
+        ],
+        ProfileAvatar(
+          avatar: avatar,
+          height: 36,
+          width: 36,
         ),
       ],
     );
