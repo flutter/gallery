@@ -27,8 +27,10 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   // Value that is shown in the date picker in dateAndTime mode.
   DateTime dateTime = DateTime.now();
 
-  void _showDemoPicker(
-      {@required BuildContext context, @required Widget child}) {
+  void _showDemoPicker({
+    @required BuildContext context,
+    @required Widget child,
+  }) {
     final themeData = CupertinoTheme.of(context);
     final dialogBody = CupertinoTheme(
       data: themeData,
