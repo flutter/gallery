@@ -48,9 +48,7 @@ class ReplyApp extends StatelessWidget {
           switch (settings.name) {
             case homeRoute:
               return MaterialPageRoute<void>(
-                builder: (context) {
-                  return const AdaptiveNav();
-                },
+                builder: (context) => const AdaptiveNav(),
               );
               break;
             case searchRoute:
