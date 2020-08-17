@@ -18,26 +18,24 @@ class MailViewPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: SizedBox(
+        child: Container(
           height: double.infinity,
           child: Material(
             color: Theme.of(context).cardColor,
-            child: Padding(
+            child: SingleChildScrollView(
               padding: const EdgeInsetsDirectional.only(
                 top: 42,
                 start: 20,
                 end: 20,
               ),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _MailViewHeader(email: email),
-                    const SizedBox(height: 32),
-                    _MailViewBody(message: email.message),
-                    const SizedBox(height: kToolbarHeight),
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _MailViewHeader(email: email),
+                  const SizedBox(height: 32),
+                  _MailViewBody(message: email.message),
+                  const SizedBox(height: kToolbarHeight),
+                ],
               ),
             ),
           ),
