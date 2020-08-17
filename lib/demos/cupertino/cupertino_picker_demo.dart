@@ -27,24 +27,36 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   // Value that is shown in the date picker in dateAndTime mode.
   DateTime dateTime = DateTime.now();
 
+  void _showDemoPicker(
+      {@required BuildContext context, @required Widget child}) {
+    final themeData = CupertinoTheme.of(context);
+    final dialogBody = CupertinoTheme(
+      data: themeData,
+      child: child,
+    );
+
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (context) => dialogBody,
+    );
+  }
+
   Widget _buildDatePicker(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showCupertinoModalPopup<void>(
+        _showDemoPicker(
           context: context,
-          builder: (context) {
-            return _BottomPicker(
-              child: CupertinoDatePicker(
-                backgroundColor:
-                    CupertinoColors.systemBackground.resolveFrom(context),
-                mode: CupertinoDatePickerMode.date,
-                initialDateTime: date,
-                onDateTimeChanged: (newDateTime) {
-                  setState(() => date = newDateTime);
-                },
-              ),
-            );
-          },
+          child: _BottomPicker(
+            child: CupertinoDatePicker(
+              backgroundColor:
+                  CupertinoColors.systemBackground.resolveFrom(context),
+              mode: CupertinoDatePickerMode.date,
+              initialDateTime: date,
+              onDateTimeChanged: (newDateTime) {
+                setState(() => date = newDateTime);
+              },
+            ),
+          ),
         );
       },
       child: _Menu(children: [
@@ -60,21 +72,19 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   Widget _buildTimePicker(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showCupertinoModalPopup<void>(
+        _showDemoPicker(
           context: context,
-          builder: (context) {
-            return _BottomPicker(
-              child: CupertinoDatePicker(
-                backgroundColor:
-                    CupertinoColors.systemBackground.resolveFrom(context),
-                mode: CupertinoDatePickerMode.time,
-                initialDateTime: time,
-                onDateTimeChanged: (newDateTime) {
-                  setState(() => time = newDateTime);
-                },
-              ),
-            );
-          },
+          child: _BottomPicker(
+            child: CupertinoDatePicker(
+              backgroundColor:
+                  CupertinoColors.systemBackground.resolveFrom(context),
+              mode: CupertinoDatePickerMode.time,
+              initialDateTime: time,
+              onDateTimeChanged: (newDateTime) {
+                setState(() => time = newDateTime);
+              },
+            ),
+          ),
         );
       },
       child: _Menu(
@@ -92,21 +102,19 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   Widget _buildDateAndTimePicker(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showCupertinoModalPopup<void>(
+        _showDemoPicker(
           context: context,
-          builder: (context) {
-            return _BottomPicker(
-              child: CupertinoDatePicker(
-                backgroundColor:
-                    CupertinoColors.systemBackground.resolveFrom(context),
-                mode: CupertinoDatePickerMode.dateAndTime,
-                initialDateTime: dateTime,
-                onDateTimeChanged: (newDateTime) {
-                  setState(() => dateTime = newDateTime);
-                },
-              ),
-            );
-          },
+          child: _BottomPicker(
+            child: CupertinoDatePicker(
+              backgroundColor:
+                  CupertinoColors.systemBackground.resolveFrom(context),
+              mode: CupertinoDatePickerMode.dateAndTime,
+              initialDateTime: dateTime,
+              onDateTimeChanged: (newDateTime) {
+                setState(() => dateTime = newDateTime);
+              },
+            ),
+          ),
         );
       },
       child: _Menu(
@@ -126,20 +134,18 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   Widget _buildCountdownTimerPicker(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showCupertinoModalPopup<void>(
+        _showDemoPicker(
           context: context,
-          builder: (context) {
-            return _BottomPicker(
-              child: CupertinoTimerPicker(
-                backgroundColor:
-                    CupertinoColors.systemBackground.resolveFrom(context),
-                initialTimerDuration: timer,
-                onTimerDurationChanged: (newTimer) {
-                  setState(() => timer = newTimer);
-                },
-              ),
-            );
-          },
+          child: _BottomPicker(
+            child: CupertinoTimerPicker(
+              backgroundColor:
+                  CupertinoColors.systemBackground.resolveFrom(context),
+              initialTimerDuration: timer,
+              onTimerDurationChanged: (newTimer) {
+                setState(() => timer = newTimer);
+              },
+            ),
+          ),
         );
       },
       child: _Menu(
