@@ -467,11 +467,11 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       vsync: this,
     );
 
-    final destinationKeyList = widget.destinations.keys.toList();
+    final destinationKeysList = widget.destinations.keys.toList();
 
     for (var i = 0; i < widget.destinations.keys.length; i++) {
       if (i == widget.selectedIndex) {
-        _currentDestination = destinationKeyList[i];
+        _currentDestination = destinationKeysList[i];
       }
     }
 
@@ -481,8 +481,10 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     //destination.
     _destinationsWithIndex = {
       for (var i = 0; i < widget.destinations.keys.length; i++)
-        destinationKeyList[i]: i
+        destinationKeysList[i]: i
     };
+
+    destinationKeysList.clear();
 
     _currentInbox = InboxPage(
       key: UniqueKey(),
