@@ -274,6 +274,7 @@ class _DesktopNavState extends State<_DesktopNav>
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: _MailNavigator(
+              key: mailNavKey,
               child: _InboxTransitionSwitcher(
                 child: widget.currentInbox,
               ),
@@ -593,6 +594,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       key: _bottomDrawerKey,
       children: [
         _MailNavigator(
+          key: mailNavKey,
           child: _InboxTransitionSwitcher(
             child: widget.currentInbox,
           ),
@@ -916,7 +918,9 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 }
 
 class _MailNavigator extends StatefulWidget {
-  const _MailNavigator({@required this.child}) : assert(child != null);
+  const _MailNavigator({@required this.child, Key key})
+      : assert(child != null),
+        super(key: key);
 
   final Widget child;
 
@@ -928,7 +932,7 @@ class _MailNavigatorState extends State<_MailNavigator> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-      key: mailNavKey,
+      key: widget.key,
       onGenerateRoute: (settings) {
         return MaterialPageRoute<void>(builder: (context) {
           return widget.child;
