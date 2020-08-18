@@ -66,6 +66,11 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       ),
     ];
 
+    final _currentInbox = InboxPage(
+      key: UniqueKey(),
+      destination: _navigationDestinations[_selectedIndex].name,
+    );
+
     final _folders = <String, String>{
       'Receipts': _folderIconAssetLocation,
       'Pine Elementary': _folderIconAssetLocation,
@@ -78,6 +83,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     if (isTablet) {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
+        currentInbox: _currentInbox,
         extended: false,
         destinations: _navigationDestinations,
         folders: _folders,
@@ -86,6 +92,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     } else if (isDesktop) {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
+        currentInbox: _currentInbox,
         extended: true,
         destinations: _navigationDestinations,
         folders: _folders,
@@ -94,6 +101,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     } else {
       return _MobileNav(
         selectedIndex: _selectedIndex,
+        currentInbox: _currentInbox,
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
@@ -112,6 +120,7 @@ class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
     Key key,
     this.selectedIndex,
+    this.currentInbox,
     this.extended,
     this.destinations,
     this.folders,
@@ -120,7 +129,7 @@ class _DesktopNav extends StatefulWidget {
 
   final int selectedIndex;
   final bool extended;
-
+  final Widget currentInbox;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int) onItemTapped;
@@ -134,7 +143,6 @@ class _DesktopNavState extends State<_DesktopNav>
   bool _isExtended;
   bool _hasWidgetUpdated = false;
   AnimationController _controller;
-  Widget _currentInbox;
 
   @override
   void initState() {
@@ -155,11 +163,6 @@ class _DesktopNavState extends State<_DesktopNav>
           });
         }
       });
-
-    _currentInbox = InboxPage(
-      key: UniqueKey(),
-      destination: widget.destinations[widget.selectedIndex].name,
-    );
   }
 
   @override
@@ -168,13 +171,6 @@ class _DesktopNavState extends State<_DesktopNav>
     if (oldWidget.extended != widget.extended) {
       onLogoTapped();
       _hasWidgetUpdated = true;
-    }
-
-    if (oldWidget.selectedIndex != widget.selectedIndex) {
-      _currentInbox = InboxPage(
-        key: UniqueKey(),
-        destination: widget.destinations[widget.selectedIndex].name,
-      );
     }
   }
 
@@ -245,7 +241,7 @@ class _DesktopNavState extends State<_DesktopNav>
           Expanded(
             child: _MailNavigator(
               child: _InboxTransitionSwitcher(
-                child: _currentInbox,
+                child: widget.currentInbox,
               ),
             ),
           ),
@@ -440,12 +436,14 @@ class _NavigationRailFolderSection extends StatelessWidget {
 class _MobileNav extends StatefulWidget {
   const _MobileNav({
     this.selectedIndex,
+    this.currentInbox,
     this.destinations,
     this.folders,
     this.onItemTapped,
   });
 
   final int selectedIndex;
+  final Widget currentInbox;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int) onItemTapped;
@@ -458,7 +456,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   final _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   AnimationController _drawerController;
   AnimationController _dropArrowController;
-  Widget _currentInbox;
 
   @override
   void initState() {
@@ -481,22 +478,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 350),
       vsync: this,
     );
-
-    _currentInbox = InboxPage(
-      key: UniqueKey(),
-      destination: widget.destinations[widget.selectedIndex].name,
-    );
-  }
-
-  @override
-  void didUpdateWidget(_MobileNav oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.selectedIndex != widget.selectedIndex) {
-      _currentInbox = InboxPage(
-        key: UniqueKey(),
-        destination: widget.destinations[widget.selectedIndex].name,
-      );
-    }
   }
 
   @override
@@ -579,7 +560,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       children: [
         _MailNavigator(
           child: _InboxTransitionSwitcher(
-            child: _currentInbox,
+            child: widget.currentInbox,
           ),
         ),
         GestureDetector(
@@ -859,6 +840,7 @@ class _Destination {
     @required this.icon,
     @required this.index,
   })  : assert(name != null),
+        assert(icon != null),
         assert(index != null);
 
   final String name;
