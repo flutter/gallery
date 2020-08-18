@@ -289,8 +289,7 @@ class _NavigationRailHeader extends StatelessWidget {
                       SizedBox(width: 36),
                       ProfileAvatar(
                         avatar: 'reply/avatars/avatar_2.jpg',
-                        height: 32,
-                        width: 32,
+                        radius: 16,
                       ),
                       SizedBox(width: 12),
                       Icon(

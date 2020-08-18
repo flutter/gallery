@@ -33,9 +33,7 @@ class MailPreviewCard extends StatelessWidget {
       },
       openColor: theme.cardColor,
       closedShape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(0),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(0)),
       ),
       closedElevation: 0,
       closedColor: theme.cardColor,
@@ -174,7 +172,7 @@ class _MailPreview extends StatelessWidget {
           return ConstrainedBox(
             constraints: BoxConstraints(maxHeight: constraints.maxHeight),
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -259,11 +257,7 @@ class _MailPreviewActionBar extends StatelessWidget {
           ),
           const SizedBox(width: 16),
         ],
-        ProfileAvatar(
-          avatar: avatar,
-          height: 36,
-          width: 36,
-        ),
+        ProfileAvatar(avatar: avatar),
       ],
     );
   }
