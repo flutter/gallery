@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
+import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
@@ -210,10 +212,13 @@ class _DesktopNavState extends State<_DesktopNav>
                         destinations: [
                           for (var destination in widget.destinations)
                             NavigationRailDestination(
-                              icon: ImageIcon(
-                                AssetImage(
-                                  destination.icon,
-                                  package: _assetsPackage,
+                              icon: Material(
+                                color: Colors.transparent,
+                                child: ImageIcon(
+                                  AssetImage(
+                                    destination.icon,
+                                    package: _assetsPackage,
+                                  ),
                                 ),
                               ),
                               label: Text(destination.name),
@@ -689,14 +694,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           ),
         ),
       ),
-      floatingActionButton: _bottomDrawerVisible
-          ? null
-          : Consumer<EmailStore>(
-              builder: (context, model, child) {
-                final onMailView = model.currentlySelectedEmailId == -1;
-                return _ReplyFab(onMailView: onMailView);
-              },
-            ),
+      floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -768,7 +766,12 @@ class _BottomAppBarActionItems extends StatelessWidget {
                       child: IconButton(
                         icon: const Icon(Icons.search),
                         color: ReplyColors.white50,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            ReplyApp.searchRoute,
+                          );
+                        },
                       ),
                     ),
         );
@@ -936,64 +939,104 @@ class _ReplyLogo extends StatelessWidget {
   }
 }
 
-class _ReplyFab extends StatelessWidget {
-  const _ReplyFab({this.extended, this.onMailView});
+class _ReplyFab extends StatefulWidget {
+  const _ReplyFab({this.extended = false});
 
   final bool extended;
+
+  @override
+  _ReplyFabState createState() => _ReplyFabState();
+}
+
+class _ReplyFabState extends State<_ReplyFab>
+    with SingleTickerProviderStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+    final theme = Theme.of(context);
+
+    return OpenContainer(
+      openBuilder: (context, closedContainer) {
+        return const ComposePage();
+      },
+      openColor: theme.cardColor,
+      closedShape: isDesktop & widget.extended
+          ? const StadiumBorder()
+          : const CircleBorder(),
+      closedColor: theme.colorScheme.secondary,
+      closedBuilder: (context, openContainer) {
+        return Consumer<EmailStore>(
+          builder: (context, model, child) {
+            final onMailView = model.currentlySelectedEmailId != -1;
+
+            if (isDesktop) {
+              return AnimatedSize(
+                vsync: this,
+                curve: Curves.easeInOut,
+                duration: kThemeAnimationDuration,
+                child: FloatingActionButton.extended(
+                  heroTag: 'Rail FAB',
+                  tooltip: onMailView ? 'Reply' : 'Compose',
+                  isExtended: widget.extended,
+                  onPressed: openContainer,
+                  label: Row(
+                    children: [
+                      _FabSwitcher(
+                        onMailView: onMailView,
+                      ),
+                      SizedBox(width: widget.extended ? 16 : 0),
+                      if (widget.extended)
+                        Text(
+                          onMailView ? 'REPLY' : 'COMPOSE',
+                          style: Theme.of(context).textTheme.headline5.copyWith(
+                                fontSize: 16,
+                                color: theme.colorScheme.onSecondary,
+                              ),
+                        ),
+                    ],
+                  ),
+                ),
+              );
+            } else {
+              return FloatingActionButton(
+                heroTag: 'Bottom App Bar FAB',
+                tooltip: onMailView ? 'Reply' : 'Compose',
+                child: _FabSwitcher(
+                  onMailView: onMailView,
+                ),
+                onPressed: openContainer,
+              );
+            }
+          },
+        );
+      },
+    );
+  }
+}
+
+class _FabSwitcher extends StatelessWidget {
+  const _FabSwitcher({@required this.onMailView}) : assert(onMailView != null);
+
   final bool onMailView;
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
-
-    if (isDesktop) {
-      return FloatingActionButton.extended(
-        heroTag: 'Rail FAB',
-        tooltip: 'Compose',
-        isExtended: extended,
-        onPressed: () {
-          // TODO: Implement onPressed for Rail FAB
-        },
-        label: Row(
-          children: [
-            const Icon(Icons.create),
-            SizedBox(width: extended ? 16 : 0),
-            if (extended)
-              Text(
-                'COMPOSE',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(fontSize: 16, color: ReplyColors.black900),
-              ),
-          ],
-        ),
-      );
-    } else {
-      return FloatingActionButton(
-        heroTag: 'Bottom App Bar FAB',
-        tooltip: onMailView ? 'Reply' : 'Compose',
-        child: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 350),
-          transitionBuilder: (child, animation) => ScaleTransition(
-            child: child,
-            scale: animation,
-          ),
-          child: onMailView
-              ? Icon(
-                  Icons.create,
-                  key: UniqueKey(),
-                )
-              : Icon(
-                  Icons.reply_all,
-                  key: UniqueKey(),
-                ),
-        ),
-        onPressed: () {
-          // TODO: Implement onPressed for Bottom App Bar FAB
-        },
-      );
-    }
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 350),
+      transitionBuilder: (child, animation) => ScaleTransition(
+        child: child,
+        scale: animation,
+      ),
+      child: onMailView
+          ? Icon(
+              Icons.reply_all,
+              key: UniqueKey(),
+            )
+          : Icon(
+              Icons.create,
+              key: UniqueKey(),
+            ),
+    );
   }
 }
 
