@@ -200,6 +200,7 @@ class EmailStore with ChangeNotifier {
 
   int get currentlySelectedEmailId => _currentlySelectedEmailId;
   String get currentlySelectedInbox => _currentlySelectedInbox;
+  bool get onMailView => _currentlySelectedEmailId > -1;
 
   set currentlySelectedEmailId(int value) {
     _currentlySelectedEmailId = value;

@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
 const _folderIconAssetLocation = '$_iconAssetLocation/twotone_folder.png';
+final mailNavKey = GlobalKey<NavigatorState>();
 const double _kFlingVelocity = 2.0;
 
 class AdaptiveNav extends StatefulWidget {
@@ -118,12 +119,20 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
   }
 
   void _onDestinationSelected(int index, String destination) {
-    Provider.of<EmailStore>(
+    var emailStore = Provider.of<EmailStore>(
       context,
       listen: false,
-    ).currentlySelectedInbox = destination;
+    );
+
+    emailStore.currentlySelectedInbox = destination;
+
+    if (emailStore.onMailView) {
+      mailNavKey.currentState.pop();
+      emailStore.currentlySelectedEmailId = -1;
+    }
 
     setState(() {
+      print('hmm');
       _selectedIndex = index;
       _currentInbox = InboxPage(
         key: UniqueKey(),
@@ -919,6 +928,7 @@ class _MailNavigatorState extends State<_MailNavigator> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
+      key: mailNavKey,
       onGenerateRoute: (settings) {
         return MaterialPageRoute<void>(builder: (context) {
           return widget.child;
