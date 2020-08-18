@@ -27,6 +27,17 @@ class AdaptiveNav extends StatefulWidget {
 class _AdaptiveNavState extends State<AdaptiveNav> {
   int _selectedIndex = 0;
 
+  Widget _currentInbox;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentInbox = InboxPage(
+      key: UniqueKey(),
+      destination: 'Inbox',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -66,11 +77,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       ),
     ];
 
-    final _currentInbox = InboxPage(
-      key: UniqueKey(),
-      destination: _navigationDestinations[_selectedIndex].name,
-    );
-
     final _folders = <String, String>{
       'Receipts': _folderIconAssetLocation,
       'Pine Elementary': _folderIconAssetLocation,
@@ -88,6 +94,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
+        setInbox: _onUpdateInbox,
       );
     } else if (isDesktop) {
       return _DesktopNav(
@@ -97,6 +104,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
+        setInbox: _onUpdateInbox,
       );
     } else {
       return _MobileNav(
@@ -105,6 +113,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
+        setInbox: _onUpdateInbox,
       );
     }
   }
@@ -113,6 +122,13 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  void _onUpdateInbox(String destination) {
+    _currentInbox = InboxPage(
+      key: UniqueKey(),
+      destination: destination,
+    );
   }
 }
 
@@ -125,6 +141,7 @@ class _DesktopNav extends StatefulWidget {
     this.destinations,
     this.folders,
     this.onItemTapped,
+    this.setInbox,
   }) : super(key: key);
 
   final int selectedIndex;
@@ -133,6 +150,7 @@ class _DesktopNav extends StatefulWidget {
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int) onItemTapped;
+  final void Function(String) setInbox;
 
   @override
   _DesktopNavState createState() => _DesktopNavState();
@@ -229,7 +247,10 @@ class _DesktopNavState extends State<_DesktopNav>
                           ),
                         ),
                         selectedIndex: widget.selectedIndex,
-                        onDestinationSelected: widget.onItemTapped,
+                        onDestinationSelected: (index) {
+                          widget.onItemTapped(index);
+                          widget.setInbox(widget.destinations[index].name);
+                        },
                       ),
                     ),
                   ),
@@ -434,19 +455,20 @@ class _NavigationRailFolderSection extends StatelessWidget {
 }
 
 class _MobileNav extends StatefulWidget {
-  const _MobileNav({
-    this.selectedIndex,
-    this.currentInbox,
-    this.destinations,
-    this.folders,
-    this.onItemTapped,
-  });
+  const _MobileNav(
+      {this.selectedIndex,
+      this.currentInbox,
+      this.destinations,
+      this.folders,
+      this.onItemTapped,
+      this.setInbox});
 
   final int selectedIndex;
   final Widget currentInbox;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int) onItemTapped;
+  final void Function(String) setInbox;
 
   @override
   _MobileNavState createState() => _MobileNavState();
@@ -597,6 +619,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                 dropArrowController: _dropArrowController,
                 selectedIndex: widget.selectedIndex,
                 onItemTapped: widget.onItemTapped,
+                setInbox: widget.setInbox,
               ),
               trailing: _BottomDrawerFolderSection(folders: widget.folders),
             ),
@@ -769,17 +792,20 @@ class _BottomDrawerDestinations extends StatelessWidget {
     @required this.dropArrowController,
     @required this.selectedIndex,
     @required this.onItemTapped,
+    @required this.setInbox,
   })  : assert(destinations != null),
         assert(drawerController != null),
         assert(dropArrowController != null),
         assert(selectedIndex != null),
-        assert(onItemTapped != null);
+        assert(onItemTapped != null),
+        assert(setInbox != null);
 
   final List<_Destination> destinations;
   final AnimationController drawerController;
   final AnimationController dropArrowController;
   final int selectedIndex;
   final void Function(int) onItemTapped;
+  final void Function(String) setInbox;
 
   @override
   Widget build(BuildContext context) {
@@ -805,6 +831,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
                   onItemTapped(
                     destination.index,
                   );
+                  setInbox(destination.name);
                 },
               );
             },
