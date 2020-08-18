@@ -15,8 +15,8 @@ class ComposePage extends StatelessWidget {
     final emailStore = Provider.of<EmailStore>(context);
 
     if (emailStore.currentlySelectedEmailId >= 0) {
-      final currentEmail =
-          emailStore.emails[emailStore.currentlySelectedEmailId];
+      final currentEmail = emailStore.emails[emailStore.currentlySelectedInbox]
+          [emailStore.currentlySelectedEmailId];
       _subject = currentEmail.subject;
       _recipient = currentEmail.sender;
       _recipientAvatar = currentEmail.avatar;

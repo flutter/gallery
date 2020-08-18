@@ -118,6 +118,11 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
   }
 
   void _onDestinationSelected(int index, String destination) {
+    Provider.of<EmailStore>(
+      context,
+      listen: false,
+    ).currentlySelectedInbox = destination;
+
     setState(() {
       _selectedIndex = index;
       _currentInbox = InboxPage(

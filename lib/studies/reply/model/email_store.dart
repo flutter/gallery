@@ -188,6 +188,7 @@ class EmailStore with ChangeNotifier {
   ];
 
   int _currentlySelectedEmailId = -1;
+  String _currentlySelectedInbox = 'Inbox';
 
   Map<String, List<Email>> get emails =>
       Map<String, List<Email>>.unmodifiable(_categories);
@@ -198,9 +199,15 @@ class EmailStore with ChangeNotifier {
   }
 
   int get currentlySelectedEmailId => _currentlySelectedEmailId;
+  String get currentlySelectedInbox => _currentlySelectedInbox;
 
   set currentlySelectedEmailId(int value) {
     _currentlySelectedEmailId = value;
+    notifyListeners();
+  }
+
+  set currentlySelectedInbox(String inbox) {
+    _currentlySelectedInbox = inbox;
     notifyListeners();
   }
 }
