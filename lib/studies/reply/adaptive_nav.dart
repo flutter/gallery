@@ -113,7 +113,6 @@ class _DesktopNavState extends State<_DesktopNav>
   bool _hasWidgetUpdated = false;
   AnimationController _controller;
   Map<int, String> _indexWithDestinations;
-  int _destinationsCount;
   Widget _currentInbox;
 
   @override
@@ -135,22 +134,20 @@ class _DesktopNavState extends State<_DesktopNav>
           });
         }
       });
-    _destinationsCount = 0;
+
+    final destinationKeysList = widget.destinations.keys.toList();
 
     _indexWithDestinations = {
-      for (var destination in widget.destinations.keys) _nextInt: destination
+      for (var i = 0; i < widget.destinations.keys.length; i++)
+        i: destinationKeysList[i]
     };
+
+    destinationKeysList.clear();
 
     _currentInbox = InboxPage(
       key: UniqueKey(),
       destination: _indexWithDestinations[widget.selectedIndex],
     );
-  }
-
-  int get _nextInt {
-    final _lastInt = _destinationsCount;
-    _destinationsCount = _destinationsCount + 1;
-    return _lastInt;
   }
 
   @override
@@ -442,7 +439,6 @@ class _MobileNav extends StatefulWidget {
 
 class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   final _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
-  int _destinationsCount;
   AnimationController _drawerController;
   AnimationController _dropArrowController;
   Map<String, int> _destinationsWithIndex;
@@ -470,23 +466,22 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 350),
       vsync: this,
     );
-    _destinationsCount = 0;
 
-    for (var destination in widget.destinations.keys) {
-      if (_destinationsCount == widget.selectedIndex) {
-        _currentDestination = destination;
+    final destinationKeyList = widget.destinations.keys.toList();
+
+    for (var i = 0; i < widget.destinations.keys.length; i++) {
+      if (i == widget.selectedIndex) {
+        _currentDestination = destinationKeyList[i];
       }
-      _destinationsCount = _destinationsCount + 1;
     }
-
-    _destinationsCount = 0;
 
     //Build a map from destinations with the name of destination as the key and
     //a value from 0 .. # of destinations. Since our destinations are an ordered
     //LinkedHashMap we can use this map to keep track of the indexes for each
     //destination.
     _destinationsWithIndex = {
-      for (var destination in widget.destinations.keys) destination: _nextInt
+      for (var i = 0; i < widget.destinations.keys.length; i++)
+        destinationKeyList[i]: i
     };
 
     _currentInbox = InboxPage(
@@ -511,12 +506,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     _drawerController.dispose();
     _dropArrowController.dispose();
     super.dispose();
-  }
-
-  int get _nextInt {
-    final _lastInt = _destinationsCount;
-    _destinationsCount = _destinationsCount + 1;
-    return _lastInt;
   }
 
   bool get _bottomDrawerVisible {
