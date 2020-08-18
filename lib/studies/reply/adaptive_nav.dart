@@ -33,14 +33,38 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     final isTablet = isDisplaySmallDesktop(context);
     final localizations = GalleryLocalizations.of(context);
 
-    final _navigationItems = <String, String>{
-      localizations.replyInboxLabel: '$_iconAssetLocation/twotone_inbox.png',
-      localizations.replyStarredLabel: '$_iconAssetLocation/twotone_star.png',
-      localizations.replySentLabel: '$_iconAssetLocation/twotone_send.png',
-      localizations.replyTrashLabel: '$_iconAssetLocation/twotone_delete.png',
-      localizations.replySpamLabel: '$_iconAssetLocation/twotone_error.png',
-      localizations.replyDraftsLabel: '$_iconAssetLocation/twotone_drafts.png',
-    };
+    final _navigationDestinations = <_Destination>[
+      _Destination(
+        name: localizations.replyInboxLabel,
+        icon: '$_iconAssetLocation/twotone_inbox.png',
+        index: 0,
+      ),
+      _Destination(
+        name: localizations.replyStarredLabel,
+        icon: '$_iconAssetLocation/twotone_star.png',
+        index: 1,
+      ),
+      _Destination(
+        name: localizations.replySentLabel,
+        icon: '$_iconAssetLocation/twotone_send.png',
+        index: 2,
+      ),
+      _Destination(
+        name: localizations.replyTrashLabel,
+        icon: '$_iconAssetLocation/twotone_delete.png',
+        index: 3,
+      ),
+      _Destination(
+        name: localizations.replySpamLabel,
+        icon: '$_iconAssetLocation/twotone_error.png',
+        index: 4,
+      ),
+      _Destination(
+        name: localizations.replyDraftsLabel,
+        icon: '$_iconAssetLocation/twotone_drafts.png',
+        index: 5,
+      ),
+    ];
 
     final _folders = <String, String>{
       'Receipts': _folderIconAssetLocation,
@@ -55,7 +79,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
         extended: false,
-        destinations: _navigationItems,
+        destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
       );
@@ -63,14 +87,14 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
         extended: true,
-        destinations: _navigationItems,
+        destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
       );
     } else {
       return _MobileNav(
         selectedIndex: _selectedIndex,
-        destinations: _navigationItems,
+        destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
       );
@@ -93,13 +117,11 @@ class _DesktopNav extends StatefulWidget {
     this.folders,
     this.onItemTapped,
   }) : super(key: key);
+
   final int selectedIndex;
   final bool extended;
 
-  /// The dart implementation of a Map defaults to a LinkedHashMap, allowing us
-  /// to preserve the order of our elements, so our destinations will always be
-  /// in the same order regardless of navigation type.
-  final Map<String, String> destinations;
+  final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int) onItemTapped;
 
@@ -112,7 +134,6 @@ class _DesktopNavState extends State<_DesktopNav>
   bool _isExtended;
   bool _hasWidgetUpdated = false;
   AnimationController _controller;
-  Map<int, String> _indexWithDestinations;
   Widget _currentInbox;
 
   @override
@@ -135,18 +156,9 @@ class _DesktopNavState extends State<_DesktopNav>
         }
       });
 
-    final destinationKeysList = widget.destinations.keys.toList();
-
-    _indexWithDestinations = {
-      for (var i = 0; i < widget.destinations.keys.length; i++)
-        i: destinationKeysList[i]
-    };
-
-    destinationKeysList.clear();
-
     _currentInbox = InboxPage(
       key: UniqueKey(),
-      destination: _indexWithDestinations[widget.selectedIndex],
+      destination: widget.destinations[widget.selectedIndex].name,
     );
   }
 
@@ -161,7 +173,7 @@ class _DesktopNavState extends State<_DesktopNav>
     if (oldWidget.selectedIndex != widget.selectedIndex) {
       _currentInbox = InboxPage(
         key: UniqueKey(),
-        destination: _indexWithDestinations[widget.selectedIndex],
+        destination: widget.destinations[widget.selectedIndex].name,
       );
     }
   }
@@ -190,15 +202,15 @@ class _DesktopNavState extends State<_DesktopNav>
                     child: IntrinsicHeight(
                       child: NavigationRail(
                         destinations: [
-                          for (var destination in widget.destinations.keys)
+                          for (var destination in widget.destinations)
                             NavigationRailDestination(
                               icon: ImageIcon(
                                 AssetImage(
-                                  widget.destinations[destination],
+                                  destination.icon,
                                   package: _assetsPackage,
                                 ),
                               ),
-                              label: Text(destination),
+                              label: Text(destination.name),
                             ),
                         ],
                         extended: _isExtended,
@@ -426,10 +438,15 @@ class _NavigationRailFolderSection extends StatelessWidget {
 }
 
 class _MobileNav extends StatefulWidget {
-  const _MobileNav(
-      {this.selectedIndex, this.destinations, this.folders, this.onItemTapped});
+  const _MobileNav({
+    this.selectedIndex,
+    this.destinations,
+    this.folders,
+    this.onItemTapped,
+  });
+
   final int selectedIndex;
-  final Map<String, String> destinations;
+  final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int) onItemTapped;
 
@@ -441,8 +458,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   final _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   AnimationController _drawerController;
   AnimationController _dropArrowController;
-  Map<String, int> _destinationsWithIndex;
-  String _currentDestination;
   Widget _currentInbox;
 
   @override
@@ -467,28 +482,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       vsync: this,
     );
 
-    final destinationKeysList = widget.destinations.keys.toList();
-
-    for (var i = 0; i < widget.destinations.keys.length; i++) {
-      if (i == widget.selectedIndex) {
-        _currentDestination = destinationKeysList[i];
-      }
-    }
-
-    //Build a map from destinations with the name of destination as the key and
-    //a value from 0 .. # of destinations. Since our destinations are an ordered
-    //LinkedHashMap we can use this map to keep track of the indexes for each
-    //destination.
-    _destinationsWithIndex = {
-      for (var i = 0; i < widget.destinations.keys.length; i++)
-        destinationKeysList[i]: i
-    };
-
-    destinationKeysList.clear();
-
     _currentInbox = InboxPage(
       key: UniqueKey(),
-      destination: _currentDestination,
+      destination: widget.destinations[widget.selectedIndex].name,
     );
   }
 
@@ -498,7 +494,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     if (oldWidget.selectedIndex != widget.selectedIndex) {
       _currentInbox = InboxPage(
         key: UniqueKey(),
-        destination: _currentDestination,
+        destination: widget.destinations[widget.selectedIndex].name,
       );
     }
   }
@@ -568,10 +564,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     }
   }
 
-  void _updateCurrentDestination(String selectedDestination) {
-    _currentDestination = selectedDestination;
-  }
-
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
@@ -620,13 +612,10 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               onVerticalDragEnd: _handleDragEnd,
               leading: _BottomDrawerDestinations(
                 destinations: widget.destinations,
-                destinationsWithIndex: _destinationsWithIndex,
                 drawerController: _drawerController,
                 dropArrowController: _dropArrowController,
                 selectedIndex: widget.selectedIndex,
                 onItemTapped: widget.onItemTapped,
-                currentDestination: _currentDestination,
-                updateCurrentDestination: _updateCurrentDestination,
               ),
               trailing: _BottomDrawerFolderSection(folders: widget.folders),
             ),
@@ -680,7 +669,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                               _bottomDrawerVisible | onMailView ? 0.0 : 1.0,
                           duration: const Duration(milliseconds: 350),
                           child: Text(
-                            _currentDestination,
+                            widget.destinations[widget.selectedIndex].name,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyText1
@@ -795,30 +784,21 @@ class _BottomAppBarActionItems extends StatelessWidget {
 class _BottomDrawerDestinations extends StatelessWidget {
   _BottomDrawerDestinations({
     @required this.destinations,
-    @required this.destinationsWithIndex,
     @required this.drawerController,
     @required this.dropArrowController,
     @required this.selectedIndex,
     @required this.onItemTapped,
-    @required this.currentDestination,
-    @required this.updateCurrentDestination,
   })  : assert(destinations != null),
-        assert(destinationsWithIndex != null),
         assert(drawerController != null),
         assert(dropArrowController != null),
         assert(selectedIndex != null),
-        assert(onItemTapped != null),
-        assert(currentDestination != null),
-        assert(updateCurrentDestination != null);
+        assert(onItemTapped != null);
 
-  final Map<String, String> destinations;
-  final Map<String, int> destinationsWithIndex;
+  final List<_Destination> destinations;
   final AnimationController drawerController;
   final AnimationController dropArrowController;
   final int selectedIndex;
-  final String currentDestination;
   final void Function(int) onItemTapped;
-  final void Function(String) updateCurrentDestination;
 
   @override
   Widget build(BuildContext context) {
@@ -826,7 +806,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
 
     return Column(
       children: [
-        for (var destination in destinations.keys)
+        for (var destination in destinations)
           InkWell(
             onTap: () {
               drawerController.reverse();
@@ -842,26 +822,25 @@ class _BottomDrawerDestinations extends StatelessWidget {
                   // Delay is variable based on if the gallery is in slow motion
                   // mode or not.
                   onItemTapped(
-                    destinationsWithIndex[destination],
+                    destination.index,
                   );
-                  updateCurrentDestination(destination);
                 },
               );
             },
             child: ListTile(
               leading: ImageIcon(
                 AssetImage(
-                  destinations[destination],
+                  destination.icon,
                   package: _assetsPackage,
                 ),
-                color: destinationsWithIndex[destination] == selectedIndex
+                color: destination.index == selectedIndex
                     ? theme.colorScheme.secondary
                     : theme.navigationRailTheme.unselectedLabelTextStyle.color,
               ),
               title: Text(
-                destination,
+                destination.name,
                 style: theme.textTheme.bodyText2.copyWith(
-                  color: destinationsWithIndex[destination] == selectedIndex
+                  color: destination.index == selectedIndex
                       ? theme.colorScheme.secondary
                       : theme
                           .navigationRailTheme.unselectedLabelTextStyle.color,
@@ -872,6 +851,19 @@ class _BottomDrawerDestinations extends StatelessWidget {
       ],
     );
   }
+}
+
+class _Destination {
+  const _Destination({
+    @required this.name,
+    @required this.icon,
+    @required this.index,
+  })  : assert(name != null),
+        assert(index != null);
+
+  final String name;
+  final String icon;
+  final int index;
 }
 
 class _BottomDrawerFolderSection extends StatelessWidget {
