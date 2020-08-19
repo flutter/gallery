@@ -128,7 +128,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     emailStore.currentlySelectedInbox = destination;
 
     if (emailStore.onMailView) {
-      var isDesktop = isDisplayDesktop(context);
+      final isDesktop = isDisplayDesktop(context);
 
       if (isDesktop) {
         desktopMailNavKey.currentState.pop();
