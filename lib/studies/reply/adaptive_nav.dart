@@ -683,7 +683,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                     const SizedBox(width: 10),
                     Consumer<EmailStore>(
                       builder: (context, model, child) {
-                        final onMailView = model.currentlySelectedEmailId >= 0;
+                        final onMailView = model.onMailView;
 
                         return AnimatedOpacity(
                           opacity:
@@ -730,7 +730,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<EmailStore>(
       builder: (context, model, child) {
-        final onMailView = model.currentlySelectedEmailId >= 0;
+        final onMailView = model.onMailView;
 
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
@@ -990,7 +990,7 @@ class _ReplyFabState extends State<_ReplyFab>
       closedBuilder: (context, openContainer) {
         return Consumer<EmailStore>(
           builder: (context, model, child) {
-            final onMailView = model.currentlySelectedEmailId != -1;
+            final onMailView = model.onMailView;
 
             if (isDesktop) {
               return AnimatedSize(
@@ -1055,9 +1055,8 @@ class _FabSwitcher extends StatelessWidget {
               Icons.reply_all,
               key: UniqueKey(),
             )
-          : Icon(
+          : const Icon(
               Icons.create,
-              key: UniqueKey(),
             ),
     );
   }
