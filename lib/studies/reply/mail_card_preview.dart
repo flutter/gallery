@@ -72,7 +72,7 @@ class MailPreviewCard extends StatelessWidget {
               switch (direction) {
                 case DismissDirection.endToStart:
                   if (onStarredInbox) {
-                    onDelete();
+                    onStar();
                   }
                   break;
                 case DismissDirection.startToEnd:

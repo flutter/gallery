@@ -194,7 +194,15 @@ class EmailStore with ChangeNotifier {
       Map<String, List<Email>>.unmodifiable(_categories);
 
   void deleteEmail(String category, int id) {
+    final email = _categories[category].elementAt(id);
+
     _categories[category].removeAt(id);
+
+    _categories.forEach((key, value) {
+      if (value.contains(email)) {
+        value.remove(email);
+      }
+    });
 
     notifyListeners();
   }
