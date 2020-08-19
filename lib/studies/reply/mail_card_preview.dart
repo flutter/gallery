@@ -65,8 +65,8 @@ class MailPreviewCard extends StatelessWidget {
           return Dismissible(
             key: ObjectKey(email),
             dismissThresholds: const {
-              DismissDirection.startToEnd: 0.4,
-              DismissDirection.endToStart: 1,
+              DismissDirection.startToEnd: 0.8,
+              DismissDirection.endToStart: 0.4,
             },
             onDismissed: (direction) {
               switch (direction) {
