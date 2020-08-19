@@ -16,12 +16,16 @@ class MailPreviewCard extends StatelessWidget {
     Key key,
     @required this.id,
     @required this.email,
+    @required this.onDelete,
+    @required this.onStar,
   })  : assert(id != null),
         assert(email != null),
         super(key: key);
 
   final int id;
   final Email email;
+  final VoidCallback onDelete;
+  final VoidCallback onStar;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +53,11 @@ class MailPreviewCard extends StatelessWidget {
           message: email.message,
           onTap: openContainer,
         );
+        final onStarredInbox = Provider.of<EmailStore>(
+              context,
+              listen: false,
+            ).currentlySelectedInbox ==
+            'Starred';
 
         if (isDesktop) {
           return mailPreview;
@@ -62,8 +71,12 @@ class MailPreviewCard extends StatelessWidget {
             onDismissed: (direction) {
               switch (direction) {
                 case DismissDirection.endToStart:
+                  if (onStarredInbox) {
+                    onDelete();
+                  }
                   break;
                 case DismissDirection.startToEnd:
+                  onDelete();
                   break;
                 default:
               }
@@ -75,6 +88,17 @@ class MailPreviewCard extends StatelessWidget {
               alignment: Alignment.centerLeft,
               padding: const EdgeInsetsDirectional.only(start: 20),
             ),
+            confirmDismiss: (direction) async {
+              if (direction == DismissDirection.endToStart) {
+                if (onStarredInbox) {
+                  return true;
+                }
+                onStar();
+                return false;
+              } else {
+                return true;
+              }
+            },
             secondaryBackground: _DismissibleContainer(
               icon: 'twotone_star',
               backgroundColor: colorScheme.secondary,

@@ -40,6 +40,8 @@ class InboxPage extends StatelessWidget {
                       MailPreviewCard(
                         id: index,
                         email: model.emails[destination][index],
+                        onDelete: () => model.deleteEmail(destination, index),
+                        onStar: () => model.starEmail(destination, index),
                       ),
                       const SizedBox(height: 4),
                     ],
