@@ -17,7 +17,8 @@ import 'package:provider/provider.dart';
 const _assetsPackage = 'flutter_gallery_assets';
 const _iconAssetLocation = 'reply/icons';
 const _folderIconAssetLocation = '$_iconAssetLocation/twotone_folder.png';
-final mailNavKey = GlobalKey<NavigatorState>();
+final desktopMailNavKey = GlobalKey<NavigatorState>();
+final mobileMailNavKey = GlobalKey<NavigatorState>();
 const double _kFlingVelocity = 2.0;
 
 class AdaptiveNav extends StatefulWidget {
@@ -127,12 +128,17 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     emailStore.currentlySelectedInbox = destination;
 
     if (emailStore.onMailView) {
-      mailNavKey.currentState.pop();
+      var isDesktop = isDisplayDesktop(context);
+
+      if (isDesktop) {
+        desktopMailNavKey.currentState.pop();
+      } else {
+        mobileMailNavKey.currentState.pop();
+      }
       emailStore.currentlySelectedEmailId = -1;
     }
 
     setState(() {
-      print('hmm');
       _selectedIndex = index;
       _currentInbox = InboxPage(
         key: UniqueKey(),
@@ -274,7 +280,6 @@ class _DesktopNavState extends State<_DesktopNav>
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: _MailNavigator(
-              key: mailNavKey,
               child: _InboxTransitionSwitcher(
                 child: widget.currentInbox,
               ),
@@ -594,7 +599,6 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       key: _bottomDrawerKey,
       children: [
         _MailNavigator(
-          key: mailNavKey,
           child: _InboxTransitionSwitcher(
             child: widget.currentInbox,
           ),
@@ -918,9 +922,7 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 }
 
 class _MailNavigator extends StatefulWidget {
-  const _MailNavigator({@required this.child, Key key})
-      : assert(child != null),
-        super(key: key);
+  const _MailNavigator({@required this.child}) : assert(child != null);
 
   final Widget child;
 
@@ -931,8 +933,10 @@ class _MailNavigator extends StatefulWidget {
 class _MailNavigatorState extends State<_MailNavigator> {
   @override
   Widget build(BuildContext context) {
+    final isDesktop = isDisplayDesktop(context);
+
     return Navigator(
-      key: widget.key,
+      key: isDesktop ? desktopMailNavKey : mobileMailNavKey,
       onGenerateRoute: (settings) {
         return MaterialPageRoute<void>(builder: (context) {
           return widget.child;
