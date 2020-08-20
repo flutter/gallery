@@ -720,7 +720,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                               final onMailView = model.onMailView;
 
                               return AnimatedOpacity(
-                                opacity: _bottomDrawerVisible | onMailView
+                                opacity: _bottomDrawerVisible || onMailView
                                     ? 0.0
                                     : 1.0,
                                 duration: const Duration(milliseconds: 350),
