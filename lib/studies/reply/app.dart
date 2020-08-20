@@ -79,7 +79,7 @@ class ReplyApp extends StatelessWidget {
 ThemeData _buildReplyLightTheme(BuildContext context) {
   final base = ThemeData.light();
   return base.copyWith(
-    scaffoldBackgroundColor: ReplyColors.blue50,
+    accentColor: ReplyColors.orange500,
     bottomAppBarColor: ReplyColors.blue700,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.blue700,
@@ -98,6 +98,13 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
                 color: ReplyColors.blue200,
               ),
     ),
+    canvasColor: ReplyColors.white50,
+    cardColor: ReplyColors.white50,
+    chipTheme: _buildChipTheme(
+      ReplyColors.blue700,
+      ReplyColors.lightChipBackground,
+      Brightness.light,
+    ),
     colorScheme: const ColorScheme.light(
       primary: ReplyColors.blue700,
       primaryVariant: ReplyColors.blue800,
@@ -112,22 +119,15 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
       onError: ReplyColors.black900,
       background: ReplyColors.blue50,
     ),
-    cardColor: ReplyColors.white50,
-    chipTheme: _buildChipTheme(
-      ReplyColors.blue700,
-      ReplyColors.lightChipBackground,
-      Brightness.light,
-    ),
-    canvasColor: ReplyColors.white50,
-    accentColor: ReplyColors.orange500,
     textTheme: _buildReplyLightTextTheme(base.textTheme),
+    scaffoldBackgroundColor: ReplyColors.blue50,
   );
 }
 
 ThemeData _buildReplyDarkTheme(BuildContext context) {
   final base = ThemeData.dark();
   return base.copyWith(
-    scaffoldBackgroundColor: ReplyColors.black900,
+    accentColor: ReplyColors.orange300,
     bottomAppBarColor: ReplyColors.darkBottomAppBarBackground,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.darkDrawerBackground,
@@ -146,6 +146,13 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
                 color: ReplyColors.greyLabel,
               ),
     ),
+    canvasColor: ReplyColors.black900,
+    cardColor: ReplyColors.darkCardBackground,
+    chipTheme: _buildChipTheme(
+      ReplyColors.blue200,
+      ReplyColors.darkChipBackground,
+      Brightness.dark,
+    ),
     colorScheme: const ColorScheme.dark(
       primary: ReplyColors.blue200,
       primaryVariant: ReplyColors.blue300,
@@ -160,15 +167,8 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
       onError: ReplyColors.black900,
       background: ReplyColors.black900Alpha087,
     ),
-    cardColor: ReplyColors.darkCardBackground,
-    chipTheme: _buildChipTheme(
-      ReplyColors.blue200,
-      ReplyColors.darkChipBackground,
-      Brightness.dark,
-    ),
-    canvasColor: ReplyColors.black900,
-    accentColor: ReplyColors.orange300,
     textTheme: _buildReplyDarkTextTheme(base.textTheme),
+    scaffoldBackgroundColor: ReplyColors.black900,
   );
 }
 

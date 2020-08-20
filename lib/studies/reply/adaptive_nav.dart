@@ -1094,13 +1094,8 @@ class _FabSwitcher extends StatelessWidget {
         scale: animation,
       ),
       child: onMailView
-          ? Icon(
-              Icons.reply_all,
-              key: UniqueKey(),
-            )
-          : const Icon(
-              Icons.create,
-            ),
+          ? Icon(Icons.reply_all, key: UniqueKey())
+          : const Icon(Icons.create),
     );
   }
 }
