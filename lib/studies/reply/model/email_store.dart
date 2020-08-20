@@ -40,7 +40,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
     const Email(
       sender: 'Allison Trabucco',

@@ -30,7 +30,6 @@ class MailViewPage extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   _MailViewHeader(email: email),
                   const SizedBox(height: 32),
