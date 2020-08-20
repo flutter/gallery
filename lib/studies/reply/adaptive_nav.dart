@@ -593,8 +593,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   bool _handleScrollNotification(ScrollNotification notification) {
     if (notification.depth == 0) {
       if (notification is UserScrollNotification) {
-        final userScroll = notification;
-        switch (userScroll.direction) {
+        switch (notification.direction) {
           case ScrollDirection.forward:
             _bottomAppBarController.forward();
             break;
