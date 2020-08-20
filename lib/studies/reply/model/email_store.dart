@@ -5,8 +5,17 @@ import 'email_model.dart';
 const _avatarsLocation = 'reply/avatars';
 
 class EmailStore with ChangeNotifier {
-  final List<Email> _emails = const [
-    Email(
+  final _categories = <String, List<Email>>{
+    'Inbox': _mainInbox,
+    'Starred': _starredInbox,
+    'Sent': _outbox,
+    'Trash': _trash,
+    'Spam': _spam,
+    'Drafts': _drafts,
+  };
+
+  static final _mainInbox = <Email>[
+    const Email(
       sender: 'Google Express',
       time: '15 minutes ago',
       subject: 'Package shipped!',
@@ -17,9 +26,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: true,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Ali Connors',
       time: '4 hrs ago',
       subject: 'Brunch this weekend?',
@@ -32,9 +40,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Allison Trabucco',
       time: '5 hrs ago',
       subject: 'Bonjour from Paris',
@@ -43,9 +50,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: true,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Trevor Hansen',
       time: '9 hrs ago',
       subject: 'Brazil trip',
@@ -61,9 +67,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Allison, Kim, Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Frank Hawkins',
       time: '10 hrs ago',
       subject: 'Update to Your Itinerary',
@@ -72,9 +77,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Google Express',
       time: '12 hrs ago',
       subject: 'Delivered',
@@ -83,9 +87,13 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+  ];
+
+  static final _starredInbox = <Email>[];
+
+  static final _outbox = <Email>[
+    const Email(
       sender: 'Kim Alen',
       time: '4 hrs ago',
       subject: 'High school reunion?',
@@ -97,9 +105,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Sandra Adams',
       time: '7 hrs ago',
       subject: 'Recipe to try',
@@ -110,9 +117,11 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: true,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+  ];
+
+  static final _trash = <Email>[
+    const Email(
       sender: 'Frank Hawkins',
       time: '4 hrs ago',
       subject: 'Your update on the Google Play Store is live!',
@@ -123,9 +132,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+    const Email(
       sender: 'Allison Trabucco',
       time: '6 hrs ago',
       subject: 'Try a free TrailGo account',
@@ -136,9 +144,11 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+  ];
+
+  static final _spam = <Email>[
+    const Email(
       sender: 'Allison Trabucco',
       time: '4 hrs ago',
       subject: 'Free money',
@@ -148,9 +158,11 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
-    Email(
+  ];
+
+  static final _drafts = <Email>[
+    const Email(
       sender: 'Sandra Adams',
       time: '2 hrs ago',
       subject: '(No subject)',
@@ -160,23 +172,53 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
   ];
 
   int _currentlySelectedEmailId = -1;
+  String _currentlySelectedInbox = 'Inbox';
 
-  List<Email> get emails => List<Email>.unmodifiable(_emails);
+  Map<String, List<Email>> get emails =>
+      Map<String, List<Email>>.unmodifiable(_categories);
 
-  void deleteEmail(int id) {
-    _emails.removeAt(id);
+  void deleteEmail(String category, int id) {
+    final email = _categories[category].elementAt(id);
+
+    _categories[category].removeAt(id);
+
+    _categories.forEach((key, value) {
+      if (value.contains(email)) {
+        value.remove(email);
+      }
+    });
+
+    notifyListeners();
+  }
+
+  void starEmail(String category, int id) {
+    final email = _categories[category].elementAt(id);
+    var alreadyStarred = _categories['Starred'].contains(email);
+
+    if (alreadyStarred) {
+      _categories['Starred'].remove(email);
+    } else {
+      _categories['Starred'].add(email);
+    }
+
     notifyListeners();
   }
 
   int get currentlySelectedEmailId => _currentlySelectedEmailId;
+  String get currentlySelectedInbox => _currentlySelectedInbox;
+  bool get onMailView => _currentlySelectedEmailId > -1;
 
   set currentlySelectedEmailId(int value) {
     _currentlySelectedEmailId = value;
+    notifyListeners();
+  }
+
+  set currentlySelectedInbox(String inbox) {
+    _currentlySelectedInbox = inbox;
     notifyListeners();
   }
 }
