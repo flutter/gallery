@@ -3,24 +3,23 @@ import 'package:flutter/material.dart';
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({
     @required this.avatar,
-    @required this.height,
-    @required this.width,
-  })  : assert(avatar != null),
-        assert(height != null),
-        assert(width != null);
+    this.radius,
+  }) : assert(avatar != null);
 
   final String avatar;
-  final double height;
-  final double width;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
-    return ClipOval(
-      child: Image.asset(
-        avatar,
-        package: 'flutter_gallery_assets',
-        height: height,
-        width: width,
+    return Material(
+      color: Colors.transparent,
+      child: CircleAvatar(
+        radius: radius,
+        backgroundImage: AssetImage(
+          avatar,
+          package: 'flutter_gallery_assets',
+        ),
+        backgroundColor: Theme.of(context).cardColor,
       ),
     );
   }

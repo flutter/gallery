@@ -22,7 +22,7 @@ class ReplyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final galleryThemeMode = GalleryOptions.of(context).themeMode;
     final isDark = galleryThemeMode == ThemeMode.system
-        ? MediaQuery.of(context).platformBrightness == Brightness.dark
+        ? Theme.of(context).brightness == Brightness.dark
         : galleryThemeMode == ThemeMode.dark;
 
     final replyTheme =

@@ -363,13 +363,9 @@ class _NavigationRailHeader extends StatelessWidget {
                   child: Row(
                     children: const [
                       SizedBox(width: 36),
-                      Align(
-                        alignment: Alignment(0, -1.5),
-                        child: ProfileAvatar(
-                          avatar: 'reply/avatars/avatar_2.jpg',
-                          height: 32,
-                          width: 32,
-                        ),
+                      ProfileAvatar(
+                        avatar: 'reply/avatars/avatar_2.jpg',
+                        radius: 16,
                       ),
                       SizedBox(width: 12),
                       Icon(

@@ -102,13 +102,9 @@ class _MailViewHeader extends StatelessWidget {
                 ),
               ],
             ),
-            Transform.translate(
-              offset: const Offset(-8, 0),
-              child: ProfileAvatar(
-                avatar: email.avatar,
-                height: 36,
-                width: 36,
-              ),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 4),
+              child: ProfileAvatar(avatar: email.avatar),
             ),
           ],
         ),
