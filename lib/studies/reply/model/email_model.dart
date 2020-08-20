@@ -8,7 +8,6 @@ class Email {
     this.recipients,
     this.hasAttachment,
     this.containsPictures,
-    this.isRead,
   });
 
   final String sender;
@@ -19,5 +18,4 @@ class Email {
   final String recipients;
   final bool hasAttachment;
   final bool containsPictures;
-  final bool isRead;
 }

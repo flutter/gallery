@@ -46,11 +46,7 @@ class MailPreviewCard extends StatelessWidget {
         final colorScheme = theme.colorScheme;
         final mailPreview = _MailPreview(
           id: id,
-          sender: email.sender,
-          time: email.time,
-          subject: email.subject,
-          avatar: email.avatar,
-          message: email.message,
+          email: email,
           onTap: openContainer,
         );
         final onStarredInbox = Provider.of<EmailStore>(
@@ -157,26 +153,14 @@ class _DismissibleContainer extends StatelessWidget {
 class _MailPreview extends StatelessWidget {
   const _MailPreview({
     @required this.id,
-    @required this.sender,
-    @required this.time,
-    @required this.subject,
-    @required this.avatar,
-    @required this.message,
+    @required this.email,
     @required this.onTap,
   })  : assert(id != null),
-        assert(sender != null),
-        assert(time != null),
-        assert(subject != null),
-        assert(avatar != null),
-        assert(message != null),
+        assert(email != null),
         assert(onTap != null);
 
   final int id;
-  final String sender;
-  final String time;
-  final String subject;
-  final String avatar;
-  final String message;
+  final Email email;
   final VoidCallback onTap;
 
   @override
@@ -210,17 +194,17 @@ class _MailPreview extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              '$sender - $time',
+                              '${email.sender} - ${email.time}',
                               style: textTheme.caption,
                             ),
                             const SizedBox(height: 4),
-                            Text(subject, style: textTheme.headline6),
+                            Text(email.subject, style: textTheme.headline6),
                             const SizedBox(height: 16),
                           ],
                         ),
                       ),
                       _MailPreviewActionBar(
-                        avatar: avatar,
+                        avatar: email.avatar,
                       ),
                     ],
                   ),
@@ -229,17 +213,45 @@ class _MailPreview extends StatelessWidget {
                       end: 20,
                     ),
                     child: Text(
-                      message,
+                      email.message,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       style: textTheme.bodyText2,
                     ),
                   ),
+                  if (email.containsPictures) ...[
+                    const SizedBox(height: 20),
+                    const _PicturePreview(),
+                  ],
                 ],
               ),
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class _PicturePreview extends StatelessWidget {
+  const _PicturePreview();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 96,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          for (var index = 0; index < 4; index++)
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 4),
+              child: Image.asset(
+                'reply/attachments/paris_${index + 1}.jpg',
+                package: 'flutter_gallery_assets',
+              ),
+            ),
+        ],
       ),
     );
   }
