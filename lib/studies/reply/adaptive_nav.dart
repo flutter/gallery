@@ -804,7 +804,12 @@ class _BottomAppBarActionItems extends StatelessWidget {
                               package: _assetsPackage,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            model.starEmail(
+                              model.currentlySelectedInbox,
+                              model.currentlySelectedEmailId,
+                            );
+                          },
                           color: ReplyColors.white50,
                         ),
                         IconButton(
@@ -814,7 +819,13 @@ class _BottomAppBarActionItems extends StatelessWidget {
                               package: _assetsPackage,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            mobileMailNavKey.currentState.pop();
+                            model.deleteEmail(
+                              model.currentlySelectedInbox,
+                              model.currentlySelectedEmailId,
+                            );
+                          },
                           color: ReplyColors.white50,
                         ),
                         IconButton(
