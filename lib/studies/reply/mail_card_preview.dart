@@ -249,7 +249,6 @@ class _PicturePreview extends StatelessWidget {
               child: Image.asset(
                 'reply/attachments/paris_${index + 1}.jpg',
                 package: 'flutter_gallery_assets',
-                isAntiAlias: true,
               ),
             ),
         ],

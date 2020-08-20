@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({
     @required this.avatar,
-    this.radius,
+    this.radius = 20,
   }) : assert(avatar != null);
 
   final String avatar;
@@ -15,11 +15,16 @@ class ProfileAvatar extends StatelessWidget {
       color: Colors.transparent,
       child: CircleAvatar(
         radius: radius,
-        backgroundImage: AssetImage(
-          avatar,
-          package: 'flutter_gallery_assets',
-        ),
         backgroundColor: Theme.of(context).cardColor,
+        child: ClipOval(
+          child: Image.asset(
+            avatar,
+            package: 'flutter_gallery_assets',
+            height: 42,
+            width: 42,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
