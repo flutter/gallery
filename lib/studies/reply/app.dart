@@ -140,7 +140,7 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
           GoogleFonts.workSansTextTheme().headline5.copyWith(
                 color: ReplyColors.orange300,
               ),
-      unselectedIconTheme: const IconThemeData(color: Color(0xFFAEAEAE)),
+      unselectedIconTheme: const IconThemeData(color: ReplyColors.greyLabel),
       unselectedLabelTextStyle:
           GoogleFonts.workSansTextTheme().headline5.copyWith(
                 color: ReplyColors.greyLabel,
