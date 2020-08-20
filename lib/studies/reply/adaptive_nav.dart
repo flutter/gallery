@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -492,6 +493,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   final _bottomDrawerKey = GlobalKey(debugLabel: 'Bottom Drawer');
   AnimationController _drawerController;
   AnimationController _dropArrowController;
+  AnimationController _bottomAppBarController;
 
   @override
   void initState() {
@@ -514,12 +516,21 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 350),
       vsync: this,
     );
+
+    _bottomAppBarController = AnimationController(
+      vsync: this,
+      duration: kThemeAnimationDuration,
+    );
+
+    // Initialize with bottom app bar visible
+    _bottomAppBarController.forward();
   }
 
   @override
   void dispose() {
     _drawerController.dispose();
     _dropArrowController.dispose();
+    _bottomAppBarController.dispose();
     super.dispose();
   }
 
@@ -581,6 +592,25 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     }
   }
 
+  bool _handleScrollNotification(ScrollNotification notification) {
+    if (notification.depth == 0) {
+      if (notification is UserScrollNotification) {
+        final userScroll = notification;
+        switch (userScroll.direction) {
+          case ScrollDirection.forward:
+            _bottomAppBarController.forward();
+            break;
+          case ScrollDirection.reverse:
+            _bottomAppBarController.reverse();
+            break;
+          case ScrollDirection.idle:
+            break;
+        }
+      }
+    }
+    return false;
+  }
+
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final drawerSize = constraints.biggest;
     final drawerTop = drawerSize.height;
@@ -594,9 +624,12 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       overflow: Overflow.visible,
       key: _bottomDrawerKey,
       children: [
-        _MailNavigator(
-          child: _InboxTransitionSwitcher(
-            child: widget.currentInbox,
+        NotificationListener<ScrollNotification>(
+          onNotification: _handleScrollNotification,
+          child: _MailNavigator(
+            child: _InboxTransitionSwitcher(
+              child: widget.currentInbox,
+            ),
           ),
         ),
         GestureDetector(
@@ -649,66 +682,78 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       body: LayoutBuilder(
         builder: _buildStack,
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 8,
-        child: SizedBox(
-          height: kToolbarHeight,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                borderRadius: const BorderRadius.all(Radius.circular(16)),
-                onTap: _toggleBottomDrawerVisibility,
+      bottomNavigationBar: Consumer<EmailStore>(
+        builder: (context, model, child) {
+          _bottomAppBarController.forward();
+
+          return SizeTransition(
+            sizeFactor: _bottomAppBarController,
+            axisAlignment: -1,
+            child: BottomAppBar(
+              shape: const CircularNotchedRectangle(),
+              notchMargin: 8,
+              child: SizedBox(
+                height: kToolbarHeight,
                 child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(width: 16),
-                    RotationTransition(
-                      turns: Tween(
-                        begin: 0.0,
-                        end: 1.0,
-                      ).animate(_dropArrowController.view),
-                      child: const Icon(
-                        Icons.arrow_drop_up,
-                        color: ReplyColors.white50,
+                    InkWell(
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      onTap: _toggleBottomDrawerVisibility,
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 16),
+                          RotationTransition(
+                            turns: Tween(
+                              begin: 0.0,
+                              end: 1.0,
+                            ).animate(_dropArrowController.view),
+                            child: const Icon(
+                              Icons.arrow_drop_up,
+                              color: ReplyColors.white50,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          const _ReplyLogo(),
+                          const SizedBox(width: 10),
+                          Consumer<EmailStore>(
+                            builder: (context, model, child) {
+                              final onMailView = model.onMailView;
+
+                              return AnimatedOpacity(
+                                opacity: _bottomDrawerVisible | onMailView
+                                    ? 0.0
+                                    : 1.0,
+                                duration: const Duration(milliseconds: 350),
+                                child: Text(
+                                  widget
+                                      .destinations[widget.selectedIndex].name,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      .copyWith(color: ReplyColors.white50),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    const _ReplyLogo(),
-                    const SizedBox(width: 10),
-                    Consumer<EmailStore>(
-                      builder: (context, model, child) {
-                        final onMailView = model.onMailView;
-
-                        return AnimatedOpacity(
-                          opacity:
-                              _bottomDrawerVisible | onMailView ? 0.0 : 1.0,
-                          duration: const Duration(milliseconds: 350),
-                          child: Text(
-                            widget.destinations[widget.selectedIndex].name,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .copyWith(color: ReplyColors.white50),
-                          ),
-                        );
-                      },
+                    Expanded(
+                      child: Container(
+                        color: Colors.transparent,
+                        child: _BottomAppBarActionItems(
+                          drawerVisible: _bottomDrawerVisible,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.transparent,
-                  child: _BottomAppBarActionItems(
-                    drawerVisible: _bottomDrawerVisible,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
       floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
