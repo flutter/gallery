@@ -755,7 +755,12 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           );
         },
       ),
-      floatingActionButton: _bottomDrawerVisible ? null : const _ReplyFab(),
+      floatingActionButton: _bottomDrawerVisible
+          ? null
+          : const Padding(
+              padding: EdgeInsetsDirectional.only(bottom: 8),
+              child: _ReplyFab(),
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
