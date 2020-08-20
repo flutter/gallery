@@ -16,11 +16,12 @@ class ProfileAvatar extends StatelessWidget {
       child: CircleAvatar(
         radius: radius,
         backgroundColor: Theme.of(context).cardColor,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(radius),
+        child: ClipOval(
           child: Image.asset(
             avatar,
             package: 'flutter_gallery_assets',
+            height: 42,
+            width: 42,
             fit: BoxFit.cover,
           ),
         ),
