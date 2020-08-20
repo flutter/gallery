@@ -519,11 +519,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
     _bottomAppBarController = AnimationController(
       vsync: this,
+      value: 1,
       duration: kThemeAnimationDuration,
     );
-
-    // Initialize with bottom app bar visible
-    _bottomAppBarController.forward();
   }
 
   @override
