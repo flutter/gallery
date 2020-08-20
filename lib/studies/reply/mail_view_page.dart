@@ -30,10 +30,15 @@ class MailViewPage extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   _MailViewHeader(email: email),
                   const SizedBox(height: 32),
                   _MailViewBody(message: email.message),
+                  if (email.containsPictures) ...[
+                    const SizedBox(height: 28),
+                    const _PictureGrid(),
+                  ],
                   const SizedBox(height: kToolbarHeight),
                 ],
               ),
@@ -123,6 +128,31 @@ class _MailViewBody extends StatelessWidget {
     return Text(
       message,
       style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 16),
+    );
+  }
+}
+
+class _PictureGrid extends StatelessWidget {
+  const _PictureGrid();
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 4,
+        mainAxisSpacing: 4,
+      ),
+      itemCount: 4,
+      itemBuilder: (context, index) {
+        return Image.asset(
+          'reply/attachments/paris_${index + 1}.jpg',
+          package: 'flutter_gallery_assets',
+          fit: BoxFit.fill,
+        );
+      },
     );
   }
 }

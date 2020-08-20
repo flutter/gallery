@@ -26,7 +26,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: true,
       containsPictures: false,
-      isRead: false,
     ),
     const Email(
       sender: 'Ali Connors',
@@ -52,7 +51,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: true,
-      isRead: false,
     ),
     const Email(
       sender: 'Trevor Hansen',
@@ -70,7 +68,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Allison, Kim, Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
     const Email(
       sender: 'Frank Hawkins',
@@ -81,7 +78,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
     const Email(
       sender: 'Google Express',
@@ -92,7 +88,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
   ];
 
@@ -111,7 +106,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
     const Email(
       sender: 'Sandra Adams',
@@ -124,7 +118,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: true,
       containsPictures: false,
-      isRead: false,
     ),
   ];
 
@@ -140,7 +133,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
     const Email(
       sender: 'Allison Trabucco',
@@ -153,7 +145,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
   ];
 
@@ -168,7 +159,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
   ];
 
@@ -183,7 +173,6 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       hasAttachment: false,
       containsPictures: false,
-      isRead: false,
     ),
   ];
 
