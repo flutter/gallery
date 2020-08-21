@@ -189,6 +189,7 @@ class _MailPreview extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -228,8 +229,15 @@ class _MailPreview extends StatelessWidget {
                     ),
                   ),
                   if (email.containsPictures) ...[
-                    const SizedBox(height: 20),
-                    const _PicturePreview(),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Column(
+                        children: const [
+                          SizedBox(height: 20),
+                          _PicturePreview(),
+                        ],
+                      ),
+                    ),
                   ],
                 ],
               ),
