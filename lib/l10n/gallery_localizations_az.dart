@@ -107,7 +107,7 @@ class GalleryLocalizationsAz extends GalleryLocalizations {
   String get rallyDescription => 'Şəxsi maliyyə tətbiqi';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Yoxlanış';

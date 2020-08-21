@@ -104,7 +104,7 @@ class GalleryLocalizationsZh extends GalleryLocalizations {
   String get rallyDescription => '个人理财应用';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => '支票帐号';

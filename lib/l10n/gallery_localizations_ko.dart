@@ -104,7 +104,7 @@ class GalleryLocalizationsKo extends GalleryLocalizations {
   String get rallyDescription => '개인 자산관리 앱';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => '자유 입출금';

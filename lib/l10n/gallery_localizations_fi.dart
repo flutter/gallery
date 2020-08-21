@@ -106,7 +106,7 @@ class GalleryLocalizationsFi extends GalleryLocalizations {
   String get rallyDescription => 'Sovellus oman talouden hoitoon';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Tarkistetaan';
