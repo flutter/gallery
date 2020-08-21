@@ -1096,6 +1096,8 @@ class _FabSwitcher extends StatelessWidget {
 
   final bool onMailView;
 
+  static final fabKey = UniqueKey();
+
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
@@ -1105,7 +1107,7 @@ class _FabSwitcher extends StatelessWidget {
         scale: animation,
       ),
       child: onMailView
-          ? Icon(Icons.reply_all, key: UniqueKey())
+          ? Icon(Icons.reply_all, key: fabKey)
           : const Icon(Icons.create),
     );
   }
