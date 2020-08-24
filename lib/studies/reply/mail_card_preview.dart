@@ -172,13 +172,14 @@ class _MailPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    var emailStore = Provider.of<EmailStore>(
+      context,
+      listen: false,
+    );
 
     return InkWell(
       onTap: () {
-        Provider.of<EmailStore>(
-          context,
-          listen: false,
-        ).currentlySelectedEmailId = id;
+        emailStore.currentlySelectedEmailId = id;
         onTap.call();
       },
       child: LayoutBuilder(
@@ -212,6 +213,7 @@ class _MailPreview extends StatelessWidget {
                       ),
                       _MailPreviewActionBar(
                         avatar: email.avatar,
+                        isStarred: emailStore.isEmailStarred(email),
                         onStar: onStar,
                         onDelete: onDelete,
                       ),
@@ -276,11 +278,13 @@ class _PicturePreview extends StatelessWidget {
 class _MailPreviewActionBar extends StatelessWidget {
   const _MailPreviewActionBar({
     @required this.avatar,
+    this.isStarred,
     this.onStar,
     this.onDelete,
   }) : assert(avatar != null);
 
   final String avatar;
+  final bool isStarred;
   final VoidCallback onStar;
   final VoidCallback onDelete;
 
@@ -289,6 +293,8 @@ class _MailPreviewActionBar extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final color = isDark ? ReplyColors.white50 : ReplyColors.blue600;
     final isDesktop = isDisplayDesktop(context);
+    final starredIconColor =
+        isStarred ? Theme.of(context).colorScheme.secondary : color;
 
     return Row(
       children: [
@@ -299,7 +305,7 @@ class _MailPreviewActionBar extends StatelessWidget {
                 '$_iconAssetLocation/twotone_star.png',
                 package: _assetsPackage,
               ),
-              color: color,
+              color: starredIconColor,
             ),
             onPressed: () => onStar.call(),
           ),

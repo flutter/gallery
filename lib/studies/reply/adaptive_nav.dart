@@ -780,6 +780,13 @@ class _BottomAppBarActionItems extends StatelessWidget {
     return Consumer<EmailStore>(
       builder: (context, model, child) {
         final onMailView = model.onMailView;
+        Color starIconColor;
+        if (onMailView) {
+          final currentEmailStarred = model.currentEmailisStarred;
+          starIconColor = currentEmailStarred
+              ? Theme.of(context).colorScheme.secondary
+              : ReplyColors.white50;
+        }
 
         return AnimatedSwitcher(
           duration: _kAnimationDuration,
@@ -804,11 +811,12 @@ class _BottomAppBarActionItems extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
-                          icon: const ImageIcon(
-                            AssetImage(
+                          icon: ImageIcon(
+                            const AssetImage(
                               '$_iconAssetLocation/twotone_star.png',
                               package: _assetsPackage,
                             ),
+                            color: starIconColor,
                           ),
                           onPressed: () {
                             model.starEmail(
