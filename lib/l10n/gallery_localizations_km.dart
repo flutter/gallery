@@ -109,7 +109,7 @@ class GalleryLocalizationsKm extends GalleryLocalizations {
   String get rallyDescription => 'កម្មវិធីហិរញ្ញវត្ថុ​ផ្ទាល់ខ្លួន';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'គណនីមូលប្បទានបត្រ';

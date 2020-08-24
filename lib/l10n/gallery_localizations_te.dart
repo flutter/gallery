@@ -107,7 +107,7 @@ class GalleryLocalizationsTe extends GalleryLocalizations {
   String get rallyDescription => 'పర్సనల్ ఫైనాన్స్ యాప్';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'తనిఖీ చేస్తోంది';

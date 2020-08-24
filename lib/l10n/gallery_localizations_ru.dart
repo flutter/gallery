@@ -107,7 +107,7 @@ class GalleryLocalizationsRu extends GalleryLocalizations {
   String get rallyDescription => 'Приложение для планирования бюджета';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Расчетный счет';

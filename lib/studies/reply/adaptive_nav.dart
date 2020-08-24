@@ -21,6 +21,7 @@ const _folderIconAssetLocation = '$_iconAssetLocation/twotone_folder.png';
 final desktopMailNavKey = GlobalKey<NavigatorState>();
 final mobileMailNavKey = GlobalKey<NavigatorState>();
 const double _kFlingVelocity = 2.0;
+const _kAnimationDuration = Duration(milliseconds: 300);
 
 class AdaptiveNav extends StatefulWidget {
   const AdaptiveNav({Key key}) : super(key: key);
@@ -186,21 +187,21 @@ class _DesktopNavState extends State<_DesktopNav>
   void initState() {
     super.initState();
     _isExtended = widget.extended;
-    _controller = AnimationController(
-        duration: const Duration(milliseconds: 350), vsync: this)
-      ..addListener(() {
-        if (_controller.isCompleted) {
-          _controller.reset();
-          setState(() {
-            if (_hasWidgetUpdated) {
-              _isExtended = widget.extended;
-              _hasWidgetUpdated = false;
-            } else {
-              _isExtended = !_isExtended;
+    _controller =
+        AnimationController(duration: _kAnimationDuration, vsync: this)
+          ..addListener(() {
+            if (_controller.isCompleted) {
+              _controller.reset();
+              setState(() {
+                if (_hasWidgetUpdated) {
+                  _isExtended = widget.extended;
+                  _hasWidgetUpdated = false;
+                } else {
+                  _isExtended = !_isExtended;
+                }
+              });
             }
           });
-        }
-      });
   }
 
   @override
@@ -262,7 +263,7 @@ class _DesktopNavState extends State<_DesktopNav>
                           maintainState: true,
                           maintainAnimation: true,
                           child: AnimatedOpacity(
-                            duration: const Duration(milliseconds: 350),
+                            duration: _kAnimationDuration,
                             opacity: _isExtended ? 1 : 0,
                             child: _NavigationRailFolderSection(
                               folders: widget.folders,
@@ -504,7 +505,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _drawerController = AnimationController(
-      duration: const Duration(milliseconds: 350),
+      duration: _kAnimationDuration,
       value: 0,
       vsync: this,
     )..addListener(() {
@@ -518,14 +519,14 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       });
 
     _dropArrowController = AnimationController(
-      duration: const Duration(milliseconds: 350),
+      duration: _kAnimationDuration,
       vsync: this,
     );
 
     _bottomAppBarController = AnimationController(
       vsync: this,
       value: 1,
-      duration: kThemeAnimationDuration,
+      duration: _kAnimationDuration,
     );
   }
 
@@ -646,7 +647,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
             child: AnimatedOpacity(
               opacity: _bottomDrawerVisible ? 1.0 : 0.0,
               curve: Curves.easeInOut,
-              duration: const Duration(milliseconds: 350),
+              duration: _kAnimationDuration,
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
@@ -727,7 +728,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                                 opacity: _bottomDrawerVisible || onMailView
                                     ? 0.0
                                     : 1.0,
-                                duration: const Duration(milliseconds: 350),
+                                duration: _kAnimationDuration,
                                 child: Text(
                                   widget
                                       .destinations[widget.selectedIndex].name,
@@ -781,7 +782,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
         final onMailView = model.onMailView;
 
         return AnimatedSwitcher(
-          duration: const Duration(milliseconds: 350),
+          duration: _kAnimationDuration,
           transitionBuilder: (child, animation) => ScaleTransition(
             alignment: Alignment.centerRight,
             child: child,
@@ -892,8 +893,8 @@ class _BottomDrawerDestinations extends StatelessWidget {
               Future.delayed(
                 Duration(
                   milliseconds: GalleryOptions.of(context).timeDilation == 1
-                      ? drawerController.value == 1 ? 350 : 210
-                      : drawerController.value == 1 ? 1750 : 1050,
+                      ? drawerController.value == 1 ? 300 : 180
+                      : drawerController.value == 1 ? 1500 : 900,
                 ),
                 () {
                   // Wait until animations are complete to reload the state.
@@ -1055,7 +1056,7 @@ class _ReplyFabState extends State<_ReplyFab>
               return AnimatedSize(
                 vsync: this,
                 curve: Curves.easeInOut,
-                duration: kThemeAnimationDuration,
+                duration: _kAnimationDuration,
                 child: FloatingActionButton.extended(
                   heroTag: 'Rail FAB',
                   tooltip: onMailView ? 'Reply' : 'Compose',
@@ -1106,7 +1107,7 @@ class _FabSwitcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 350),
+      duration: _kAnimationDuration,
       transitionBuilder: (child, animation) => ScaleTransition(
         child: child,
         scale: animation,

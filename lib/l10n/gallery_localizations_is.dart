@@ -106,7 +106,7 @@ class GalleryLocalizationsIs extends GalleryLocalizations {
   String get rallyDescription => 'Forrit fyrir fjármál einstaklinga';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Athugar';

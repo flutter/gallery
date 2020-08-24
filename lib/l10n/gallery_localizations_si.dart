@@ -106,7 +106,7 @@ class GalleryLocalizationsSi extends GalleryLocalizations {
   String get rallyDescription => 'පුද්ගලික මූල්‍ය යෙදුමක්';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'චෙක්පත්';

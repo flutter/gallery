@@ -108,7 +108,7 @@ class GalleryLocalizationsHy extends GalleryLocalizations {
   String get rallyDescription => 'Բյուջեի պլանավորման հավելված';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Բանկային հաշիվ';

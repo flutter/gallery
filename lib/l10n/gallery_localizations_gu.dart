@@ -106,7 +106,7 @@ class GalleryLocalizationsGu extends GalleryLocalizations {
   String get rallyDescription => 'વ્યક્તિગત નાણાંકીય આયોજન માટેની ઍપ';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'ચેક કરી રહ્યાં છીએ';

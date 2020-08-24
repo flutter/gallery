@@ -108,7 +108,7 @@ class GalleryLocalizationsKk extends GalleryLocalizations {
   String get rallyDescription => 'Бюджет жоспарлауға арналған қолданба';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Банк шоты';

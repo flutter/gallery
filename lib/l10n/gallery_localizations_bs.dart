@@ -107,7 +107,7 @@ class GalleryLocalizationsBs extends GalleryLocalizations {
   String get rallyDescription => 'Aplikacija za lične finansije';
 
   @override
-  String get replyDescription => 'A email app';
+  String get replyDescription => 'An efficient, focused email app';
 
   @override
   String get rallyAccountDataChecking => 'Provjera';
