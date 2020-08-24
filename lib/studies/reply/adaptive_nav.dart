@@ -21,7 +21,7 @@ const _folderIconAssetLocation = '$_iconAssetLocation/twotone_folder.png';
 final desktopMailNavKey = GlobalKey<NavigatorState>();
 final mobileMailNavKey = GlobalKey<NavigatorState>();
 const double _kFlingVelocity = 2.0;
-const Duration _kAnimationDuration = Duration(milliseconds: 300);
+const _kAnimationDuration = Duration(milliseconds: 300);
 
 class AdaptiveNav extends StatefulWidget {
   const AdaptiveNav({Key key}) : super(key: key);
