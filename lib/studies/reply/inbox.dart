@@ -27,27 +27,34 @@ class InboxPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: ListView(
-                  padding: EdgeInsetsDirectional.only(
-                    start: startPadding,
-                    end: endPadding,
-                    top: isDesktop ? 28 : 0,
-                  ),
-                  children: [
-                    for (int index = 0;
-                        index < model.emails[destination].length;
-                        index++) ...[
-                      MailPreviewCard(
-                        id: index,
-                        email: model.emails[destination][index],
-                        onDelete: () => model.deleteEmail(destination, index),
-                        onStar: () => model.starEmail(destination, index),
+                child: model.emails[model.currentlySelectedInbox].isEmpty
+                    ? Center(
+                        child: Text(
+                          '${model.currentlySelectedInbox} inbox is empty.',
+                        ),
+                      )
+                    : ListView(
+                        padding: EdgeInsetsDirectional.only(
+                          start: startPadding,
+                          end: endPadding,
+                          top: isDesktop ? 28 : 0,
+                        ),
+                        children: [
+                          for (int index = 0;
+                              index < model.emails[destination].length;
+                              index++) ...[
+                            MailPreviewCard(
+                              id: index,
+                              email: model.emails[destination][index],
+                              onDelete: () =>
+                                  model.deleteEmail(destination, index),
+                              onStar: () => model.starEmail(destination, index),
+                            ),
+                            const SizedBox(height: 4),
+                          ],
+                          const SizedBox(height: kToolbarHeight),
+                        ],
                       ),
-                      const SizedBox(height: 4),
-                    ],
-                    const SizedBox(height: kToolbarHeight),
-                  ],
-                ),
               ),
               if (isDesktop) ...[
                 Padding(
