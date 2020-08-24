@@ -27,6 +27,7 @@ class MobileProductCard extends StatelessWidget {
     return Semantics(
       container: true,
       button: true,
+      enabled: true,
       child: _buildProductCard(
         context: context,
         product: product,
@@ -58,12 +59,12 @@ Widget _buildProductCard({
   double imageWidth,
   double imageAspectRatio,
 }) {
-  final bool isDesktop = isDisplayDesktop(context);
-  final NumberFormat formatter = NumberFormat.simpleCurrency(
+  final isDesktop = isDisplayDesktop(context);
+  final formatter = NumberFormat.simpleCurrency(
     decimalDigits: 0,
     locale: Localizations.localeOf(context).toString(),
   );
-  final ThemeData theme = Theme.of(context);
+  final theme = Theme.of(context);
   final imageWidget = FadeInImagePlaceholder(
     image: AssetImage(product.assetName, package: product.assetPackage),
     placeholder: Container(

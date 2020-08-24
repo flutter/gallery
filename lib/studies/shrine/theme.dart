@@ -19,8 +19,9 @@ IconThemeData _customIconTheme(IconThemeData original) {
 }
 
 ThemeData _buildShrineTheme() {
-  final ThemeData base = ThemeData.light();
+  final base = ThemeData.light();
   return base.copyWith(
+    appBarTheme: const AppBarTheme(brightness: Brightness.light, elevation: 0),
     colorScheme: _shrineColorScheme,
     accentColor: shrineBrown900,
     primaryColor: shrinePink100,

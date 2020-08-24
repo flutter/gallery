@@ -22,7 +22,7 @@ double _textScaleFactor(BuildContext context) {
 // | Huge         |               3.0 |                       2.0 |
 
 double reducedTextScale(BuildContext context) {
-  double textScaleFactor = _textScaleFactor(context);
+  final textScaleFactor = _textScaleFactor(context);
   return textScaleFactor >= 1 ? (1 + textScaleFactor) / 2 : 1;
 }
 
@@ -37,6 +37,6 @@ double reducedTextScale(BuildContext context) {
 // | Huge         |               3.0 |                       3.0 |
 
 double cappedTextScale(BuildContext context) {
-  double textScaleFactor = _textScaleFactor(context);
+  final textScaleFactor = _textScaleFactor(context);
   return max(textScaleFactor, 1);
 }

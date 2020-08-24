@@ -78,12 +78,12 @@ class _SplashPageState extends State<SplashPage>
     _effect = _random.nextInt(_effectDurations.length) + 1;
 
     _controller = AnimationController(
-        duration: Duration(
+        duration: const Duration(
           milliseconds: splashPageAnimationDurationInMilliseconds,
         ),
         vsync: this)
       ..addListener(() {
-        this.setState(() {});
+        setState(() {});
       });
   }
 
@@ -97,7 +97,7 @@ class _SplashPageState extends State<SplashPage>
     BuildContext context,
     BoxConstraints constraints,
   ) {
-    final double height = constraints.biggest.height -
+    final height = constraints.biggest.height -
         (isDisplayDesktop(context) ? homePeekDesktop : homePeekMobile);
     return RelativeRectTween(
       begin: const RelativeRect.fromLTRB(0, 0, 0, 0),
@@ -116,9 +116,8 @@ class _SplashPageState extends State<SplashPage>
         isFinished: _controller.status == AnimationStatus.dismissed,
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final Animation<RelativeRect> animation =
-                _getPanelAnimation(context, constraints);
-            Widget frontLayer = widget.child;
+            final animation = _getPanelAnimation(context, constraints);
+            var frontLayer = widget.child;
             if (_isSplashVisible) {
               frontLayer = GestureDetector(
                 behavior: HitTestBehavior.opaque,
@@ -138,7 +137,7 @@ class _SplashPageState extends State<SplashPage>
               frontLayer = Padding(
                 padding: const EdgeInsets.only(top: 136),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.vertical(
+                  borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(40),
                   ),
                   child: frontLayer,
@@ -182,8 +181,11 @@ class _SplashBackLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var effectAsset = 'assets/splash_effects/splash_effect_$effect.gif';
-    final flutterLogo = Image.asset('assets/logo/flutter_logo.png');
+    var effectAsset = 'splash_effects/splash_effect_$effect.gif';
+    final flutterLogo = Image.asset(
+      'assets/logo/flutter_logo.png',
+      package: 'flutter_gallery_assets',
+    );
 
     Widget child;
     if (isSplashCollapsed) {
@@ -202,7 +204,12 @@ class _SplashBackLayer extends StatelessWidget {
     } else {
       child = Stack(
         children: [
-          Center(child: Image.asset(effectAsset)),
+          Center(
+            child: Image.asset(
+              effectAsset,
+              package: 'flutter_gallery_assets',
+            ),
+          ),
           Center(child: flutterLogo),
         ],
       );
@@ -210,7 +217,8 @@ class _SplashBackLayer extends StatelessWidget {
 
     return ExcludeSemantics(
       child: Container(
-        color: Color(0xFF030303), // This is the background color of the gifs.
+        // This is the background color of the gifs.
+        color: const Color(0xFF030303),
         padding: EdgeInsets.only(
           bottom: isDisplayDesktop(context) ? homePeekDesktop : homePeekMobile,
         ),

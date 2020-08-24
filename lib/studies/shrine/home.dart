@@ -18,7 +18,7 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     return ScopedModelDescendant<AppStateModel>(
         builder: (context, child, model) {
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     // Use sort keys to make sure the cart button is always on the top.
     // This way, a11y users do not have to scroll through the entire list to
@@ -54,14 +54,14 @@ class HomePage extends StatelessWidget {
           Semantics(
             container: true,
             child: backdrop,
-            sortKey: OrdinalSortKey(1, name: _ordinalSortKeyName),
+            sortKey: const OrdinalSortKey(1, name: _ordinalSortKeyName),
           ),
           ExcludeSemantics(child: scrim),
           Align(
             child: Semantics(
               container: true,
               child: expandingBottomSheet,
-              sortKey: OrdinalSortKey(0, name: _ordinalSortKeyName),
+              sortKey: const OrdinalSortKey(0, name: _ordinalSortKeyName),
             ),
             alignment: isDesktop
                 ? AlignmentDirectional.topEnd

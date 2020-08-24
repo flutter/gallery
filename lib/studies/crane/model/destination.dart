@@ -53,15 +53,17 @@ class FlyDestination extends Destination {
   final int stops;
   final Duration duration;
 
-  String get assetName => 'assets/crane/destinations/fly_$id.jpg';
+  @override
+  String get assetName => 'crane/destinations/fly_$id.jpg';
 
+  @override
   String subtitle(BuildContext context) {
     final stopsText = GalleryLocalizations.of(context).craneFlyStops(stops);
 
     if (duration == null) {
       return stopsText;
     } else {
-      final textDirection = GalleryOptions.of(context).textDirection();
+      final textDirection = GalleryOptions.of(context).resolvedTextDirection();
       final durationText =
           formattedDuration(context, duration, abbreviated: true);
       return textDirection == TextDirection.ltr
@@ -102,8 +104,10 @@ class SleepDestination extends Destination {
 
   final int total;
 
-  String get assetName => 'assets/crane/destinations/sleep_$id.jpg';
+  @override
+  String get assetName => 'crane/destinations/sleep_$id.jpg';
 
+  @override
   String subtitle(BuildContext context) {
     return GalleryLocalizations.of(context).craneSleepProperties(total);
   }
@@ -127,8 +131,10 @@ class EatDestination extends Destination {
 
   final int total;
 
-  String get assetName => 'assets/crane/destinations/eat_$id.jpg';
+  @override
+  String get assetName => 'crane/destinations/eat_$id.jpg';
 
+  @override
   String subtitle(BuildContext context) {
     return GalleryLocalizations.of(context).craneEatRestaurants(total);
   }

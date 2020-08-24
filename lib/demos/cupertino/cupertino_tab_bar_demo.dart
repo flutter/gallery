@@ -16,6 +16,8 @@ class _TabInfo {
 }
 
 class CupertinoTabBarDemo extends StatelessWidget {
+  const CupertinoTabBarDemo();
+
   @override
   Widget build(BuildContext context) {
     final _tabInfo = [
@@ -40,6 +42,7 @@ class CupertinoTabBarDemo extends StatelessWidget {
           items: [
             for (final tabInfo in _tabInfo)
               BottomNavigationBarItem(
+                // ignore: deprecated_member_use
                 title: Text(tabInfo.title),
                 icon: Icon(tabInfo.icon),
               ),
@@ -72,7 +75,7 @@ class _CupertinoDemoTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(),
+      navigationBar: const CupertinoNavigationBar(),
       backgroundColor: CupertinoColors.systemBackground,
       child: Center(
         child: Icon(

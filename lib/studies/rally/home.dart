@@ -18,6 +18,8 @@ const int turnsToRotateRight = 1;
 const int turnsToRotateLeft = 3;
 
 class HomePage extends StatefulWidget {
+  const HomePage();
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -44,12 +46,13 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
     final isDesktop = isDisplayDesktop(context);
     Widget tabBarView;
     if (isDesktop) {
       final isTextDirectionRtl =
-          GalleryOptions.of(context).textDirection() == TextDirection.rtl;
+          GalleryOptions.of(context).resolvedTextDirection() ==
+              TextDirection.rtl;
       final verticalRotation =
           isTextDirectionRtl ? turnsToRotateLeft : turnsToRotateRight;
       final revertVerticalRotation =
@@ -222,7 +225,7 @@ class _RallyTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FocusTraversalOrder(
-      order: NumericFocusOrder(0),
+      order: const NumericFocusOrder(0),
       child: TabBar(
         // Setting isScrollable to true prevents the tabs from being
         // wrapped in [Expanded] widgets, which allows for more
@@ -325,7 +328,7 @@ class _RallyTabState extends State<_RallyTab>
     final unitWidth = width / (tabCount + expandedTitleWidthMultiplier);
 
     return ConstrainedBox(
-      constraints: BoxConstraints(minHeight: 56),
+      constraints: const BoxConstraints(minHeight: 56),
       child: Row(
         children: [
           FadeTransition(

@@ -14,6 +14,8 @@ import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage();
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -26,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: Scaffold(
+        appBar: AppBar(automaticallyImplyLeading: false),
         body: SafeArea(
           child: _MainView(
             usernameController: _usernameController,
@@ -84,7 +87,7 @@ class _MainView extends StatelessWidget {
       ];
     } else {
       listViewChildren = [
-        _SmallLogo(),
+        const _SmallLogo(),
         _UsernameInput(
           usernameController: usernameController,
         ),
@@ -102,7 +105,7 @@ class _MainView extends StatelessWidget {
 
     return Column(
       children: [
-        if (isDesktop) _TopBar(),
+        if (isDesktop) const _TopBar(),
         Expanded(
           child: Align(
             alignment: isDesktop ? Alignment.center : Alignment.topCenter,
@@ -129,7 +132,7 @@ class _TopBar extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: [
@@ -140,7 +143,8 @@ class _TopBar extends StatelessWidget {
                 child: SizedBox(
                   height: 80,
                   child: FadeInImagePlaceholder(
-                    image: AssetImage('logo.png', package: 'rally_assets'),
+                    image:
+                        const AssetImage('logo.png', package: 'rally_assets'),
                     placeholder: LayoutBuilder(builder: (context, constraints) {
                       return SizedBox(
                         width: constraints.maxHeight,
@@ -186,8 +190,8 @@ class _SmallLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 64),
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: 64),
       child: SizedBox(
         height: 160,
         child: ExcludeSemantics(
@@ -340,7 +344,8 @@ class _LoginButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 30),
         child: Row(
           children: [
-            Icon(Icons.check_circle_outline, color: RallyColors.buttonColor),
+            const Icon(Icons.check_circle_outline,
+                color: RallyColors.buttonColor),
             const SizedBox(width: 12),
             Text(GalleryLocalizations.of(context).rallyLoginRememberMe),
             const Expanded(child: SizedBox.shrink()),
@@ -398,7 +403,7 @@ class _FilledButton extends StatelessWidget {
       onPressed: onTap,
       child: Row(
         children: [
-          Icon(Icons.lock),
+          const Icon(Icons.lock),
           const SizedBox(width: 6),
           Text(text),
         ],

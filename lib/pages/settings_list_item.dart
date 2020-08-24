@@ -39,7 +39,7 @@ class SlowMotionSetting extends StatelessWidget {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -76,16 +76,16 @@ class SlowMotionSetting extends StatelessWidget {
 class SettingsListItem<T> extends StatefulWidget {
   SettingsListItem({
     Key key,
+    @required this.optionsMap,
     @required this.title,
-    @required this.options,
     @required this.selectedOption,
     @required this.onOptionChanged,
     @required this.onTapSetting,
     @required this.isExpanded,
   }) : super(key: key);
 
+  final LinkedHashMap<T, DisplayOption> optionsMap;
   final String title;
-  final LinkedHashMap<T, DisplayOption> options;
   final T selectedOption;
   final ValueChanged<T> onOptionChanged;
   final Function onTapSetting;
@@ -109,6 +109,10 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
   Animation<EdgeInsetsGeometry> _childrenPadding;
   Animation<BorderRadius> _headerBorderRadius;
 
+  // For ease of use. Correspond to the keys and values of `widget.optionsMap`.
+  Iterable<T> _options;
+  Iterable<DisplayOption> _displayOptions;
+
   @override
   void initState() {
     super.initState();
@@ -121,13 +125,13 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
       end: EdgeInsets.zero,
     ).animate(_controller);
     _headerPadding = EdgeInsetsGeometryTween(
-      begin: EdgeInsetsDirectional.fromSTEB(16, 10, 0, 10),
-      end: EdgeInsetsDirectional.fromSTEB(32, 18, 32, 20),
+      begin: const EdgeInsetsDirectional.fromSTEB(16, 10, 0, 10),
+      end: const EdgeInsetsDirectional.fromSTEB(32, 18, 32, 20),
     ).animate(_controller);
     _headerSubtitleHeight =
         _controller.drive(Tween<double>(begin: 1.0, end: 0.0));
     _childrenPadding = EdgeInsetsGeometryTween(
-      begin: EdgeInsets.symmetric(horizontal: 32),
+      begin: const EdgeInsets.symmetric(horizontal: 32),
       end: EdgeInsets.zero,
     ).animate(_controller);
     _headerBorderRadius = BorderRadiusTween(
@@ -138,6 +142,9 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     if (widget.isExpanded) {
       _controller.value = 1.0;
     }
+
+    _options = widget.optionsMap.keys;
+    _displayOptions = widget.optionsMap.values;
   }
 
   @override
@@ -169,7 +176,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           subtitleHeight: _headerSubtitleHeight,
           chevronRotation: _headerChevronRotation,
           title: widget.title,
-          subtitle: widget.options[widget.selectedOption].title ?? '',
+          subtitle: widget.optionsMap[widget.selectedOption]?.title ?? '',
           onTap: () => widget.onTapSetting(),
         ),
         Padding(
@@ -190,46 +197,11 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     _handleExpansion();
     final theme = Theme.of(context);
 
-    final optionWidgetsList = <Widget>[];
-
-    widget.options.forEach(
-      (optionValue, optionDisplay) => optionWidgetsList.add(
-        RadioListTile<T>(
-          value: optionValue,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                optionDisplay.title,
-                style: theme.textTheme.bodyText1.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-              ),
-              if (optionDisplay.subtitle != null)
-                Text(
-                  optionDisplay.subtitle,
-                  style: theme.textTheme.bodyText1.copyWith(
-                    fontSize: 12,
-                    color: Theme.of(context)
-                        .colorScheme
-                        .onPrimary
-                        .withOpacity(0.8),
-                  ),
-                ),
-            ],
-          ),
-          groupValue: widget.selectedOption,
-          onChanged: (newOption) => widget.onOptionChanged(newOption),
-          activeColor: Theme.of(context).colorScheme.primary,
-          dense: true,
-        ),
-      ),
-    );
-
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
       child: Container(
+        constraints: const BoxConstraints(maxHeight: 384),
         margin: const EdgeInsetsDirectional.only(start: 24, bottom: 40),
         decoration: BoxDecoration(
           border: BorderDirectional(
@@ -241,9 +213,39 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
         ),
         child: ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => optionWidgetsList[index],
-          itemCount: optionWidgetsList.length,
+          itemCount: widget.isExpanded ? _options.length : 0,
+          itemBuilder: (context, index) {
+            final displayOption = _displayOptions.elementAt(index);
+            return RadioListTile<T>(
+              value: _options.elementAt(index),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    displayOption.title,
+                    style: theme.textTheme.bodyText1.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                  if (displayOption.subtitle != null)
+                    Text(
+                      displayOption.subtitle,
+                      style: theme.textTheme.bodyText1.copyWith(
+                        fontSize: 12,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onPrimary
+                            .withOpacity(0.8),
+                      ),
+                    ),
+                ],
+              ),
+              groupValue: widget.selectedOption,
+              onChanged: (newOption) => widget.onOptionChanged(newOption),
+              activeColor: Theme.of(context).colorScheme.primary,
+              dense: true,
+            );
+          },
         ),
       ),
     );
@@ -322,7 +324,7 @@ class _CategoryHeader extends StatelessWidget {
                 ),
                 child: RotationTransition(
                   turns: chevronRotation,
-                  child: Icon(Icons.arrow_drop_down),
+                  child: const Icon(Icons.arrow_drop_down),
                 ),
               )
             ],

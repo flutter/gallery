@@ -2,17 +2,17 @@
 <!--
   This file was automatically generated.
   Please do not edit it manually.
-  It was based on gallery/lib/src/l10n/intl_en.arb.
+  It is based on lib/l10n/intl_en.arb.
 -->
 <resources>
   <string
-    name="aboutFlutterSamplesRepo"
-    description="Represents a link to the Flutter samples github repository."
-    >Flutter samples Github repo</string>
+    name="githubRepo"
+    description="Represents a link to a GitHub repository."
+    >{repoName} GitHub repository</string>
   <string
     name="aboutDialogDescription"
     description="A description about how to view the source code for this app."
-    >To see the source code for this app, please visit the {value}.</string>
+    >To see the source code for this app, please visit the {repoLink}.</string>
   <string
     name="signIn"
     description="Sign in label to sign into website."
@@ -1185,6 +1185,310 @@
     name="demoCupertinoTextFieldPIN"
     description="The placeholder for a text field where a user would enter their PIN number."
     >PIN</string>
+  <string
+    name="demoMotionTitle"
+    description="Title for the motion demo."
+    >Motion</string>
+  <string
+    name="demoMotionSubtitle"
+    description="Subtitle for the motion demo."
+    >All of the predefined transition patterns</string>
+  <string
+    name="demoContainerTransformDemoInstructions"
+    description="Instructions for the container transform demo located in the app bar."
+    >Cards, Lists &amp; FAB</string>
+  <string
+    name="demoSharedXAxisDemoInstructions"
+    description="Instructions for the shared x axis demo located in the app bar."
+    >Next and Back Buttons</string>
+  <string
+    name="demoSharedYAxisDemoInstructions"
+    description="Instructions for the shared y axis demo located in the app bar."
+    >Sort by &quot;Recently Played&quot;</string>
+  <string
+    name="demoSharedZAxisDemoInstructions"
+    description="Instructions for the shared z axis demo located in the app bar."
+    >Settings icon button</string>
+  <string
+    name="demoFadeThroughDemoInstructions"
+    description="Instructions for the fade through demo located in the app bar."
+    >Bottom navigation</string>
+  <string
+    name="demoFadeScaleDemoInstructions"
+    description="Instructions for the fade scale demo located in the app bar."
+    >Modal and FAB</string>
+  <string
+    name="demoContainerTransformTitle"
+    description="Title for the container transform demo."
+    >Container Transform</string>
+  <string
+    name="demoContainerTransformDescription"
+    description="Description for the container transform demo."
+    >The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements</string>
+  <string
+    name="demoContainerTransformModalBottomSheetTitle"
+    description="Title for the container transform modal bottom sheet."
+    >Fade mode</string>
+  <string
+    name="demoContainerTransformTypeFade"
+    description="Description for container transform fade type setting."
+    >FADE</string>
+  <string
+    name="demoContainerTransformTypeFadeThrough"
+    description="Description for container transform fade through type setting."
+    >FADE THROUGH</string>
+  <string
+    name="demoMotionPlaceholderTitle"
+    description="The placeholder for the motion demos title properties."
+    >Title</string>
+  <string
+    name="demoMotionPlaceholderSubtitle"
+    description="The placeholder for the motion demos subtitle properties."
+    >Secondary text</string>
+  <string
+    name="demoMotionSmallPlaceholderSubtitle"
+    description="The placeholder for the motion demos shortened subtitle properties."
+    >Secondary</string>
+  <string
+    name="demoMotionDetailsPageTitle"
+    description="The title for the details page in the motion demos."
+    >Details Page</string>
+  <string
+    name="demoMotionListTileTitle"
+    description="The title for a list tile in the motion demos."
+    >List item</string>
+  <string
+    name="demoSharedAxisDescription"
+    description="Description for the shared y axis demo."
+    >The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.</string>
+  <string
+    name="demoSharedXAxisTitle"
+    description="Title for the shared x axis demo."
+    >Shared x-axis</string>
+  <string
+    name="demoSharedXAxisBackButtonText"
+    description="Button text for back button in the shared x axis demo."
+    >BACK</string>
+  <string
+    name="demoSharedXAxisNextButtonText"
+    description="Button text for the next button in the shared x axis demo."
+    >NEXT</string>
+  <string
+    name="demoSharedXAxisCoursePageTitle"
+    description="Title for course selection page in the shared x axis demo."
+    >Streamline your courses</string>
+  <string
+    name="demoSharedXAxisCoursePageSubtitle"
+    description="Subtitle for course selection page in the shared x axis demo."
+    >Bundled categories appear as groups in your feed. You can always change this later.</string>
+  <string
+    name="demoSharedXAxisArtsAndCraftsCourseTitle"
+    description="Title for the Arts &amp; Crafts course in the shared x axis demo."
+    >Arts &amp; Crafts</string>
+  <string
+    name="demoSharedXAxisBusinessCourseTitle"
+    description="Title for the Business course in the shared x axis demo."
+    >Business</string>
+  <string
+    name="demoSharedXAxisIllustrationCourseTitle"
+    description="Title for the Illustration course in the shared x axis demo."
+    >Illustration</string>
+  <string
+    name="demoSharedXAxisDesignCourseTitle"
+    description="Title for the Design course in the shared x axis demo."
+    >Design</string>
+  <string
+    name="demoSharedXAxisCulinaryCourseTitle"
+    description="Title for the Culinary course in the shared x axis demo."
+    >Culinary</string>
+  <string
+    name="demoSharedXAxisBundledCourseSubtitle"
+    description="Subtitle for a bundled course in the shared x axis demo."
+    >Bundled</string>
+  <string
+    name="demoSharedXAxisIndividualCourseSubtitle"
+    description="Subtitle for a individual course in the shared x axis demo."
+    >Shown Individually</string>
+  <string
+    name="demoSharedXAxisSignInWelcomeText"
+    description="Welcome text for sign in page in the shared x axis demo. David Park is a name and does not need to be translated."
+    >Hi David Park</string>
+  <string
+    name="demoSharedXAxisSignInSubtitleText"
+    description="Subtitle text for sign in page in the shared x axis demo."
+    >Sign in with your account</string>
+  <string
+    name="demoSharedXAxisSignInTextFieldLabel"
+    description="Label text for the sign in text field in the shared x axis demo."
+    >Email or phone number</string>
+  <string
+    name="demoSharedXAxisForgotEmailButtonText"
+    description="Button text for the forgot email button in the shared x axis demo."
+    >FORGOT EMAIL?</string>
+  <string
+    name="demoSharedXAxisCreateAccountButtonText"
+    description="Button text for the create account button in the shared x axis demo."
+    >CREATE ACCOUNT</string>
+  <string
+    name="demoSharedYAxisTitle"
+    description="Title for the shared y axis demo."
+    >Shared y-axis</string>
+  <string
+    name="demoSharedYAxisAlbumCount"
+    description="Text for album count in the shared y axis demo."
+    >268 albums</string>
+  <string
+    name="demoSharedYAxisAlphabeticalSortTitle"
+    description="Title for alphabetical sorting type in the shared y axis demo."
+    >A-Z</string>
+  <string
+    name="demoSharedYAxisRecentSortTitle"
+    description="Title for recently played sorting type in the shared y axis demo."
+    >Recently played</string>
+  <string
+    name="demoSharedYAxisAlbumTileTitle"
+    description="Title for an AlbumTile in the shared y axis demo."
+    >Album</string>
+  <string
+    name="demoSharedYAxisAlbumTileSubtitle"
+    description="Subtitle for an AlbumTile in the shared y axis demo."
+    >Artist</string>
+  <string
+    name="demoSharedYAxisAlbumTileDurationUnit"
+    description="Duration unit for an AlbumTile in the shared y axis demo."
+    >min</string>
+  <string
+    name="demoSharedZAxisTitle"
+    description="Title for the shared z axis demo."
+    >Shared z-axis</string>
+  <string
+    name="demoSharedZAxisSettingsPageTitle"
+    description="Title for the settings page in the shared z axis demo."
+    >Settings</string>
+  <string
+    name="demoSharedZAxisBurgerRecipeTitle"
+    description="Title for burger recipe tile in the shared z axis demo."
+    >Burger</string>
+  <string
+    name="demoSharedZAxisBurgerRecipeDescription"
+    description="Subtitle for the burger recipe tile in the shared z axis demo."
+    >Burger recipe</string>
+  <string
+    name="demoSharedZAxisSandwichRecipeTitle"
+    description="Title for sandwich recipe tile in the shared z axis demo."
+    >Sandwich</string>
+  <string
+    name="demoSharedZAxisSandwichRecipeDescription"
+    description="Subtitle for the sandwich recipe tile in the shared z axis demo."
+    >Sandwich recipe</string>
+  <string
+    name="demoSharedZAxisDessertRecipeTitle"
+    description="Title for dessert recipe tile in the shared z axis demo."
+    >Dessert</string>
+  <string
+    name="demoSharedZAxisDessertRecipeDescription"
+    description="Subtitle for the dessert recipe tile in the shared z axis demo."
+    >Dessert recipe</string>
+  <string
+    name="demoSharedZAxisShrimpPlateRecipeTitle"
+    description="Title for shrimp plate recipe tile in the shared z axis demo."
+    >Shrimp</string>
+  <string
+    name="demoSharedZAxisShrimpPlateRecipeDescription"
+    description="Subtitle for the shrimp plate recipe tile in the shared z axis demo."
+    >Shrimp plate recipe</string>
+  <string
+    name="demoSharedZAxisCrabPlateRecipeTitle"
+    description="Title for crab plate recipe tile in the shared z axis demo."
+    >Crab</string>
+  <string
+    name="demoSharedZAxisCrabPlateRecipeDescription"
+    description="Subtitle for the crab plate recipe tile in the shared z axis demo."
+    >Crab plate recipe</string>
+  <string
+    name="demoSharedZAxisBeefSandwichRecipeTitle"
+    description="Title for beef sandwich recipe tile in the shared z axis demo."
+    >Beef Sandwich</string>
+  <string
+    name="demoSharedZAxisBeefSandwichRecipeDescription"
+    description="Subtitle for the beef sandwich recipe tile in the shared z axis demo."
+    >Beef Sandwich recipe</string>
+  <string
+    name="demoSharedZAxisSavedRecipesListTitle"
+    description="Title for list of saved recipes in the shared z axis demo."
+    >Saved Recipes</string>
+  <string
+    name="demoSharedZAxisProfileSettingLabel"
+    description="Text label for profile setting tile in the shared z axis demo."
+    >Profile</string>
+  <string
+    name="demoSharedZAxisNotificationSettingLabel"
+    description="Text label for notifications setting tile in the shared z axis demo."
+    >Notifications</string>
+  <string
+    name="demoSharedZAxisPrivacySettingLabel"
+    description="Text label for the privacy setting tile in the shared z axis demo."
+    >Privacy</string>
+  <string
+    name="demoSharedZAxisHelpSettingLabel"
+    description="Text label for the help setting tile in the shared z axis demo."
+    >Help</string>
+  <string
+    name="demoFadeThroughTitle"
+    description="Title for the fade through demo."
+    >Fade through</string>
+  <string
+    name="demoFadeThroughDescription"
+    description="Description for the fade through demo."
+    >The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.</string>
+  <string
+    name="demoFadeThroughAlbumsDestination"
+    description="Text for albums bottom navigation bar destination in the fade through demo."
+    >Albums</string>
+  <string
+    name="demoFadeThroughPhotosDestination"
+    description="Text for photos bottom navigation bar destination in the fade through demo."
+    >Photos</string>
+  <string
+    name="demoFadeThroughSearchDestination"
+    description="Text for search bottom navigation bar destination in the fade through demo."
+    >Search</string>
+  <string
+    name="demoFadeThroughTextPlaceholder"
+    description="Placeholder for example card title in the fade through demo."
+    >123 photos</string>
+  <string
+    name="demoFadeScaleTitle"
+    description="Title for the fade scale demo."
+    >Fade</string>
+  <string
+    name="demoFadeScaleDescription"
+    description="Description for the fade scale demo."
+    >The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.</string>
+  <string
+    name="demoFadeScaleShowAlertDialogButton"
+    description="Button text to show alert dialog in the fade scale demo."
+    >SHOW MODAL</string>
+  <string
+    name="demoFadeScaleShowFabButton"
+    description="Button text to show fab in the fade scale demo."
+    >SHOW FAB</string>
+  <string
+    name="demoFadeScaleHideFabButton"
+    description="Button text to hide fab in the fade scale demo."
+    >HIDE FAB</string>
+  <string
+    name="demoFadeScaleAlertDialogHeader"
+    description="Generic header for alert dialog in the fade scale demo."
+    >Alert Dialog</string>
+  <string
+    name="demoFadeScaleAlertDialogCancelButton"
+    description="Button text for alert dialog cancel button in the fade scale demo."
+    >CANCEL</string>
+  <string
+    name="demoFadeScaleAlertDialogDiscardButton"
+    description="Button text for alert dialog discard button in the fade scale demo."
+    >DISCARD</string>
   <string
     name="demoColorsTitle"
     description="Title for the colors demo."

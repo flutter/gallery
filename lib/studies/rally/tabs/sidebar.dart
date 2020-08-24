@@ -34,7 +34,7 @@ class TabWithSidebar extends StatelessWidget {
             flex: 1,
             child: Container(
               color: RallyColors.inputBackground,
-              padding: EdgeInsetsDirectional.only(start: 24),
+              padding: const EdgeInsetsDirectional.only(start: 24),
               height: double.infinity,
               alignment: AlignmentDirectional.centerStart,
               child: ListView(
@@ -63,7 +63,7 @@ class SidebarItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           title,
           style: textTheme.bodyText2.copyWith(
@@ -71,12 +71,12 @@ class SidebarItem extends StatelessWidget {
             color: RallyColors.gray60,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           value,
           style: textTheme.bodyText1.copyWith(fontSize: 20),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Container(
           color: RallyColors.primaryBackground,
           height: 1,

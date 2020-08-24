@@ -82,7 +82,7 @@ class _SlidersState extends State<_Sliders> {
                   child: TextField(
                     textAlign: TextAlign.center,
                     onSubmitted: (value) {
-                      final double newValue = double.tryParse(value);
+                      final newValue = double.tryParse(value);
                       if (newValue != null && newValue != _continuousValue) {
                         setState(() {
                           _continuousValue = newValue.clamp(0, 100) as double;
@@ -236,6 +236,7 @@ Path _leftTriangle(double size, Offset thumbCenter) =>
     _rightTriangle(size, thumbCenter, invert: true);
 
 class _CustomRangeThumbShape extends RangeSliderThumbShape {
+  const _CustomRangeThumbShape();
   static const double _thumbSize = 4;
   static const double _disabledThumbSize = 3;
 
@@ -260,9 +261,10 @@ class _CustomRangeThumbShape extends RangeSliderThumbShape {
     bool isDiscrete = false,
     bool isEnabled = false,
     bool isOnTop,
-    @required SliderThemeData sliderTheme,
     TextDirection textDirection,
+    @required SliderThemeData sliderTheme,
     Thumb thumb,
+    bool isPressed,
   }) {
     final canvas = context.canvas;
     final colorTween = ColorTween(
@@ -302,6 +304,8 @@ class _CustomRangeThumbShape extends RangeSliderThumbShape {
 }
 
 class _CustomThumbShape extends SliderComponentShape {
+  const _CustomThumbShape();
+
   static const double _thumbSize = 4;
   static const double _disabledThumbSize = 3;
 
@@ -329,6 +333,8 @@ class _CustomThumbShape extends SliderComponentShape {
     SliderThemeData sliderTheme,
     TextDirection textDirection,
     double value,
+    double textScaleFactor,
+    Size sizeWithOverflow,
   }) {
     final canvas = context.canvas;
     final colorTween = ColorTween(
@@ -345,6 +351,8 @@ class _CustomThumbShape extends SliderComponentShape {
 }
 
 class _CustomValueIndicatorShape extends SliderComponentShape {
+  const _CustomValueIndicatorShape();
+
   static const double _indicatorSize = 4;
   static const double _disabledIndicatorSize = 3;
   static const double _slideUpHeight = 40;
@@ -371,6 +379,8 @@ class _CustomValueIndicatorShape extends SliderComponentShape {
     SliderThemeData sliderTheme,
     TextDirection textDirection,
     double value,
+    double textScaleFactor,
+    Size sizeWithOverflow,
   }) {
     final canvas = context.canvas;
     final enableColor = ColorTween(
@@ -430,6 +440,7 @@ class _CustomSlidersState extends State<_CustomSliders> {
             children: [
               SliderTheme(
                 data: theme.sliderTheme.copyWith(
+                  trackHeight: 2,
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor:
                       theme.colorScheme.onSurface.withOpacity(0.5),
@@ -440,8 +451,8 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   overlayColor: theme.colorScheme.onSurface.withOpacity(0.12),
                   thumbColor: Colors.deepPurple,
                   valueIndicatorColor: Colors.deepPurpleAccent,
-                  thumbShape: _CustomThumbShape(),
-                  valueIndicatorShape: _CustomValueIndicatorShape(),
+                  thumbShape: const _CustomThumbShape(),
+                  valueIndicatorShape: const _CustomValueIndicatorShape(),
                   valueIndicatorTextStyle: theme.accentTextTheme.bodyText1
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
@@ -469,7 +480,8 @@ class _CustomSlidersState extends State<_CustomSliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               SliderTheme(
-                data: SliderThemeData(
+                data: const SliderThemeData(
+                  trackHeight: 2,
                   activeTrackColor: Colors.deepPurple,
                   inactiveTrackColor: Colors.black26,
                   activeTickMarkColor: Colors.white70,

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 abstract class BackLayerItem extends StatefulWidget {
   final int index;
 
-  BackLayerItem({Key key, this.index}) : super(key: key);
+  const BackLayerItem({Key key, @required this.index}) : super(key: key);
 }
 
 class BackLayer extends StatefulWidget {
@@ -31,19 +31,15 @@ class _BackLayerState extends State<BackLayer> {
   @override
   Widget build(BuildContext context) {
     final tabIndex = widget.tabController.index;
-    return FocusTraversalGroup(
-      policy: WidgetOrderTraversalPolicy(),
-      child: IndexedStack(
-        index: tabIndex,
-        children: [
-          for (BackLayerItem backLayerItem in widget.backLayerItems)
-            Focus(
-              canRequestFocus: backLayerItem.index == tabIndex,
-              debugLabel: 'backLayerItem: $backLayerItem',
-              child: backLayerItem,
-            )
-        ],
-      ),
+    return IndexedStack(
+      index: tabIndex,
+      children: [
+        for (BackLayerItem backLayerItem in widget.backLayerItems)
+          ExcludeFocus(
+            excluding: backLayerItem.index != tabIndex,
+            child: backLayerItem,
+          )
+      ],
     );
   }
 }

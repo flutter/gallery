@@ -41,15 +41,17 @@ This includes:
 - Linux
 - Windows
 
-That being said, extra steps must be taken to [enable Desktop support](
+An APK, macOS, Linux, and Windows builds are available for [download](https://github.com/flutter/gallery/releases). You can find it on the web at [gallery.flutter.dev](https://gallery.flutter.dev/) and on the [Google Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery).
+
+You can build from source yourself for any of these platforms, though, please note desktop support must [be enabled](
 https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). For
-example, to run the macOS app:
+example, to run the app on Windows:
 
 ```bash
 cd gallery/
-flutter config --enable-macos-desktop
+flutter config --enable-windows-desktop
 flutter create .
-flutter run -d macos
+flutter run -d windows
 ```
 
 Additionally, the UI adapts between mobile and desktop layouts regardless of the
@@ -75,8 +77,7 @@ platform it runs on. This is determined based on window size as outlined in
 ## Generating localized strings and highlighted code segments
 
 To generate localized strings or highlighted code segments, make sure that you
-have [grinder](https://pub.dev/packages/grinder) installed. You can install it
-by getting the packages in `samples/gallery/`:
+have [grinder](https://pub.dev/packages/grinder) installed by running 
 ```bash
 flutter pub get
 ```
@@ -96,28 +97,30 @@ flutter pub run grinder update-code-segments
 
 ## Creating a new release (for Flutter org members)
 
-1. Bump the version number up in the `pubspec.yaml`. Use semantic versioning to determine 
+1. Bump the version number up in the `pubspec.yaml`. Use semantic versioning to determine
    which number to increment. For example `2.2.0+020200` should become `2.3.0+020300`.
-   
-2. Create a tag on the `master` branch of this repo in the form of `v2.3`.
-	* `git tag v2.3`
-	* `git push --tags`
 
-3. Publish the web release (using the [peanut package](https://pub.dev/packages/peanut)).
-    * `flutter pub global activate peanut`
-    * `flutter pub global run peanut:peanut`
-    * `git push upstream gh-pages:gh-pages`
-        * `git update-ref refs/heads/gh-pages upstream/gh-pages` if you need to align with upstream.
+2. Publish the firebase hosted web release.
+    * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
+    * `flutter build web`
+    * `firebase deploy -P prod` to deploy to production (equivalent to `firebase deploy`).
+    * `firebase deploy -P staging` to deploy to staging. Check with the team to see if the staging
+       instance is currently used for a special purpose.
 
-4. Publish the Android release (using the correct signing certificates).
+3. Publish the Android release
+    * Ensure you have the correct signing certificates.
     * Create the app bundle with `flutter build appbundle`.
     * Upload to the Play store console.
     * Publish the Play store release.
     * Create the APK with `flutter build apk` (this is for the Github release).
 
-5. Draft a release in Github from the tag you created, call the release `Flutter Gallery 2.x`
+4. Draft a release in Github, calling the release `Flutter Gallery 2.x`
+    * The tag should be `v2.x` and the target `master`.
     * Upload the Android APK from above.
     * Create and upload the macOS build by running `flutter build macos` and zipping the 
       app inside `build/macos/Build/Products/Release`.
-    * Optional: Create and upload the Linux/Windows builds.
+    * On a Linux machine, create and upload the Linux build by running `flutter build linux`
+      and compress the contents of `build/linux/release/bundle`.
+    * On a Windows machine, create and upload the Windows build by running `flutter build windows`
+       and zipping the contents of `build/windows/release`.
     * Publish the release.

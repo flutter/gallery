@@ -12,6 +12,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 // BEGIN textFieldDemo
 
 class TextFieldDemo extends StatelessWidget {
+  const TextFieldDemo();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,7 @@ class TextFieldDemo extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoTextFieldTitle),
       ),
-      body: TextFormFieldDemo(),
+      body: const TextFormFieldDemo(),
     );
   }
 }
@@ -112,7 +114,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
     ));
   }
 
-  bool _autoValidate = false;
+  AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<FormFieldState<String>> _passwordFieldKey =
@@ -123,7 +125,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   void _handleSubmitted() {
     final form = _formKey.currentState;
     if (!form.validate()) {
-      _autoValidate = true; // Start validating on every change.
+      _autoValidateMode =
+          AutovalidateMode.always; // Start validating on every change.
       showInSnackBar(
         GalleryLocalizations.of(context).demoTextFieldFormErrors,
       );
@@ -174,7 +177,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
       key: _scaffoldKey,
       body: Form(
         key: _formKey,
-        autovalidate: _autoValidate,
+        autovalidateMode: _autoValidateMode,
         child: Scrollbar(
           child: SingleChildScrollView(
             dragStartBehavior: DragStartBehavior.down,
@@ -188,7 +191,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
                     filled: true,
-                    icon: Icon(Icons.person),
+                    icon: const Icon(Icons.person),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldWhatDoPeopleCallYou,
                     labelText:
@@ -204,7 +207,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
                     filled: true,
-                    icon: Icon(Icons.phone),
+                    icon: const Icon(Icons.phone),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldWhereCanWeReachYou,
                     labelText: GalleryLocalizations.of(context)
@@ -220,7 +223,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   validator: _validatePhoneNumber,
                   // TextInputFormatters are applied in sequence.
                   inputFormatters: <TextInputFormatter>[
-                    WhitelistingTextInputFormatter.digitsOnly,
+                    FilteringTextInputFormatter.digitsOnly,
                     // Fit the validating format.
                     _phoneNumberFormatter,
                   ],
@@ -230,7 +233,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
                     filled: true,
-                    icon: Icon(Icons.email),
+                    icon: const Icon(Icons.email),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldYourEmailAddress,
                     labelText:
@@ -245,7 +248,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                 TextFormField(
                   cursorColor: cursorColor,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     hintText: GalleryLocalizations.of(context)
                         .demoTextFieldTellUsAboutYourself,
                     helperText: GalleryLocalizations.of(context)
@@ -260,7 +263,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   cursorColor: cursorColor,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     labelText:
                         GalleryLocalizations.of(context).demoTextFieldSalary,
                     suffixText:
@@ -325,8 +328,8 @@ class _UsNumberTextInputFormatter extends TextInputFormatter {
   ) {
     final newTextLength = newValue.text.length;
     final newText = StringBuffer();
-    int selectionIndex = newValue.selection.end;
-    int usedSubstringIndex = 0;
+    var selectionIndex = newValue.selection.end;
+    var usedSubstringIndex = 0;
     if (newTextLength >= 1) {
       newText.write('(');
       if (newValue.selection.end >= 1) selectionIndex++;

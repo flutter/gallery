@@ -1,15 +1,19 @@
 {
-  "@@last_modified": "2019-11-06T15:50:09.076419",
-  "aboutFlutterSamplesRepo": "Flutter samples Github repo",
-  "@aboutFlutterSamplesRepo": {
-    "description": "Represents a link to the Flutter samples github repository."
+  "githubRepo": "{repoName} GitHub repository",
+  "@githubRepo": {
+    "description": "Represents a link to a GitHub repository.",
+    "placeholders": {
+      "repoName": {
+        "example": "Flutter Gallery"
+      }
+    }
   },
-  "aboutDialogDescription": "To see the source code for this app, please visit the {value}.",
+  "aboutDialogDescription": "To see the source code for this app, please visit the {repoLink}.",
   "@aboutDialogDescription": {
     "description": "A description about how to view the source code for this app.",
     "placeholders": {
-      "value": {
-        "example": "Flutter samples Github repo"
+      "repoLink": {
+        "example": "Flutter Gallery GitHub repository"
       }
     }
   },
@@ -1290,6 +1294,310 @@
   "demoCupertinoTextFieldPIN": "PIN",
   "@demoCupertinoTextFieldPIN": {
     "description": "The placeholder for a text field where a user would enter their PIN number."
+  },
+  "demoMotionTitle": "Motion",
+  "@demoMotionTitle": {
+    "description": "Title for the motion demo."
+  },
+  "demoMotionSubtitle": "All of the predefined transition patterns",
+  "@demoMotionSubtitle": {
+    "description": "Subtitle for the motion demo."
+  },
+  "demoContainerTransformDemoInstructions": "Cards, Lists & FAB",
+  "@demoContainerTransformDemoInstructions": {
+    "description": "Instructions for the container transform demo located in the app bar."
+  },
+  "demoSharedXAxisDemoInstructions": "Next and Back Buttons",
+  "@demoSharedXAxisDemoInstructions": {
+    "description": "Instructions for the shared x axis demo located in the app bar."
+  },
+  "demoSharedYAxisDemoInstructions": "Sort by \"Recently Played\"",
+  "@demoSharedYAxisDemoInstructions": {
+    "description": "Instructions for the shared y axis demo located in the app bar."
+  },
+  "demoSharedZAxisDemoInstructions": "Settings icon button",
+  "@demoSharedZAxisDemoInstructions": {
+    "description": "Instructions for the shared z axis demo located in the app bar."
+  },
+  "demoFadeThroughDemoInstructions": "Bottom navigation",
+  "@demoFadeThroughDemoInstructions": {
+    "description": "Instructions for the fade through demo located in the app bar."
+  },
+  "demoFadeScaleDemoInstructions": "Modal and FAB",
+  "@demoFadeScaleDemoInstructions": {
+    "description": "Instructions for the fade scale demo located in the app bar."
+  },
+  "demoContainerTransformTitle": "Container Transform",
+  "@demoContainerTransformTitle": {
+    "description": "Title for the container transform demo."
+  },
+  "demoContainerTransformDescription": "The container transform pattern is designed for transitions between UI elements that include a container. This pattern creates a visible connection between two UI elements",
+  "@demoContainerTransformDescription": {
+    "description": "Description for the container transform demo."
+  },
+  "demoContainerTransformModalBottomSheetTitle": "Fade mode",
+  "@demoContainerTransformModalBottomSheetTitle": {
+    "description": "Title for the container transform modal bottom sheet."
+  },
+  "demoContainerTransformTypeFade": "FADE",
+  "@demoContainerTransformTypeFade": {
+    "description": "Description for container transform fade type setting."
+  },
+  "demoContainerTransformTypeFadeThrough": "FADE THROUGH",
+  "@demoContainerTransformTypeFadeThrough": {
+    "description": "Description for container transform fade through type setting."
+  },
+  "demoMotionPlaceholderTitle": "Title",
+  "@demoMotionPlaceholderTitle": {
+    "description": "The placeholder for the motion demos title properties."
+  },
+  "demoMotionPlaceholderSubtitle": "Secondary text",
+  "@demoMotionPlaceholderSubtitle": {
+    "description": "The placeholder for the motion demos subtitle properties."
+  },
+  "demoMotionSmallPlaceholderSubtitle": "Secondary",
+  "@demoMotionSmallPlaceholderSubtitle": {
+    "description": "The placeholder for the motion demos shortened subtitle properties."
+  },
+  "demoMotionDetailsPageTitle": "Details Page",
+  "@demoMotionDetailsPageTitle": {
+    "description": "The title for the details page in the motion demos."
+  },
+  "demoMotionListTileTitle": "List item",
+  "@demoMotionListTileTitle": {
+    "description": "The title for a list tile in the motion demos."
+  },
+  "demoSharedAxisDescription": "The shared axis pattern is used for transitions between the UI elements that have a spatial or navigational relationship. This pattern uses a shared transformation on the x, y, or z axis to reinforce the relationship between elements.",
+  "@demoSharedAxisDescription": {
+    "description": "Description for the shared y axis demo."
+  },
+  "demoSharedXAxisTitle": "Shared x-axis",
+  "@demoSharedXAxisTitle": {
+    "description": "Title for the shared x axis demo."
+  },
+  "demoSharedXAxisBackButtonText": "BACK",
+  "@demoSharedXAxisBackButtonText": {
+    "description": "Button text for back button in the shared x axis demo."
+  },
+  "demoSharedXAxisNextButtonText": "NEXT",
+  "@demoSharedXAxisNextButtonText": {
+    "description": "Button text for the next button in the shared x axis demo."
+  },
+  "demoSharedXAxisCoursePageTitle": "Streamline your courses",
+  "@demoSharedXAxisCoursePageTitle": {
+    "description": "Title for course selection page in the shared x axis demo."
+  },
+  "demoSharedXAxisCoursePageSubtitle": "Bundled categories appear as groups in your feed. You can always change this later.",
+  "@demoSharedXAxisCoursePageSubtitle": {
+    "description": "Subtitle for course selection page in the shared x axis demo."
+  },
+  "demoSharedXAxisArtsAndCraftsCourseTitle": "Arts & Crafts",
+  "@demoSharedXAxisArtsAndCraftsCourseTitle": {
+    "description": "Title for the Arts & Crafts course in the shared x axis demo."
+  },
+  "demoSharedXAxisBusinessCourseTitle": "Business",
+  "@demoSharedXAxisBusinessCourseTitle": {
+    "description": "Title for the Business course in the shared x axis demo."
+  },
+  "demoSharedXAxisIllustrationCourseTitle": "Illustration",
+  "@demoSharedXAxisIllustrationCourseTitle": {
+    "description": "Title for the Illustration course in the shared x axis demo."
+  },
+  "demoSharedXAxisDesignCourseTitle": "Design",
+  "@demoSharedXAxisDesignCourseTitle": {
+    "description": "Title for the Design course in the shared x axis demo."
+  },
+  "demoSharedXAxisCulinaryCourseTitle": "Culinary",
+  "@demoSharedXAxisCulinaryCourseTitle": {
+    "description": "Title for the Culinary course in the shared x axis demo."
+  },
+  "demoSharedXAxisBundledCourseSubtitle": "Bundled",
+  "@demoSharedXAxisBundledCourseSubtitle": {
+    "description": "Subtitle for a bundled course in the shared x axis demo."
+  },
+  "demoSharedXAxisIndividualCourseSubtitle": "Shown Individually",
+  "@demoSharedXAxisIndividualCourseSubtitle": {
+    "description": "Subtitle for a individual course in the shared x axis demo."
+  },
+  "demoSharedXAxisSignInWelcomeText": "Hi David Park",
+  "@demoSharedXAxisSignInWelcomeText": {
+    "description": "Welcome text for sign in page in the shared x axis demo. David Park is a name and does not need to be translated."
+  },
+  "demoSharedXAxisSignInSubtitleText": "Sign in with your account",
+  "@demoSharedXAxisSignInSubtitleText": {
+    "description": "Subtitle text for sign in page in the shared x axis demo."
+  },
+  "demoSharedXAxisSignInTextFieldLabel": "Email or phone number",
+  "@demoSharedXAxisSignInTextFieldLabel": {
+    "description": "Label text for the sign in text field in the shared x axis demo."
+  },
+  "demoSharedXAxisForgotEmailButtonText": "FORGOT EMAIL?",
+  "@demoSharedXAxisForgotEmailButtonText": {
+    "description": "Button text for the forgot email button in the shared x axis demo."
+  },
+  "demoSharedXAxisCreateAccountButtonText": "CREATE ACCOUNT",
+  "@demoSharedXAxisCreateAccountButtonText": {
+    "description": "Button text for the create account button in the shared x axis demo."
+  },
+  "demoSharedYAxisTitle": "Shared y-axis",
+  "@demoSharedYAxisTitle": {
+    "description": "Title for the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumCount": "268 albums",
+  "@demoSharedYAxisAlbumCount": {
+    "description": "Text for album count in the shared y axis demo."
+  },
+  "demoSharedYAxisAlphabeticalSortTitle": "A-Z",
+  "@demoSharedYAxisAlphabeticalSortTitle": {
+    "description": "Title for alphabetical sorting type in the shared y axis demo."
+  },
+  "demoSharedYAxisRecentSortTitle": "Recently played",
+  "@demoSharedYAxisRecentSortTitle": {
+    "description": "Title for recently played sorting type in the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumTileTitle": "Album",
+  "@demoSharedYAxisAlbumTileTitle": {
+    "description": "Title for an AlbumTile in the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumTileSubtitle": "Artist",
+  "@demoSharedYAxisAlbumTileSubtitle": {
+    "description": "Subtitle for an AlbumTile in the shared y axis demo."
+  },
+  "demoSharedYAxisAlbumTileDurationUnit": "min",
+  "@demoSharedYAxisAlbumTileDurationUnit": {
+    "description": "Duration unit for an AlbumTile in the shared y axis demo."
+  },
+  "demoSharedZAxisTitle": "Shared z-axis",
+  "@demoSharedZAxisTitle": {
+    "description": "Title for the shared z axis demo."
+  },
+  "demoSharedZAxisSettingsPageTitle": "Settings",
+  "@demoSharedZAxisSettingsPageTitle": {
+    "description": "Title for the settings page in the shared z axis demo."
+  },
+  "demoSharedZAxisBurgerRecipeTitle": "Burger",
+  "@demoSharedZAxisBurgerRecipeTitle": {
+    "description": "Title for burger recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisBurgerRecipeDescription": "Burger recipe",
+  "@demoSharedZAxisBurgerRecipeDescription": {
+    "description": "Subtitle for the burger recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisSandwichRecipeTitle": "Sandwich",
+  "@demoSharedZAxisSandwichRecipeTitle": {
+    "description": "Title for sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisSandwichRecipeDescription": "Sandwich recipe",
+  "@demoSharedZAxisSandwichRecipeDescription": {
+    "description": "Subtitle for the sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisDessertRecipeTitle": "Dessert",
+  "@demoSharedZAxisDessertRecipeTitle": {
+    "description": "Title for dessert recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisDessertRecipeDescription": "Dessert recipe",
+  "@demoSharedZAxisDessertRecipeDescription": {
+    "description": "Subtitle for the dessert recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisShrimpPlateRecipeTitle": "Shrimp",
+  "@demoSharedZAxisShrimpPlateRecipeTitle": {
+    "description": "Title for shrimp plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisShrimpPlateRecipeDescription": "Shrimp plate recipe",
+  "@demoSharedZAxisShrimpPlateRecipeDescription": {
+    "description": "Subtitle for the shrimp plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisCrabPlateRecipeTitle": "Crab",
+  "@demoSharedZAxisCrabPlateRecipeTitle": {
+    "description": "Title for crab plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisCrabPlateRecipeDescription": "Crab plate recipe",
+  "@demoSharedZAxisCrabPlateRecipeDescription": {
+    "description": "Subtitle for the crab plate recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisBeefSandwichRecipeTitle": "Beef Sandwich",
+  "@demoSharedZAxisBeefSandwichRecipeTitle": {
+    "description": "Title for beef sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisBeefSandwichRecipeDescription": "Beef Sandwich recipe",
+  "@demoSharedZAxisBeefSandwichRecipeDescription": {
+    "description": "Subtitle for the beef sandwich recipe tile in the shared z axis demo."
+  },
+  "demoSharedZAxisSavedRecipesListTitle": "Saved Recipes",
+  "@demoSharedZAxisSavedRecipesListTitle": {
+    "description": "Title for list of saved recipes in the shared z axis demo."
+  },
+  "demoSharedZAxisProfileSettingLabel": "Profile",
+  "@demoSharedZAxisProfileSettingLabel": {
+    "description": "Text label for profile setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisNotificationSettingLabel": "Notifications",
+  "@demoSharedZAxisNotificationSettingLabel": {
+    "description": "Text label for notifications setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisPrivacySettingLabel": "Privacy",
+  "@demoSharedZAxisPrivacySettingLabel": {
+    "description": "Text label for the privacy setting tile in the shared z axis demo."
+  },
+  "demoSharedZAxisHelpSettingLabel": "Help",
+  "@demoSharedZAxisHelpSettingLabel": {
+    "description": "Text label for the help setting tile in the shared z axis demo."
+  },
+  "demoFadeThroughTitle": "Fade through",
+  "@demoFadeThroughTitle": {
+    "description": "Title for the fade through demo."
+  },
+  "demoFadeThroughDescription": "The fade through pattern is used for transitions between UI elements that do not have a strong relationship to each other.",
+  "@demoFadeThroughDescription": {
+    "description": "Description for the fade through demo."
+  },
+  "demoFadeThroughAlbumsDestination": "Albums",
+  "@demoFadeThroughAlbumsDestination": {
+    "description": "Text for albums bottom navigation bar destination in the fade through demo."
+  },
+  "demoFadeThroughPhotosDestination": "Photos",
+  "@demoFadeThroughPhotosDestination": {
+    "description": "Text for photos bottom navigation bar destination in the fade through demo."
+  },
+  "demoFadeThroughSearchDestination": "Search",
+  "@demoFadeThroughSearchDestination": {
+    "description": "Text for search bottom navigation bar destination in the fade through demo."
+  },
+  "demoFadeThroughTextPlaceholder": "123 photos",
+  "@demoFadeThroughTextPlaceholder": {
+    "description": "Placeholder for example card title in the fade through demo."
+  },
+  "demoFadeScaleTitle": "Fade",
+  "@demoFadeScaleTitle": {
+    "description": "Title for the fade scale demo."
+  },
+  "demoFadeScaleDescription": "The fade pattern is used for UI elements that enter or exit within the bounds of the screen, such as a dialog that fades in the center of the screen.",
+  "@demoFadeScaleDescription": {
+    "description": "Description for the fade scale demo."
+  },
+  "demoFadeScaleShowAlertDialogButton": "SHOW MODAL",
+  "@demoFadeScaleShowAlertDialogButton": {
+    "description": "Button text to show alert dialog in the fade scale demo."
+  },
+  "demoFadeScaleShowFabButton": "SHOW FAB",
+  "@demoFadeScaleShowFabButton": {
+    "description": "Button text to show fab in the fade scale demo."
+  },
+  "demoFadeScaleHideFabButton": "HIDE FAB",
+  "@demoFadeScaleHideFabButton": {
+    "description": "Button text to hide fab in the fade scale demo."
+  },
+  "demoFadeScaleAlertDialogHeader": "Alert Dialog",
+  "@demoFadeScaleAlertDialogHeader": {
+    "description": "Generic header for alert dialog in the fade scale demo."
+  },
+  "demoFadeScaleAlertDialogCancelButton": "CANCEL",
+  "@demoFadeScaleAlertDialogCancelButton": {
+    "description": "Button text for alert dialog cancel button in the fade scale demo."
+  },
+  "demoFadeScaleAlertDialogDiscardButton": "DISCARD",
+  "@demoFadeScaleAlertDialogDiscardButton": {
+    "description": "Button text for alert dialog discard button in the fade scale demo."
   },
   "demoColorsTitle": "Colors",
   "@demoColorsTitle": {

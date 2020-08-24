@@ -35,7 +35,7 @@ class HorizontalArticlePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class HorizontalArticlePreview extends StatelessWidget {
                 data.category,
                 style: textTheme.subtitle1,
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 data.title,
                 style: textTheme.headline5.copyWith(fontSize: 16),
@@ -61,10 +61,10 @@ class HorizontalArticlePreview extends StatelessWidget {
             GalleryLocalizations.of(context).craneMinutes(minutes),
             style: textTheme.bodyText1,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
         ],
         FadeInImagePlaceholder(
-          image: AssetImage(data.imageUrl),
+          image: AssetImage(data.imageUrl, package: 'flutter_gallery_assets'),
           placeholder: Container(
             color: Colors.black.withOpacity(0.1),
             width: 64 / (1 / data.imageAspectRatio),
@@ -93,7 +93,7 @@ class VerticalArticlePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return SizedBox(
       width: width ?? double.infinity,
@@ -103,7 +103,10 @@ class VerticalArticlePreview extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: FadeInImagePlaceholder(
-              image: AssetImage(data.imageUrl),
+              image: AssetImage(
+                data.imageUrl,
+                package: 'flutter_gallery_assets',
+              ),
               placeholder: LayoutBuilder(builder: (context, constraints) {
                 return Container(
                   color: Colors.black.withOpacity(0.1),
@@ -116,18 +119,18 @@ class VerticalArticlePreview extends StatelessWidget {
               excludeFromSemantics: true,
             ),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             data.category,
             style: textTheme.subtitle1,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             data.title,
             style: headlineTextStyle ?? textTheme.headline5,
           ),
           if (showSnippet) ...[
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               data.snippet,
               style: textTheme.bodyText2,
@@ -150,12 +153,12 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     color: Colors.black.withOpacity(0.2),
     height: 1,
   );
-  TextTheme textTheme = Theme.of(context).textTheme;
+  final textTheme = Theme.of(context).textTheme;
 
   return <Widget>[
     VerticalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_healthcare.jpg',
+        imageUrl: 'fortnightly/fortnightly_healthcare.jpg',
         imageAspectRatio: 391 / 248,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
@@ -166,7 +169,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_war.png',
+        imageUrl: 'fortnightly/fortnightly_war.png',
         imageAspectRatio: 1,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
@@ -177,7 +180,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_gas.png',
+        imageUrl: 'fortnightly/fortnightly_gas.png',
         imageAspectRatio: 1,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
@@ -192,7 +195,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_army.png',
+        imageUrl: 'fortnightly/fortnightly_army.png',
         imageAspectRatio: 1,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
@@ -204,7 +207,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_stocks.png',
+        imageUrl: 'fortnightly/fortnightly_stocks.png',
         imageAspectRatio: 77 / 64,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuWorld.toUpperCase(),
@@ -215,7 +218,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     articleDivider,
     HorizontalArticlePreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_fabrics.png',
+        imageUrl: 'fortnightly/fortnightly_fabrics.png',
         imageAspectRatio: 76 / 64,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuTech.toUpperCase(),
@@ -243,7 +246,7 @@ class HashtagBar extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Center(
             child: Text(
               '#${GalleryLocalizations.of(context).fortnightlyTrendingTechDesign}',
@@ -298,17 +301,18 @@ class NavigationMenu extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
                 tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
                 onPressed: () => Navigator.pop(context),
               ),
               Image.asset(
-                'assets/fortnightly/fortnightly_title.png',
+                'fortnightly/fortnightly_title.png',
+                package: 'flutter_gallery_assets',
                 excludeFromSemantics: true,
               ),
             ],
           ),
-        SizedBox(height: 32),
+        const SizedBox(height: 32),
         MenuItem(
           GalleryLocalizations.of(context).fortnightlyMenuFrontPage,
           header: true,
@@ -342,7 +346,7 @@ class MenuItem extends StatelessWidget {
           Container(
             width: 32,
             alignment: Alignment.centerLeft,
-            child: header ? null : Icon(Icons.arrow_drop_down),
+            child: header ? null : const Icon(Icons.arrow_drop_down),
           ),
           Expanded(
             child: Text(
@@ -378,7 +382,7 @@ class StockItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(ticker, style: textTheme.subtitle1),
-        SizedBox(height: 2),
+        const SizedBox(height: 2),
         Row(
           children: [
             Expanded(
@@ -393,10 +397,12 @@ class StockItem extends StatelessWidget {
               percent > 0 ? '+' : '-',
               style: textTheme.subtitle2.copyWith(
                 fontSize: 12,
-                color: percent > 0 ? Color(0xff20CF63) : Color(0xff661FFF),
+                color: percent > 0
+                    ? const Color(0xff20CF63)
+                    : const Color(0xff661FFF),
               ),
             ),
-            SizedBox(width: 4),
+            const SizedBox(width: 4),
             Text(
               percentFormat.format(percent.abs() / 100),
               style: textTheme.caption.copyWith(
@@ -413,17 +419,20 @@ class StockItem extends StatelessWidget {
 
 List<Widget> buildStockItems(BuildContext context) {
   Widget articleDivider = Container(
-    margin: EdgeInsets.symmetric(vertical: 16),
+    margin: const EdgeInsets.symmetric(vertical: 16),
     color: Colors.black.withOpacity(0.07),
     height: 1,
   );
-  double imageAspectRatio = 165 / 55;
+  const imageAspectRatio = 165 / 55;
 
   return <Widget>[
     SizedBox(
       width: double.infinity,
       child: FadeInImagePlaceholder(
-        image: AssetImage('assets/fortnightly/fortnightly_chart.png'),
+        image: const AssetImage(
+          'fortnightly/fortnightly_chart.png',
+          package: 'flutter_gallery_assets',
+        ),
         placeholder: LayoutBuilder(builder: (context, constraints) {
           return Container(
             color: Colors.black.withOpacity(0.1),
@@ -478,7 +487,7 @@ class VideoPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -486,7 +495,10 @@ class VideoPreview extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: FadeInImagePlaceholder(
-            image: AssetImage(data.imageUrl),
+            image: AssetImage(
+              data.imageUrl,
+              package: 'flutter_gallery_assets',
+            ),
             placeholder: LayoutBuilder(builder: (context, constraints) {
               return Container(
                 color: Colors.black.withOpacity(0.1),
@@ -499,7 +511,7 @@ class VideoPreview extends StatelessWidget {
             excludeFromSemantics: true,
           ),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Row(
           children: [
             Expanded(
@@ -508,7 +520,7 @@ class VideoPreview extends StatelessWidget {
             Text(time, style: textTheme.bodyText1)
           ],
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(data.title, style: textTheme.headline5.copyWith(fontSize: 16)),
       ],
     );
@@ -519,7 +531,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
   return <Widget>[
     VideoPreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_feminists.jpg',
+        imageUrl: 'fortnightly/fortnightly_feminists.jpg',
         imageAspectRatio: 148 / 88,
         category: GalleryLocalizations.of(context)
             .fortnightlyMenuPolitics
@@ -528,10 +540,10 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
       ),
       time: '2:31',
     ),
-    SizedBox(height: 32),
+    const SizedBox(height: 32),
     VideoPreview(
       data: ArticleData(
-        imageUrl: 'assets/fortnightly/fortnightly_bees.jpg',
+        imageUrl: 'fortnightly/fortnightly_bees.jpg',
         imageAspectRatio: 148 / 88,
         category:
             GalleryLocalizations.of(context).fortnightlyMenuUS.toUpperCase(),
@@ -543,7 +555,7 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
 }
 
 ThemeData buildTheme(BuildContext context) {
-  TextTheme textTheme = Theme.of(context).textTheme;
+  final lightTextTheme = ThemeData.light().textTheme;
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
@@ -552,25 +564,25 @@ ThemeData buildTheme(BuildContext context) {
       iconTheme: IconTheme.of(context).copyWith(color: Colors.black),
     ),
     highlightColor: Colors.transparent,
-    textTheme: textTheme.copyWith(
+    textTheme: TextTheme(
       // preview snippet
       bodyText2: GoogleFonts.merriweather(
         fontWeight: FontWeight.w300,
         fontSize: 16,
-        textStyle: textTheme.bodyText2,
+        textStyle: lightTextTheme.bodyText2,
       ),
       // time in latest updates
       bodyText1: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 11,
         color: Colors.black.withOpacity(0.5),
-        textStyle: textTheme.bodyText1,
+        textStyle: lightTextTheme.bodyText1,
       ),
       // preview headlines
       headline5: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 16,
-        textStyle: textTheme.headline5,
+        textStyle: lightTextTheme.headline5,
       ),
       // (caption 2), preview category, stock ticker
       subtitle1: GoogleFonts.robotoCondensed(
@@ -580,14 +592,14 @@ ThemeData buildTheme(BuildContext context) {
       subtitle2: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        textStyle: textTheme.subtitle2,
+        textStyle: lightTextTheme.subtitle2,
       ),
       // section titles: Top Highlights, Last Updated...
       headline6: GoogleFonts.merriweather(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.italic,
         fontSize: 14,
-        textStyle: textTheme.headline6,
+        textStyle: lightTextTheme.headline6,
       ),
     ),
   );

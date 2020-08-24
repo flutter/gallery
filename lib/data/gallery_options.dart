@@ -3,12 +3,11 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
-import 'package:flutter/services.dart' show SystemChrome, SystemUiOverlayStyle;
+import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 import 'package:gallery/constants.dart';
 
 enum CustomTextDirection {
@@ -32,9 +31,7 @@ const systemLocaleOption = Locale('system');
 Locale _deviceLocale;
 Locale get deviceLocale => _deviceLocale;
 set deviceLocale(Locale locale) {
-  if (_deviceLocale == null) {
-    _deviceLocale = locale;
-  }
+  _deviceLocale ??= locale;
 }
 
 class GalleryOptions {
@@ -45,6 +42,7 @@ class GalleryOptions {
     Locale locale,
     this.timeDilation,
     this.platform,
+    this.isTestMode,
   })  : _textScaleFactor = textScaleFactor,
         _locale = locale;
 
@@ -54,6 +52,7 @@ class GalleryOptions {
   final Locale _locale;
   final double timeDilation;
   final TargetPlatform platform;
+  final bool isTestMode; // True for integration tests.
 
   // We use a sentinel value to indicate the system text scale option. By
   // default, return the actual text scale factor, otherwise return the
@@ -68,19 +67,15 @@ class GalleryOptions {
     }
   }
 
-  Locale get locale =>
-      _locale ??
-      deviceLocale ??
-      // TODO: When deviceLocale can be obtained on macOS, this won't be necessary
-      // https://github.com/flutter/flutter/issues/45343
-      (!kIsWeb && Platform.isMacOS ? Locale('en', 'US') : null);
+  Locale get locale => _locale ?? deviceLocale;
 
-  /// Returns the text direction based on the [CustomTextDirection] setting.
-  /// If the locale cannot be determined, returns null.
-  TextDirection textDirection() {
+  /// Returns a text direction based on the [CustomTextDirection] setting.
+  /// If it is based on locale and the locale cannot be determined, returns
+  /// null.
+  TextDirection resolvedTextDirection() {
     switch (customTextDirection) {
       case CustomTextDirection.localeBased:
-        final String language = locale?.languageCode?.toLowerCase();
+        final language = locale?.languageCode?.toLowerCase();
         if (language == null) return null;
         return rtlLanguages.contains(language)
             ? TextDirection.rtl
@@ -92,6 +87,29 @@ class GalleryOptions {
     }
   }
 
+  /// Returns a [SystemUiOverlayStyle] based on the [ThemeMode] setting.
+  /// In other words, if the theme is dark, returns light; if the theme is
+  /// light, returns dark.
+  SystemUiOverlayStyle resolvedSystemUiOverlayStyle() {
+    Brightness brightness;
+    switch (themeMode) {
+      case ThemeMode.light:
+        brightness = Brightness.light;
+        break;
+      case ThemeMode.dark:
+        brightness = Brightness.dark;
+        break;
+      default:
+        brightness = WidgetsBinding.instance.window.platformBrightness;
+    }
+
+    final overlayStyle = brightness == Brightness.dark
+        ? SystemUiOverlayStyle.light
+        : SystemUiOverlayStyle.dark;
+
+    return overlayStyle;
+  }
+
   GalleryOptions copyWith({
     ThemeMode themeMode,
     double textScaleFactor,
@@ -99,14 +117,16 @@ class GalleryOptions {
     Locale locale,
     double timeDilation,
     TargetPlatform platform,
+    bool isTestMode,
   }) {
     return GalleryOptions(
       themeMode: themeMode ?? this.themeMode,
-      textScaleFactor: textScaleFactor ?? this._textScaleFactor,
+      textScaleFactor: textScaleFactor ?? _textScaleFactor,
       customTextDirection: customTextDirection ?? this.customTextDirection,
       locale: locale ?? this.locale,
       timeDilation: timeDilation ?? this.timeDilation,
       platform: platform ?? this.platform,
+      isTestMode: isTestMode ?? this.isTestMode,
     );
   }
 
@@ -118,7 +138,8 @@ class GalleryOptions {
       customTextDirection == other.customTextDirection &&
       locale == other.locale &&
       timeDilation == other.timeDilation &&
-      platform == other.platform;
+      platform == other.platform &&
+      isTestMode == other.isTestMode;
 
   @override
   int get hashCode => hashValues(
@@ -128,16 +149,17 @@ class GalleryOptions {
         locale,
         timeDilation,
         platform,
+        isTestMode,
       );
 
   static GalleryOptions of(BuildContext context) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, GalleryOptions newModel) {
-    final _ModelBindingScope scope =
+    final scope =
         context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
     scope.modelBindingState.updateModel(newModel);
   }
@@ -152,7 +174,7 @@ class ApplyTextOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final options = GalleryOptions.of(context);
-    final textDirection = options.textDirection();
+    final textDirection = options.resolvedTextDirection();
     final textScaleFactor = options.textScaleFactor(context);
 
     Widget widget = MediaQuery(
@@ -198,6 +220,7 @@ class ModelBinding extends StatefulWidget {
   final GalleryOptions initialModel;
   final Widget child;
 
+  @override
   _ModelBindingState createState() => _ModelBindingState();
 }
 
@@ -235,26 +258,9 @@ class _ModelBindingState extends State<ModelBinding> {
     }
   }
 
-  void handleThemeChange(GalleryOptions newModel) {
-    switch (newModel.themeMode) {
-      case ThemeMode.system:
-        final brightness = WidgetsBinding.instance.window.platformBrightness;
-        SystemChrome.setSystemUIOverlayStyle(brightness == Brightness.dark
-            ? SystemUiOverlayStyle.light
-            : SystemUiOverlayStyle.dark);
-        break;
-      case ThemeMode.light:
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-        break;
-      case ThemeMode.dark:
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    }
-  }
-
   void updateModel(GalleryOptions newModel) {
     if (newModel != currentModel) {
       handleTimeDilation(newModel);
-      handleThemeChange(newModel);
       setState(() {
         currentModel = newModel;
       });

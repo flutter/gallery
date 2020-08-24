@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:animations/animations.dart';
 
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/l10n/gallery_localizations.dart';
@@ -17,8 +18,15 @@ import 'package:gallery/studies/rally/login.dart';
 /// The home route is the main page with tabs for sub pages.
 /// The login route is the initial route.
 class RallyApp extends StatelessWidget {
-  static String loginRoute = '/rally/login';
-  static String homeRoute = '/rally';
+  const RallyApp();
+
+  static const String loginRoute = '/rally/login';
+  static const String homeRoute = '/rally';
+
+  final sharedZAxisTransitionBuilder = const SharedAxisPageTransitionsBuilder(
+    fillColor: RallyColors.primaryBackground,
+    transitionType: SharedAxisTransitionType.scaled,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +35,20 @@ class RallyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _buildRallyTheme().copyWith(
         platform: GalleryOptions.of(context).platform,
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {
+            for (var type in TargetPlatform.values)
+              type: sharedZAxisTransitionBuilder,
+          },
+        ),
       ),
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
       locale: GalleryOptions.of(context).locale,
-      home: HomePage(),
       initialRoute: loginRoute,
       routes: <String, WidgetBuilder>{
-        homeRoute: (context) => HomePage(),
-        loginRoute: (context) => LoginPage(),
+        homeRoute: (context) => const HomePage(),
+        loginRoute: (context) => const LoginPage(),
       },
     );
   }
@@ -43,12 +56,13 @@ class RallyApp extends StatelessWidget {
   ThemeData _buildRallyTheme() {
     final base = ThemeData.dark();
     return ThemeData(
+      appBarTheme: const AppBarTheme(brightness: Brightness.dark, elevation: 0),
       scaffoldBackgroundColor: RallyColors.primaryBackground,
       primaryColor: RallyColors.primaryBackground,
       focusColor: RallyColors.focusColor,
       textTheme: _buildRallyTextTheme(base.textTheme),
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: const TextStyle(
+      inputDecorationTheme: const InputDecorationTheme(
+        labelStyle: TextStyle(
           color: RallyColors.gray,
           fontWeight: FontWeight.w500,
         ),

@@ -25,15 +25,12 @@ double desktopLoginScreenMainAreaWidth({BuildContext context}) {
   );
 }
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
+class LoginPage extends StatelessWidget {
+  const LoginPage();
 
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
     return ApplyTextOptions(
       child: isDesktop
@@ -62,9 +59,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             )
           : Scaffold(
+              appBar: AppBar(backgroundColor: Colors.white),
               body: SafeArea(
                 child: ListView(
-                  physics: ClampingScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: _horizontalPadding,
                   ),
@@ -93,7 +91,7 @@ class _ShrineLogo extends StatelessWidget {
       child: Column(
         children: [
           FadeInImagePlaceholder(
-            image: AssetImage('packages/shrine_images/diamond.png'),
+            image: const AssetImage('packages/shrine_images/diamond.png'),
             placeholder: Container(
               width: 34,
               height: 34,
@@ -115,9 +113,9 @@ class _UsernameTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final TextEditingController _usernameController = TextEditingController();
+    final _usernameController = TextEditingController();
 
     return PrimaryColorOverride(
       color: shrineBrown900,
@@ -142,9 +140,9 @@ class _PasswordTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final TextEditingController _passwordController = TextEditingController();
+    final _passwordController = TextEditingController();
 
     return PrimaryColorOverride(
       color: shrineBrown900,
@@ -170,12 +168,12 @@ class _CancelAndNextButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final bool isDesktop = isDisplayDesktop(context);
+    final isDesktop = isDisplayDesktop(context);
 
-    final EdgeInsets buttonTextPadding = isDesktop
-        ? EdgeInsets.symmetric(horizontal: 24, vertical: 16)
+    final buttonTextPadding = isDesktop
+        ? const EdgeInsets.symmetric(horizontal: 24, vertical: 16)
         : EdgeInsets.zero;
 
     return Wrap(

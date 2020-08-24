@@ -31,6 +31,7 @@
 .pub-cache/
 .pub/
 /build/
+golden_test/failures/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -58,6 +59,7 @@
 **/ios/**/profile
 **/ios/**/xcuserdata
 **/ios/.generated/
+**/ios/Flutter/.last_build_id
 **/ios/Flutter/App.framework
 **/ios/Flutter/Flutter.framework
 **/ios/Flutter/Generated.xcconfig

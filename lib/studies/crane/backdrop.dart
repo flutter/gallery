@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:meta/meta.dart';
 
 import 'package:gallery/data/gallery_options.dart';
@@ -16,10 +17,12 @@ import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/studies/crane/border_tab_indicator.dart';
 import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/colors.dart';
+import 'package:gallery/studies/crane/model/data.dart';
+import 'package:gallery/studies/crane/model/destination.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 
-class _FrontLayer extends StatelessWidget {
+class _FrontLayer extends StatefulWidget {
   const _FrontLayer({
     Key key,
     this.title,
@@ -31,22 +34,59 @@ class _FrontLayer extends StatelessWidget {
   final int index;
   final double mobileTopOffset;
 
+  @override
+  _FrontLayerState createState() => _FrontLayerState();
+}
+
+class _FrontLayerState extends State<_FrontLayer> {
+  List<Destination> destinations;
+
   static const frontLayerBorderRadius = 16.0;
+  static const bottomPadding = EdgeInsets.only(bottom: 120);
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // We use didChangeDependencies because the initialization involves an
+    // InheritedWidget (for localization). However, we don't need to get
+    // destinations again when, say, resizing the window.
+    if (destinations == null) {
+      if (widget.index == 0) destinations = getFlyDestinations(context);
+      if (widget.index == 1) destinations = getSleepDestinations(context);
+      if (widget.index == 2) destinations = getEatDestinations(context);
+    }
+  }
+
+  Widget _header() {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 20,
+        bottom: 22,
+      ),
+      child: Text(
+        widget.title,
+        style: Theme.of(context).textTheme.subtitle2,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isSmallDesktop = isDisplaySmallDesktop(context);
 
+    final crossAxisCount = isSmallDesktop ? 2 : isDesktop ? 4 : 1;
+
     return FocusTraversalGroup(
       policy: ReadingOrderTraversalPolicy(),
       child: Padding(
-        padding:
-            isDesktop ? EdgeInsets.zero : EdgeInsets.only(top: mobileTopOffset),
+        padding: isDesktop
+            ? EdgeInsets.zero
+            : EdgeInsets.only(top: widget.mobileTopOffset),
         child: PhysicalShape(
           elevation: 16,
           color: cranePrimaryWhite,
-          clipper: ShapeBorderClipper(
+          clipper: const ShapeBorderClipper(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(frontLayerBorderRadius),
@@ -54,18 +94,27 @@ class _FrontLayer extends StatelessWidget {
               ),
             ),
           ),
-          child: ListView(
+          child: StaggeredGridView.countBuilder(
+            key: ValueKey('CraneListView-${widget.index}'),
+            crossAxisCount: crossAxisCount,
+            crossAxisSpacing: 16.0,
             padding: isDesktop
                 ? EdgeInsets.symmetric(
-                    horizontal:
-                        isSmallDesktop ? appPaddingSmall : appPaddingLarge,
-                    vertical: 22)
-                : EdgeInsets.all(20),
-            children: [
-              Text(title, style: Theme.of(context).textTheme.subtitle2),
-              SizedBox(height: 20),
-              ItemCards(index: index),
-            ],
+                        horizontal:
+                            isSmallDesktop ? appPaddingSmall : appPaddingLarge)
+                    .add(bottomPadding)
+                : const EdgeInsets.symmetric(horizontal: 20).add(bottomPadding),
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return _header();
+              } else {
+                return DestinationCard(destination: destinations[index]);
+              }
+            },
+            staggeredTileBuilder: (index) => index == 0
+                ? StaggeredTile.fit(crossAxisCount)
+                : const StaggeredTile.fit(1),
+            itemCount: destinations.length,
           ),
         ),
       ),
@@ -115,14 +164,14 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
     _tabController = TabController(length: 3, vsync: this);
 
     // Offsets to create a horizontal gap between front layers.
-    _flyLayerHorizontalOffset = _tabController.animation
-        .drive(Tween<Offset>(begin: Offset(0, 0), end: Offset(-0.05, 0)));
+    _flyLayerHorizontalOffset = _tabController.animation.drive(
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-0.05, 0)));
 
-    _sleepLayerHorizontalOffset = _tabController.animation
-        .drive(Tween<Offset>(begin: Offset(0.05, 0), end: Offset(0, 0)));
+    _sleepLayerHorizontalOffset = _tabController.animation.drive(
+        Tween<Offset>(begin: const Offset(0.05, 0), end: const Offset(0, 0)));
 
-    _eatLayerHorizontalOffset = _tabController.animation
-        .drive(Tween<Offset>(begin: Offset(0.10, 0), end: Offset(0.05, 0)));
+    _eatLayerHorizontalOffset = _tabController.animation.drive(Tween<Offset>(
+        begin: const Offset(0.10, 0), end: const Offset(0.05, 0)));
   }
 
   @override
@@ -144,7 +193,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
     return Material(
       color: cranePurple800,
       child: Padding(
-        padding: EdgeInsets.only(top: 12),
+        padding: const EdgeInsets.only(top: 12),
         child: FocusTraversalGroup(
           policy: ReadingOrderTraversalPolicy(),
           child: Scaffold(
@@ -159,70 +208,68 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                 tabHandler: _handleTabs,
               ),
             ),
-            body: FocusScope(
-              child: Stack(
-                children: [
-                  BackLayer(
-                    tabController: _tabController,
-                    backLayerItems: widget.backLayerItems,
+            body: Stack(
+              children: [
+                BackLayer(
+                  tabController: _tabController,
+                  backLayerItems: widget.backLayerItems,
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: isDesktop
+                        ? (isDisplaySmallDesktop(context)
+                                ? textFieldHeight * 3
+                                : textFieldHeight * 2) +
+                            20 * textScaleFactor / 2
+                        : 175 + 140 * textScaleFactor / 2,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: isDesktop
-                          ? (isDisplaySmallDesktop(context)
-                                  ? textFieldHeight * 3
-                                  : textFieldHeight * 2) +
-                              20 * textScaleFactor / 2
-                          : 175 + 140 * textScaleFactor / 2,
-                    ),
-                    // To display the middle front layer higher than the others,
-                    // we allow the TabBarView to overflow by an offset
-                    // (doubled because it technically overflows top & bottom).
-                    // The other front layers are top padded by this offset.
-                    child: LayoutBuilder(builder: (context, constraints) {
-                      return OverflowBox(
-                        maxHeight:
-                            constraints.maxHeight + _sleepLayerTopOffset * 2,
-                        child: TabBarView(
-                          physics: isDesktop
-                              ? NeverScrollableScrollPhysics()
-                              : null, // use default TabBarView physics
-                          controller: _tabController,
-                          children: [
-                            SlideTransition(
-                              position: _flyLayerHorizontalOffset,
-                              child: _FrontLayer(
-                                title: GalleryLocalizations.of(context)
-                                    .craneFlySubhead,
-                                index: 0,
-                                mobileTopOffset: _sleepLayerTopOffset,
-                              ),
+                  // To display the middle front layer higher than the others,
+                  // we allow the TabBarView to overflow by an offset
+                  // (doubled because it technically overflows top & bottom).
+                  // The other front layers are top padded by this offset.
+                  child: LayoutBuilder(builder: (context, constraints) {
+                    return OverflowBox(
+                      maxHeight:
+                          constraints.maxHeight + _sleepLayerTopOffset * 2,
+                      child: TabBarView(
+                        physics: isDesktop
+                            ? const NeverScrollableScrollPhysics()
+                            : null, // use default TabBarView physics
+                        controller: _tabController,
+                        children: [
+                          SlideTransition(
+                            position: _flyLayerHorizontalOffset,
+                            child: _FrontLayer(
+                              title: GalleryLocalizations.of(context)
+                                  .craneFlySubhead,
+                              index: 0,
+                              mobileTopOffset: _sleepLayerTopOffset,
                             ),
-                            SlideTransition(
-                              position: _sleepLayerHorizontalOffset,
-                              child: _FrontLayer(
-                                title: GalleryLocalizations.of(context)
-                                    .craneSleepSubhead,
-                                index: 1,
-                                mobileTopOffset: 0,
-                              ),
+                          ),
+                          SlideTransition(
+                            position: _sleepLayerHorizontalOffset,
+                            child: _FrontLayer(
+                              title: GalleryLocalizations.of(context)
+                                  .craneSleepSubhead,
+                              index: 1,
+                              mobileTopOffset: 0,
                             ),
-                            SlideTransition(
-                              position: _eatLayerHorizontalOffset,
-                              child: _FrontLayer(
-                                title: GalleryLocalizations.of(context)
-                                    .craneEatSubhead,
-                                index: 2,
-                                mobileTopOffset: _sleepLayerTopOffset,
-                              ),
+                          ),
+                          SlideTransition(
+                            position: _eatLayerHorizontalOffset,
+                            child: _FrontLayer(
+                              title: GalleryLocalizations.of(context)
+                                  .craneEatSubhead,
+                              index: 2,
+                              mobileTopOffset: _sleepLayerTopOffset,
                             ),
-                          ],
-                        ),
-                      );
-                    }),
-                  ),
-                ],
-              ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+                ),
+              ],
             ),
           ),
         ),
@@ -259,14 +306,18 @@ class _CraneAppBarState extends State<CraneAppBar> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ExcludeSemantics(
+            const ExcludeSemantics(
               child: FadeInImagePlaceholder(
-                image: AssetImage('assets/crane/logo/logo.png'),
+                image: AssetImage(
+                  'crane/logo/logo.png',
+                  package: 'flutter_gallery_assets',
+                ),
                 placeholder: SizedBox(
                   width: 40,
                   height: 60,
                 ),
-                fit: BoxFit.cover,
+                width: 40,
+                height: 60,
               ),
             ),
             Expanded(

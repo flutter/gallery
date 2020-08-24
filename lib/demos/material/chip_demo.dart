@@ -67,7 +67,7 @@ class _ActionChipDemo extends StatelessWidget {
     return Center(
       child: ActionChip(
         onPressed: () {},
-        avatar: Icon(
+        avatar: const Icon(
           Icons.brightness_5,
           color: Colors.black54,
         ),
@@ -103,7 +103,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
               });
             },
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipMedium),
             selected: indexSelected == 1,
@@ -113,7 +113,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
               });
             },
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipLarge),
             selected: indexSelected == 2,
@@ -200,7 +200,7 @@ class _InputChipDemo extends StatelessWidget {
       child: InputChip(
         onPressed: () {},
         onDeleted: () {},
-        avatar: Icon(
+        avatar: const Icon(
           Icons.directions_bike,
           size: 20,
           color: Colors.black54,
