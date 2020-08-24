@@ -179,7 +179,7 @@ class _MailPreview extends StatelessWidget {
           context,
           listen: false,
         ).currentlySelectedEmailId = id;
-        onTap.call();
+        onTap();
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -301,7 +301,7 @@ class _MailPreviewActionBar extends StatelessWidget {
               ),
               color: color,
             ),
-            onPressed: () => onStar.call(),
+            onPressed: onStar,
           ),
           IconButton(
             icon: ImageIcon(
@@ -311,7 +311,7 @@ class _MailPreviewActionBar extends StatelessWidget {
               ),
               color: color,
             ),
-            onPressed: () => onDelete.call(),
+            onPressed: onDelete,
           ),
           IconButton(
             icon: Icon(
