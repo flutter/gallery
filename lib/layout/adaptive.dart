@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
 
-/// Returns a boolean if we are in a display is a medium or larger screen. Used to
+/// Returns a boolean if we are on a medium or larger screen. Used to
 /// build adaptive and responsive layouts.
 bool isDisplayDesktop(BuildContext context) {
   final windowType = getWindowType(context);
