@@ -781,8 +781,17 @@ class _BottomAppBarActionItems extends StatelessWidget {
       builder: (context, model, child) {
         final onMailView = model.onMailView;
         Color starIconColor;
+
         if (onMailView) {
-          final currentEmailStarred = model.currentEmailisStarred;
+          var currentEmailStarred = false;
+
+          if (model.emails[model.currentlySelectedInbox].isNotEmpty) {
+            currentEmailStarred = model.isEmailStarred(
+              model.emails[model.currentlySelectedInbox]
+                  .elementAt(model.currentlySelectedEmailId),
+            );
+          }
+
           starIconColor = currentEmailStarred
               ? Theme.of(context).colorScheme.secondary
               : ReplyColors.white50;
@@ -823,6 +832,10 @@ class _BottomAppBarActionItems extends StatelessWidget {
                               model.currentlySelectedInbox,
                               model.currentlySelectedEmailId,
                             );
+                            if (model.currentlySelectedInbox == 'Starred') {
+                              mobileMailNavKey.currentState.pop();
+                              model.currentlySelectedEmailId = -1;
+                            }
                           },
                           color: ReplyColors.white50,
                         ),
@@ -834,11 +847,13 @@ class _BottomAppBarActionItems extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            mobileMailNavKey.currentState.pop();
                             model.deleteEmail(
                               model.currentlySelectedInbox,
                               model.currentlySelectedEmailId,
                             );
+
+                            mobileMailNavKey.currentState.pop();
+                            model.currentlySelectedEmailId = -1;
                           },
                           color: ReplyColors.white50,
                         ),

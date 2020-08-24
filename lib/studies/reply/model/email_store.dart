@@ -211,10 +211,10 @@ class EmailStore with ChangeNotifier {
   int get currentlySelectedEmailId => _currentlySelectedEmailId;
   String get currentlySelectedInbox => _currentlySelectedInbox;
   bool get onMailView => _currentlySelectedEmailId > -1;
-  bool get currentEmailisStarred => _categories['Starred'].contains(
-        _categories[currentlySelectedInbox].elementAt(currentlySelectedEmailId),
-      );
-  bool isEmailStarred(Email email) => _categories['Starred'].contains(email);
+
+  bool isEmailStarred(Email email) {
+    return _categories['Starred'].contains(email);
+  }
 
   set currentlySelectedEmailId(int value) {
     _currentlySelectedEmailId = value;
