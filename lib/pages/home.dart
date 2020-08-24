@@ -8,7 +8,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
-
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -1080,9 +1079,11 @@ class StudyWrapper extends StatefulWidget {
   const StudyWrapper({
     Key key,
     this.study,
+    this.alignment = AlignmentDirectional.bottomStart,
   }) : super(key: key);
 
   final Widget study;
+  final AlignmentDirectional alignment;
 
   @override
   _StudyWrapperState createState() => _StudyWrapperState();
@@ -1101,7 +1102,7 @@ class _StudyWrapperState extends State<StudyWrapper> {
             child: widget.study,
           ),
           Align(
-            alignment: AlignmentDirectional.bottomStart,
+            alignment: widget.alignment,
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Semantics(
