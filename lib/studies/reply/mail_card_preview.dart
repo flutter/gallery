@@ -48,6 +48,8 @@ class MailPreviewCard extends StatelessWidget {
           id: id,
           email: email,
           onTap: openContainer,
+          onStar: onStar,
+          onDelete: onDelete,
         );
         final onStarredInbox = Provider.of<EmailStore>(
               context,
@@ -155,6 +157,8 @@ class _MailPreview extends StatelessWidget {
     @required this.id,
     @required this.email,
     @required this.onTap,
+    this.onStar,
+    this.onDelete,
   })  : assert(id != null),
         assert(email != null),
         assert(onTap != null);
@@ -162,6 +166,8 @@ class _MailPreview extends StatelessWidget {
   final int id;
   final Email email;
   final VoidCallback onTap;
+  final VoidCallback onStar;
+  final VoidCallback onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +179,7 @@ class _MailPreview extends StatelessWidget {
           context,
           listen: false,
         ).currentlySelectedEmailId = id;
-        onTap.call();
+        onTap();
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -183,6 +189,7 @@ class _MailPreview extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -205,6 +212,8 @@ class _MailPreview extends StatelessWidget {
                       ),
                       _MailPreviewActionBar(
                         avatar: email.avatar,
+                        onStar: onStar,
+                        onDelete: onDelete,
                       ),
                     ],
                   ),
@@ -220,8 +229,15 @@ class _MailPreview extends StatelessWidget {
                     ),
                   ),
                   if (email.containsPictures) ...[
-                    const SizedBox(height: 20),
-                    const _PicturePreview(),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Column(
+                        children: const [
+                          SizedBox(height: 20),
+                          _PicturePreview(),
+                        ],
+                      ),
+                    ),
                   ],
                 ],
               ),
@@ -258,9 +274,15 @@ class _PicturePreview extends StatelessWidget {
 }
 
 class _MailPreviewActionBar extends StatelessWidget {
-  const _MailPreviewActionBar({this.avatar});
+  const _MailPreviewActionBar({
+    @required this.avatar,
+    this.onStar,
+    this.onDelete,
+  }) : assert(avatar != null);
 
   final String avatar;
+  final VoidCallback onStar;
+  final VoidCallback onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -271,27 +293,34 @@ class _MailPreviewActionBar extends StatelessWidget {
     return Row(
       children: [
         if (isDesktop) ...[
-          ImageIcon(
-            const AssetImage(
-              '$_iconAssetLocation/twotone_star.png',
-              package: _assetsPackage,
+          IconButton(
+            icon: ImageIcon(
+              const AssetImage(
+                '$_iconAssetLocation/twotone_star.png',
+                package: _assetsPackage,
+              ),
+              color: color,
             ),
-            color: color,
+            onPressed: onStar,
           ),
-          const SizedBox(width: 20),
-          ImageIcon(
-            const AssetImage(
-              '$_iconAssetLocation/twotone_delete.png',
-              package: _assetsPackage,
+          IconButton(
+            icon: ImageIcon(
+              const AssetImage(
+                '$_iconAssetLocation/twotone_delete.png',
+                package: _assetsPackage,
+              ),
+              color: color,
             ),
-            color: color,
+            onPressed: onDelete,
           ),
-          const SizedBox(width: 20),
-          Icon(
-            Icons.more_vert,
-            color: color,
+          IconButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: color,
+            ),
+            onPressed: () {},
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 12),
         ],
         ProfileAvatar(avatar: avatar),
       ],
