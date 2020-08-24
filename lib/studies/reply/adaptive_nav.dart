@@ -33,12 +33,13 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
   int _selectedIndex = 0;
 
   Widget _currentInbox;
+  UniqueKey _inboxKey = UniqueKey();
 
   @override
   void initState() {
     super.initState();
     _currentInbox = InboxPage(
-      key: UniqueKey(),
+      key: _inboxKey,
       destination: 'Inbox',
     );
   }
@@ -126,6 +127,10 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       listen: false,
     );
 
+    if (emailStore.currentlySelectedInbox != destination) {
+      _inboxKey = UniqueKey();
+    }
+
     emailStore.currentlySelectedInbox = destination;
 
     if (emailStore.onMailView) {
@@ -142,7 +147,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     setState(() {
       _selectedIndex = index;
       _currentInbox = InboxPage(
-        key: UniqueKey(),
+        key: _inboxKey,
         destination: destination,
       );
     });
