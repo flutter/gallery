@@ -780,6 +780,22 @@ class _BottomAppBarActionItems extends StatelessWidget {
     return Consumer<EmailStore>(
       builder: (context, model, child) {
         final onMailView = model.onMailView;
+        Color starIconColor;
+
+        if (onMailView) {
+          var currentEmailStarred = false;
+
+          if (model.emails[model.currentlySelectedInbox].isNotEmpty) {
+            currentEmailStarred = model.isEmailStarred(
+              model.emails[model.currentlySelectedInbox]
+                  .elementAt(model.currentlySelectedEmailId),
+            );
+          }
+
+          starIconColor = currentEmailStarred
+              ? Theme.of(context).colorScheme.secondary
+              : ReplyColors.white50;
+        }
 
         return AnimatedSwitcher(
           duration: _kAnimationDuration,
@@ -804,17 +820,22 @@ class _BottomAppBarActionItems extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
-                          icon: const ImageIcon(
-                            AssetImage(
+                          icon: ImageIcon(
+                            const AssetImage(
                               '$_iconAssetLocation/twotone_star.png',
                               package: _assetsPackage,
                             ),
+                            color: starIconColor,
                           ),
                           onPressed: () {
                             model.starEmail(
                               model.currentlySelectedInbox,
                               model.currentlySelectedEmailId,
                             );
+                            if (model.currentlySelectedInbox == 'Starred') {
+                              mobileMailNavKey.currentState.pop();
+                              model.currentlySelectedEmailId = -1;
+                            }
                           },
                           color: ReplyColors.white50,
                         ),
@@ -826,11 +847,13 @@ class _BottomAppBarActionItems extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            mobileMailNavKey.currentState.pop();
                             model.deleteEmail(
                               model.currentlySelectedInbox,
                               model.currentlySelectedEmailId,
                             );
+
+                            mobileMailNavKey.currentState.pop();
+                            model.currentlySelectedEmailId = -1;
                           },
                           color: ReplyColors.white50,
                         ),
