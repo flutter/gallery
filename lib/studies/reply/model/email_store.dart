@@ -5,7 +5,7 @@ import 'email_model.dart';
 const _avatarsLocation = 'reply/avatars';
 
 class EmailStore with ChangeNotifier {
-  final _categories = <String, List<Email>>{
+  final _categories = <String, Set<Email>>{
     'Inbox': _mainInbox,
     'Starred': _starredInbox,
     'Sent': _outbox,
@@ -14,7 +14,7 @@ class EmailStore with ChangeNotifier {
     'Drafts': _drafts,
   };
 
-  static final _mainInbox = <Email>[
+  static final _mainInbox = <Email>{
     const Email(
       sender: 'Google Express',
       time: '15 minutes ago',
@@ -88,11 +88,11 @@ class EmailStore with ChangeNotifier {
       hasAttachment: false,
       containsPictures: false,
     ),
-  ];
+  };
 
-  static final _starredInbox = <Email>[];
+  static final _starredInbox = <Email>{};
 
-  static final _outbox = <Email>[
+  static final _outbox = <Email>{
     const Email(
       sender: 'Kim Alen',
       time: '4 hrs ago',
@@ -118,9 +118,9 @@ class EmailStore with ChangeNotifier {
       hasAttachment: true,
       containsPictures: false,
     ),
-  ];
+  };
 
-  static final _trash = <Email>[
+  static final _trash = <Email>{
     const Email(
       sender: 'Frank Hawkins',
       time: '4 hrs ago',
@@ -145,9 +145,9 @@ class EmailStore with ChangeNotifier {
       hasAttachment: false,
       containsPictures: false,
     ),
-  ];
+  };
 
-  static final _spam = <Email>[
+  static final _spam = <Email>{
     const Email(
       sender: 'Allison Trabucco',
       time: '4 hrs ago',
@@ -159,9 +159,9 @@ class EmailStore with ChangeNotifier {
       hasAttachment: false,
       containsPictures: false,
     ),
-  ];
+  };
 
-  static final _drafts = <Email>[
+  static final _drafts = <Email>{
     const Email(
       sender: 'Sandra Adams',
       time: '2 hrs ago',
@@ -173,31 +173,31 @@ class EmailStore with ChangeNotifier {
       hasAttachment: false,
       containsPictures: false,
     ),
-  ];
+  };
 
   int _currentlySelectedEmailId = -1;
   String _currentlySelectedInbox = 'Inbox';
 
-  Map<String, List<Email>> get emails =>
-      Map<String, List<Email>>.unmodifiable(_categories);
+  Map<String, Set<Email>> get emails =>
+      Map<String, Set<Email>>.unmodifiable(_categories);
 
   void deleteEmail(String category, int id) {
     final email = _categories[category].elementAt(id);
 
-    _categories[category].removeAt(id);
-
-    _categories.forEach((key, value) {
-      if (value.contains(email)) {
-        value.remove(email);
-      }
-    });
+    _categories.forEach(
+      (key, value) {
+        if (value.contains(email)) {
+          value.remove(email);
+        }
+      },
+    );
 
     notifyListeners();
   }
 
   void starEmail(String category, int id) {
     final email = _categories[category].elementAt(id);
-    var alreadyStarred = _categories['Starred'].contains(email);
+    var alreadyStarred = isEmailStarred(email);
 
     if (alreadyStarred) {
       _categories['Starred'].remove(email);
