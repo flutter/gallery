@@ -794,7 +794,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
         }
 
         return _FadeThroughTransitionSwitcher(
-          fillColor: Theme.of(context).navigationRailTheme.backgroundColor,
+          fillColor: Colors.transparent,
           child: drawerVisible
               ? Align(
                   key: UniqueKey(),
