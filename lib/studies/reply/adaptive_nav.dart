@@ -287,7 +287,8 @@ class _DesktopNavState extends State<_DesktopNav>
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: _MailNavigator(
-              child: _InboxTransitionSwitcher(
+              child: _FadeThroughTransitionSwitcher(
+                fillColor: Theme.of(context).scaffoldBackgroundColor,
                 child: widget.currentInbox,
               ),
             ),
@@ -630,7 +631,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         NotificationListener<ScrollNotification>(
           onNotification: _handleScrollNotification,
           child: _MailNavigator(
-            child: _InboxTransitionSwitcher(
+            child: _FadeThroughTransitionSwitcher(
+              fillColor: Theme.of(context).scaffoldBackgroundColor,
               child: widget.currentInbox,
             ),
           ),
@@ -797,13 +799,8 @@ class _BottomAppBarActionItems extends StatelessWidget {
               : ReplyColors.white50;
         }
 
-        return AnimatedSwitcher(
-          duration: _kAnimationDuration,
-          transitionBuilder: (child, animation) => ScaleTransition(
-            alignment: Alignment.centerRight,
-            child: child,
-            scale: animation,
-          ),
+        return _FadeThroughTransitionSwitcher(
+          fillColor: Theme.of(context).navigationRailTheme.backgroundColor,
           child: drawerVisible
               ? Align(
                   key: UniqueKey(),
@@ -1056,6 +1053,8 @@ class _ReplyFab extends StatefulWidget {
 
 class _ReplyFabState extends State<_ReplyFab>
     with SingleTickerProviderStateMixin {
+  static final fabKey = UniqueKey();
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -1074,6 +1073,13 @@ class _ReplyFabState extends State<_ReplyFab>
         return Consumer<EmailStore>(
           builder: (context, model, child) {
             final onMailView = model.onMailView;
+            final fabSwitcher = _FadeThroughTransitionSwitcher(
+              fillColor: Theme.of(context).colorScheme.secondary,
+              child: onMailView
+                  ? Icon(Icons.reply_all, key: fabKey)
+                  : const Icon(Icons.create),
+            );
+            final tooltip = onMailView ? 'Reply' : 'Compose';
 
             if (isDesktop) {
               return AnimatedSize(
@@ -1082,18 +1088,16 @@ class _ReplyFabState extends State<_ReplyFab>
                 duration: _kAnimationDuration,
                 child: FloatingActionButton.extended(
                   heroTag: 'Rail FAB',
-                  tooltip: onMailView ? 'Reply' : 'Compose',
+                  tooltip: tooltip,
                   isExtended: widget.extended,
                   onPressed: openContainer,
                   label: Row(
                     children: [
-                      _FabSwitcher(
-                        onMailView: onMailView,
-                      ),
+                      fabSwitcher,
                       SizedBox(width: widget.extended ? 16 : 0),
                       if (widget.extended)
                         Text(
-                          onMailView ? 'REPLY' : 'COMPOSE',
+                          tooltip.toUpperCase(),
                           style: Theme.of(context).textTheme.headline5.copyWith(
                                 fontSize: 16,
                                 color: theme.colorScheme.onSecondary,
@@ -1106,10 +1110,8 @@ class _ReplyFabState extends State<_ReplyFab>
             } else {
               return FloatingActionButton(
                 heroTag: 'Bottom App Bar FAB',
-                tooltip: onMailView ? 'Reply' : 'Compose',
-                child: _FabSwitcher(
-                  onMailView: onMailView,
-                ),
+                tooltip: tooltip,
+                child: fabSwitcher,
                 onPressed: openContainer,
               );
             }
@@ -1120,40 +1122,22 @@ class _ReplyFabState extends State<_ReplyFab>
   }
 }
 
-class _FabSwitcher extends StatelessWidget {
-  const _FabSwitcher({@required this.onMailView}) : assert(onMailView != null);
-
-  final bool onMailView;
-
-  static final fabKey = UniqueKey();
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: _kAnimationDuration,
-      transitionBuilder: (child, animation) => ScaleTransition(
-        child: child,
-        scale: animation,
-      ),
-      child: onMailView
-          ? Icon(Icons.reply_all, key: fabKey)
-          : const Icon(Icons.create),
-    );
-  }
-}
-
-class _InboxTransitionSwitcher extends StatelessWidget {
-  const _InboxTransitionSwitcher({@required this.child})
-      : assert(child != null);
+class _FadeThroughTransitionSwitcher extends StatelessWidget {
+  const _FadeThroughTransitionSwitcher({
+    @required this.child,
+    @required this.fillColor,
+  })  : assert(child != null),
+        assert(fillColor != null);
 
   final Widget child;
+  final Color fillColor;
 
   @override
   Widget build(BuildContext context) {
     return PageTransitionSwitcher(
       transitionBuilder: (child, animation, secondaryAnimation) {
         return FadeThroughTransition(
-          fillColor: Theme.of(context).scaffoldBackgroundColor,
+          fillColor: fillColor,
           child: child,
           animation: animation,
           secondaryAnimation: secondaryAnimation,
