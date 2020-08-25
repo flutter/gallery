@@ -182,6 +182,7 @@ class _DesktopNavState extends State<_DesktopNav>
   bool _isExtended;
   bool _hasWidgetUpdated = false;
   AnimationController _controller;
+  Animation<double> _curve;
 
   @override
   void initState() {
@@ -189,19 +190,22 @@ class _DesktopNavState extends State<_DesktopNav>
     _isExtended = widget.extended;
     _controller =
         AnimationController(duration: _kAnimationDuration, vsync: this)
-          ..addListener(() {
-            if (_controller.isCompleted) {
-              _controller.reset();
-              setState(() {
-                if (_hasWidgetUpdated) {
-                  _isExtended = widget.extended;
-                  _hasWidgetUpdated = false;
-                } else {
-                  _isExtended = !_isExtended;
-                }
-              });
-            }
-          });
+          ..addListener(
+            () {
+              if (_controller.isCompleted) {
+                _controller.reset();
+                setState(() {
+                  if (_hasWidgetUpdated) {
+                    _isExtended = widget.extended;
+                    _hasWidgetUpdated = false;
+                  } else {
+                    _isExtended = !_isExtended;
+                  }
+                });
+              }
+            },
+          );
+    _curve = CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
   }
 
   @override
@@ -255,7 +259,7 @@ class _DesktopNavState extends State<_DesktopNav>
                         labelType: NavigationRailLabelType.none,
                         leading: _NavigationRailHeader(
                           extended: _isExtended,
-                          animation: _controller.view,
+                          animation: _curve,
                           onLogoTapped: onLogoTapped,
                         ),
                         trailing: Visibility(
@@ -299,9 +303,9 @@ class _DesktopNavState extends State<_DesktopNav>
 
   void onLogoTapped() {
     if (_isExtended) {
-      _controller.animateTo(0.5);
+      _controller.animateTo(0.5, curve: Curves.fastOutSlowIn);
     } else {
-      _controller.animateTo(1);
+      _controller.animateTo(1, curve: Curves.fastOutSlowIn);
     }
   }
 }
@@ -500,6 +504,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   AnimationController _drawerController;
   AnimationController _dropArrowController;
   AnimationController _bottomAppBarController;
+  Animation<double> _drawerCurve;
+  Animation<double> _dropArrowCurve;
+  Animation<double> _bottomAppBarCurve;
 
   @override
   void initState() {
@@ -526,7 +533,22 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     _bottomAppBarController = AnimationController(
       vsync: this,
       value: 1,
-      duration: _kAnimationDuration,
+      duration: const Duration(milliseconds: 250),
+    );
+
+    _drawerCurve = CurvedAnimation(
+      parent: _drawerController,
+      curve: Curves.fastOutSlowIn,
+    );
+
+    _dropArrowCurve = CurvedAnimation(
+      parent: _dropArrowController,
+      curve: Curves.fastOutSlowIn,
+    );
+
+    _bottomAppBarCurve = CurvedAnimation(
+      parent: _bottomAppBarController,
+      curve: Curves.fastOutSlowIn,
     );
   }
 
@@ -545,9 +567,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
   }
 
   void _toggleBottomDrawerVisibility() {
-    if (_drawerController.value < 0.6) {
-      _drawerController.animateTo(0.6, curve: Curves.easeIn);
-      _dropArrowController.animateTo(0.5, curve: Curves.easeIn);
+    if (_drawerController.value < 0.4) {
+      _drawerController.animateTo(0.4, curve: Curves.fastOutSlowIn);
+      _dropArrowController.animateTo(0.35, curve: Curves.fastOutSlowIn);
       return;
     }
 
@@ -621,7 +643,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     final drawerAnimation = RelativeRectTween(
       begin: RelativeRect.fromLTRB(0.0, drawerTop, 0.0, 0.0),
       end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
-    ).animate(_drawerController.view);
+    ).animate(_drawerCurve);
 
     return Stack(
       overflow: Overflow.visible,
@@ -646,7 +668,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
             visible: _bottomDrawerVisible,
             child: AnimatedOpacity(
               opacity: _bottomDrawerVisible ? 1.0 : 0.0,
-              curve: Curves.easeInOut,
+              curve: Curves.fastOutSlowIn,
               duration: _kAnimationDuration,
               child: Container(
                 height: MediaQuery.of(context).size.height,
@@ -690,7 +712,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
           _bottomAppBarController.forward();
 
           return SizeTransition(
-            sizeFactor: _bottomAppBarController,
+            sizeFactor: _bottomAppBarCurve,
             axisAlignment: -1,
             child: BottomAppBar(
               shape: const CircularNotchedRectangle(),
@@ -711,7 +733,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                             turns: Tween(
                               begin: 0.0,
                               end: 1.0,
-                            ).animate(_dropArrowController.view),
+                            ).animate(_dropArrowCurve),
                             child: const Icon(
                               Icons.arrow_drop_up,
                               color: ReplyColors.white50,
@@ -729,6 +751,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                                     ? 0.0
                                     : 1.0,
                                 duration: _kAnimationDuration,
+                                curve: Curves.fastOutSlowIn,
                                 child: Text(
                                   widget
                                       .destinations[widget.selectedIndex].name,
@@ -916,8 +939,8 @@ class _BottomDrawerDestinations extends StatelessWidget {
               Future.delayed(
                 Duration(
                   milliseconds: GalleryOptions.of(context).timeDilation == 1
-                      ? drawerController.value == 1 ? 300 : 180
-                      : drawerController.value == 1 ? 1500 : 900,
+                      ? drawerController.value == 1 ? 300 : 120
+                      : drawerController.value == 1 ? 1500 : 600,
                 ),
                 () {
                   // Wait until animations are complete to reload the state.
