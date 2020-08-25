@@ -943,11 +943,14 @@ class _BottomDrawerDestinations extends StatelessWidget {
             onTap: () {
               drawerController.reverse();
               dropArrowController.forward();
+              final timeDilation =
+                  GalleryOptions.of(context).timeDilation.toInt();
+              print(timeDilation);
               Future.delayed(
                 Duration(
-                  milliseconds: GalleryOptions.of(context).timeDilation == 1
-                      ? drawerController.value == 1 ? 300 : 120
-                      : drawerController.value == 1 ? 1500 : 600,
+                  milliseconds: drawerController.value == 1
+                      ? 300 * timeDilation
+                      : 120 * timeDilation,
                 ),
                 () {
                   // Wait until animations are complete to reload the state.
