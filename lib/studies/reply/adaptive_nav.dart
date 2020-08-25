@@ -287,10 +287,7 @@ class _DesktopNavState extends State<_DesktopNav>
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: _MailNavigator(
-              child: _FadeThroughTransitionSwitcher(
-                fillColor: Theme.of(context).scaffoldBackgroundColor,
-                child: widget.currentInbox,
-              ),
+              child: widget.currentInbox,
             ),
           ),
         ],
@@ -631,10 +628,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         NotificationListener<ScrollNotification>(
           onNotification: _handleScrollNotification,
           child: _MailNavigator(
-            child: _FadeThroughTransitionSwitcher(
-              fillColor: Theme.of(context).scaffoldBackgroundColor,
-              child: widget.currentInbox,
-            ),
+            child: widget.currentInbox,
           ),
         ),
         GestureDetector(
@@ -1018,9 +1012,14 @@ class _MailNavigatorState extends State<_MailNavigator> {
     return Navigator(
       key: isDesktop ? desktopMailNavKey : mobileMailNavKey,
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<void>(builder: (context) {
-          return widget.child;
-        });
+        return MaterialPageRoute<void>(
+          builder: (context) {
+            return _FadeThroughTransitionSwitcher(
+              fillColor: Theme.of(context).scaffoldBackgroundColor,
+              child: widget.child,
+            );
+          },
+        );
       },
     );
   }
