@@ -205,7 +205,11 @@ class _DesktopNavState extends State<_DesktopNav>
               }
             },
           );
-    _curve = CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
+    _curve = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.fastOutSlowIn,
+      reverseCurve: Curves.fastOutSlowIn.flipped,
+    );
   }
 
   @override
@@ -539,16 +543,19 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     _drawerCurve = CurvedAnimation(
       parent: _drawerController,
       curve: Curves.fastOutSlowIn,
+      reverseCurve: Curves.fastOutSlowIn.flipped,
     );
 
     _dropArrowCurve = CurvedAnimation(
       parent: _dropArrowController,
       curve: Curves.fastOutSlowIn,
+      reverseCurve: Curves.fastOutSlowIn.flipped,
     );
 
     _bottomAppBarCurve = CurvedAnimation(
       parent: _bottomAppBarController,
       curve: Curves.fastOutSlowIn,
+      reverseCurve: Curves.fastOutSlowIn.flipped,
     );
   }
 
