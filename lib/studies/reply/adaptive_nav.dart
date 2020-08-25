@@ -1123,10 +1123,10 @@ class _ReplyFabState extends State<_ReplyFab>
 
 class _FadeThroughTransitionSwitcher extends StatelessWidget {
   const _FadeThroughTransitionSwitcher({
-    @required this.child,
     @required this.fillColor,
-  })  : assert(child != null),
-        assert(fillColor != null);
+    @required this.child,
+  })  : assert(fillColor != null),
+        assert(child != null);
 
   final Widget child;
   final Color fillColor;
