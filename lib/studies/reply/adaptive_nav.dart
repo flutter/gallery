@@ -1087,18 +1087,15 @@ class _ReplyFabState extends State<_ReplyFab>
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
-    final mobileFabBorder = const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(_mobileFabDimension / 2)),
-    );
+    final circleFabBorder = const CircleBorder();
 
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return const ComposePage();
       },
       openColor: theme.cardColor,
-      closedShape: isDesktop & widget.extended
-          ? const StadiumBorder()
-          : isDesktop ? const CircleBorder() : mobileFabBorder,
+      closedShape:
+          isDesktop & widget.extended ? const StadiumBorder() : circleFabBorder,
       closedColor: theme.colorScheme.secondary,
       closedElevation: 6,
       closedBuilder: (context, openContainer) {
@@ -1147,14 +1144,17 @@ class _ReplyFabState extends State<_ReplyFab>
                 ),
               );
             } else {
-              return InkWell(
-                customBorder: mobileFabBorder,
-                onTap: openContainer,
-                child: SizedBox(
-                  height: _mobileFabDimension,
-                  width: _mobileFabDimension,
-                  child: Center(
-                    child: fabSwitcher,
+              return Tooltip(
+                message: tooltip,
+                child: InkWell(
+                  customBorder: circleFabBorder,
+                  onTap: openContainer,
+                  child: SizedBox(
+                    height: _mobileFabDimension,
+                    width: _mobileFabDimension,
+                    child: Center(
+                      child: fabSwitcher,
+                    ),
                   ),
                 ),
               );
