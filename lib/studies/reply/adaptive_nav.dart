@@ -1083,7 +1083,7 @@ class _ReplyFabState extends State<_ReplyFab>
             if (isDesktop) {
               return AnimatedSize(
                 vsync: this,
-                curve: Curves.easeInOut,
+                curve: Curves.fastOutSlowIn,
                 duration: _kAnimationDuration,
                 child: FloatingActionButton.extended(
                   heroTag: 'Rail FAB',
