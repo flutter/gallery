@@ -93,20 +93,11 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       'Freelance': _folderIconAssetLocation,
     };
 
-    if (isTablet) {
+    if (isDesktop) {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
-        currentInbox: _currentInbox,
-        extended: false,
-        destinations: _navigationDestinations,
-        folders: _folders,
-        onItemTapped: _onDestinationSelected,
-      );
-    } else if (isDesktop) {
-      return _DesktopNav(
-        selectedIndex: _selectedIndex,
-        currentInbox: _currentInbox,
-        extended: true,
+        currentScreen: _currentInbox,
+        extended: isTablet ? false : true,
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
@@ -128,20 +119,25 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       listen: false,
     );
 
+    final isDesktop = isDisplayDesktop(context);
+
     if (emailStore.currentlySelectedInbox != destination) {
       _inboxKey = UniqueKey();
     }
 
     emailStore.currentlySelectedInbox = destination;
 
-    if (emailStore.onMailView) {
-      final isDesktop = isDisplayDesktop(context);
-
-      if (isDesktop) {
+    if (isDesktop) {
+      if (desktopMailNavKey.currentState.canPop()) {
         desktopMailNavKey.currentState.pop();
-      } else {
+      }
+    }
+
+    if (emailStore.onMailView) {
+      if (!isDesktop) {
         mobileMailNavKey.currentState.pop();
       }
+
       emailStore.currentlySelectedEmailId = -1;
     }
 
@@ -159,7 +155,7 @@ class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
     Key key,
     this.selectedIndex,
-    this.currentInbox,
+    this.currentScreen,
     this.extended,
     this.destinations,
     this.folders,
@@ -168,7 +164,7 @@ class _DesktopNav extends StatefulWidget {
 
   final int selectedIndex;
   final bool extended;
-  final Widget currentInbox;
+  final Widget currentScreen;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int, String) onItemTapped;
@@ -295,7 +291,7 @@ class _DesktopNavState extends State<_DesktopNav>
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: _MailNavigator(
-              child: widget.currentInbox,
+              child: widget.currentScreen,
             ),
           ),
         ],
@@ -1083,67 +1079,77 @@ class _ReplyFabState extends State<_ReplyFab>
   static final fabKey = UniqueKey();
   static const double _mobileFabDimension = 56;
 
+  Route _createComposeRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const ComposePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeThroughTransition(
+          fillColor: Theme.of(context).cardColor,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
     final circleFabBorder = const CircleBorder();
 
-    return OpenContainer(
-      openBuilder: (context, closedContainer) {
-        return const ComposePage();
-      },
-      openColor: theme.cardColor,
-      closedShape:
-          isDesktop & widget.extended ? const StadiumBorder() : circleFabBorder,
-      closedColor: theme.colorScheme.secondary,
-      closedElevation: 6,
-      closedBuilder: (context, openContainer) {
-        return Consumer<EmailStore>(
-          builder: (context, model, child) {
-            final onMailView = model.onMailView;
-            final fabSwitcher = _FadeThroughTransitionSwitcher(
-              fillColor: Colors.transparent,
-              child: onMailView
-                  ? Icon(
-                      Icons.reply_all,
-                      key: fabKey,
-                      color: Colors.black,
-                    )
-                  : const Icon(
-                      Icons.create,
-                      color: Colors.black,
-                    ),
-            );
-            final tooltip = onMailView ? 'Reply' : 'Compose';
-
-            if (isDesktop) {
-              return AnimatedSize(
-                vsync: this,
-                curve: Curves.fastOutSlowIn,
-                duration: _kAnimationDuration,
-                child: FloatingActionButton.extended(
-                  heroTag: 'Rail FAB',
-                  tooltip: tooltip,
-                  isExtended: widget.extended,
-                  onPressed: openContainer,
-                  label: Row(
-                    children: [
-                      fabSwitcher,
-                      SizedBox(width: widget.extended ? 16 : 0),
-                      if (widget.extended)
-                        Text(
-                          tooltip.toUpperCase(),
-                          style: Theme.of(context).textTheme.headline5.copyWith(
-                                fontSize: 16,
-                                color: theme.colorScheme.onSecondary,
-                              ),
-                        ),
-                    ],
-                  ),
+    return Consumer<EmailStore>(
+      builder: (context, model, child) {
+        final onMailView = model.onMailView;
+        final fabSwitcher = _FadeThroughTransitionSwitcher(
+          fillColor: Colors.transparent,
+          child: onMailView
+              ? Icon(
+                  Icons.reply_all,
+                  key: fabKey,
+                  color: Colors.black,
+                )
+              : const Icon(
+                  Icons.create,
+                  color: Colors.black,
                 ),
-              );
-            } else {
+        );
+        final tooltip = onMailView ? 'Reply' : 'Compose';
+
+        if (isDesktop) {
+          return FloatingActionButton.extended(
+            heroTag: 'Rail FAB',
+            tooltip: tooltip,
+            isExtended: widget.extended,
+            onPressed: () => desktopMailNavKey.currentState
+                .push<void>(_createComposeRoute()),
+            label: Row(
+              children: [
+                fabSwitcher,
+                SizedBox(width: widget.extended ? 16 : 0),
+                if (widget.extended)
+                  Text(
+                    tooltip.toUpperCase(),
+                    style: Theme.of(context).textTheme.headline5.copyWith(
+                          fontSize: 16,
+                          color: theme.colorScheme.onSecondary,
+                        ),
+                  ),
+              ],
+            ),
+          );
+        } else {
+          return OpenContainer(
+            openBuilder: (context, closedContainer) {
+              return const ComposePage();
+            },
+            openColor: theme.cardColor,
+            closedShape: circleFabBorder,
+            closedColor: theme.colorScheme.secondary,
+            closedElevation: 6,
+            closedBuilder: (context, openContainer) {
               return Tooltip(
                 message: tooltip,
                 child: InkWell(
@@ -1158,9 +1164,9 @@ class _ReplyFabState extends State<_ReplyFab>
                   ),
                 ),
               );
-            }
-          },
-        );
+            },
+          );
+        }
       },
     );
   }
