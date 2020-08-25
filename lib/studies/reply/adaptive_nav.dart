@@ -945,7 +945,6 @@ class _BottomDrawerDestinations extends StatelessWidget {
               dropArrowController.forward();
               final timeDilation =
                   GalleryOptions.of(context).timeDilation.toInt();
-              print(timeDilation);
               Future.delayed(
                 Duration(
                   milliseconds: drawerController.value == 1
