@@ -96,7 +96,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     if (isDesktop) {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
-        currentScreen: _currentInbox,
+        currentInbox: _currentInbox,
         extended: isTablet ? false : true,
         destinations: _navigationDestinations,
         folders: _folders,
@@ -155,7 +155,7 @@ class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
     Key key,
     this.selectedIndex,
-    this.currentScreen,
+    this.currentInbox,
     this.extended,
     this.destinations,
     this.folders,
@@ -164,7 +164,7 @@ class _DesktopNav extends StatefulWidget {
 
   final int selectedIndex;
   final bool extended;
-  final Widget currentScreen;
+  final Widget currentInbox;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int, String) onItemTapped;
@@ -291,7 +291,7 @@ class _DesktopNavState extends State<_DesktopNav>
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: _MailNavigator(
-              child: widget.currentScreen,
+              child: widget.currentInbox,
             ),
           ),
         ],
