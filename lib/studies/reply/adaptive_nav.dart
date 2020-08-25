@@ -1081,30 +1081,39 @@ class _ReplyFab extends StatefulWidget {
 class _ReplyFabState extends State<_ReplyFab>
     with SingleTickerProviderStateMixin {
   static final fabKey = UniqueKey();
+  static const double _mobileFabDimension = 56;
 
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
+    final circleFabBorder = const CircleBorder();
 
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return const ComposePage();
       },
       openColor: theme.cardColor,
-      closedShape: isDesktop & widget.extended
-          ? const StadiumBorder()
-          : const CircleBorder(),
+      closedShape:
+          isDesktop & widget.extended ? const StadiumBorder() : circleFabBorder,
       closedColor: theme.colorScheme.secondary,
+      closedElevation: 6,
       closedBuilder: (context, openContainer) {
         return Consumer<EmailStore>(
           builder: (context, model, child) {
             final onMailView = model.onMailView;
             final fabSwitcher = _FadeThroughTransitionSwitcher(
-              fillColor: Theme.of(context).colorScheme.secondary,
+              fillColor: Colors.transparent,
               child: onMailView
-                  ? Icon(Icons.reply_all, key: fabKey)
-                  : const Icon(Icons.create),
+                  ? Icon(
+                      Icons.reply_all,
+                      key: fabKey,
+                      color: Colors.black,
+                    )
+                  : const Icon(
+                      Icons.create,
+                      color: Colors.black,
+                    ),
             );
             final tooltip = onMailView ? 'Reply' : 'Compose';
 
@@ -1135,11 +1144,19 @@ class _ReplyFabState extends State<_ReplyFab>
                 ),
               );
             } else {
-              return FloatingActionButton(
-                heroTag: 'Bottom App Bar FAB',
-                tooltip: tooltip,
-                child: fabSwitcher,
-                onPressed: openContainer,
+              return Tooltip(
+                message: tooltip,
+                child: InkWell(
+                  customBorder: circleFabBorder,
+                  onTap: openContainer,
+                  child: SizedBox(
+                    height: _mobileFabDimension,
+                    width: _mobileFabDimension,
+                    child: Center(
+                      child: fabSwitcher,
+                    ),
+                  ),
+                ),
               );
             }
           },
