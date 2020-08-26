@@ -1118,15 +1118,15 @@ class _ReplyFabState extends State<_ReplyFab>
         if (isDesktop) {
           return FloatingActionButton.extended(
             heroTag: 'Rail FAB',
-            tooltip: tooltip,
+            tooltip: widget.extended ? null : tooltip,
             isExtended: widget.extended,
             onPressed: () =>
                 desktopMailNavKey.currentState.pushNamed(ReplyApp.composeRoute),
             label: Row(
               children: [
                 fabSwitcher,
-                SizedBox(width: widget.extended ? 16 : 0),
-                if (widget.extended)
+                if (widget.extended) ...[
+                  const SizedBox(width: 16),
                   Text(
                     tooltip.toUpperCase(),
                     style: Theme.of(context).textTheme.headline5.copyWith(
@@ -1134,6 +1134,7 @@ class _ReplyFabState extends State<_ReplyFab>
                           color: theme.colorScheme.onSecondary,
                         ),
                   ),
+                ]
               ],
             ),
           );
