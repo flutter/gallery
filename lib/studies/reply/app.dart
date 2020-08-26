@@ -74,11 +74,6 @@ class ReplyApp extends StatelessWidget {
         supportedLocales: GalleryLocalizations.supportedLocales,
         locale: GalleryOptions.of(context).locale,
         initialRoute: homeRoute,
-        routes: <String, WidgetBuilder>{
-          homeRoute: (context) => const AdaptiveNav(),
-          searchRoute: (context) => const SearchPage(),
-          composeRoute: (context) => const ComposePage(),
-        },
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case homeRoute:
