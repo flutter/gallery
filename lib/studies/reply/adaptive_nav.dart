@@ -1035,15 +1035,27 @@ class _MailNavigatorState extends State<_MailNavigator> {
 
     return Navigator(
       key: isDesktop ? desktopMailNavKey : mobileMailNavKey,
+      initialRoute: ReplyApp.homeRoute,
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<void>(
-          builder: (context) {
-            return _FadeThroughTransitionSwitcher(
-              fillColor: Theme.of(context).scaffoldBackgroundColor,
-              child: widget.child,
+        switch (settings.name) {
+          case ReplyApp.homeRoute:
+            return MaterialPageRoute<void>(
+              builder: (context) {
+                return _FadeThroughTransitionSwitcher(
+                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                  child: widget.child,
+                );
+              },
             );
-          },
-        );
+            break;
+          case ReplyApp.searchRoute:
+            return ReplyApp.createSearchRoute();
+            break;
+          case ReplyApp.composeRoute:
+            return ReplyApp.createComposeRoute();
+            break;
+        }
+        return null;
       },
     );
   }
@@ -1079,21 +1091,6 @@ class _ReplyFabState extends State<_ReplyFab>
   static final fabKey = UniqueKey();
   static const double _mobileFabDimension = 56;
 
-  Route _createComposeRoute() {
-    return PageRouteBuilder<void>(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          const ComposePage(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return FadeThroughTransition(
-          fillColor: Theme.of(context).cardColor,
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
-          child: child,
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -1123,8 +1120,8 @@ class _ReplyFabState extends State<_ReplyFab>
             heroTag: 'Rail FAB',
             tooltip: tooltip,
             isExtended: widget.extended,
-            onPressed: () => desktopMailNavKey.currentState
-                .push<void>(_createComposeRoute()),
+            onPressed: () =>
+                desktopMailNavKey.currentState.pushNamed(ReplyApp.composeRoute),
             label: Row(
               children: [
                 fabSwitcher,

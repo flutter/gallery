@@ -5,6 +5,7 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
+import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/search_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +18,38 @@ class ReplyApp extends StatelessWidget {
 
   static const String homeRoute = '/reply';
   static const String searchRoute = '/reply/search';
+  static const String composeRoute = '/reply/compose';
+
+  static Route createSearchRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const SearchPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SharedAxisTransition(
+          fillColor: Theme.of(context).cardColor,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          transitionType: SharedAxisTransitionType.scaled,
+          child: child,
+        );
+      },
+    );
+  }
+
+  static Route createComposeRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const ComposePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeThroughTransition(
+          fillColor: Theme.of(context).cardColor,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +76,8 @@ class ReplyApp extends StatelessWidget {
         initialRoute: homeRoute,
         routes: <String, WidgetBuilder>{
           homeRoute: (context) => const AdaptiveNav(),
+          searchRoute: (context) => const SearchPage(),
+          composeRoute: (context) => const ComposePage(),
         },
         onGenerateRoute: (settings) {
           switch (settings.name) {
@@ -52,21 +87,10 @@ class ReplyApp extends StatelessWidget {
               );
               break;
             case searchRoute:
-              return PageRouteBuilder<void>(
-                pageBuilder: (context, animation, secondaryAnimation) {
-                  return const SearchPage();
-                },
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) {
-                  return SharedAxisTransition(
-                    fillColor: Theme.of(context).cardColor,
-                    transitionType: SharedAxisTransitionType.scaled,
-                    child: child,
-                    animation: animation,
-                    secondaryAnimation: secondaryAnimation,
-                  );
-                },
-              );
+              return createSearchRoute();
+              break;
+            case composeRoute:
+              return createComposeRoute();
               break;
           }
           return null;
