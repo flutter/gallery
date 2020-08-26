@@ -20,7 +20,7 @@ class ReplyApp extends StatelessWidget {
   static const String searchRoute = '/reply/search';
   static const String composeRoute = '/reply/compose';
 
-  static Route createSearchRoute() {
+  static Route createSearchRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const SearchPage(),
@@ -33,10 +33,11 @@ class ReplyApp extends StatelessWidget {
           child: child,
         );
       },
+      settings: settings,
     );
   }
 
-  static Route createComposeRoute() {
+  static Route createComposeRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const ComposePage(),
@@ -48,6 +49,7 @@ class ReplyApp extends StatelessWidget {
           child: child,
         );
       },
+      settings: settings,
     );
   }
 
@@ -79,13 +81,14 @@ class ReplyApp extends StatelessWidget {
             case homeRoute:
               return MaterialPageRoute<void>(
                 builder: (context) => const AdaptiveNav(),
+                settings: settings,
               );
               break;
             case searchRoute:
-              return createSearchRoute();
+              return createSearchRoute(settings);
               break;
             case composeRoute:
-              return createComposeRoute();
+              return createComposeRoute(settings);
               break;
           }
           return null;

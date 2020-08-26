@@ -97,7 +97,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
         currentInbox: _currentInbox,
-        extended: isTablet ? false : true,
+        extended: !isTablet ? true : false,
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
@@ -1029,16 +1029,18 @@ class _MailNavigator extends StatefulWidget {
 }
 
 class _MailNavigatorState extends State<_MailNavigator> {
+  static const inboxRoute = '/reply/inbox';
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
     return Navigator(
       key: isDesktop ? desktopMailNavKey : mobileMailNavKey,
-      initialRoute: ReplyApp.homeRoute,
+      initialRoute: inboxRoute,
       onGenerateRoute: (settings) {
         switch (settings.name) {
-          case ReplyApp.homeRoute:
+          case inboxRoute:
             return MaterialPageRoute<void>(
               builder: (context) {
                 return _FadeThroughTransitionSwitcher(
@@ -1046,13 +1048,14 @@ class _MailNavigatorState extends State<_MailNavigator> {
                   child: widget.child,
                 );
               },
+              settings: settings,
             );
             break;
           case ReplyApp.searchRoute:
-            return ReplyApp.createSearchRoute();
+            return ReplyApp.createSearchRoute(settings);
             break;
           case ReplyApp.composeRoute:
-            return ReplyApp.createComposeRoute();
+            return ReplyApp.createComposeRoute(settings);
             break;
         }
         return null;
