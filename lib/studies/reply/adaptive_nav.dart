@@ -1123,8 +1123,25 @@ class _ReplyFabState extends State<_ReplyFab>
             heroTag: 'Rail FAB',
             tooltip: widget.extended ? null : tooltip,
             isExtended: widget.extended,
-            onPressed: () =>
-                desktopMailNavKey.currentState.pushNamed(ReplyApp.composeRoute),
+            onPressed: () {
+              // Navigator does not have an easy way to access the current
+              // route when using a GlobalKey to keep track of NavigatorState.
+              // We can use [Navigator.popUntil] in order to access the current
+              // route, and check if it is either a ComposePage or a SearchPage.
+              // If it is neither, then we can push a ComposePage onto our
+              // navigator. We return true at the end so nothing is popped.
+              desktopMailNavKey.currentState.popUntil(
+                (route) {
+                  var currentRoute = route.settings.name;
+                  if (currentRoute != ReplyApp.composeRoute &&
+                      currentRoute != ReplyApp.searchRoute) {
+                    desktopMailNavKey.currentState
+                        .pushNamed(ReplyApp.composeRoute);
+                  }
+                  return true;
+                },
+              );
+            },
             label: Row(
               children: [
                 fabSwitcher,
