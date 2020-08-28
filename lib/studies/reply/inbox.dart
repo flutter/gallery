@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/studies/reply/adaptive_nav.dart';
-import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/reply/mail_card_preview.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
@@ -58,9 +56,10 @@ class InboxPage extends StatelessWidget {
                       IconButton(
                         icon: const Icon(Icons.search),
                         onPressed: () {
-                          desktopMailNavKey.currentState.pushNamed(
-                            ReplyApp.searchRoute,
-                          );
+                          Provider.of<EmailStore>(
+                            context,
+                            listen: false,
+                          ).onSearchPage = true;
                         },
                       ),
                       SizedBox(width: isTablet ? 30 : 60),

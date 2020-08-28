@@ -177,6 +177,7 @@ class EmailStore with ChangeNotifier {
 
   int _currentlySelectedEmailId = -1;
   String _currentlySelectedInbox = 'Inbox';
+  bool _onSearchPage = false;
 
   Map<String, Set<Email>> get emails =>
       Map<String, Set<Email>>.unmodifiable(_categories);
@@ -211,6 +212,7 @@ class EmailStore with ChangeNotifier {
   int get currentlySelectedEmailId => _currentlySelectedEmailId;
   String get currentlySelectedInbox => _currentlySelectedInbox;
   bool get onMailView => _currentlySelectedEmailId > -1;
+  bool get onSearchPage => _onSearchPage;
 
   bool isEmailStarred(Email email) {
     return _categories['Starred'].contains(email);
@@ -223,6 +225,11 @@ class EmailStore with ChangeNotifier {
 
   set currentlySelectedInbox(String inbox) {
     _currentlySelectedInbox = inbox;
+    notifyListeners();
+  }
+
+  set onSearchPage(bool value) {
+    _onSearchPage = value;
     notifyListeners();
   }
 }

@@ -7,7 +7,6 @@ import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
-import 'package:gallery/studies/reply/search_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -17,25 +16,7 @@ class ReplyApp extends StatelessWidget {
   const ReplyApp();
 
   static const String homeRoute = '/reply';
-  static const String searchRoute = '/reply/search';
   static const String composeRoute = '/reply/compose';
-
-  static Route createSearchRoute(RouteSettings settings) {
-    return PageRouteBuilder<void>(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          const SearchPage(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return SharedAxisTransition(
-          fillColor: Theme.of(context).cardColor,
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
-          transitionType: SharedAxisTransitionType.scaled,
-          child: child,
-        );
-      },
-      settings: settings,
-    );
-  }
 
   static Route createComposeRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(
@@ -83,9 +64,6 @@ class ReplyApp extends StatelessWidget {
                 builder: (context) => const AdaptiveNav(),
                 settings: settings,
               );
-              break;
-            case searchRoute:
-              return createSearchRoute(settings);
               break;
             case composeRoute:
               return createComposeRoute(settings);
