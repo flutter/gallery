@@ -204,8 +204,8 @@ class _DesktopNavState extends State<_DesktopNav>
           );
     _curve = CurvedAnimation(
       parent: _controller,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
   }
 
@@ -304,9 +304,9 @@ class _DesktopNavState extends State<_DesktopNav>
 
   void onLogoTapped() {
     if (_isExtended) {
-      _controller.animateTo(0.5, curve: Curves.fastOutSlowIn);
+      _controller.animateTo(0.5, curve: standardEasing);
     } else {
-      _controller.animateTo(1, curve: Curves.fastOutSlowIn);
+      _controller.animateTo(1, curve: standardEasing);
     }
   }
 }
@@ -539,20 +539,20 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
     _drawerCurve = CurvedAnimation(
       parent: _drawerController,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
 
     _dropArrowCurve = CurvedAnimation(
       parent: _dropArrowController,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
 
     _bottomAppBarCurve = CurvedAnimation(
       parent: _bottomAppBarController,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
   }
 
@@ -572,8 +572,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   void _toggleBottomDrawerVisibility() {
     if (_drawerController.value < 0.4) {
-      _drawerController.animateTo(0.4, curve: Curves.fastOutSlowIn);
-      _dropArrowController.animateTo(0.35, curve: Curves.fastOutSlowIn);
+      _drawerController.animateTo(0.4, curve: standardEasing);
+      _dropArrowController.animateTo(0.35, curve: standardEasing);
       return;
     }
 
@@ -670,7 +670,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
             visible: _bottomDrawerVisible,
             child: AnimatedOpacity(
               opacity: _bottomDrawerVisible ? 1.0 : 0.0,
-              curve: Curves.fastOutSlowIn,
+              curve: standardEasing,
               duration: _kAnimationDuration,
               child: Container(
                 height: MediaQuery.of(context).size.height,
@@ -755,7 +755,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                                       ? 0.0
                                       : 1.0,
                                   duration: _kAnimationDuration,
-                                  curve: Curves.fastOutSlowIn,
+                                  curve: standardEasing,
                                   child: Text(
                                     widget.destinations[widget.selectedIndex]
                                         .name,
