@@ -30,7 +30,7 @@ class InboxPage extends StatelessWidget {
                 child: model.emails[model.currentlySelectedInbox].isEmpty
                     ? Center(
                         child: Text(
-                          '${model.currentlySelectedInbox} inbox is empty.',
+                          'Empty in ${model.currentlySelectedInbox.toLowerCase()}',
                         ),
                       )
                     : ListView(
