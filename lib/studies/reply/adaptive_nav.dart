@@ -1233,6 +1233,7 @@ class _SharedAxisTransitionSwitcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Selector<EmailStore, bool>(
+      selector: (context, emailStore) => emailStore.onSearchPage,
       builder: (context, onSearchPage, child) {
         return PageTransitionSwitcher(
           reverse: !onSearchPage,
@@ -1248,7 +1249,6 @@ class _SharedAxisTransitionSwitcher extends StatelessWidget {
           child: onSearchPage ? const SearchPage() : defaultChild,
         );
       },
-      selector: (context, emailStore) => emailStore.onSearchPage,
     );
   }
 }
