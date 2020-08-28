@@ -5,8 +5,8 @@ import 'package:gallery/l10n/gallery_localizations.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
+import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
-import 'package:gallery/studies/reply/search_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,23 @@ class ReplyApp extends StatelessWidget {
   const ReplyApp();
 
   static const String homeRoute = '/reply';
-  static const String searchRoute = '/reply/search';
+  static const String composeRoute = '/reply/compose';
+
+  static Route createComposeRoute(RouteSettings settings) {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const ComposePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeThroughTransition(
+          fillColor: Theme.of(context).cardColor,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        );
+      },
+      settings: settings,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,32 +57,16 @@ class ReplyApp extends StatelessWidget {
         supportedLocales: GalleryLocalizations.supportedLocales,
         locale: GalleryOptions.of(context).locale,
         initialRoute: homeRoute,
-        routes: <String, WidgetBuilder>{
-          homeRoute: (context) => const AdaptiveNav(),
-        },
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case homeRoute:
               return MaterialPageRoute<void>(
                 builder: (context) => const AdaptiveNav(),
+                settings: settings,
               );
               break;
-            case searchRoute:
-              return PageRouteBuilder<void>(
-                pageBuilder: (context, animation, secondaryAnimation) {
-                  return const SearchPage();
-                },
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) {
-                  return SharedAxisTransition(
-                    fillColor: Theme.of(context).cardColor,
-                    transitionType: SharedAxisTransitionType.scaled,
-                    child: child,
-                    animation: animation,
-                    secondaryAnimation: secondaryAnimation,
-                  );
-                },
-              );
+            case composeRoute:
+              return createComposeRoute(settings);
               break;
           }
           return null;

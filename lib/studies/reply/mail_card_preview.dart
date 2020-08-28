@@ -179,8 +179,11 @@ class _MailPreview extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        emailStore.currentlySelectedEmailId = id;
-        onTap.call();
+        Provider.of<EmailStore>(
+          context,
+          listen: false,
+        ).currentlySelectedEmailId = id;
+        onTap();
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
@@ -307,7 +310,7 @@ class _MailPreviewActionBar extends StatelessWidget {
               ),
               color: starredIconColor,
             ),
-            onPressed: () => onStar.call(),
+            onPressed: onStar,
           ),
           IconButton(
             icon: ImageIcon(
@@ -317,7 +320,7 @@ class _MailPreviewActionBar extends StatelessWidget {
               ),
               color: color,
             ),
-            onPressed: () => onDelete.call(),
+            onPressed: onDelete,
           ),
           IconButton(
             icon: Icon(

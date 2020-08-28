@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:provider/provider.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage();
@@ -18,7 +20,12 @@ class SearchPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BackButton(
-                      onPressed: () => Navigator.of(context).pop(),
+                      onPressed: () {
+                        Provider.of<EmailStore>(
+                          context,
+                          listen: false,
+                        ).onSearchPage = false;
+                      },
                     ),
                     const Expanded(
                       child: TextField(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/reply/mail_card_preview.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
@@ -34,26 +33,20 @@ class InboxPage extends StatelessWidget {
                         ),
                       )
                     : ListView(
-                        padding: EdgeInsetsDirectional.only(
-                          start: startPadding,
-                          end: endPadding,
-                          top: isDesktop ? 28 : 0,
-                        ),
-                        children: [
-                          for (int index = 0;
-                              index < model.emails[destination].length;
-                              index++) ...[
-                            MailPreviewCard(
-                              id: index,
-                              email: model.emails[destination][index],
-                              onDelete: () =>
-                                  model.deleteEmail(destination, index),
-                              onStar: () => model.starEmail(destination, index),
-                            ),
-                            const SizedBox(height: 4),
-                          ],
-                          const SizedBox(height: kToolbarHeight),
-                        ],
+                  padding: EdgeInsetsDirectional.only(
+                    start: startPadding,
+                    end: endPadding,
+                    top: isDesktop ? 28 : 0,
+                  ),
+                  children: [
+                    for (int index = 0;
+                        index < model.emails[destination].length;
+                        index++) ...[
+                      MailPreviewCard(
+                        id: index,
+                        email: model.emails[destination].elementAt(index),
+                        onDelete: () => model.deleteEmail(destination, index),
+                        onStar: () => model.starEmail(destination, index),
                       ),
               ),
               if (isDesktop) ...[
@@ -64,9 +57,10 @@ class InboxPage extends StatelessWidget {
                       IconButton(
                         icon: const Icon(Icons.search),
                         onPressed: () {
-                          rootNavKey.currentState.pushNamed(
-                            ReplyApp.searchRoute,
-                          );
+                          Provider.of<EmailStore>(
+                            context,
+                            listen: false,
+                          ).onSearchPage = true;
                         },
                       ),
                       SizedBox(width: isTablet ? 30 : 60),
