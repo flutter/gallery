@@ -93,20 +93,11 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       'Freelance': _folderIconAssetLocation,
     };
 
-    if (isTablet) {
+    if (isDesktop) {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
         currentInbox: _currentInbox,
-        extended: false,
-        destinations: _navigationDestinations,
-        folders: _folders,
-        onItemTapped: _onDestinationSelected,
-      );
-    } else if (isDesktop) {
-      return _DesktopNav(
-        selectedIndex: _selectedIndex,
-        currentInbox: _currentInbox,
-        extended: true,
+        extended: !isTablet ? true : false,
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
@@ -128,20 +119,25 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       listen: false,
     );
 
+    final isDesktop = isDisplayDesktop(context);
+
     if (emailStore.currentlySelectedInbox != destination) {
       _inboxKey = UniqueKey();
     }
 
     emailStore.currentlySelectedInbox = destination;
 
-    if (emailStore.onMailView) {
-      final isDesktop = isDisplayDesktop(context);
-
-      if (isDesktop) {
+    if (isDesktop) {
+      while (desktopMailNavKey.currentState.canPop()) {
         desktopMailNavKey.currentState.pop();
-      } else {
+      }
+    }
+
+    if (emailStore.onMailView) {
+      if (!isDesktop) {
         mobileMailNavKey.currentState.pop();
       }
+
       emailStore.currentlySelectedEmailId = -1;
     }
 
@@ -1033,21 +1029,36 @@ class _MailNavigator extends StatefulWidget {
 }
 
 class _MailNavigatorState extends State<_MailNavigator> {
+  static const inboxRoute = '/reply/inbox';
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
     return Navigator(
       key: isDesktop ? desktopMailNavKey : mobileMailNavKey,
+      initialRoute: inboxRoute,
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<void>(
-          builder: (context) {
-            return _FadeThroughTransitionSwitcher(
-              fillColor: Theme.of(context).scaffoldBackgroundColor,
-              child: widget.child,
+        switch (settings.name) {
+          case inboxRoute:
+            return MaterialPageRoute<void>(
+              builder: (context) {
+                return _FadeThroughTransitionSwitcher(
+                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                  child: widget.child,
+                );
+              },
+              settings: settings,
             );
-          },
-        );
+            break;
+          case ReplyApp.searchRoute:
+            return ReplyApp.createSearchRoute(settings);
+            break;
+          case ReplyApp.composeRoute:
+            return ReplyApp.createComposeRoute(settings);
+            break;
+        }
+        return null;
       },
     );
   }
@@ -1089,61 +1100,74 @@ class _ReplyFabState extends State<_ReplyFab>
     final theme = Theme.of(context);
     final circleFabBorder = const CircleBorder();
 
-    return OpenContainer(
-      openBuilder: (context, closedContainer) {
-        return const ComposePage();
-      },
-      openColor: theme.cardColor,
-      closedShape:
-          isDesktop & widget.extended ? const StadiumBorder() : circleFabBorder,
-      closedColor: theme.colorScheme.secondary,
-      closedElevation: 6,
-      closedBuilder: (context, openContainer) {
-        return Consumer<EmailStore>(
-          builder: (context, model, child) {
-            final onMailView = model.onMailView;
-            final fabSwitcher = _FadeThroughTransitionSwitcher(
-              fillColor: Colors.transparent,
-              child: onMailView
-                  ? Icon(
-                      Icons.reply_all,
-                      key: fabKey,
-                      color: Colors.black,
-                    )
-                  : const Icon(
-                      Icons.create,
-                      color: Colors.black,
-                    ),
-            );
-            final tooltip = onMailView ? 'Reply' : 'Compose';
-
-            if (isDesktop) {
-              return AnimatedSize(
-                vsync: this,
-                curve: Curves.fastOutSlowIn,
-                duration: _kAnimationDuration,
-                child: FloatingActionButton.extended(
-                  heroTag: 'Rail FAB',
-                  tooltip: tooltip,
-                  isExtended: widget.extended,
-                  onPressed: openContainer,
-                  label: Row(
-                    children: [
-                      fabSwitcher,
-                      SizedBox(width: widget.extended ? 16 : 0),
-                      if (widget.extended)
-                        Text(
-                          tooltip.toUpperCase(),
-                          style: Theme.of(context).textTheme.headline5.copyWith(
-                                fontSize: 16,
-                                color: theme.colorScheme.onSecondary,
-                              ),
-                        ),
-                    ],
-                  ),
+    return Consumer<EmailStore>(
+      builder: (context, model, child) {
+        final onMailView = model.onMailView;
+        final fabSwitcher = _FadeThroughTransitionSwitcher(
+          fillColor: Colors.transparent,
+          child: onMailView
+              ? Icon(
+                  Icons.reply_all,
+                  key: fabKey,
+                  color: Colors.black,
+                )
+              : const Icon(
+                  Icons.create,
+                  color: Colors.black,
                 ),
+        );
+        final tooltip = onMailView ? 'Reply' : 'Compose';
+
+        if (isDesktop) {
+          return FloatingActionButton.extended(
+            heroTag: 'Rail FAB',
+            tooltip: widget.extended ? null : tooltip,
+            isExtended: widget.extended,
+            onPressed: () {
+              // Navigator does not have an easy way to access the current
+              // route when using a GlobalKey to keep track of NavigatorState.
+              // We can use [Navigator.popUntil] in order to access the current
+              // route, and check if it is either a ComposePage or a SearchPage.
+              // If it is neither, then we can push a ComposePage onto our
+              // navigator. We return true at the end so nothing is popped.
+              desktopMailNavKey.currentState.popUntil(
+                (route) {
+                  var currentRoute = route.settings.name;
+                  if (currentRoute != ReplyApp.composeRoute &&
+                      currentRoute != ReplyApp.searchRoute) {
+                    desktopMailNavKey.currentState
+                        .pushNamed(ReplyApp.composeRoute);
+                  }
+                  return true;
+                },
               );
-            } else {
+            },
+            label: Row(
+              children: [
+                fabSwitcher,
+                if (widget.extended) ...[
+                  const SizedBox(width: 16),
+                  Text(
+                    tooltip.toUpperCase(),
+                    style: Theme.of(context).textTheme.headline5.copyWith(
+                          fontSize: 16,
+                          color: theme.colorScheme.onSecondary,
+                        ),
+                  ),
+                ]
+              ],
+            ),
+          );
+        } else {
+          return OpenContainer(
+            openBuilder: (context, closedContainer) {
+              return const ComposePage();
+            },
+            openColor: theme.cardColor,
+            closedShape: circleFabBorder,
+            closedColor: theme.colorScheme.secondary,
+            closedElevation: 6,
+            closedBuilder: (context, openContainer) {
               return Tooltip(
                 message: tooltip,
                 child: InkWell(
@@ -1158,9 +1182,9 @@ class _ReplyFabState extends State<_ReplyFab>
                   ),
                 ),
               );
-            }
-          },
-        );
+            },
+          );
+        }
       },
     );
   }
