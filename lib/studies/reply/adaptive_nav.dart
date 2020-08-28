@@ -204,8 +204,8 @@ class _DesktopNavState extends State<_DesktopNav>
           );
     _curve = CurvedAnimation(
       parent: _controller,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
   }
 
@@ -304,9 +304,9 @@ class _DesktopNavState extends State<_DesktopNav>
 
   void onLogoTapped() {
     if (_isExtended) {
-      _controller.animateTo(0.5, curve: Curves.fastOutSlowIn);
+      _controller.animateTo(0.5, curve: standardEasing);
     } else {
-      _controller.animateTo(1, curve: Curves.fastOutSlowIn);
+      _controller.animateTo(1, curve: standardEasing);
     }
   }
 }
@@ -539,20 +539,20 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
     _drawerCurve = CurvedAnimation(
       parent: _drawerController,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
 
     _dropArrowCurve = CurvedAnimation(
       parent: _dropArrowController,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
 
     _bottomAppBarCurve = CurvedAnimation(
       parent: _bottomAppBarController,
-      curve: Curves.fastOutSlowIn,
-      reverseCurve: Curves.fastOutSlowIn.flipped,
+      curve: standardEasing,
+      reverseCurve: standardEasing.flipped,
     );
   }
 
@@ -572,8 +572,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
 
   void _toggleBottomDrawerVisibility() {
     if (_drawerController.value < 0.4) {
-      _drawerController.animateTo(0.4, curve: Curves.fastOutSlowIn);
-      _dropArrowController.animateTo(0.35, curve: Curves.fastOutSlowIn);
+      _drawerController.animateTo(0.4, curve: standardEasing);
+      _dropArrowController.animateTo(0.35, curve: standardEasing);
       return;
     }
 
@@ -670,7 +670,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
             visible: _bottomDrawerVisible,
             child: AnimatedOpacity(
               opacity: _bottomDrawerVisible ? 1.0 : 0.0,
-              curve: Curves.fastOutSlowIn,
+              curve: standardEasing,
               duration: _kAnimationDuration,
               child: Container(
                 height: MediaQuery.of(context).size.height,
@@ -710,8 +710,9 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
         body: LayoutBuilder(
           builder: _buildStack,
         ),
-        bottomNavigationBar: Consumer<EmailStore>(
-          builder: (context, model, child) {
+        bottomNavigationBar: Selector<EmailStore, bool>(
+          selector: (context, emailStore) => emailStore.onMailView,
+          builder: (context, onMailView, child) {
             _bottomAppBarController.forward();
 
             return SizeTransition(
@@ -746,26 +747,19 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                             const SizedBox(width: 8),
                             const _ReplyLogo(),
                             const SizedBox(width: 10),
-                            Consumer<EmailStore>(
-                              builder: (context, model, child) {
-                                final onMailView = model.onMailView;
-
-                                return AnimatedOpacity(
-                                  opacity: _bottomDrawerVisible || onMailView
-                                      ? 0.0
-                                      : 1.0,
-                                  duration: _kAnimationDuration,
-                                  curve: Curves.fastOutSlowIn,
-                                  child: Text(
-                                    widget.destinations[widget.selectedIndex]
-                                        .name,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1
-                                        .copyWith(color: ReplyColors.white50),
-                                  ),
-                                );
-                              },
+                            AnimatedOpacity(
+                              opacity: _bottomDrawerVisible || onMailView
+                                  ? 0.0
+                                  : 1.0,
+                              duration: _kAnimationDuration,
+                              curve: standardEasing,
+                              child: Text(
+                                widget.destinations[widget.selectedIndex].name,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .copyWith(color: ReplyColors.white50),
+                              ),
                             ),
                           ],
                         ),
@@ -1103,9 +1097,9 @@ class _ReplyFabState extends State<_ReplyFab>
     final theme = Theme.of(context);
     final circleFabBorder = const CircleBorder();
 
-    return Consumer<EmailStore>(
-      builder: (context, model, child) {
-        final onMailView = model.onMailView;
+    return Selector<EmailStore, bool>(
+      selector: (context, emailStore) => emailStore.onMailView,
+      builder: (context, onMailView, child) {
         final fabSwitcher = _FadeThroughTransitionSwitcher(
           fillColor: Colors.transparent,
           child: onMailView
