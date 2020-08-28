@@ -33,20 +33,26 @@ class InboxPage extends StatelessWidget {
                         ),
                       )
                     : ListView(
-                  padding: EdgeInsetsDirectional.only(
-                    start: startPadding,
-                    end: endPadding,
-                    top: isDesktop ? 28 : 0,
-                  ),
-                  children: [
-                    for (int index = 0;
-                        index < model.emails[destination].length;
-                        index++) ...[
-                      MailPreviewCard(
-                        id: index,
-                        email: model.emails[destination].elementAt(index),
-                        onDelete: () => model.deleteEmail(destination, index),
-                        onStar: () => model.starEmail(destination, index),
+                        padding: EdgeInsetsDirectional.only(
+                          start: startPadding,
+                          end: endPadding,
+                          top: isDesktop ? 28 : 0,
+                        ),
+                        children: [
+                          for (int index = 0;
+                              index < model.emails[destination].length;
+                              index++) ...[
+                            MailPreviewCard(
+                              id: index,
+                              email: model.emails[destination].elementAt(index),
+                              onDelete: () =>
+                                  model.deleteEmail(destination, index),
+                              onStar: () => model.starEmail(destination, index),
+                            ),
+                            const SizedBox(height: 4),
+                          ],
+                          const SizedBox(height: kToolbarHeight),
+                        ],
                       ),
               ),
               if (isDesktop) ...[
