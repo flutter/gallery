@@ -24,7 +24,6 @@ class EmailStore with ChangeNotifier {
           'As always, thank you for shopping with us and we hope you love our specially formulated Cucumber Mask!',
       avatar: '$_avatarsLocation/avatar_express.png',
       recipients: 'Jeff',
-      hasAttachment: true,
       containsPictures: false,
     ),
     const Email(
@@ -38,7 +37,6 @@ class EmailStore with ChangeNotifier {
           'Ali',
       avatar: '$_avatarsLocation/avatar_5.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
     const Email(
@@ -48,7 +46,6 @@ class EmailStore with ChangeNotifier {
       message: 'Here are some great shots from my trip...',
       avatar: '$_avatarsLocation/avatar_3.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: true,
     ),
     const Email(
@@ -75,7 +72,6 @@ class EmailStore with ChangeNotifier {
       message: '',
       avatar: '$_avatarsLocation/avatar_4.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
     const Email(
@@ -85,7 +81,6 @@ class EmailStore with ChangeNotifier {
       message: 'Your shoes should be waiting for you at home!',
       avatar: '$_avatarsLocation/avatar_express.png',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
   };
@@ -103,7 +98,6 @@ class EmailStore with ChangeNotifier {
           'If you can make it, we\'re doing a little phone-tree party at her place next Saturday, hoping that if we can find one person, thee more will...',
       avatar: '$_avatarsLocation/avatar_7.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
     const Email(
@@ -115,7 +109,6 @@ class EmailStore with ChangeNotifier {
           'very quick to put together.',
       avatar: '$_avatarsLocation/avatar_2.jpg',
       recipients: 'Jeff',
-      hasAttachment: true,
       containsPictures: false,
     ),
   };
@@ -130,7 +123,6 @@ class EmailStore with ChangeNotifier {
           'Your alpha testers will be automatically notified. If you\'d rather send them a link directly, go to your Google Play Console and follow the instructions for obtaining an open alpha testing link.',
       avatar: '$_avatarsLocation/avatar_4.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
     const Email(
@@ -142,7 +134,6 @@ class EmailStore with ChangeNotifier {
           'Whether you\'re an experienced hiker or just looking to get outside for the afternoon, there\'s a segment that suits you.',
       avatar: '$_avatarsLocation/avatar_3.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
   };
@@ -156,7 +147,6 @@ class EmailStore with ChangeNotifier {
           'You\'ve been selected as a winner in our latest raffle! To claim your prize, click on the link.',
       avatar: '$_avatarsLocation/avatar_3.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
   };
@@ -170,7 +160,6 @@ class EmailStore with ChangeNotifier {
           'Wanted to email and see what you thought of',
       avatar: '$_avatarsLocation/avatar_2.jpg',
       recipients: 'Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
   };
