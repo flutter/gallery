@@ -6,7 +6,6 @@ class Email {
     this.message,
     this.avatar,
     this.recipients,
-    this.hasAttachment,
     this.containsPictures,
   });
 
@@ -16,6 +15,5 @@ class Email {
   final String message;
   final String avatar;
   final String recipients;
-  final bool hasAttachment;
   final bool containsPictures;
 }

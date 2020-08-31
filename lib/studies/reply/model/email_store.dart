@@ -62,7 +62,6 @@ class EmailStore with ChangeNotifier {
           'Maybe we can jump on the phone later today if you have a second.',
       avatar: '$_avatarsLocation/avatar_8.jpg',
       recipients: 'Allison, Kim, Jeff',
-      hasAttachment: false,
       containsPictures: false,
     ),
     const Email(
