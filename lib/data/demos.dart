@@ -166,6 +166,12 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
       category: GalleryDemoCategory.study,
       studyId: 'fortnightly',
     ),
+    'reply': GalleryDemo(
+      title: 'Reply',
+      subtitle: localizations.replyDescription,
+      category: GalleryDemoCategory.study,
+      studyId: 'reply',
+    ),
     'starterApp': GalleryDemo(
       title: localizations.starterAppTitle,
       subtitle: localizations.starterAppDescription,

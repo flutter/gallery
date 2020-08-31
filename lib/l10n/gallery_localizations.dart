@@ -377,6 +377,9 @@ abstract class GalleryLocalizations {
   // Study description for Rally.
   String get rallyDescription;
 
+  // Study description for Reply.
+  String get replyDescription;
+
   // Name for account made up by user.
   String get rallyAccountDataChecking;
 
@@ -2502,6 +2505,24 @@ abstract class GalleryLocalizations {
 
   // Headline for a news article about bees.
   String get fortnightlyHeadlineBees;
+
+  // Text label for Inbox destination.
+  String get replyInboxLabel;
+
+  // Text label for Starred destination.
+  String get replyStarredLabel;
+
+  // Text label for Sent destination.
+  String get replySentLabel;
+
+  // Text label for Trash destination.
+  String get replyTrashLabel;
+
+  // Text label for Spam destination.
+  String get replySpamLabel;
+
+  // Text label for Drafts destination.
+  String get replyDraftsLabel;
 }
 
 class _GalleryLocalizationsDelegate

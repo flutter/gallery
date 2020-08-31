@@ -106,6 +106,9 @@ class GalleryLocalizationsUr extends GalleryLocalizations {
   String get rallyDescription => 'ایک ذاتی اقتصادی ایپ';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'چیک کیا جا رہا ہے';
 
   @override
@@ -2443,4 +2446,22 @@ class GalleryLocalizationsUr extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'فارم لینڈ مکھیوں کی سپلائی میں کمی';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

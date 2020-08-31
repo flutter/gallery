@@ -108,6 +108,9 @@ class GalleryLocalizationsEl extends GalleryLocalizations {
   String get rallyDescription => 'Μια εφαρμογή για προσωπικά οικονομικά';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Τρεχούμενος';
 
   @override
@@ -2482,4 +2485,22 @@ class GalleryLocalizationsEl extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'Περιορισμένα αποθέματα μελισσιών';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

@@ -106,6 +106,9 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
   String get rallyDescription => 'ವೈಯಕ್ತಿಕ ಹಣಕಾಸು ಆ್ಯಪ್';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ';
 
   @override
@@ -2455,4 +2458,22 @@ class GalleryLocalizationsKn extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'ಜೇನುಕೃಷಿಗೆ ಜೇನುನೊಣಗಳ ಕೊರತೆ';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

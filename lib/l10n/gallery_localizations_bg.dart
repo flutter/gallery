@@ -108,6 +108,9 @@ class GalleryLocalizationsBg extends GalleryLocalizations {
   String get rallyDescription => 'Приложение за лични финанси';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Разплащателна сметка';
 
   @override
@@ -2464,4 +2467,22 @@ class GalleryLocalizationsBg extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'Недостиг на пчели';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

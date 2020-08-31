@@ -135,6 +135,10 @@
   "@rallyDescription": {
     "description": "Study description for Rally."
   },
+  "replyDescription": "An efficient, focused email app",
+  "@replyDescription": {
+    "description": "Study description for Reply."
+  },
   "rallyAccountDataChecking": "Checking",
   "@rallyAccountDataChecking": {
     "description": "Name for account made up by user."
@@ -3152,5 +3156,29 @@
   "fortnightlyHeadlineBees": "Farmland Bees In Short Supply",
   "@fortnightlyHeadlineBees": {
     "description": "Headline for a news article about bees."
+  },
+  "replyInboxLabel": "Inbox",
+  "@replyInboxLabel": {
+    "description": "Text label for Inbox destination."
+  },
+  "replyStarredLabel": "Starred",
+  "@replyStarredLabel": {
+    "description": "Text label for Starred destination."
+  },
+  "replySentLabel": "Sent",
+  "@replySentLabel": {
+    "description": "Text label for Sent destination."
+  },
+  "replyTrashLabel": "Trash",
+  "@replyTrashLabel": {
+    "description": "Text label for Trash destination."
+  },
+  "replySpamLabel": "Spam",
+  "@replySpamLabel": {
+    "description": "Text label for Spam destination."
+  },
+  "replyDraftsLabel": "Drafts",
+  "@replyDraftsLabel": {
+    "description": "Text label for Drafts destination."
   }
 }

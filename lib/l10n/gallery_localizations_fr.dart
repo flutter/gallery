@@ -108,6 +108,9 @@ class GalleryLocalizationsFr extends GalleryLocalizations {
   String get rallyDescription => 'Une application financière personnelle';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Compte courant';
 
   @override
@@ -2484,6 +2487,24 @@ class GalleryLocalizationsFr extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'Farmland Bees In Short Supply (Les abeilles désertent les terres agricoles)';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }
 
 /// The translations for French, as used in Canada (`fr_CA`).

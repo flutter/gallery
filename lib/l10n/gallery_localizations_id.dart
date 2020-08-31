@@ -106,6 +106,9 @@ class GalleryLocalizationsId extends GalleryLocalizations {
   String get rallyDescription => 'Aplikasi keuangan pribadi';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Giro';
 
   @override
@@ -2454,4 +2457,22 @@ class GalleryLocalizationsId extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'Rendahnya Pasokan Lebah Pertanian';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

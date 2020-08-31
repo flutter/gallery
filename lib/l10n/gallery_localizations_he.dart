@@ -107,6 +107,9 @@ class GalleryLocalizationsHe extends GalleryLocalizations {
   String get rallyDescription => 'אפליקציה אישית לניהול פיננסי';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'עובר ושב';
 
   @override
@@ -2437,4 +2440,22 @@ class GalleryLocalizationsHe extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'דבורים חסרות בחוות';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

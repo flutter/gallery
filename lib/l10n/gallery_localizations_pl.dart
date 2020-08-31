@@ -109,6 +109,9 @@ class GalleryLocalizationsPl extends GalleryLocalizations {
       'Aplikacja do zarządzania finansami osobistymi';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Rozliczeniowe';
 
   @override
@@ -2474,4 +2477,22 @@ class GalleryLocalizationsPl extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'Coraz mniej pszczół na polach uprawnych';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

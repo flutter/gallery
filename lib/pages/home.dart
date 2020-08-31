@@ -8,7 +8,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
-
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -23,6 +22,7 @@ import 'package:gallery/studies/crane/colors.dart';
 import 'package:gallery/studies/fortnightly/app.dart';
 import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
+import 'package:gallery/studies/reply/app.dart';
 import 'package:gallery/studies/shrine/app.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/starter/app.dart';
@@ -101,6 +101,21 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF1F1F1F),
         studyRoute: FortnightlyApp.defaultRoute,
+      ),
+      _CarouselCard(
+        demo: studyDemos['reply'],
+        asset: const AssetImage(
+          'assets/studies/reply_card.png',
+          package: 'flutter_gallery_assets',
+        ),
+        assetColor: const Color(0xFF344955),
+        assetDark: const AssetImage(
+          'assets/studies/reply_card_dark.png',
+          package: 'flutter_gallery_assets',
+        ),
+        assetDarkColor: const Color(0xFF1D2327),
+        textColor: Colors.white,
+        studyRoute: ReplyApp.homeRoute,
       ),
       _CarouselCard(
         demo: studyDemos['starterApp'],
@@ -1065,9 +1080,11 @@ class StudyWrapper extends StatefulWidget {
   const StudyWrapper({
     Key key,
     this.study,
+    this.alignment = AlignmentDirectional.bottomStart,
   }) : super(key: key);
 
   final Widget study;
+  final AlignmentDirectional alignment;
 
   @override
   _StudyWrapperState createState() => _StudyWrapperState();
@@ -1086,7 +1103,7 @@ class _StudyWrapperState extends State<StudyWrapper> {
             child: widget.study,
           ),
           Align(
-            alignment: AlignmentDirectional.bottomStart,
+            alignment: widget.alignment,
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Semantics(

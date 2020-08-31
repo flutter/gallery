@@ -106,6 +106,9 @@ class GalleryLocalizationsHr extends GalleryLocalizations {
   String get rallyDescription => 'Aplikacija za osobne financije';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Tekući';
 
   @override
@@ -2480,4 +2483,22 @@ class GalleryLocalizationsHr extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'Domaćim pčelama nedostaje izvora';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

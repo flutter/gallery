@@ -106,6 +106,9 @@ class GalleryLocalizationsGu extends GalleryLocalizations {
   String get rallyDescription => 'વ્યક્તિગત નાણાંકીય આયોજન માટેની ઍપ';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'ચેક કરી રહ્યાં છીએ';
 
   @override
@@ -2441,4 +2444,22 @@ class GalleryLocalizationsGu extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'ક્યાં છે મધમાખીઓ!';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

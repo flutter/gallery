@@ -106,6 +106,9 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
   String get rallyDescription => 'تطبيق للتمويل الشخصي';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'الحساب الجاري';
 
   @override
@@ -2462,6 +2465,24 @@ class GalleryLocalizationsAr extends GalleryLocalizations {
 
   @override
   String get fortnightlyHeadlineBees => 'نقص نحل الأراضي الزراعية';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).

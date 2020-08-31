@@ -109,6 +109,9 @@ class GalleryLocalizationsKm extends GalleryLocalizations {
   String get rallyDescription => 'កម្មវិធីហិរញ្ញវត្ថុ​ផ្ទាល់ខ្លួន';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'គណនីមូលប្បទានបត្រ';
 
   @override
@@ -2466,4 +2469,22 @@ class GalleryLocalizationsKm extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'ឃ្មុំ​កសិដ្ឋាន​កំពុង​ខ្វះខាត​លម្អងផ្កា';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }

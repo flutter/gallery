@@ -108,6 +108,9 @@ class GalleryLocalizationsUz extends GalleryLocalizations {
   String get rallyDescription => 'Budjetni rejalashtirish uchun ilova';
 
   @override
+  String get replyDescription => 'An efficient, focused email app';
+
+  @override
   String get rallyAccountDataChecking => 'Hisobraqam';
 
   @override
@@ -2475,4 +2478,22 @@ class GalleryLocalizationsUz extends GalleryLocalizations {
   @override
   String get fortnightlyHeadlineBees =>
       'Fermalardagi arilar taʼminoti yetishmayapti';
+
+  @override
+  String get replyInboxLabel => 'Inbox';
+
+  @override
+  String get replyStarredLabel => 'Starred';
+
+  @override
+  String get replySentLabel => 'Sent';
+
+  @override
+  String get replyTrashLabel => 'Trash';
+
+  @override
+  String get replySpamLabel => 'Spam';
+
+  @override
+  String get replyDraftsLabel => 'Drafts';
 }
