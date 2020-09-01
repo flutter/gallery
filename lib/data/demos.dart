@@ -51,8 +51,8 @@ import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dar
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
-import 'package:gallery/l10n/gallery_localizations.dart';
-import 'package:gallery/l10n/gallery_localizations_en.dart'
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
     show GalleryLocalizationsEn;
 import 'package:gallery/themes/material_demo_theme_data.dart';
 

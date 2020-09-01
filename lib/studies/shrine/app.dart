@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:gallery/data/gallery_options.dart';
-import 'package:gallery/l10n/gallery_localizations.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/shrine/backdrop.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
