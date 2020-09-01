@@ -44,7 +44,6 @@ Future<void> generateLocalizations() async {
     '--preferred-supported-locales=["en"]',
     '--use-deferred-loading',
   ]);
-  await format(path: path.join('lib', 'l10n'));
 }
 
 @Task('Transform arb to xml for English')
