@@ -4,7 +4,7 @@
 
 import 'package:gallery/studies/shrine/model/product.dart';
 
-import '../../../l10n/gallery_localizations.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 class ProductsRepository {
   static List<Product> loadProducts(Category category) {
