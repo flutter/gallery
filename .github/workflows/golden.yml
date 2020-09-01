@@ -30,6 +30,7 @@ jobs:
 
     # Run the golden tests for the repository.
     - name: Get packages for the Flutter project.
+      run: flutter update-packages
       run: flutter pub get
       working-directory: code
     - name: Run Flutter golden tests.

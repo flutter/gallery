@@ -1,5 +1,5 @@
 name: Flutter Gallery Unit Tests
-on: 
+on:
   push:
     branches:
       - master
@@ -37,6 +37,7 @@ jobs:
 
     # Run the tests for the repository.
     - name: Get packages for the Flutter project.
+      run: flutter update-packages
       run: flutter pub get
       working-directory: code
     - name: Analyze the project's Dart code.

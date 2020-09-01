@@ -32,6 +32,7 @@ jobs:
 
     # Run integration tests.
     - name: Get packages for the Flutter project.
+      run: flutter update-packages
       run: flutter pub get
       working-directory: code
     - name: Run gallery_compile_test.
