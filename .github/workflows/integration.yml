@@ -21,6 +21,10 @@ jobs:
       run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
     - name: Run Flutter doctor.
       run: flutter doctor -v
+    # TODO(shihaohong): Remove this step once gen_l10n tool dependency issue has
+    # been resolved (https://github.com/flutter/flutter/issues/65023)
+    - name: Run Flutter update-packages
+      run: flutter update-packages
     - name: Enable Flutter web.
       run: flutter config --enable-web
 
@@ -32,7 +36,6 @@ jobs:
 
     # Run integration tests.
     - name: Get packages for the Flutter project.
-      run: flutter update-packages
       run: flutter pub get
       working-directory: code
     - name: Run gallery_compile_test.
