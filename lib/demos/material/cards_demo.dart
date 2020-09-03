@@ -85,7 +85,7 @@ class TravelDestinationItem extends StatelessWidget {
         super(key: key);
 
   // This height will allow for all the Card's content to fit comfortably within the card.
-  static const height = 338.0;
+  static const height = 360.0;
   final TravelDestination destination;
   final ShapeBorder shape;
 
