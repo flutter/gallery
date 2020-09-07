@@ -248,7 +248,7 @@ void main([List<String> args = const <String>[]]) {
 
       final summary = TimelineSummary.summarize(timeline);
       await summary.writeSummaryToFile('transitions-crane', pretty: true);
-    }, timeout: const Timeout(Duration(seconds: 60)));
+    }, timeout: Timeout.none);
 
     test('all demos', () async {
       if (isTestingCraneOnly) return;
@@ -271,6 +271,6 @@ void main([List<String> args = const <String>[]]) {
       final unprofiledDemos = Set<String>.from(_allDemos)
         ..removeAll(_profiledDemos);
       await runDemos(unprofiledDemos.toList(), driver);
-    }, timeout: const Timeout(Duration(minutes: 5)));
+    }, timeout: Timeout.none);
   });
 }

@@ -126,7 +126,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.3"
+    version: "1.0.0"
   dart_style:
     dependency: transitive
     description:
