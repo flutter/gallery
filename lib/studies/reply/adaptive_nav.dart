@@ -767,6 +767,7 @@ class _AnimatedBottomAppBar extends StatelessWidget {
             shape: const CircularNotchedRectangle(),
             notchMargin: 8,
             child: Container(
+              color: Colors.transparent,
               height: kToolbarHeight,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
