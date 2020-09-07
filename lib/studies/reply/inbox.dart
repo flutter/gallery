@@ -15,8 +15,16 @@ class InboxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
-    final startPadding = isTablet ? 60.0 : isDesktop ? 120.0 : 4.0;
-    final endPadding = isTablet ? 30.0 : isDesktop ? 60.0 : 4.0;
+    final startPadding = isTablet
+        ? 60.0
+        : isDesktop
+            ? 120.0
+            : 4.0;
+    final endPadding = isTablet
+        ? 30.0
+        : isDesktop
+            ? 60.0
+            : 4.0;
 
     return Consumer<EmailStore>(
       builder: (context, model, child) {
