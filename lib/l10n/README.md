@@ -24,26 +24,27 @@ to be completed.
 
 ## Generating GalleryLocalizations
 
-Note that using grinder is simplest and that, under the hood, it runs the l10n scripts.
+Running the application for the first time should generate a synthetic package
+containing the app's localizations through importing
+`package:flutter_gen/gen_l10n/`. The code is generated will be generated in
+`.dart_tool/flutter_gen/gen_l10n/`.
 
-### With Grinder
+The generated localizations code is updated every time `flutter run`
+is called, and during hot reload and restart. This means that updates to
+existing arb files can be made and seen in real time during app development.
 
-1. Make sure you have [grinder](https://pub.dev/packages/grinder) installed by
-running `flutter pub get`.
-2. Then run `flutter pub run grinder l10n` to generate `GalleryLocalizations`.
+### Generating GalleryLocalizations in the command line
 
-For more details on what `flutter pub run grinder l10n` does, see the next section
-*With l10n scripts*.
-
-### With l10n scripts
 From the root directory, run:
 
-```dart
-dart ${YOUR_FLUTTER_PATH}/dev/tools/localization/bin/gen_l10n.dart \
+```bash
+flutter gen-l10n \
     --template-arb-file=intl_en.arb \
     --output-localization-file=gallery_localizations.dart \
     --output-class=GalleryLocalizations
 ```
+
+### Generating the .xml source for the Google translation console
 
 From the root directory, run `dart tool/l10n_cli/main.dart`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
@@ -54,14 +55,6 @@ translation console and changing the filename may require manually updating
 already translated messages to point to the new file. Therefore, avoid doing so
 unless necessary.
 
-Run the formatter to make the Flutter analyzer happy:
-```
-flutter format .
-```
-
 ## Importing translations (for Flutter org members)
 
-Once the translations are ready:
-
-1. Use the internal tool (`push_l10n`) to push the updated `intl_<locale>.arb` files to this repo. For more information, see `/third_party/dart/flutter_gallery/README.md`
-2. Generate GalleryLocalizations with the updated .arb files by running `flutter pub run grinder l10n`.
+Once the translations are ready, use the internal tool (`push_l10n`) to push the updated `intl_<locale>.arb` files to this repo. For more information, see `/third_party/dart/flutter_gallery/README.md`.
