@@ -24,30 +24,7 @@ Future<void> format({String path = '.'}) async {
   await _runProcess('flutter', ['format', path]);
 }
 
-@Task('Generate localizations files')
-Future<void> generateLocalizations() async {
-  final l10nScriptFile = path.join(
-    _flutterRootPath(),
-    'dev',
-    'tools',
-    'localization',
-    'bin',
-    'gen_l10n.dart',
-  );
-
-  await pubGet(directory: l10nScriptFile);
-
-  Dart.run(l10nScriptFile, arguments: [
-    '--template-arb-file=intl_en.arb',
-    '--output-localization-file=gallery_localizations.dart',
-    '--output-class=GalleryLocalizations',
-    '--preferred-supported-locales=["en"]',
-    '--use-deferred-loading',
-  ]);
-}
-
 @Task('Transform arb to xml for English')
-@Depends(generateLocalizations)
 Future<void> l10n() async {
   final l10nPath =
       path.join(Directory.current.path, 'tool', 'l10n_cli', 'main.dart');
@@ -147,14 +124,4 @@ Future<String> _startProcess(String executable,
     exit(exitCode);
   }
   return Future<String>.value(utf8.decoder.convert(output));
-}
-
-/// Return the flutter root path from the environment variables.
-String _flutterRootPath() {
-  final separator = (Platform.isWindows) ? ';' : ':';
-  final flutterBinPath =
-      Platform.environment['PATH'].split(separator).lastWhere((setting) {
-    return path.canonicalize(setting).endsWith(path.join('flutter', 'bin'));
-  });
-  return Directory(flutterBinPath).parent.path;
 }
