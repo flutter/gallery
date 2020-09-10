@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN sharedZAxisTransitionDemo
@@ -9,40 +9,52 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
     return Navigator(
       onGenerateRoute: (settings) {
-        return MaterialPageRoute<void>(
-          builder: (context) {
-            return Scaffold(
-              appBar: AppBar(
-                automaticallyImplyLeading: false,
-                title: Column(
-                  children: [
-                    Text(
-                      localizations.demoSharedZAxisTitle,
-                    ),
-                    Text(
-                      '(${localizations.demoSharedZAxisDemoInstructions})',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle2
-                          .copyWith(color: Colors.white),
-                    ),
-                  ],
+        return _createHomeRoute();
+      },
+    );
+  }
+
+  Route _createHomeRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        final localizations = GalleryLocalizations.of(context);
+
+        return Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Column(
+              children: [
+                Text(localizations.demoSharedZAxisTitle),
+                Text(
+                  '(${localizations.demoSharedZAxisDemoInstructions})',
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2
+                      .copyWith(color: Colors.white),
                 ),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.settings),
-                    onPressed: () {
-                      Navigator.of(context).push<void>(_createSettingsRoute());
-                    },
-                  ),
-                ],
+              ],
+            ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.of(context).push<void>(_createSettingsRoute());
+                },
               ),
-              body: const _RecipePage(),
-            );
-          },
+            ],
+          ),
+          body: const _RecipePage(),
+        );
+      },
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SharedAxisTransition(
+          fillColor: Colors.transparent,
+          transitionType: SharedAxisTransitionType.scaled,
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
         );
       },
     );
@@ -56,9 +68,9 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
         return SharedAxisTransition(
           fillColor: Colors.transparent,
           transitionType: SharedAxisTransitionType.scaled,
-          child: child,
           animation: animation,
           secondaryAnimation: secondaryAnimation,
+          child: child,
         );
       },
     );
