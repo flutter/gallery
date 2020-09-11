@@ -1155,6 +1155,7 @@ class _ReplyFabState extends State<_ReplyFab>
 
         if (isDesktop) {
           return FloatingActionButton.extended(
+            key: const ValueKey('ReplyFAB'),
             heroTag: 'Rail FAB',
             tooltip: widget.extended ? null : tooltip,
             isExtended: widget.extended,
