@@ -295,7 +295,6 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      print(summary.summaryJson);
       await summary.writeSummaryToFile('transitions-reply', pretty: true);
     }, timeout: Timeout.none);
 
