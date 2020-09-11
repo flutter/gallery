@@ -29,6 +29,7 @@ const List<String> _profiledDemos = <String>[
   'rally@study',
   'crane@study',
   'fortnightly@study',
+  'reply@study',
   'bottom-navigation@material',
   'button@material',
   'card@material',
@@ -67,6 +68,14 @@ final backButton = find.byValueKey('Back');
 final galleryHeader = find.text('Gallery');
 final categoriesHeader = find.text('Categories');
 final craneFlyList = find.byValueKey('CraneListView-0');
+
+// SerializableFinders for reply study actions.
+final replyFab = find.byValueKey('ReplyFAB');
+final replySearch = find.byValueKey('ReplySearch');
+final replyEmail = find.byValueKey('ReplyEmail-0');
+final replyLogo = find.byValueKey('ReplyLogo');
+final replySentMailbox = find.byValueKey('Reply-Sent');
+final replyExit = find.byValueKey('ReplyExit');
 
 // Let overscroll animation settle on iOS after driver.scroll.
 void handleOverscrollAnimation() {
@@ -194,6 +203,7 @@ void main([List<String> args = const <String>[]]) {
     FlutterDriver driver;
 
     bool isTestingCraneOnly;
+    bool isTestingReplyOnly;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -207,6 +217,10 @@ void main([List<String> args = const <String>[]]) {
       // See _handleMessages() in transitions_perf.dart.
       isTestingCraneOnly =
           await driver.requestData('isTestingCraneOnly') == 'true';
+
+      // See _handleMessages() in transitions_perf.dart.
+      isTestingReplyOnly =
+          await driver.requestData('isTestingReplyOnly') == 'true';
 
       if (args.contains('--with_semantics')) {
         print('Enabeling semantics...');
@@ -250,8 +264,43 @@ void main([List<String> args = const <String>[]]) {
       await summary.writeSummaryToFile('transitions-crane', pretty: true);
     }, timeout: Timeout.none);
 
+    test('only Reply', () async {
+      if (!isTestingReplyOnly) return;
+
+      // Collect timeline data for just the Crane study.
+      final timeline = await driver.traceAction(
+        () async {
+          await runDemos(
+            ['reply@study'],
+            driver,
+            additionalActions: () async {
+              await driver.tap(replyFab); //tap compose
+              await driver.tap(replyExit); //exit compose page
+              await driver.tap(replySearch); //tap search icon
+              await driver.tap(replyExit); //exit search page
+              await driver.tap(replyEmail); //tap email card
+              await driver.tap(replyExit); //exit email card
+              await driver.tap(replyLogo); //tap reply logo
+              await driver.tap(replyLogo); //tap reply logo again
+              await driver.tap(replyLogo); //tap reply logo
+              await driver.tap(replySentMailbox); //tap destination
+            },
+            scrollToTopWhenDone: false,
+          );
+        },
+        streams: const <TimelineStream>[
+          TimelineStream.dart,
+          TimelineStream.embedder,
+        ],
+      );
+
+      final summary = TimelineSummary.summarize(timeline);
+      print(summary.summaryJson);
+      await summary.writeSummaryToFile('transitions-reply', pretty: true);
+    }, timeout: Timeout.none);
+
     test('all demos', () async {
-      if (isTestingCraneOnly) return;
+      if (isTestingCraneOnly || isTestingReplyOnly) return;
 
       // Collect timeline data for just a limited set of demos to avoid OOMs.
       final timeline = await driver.traceAction(

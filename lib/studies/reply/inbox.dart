@@ -51,6 +51,7 @@ class InboxPage extends StatelessWidget {
                               index < model.emails[destination].length;
                               index++) ...[
                             MailPreviewCard(
+                              key: ValueKey('ReplyEmail-$index'),
                               id: index,
                               email: model.emails[destination].elementAt(index),
                               onDelete: () =>
@@ -69,6 +70,7 @@ class InboxPage extends StatelessWidget {
                   child: Row(
                     children: [
                       IconButton(
+                        key: const ValueKey('ReplySearch'),
                         icon: const Icon(Icons.search),
                         onPressed: () {
                           Provider.of<EmailStore>(

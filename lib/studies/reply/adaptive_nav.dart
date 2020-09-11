@@ -774,6 +774,7 @@ class _AnimatedBottomAppBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
+                    key: const ValueKey('ReplyLogo'),
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
                     onTap: toggleBottomDrawerVisibility,
                     child: Row(
@@ -919,6 +920,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
                   : Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
+                        key: const ValueKey('ReplySearch'),
                         icon: const Icon(Icons.search),
                         color: ReplyColors.white50,
                         onPressed: () {
@@ -962,6 +964,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
       children: [
         for (var destination in destinations)
           InkWell(
+            key: ValueKey('Reply-${destination.name}'),
             onTap: () {
               drawerController.reverse();
               dropArrowController.forward();
@@ -1207,6 +1210,7 @@ class _ReplyFabState extends State<_ReplyFab>
               return Tooltip(
                 message: tooltip,
                 child: InkWell(
+                  key: const ValueKey('ReplyFAB'),
                   customBorder: circleFabBorder,
                   onTap: openContainer,
                   child: SizedBox(
