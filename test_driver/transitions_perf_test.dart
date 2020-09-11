@@ -70,7 +70,7 @@ final categoriesHeader = find.text('Categories');
 final craneFlyList = find.byValueKey('CraneListView-0');
 
 // SerializableFinders for reply study actions.
-final replyFab = find.byValueKey('ReplyFAB');
+final replyFab = find.byValueKey('ReplyFab');
 final replySearch = find.byValueKey('ReplySearch');
 final replyEmail = find.byValueKey('ReplyEmail-0');
 final replyLogo = find.byValueKey('ReplyLogo');
@@ -274,16 +274,26 @@ void main([List<String> args = const <String>[]]) {
             ['reply@study'],
             driver,
             additionalActions: () async {
-              await driver.tap(replyFab); //tap compose
-              await driver.tap(replyExit); //exit compose page
-              await driver.tap(replySearch); //tap search icon
-              await driver.tap(replyExit); //exit search page
-              await driver.tap(replyEmail); //tap email card
-              await driver.tap(replyExit); //exit email card
-              await driver.tap(replyLogo); //tap reply logo
-              await driver.tap(replyLogo); //tap reply logo again
-              await driver.tap(replyLogo); //tap reply logo
-              await driver.tap(replySentMailbox); //tap destination
+              // Tap compose fab to trigger open container transform
+              await driver.tap(replyFab);
+              // Exit compose page
+              await driver.tap(replyExit);
+              // Tap search icon to trigger shared axis transition
+              await driver.tap(replySearch);
+              // Exit search page
+              await driver.tap(replyExit);
+              // Tap on email to trigger open container transform
+              await driver.tap(replyEmail);
+              // Exit email page
+              await driver.tap(replyExit);
+              // Tap Reply logo to open bottom drawer/navigation rail
+              await driver.tap(replyLogo);
+              // Tap Reply logo to close bottom drawer/navigation rail
+              await driver.tap(replyLogo);
+              // Tap Reply logo to open bottom drawer/navigation rail
+              await driver.tap(replyLogo);
+              // Tap sent mailbox destination to trigger fade through transition
+              await driver.tap(replySentMailbox);
             },
             scrollToTopWhenDone: false,
           );
