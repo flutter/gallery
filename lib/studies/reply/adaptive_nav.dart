@@ -339,6 +339,7 @@ class _NavigationRailHeader extends StatelessWidget {
               SizedBox(
                 width: extended ? 120 : 58,
                 child: InkWell(
+                  key: const ValueKey('ReplyLogo'),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(16),
                   ),
@@ -1155,7 +1156,7 @@ class _ReplyFabState extends State<_ReplyFab>
 
         if (isDesktop) {
           return FloatingActionButton.extended(
-            key: const ValueKey('ReplyFAB'),
+            key: const ValueKey('ReplyFab'),
             heroTag: 'Rail FAB',
             tooltip: widget.extended ? null : tooltip,
             isExtended: widget.extended,
@@ -1211,7 +1212,7 @@ class _ReplyFabState extends State<_ReplyFab>
               return Tooltip(
                 message: tooltip,
                 child: InkWell(
-                  key: const ValueKey('ReplyFAB'),
+                  key: const ValueKey('ReplyFab'),
                   customBorder: circleFabBorder,
                   onTap: openContainer,
                   child: SizedBox(
