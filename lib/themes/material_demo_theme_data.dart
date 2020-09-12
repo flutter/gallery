@@ -20,7 +20,6 @@ class MaterialDemoThemeData {
       colorScheme: _colorScheme,
     ),
     canvasColor: _colorScheme.background,
-    cursorColor: _colorScheme.primary,
     toggleableActiveColor: _colorScheme.primary,
     highlightColor: Colors.transparent,
     indicatorColor: _colorScheme.onPrimary,
