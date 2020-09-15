@@ -287,9 +287,7 @@ class _NavigationRailHeader extends StatelessWidget {
                   children: [
                     const SizedBox(width: 6),
                     InkWell(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(16),
-                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
                       child: Row(
                         children: [
                           Transform.rotate(
