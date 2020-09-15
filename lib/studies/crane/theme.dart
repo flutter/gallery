@@ -29,13 +29,16 @@ ThemeData _buildCraneTheme() {
     indicatorColor: cranePrimaryWhite,
     scaffoldBackgroundColor: cranePrimaryWhite,
     cardColor: cranePrimaryWhite,
-    textSelectionColor: cranePurple700,
     errorColor: craneErrorOrange,
     highlightColor: Colors.transparent,
     buttonTheme: const ButtonThemeData(
       textTheme: ButtonTextTheme.accent,
     ),
     textTheme: _buildCraneTextTheme(base.textTheme),
+    useTextSelectionTheme: true,
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: cranePurple700,
+    ),
     primaryTextTheme: _buildCraneTextTheme(base.primaryTextTheme),
     accentTextTheme: _buildCraneTextTheme(base.accentTextTheme),
     iconTheme: _customIconTheme(base.iconTheme, craneWhite60),
