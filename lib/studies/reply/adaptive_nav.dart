@@ -1,6 +1,9 @@
+import 'dart:html';
 import 'dart:math' as math;
+import 'dart:ui';
 
 import 'package:animations/animations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -177,55 +180,11 @@ class _DesktopNav extends StatefulWidget {
 class _DesktopNavState extends State<_DesktopNav>
     with SingleTickerProviderStateMixin {
   bool _isExtended;
-  bool _hasWidgetUpdated = false;
-  AnimationController _controller;
-  Animation<double> _curve;
-
-  @override
-  void initState() {
-    super.initState();
-    _isExtended = widget.extended;
-    _controller =
-        AnimationController(duration: _kAnimationDuration, vsync: this)
-          ..addListener(
-            () {
-              if (_controller.isCompleted) {
-                _controller.reset();
-                setState(() {
-                  if (_hasWidgetUpdated) {
-                    _isExtended = widget.extended;
-                    _hasWidgetUpdated = false;
-                  } else {
-                    _isExtended = !_isExtended;
-                  }
-                });
-              }
-            },
-          );
-    _curve = CurvedAnimation(
-      parent: _controller,
-      curve: standardEasing,
-      reverseCurve: standardEasing.flipped,
-    );
-  }
-
-  @override
-  void didUpdateWidget(_DesktopNav oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.extended != widget.extended) {
-      onLogoTapped();
-      _hasWidgetUpdated = true;
-    }
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  final ValueNotifier<bool> _isExtended2 = ValueNotifier<bool>(false);
 
   @override
   Widget build(BuildContext context) {
+    print('_DesktopNavState build');
     return Scaffold(
       body: Row(
         children: [
@@ -240,49 +199,51 @@ class _DesktopNavState extends State<_DesktopNav>
                       minHeight: constraints.maxHeight,
                     ),
                     child: IntrinsicHeight(
-                      child: NavigationRail(
-                        destinations: [
-                          for (var destination in widget.destinations)
-                            NavigationRailDestination(
-                              icon: Material(
-                                color: Colors.transparent,
-                                child: ImageIcon(
-                                  AssetImage(
-                                    destination.icon,
-                                    package: _assetsPackage,
+                      child: ValueListenableBuilder<bool>(
+                          valueListenable: _isExtended2,
+                          builder: (context, value, child) {
+                            return NavigationRail(
+                              destinations: [
+                                for (var destination in widget.destinations)
+                                  NavigationRailDestination(
+                                    icon: Material(
+                                      color: Colors.transparent,
+                                      child: ImageIcon(
+                                        AssetImage(
+                                          destination.icon,
+                                          package: _assetsPackage,
+                                        ),
+                                      ),
+                                    ),
+                                    label: Text(destination.name),
                                   ),
-                                ),
+                              ],
+                              extended: _isExtended2.value,
+                              labelType: NavigationRailLabelType.none,
+                              leading: _NavigationRailHeader(
+                                extended: _isExtended2,
                               ),
-                              label: Text(destination.name),
-                            ),
-                        ],
-                        extended: _isExtended,
-                        labelType: NavigationRailLabelType.none,
-                        leading: _NavigationRailHeader(
-                          extended: _isExtended,
-                          animation: _curve,
-                          onLogoTapped: onLogoTapped,
-                        ),
-                        trailing: Visibility(
-                          visible: _isExtended,
-                          maintainState: true,
-                          maintainAnimation: true,
-                          child: AnimatedOpacity(
-                            duration: _kAnimationDuration,
-                            opacity: _isExtended ? 1 : 0,
-                            child: _NavigationRailFolderSection(
-                              folders: widget.folders,
-                            ),
-                          ),
-                        ),
-                        selectedIndex: widget.selectedIndex,
-                        onDestinationSelected: (index) {
-                          widget.onItemTapped(
-                            index,
-                            widget.destinations[index].name,
-                          );
-                        },
-                      ),
+//                              trailing: Visibility(
+//                                visible: _isExtended2.value,
+//                                maintainState: true,
+//                                maintainAnimation: true,
+//                                child: AnimatedOpacity(
+//                                  duration: _kAnimationDuration,
+//                                  opacity: _isExtended2.value ? 1 : 0,
+//                                  child: _NavigationRailFolderSection(
+//                                    folders: widget.folders,
+//                                  ),
+//                                ),
+//                              ),
+                              selectedIndex: widget.selectedIndex,
+                              onDestinationSelected: (index) {
+                                widget.onItemTapped(
+                                  index,
+                                  widget.destinations[index].name,
+                                );
+                              },
+                            );
+                          }),
                     ),
                   ),
                 ),
@@ -302,104 +263,104 @@ class _DesktopNavState extends State<_DesktopNav>
     );
   }
 
-  void onLogoTapped() {
-    if (_isExtended) {
-      _controller.animateTo(0.5, curve: standardEasing);
-    } else {
-      _controller.animateTo(1, curve: standardEasing);
-    }
-  }
+//  void onLogoTapped() {
+//    if (_isExtended) {
+//      _controller.animateTo(0.5, curve: standardEasing);
+//    } else {
+//      _controller.animateTo(1, curve: standardEasing);
+//    }
+//  }
 }
 
 class _NavigationRailHeader extends StatelessWidget {
   const _NavigationRailHeader({
     @required this.extended,
-    @required this.animation,
-    @required this.onLogoTapped,
-  })  : assert(extended != null),
-        assert(animation != null),
-        assert(onLogoTapped != null);
+  }) : assert(extended != null);
 
-  final bool extended;
-  final Animation<double> animation;
-  final VoidCallback onLogoTapped;
+  final ValueNotifier<bool> extended;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final extendedAnimation = NavigationRail.extendedAnimation(context);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: 56,
-          child: Row(
+    return AnimatedBuilder(
+      animation: extendedAnimation,
+      builder: (context, child) {
+        return Align(
+          alignment: AlignmentDirectional.centerStart,
+          widthFactor: extendedAnimation.value,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(width: 12),
               SizedBox(
-                width: extended ? 120 : 58,
-                child: InkWell(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(16),
-                  ),
-                  child: Row(
-                    children: [
-                      RotationTransition(
-                        turns: Tween(
-                          begin: extended ? 0.0 : 0.5,
-                          end: 1.0,
-                        ).animate(animation),
-                        child: const Icon(
-                          Icons.arrow_left,
-                          color: ReplyColors.white50,
-                          size: 16,
+                height: 56,
+                child: Row(
+                  children: [
+                    const SizedBox(width: 6),
+                    InkWell(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            Transform.rotate(
+                              angle: extendedAnimation.value * math.pi,
+                              child: const Icon(
+                                Icons.arrow_left,
+                                color: ReplyColors.white50,
+                                size: 16,
+                              ),
+                            ),
+                            const _ReplyLogo(),
+                            const SizedBox(width: 10),
+                            Opacity(
+                              opacity: extendedAnimation.value,
+                              child: Text(
+                                'REPLY',
+                                style: textTheme.bodyText1.copyWith(
+                                  color: ReplyColors.white50,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          extended.value = !extended.value;
+                        }),
+                    if (extendedAnimation.value > 0)
+                      Opacity(
+                        opacity: extendedAnimation.value,
+                        child: Row(
+                          children: const [
+                            SizedBox(width: 36),
+                            ProfileAvatar(
+                              avatar: 'reply/avatars/avatar_2.jpg',
+                              radius: 16,
+                            ),
+                            SizedBox(width: 12),
+                            Icon(
+                              Icons.settings,
+                              color: ReplyColors.white50,
+                            ),
+                          ],
                         ),
                       ),
-                      const _ReplyLogo(),
-                      const SizedBox(width: 10),
-                      if (extended)
-                        Text(
-                          'REPLY',
-                          style: textTheme.bodyText1.copyWith(
-                            color: ReplyColors.white50,
-                          ),
-                        ),
-                    ],
-                  ),
-                  onTap: onLogoTapped,
+                  ],
                 ),
               ),
-              if (extended)
-                SizedBox(
-                  width: 128,
-                  child: Row(
-                    children: const [
-                      SizedBox(width: 36),
-                      ProfileAvatar(
-                        avatar: 'reply/avatars/avatar_2.jpg',
-                        radius: 16,
-                      ),
-                      SizedBox(width: 12),
-                      Icon(
-                        Icons.settings,
-                        color: ReplyColors.white50,
-                      ),
-                    ],
-                  ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  start: 12,
                 ),
+                child: _ReplyFab(extended: extended.value),
+              ),
+              const SizedBox(height: 8),
             ],
           ),
-        ),
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(
-            start: 12,
-            end: 16,
-          ),
-          child: _ReplyFab(extended: extended),
-        ),
-        const SizedBox(height: 8),
-      ],
+        );
+      },
     );
   }
 }
@@ -1116,47 +1077,157 @@ class _ReplyFabState extends State<_ReplyFab>
         final tooltip = onMailView ? 'Reply' : 'Compose';
 
         if (isDesktop) {
-          return FloatingActionButton.extended(
-            heroTag: 'Rail FAB',
-            tooltip: widget.extended ? null : tooltip,
-            isExtended: widget.extended,
-            onPressed: () {
-              var onSearchPage = Provider.of<EmailStore>(
-                context,
-                listen: false,
-              ).onSearchPage;
-              // Navigator does not have an easy way to access the current
-              // route when using a GlobalKey to keep track of NavigatorState.
-              // We can use [Navigator.popUntil] in order to access the current
-              // route, and check if it is a ComposePage. If it is not a
-              // ComposePage and we are not on the SearchPage, then we can push
-              // a ComposePage onto our navigator. We return true at the end
-              // so nothing is popped.
-              desktopMailNavKey.currentState.popUntil(
-                (route) {
-                  var currentRoute = route.settings.name;
-                  if (currentRoute != ReplyApp.composeRoute && !onSearchPage) {
-                    desktopMailNavKey.currentState
-                        .pushNamed(ReplyApp.composeRoute);
-                  }
-                  return true;
-                },
-              );
-            },
-            label: Row(
-              children: [
-                fabSwitcher,
-                if (widget.extended) ...[
-                  const SizedBox(width: 16),
-                  Text(
-                    tooltip.toUpperCase(),
-                    style: Theme.of(context).textTheme.headline5.copyWith(
-                          fontSize: 16,
-                          color: theme.colorScheme.onSecondary,
+          final extendedAnimation = NavigationRail.extendedAnimation(context);
+
+
+          return Container(
+            height: 56,
+            padding: EdgeInsets.symmetric(
+              vertical: lerpDouble(0, 6, extendedAnimation.value),
+            ),
+            child: extendedAnimation.value == 0
+                ? FloatingActionButton(
+              child: Row(
+                children: [
+                  fabSwitcher,
+                  if (widget.extended) ...[
+                    const SizedBox(width: 16),
+                    Text(
+                      tooltip.toUpperCase(),
+                      style: Theme.of(context).textTheme.headline5.copyWith(
+                        fontSize: 16,
+                        color: theme.colorScheme.onSecondary,
+                      ),
+                    ),
+                  ]
+                ],
+              ),
+              onPressed: () {
+                var onSearchPage = Provider.of<EmailStore>(
+                  context,
+                  listen: false,
+                ).onSearchPage;
+                // Navigator does not have an easy way to access the current
+                // route when using a GlobalKey to keep track of NavigatorState.
+                // We can use [Navigator.popUntil] in order to access the current
+                // route, and check if it is a ComposePage. If it is not a
+                // ComposePage and we are not on the SearchPage, then we can push
+                // a ComposePage onto our navigator. We return true at the end
+                // so nothing is popped.
+                desktopMailNavKey.currentState.popUntil(
+                      (route) {
+                    var currentRoute = route.settings.name;
+                    if (currentRoute != ReplyApp.composeRoute &&
+                        !onSearchPage) {
+                      desktopMailNavKey.currentState
+                          .pushNamed(ReplyApp.composeRoute);
+                    }
+                    return true;
+                  },
+                );
+              },
+            )
+                : Align(
+              alignment: AlignmentDirectional.centerStart,
+              widthFactor: extendedAnimation.value,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(start: 8),
+                child: FloatingActionButton.extended(
+                  icon: Icon(Icons.add),
+                  label: Row(
+                    children: [
+                      fabSwitcher,
+                      if (widget.extended) ...[
+                        const SizedBox(width: 16),
+                        Text(
+                          tooltip.toUpperCase(),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              .copyWith(
+                            fontSize: 16,
+                            color: theme.colorScheme.onSecondary,
+                          ),
                         ),
+                      ]
+                    ],
                   ),
-                ]
-              ],
+                  onPressed: () {
+                    var onSearchPage = Provider.of<EmailStore>(
+                      context,
+                      listen: false,
+                    ).onSearchPage;
+                    // Navigator does not have an easy way to access the current
+                    // route when using a GlobalKey to keep track of NavigatorState.
+                    // We can use [Navigator.popUntil] in order to access the current
+                    // route, and check if it is a ComposePage. If it is not a
+                    // ComposePage and we are not on the SearchPage, then we can push
+                    // a ComposePage onto our navigator. We return true at the end
+                    // so nothing is popped.
+                    desktopMailNavKey.currentState.popUntil(
+                          (route) {
+                        var currentRoute = route.settings.name;
+                        if (currentRoute != ReplyApp.composeRoute &&
+                            !onSearchPage) {
+                          desktopMailNavKey.currentState
+                              .pushNamed(ReplyApp.composeRoute);
+                        }
+                        return true;
+                      },
+                    );
+                  },
+                ),
+              ),
+            ),
+          );
+
+
+          return Align(
+            alignment: AlignmentDirectional.centerStart,
+            widthFactor: extendedAnimation.value,
+            child: FloatingActionButton.extended(
+              heroTag: 'Rail FAB',
+              tooltip: extendedAnimation.value > 0 ? null : tooltip,
+              isExtended: extendedAnimation.value > 0,
+              onPressed: () {
+                var onSearchPage = Provider.of<EmailStore>(
+                  context,
+                  listen: false,
+                ).onSearchPage;
+                // Navigator does not have an easy way to access the current
+                // route when using a GlobalKey to keep track of NavigatorState.
+                // We can use [Navigator.popUntil] in order to access the current
+                // route, and check if it is a ComposePage. If it is not a
+                // ComposePage and we are not on the SearchPage, then we can push
+                // a ComposePage onto our navigator. We return true at the end
+                // so nothing is popped.
+                desktopMailNavKey.currentState.popUntil(
+                  (route) {
+                    var currentRoute = route.settings.name;
+                    if (currentRoute != ReplyApp.composeRoute &&
+                        !onSearchPage) {
+                      desktopMailNavKey.currentState
+                          .pushNamed(ReplyApp.composeRoute);
+                    }
+                    return true;
+                  },
+                );
+              },
+              label: Row(
+                children: [
+                  fabSwitcher,
+                  if (widget.extended) ...[
+                    const SizedBox(width: 16),
+                    Text(
+                      tooltip.toUpperCase(),
+                      style: Theme.of(context).textTheme.headline5.copyWith(
+                            fontSize: 16,
+                            color: theme.colorScheme.onSecondary,
+                          ),
+                    ),
+                  ]
+                ],
+              ),
             ),
           );
         } else {
