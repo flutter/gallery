@@ -189,7 +189,6 @@ class _DesktopNavState extends State<_DesktopNav>
 
   @override
   Widget build(BuildContext context) {
-    print('_DesktopNavState build');
     return Scaffold(
       body: Row(
         children: [
@@ -1161,19 +1160,22 @@ class _ReplyFabState extends State<_ReplyFab>
                   )
                 : Align(
                     alignment: AlignmentDirectional.centerStart,
-//                          widthFactor: extendedAnimation.value,
                     child: FloatingActionButton.extended(
                       label: Row(
                         children: [
                           fabSwitcher,
-                          const SizedBox(width: 16),
-                          Text(
-                            tooltip.toUpperCase(),
-                            style:
-                                Theme.of(context).textTheme.headline5.copyWith(
-                                      fontSize: 16,
-                                      color: theme.colorScheme.onSecondary,
-                                    ),
+                          SizedBox(width: 16 * animation.value),
+                          Align(
+                            alignment: AlignmentDirectional.centerStart,
+                            widthFactor: animation.value,
+                            child: Text(
+                              tooltip.toUpperCase(),
+                              style:
+                                  Theme.of(context).textTheme.headline5.copyWith(
+                                        fontSize: 16,
+                                        color: theme.colorScheme.onSecondary,
+                                      ),
+                            ),
                           ),
                         ],
                       ),
