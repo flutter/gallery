@@ -650,7 +650,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
     ).animate(_drawerCurve);
 
     return Stack(
-      overflow: Overflow.visible,
+      clipBehavior: Clip.none,
       key: _bottomDrawerKey,
       children: [
         NotificationListener<ScrollNotification>(
