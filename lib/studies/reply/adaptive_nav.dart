@@ -101,7 +101,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       return _DesktopNav(
         selectedIndex: _selectedIndex,
         currentInbox: _currentInbox,
-        extended: !isTablet ? true : false,
+        extended: !isTablet,
         destinations: _navigationDestinations,
         folders: _folders,
         onItemTapped: _onDestinationSelected,
@@ -179,7 +179,13 @@ class _DesktopNav extends StatefulWidget {
 
 class _DesktopNavState extends State<_DesktopNav>
     with SingleTickerProviderStateMixin {
-  final ValueNotifier<bool> _isExtended = ValueNotifier<bool>(false);
+  ValueNotifier<bool> _isExtended;
+
+  @override
+  void initState() {
+    super.initState();
+    _isExtended = ValueNotifier<bool>(widget.extended);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -252,14 +258,6 @@ class _DesktopNavState extends State<_DesktopNav>
       ),
     );
   }
-
-//  void onLogoTapped() {
-//    if (_isExtended) {
-//      _controller.animateTo(0.5, curve: standardEasing);
-//    } else {
-//      _controller.animateTo(1, curve: standardEasing);
-//    }
-//  }
 }
 
 class _NavigationRailHeader extends StatelessWidget {
@@ -272,14 +270,14 @@ class _NavigationRailHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final extendedAnimation = NavigationRail.extendedAnimation(context);
+    final animation = NavigationRail.extendedAnimation(context);
 
     return AnimatedBuilder(
-      animation: extendedAnimation,
+      animation: animation,
       builder: (context, child) {
         return Align(
           alignment: AlignmentDirectional.centerStart,
-          widthFactor: extendedAnimation.value,
+          widthFactor: animation.value,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -295,7 +293,7 @@ class _NavigationRailHeader extends StatelessWidget {
                       child: Row(
                         children: [
                           Transform.rotate(
-                            angle: extendedAnimation.value * math.pi,
+                            angle: animation.value * math.pi,
                             child: const Icon(
                               Icons.arrow_left,
                               color: ReplyColors.white50,
@@ -306,9 +304,9 @@ class _NavigationRailHeader extends StatelessWidget {
                           const SizedBox(width: 10),
                           Align(
                             alignment: AlignmentDirectional.centerStart,
-                            widthFactor: extendedAnimation.value,
+                            widthFactor: animation.value,
                             child: Opacity(
-                              opacity: extendedAnimation.value,
+                              opacity: animation.value,
                               child: Text(
                                 'REPLY',
                                 style: textTheme.bodyText1.copyWith(
@@ -317,16 +315,16 @@ class _NavigationRailHeader extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(width: 18 * extendedAnimation.value),
+                          SizedBox(width: 18 * animation.value),
                         ],
                       ),
                       onTap: () {
                         extended.value = !extended.value;
                       },
                     ),
-                    if (extendedAnimation.value > 0)
+                    if (animation.value > 0)
                       Opacity(
-                        opacity: extendedAnimation.value,
+                        opacity: animation.value,
                         child: Row(
                           children: const [
                             SizedBox(width: 18),
@@ -1149,13 +1147,13 @@ class _ReplyFabState extends State<_ReplyFab>
         };
 
         if (isDesktop) {
-          final extendedAnimation = NavigationRail.extendedAnimation(context);
+          final animation = NavigationRail.extendedAnimation(context);
           return Container(
             height: 56,
             padding: EdgeInsets.symmetric(
-              vertical: ui.lerpDouble(0, 6, extendedAnimation.value),
+              vertical: ui.lerpDouble(0, 6, animation.value),
             ),
-            child: extendedAnimation.value == 0
+            child: animation.value == 0
                 ? FloatingActionButton(
                     child: fabSwitcher,
                     onPressed: onPressed,
