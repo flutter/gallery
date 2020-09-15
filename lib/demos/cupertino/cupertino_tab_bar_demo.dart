@@ -42,8 +42,7 @@ class CupertinoTabBarDemo extends StatelessWidget {
           items: [
             for (final tabInfo in _tabInfo)
               BottomNavigationBarItem(
-                // ignore: deprecated_member_use
-                title: Text(tabInfo.title),
+                label: tabInfo.title,
                 icon: Icon(tabInfo.icon),
               ),
           ],
