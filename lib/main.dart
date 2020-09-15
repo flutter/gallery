@@ -17,7 +17,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
-  timeDilation = 15;
+  timeDilation = 1;
   runApp(const GalleryApp());
 }
 
