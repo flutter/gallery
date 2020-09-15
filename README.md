@@ -125,5 +125,6 @@ flutter pub run grinder update-code-segments
     * On a Linux machine, create and upload the Linux build by running `flutter build linux`
       and compress the contents of `build/linux/release/bundle`.
     * On a Windows machine, create and upload the Windows build by running `flutter build windows`
-       and zipping the contents of `build/windows/release`.
+       and zipping the contents of `build/windows/release`. **Feel free to reach out to csells
+       if you need help with access to a Windows machine for a build or help running the build.**
     * Publish the release.
