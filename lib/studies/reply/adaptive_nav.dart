@@ -1168,11 +1168,13 @@ class _ReplyFabState extends State<_ReplyFab>
                             widthFactor: animation.value,
                             child: Text(
                               tooltip.toUpperCase(),
-                              style:
-                                  Theme.of(context).textTheme.headline5.copyWith(
-                                        fontSize: 16,
-                                        color: theme.colorScheme.onSecondary,
-                                      ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5
+                                  .copyWith(
+                                    fontSize: 16,
+                                    color: theme.colorScheme.onSecondary,
+                                  ),
                             ),
                           ),
                         ],
