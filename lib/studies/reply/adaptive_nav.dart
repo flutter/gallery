@@ -205,41 +205,42 @@ class _DesktopNavState extends State<_DesktopNav>
                     ),
                     child: IntrinsicHeight(
                       child: ValueListenableBuilder<bool>(
-                          valueListenable: _isExtended,
-                          builder: (context, value, child) {
-                            return NavigationRail(
-                              destinations: [
-                                for (var destination in widget.destinations)
-                                  NavigationRailDestination(
-                                    icon: Material(
-                                      color: Colors.transparent,
-                                      child: ImageIcon(
-                                        AssetImage(
-                                          destination.icon,
-                                          package: _assetsPackage,
-                                        ),
+                        valueListenable: _isExtended,
+                        builder: (context, value, child) {
+                          return NavigationRail(
+                            destinations: [
+                              for (var destination in widget.destinations)
+                                NavigationRailDestination(
+                                  icon: Material(
+                                    color: Colors.transparent,
+                                    child: ImageIcon(
+                                      AssetImage(
+                                        destination.icon,
+                                        package: _assetsPackage,
                                       ),
                                     ),
-                                    label: Text(destination.name),
                                   ),
-                              ],
-                              extended: _isExtended.value,
-                              labelType: NavigationRailLabelType.none,
-                              leading: _NavigationRailHeader(
-                                extended: _isExtended,
-                              ),
-                              trailing: _NavigationRailFolderSection(
-                                folders: widget.folders,
-                              ),
-                              selectedIndex: widget.selectedIndex,
-                              onDestinationSelected: (index) {
-                                widget.onItemTapped(
-                                  index,
-                                  widget.destinations[index].name,
-                                );
-                              },
-                            );
-                          }),
+                                  label: Text(destination.name),
+                                ),
+                            ],
+                            extended: _isExtended.value,
+                            labelType: NavigationRailLabelType.none,
+                            leading: _NavigationRailHeader(
+                              extended: _isExtended,
+                            ),
+                            trailing: _NavigationRailFolderSection(
+                              folders: widget.folders,
+                            ),
+                            selectedIndex: widget.selectedIndex,
+                            onDestinationSelected: (index) {
+                              widget.onItemTapped(
+                                index,
+                                widget.destinations[index].name,
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
