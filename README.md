@@ -74,19 +74,20 @@ platform it runs on. This is determined based on window size as outlined in
    new `.gif` as well as its estimated duration. The duration is used to
    determine how long to display the splash animation at launch.
 
-## Generating localized strings and highlighted code segments
+## Generating localizations
 
-To generate localized strings or highlighted code segments, make sure that you
-have [grinder](https://pub.dev/packages/grinder) installed by running 
+If this is the first time building the Flutter gallery, the localized
+code will not be present in the project directory. However, after running
+the application for the first time, a synthetic package will be generated
+containing the app's localizations through importing
+`package:flutter_gen/gen_l10n/`.
+
+## Generating highlighted code segments
+
+To generate highlighted code segments, make sure that you
+have [grinder](https://pub.dev/packages/grinder) installed by running
 ```bash
 flutter pub get
-```
-
-To generate localized strings (see separate [README](lib/l10n/README.md)
-for more details):
-
-```bash
-flutter pub run grinder l10n
 ```
 
 To generate code segments (see separate [README](tool/codeviewer_cli/README.md) for
@@ -117,7 +118,7 @@ flutter pub run grinder update-code-segments
 4. Draft a release in Github, calling the release `Flutter Gallery 2.x`
     * The tag should be `v2.x` and the target `master`.
     * Upload the Android APK from above.
-    * Create and upload the macOS build by running `flutter build macos` and zipping the 
+    * Create and upload the macOS build by running `flutter build macos` and zipping the
       app inside `build/macos/Build/Products/Release`.
     * On a Linux machine, create and upload the Linux build by running `flutter build linux`
       and compress the contents of `build/linux/release/bundle`.
