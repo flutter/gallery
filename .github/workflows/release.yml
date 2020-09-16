@@ -12,7 +12,7 @@ jobs:
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-    - name: Create release.
+    - name: Create release
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -20,7 +20,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Flutter Gallery ${{ github.ref }}
-        draft: true
+        draft: false
         prerelease: false
   ubuntu-build:
     name: Build application on Ubuntu
@@ -28,37 +28,37 @@ jobs:
     needs: create-release
     steps:
     # Set up Flutter and add it to the path.
-    - name: Clone Flutter repository with master channel.
+    - name: Clone Flutter repository with master channel
       uses: actions/checkout@v2
       with:
         repository: 'flutter/flutter'
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Add Flutter to the PATH for Unix.
+    - name: Add Flutter to the PATH for Unix
       run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
-    - name: Run Flutter doctor.
+    - name: Run Flutter doctor
       run: flutter doctor -v
-    - name: Install Linux dependencies.
+    - name: Install Linux dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build
-    - name: Enable desktop support.
+    - name: Enable desktop support
       run: flutter config --enable-linux-desktop
 
     # Clone the Gallery repository under `code`, to avoid conflicts with `flutter`.
-    - name: Clone the Gallery repository.
+    - name: Clone the Gallery repository
       uses: actions/checkout@v2
       with:
         path: 'code'
-    - name: Get packages for the Flutter project.
+    - name: Get packages for the Flutter project
       run: flutter pub get
       working-directory: code
 
     # Build the application for desktop.
     - name: Build project # This would actually build your project, using zip for an example artifact
       run: zip --junk-paths my-artifact README.md
-    - name: Upload Release Asset
+    - name: Upload release asset
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
       env:
