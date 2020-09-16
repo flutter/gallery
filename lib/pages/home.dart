@@ -8,10 +8,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/pages/category_list_item.dart';
@@ -43,6 +43,21 @@ class HomePage extends StatelessWidget {
     final localizations = GalleryLocalizations.of(context);
     final studyDemos = studies(localizations);
     final carouselCards = <Widget>[
+      _CarouselCard(
+        demo: studyDemos['reply'],
+        asset: const AssetImage(
+          'assets/studies/reply_card.png',
+          package: 'flutter_gallery_assets',
+        ),
+        assetColor: const Color(0xFF344955),
+        assetDark: const AssetImage(
+          'assets/studies/reply_card_dark.png',
+          package: 'flutter_gallery_assets',
+        ),
+        assetDarkColor: const Color(0xFF1D2327),
+        textColor: Colors.white,
+        studyRoute: ReplyApp.homeRoute,
+      ),
       _CarouselCard(
         demo: studyDemos['shrine'],
         asset: const AssetImage(
@@ -101,21 +116,6 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF1F1F1F),
         studyRoute: FortnightlyApp.defaultRoute,
-      ),
-      _CarouselCard(
-        demo: studyDemos['reply'],
-        asset: const AssetImage(
-          'assets/studies/reply_card.png',
-          package: 'flutter_gallery_assets',
-        ),
-        assetColor: const Color(0xFF344955),
-        assetDark: const AssetImage(
-          'assets/studies/reply_card_dark.png',
-          package: 'flutter_gallery_assets',
-        ),
-        assetDarkColor: const Color(0xFF1D2327),
-        textColor: Colors.white,
-        studyRoute: ReplyApp.homeRoute,
       ),
       _CarouselCard(
         demo: studyDemos['starterApp'],
