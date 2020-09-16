@@ -261,18 +261,19 @@ class _PicturePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 96,
-      child: ListView(
+      child: ListView.builder(
+        itemCount: 4,
         scrollDirection: Axis.horizontal,
-        children: [
-          for (var index = 0; index < 4; index++)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 4),
-              child: Image.asset(
-                'reply/attachments/paris_${index + 1}.jpg',
-                package: 'flutter_gallery_assets',
-              ),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsetsDirectional.only(end: 4),
+            child: Image.asset(
+              'reply/attachments/paris_${index + 1}.jpg',
+              gaplessPlayback: true,
+              package: 'flutter_gallery_assets',
             ),
-        ],
+          );
+        },
       ),
     );
   }

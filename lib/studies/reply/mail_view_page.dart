@@ -148,6 +148,7 @@ class _PictureGrid extends StatelessWidget {
       itemBuilder: (context, index) {
         return Image.asset(
           'reply/attachments/paris_${index + 1}.jpg',
+          gaplessPlayback: true,
           package: 'flutter_gallery_assets',
           fit: BoxFit.fill,
         );

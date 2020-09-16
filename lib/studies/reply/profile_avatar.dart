@@ -19,6 +19,7 @@ class ProfileAvatar extends StatelessWidget {
         child: ClipOval(
           child: Image.asset(
             avatar,
+            gaplessPlayback: true,
             package: 'flutter_gallery_assets',
             height: 42,
             width: 42,
