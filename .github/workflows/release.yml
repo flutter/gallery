@@ -12,7 +12,7 @@ jobs:
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-    - name: Create release
+    - name: Create draft release
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -20,7 +20,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Flutter Gallery ${{ github.ref }}
-        draft: false
+        draft: true
         prerelease: false
   ubuntu-build:
     name: Build application on Ubuntu
@@ -58,6 +58,7 @@ jobs:
     # Build the application for desktop.
     - name: Build project # This would actually build your project, using zip for an example artifact
       run: zip --junk-paths my-artifact README.md
+      working-directory: code
     - name: Upload release asset
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
@@ -65,6 +66,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: ./my-artifact.zip
+        asset_path: ./code/my-artifact.zip
         asset_name: my-artifact.zip
         asset_content_type: application/zip
