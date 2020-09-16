@@ -16,6 +16,7 @@ import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 import 'package:gallery/studies/reply/search_page.dart';
+import 'package:gallery/studies/reply/waterfall_notched_rectangle.dart';
 import 'package:provider/provider.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -735,8 +736,8 @@ class _AnimatedBottomAppBar extends StatelessWidget {
           sizeFactor: bottomAppBarCurve,
           axisAlignment: -1,
           child: BottomAppBar(
-            shape: const CircularNotchedRectangle(),
-            notchMargin: 8,
+            shape: const WaterfallNotchedRectangle(),
+            notchMargin: 6,
             child: Container(
               color: Colors.transparent,
               height: kToolbarHeight,
