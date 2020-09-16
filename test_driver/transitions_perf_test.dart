@@ -13,6 +13,8 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
 // To run this test for just Crane, with scrolling:
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
+// To run this test for just Crane, with animations:
+// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyReply=true
 
 // Demos for which timeline data will be collected using
 // FlutterDriver.traceAction().
@@ -274,7 +276,7 @@ void main([List<String> args = const <String>[]]) {
             ['reply@study'],
             driver,
             additionalActions: () async {
-              // Tap compose fab to trigger open container transform
+              // Tap compose fab to trigger open container transform/fade through
               await driver.tap(replyFab);
               // Exit compose page
               await driver.tap(replyExit);
