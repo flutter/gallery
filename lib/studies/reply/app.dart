@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
@@ -83,7 +83,7 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
     bottomAppBarColor: ReplyColors.blue700,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.blue700,
-      modalBackgroundColor: Colors.white.withOpacity(0.4),
+      modalBackgroundColor: Colors.white.withOpacity(0.7),
     ),
     navigationRailTheme: NavigationRailThemeData(
       backgroundColor: ReplyColors.blue700,
@@ -131,7 +131,7 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
     bottomAppBarColor: ReplyColors.darkBottomAppBarBackground,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.darkDrawerBackground,
-      modalBackgroundColor: Colors.black.withOpacity(0.8),
+      modalBackgroundColor: Colors.black.withOpacity(0.7),
     ),
     navigationRailTheme: NavigationRailThemeData(
       backgroundColor: ReplyColors.darkBottomAppBarBackground,
