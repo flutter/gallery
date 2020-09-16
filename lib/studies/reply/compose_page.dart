@@ -103,6 +103,7 @@ class _SubjectRowState extends State<_SubjectRow> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
+            key: const ValueKey('ReplyExit'),
             onPressed: () => Navigator.of(context).pop(),
             icon: Icon(
               Icons.close,
