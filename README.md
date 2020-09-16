@@ -82,6 +82,8 @@ the application for the first time, a synthetic package will be generated
 containing the app's localizations through importing
 `package:flutter_gen/gen_l10n/`.
 
+See separate [README](lib/l10n/README.md) for more details.
+
 ## Generating highlighted code segments
 
 To generate highlighted code segments, make sure that you
