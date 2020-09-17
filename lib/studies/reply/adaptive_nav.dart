@@ -1157,6 +1157,7 @@ class _ReplyFabState extends State<_ReplyFab>
             ),
             child: animation.value == 0
                 ? FloatingActionButton(
+                    tooltip: tooltip,
                     key: const ValueKey('ReplyFab'),
                     child: fabSwitcher,
                     onPressed: onPressed,
