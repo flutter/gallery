@@ -178,7 +178,7 @@ packages:
       name: flutter_gallery_assets
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.5"
+    version: "0.2.6"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -296,7 +296,7 @@ packages:
       name: json_rpc_2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   logging:
     dependency: transitive
     description:
