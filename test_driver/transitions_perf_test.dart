@@ -13,6 +13,8 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
 // To run this test for just Crane, with scrolling:
 // flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
+// To run this test for just Crane, with animations:
+// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyReply=true
 
 // Demos for which timeline data will be collected using
 // FlutterDriver.traceAction().
@@ -29,6 +31,7 @@ const List<String> _profiledDemos = <String>[
   'rally@study',
   'crane@study',
   'fortnightly@study',
+  'reply@study',
   'bottom-navigation@material',
   'button@material',
   'card@material',
@@ -67,6 +70,14 @@ final backButton = find.byValueKey('Back');
 final galleryHeader = find.text('Gallery');
 final categoriesHeader = find.text('Categories');
 final craneFlyList = find.byValueKey('CraneListView-0');
+
+// SerializableFinders for reply study actions.
+final replyFab = find.byValueKey('ReplyFab');
+final replySearch = find.byValueKey('ReplySearch');
+final replyEmail = find.byValueKey('ReplyEmail-0');
+final replyLogo = find.byValueKey('ReplyLogo');
+final replySentMailbox = find.byValueKey('Reply-Sent');
+final replyExit = find.byValueKey('ReplyExit');
 
 // Let overscroll animation settle on iOS after driver.scroll.
 void handleOverscrollAnimation() {
@@ -194,6 +205,7 @@ void main([List<String> args = const <String>[]]) {
     FlutterDriver driver;
 
     bool isTestingCraneOnly;
+    bool isTestingReplyOnly;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -207,6 +219,10 @@ void main([List<String> args = const <String>[]]) {
       // See _handleMessages() in transitions_perf.dart.
       isTestingCraneOnly =
           await driver.requestData('isTestingCraneOnly') == 'true';
+
+      // See _handleMessages() in transitions_perf.dart.
+      isTestingReplyOnly =
+          await driver.requestData('isTestingReplyOnly') == 'true';
 
       if (args.contains('--with_semantics')) {
         print('Enabeling semantics...');
@@ -250,8 +266,52 @@ void main([List<String> args = const <String>[]]) {
       await summary.writeSummaryToFile('transitions-crane', pretty: true);
     }, timeout: Timeout.none);
 
+    test('only Reply', () async {
+      if (!isTestingReplyOnly) return;
+
+      // Collect timeline data for just the Crane study.
+      final timeline = await driver.traceAction(
+        () async {
+          await runDemos(
+            ['reply@study'],
+            driver,
+            additionalActions: () async {
+              // Tap compose fab to trigger open container transform/fade through
+              await driver.tap(replyFab);
+              // Exit compose page
+              await driver.tap(replyExit);
+              // Tap search icon to trigger shared axis transition
+              await driver.tap(replySearch);
+              // Exit search page
+              await driver.tap(replyExit);
+              // Tap on email to trigger open container transform
+              await driver.tap(replyEmail);
+              // Exit email page
+              await driver.tap(replyExit);
+              // Tap Reply logo to open bottom drawer/navigation rail
+              await driver.tap(replyLogo);
+              // Tap Reply logo to close bottom drawer/navigation rail
+              await driver.tap(replyLogo);
+              // Tap Reply logo to open bottom drawer/navigation rail
+              await driver.tap(replyLogo);
+              // Tap sent mailbox destination to trigger fade through transition
+              await driver.tap(replySentMailbox);
+            },
+            scrollToTopWhenDone: false,
+          );
+        },
+        streams: const <TimelineStream>[
+          TimelineStream.dart,
+          TimelineStream.embedder,
+        ],
+      );
+
+      final summary = TimelineSummary.summarize(timeline);
+      await summary.writeSummaryToFile('transitions-reply', pretty: true);
+    }, timeout: Timeout.none);
+
     test('all demos', () async {
-      if (isTestingCraneOnly) return;
+      if (isTestingCraneOnly || isTestingReplyOnly) return;
 
       // Collect timeline data for just a limited set of demos to avoid OOMs.
       final timeline = await driver.traceAction(
