@@ -68,6 +68,7 @@ class InboxPage extends StatelessWidget {
                   child: Row(
                     children: [
                       IconButton(
+                        key: const ValueKey('ReplySearch'),
                         icon: const Icon(Icons.search),
                         onPressed: () {
                           Provider.of<EmailStore>(

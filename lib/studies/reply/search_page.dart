@@ -20,6 +20,7 @@ class SearchPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BackButton(
+                      key: const ValueKey('ReplyExit'),
                       onPressed: () {
                         Provider.of<EmailStore>(
                           context,
