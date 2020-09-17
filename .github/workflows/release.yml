@@ -52,8 +52,6 @@ jobs:
     - name: Add Flutter to the PATH for Windows
       if: runner.os == 'Windows'
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
-    - name: Run Flutter doctor
-      run: flutter doctor -v
     - name: Install Linux dependencies
       if: runner.os == 'ubuntu'
       run: |
@@ -64,6 +62,8 @@ jobs:
         flutter config --enable-linux-desktop
         flutter config --enable-macos-desktop
         flutter config --enable-windows-desktop
+    - name: Run Flutter doctor
+      run: flutter doctor -v
 
     # Clone the Gallery repository under `code`, to avoid conflicts with `flutter`.
     - name: Clone the Gallery repository
