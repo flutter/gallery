@@ -21,11 +21,11 @@ jobs:
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Unix
+      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
       run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
-      if: runner.os != 'Windows'
     - name: Add Flutter to the PATH for Windows
+      if: startsWith(matrix.os, 'windows')
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
-      if: runner.os == 'Windows'
     - name: Run Flutter doctor
       run: flutter doctor -v
 
@@ -55,10 +55,10 @@ jobs:
       working-directory: code
       # TODO: Enable verify-l10n for Windows when it behaves the same as on macOS/Ubuntu:
       # https://github.com/material-components/material-components-flutter-gallery/issues/565
-      if: runner.os != 'Windows'
+      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
     - name: Verify that code segments are up to date
       run: flutter pub run grinder verify-code-segments
       working-directory: code
       # TODO: Enable verify-code-segments for Unix and Windows when it behaves the same as on macOS:
       # https://github.com/material-components/material-components-flutter-gallery/issues/565
-      if: runner.os == 'macOS'
+      if: startsWith(matrix.os, 'macOS')
