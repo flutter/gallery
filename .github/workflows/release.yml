@@ -77,6 +77,7 @@ jobs:
     # Build the application for desktop.
     - name: Build project # This would actually build your project, using zip for an example artifact
       run: |
+        flutter create .
         flutter build ${{matrix.TARGET}}
         zip --junk-paths my-artifact README.md
       working-directory: code
