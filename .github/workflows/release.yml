@@ -47,13 +47,13 @@ jobs:
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Linux and macOS
-      if: runner.os != 'Windows'
+      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
       run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
     - name: Add Flutter to the PATH for Windows
-      if: runner.os == 'Windows'
+      if: startsWith(matrix.os, 'windows')
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
     - name: Install Linux dependencies
-      if: runner.os == 'ubuntu'
+      if: startsWith(matrix.os, 'ubuntu')
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build
