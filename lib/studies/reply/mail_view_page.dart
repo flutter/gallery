@@ -72,6 +72,7 @@ class _MailViewHeader extends StatelessWidget {
               ),
             ),
             IconButton(
+              key: const ValueKey('ReplyExit'),
               icon: const Icon(Icons.keyboard_arrow_down),
               onPressed: () {
                 Provider.of<EmailStore>(
