@@ -7,7 +7,7 @@ on:
 jobs:
   integration-test:
     name: Integration tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     # Set up Flutter and add it to the path.
     - name: Clone Flutter repository with master channel

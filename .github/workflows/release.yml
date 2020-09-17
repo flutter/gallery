@@ -1,14 +1,13 @@
+name: Draft Flutter Gallery Release
 on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
-
-name: Build and create release
 jobs:
   create-release:
     name: Create draft release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
@@ -22,9 +21,21 @@ jobs:
         release_name: Flutter Gallery ${{ github.ref }}
         draft: true
         prerelease: false
-  ubuntu-build:
-    name: Build application on Ubuntu
-    runs-on: ubuntu-latest
+  build:
+    name: Build application
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-10.14, windows-2019, ubuntu-18.04]
+        include:
+        - os: macOS-10.14
+          TARGET: macos
+        - os: ubuntu-18.04
+          TARGET: linux
+        - os: windows-2019
+          TARGET: windows
+      # Disable fail-fast as we want results from all even if one fails.
+      fail-fast: false
     needs: create-release
     steps:
     # Set up Flutter and add it to the path.
@@ -35,16 +46,24 @@ jobs:
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Add Flutter to the PATH for Unix
+    - name: Add Flutter to the PATH for Linux and macOS
+      if: runner.os != 'Windows'
       run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
+    - name: Add Flutter to the PATH for Windows
+      if: runner.os == 'Windows'
+      run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
     - name: Run Flutter doctor
       run: flutter doctor -v
     - name: Install Linux dependencies
+      if: runner.os == 'ubuntu'
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build
     - name: Enable desktop support
-      run: flutter config --enable-linux-desktop
+      run: |
+        flutter config --enable-linux-desktop
+        flutter config --enable-macos-desktop
+        flutter config --enable-windows-desktop
 
     # Clone the Gallery repository under `code`, to avoid conflicts with `flutter`.
     - name: Clone the Gallery repository
@@ -57,7 +76,9 @@ jobs:
 
     # Build the application for desktop.
     - name: Build project # This would actually build your project, using zip for an example artifact
-      run: zip --junk-paths my-artifact README.md
+      run: |
+        flutter build ${{matrix.TARGET}}
+        zip --junk-paths my-artifact README.md
       working-directory: code
     - name: Upload release asset
       id: upload_release_asset
