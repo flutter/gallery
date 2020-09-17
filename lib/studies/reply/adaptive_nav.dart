@@ -16,6 +16,7 @@ import 'package:gallery/studies/reply/inbox.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 import 'package:gallery/studies/reply/search_page.dart';
+import 'package:gallery/studies/reply/waterfall_notched_rectangle.dart';
 import 'package:provider/provider.dart';
 
 const _assetsPackage = 'flutter_gallery_assets';
@@ -210,6 +211,7 @@ class _DesktopNavState extends State<_DesktopNav>
                               for (var destination in widget.destinations)
                                 NavigationRailDestination(
                                   icon: Material(
+                                    key: ValueKey('Reply-${destination.name}'),
                                     color: Colors.transparent,
                                     child: ImageIcon(
                                       AssetImage(
@@ -286,6 +288,7 @@ class _NavigationRailHeader extends StatelessWidget {
                   children: [
                     const SizedBox(width: 6),
                     InkWell(
+                      key: const ValueKey('ReplyLogo'),
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       child: Row(
                         children: [
@@ -736,62 +739,66 @@ class _AnimatedBottomAppBar extends StatelessWidget {
         return SizeTransition(
           sizeFactor: bottomAppBarCurve,
           axisAlignment: -1,
-          child: BottomAppBar(
-            shape: const CircularNotchedRectangle(),
-            notchMargin: 8,
-            child: Container(
-              color: Colors.transparent,
-              height: kToolbarHeight,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    borderRadius: const BorderRadius.all(Radius.circular(16)),
-                    onTap: toggleBottomDrawerVisibility,
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 16),
-                        RotationTransition(
-                          turns: Tween(
-                            begin: 0.0,
-                            end: 1.0,
-                          ).animate(dropArrowCurve),
-                          child: const Icon(
-                            Icons.arrow_drop_up,
-                            color: ReplyColors.white50,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(top: 2),
+            child: BottomAppBar(
+              shape: const WaterfallNotchedRectangle(),
+              notchMargin: 6,
+              child: Container(
+                color: Colors.transparent,
+                height: kToolbarHeight,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      onTap: toggleBottomDrawerVisibility,
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 16),
+                          RotationTransition(
+                            turns: Tween(
+                              begin: 0.0,
+                              end: 1.0,
+                            ).animate(dropArrowCurve),
+                            child: const Icon(
+                              Icons.arrow_drop_up,
+                              color: ReplyColors.white50,
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        const _ReplyLogo(),
-                        const SizedBox(width: 10),
-                        _FadeThroughTransitionSwitcher(
-                          fillColor: Colors.transparent,
-                          child: onMailView
-                              ? const SizedBox(width: 48)
-                              : FadeTransition(
-                                  opacity: fadeOut,
-                                  child: Text(
-                                    navigationDestinations[selectedIndex].name,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1
-                                        .copyWith(color: ReplyColors.white50),
+                          const SizedBox(width: 8),
+                          const _ReplyLogo(),
+                          const SizedBox(width: 10),
+                          _FadeThroughTransitionSwitcher(
+                            fillColor: Colors.transparent,
+                            child: onMailView
+                                ? const SizedBox(width: 48)
+                                : FadeTransition(
+                                    opacity: fadeOut,
+                                    child: Text(
+                                      navigationDestinations[selectedIndex]
+                                          .name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1
+                                          .copyWith(color: ReplyColors.white50),
+                                    ),
                                   ),
-                                ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      color: Colors.transparent,
-                      child: _BottomAppBarActionItems(
-                        drawerVisible: bottomDrawerVisible,
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
+                    Expanded(
+                      child: Container(
+                        color: Colors.transparent,
+                        child: _BottomAppBarActionItems(
+                          drawerVisible: bottomDrawerVisible,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -894,6 +901,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
                   : Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
+                        key: const ValueKey('ReplySearch'),
                         icon: const Icon(Icons.search),
                         color: ReplyColors.white50,
                         onPressed: () {
@@ -937,6 +945,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
       children: [
         for (var destination in destinations)
           InkWell(
+            key: ValueKey('Reply-${destination.name}'),
             onTap: () {
               drawerController.reverse();
               dropArrowController.forward();
@@ -1156,12 +1165,15 @@ class _ReplyFabState extends State<_ReplyFab>
             ),
             child: animation.value == 0
                 ? FloatingActionButton(
+                    tooltip: tooltip,
+                    key: const ValueKey('ReplyFab'),
                     child: fabSwitcher,
                     onPressed: onPressed,
                   )
                 : Align(
                     alignment: AlignmentDirectional.centerStart,
                     child: FloatingActionButton.extended(
+                      key: const ValueKey('ReplyFab'),
                       label: Row(
                         children: [
                           fabSwitcher,
@@ -1199,6 +1211,7 @@ class _ReplyFabState extends State<_ReplyFab>
               return Tooltip(
                 message: tooltip,
                 child: InkWell(
+                  key: const ValueKey('ReplyFab'),
                   customBorder: circleFabBorder,
                   onTap: openContainer,
                   child: SizedBox(
