@@ -10,7 +10,7 @@ const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
 
 // BEGIN cardsDemo
 
-enum CardDemoType {
+enum CardType {
   standard,
   tappable,
   selectable,
@@ -24,7 +24,7 @@ class TravelDestination {
     @required this.description,
     @required this.city,
     @required this.location,
-    this.type = CardDemoType.standard,
+    this.cardType = CardType.standard,
   })  : assert(assetName != null),
         assert(assetPackage != null),
         assert(title != null),
@@ -38,7 +38,7 @@ class TravelDestination {
   final String description;
   final String city;
   final String location;
-  final CardDemoType type;
+  final CardType cardType;
 }
 
 List<TravelDestination> destinations(BuildContext context) => [
@@ -63,7 +63,7 @@ List<TravelDestination> destinations(BuildContext context) => [
         city: GalleryLocalizations.of(context).cardsDemoTravelDestinationCity2,
         location: GalleryLocalizations.of(context)
             .cardsDemoTravelDestinationLocation2,
-        type: CardDemoType.tappable,
+        cardType: CardType.tappable,
       ),
       TravelDestination(
         assetName: 'places/india_tanjore_thanjavur_temple.png',
@@ -75,7 +75,7 @@ List<TravelDestination> destinations(BuildContext context) => [
         city: GalleryLocalizations.of(context).cardsDemoTravelDestinationCity1,
         location: GalleryLocalizations.of(context)
             .cardsDemoTravelDestinationLocation1,
-        type: CardDemoType.selectable,
+        cardType: CardType.selectable,
       ),
     ];
 
@@ -344,7 +344,7 @@ class TravelDestinationContent extends StatelessWidget {
             ),
           ),
         ),
-        if (destination.type == CardDemoType.standard)
+        if (destination.cardType == CardType.standard)
           // share, explore buttons
           ButtonBar(
             alignment: MainAxisAlignment.start,
@@ -396,9 +396,9 @@ class _CardsDemoState extends State<CardsDemo> {
             for (final destination in destinations(context))
               Container(
                 margin: const EdgeInsets.only(bottom: 8),
-                child: (destination.type == CardDemoType.standard)
+                child: (destination.cardType == CardType.standard)
                     ? TravelDestinationItem(destination: destination)
-                    : destination.type == CardDemoType.tappable
+                    : destination.cardType == CardType.tappable
                         ? TappableTravelDestinationItem(
                             destination: destination)
                         : SelectableTravelDestinationItem(
