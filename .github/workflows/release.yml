@@ -30,13 +30,13 @@ jobs:
         include:
         - os: macOS-10.14
           target: macos
-          desktop_path: build/macos/Build/Products/Release/
+          desktop_path: build/macos/Build/Products/Release
         - os: ubuntu-18.04
           target: linux
-          desktop_path: build/linux/release/bundle/
+          desktop_path: build/linux/release/bundle
         - os: windows-2019
           target: windows
-          desktop_path: build/windows/release/
+          desktop_path: build\windows\release
       # Disable fail-fast as we want results from all even if one fails.
       fail-fast: false
     needs: create-release
@@ -85,7 +85,7 @@ jobs:
       working-directory: code
     - name: Compress build for Linux and macOS
       if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
-      run: zip --junk-paths flutter_gallery_${{ matrix.target }} ${{ matrix.desktop_path }}
+      run: zip -r --junk-paths flutter_gallery_${{ matrix.target }} ${{ matrix.desktop_path }}
       working-directory: code
     - name: Compress build for Windows
       if: startsWith(matrix.os, 'windows')
