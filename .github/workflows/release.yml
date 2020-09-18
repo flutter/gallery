@@ -99,6 +99,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: ./code/my-artifact.zip
-        asset_name: my-artifact.zip
+        asset_path: ./code/flutter_gallery_${{ matrix.target }}.zip
+        asset_name: flutter_gallery_${{ matrix.target }}.zip
         asset_content_type: application/zip
