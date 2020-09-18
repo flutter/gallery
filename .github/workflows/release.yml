@@ -89,7 +89,7 @@ jobs:
       working-directory: code/${{ matrix.desktop_path }}
     - name: Compress build for Windows
       if: startsWith(matrix.os, 'windows')
-      run: compress-archive -Path . -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
+      run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.desktop_path }}
     - name: Upload release asset
       id: upload_release_asset
