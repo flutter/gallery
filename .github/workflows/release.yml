@@ -33,7 +33,7 @@ jobs:
           desktop_path: build/macos/Build/Products/Release
         - os: windows-2019
           target: windows
-          desktop_path: build\windows\release
+          desktop_path: build\windows\runner\Release
         - os: ubuntu-18.04
           target: linux
           desktop_path: build/linux/release/bundle
@@ -89,7 +89,7 @@ jobs:
       working-directory: code/${{ matrix.desktop_path }}
     - name: Compress build for Windows
       if: startsWith(matrix.os, 'windows')
-      run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
+      run: compress-archive -Path . -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.desktop_path }}
     - name: Upload release asset
       id: upload_release_asset
