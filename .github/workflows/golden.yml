@@ -7,7 +7,7 @@ on:
 jobs:
   golden-test:
     name: Golden tests
-    runs-on: macOS-10.14
+    runs-on: macos-10.15
     steps:
     # Set up Flutter and add it to the path.
     - name: Clone Flutter repository with master channel
