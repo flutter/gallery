@@ -7,35 +7,35 @@ on:
 jobs:
   golden-test:
     name: Golden tests
-    runs-on: macos-latest
+    runs-on: macos-10.15
     steps:
     # Set up Flutter and add it to the path.
-    - name: Clone Flutter repository with master channel.
+    - name: Clone Flutter repository with master channel
       uses: actions/checkout@v2
       with:
         repository: 'flutter/flutter'
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Add Flutter to the PATH for Unix.
+    - name: Add Flutter to the PATH for Unix
       run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
-    - name: Run Flutter doctor.
+    - name: Run Flutter doctor
       run: flutter doctor -v
 
     # Clone the Gallery repository under `code`, to avoid conflicts with `flutter`.
-    - name: Clone the Gallery repository.
+    - name: Clone the Gallery repository
       uses: actions/checkout@v2
       with:
         path: 'code'
 
     # Run the golden tests for the repository.
-    - name: Get packages for the Flutter project.
+    - name: Get packages for the Flutter project
       run: flutter pub get
       working-directory: code
-    - name: Run Flutter golden tests.
+    - name: Run Flutter golden tests
       run: flutter test golden_test
       working-directory: code
-    - name: Upload goldens if tests fail.
+    - name: Upload goldens if tests fail
       uses: actions/upload-artifact@v1
       if: failure()
       with:
