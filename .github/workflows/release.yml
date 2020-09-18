@@ -26,17 +26,20 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-10.15, windows-2019, ubuntu-18.04]
+        target: [macos, windows, linux, apk]
         include:
         - os: macos-10.15
           target: macos
-          desktop_path: build/macos/Build/Products/Release
+          path: build/macos/Build/Products/Release
         - os: windows-2019
           target: windows
-          desktop_path: build\windows\runner\Release
+          path: build\windows\runner\Release
         - os: ubuntu-18.04
           target: linux
-          desktop_path: build/linux/release/bundle
+          path: build/linux/release/bundle
+        - os: ubuntu-18.04
+          target: apk
+          path: build/app/outputs/apk/release/
       # Disable fail-fast as we want results from all even if one fails.
       fail-fast: false
     needs: create-release
@@ -56,10 +59,15 @@ jobs:
       if: startsWith(matrix.os, 'windows')
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
     - name: Install Linux dependencies
-      if: startsWith(matrix.os, 'ubuntu')
+      if: startsWith(matrix.target, 'linux')
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
+    - name: Install Android dependencies
+      if: startsWith(matrix.target, 'apk')
+      uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
     - name: Enable desktop support
       run: |
         flutter config --enable-linux-desktop
@@ -86,11 +94,11 @@ jobs:
     - name: Compress build for Linux and macOS
       if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
       run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }} .
-      working-directory: code/${{ matrix.desktop_path }}
+      working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: startsWith(matrix.os, 'windows')
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
-      working-directory: code\${{ matrix.desktop_path }}
+      working-directory: code\${{ matrix.path }}
     - name: Upload release asset
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
