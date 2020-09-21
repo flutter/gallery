@@ -701,6 +701,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7+15"
+  web_benchmarks:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: "40a483181861e6cd84dd14a6d31cb45a966f8d59"
+      resolved-ref: "40a483181861e6cd84dd14a6d31cb45a966f8d59"
+      url: "https://github.com/pennzht/web_benchmarks.git"
+    source: git
+    version: "0.0.1"
   web_socket_channel:
     dependency: transitive
     description:
