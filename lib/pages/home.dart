@@ -1113,6 +1113,7 @@ class _StudyWrapperState extends State<StudyWrapper> {
                 enabled: true,
                 excludeSemantics: true,
                 child: FloatingActionButton.extended(
+                  heroTag: _BackButtonHeroTag(),
                   key: const ValueKey('Back'),
                   onPressed: () {
                     Navigator.of(context)
@@ -1135,3 +1136,5 @@ class _StudyWrapperState extends State<StudyWrapper> {
     );
   }
 }
+
+class _BackButtonHeroTag {}

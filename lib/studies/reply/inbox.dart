@@ -34,34 +34,32 @@ class InboxPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: model.emails[model.currentlySelectedInbox].isEmpty
+                child: model.emails[destination].isEmpty
                     ? Center(
                         child: Text(
-                          'Empty in ${model.currentlySelectedInbox.toLowerCase()}',
+                          'Empty in ${destination.toLowerCase()}',
                         ),
                       )
-                    : ListView(
+                    : ListView.separated(
+                        itemCount: model.emails[destination].length,
                         padding: EdgeInsetsDirectional.only(
                           start: startPadding,
                           end: endPadding,
                           top: isDesktop ? 28 : 0,
+                          bottom: kToolbarHeight,
                         ),
-                        children: [
-                          for (int index = 0;
-                              index < model.emails[destination].length;
-                              index++) ...[
-                            MailPreviewCard(
-                              key: ValueKey('ReplyEmail-$index'),
-                              id: index,
-                              email: model.emails[destination].elementAt(index),
-                              onDelete: () =>
-                                  model.deleteEmail(destination, index),
-                              onStar: () => model.starEmail(destination, index),
-                            ),
+                        primary: false,
+                        separatorBuilder: (context, index) =>
                             const SizedBox(height: 4),
-                          ],
-                          const SizedBox(height: kToolbarHeight),
-                        ],
+                        itemBuilder: (context, index) {
+                          return MailPreviewCard(
+                            id: index,
+                            email: model.emails[destination].elementAt(index),
+                            onDelete: () =>
+                                model.deleteEmail(destination, index),
+                            onStar: () => model.starEmail(destination, index),
+                          );
+                        },
                       ),
               ),
               if (isDesktop) ...[

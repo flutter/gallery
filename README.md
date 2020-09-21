@@ -103,27 +103,29 @@ flutter pub run grinder update-code-segments
 1. Bump the version number up in the `pubspec.yaml`. Use semantic versioning to determine
    which number to increment. For example `2.2.0+020200` should become `2.3.0+020300`.
 
-2. Publish the firebase hosted web release.
+2. Create tag on master branch after the version is bumped. This will start a
+   Github Actions job that will create a release draft with desktop applications
+   and apk included.
+   ```bash
+   git pull upstream master
+   git tag v2.3
+   git push upstream v2.3
+   ```
+
+3. Publish the firebase hosted web release.
     * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
     * `flutter build web`
     * `firebase deploy -P prod` to deploy to production (equivalent to `firebase deploy`).
     * `firebase deploy -P staging` to deploy to staging. Check with the team to see if the staging
        instance is currently used for a special purpose.
 
-3. Publish the Android release
+4. Publish the Android release
     * Ensure you have the correct signing certificates.
     * Create the app bundle with `flutter build appbundle`.
     * Upload to the Play store console.
     * Publish the Play store release.
-    * Create the APK with `flutter build apk` (this is for the Github release).
 
-4. Draft a release in Github, calling the release `Flutter Gallery 2.x`
-    * The tag should be `v2.x` and the target `master`.
-    * Upload the Android APK from above.
-    * Create and upload the macOS build by running `flutter build macos` and zipping the
-      app inside `build/macos/Build/Products/Release`.
-    * On a Linux machine, create and upload the Linux build by running `flutter build linux`
-      and compress the contents of `build/linux/release/bundle`.
-    * On a Windows machine, create and upload the Windows build by running `flutter build windows`
-       and zipping the contents of `build/windows/release`.
+5. Go to Releases and see the latest draft.
+    * Update the description to include what changes have been done since the
+    last release.
     * Publish the release.
