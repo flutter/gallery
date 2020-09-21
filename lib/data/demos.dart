@@ -142,6 +142,12 @@ List<String> allGalleryDemoDescriptions() =>
 
 Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
   return <String, GalleryDemo>{
+    'reply': GalleryDemo(
+      title: 'Reply',
+      subtitle: localizations.replyDescription,
+      category: GalleryDemoCategory.study,
+      studyId: 'reply',
+    ),
     'shrine': GalleryDemo(
       title: 'Shrine',
       subtitle: localizations.shrineDescription,
@@ -165,12 +171,6 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
       subtitle: localizations.fortnightlyDescription,
       category: GalleryDemoCategory.study,
       studyId: 'fortnightly',
-    ),
-    'reply': GalleryDemo(
-      title: 'Reply',
-      subtitle: localizations.replyDescription,
-      category: GalleryDemoCategory.study,
-      studyId: 'reply',
     ),
     'starterApp': GalleryDemo(
       title: localizations.starterAppTitle,
