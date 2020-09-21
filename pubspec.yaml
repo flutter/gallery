@@ -32,6 +32,11 @@ dependencies:
   provider: ^4.3.2
   adaptive_breakpoints: ^0.0.2
 
+  web_benchmarks:
+    git:
+      url: https://github.com/pennzht/web_benchmarks.git
+      ref: 40a483181861e6cd84dd14a6d31cb45a966f8d59
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
