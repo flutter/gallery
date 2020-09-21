@@ -8,14 +8,12 @@
 
 import 'dart:async';
 
-import 'package:macrobenchmarks/src/web/bench_text_layout.dart';
-import 'package:macrobenchmarks/src/web/bench_text_out_of_picture_bounds.dart';
 import 'package:web_benchmarks/recorder.dart';
 import 'package:web_benchmarks/driver.dart' as web_benchmarks_driver;
 
 import 'package:gallery/benchmarks/gallery_automator.dart' show DemoType, typeOfDemo;
 
-import 'src/web/gallery/gallery_recorder.dart';
+import 'package:gallery/benchmarks/gallery_recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
 
