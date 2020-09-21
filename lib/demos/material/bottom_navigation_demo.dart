@@ -147,8 +147,7 @@ class _NavigationDestinationView extends StatelessWidget {
             child: Semantics(
               label: GalleryLocalizations.of(context)
                   .bottomNavigationContentPlaceholder(
-                // ignore: deprecated_member_use
-                item.title,
+                item.label,
               ),
               child: item.icon,
             ),
