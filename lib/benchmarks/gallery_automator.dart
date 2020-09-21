@@ -81,7 +81,6 @@ class GalleryAutomator {
     return const GalleryApp();
   }
 
-  // TODO: create logic where "reply@study" is not found.
   /// Opens and quits demos that are specified by [shouldRunPredicate], twice.
   Future<void> automateDemoGestures() async {
     await warmUp();
