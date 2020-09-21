@@ -52,4 +52,3 @@ Future<void> main() async {
   await web_benchmarks_driver.runBenchmarks(benchmarks);
 }
 
-// TODO: correct study issue (present on this commit).
