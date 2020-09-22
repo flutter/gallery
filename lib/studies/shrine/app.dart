@@ -84,7 +84,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
     final status = _expandingController.status;
     if (status == AnimationStatus.completed ||
         status == AnimationStatus.forward) {
-      _expandingController.reverse();
+      await _expandingController.reverse();
       return false;
     }
 
