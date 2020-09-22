@@ -35,7 +35,6 @@ ThemeData _buildCraneTheme() {
       textTheme: ButtonTextTheme.accent,
     ),
     textTheme: _buildCraneTextTheme(base.textTheme),
-    useTextSelectionTheme: true,
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: cranePurple700,
     ),

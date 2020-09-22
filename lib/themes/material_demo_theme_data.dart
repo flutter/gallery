@@ -33,7 +33,6 @@ class MaterialDemoThemeData {
     typography: Typography.material2018(
       platform: defaultTargetPlatform,
     ),
-    useTextSelectionTheme: true,
   );
 
   static const _colorScheme = ColorScheme(
