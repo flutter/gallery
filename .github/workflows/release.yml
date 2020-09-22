@@ -91,6 +91,13 @@ jobs:
         flutter create .
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
+    - name: Copy VC redistributables to release directory
+      if: startsWith(matrix.os, 'windows')
+      run: |
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\msvcp140.dll') .
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140.dll') .
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140_1.dll') .
+      working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux and macOS
       if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
       run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }} .
