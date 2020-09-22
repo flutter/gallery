@@ -92,7 +92,7 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
     - name: Copy VC redistributables to release directory
-      if: startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.target, 'windows')
       run: |
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\msvcp140.dll') .
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140.dll') .
