@@ -32,12 +32,6 @@ dependencies:
   provider: ^4.3.2
   adaptive_breakpoints: ^0.0.2
 
-  # TODO: After web_benchmarks PR merges, update to flutter/web_benchmarks.
-  web_benchmarks:
-    git:
-      url: https://github.com/pennzht/web_benchmarks.git
-      ref: 40a483181861e6cd84dd14a6d31cb45a966f8d59
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +44,12 @@ dev_dependencies:
   intl_translation:
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
+
+  # TODO: After web_benchmarks PR merges, update to flutter/web_benchmarks.
+  web_benchmarks:
+    git:
+      url: https://github.com/pennzht/web_benchmarks.git
+      ref: 40a483181861e6cd84dd14a6d31cb45a966f8d59
 
 flutter:
   assets:
