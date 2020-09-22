@@ -14,8 +14,8 @@ class GalleryRecorder extends WidgetRecorder {
     @required this.benchmarkName,
     this.shouldRunPredicate,
     this.testScrollsOnly = false,
-  }) : assert(testScrollsOnly || shouldRunPredicate != null),
-       super(name: benchmarkName, useCustomWarmUp: true);
+  })  : assert(testScrollsOnly || shouldRunPredicate != null),
+        super(name: benchmarkName, useCustomWarmUp: true);
 
   /// The name of the gallery benchmark to be run.
   final String benchmarkName;
