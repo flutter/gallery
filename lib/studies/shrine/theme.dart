@@ -41,7 +41,6 @@ ThemeData _buildShrineTheme() {
       contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
     ),
     textTheme: _buildShrineTextTheme(base.textTheme),
-    useTextSelectionTheme: true,
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: shrinePink100,
     ),
