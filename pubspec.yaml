@@ -20,7 +20,7 @@ dependencies:
   shrine_images: ^1.1.2
   flare_dart: ^2.3.4
   flare_flutter: ^2.0.2
-  url_launcher: ^5.1.6
+  url_launcher: ^5.6.0
   vector_math: ^2.0.8
   shared_preferences: ^0.5.4
   collection: ^1.14.0
