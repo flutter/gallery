@@ -69,15 +69,15 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.photo_library),
-            label: localizations.demoFadeThroughAlbumsDestination,
+            title: Text(localizations.demoFadeThroughAlbumsDestination),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.photo),
-            label: localizations.demoFadeThroughPhotosDestination,
+            title: Text(localizations.demoFadeThroughPhotosDestination),
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.search),
-            label: localizations.demoFadeThroughSearchDestination,
+            title: Text(localizations.demoFadeThroughSearchDestination),
           ),
         ],
       ),
