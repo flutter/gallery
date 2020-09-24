@@ -103,7 +103,7 @@ jobs:
       if: matrix.target == 'web'
       run: |
         npm install -g firebase-tools
-        firebase deploy
+        firebase deploy -P prod
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       working-directory: code
