@@ -122,7 +122,7 @@ jobs:
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.path }}
     - name: Upload release asset
-      if: matrix.target != 'web'
+      if: matrix.target == 'windows' || matrix.target == 'macos' || matrix.target == 'linux'
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
