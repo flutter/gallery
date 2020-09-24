@@ -105,27 +105,20 @@ flutter pub run grinder update-code-segments
 
 2. Create tag on master branch after the version is bumped. This will start a
    Github Actions job that will create a release draft with desktop applications
-   and apk included.
+   and apk included, and deploy the web application to Firebase.
    ```bash
    git pull upstream master
    git tag v2.3
    git push upstream v2.3
    ```
 
-3. Publish the firebase hosted web release.
-    * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
-    * `flutter build web`
-    * `firebase deploy -P prod` to deploy to production (equivalent to `firebase deploy`).
-    * `firebase deploy -P staging` to deploy to staging. Check with the team to see if the staging
-       instance is currently used for a special purpose.
-
-4. Publish the Android release
+3. Publish the Android release
     * Ensure you have the correct signing certificates.
     * Create the app bundle with `flutter build appbundle`.
     * Upload to the Play store console.
     * Publish the Play store release.
 
-5. Go to Releases and see the latest draft.
+4. Go to Releases and see the latest draft.
     * Update the description to include what changes have been done since the
     last release.
     * Publish the release.
