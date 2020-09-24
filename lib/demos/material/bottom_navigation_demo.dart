@@ -46,23 +46,23 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
     var bottomNavigationBarItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: const Icon(Icons.add_comment),
-        label: GalleryLocalizations.of(context).bottomNavigationCommentsTab,
+        title: Text(GalleryLocalizations.of(context).bottomNavigationCommentsTab),
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.calendar_today),
-        label: GalleryLocalizations.of(context).bottomNavigationCalendarTab,
+        title: Text(GalleryLocalizations.of(context).bottomNavigationCalendarTab),
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.account_circle),
-        label: GalleryLocalizations.of(context).bottomNavigationAccountTab,
+        title: Text(GalleryLocalizations.of(context).bottomNavigationAccountTab),
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.alarm_on),
-        label: GalleryLocalizations.of(context).bottomNavigationAlarmTab,
+        title: Text(GalleryLocalizations.of(context).bottomNavigationAlarmTab),
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.camera_enhance),
-        label: GalleryLocalizations.of(context).bottomNavigationCameraTab,
+        title: Text(GalleryLocalizations.of(context).bottomNavigationCameraTab),
       ),
     ];
 
@@ -147,7 +147,7 @@ class _NavigationDestinationView extends StatelessWidget {
             child: Semantics(
               label: GalleryLocalizations.of(context)
                   .bottomNavigationContentPlaceholder(
-                item.label,
+                item.title,
               ),
               child: item.icon,
             ),
