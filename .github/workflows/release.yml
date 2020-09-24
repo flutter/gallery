@@ -75,7 +75,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12'
-      run: npm install -g firebase-tools
     - name: Enable desktop and web support
       run: |
         flutter config --enable-web
@@ -101,7 +100,9 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
     - name: Deploy to Firebase
-      run: firebase deploy -P staging
+      run: |
+        npm install -g firebase-tools
+        firebase deploy -P staging
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
     - name: Copy VC redistributables to release directory
