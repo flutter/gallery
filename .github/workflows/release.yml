@@ -26,7 +26,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        target: [macos, windows, linux, apk]
+        target: [macos, windows, linux, apk, web]
         include:
         - os: macos-10.15
           target: macos
@@ -40,6 +40,8 @@ jobs:
         - os: ubuntu-18.04
           target: apk
           path: build/app/outputs/apk/release/
+        - os: ubuntu-18.04
+          target: web
       # Disable fail-fast as we want results from all even if one fails.
       fail-fast: false
     needs: create-release
@@ -59,17 +61,24 @@ jobs:
       if: startsWith(matrix.os, 'windows')
       run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
     - name: Install Linux dependencies
-      if: startsWith(matrix.target, 'linux')
+      if: matrix.target == 'linux'
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
     - name: Install Android dependencies
-      if: startsWith(matrix.target, 'apk')
+      if: matrix.target == 'apk'
       uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-    - name: Enable desktop support
+    - name: Install web dependencies
+      if: matrix.target == 'web'
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+      run: npm install -g firebase-tools
+    - name: Enable desktop and web support
       run: |
+        flutter config --enable-web
         flutter config --enable-linux-desktop
         flutter config --enable-macos-desktop
         flutter config --enable-windows-desktop
@@ -91,19 +100,23 @@ jobs:
         flutter create .
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
+    - name: Deploy to Firebase
+      run: firebase deploy -P staging
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
     - name: Copy VC redistributables to release directory
-      if: startsWith(matrix.target, 'windows')
+      if: matrix.target == 'windows'
       run: |
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\msvcp140.dll') .
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140.dll') .
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux and macOS
-      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
+      if: matrix.target == 'macos' || matrix.target == 'linux'
       run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }} .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
-      if: startsWith(matrix.os, 'windows')
+      if: matrix.target == 'windows'
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.path }}
     - name: Upload release asset
