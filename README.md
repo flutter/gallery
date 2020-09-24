@@ -104,8 +104,8 @@ flutter pub run grinder update-code-segments
    which number to increment. For example `2.2.0+020200` should become `2.3.0+020300`.
 
 2. Create tag on master branch after the version is bumped. This will start a
-   Github Actions job that will create a release draft with desktop applications
-   and apk included, and deploy the web application to Firebase.
+   Github Actions job that will deploy the web application to Firebase and
+   create a release draft with desktop applications and apk included.
    ```bash
    git pull upstream master
    git tag v2.3
