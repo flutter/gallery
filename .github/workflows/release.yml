@@ -106,6 +106,7 @@ jobs:
         firebase deploy -P staging
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      working-directory: code
     - name: Copy VC redistributables to release directory
       if: matrix.target == 'windows'
       run: |
