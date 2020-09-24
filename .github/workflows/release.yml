@@ -100,6 +100,7 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
     - name: Deploy to Firebase
+      if: matrix.target == 'web'
       run: |
         npm install -g firebase-tools
         firebase deploy -P staging
@@ -121,7 +122,7 @@ jobs:
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.path }}
     - name: Upload release asset
-      id: upload_release_asset
+      if: matrix.target != 'web'
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
