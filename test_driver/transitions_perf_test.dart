@@ -27,11 +27,11 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 // These names must match the output of GalleryDemo.describe in
 // lib/data/demos.dart.
 const List<String> _profiledDemos = <String>[
+  'reply@study',
   'shrine@study',
   'rally@study',
   'crane@study',
   'fortnightly@study',
-  'reply@study',
   'bottom-navigation@material',
   'button@material',
   'card@material',
