@@ -49,7 +49,7 @@ dev_dependencies:
   web_benchmarks:
     git:
       url: https://github.com/pennzht/web_benchmarks.git
-      ref: 40a483181861e6cd84dd14a6d31cb45a966f8d59
+      ref: 480951f7737d7ab4eeef811c9e25483ecef191a8
 
 flutter:
   assets:
