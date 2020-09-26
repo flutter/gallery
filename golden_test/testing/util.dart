@@ -12,6 +12,8 @@ const homeAssets = [
   'assets/icons/material/material.png',
   'assets/icons/reference/reference.png',
   'assets/logo/flutter_logo.png',
+  'assets/studies/reply_card.png',
+  'assets/studies/reply_card_dark.png',
   'assets/studies/crane_card.png',
   'assets/studies/crane_card_dark.png',
   'assets/studies/rally_card.png',
