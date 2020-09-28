@@ -45,6 +45,12 @@ dev_dependencies:
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
 
+  # TODO: After web_benchmarks PR merges, update to flutter/web_benchmarks.
+  web_benchmarks:
+    git:
+      url: https://github.com/pennzht/web_benchmarks.git
+      ref: 480951f7737d7ab4eeef811c9e25483ecef191a8
+
 flutter:
   assets:
     - packages/flutter_gallery_assets/assets/icons/settings/settings_light.flr
