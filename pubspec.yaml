@@ -44,6 +44,8 @@ dev_dependencies:
   intl_translation:
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
+  web_benchmarks:
+    sdk: flutter
 
 flutter:
   assets:
