@@ -330,7 +330,7 @@
   "craneSleep6SemanticLabel": "Далдуу модтой усан сан",
   "craneSleep5SemanticLabel": "Талбай дээрх майхан",
   "settingsButtonCloseLabel": "Тохиргоог хаах",
-  "demoSelectionControlsCheckboxDescription": "Checkboxes нь хэрэглэгчид багцаас олон сонголт сонгохыг зөвшөөрдөг. Энгийн checkbox-н утга нь үнэн эсвэл худал, tristate checkbox-н утга нь мөн тэг байж болно.",
+  "demoSelectionControlsCheckboxDescription": "Checkboxes нь хэрэглэгчид багцаас олон сонголт сонгохыг зөвшөөрдөг. Энгийн тэмдэглэх нүдний утга нь үнэн эсвэл худал, tristate тэмдэглэх нүдний утга нь мөн тэг байж болно.",
   "settingsButtonLabel": "Тохиргоо",
   "demoListsTitle": "Жагсаалтууд",
   "demoListsSubtitle": "Жагсаалтын бүдүүвчийг гүйлгэх",
