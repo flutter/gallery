@@ -24,7 +24,7 @@
   "demoFadeScaleAlertDialogHeader": "Alerta-leihoa",
   "demoFadeScaleHideFabButton": "EZKUTATU EKINTZA-BOTOI GAINERAKORRA",
   "demoFadeScaleShowFabButton": "ERAKUTSI EKINTZA-BOTOI GAINERAKORRA",
-  "demoFadeScaleShowAlertDialogButton": "ERAKUTSI MODALA",
+  "demoFadeScaleShowAlertDialogButton": "ERAKUTSI LEIHO GAINERAKORRA",
   "demoFadeScaleDescription": "Pantailaren ertzean sartzen edo ertzetik ateratzen diren erabiltzaile-interfazeko elementuetarako erabiltzen da apurka desagertzearen eredua; adibidez, pantailaren erdialdean apurka desagertzen den leiho bat.",
   "demoFadeScaleTitle": "Apurka desagertzea",
   "demoFadeThroughTextPlaceholder": "123 argazki",
