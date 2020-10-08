@@ -15,7 +15,6 @@ class NavDrawerDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var icon = Icon(Icons.favorite_border);
     var localization = GalleryLocalizations.of(context);
     final drawerHeader = UserAccountsDrawerHeader(
       accountName: Text(
