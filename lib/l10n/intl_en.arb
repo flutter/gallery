@@ -1081,15 +1081,15 @@
       }
     }
   },
-  "demoNavigationDrawerTitle": "Drawer",
+  "demoNavigationDrawerTitle": "Navigation Drawer",
   "@demoNavigationDrawerTitle": {
     "description": "Title for the material drawer component demo."
   },
   "demoNavigationDrawerSubtitle": "Displaying a drawer within appbar",
   "@demoNavigationDrawerSubtitle": {
-    "description": "Subtitle for the material Drawer component demo."
+    "description": "Subtitle for the material drawer component demo."
   },
-  "demoNavigationDrawerDescription": "A material design panel that slides in horizontally from the edge of a Scaffold to show navigation links in an application.",
+  "demoNavigationDrawerDescription": "A Material Design panel that slides in horizontally from the edge of the screen to show navigation links in an application.",
   "@demoNavigationDrawerDescription": {
     "description": "Description for the material drawer component demo."
   },
@@ -1112,14 +1112,6 @@
   "demoNavigationDrawerText": "Swipe from the edge or tap the upper-left icon to see the drawer",
   "@demoNavigationDrawerText": {
     "description": "Description to open navigation drawer."
-  },
-  "demoNavigationDrawerPageOne": "Page 1",
-  "@demoNavigationDrawerPageOne": {
-    "description": "Description for page 1."
-  },
-  "demoNavigationDrawerPageTwo": "Page 2",
-  "@demoNavigationDrawerPageTwo": {
-    "description": "Description for page 2."
   },
   "demoMenuAnItemWithASimpleMenu": "An item with a simple menu",
   "@demoMenuAnItemWithASimpleMenu": {

@@ -984,15 +984,15 @@
   <string
     name="demoNavigationDrawerTitle"
     description="Title for the material drawer component demo."
-    >Drawer</string>
+    >Navigation Drawer</string>
   <string
     name="demoNavigationDrawerSubtitle"
-    description="Subtitle for the material Drawer component demo."
+    description="Subtitle for the material drawer component demo."
     >Displaying a drawer within appbar</string>
   <string
     name="demoNavigationDrawerDescription"
     description="Description for the material drawer component demo."
-    >A material design panel that slides in horizontally from the edge of a Scaffold to show navigation links in an application.</string>
+    >A Material Design panel that slides in horizontally from the edge of the screen to show navigation links in an application.</string>
   <string
     name="demoNavigationDrawerUserName"
     description="Demo username for navigation drawer."
@@ -1011,16 +1011,8 @@
     >Item Two</string>
   <string
     name="demoNavigationDrawerText"
-    description="Description to open naviagtion drawer."
-    >Swipe or click upper-left icon to see the drawer</string>
-  <string
-    name="demoNavigationDrawerPageOne"
-    description="Description for page 1."
-    >Page 1</string>
-  <string
-    name="demoNavigationDrawerPageTwo"
-    description="Description for page 2."
-    >Page 2</string>
+    description="Description to open navigation drawer."
+    >Swipe from the edge or tap the upper-left icon to see the drawer</string>
   <string
     name="demoMenuAnItemWithASimpleMenu"
     description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
