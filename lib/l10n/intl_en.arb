@@ -1081,6 +1081,46 @@
       }
     }
   },
+  "demoNavigationDrawerTitle": "Drawer",
+  "@demoNavigationDrawerTitle": {
+    "description": "Title for the material drawer component demo."
+  },
+  "demoNavigationDrawerSubtitle": "Displaying a drawer within appbar",
+  "@demoNavigationDrawerSubtitle": {
+    "description": "Subtitle for the material Drawer component demo."
+  },
+  "demoNavigationDrawerDescription": "A material design panel that slides in horizontally from the edge of a Scaffold to show navigation links in an application.",
+  "@demoNavigationDrawerDescription": {
+    "description": "Description for the material drawer component demo."
+  },
+  "demoNavigationDrawerUserName": "User Name",
+  "@demoNavigationDrawerUserName": {
+    "description": "Demo username for navigation drawer."
+  },
+  "demoNavigationDrawerUserEmail": "user.name@example.com",
+  "@demoNavigationDrawerUserEmail": {
+    "description": "Demo email for navigation drawer."
+  },
+  "demoNavigationDrawerToPageOne": "Item One",
+  "@demoNavigationDrawerToPageOne": {
+    "description": "Drawer Item One."
+  },
+  "demoNavigationDrawerToPageTwo": "Item Two",
+  "@demoNavigationDrawerToPageTwo": {
+    "description": "Drawer Item Two."
+  },
+  "demoNavigationDrawerText": "Swipe or click upper-left icon to see the drawer",
+  "@demoNavigationDrawerText": {
+    "description": "Description to open naviagtion drawer."
+  },
+  "demoNavigationDrawerPageOne": "Page 1",
+  "@demoNavigationDrawerPageOne": {
+    "description": "Description for page 1."
+  },
+  "demoNavigationDrawerPageTwo": "Page 2",
+  "@demoNavigationDrawerPageTwo": {
+    "description": "Description for page 2."
+  },
   "demoMenuAnItemWithASimpleMenu": "An item with a simple menu",
   "@demoMenuAnItemWithASimpleMenu": {
     "description": "Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
