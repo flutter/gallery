@@ -1109,7 +1109,7 @@
   "@demoNavigationDrawerToPageTwo": {
     "description": "Drawer Item Two."
   },
-  "demoNavigationDrawerText": "Swipe or click upper-left icon to see the drawer",
+  "demoNavigationDrawerText": "Swipe from the edge or tap the upper-left icon to see the drawer",
   "@demoNavigationDrawerText": {
     "description": "Description to open naviagtion drawer."
   },
