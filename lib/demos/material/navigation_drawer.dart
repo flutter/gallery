@@ -15,6 +15,7 @@ class NavDrawerDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var icon = Icon(Icons.favorite_border);
     var localization = GalleryLocalizations.of(context);
     final drawerHeader = UserAccountsDrawerHeader(
       accountName: Text(
@@ -34,6 +35,7 @@ class NavDrawerDemo extends StatelessWidget {
           title: Text(
             localization.demoNavigationDrawerToPageOne,
           ),
+          trailing: const Icon(Icons.favorite, color: Colors.red),
           onTap: () {
             Navigator.pop(context);
           },
@@ -42,6 +44,7 @@ class NavDrawerDemo extends StatelessWidget {
           title: Text(
             localization.demoNavigationDrawerToPageTwo,
           ),
+          trailing: const Icon(Icons.favorite, color: Colors.red),
           onTap: () {
             Navigator.pop(context);
           },
