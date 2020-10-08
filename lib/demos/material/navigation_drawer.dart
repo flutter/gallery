@@ -43,7 +43,7 @@ class NavDrawerDemo extends StatelessWidget {
           title: Text(
             localization.demoNavigationDrawerToPageTwo,
           ),
-          trailing: const Icon(Icons.favorite, color: Colors.red),
+          trailing: const Icon(Icons.comment),
           onTap: () {
             Navigator.pop(context);
           },
