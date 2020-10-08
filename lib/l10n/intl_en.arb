@@ -1111,7 +1111,7 @@
   },
   "demoNavigationDrawerText": "Swipe from the edge or tap the upper-left icon to see the drawer",
   "@demoNavigationDrawerText": {
-    "description": "Description to open naviagtion drawer."
+    "description": "Description to open navigation drawer."
   },
   "demoNavigationDrawerPageOne": "Page 1",
   "@demoNavigationDrawerPageOne": {
