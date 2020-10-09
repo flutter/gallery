@@ -982,6 +982,38 @@
     description="A text to show what value was checked."
     >Checked: {value}</string>
   <string
+    name="demoNavigationDrawerTitle"
+    description="Title for the material drawer component demo."
+    >Navigation Drawer</string>
+  <string
+    name="demoNavigationDrawerSubtitle"
+    description="Subtitle for the material drawer component demo."
+    >Displaying a drawer within appbar</string>
+  <string
+    name="demoNavigationDrawerDescription"
+    description="Description for the material drawer component demo."
+    >A Material Design panel that slides in horizontally from the edge of the screen to show navigation links in an application.</string>
+  <string
+    name="demoNavigationDrawerUserName"
+    description="Demo username for navigation drawer."
+    >User Name</string>
+  <string
+    name="demoNavigationDrawerUserEmail"
+    description="Demo email for navigation drawer."
+    >user.name@example.com</string>
+  <string
+    name="demoNavigationDrawerToPageOne"
+    description="Drawer Item One."
+    >Item One</string>
+  <string
+    name="demoNavigationDrawerToPageTwo"
+    description="Drawer Item Two."
+    >Item Two</string>
+  <string
+    name="demoNavigationDrawerText"
+    description="Description to open navigation drawer."
+    >Swipe from the edge or tap the upper-left icon to see the drawer</string>
+  <string
     name="demoMenuAnItemWithASimpleMenu"
     description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >An item with a simple menu</string>
