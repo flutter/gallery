@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'testing/font_loader.dart';
 
-Future<void> main(FutureOr<void> Function() testMain) async {
+Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   final defaultReportTestException = reportTestException;
   reportTestException = (details, testDescription) {
     defaultReportTestException(details, testDescription);
