@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 class NavRailDemo extends StatefulWidget {
   const NavRailDemo({Key key}) : super(key: key);
@@ -17,8 +18,9 @@ class _NavRailDemoState extends State<NavRailDemo> {
 
   @override
   Widget build(BuildContext context) {
+    var localization = GalleryLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('NavigationRail')),
+      appBar: AppBar(title: Text(localization.demoNavigationRailTitle)),
       body: SafeArea(
         child: Row(
           children: [
@@ -31,20 +33,20 @@ class _NavRailDemoState extends State<NavRailDemo> {
               },
               labelType: NavigationRailLabelType.selected,
               destinations: [
-                const NavigationRailDestination(
-                  icon: Icon(Icons.favorite_border),
-                  selectedIcon: Icon(Icons.favorite),
-                  label: Text('First'),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.favorite_border),
+                  selectedIcon: const Icon(Icons.favorite),
+                  label: Text(localization.demoNavigationRailFirst),
                 ),
-                const NavigationRailDestination(
-                  icon: Icon(Icons.bookmark_border),
-                  selectedIcon: Icon(Icons.book),
-                  label: Text('Second'),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.bookmark_border),
+                  selectedIcon: const Icon(Icons.book),
+                  label: Text(localization.demoNavigationRailSecond),
                 ),
-                const NavigationRailDestination(
-                  icon: Icon(Icons.star_border),
-                  selectedIcon: Icon(Icons.star),
-                  label: Text('Third'),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.star_border),
+                  selectedIcon: const Icon(Icons.star),
+                  label: Text(localization.demoNavigationRailThird),
                 ),
               ],
             ),
@@ -52,7 +54,8 @@ class _NavRailDemoState extends State<NavRailDemo> {
             // This is the main content.
             Expanded(
               child: Center(
-                child: Text('selectedIndex: $_selectedIndex'),
+                child: Text(localization.demoNavigationRailSelectedIndex +
+                    ': $_selectedIndex'),
               ),
             )
           ],

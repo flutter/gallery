@@ -540,14 +540,14 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
       category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
-      title: 'NavigationRail',
+      title: localizations.demoNavigationRailTitle,
       icon: GalleryIcons.menu,
       slug: 'nav_rail',
-      subtitle: 'Navigation Rail',
+      subtitle: localizations.demoNavigationRailSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'NavigationRail',
-          description: 'NavigationRail',
+          title: localizations.demoNavigationRailTitle,
+          description: localizations.demoNavigationRailDescription,
           documentationUrl: '$_docsBaseUrl/material/NavigationRail-class.html',
           buildRoute: (_) => const NavRailDemo(),
           // code: CodeSegments.navDrawerDemo,

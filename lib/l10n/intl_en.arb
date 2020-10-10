@@ -1113,6 +1113,34 @@
   "@demoNavigationDrawerText": {
     "description": "Description to open navigation drawer."
   },
+  "demoNavigationRailTitle": "Navigation Rail",
+  "@demoNavigationRailTitle": {
+    "description": "Title for the material Navigation Rail component demo."
+  },
+  "demoNavigationRailSubtitle": "Displaying a Navigation Rail within an app",
+  "@demoNavigationRailSubtitle": {
+    "description": "Subtitle for the material Navigation Rail component demo."
+  },
+  "demoNavigationRailDescription": "A material widget that is meant to be displayed at the left or right of an app to navigate between a small number of views, typically between three and five.",
+  "@demoNavigationRailDescription": {
+    "description": "Description for the material Navigation Rail component demo."
+  },
+  "demoNavigationRailFirst": "First",
+  "@demoNavigationRailFirst": {
+    "description": "Navigation Rail destination first label."
+  },
+  "demoNavigationRailSecond": "Second",
+  "@demoNavigationRailSecond": {
+    "description": "Navigation Rail destination second label."
+  },
+  "demoNavigationRailThird": "Third",
+  "@demoNavigationRailThird": {
+    "description": "Navigation Rail destination Third label."
+  },
+  "demoNavigationRailSelectedIndex": "selectedIndex",
+  "@demoNavigationRailSelectedIndex": {
+    "description": "Navigation Rail body text."
+  },
   "demoMenuAnItemWithASimpleMenu": "An item with a simple menu",
   "@demoMenuAnItemWithASimpleMenu": {
     "description": "Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."

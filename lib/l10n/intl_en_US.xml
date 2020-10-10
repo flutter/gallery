@@ -1014,6 +1014,34 @@
     description="Description to open navigation drawer."
     >Swipe from the edge or tap the upper-left icon to see the drawer</string>
   <string
+    name="demoNavigationRailTitle"
+    description="Title for the material Navigation Rail component demo."
+    >Navigation Rail</string>
+  <string
+    name="demoNavigationRailSubtitle"
+    description="Subtitle for the material Navigation Rail component demo."
+    >Displaying a Navigation Rail within an app</string>
+  <string
+    name="demoNavigationRailDescription"
+    description="Description for the material Navigation Rail component demo."
+    >A material widget that is meant to be displayed at the left or right of an app to navigate between a small number of views, typically between three and five.</string>
+  <string
+    name="demoNavigationRailFirst"
+    description="Navigation Rail destination first label."
+    >First</string>
+  <string
+    name="demoNavigationRailSecond"
+    description="Navigation Rail destination second label."
+    >Second</string>
+  <string
+    name="demoNavigationRailThird"
+    description="Navigation Rail destination Third label."
+    >Third</string>
+  <string
+    name="demoNavigationRailSelectedIndex"
+    description="Navigation Rail body text."
+    >selectedIndex</string>
+  <string
     name="demoMenuAnItemWithASimpleMenu"
     description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >An item with a simple menu</string>
