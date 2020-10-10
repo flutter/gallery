@@ -22,40 +22,66 @@ class _NavRailDemoState extends State<NavRailDemo> {
   Widget build(BuildContext context) {
     var localization = GalleryLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(localization.demoNavigationRailTitle)),
+      appBar: AppBar(
+        title: Text(
+          localization.demoNavigationRailTitle,
+        ),
+      ),
       body: Row(
         children: [
           NavigationRail(
             selectedIndex: _selectedIndex,
             onDestinationSelected: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
+              setState(
+                () {
+                  _selectedIndex = index;
+                },
+              );
             },
             labelType: NavigationRailLabelType.selected,
             destinations: [
               NavigationRailDestination(
-                icon: const Icon(Icons.favorite_border),
-                selectedIcon: const Icon(Icons.favorite),
-                label: Text(localization.demoNavigationRailFirst),
+                icon: const Icon(
+                  Icons.favorite_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.favorite,
+                ),
+                label: Text(
+                  localization.demoNavigationRailFirst,
+                ),
               ),
               NavigationRailDestination(
-                icon: const Icon(Icons.bookmark_border),
-                selectedIcon: const Icon(Icons.book),
-                label: Text(localization.demoNavigationRailSecond),
+                icon: const Icon(
+                  Icons.bookmark_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.book,
+                ),
+                label: Text(
+                  localization.demoNavigationRailSecond,
+                ),
               ),
               NavigationRailDestination(
-                icon: const Icon(Icons.star_border),
-                selectedIcon: const Icon(Icons.star),
-                label: Text(localization.demoNavigationRailThird),
+                icon: const Icon(
+                  Icons.star_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.star,
+                ),
+                label: Text(
+                  localization.demoNavigationRailThird,
+                ),
               ),
             ],
           ),
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: Center(
-              child: Text(localization.demoNavigationRailSelectedIndex +
-                  ': $_selectedIndex'),
+              child: Text(
+                localization.demoNavigationRailSelectedIndex +
+                    ': $_selectedIndex',
+              ),
             ),
           )
         ],

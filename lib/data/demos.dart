@@ -541,7 +541,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
     ),
     GalleryDemo(
       title: localizations.demoNavigationRailTitle,
-      icon: GalleryIcons.menu,
+      icon: GalleryIcons.navigationRail,
       slug: 'nav_rail',
       subtitle: localizations.demoNavigationRailSubtitle,
       configurations: [
