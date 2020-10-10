@@ -53,7 +53,6 @@ class _NavRailDemoState extends State<NavRailDemo> {
               ],
             ),
             const VerticalDivider(thickness: 1, width: 1),
-            // This is the main content.
             Expanded(
               child: Center(
                 child: Text(localization.demoNavigationRailSelectedIndex +

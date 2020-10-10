@@ -25768,9 +25768,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.numberStyle, text: '1'),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
-      TextSpan(
-          style: codeStyle.commentStyle, text: '// This is the main content.'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
       TextSpan(style: codeStyle.classStyle, text: 'Expanded'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              child'),
