@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
+// BEGIN navRailDemo
+
 class NavRailDemo extends StatefulWidget {
   const NavRailDemo({Key key}) : super(key: key);
 
@@ -64,3 +66,5 @@ class _NavRailDemoState extends State<NavRailDemo> {
     );
   }
 }
+
+// END
