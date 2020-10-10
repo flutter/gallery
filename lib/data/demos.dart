@@ -550,7 +550,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoNavigationRailDescription,
           documentationUrl: '$_docsBaseUrl/material/NavigationRail-class.html',
           buildRoute: (_) => const NavRailDemo(),
-          // code: CodeSegments.navDrawerDemo,
+          code: CodeSegments.navRailDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
