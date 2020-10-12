@@ -19,20 +19,21 @@ class SnackbarsDemo extends StatelessWidget {
       ),
       body: Center(
         child: RaisedButton(
-          child: Text(GalleryLocalizations.of(context).demoSnackbarsButtonLabel),
+          child:
+              Text(GalleryLocalizations.of(context).demoSnackbarsButtonLabel),
           onPressed: () {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(GalleryLocalizations.of(context).demoSnackbarsText),
               action: SnackBarAction(
-                label: GalleryLocalizations.of(context).demoSnackbarsActionButtonLabel,
+                label: GalleryLocalizations.of(context)
+                    .demoSnackbarsActionButtonLabel,
                 onPressed: () {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(
-                      GalleryLocalizations.of(context).demoSnackbarsAction,
-                    )
-                  ));
+                      content: Text(
+                    GalleryLocalizations.of(context).demoSnackbarsAction,
+                  )));
                 },
               ),
             ));
