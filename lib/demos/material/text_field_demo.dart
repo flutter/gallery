@@ -107,8 +107,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   PersonData person = PersonData();
 
   void showInSnackBar(String value) {
-    _scaffoldKey.currentState.hideCurrentSnackBar();
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(value),
     ));
   }
