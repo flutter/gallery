@@ -733,7 +733,7 @@ class CodeDisplayPage extends StatelessWidget {
     final _plainTextCode = _richTextCode.toPlainText();
 
     void _showSnackBarOnCopySuccess(dynamic result) {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             GalleryLocalizations.of(context)
@@ -744,7 +744,7 @@ class CodeDisplayPage extends StatelessWidget {
     }
 
     void _showSnackBarOnCopyFailure(Object exception) {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             GalleryLocalizations.of(context)
