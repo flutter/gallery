@@ -19,8 +19,6 @@ enum DialogDemoType {
 class DialogDemo extends StatelessWidget {
   DialogDemo({Key key, @required this.type}) : super(key: key);
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
   final DialogDemoType type;
 
   String _title(BuildContext context) {
@@ -50,8 +48,8 @@ class DialogDemo extends StatelessWidget {
     );
     // The value passed to Navigator.pop() or null.
     if (value != null && value is String) {
-      _scaffoldMessengerKey.currentState.hideCurrentSnackBar();
-      _scaffoldMessengerKey.currentState.showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content:
             Text(GalleryLocalizations.of(context).dialogSelectedOption(value)),
       ));
@@ -126,51 +124,47 @@ class DialogDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      key: _scaffoldMessengerKey,
-      child: Navigator(
-        // Adding [ValueKey] to make sure that the widget gets rebuilt when
-        // changing type.
-        key: ValueKey(type),
-        onGenerateRoute: (settings) {
-          return _NoAnimationMaterialPageRoute<void>(
-            builder: (context) => Scaffold(
-              key: _scaffoldKey,
-              appBar: AppBar(
-                automaticallyImplyLeading: false,
-                title: Text(_title(context)),
-              ),
-              body: Center(
-                child: RaisedButton(
-                  child: Text(GalleryLocalizations.of(context).dialogShow),
-                  onPressed: () {
-                    switch (type) {
-                      case DialogDemoType.alert:
-                        _showAlertDialog(context);
-                        break;
-                      case DialogDemoType.alertTitle:
-                        _showAlertDialogWithTitle(context);
-                        break;
-                      case DialogDemoType.simple:
-                        _showSimpleDialog(context);
-                        break;
-                      case DialogDemoType.fullscreen:
-                        Navigator.push<void>(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => _FullScreenDialogDemo(),
-                            fullscreenDialog: true,
-                          ),
-                        );
-                        break;
-                    }
-                  },
-                ),
+    return Navigator(
+      // Adding [ValueKey] to make sure that the widget gets rebuilt when
+      // changing type.
+      key: ValueKey(type),
+      onGenerateRoute: (settings) {
+        return _NoAnimationMaterialPageRoute<void>(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: Text(_title(context)),
+            ),
+            body: Center(
+              child: RaisedButton(
+                child: Text(GalleryLocalizations.of(context).dialogShow),
+                onPressed: () {
+                  switch (type) {
+                    case DialogDemoType.alert:
+                      _showAlertDialog(context);
+                      break;
+                    case DialogDemoType.alertTitle:
+                      _showAlertDialogWithTitle(context);
+                      break;
+                    case DialogDemoType.simple:
+                      _showSimpleDialog(context);
+                      break;
+                    case DialogDemoType.fullscreen:
+                      Navigator.push<void>(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => _FullScreenDialogDemo(),
+                          fullscreenDialog: true,
+                        ),
+                      );
+                      break;
+                  }
+                },
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
