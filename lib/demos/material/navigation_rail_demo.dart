@@ -20,13 +20,13 @@ class _NavRailDemoState extends State<NavRailDemo> {
   @override
   Widget build(BuildContext context) {
     final localization = GalleryLocalizations.of(context);
-    final demoNavigationRailFirst = localization.demoNavigationRailFirst;
-    final demoNavigationRailSecond = localization.demoNavigationRailSecond;
-    final demoNavigationRailThird = localization.demoNavigationRailThird;
+    final destinationFirst = localization.demoNavigationRailFirst;
+    final destinationSecond = localization.demoNavigationRailSecond;
+    final destinationThird = localization.demoNavigationRailThird;
     final selectedItem = <String>[
-      demoNavigationRailFirst,
-      demoNavigationRailSecond,
-      demoNavigationRailThird
+      destinationFirst,
+      destinationSecond,
+      destinationThird
     ];
     return Scaffold(
       appBar: AppBar(
@@ -37,13 +37,13 @@ class _NavRailDemoState extends State<NavRailDemo> {
       body: Row(
         children: [
           NavigationRail(
+            leading: FloatingActionButton(
+                child: const Icon(Icons.add), onPressed: () {}),
             selectedIndex: _selectedIndex,
             onDestinationSelected: (index) {
-              setState(
-                () {
-                  _selectedIndex = index;
-                },
-              );
+              setState(() {
+                _selectedIndex = index;
+              });
             },
             labelType: NavigationRailLabelType.selected,
             destinations: [
@@ -55,7 +55,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                   Icons.favorite,
                 ),
                 label: Text(
-                  demoNavigationRailFirst,
+                  destinationFirst,
                 ),
               ),
               NavigationRailDestination(
@@ -66,7 +66,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                   Icons.book,
                 ),
                 label: Text(
-                  demoNavigationRailSecond,
+                  destinationSecond,
                 ),
               ),
               NavigationRailDestination(
@@ -77,7 +77,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                   Icons.star,
                 ),
                 label: Text(
-                  demoNavigationRailThird,
+                  destinationThird,
                 ),
               ),
             ],
@@ -89,7 +89,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                 selectedItem[_selectedIndex],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
