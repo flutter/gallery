@@ -35,6 +35,7 @@ import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
 import 'package:gallery/demos/material/menu_demo.dart';
 import 'package:gallery/demos/material/navigation_drawer.dart';
+import 'package:gallery/demos/material/navigation_rail_demo.dart';
 import 'package:gallery/demos/material/picker_demo.dart';
 import 'package:gallery/demos/material/progress_indicator_demo.dart';
 import 'package:gallery/demos/material/selection_controls_demo.dart';
@@ -534,6 +535,22 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl: '$_docsBaseUrl/material/Drawer-class.html',
           buildRoute: (_) => const NavDrawerDemo(),
           code: CodeSegments.navDrawerDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
+      title: localizations.demoNavigationRailTitle,
+      icon: GalleryIcons.navigationRail,
+      slug: 'nav_rail',
+      subtitle: localizations.demoNavigationRailSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoNavigationRailTitle,
+          description: localizations.demoNavigationRailDescription,
+          documentationUrl: '$_docsBaseUrl/material/NavigationRail-class.html',
+          buildRoute: (_) => const NavRailDemo(),
+          code: CodeSegments.navRailDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
