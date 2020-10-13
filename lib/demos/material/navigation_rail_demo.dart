@@ -38,7 +38,9 @@ class _NavRailDemoState extends State<NavRailDemo> {
         children: [
           NavigationRail(
             leading: FloatingActionButton(
-                child: const Icon(Icons.add), onPressed: () {}),
+              child: const Icon(Icons.add),
+              onPressed: () {},
+            ),
             selectedIndex: _selectedIndex,
             onDestinationSelected: (index) {
               setState(() {
