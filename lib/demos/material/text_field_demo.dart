@@ -290,7 +290,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                 ),
                 sizedBoxSpace,
                 Center(
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     child: Text(
                         GalleryLocalizations.of(context).demoTextFieldSubmit),
                     onPressed: _handleSubmitted,

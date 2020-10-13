@@ -108,7 +108,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     showModal<void>(
                         context: context,
@@ -117,7 +117,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
                   child: Text(localizations.demoFadeScaleShowAlertDialogButton),
                 ),
                 const SizedBox(width: 10),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     if (_isAnimationRunningForwardsOrComplete) {
                       _controller.reverse();

@@ -87,7 +87,7 @@ class _PickerDemoState extends State<PickerDemo> {
           children: [
             Text(_labelText),
             const SizedBox(height: 16),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 GalleryLocalizations.of(context).demoPickersShowPicker,
               ),

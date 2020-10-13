@@ -136,7 +136,7 @@ class DialogDemo extends StatelessWidget {
               title: Text(_title(context)),
             ),
             body: Center(
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text(GalleryLocalizations.of(context).dialogShow),
                 onPressed: () {
                   switch (type) {
