@@ -1137,10 +1137,6 @@
   "@demoNavigationRailThird": {
     "description": "Navigation Rail destination Third label."
   },
-  "demoNavigationRailSelectedIndex": "selectedIndex",
-  "@demoNavigationRailSelectedIndex": {
-    "description": "Navigation Rail body text."
-  },
   "demoMenuAnItemWithASimpleMenu": "An item with a simple menu",
   "@demoMenuAnItemWithASimpleMenu": {
     "description": "Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."

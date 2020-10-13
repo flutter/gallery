@@ -14,13 +14,20 @@ class NavRailDemo extends StatefulWidget {
   _NavRailDemoState createState() => _NavRailDemoState();
 }
 
-/// This is the private State class that goes with NavRailDemo.
 class _NavRailDemoState extends State<NavRailDemo> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    var localization = GalleryLocalizations.of(context);
+    final localization = GalleryLocalizations.of(context);
+    final demoNavigationRailFirst = localization.demoNavigationRailFirst;
+    final demoNavigationRailSecond = localization.demoNavigationRailSecond;
+    final demoNavigationRailThird = localization.demoNavigationRailThird;
+    final selectedItem = <String>[
+      demoNavigationRailFirst,
+      demoNavigationRailSecond,
+      demoNavigationRailThird
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -48,7 +55,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                   Icons.favorite,
                 ),
                 label: Text(
-                  localization.demoNavigationRailFirst,
+                  demoNavigationRailFirst,
                 ),
               ),
               NavigationRailDestination(
@@ -59,7 +66,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                   Icons.book,
                 ),
                 label: Text(
-                  localization.demoNavigationRailSecond,
+                  demoNavigationRailSecond,
                 ),
               ),
               NavigationRailDestination(
@@ -70,7 +77,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
                   Icons.star,
                 ),
                 label: Text(
-                  localization.demoNavigationRailThird,
+                  demoNavigationRailThird,
                 ),
               ),
             ],
@@ -79,8 +86,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
           Expanded(
             child: Center(
               child: Text(
-                localization.demoNavigationRailSelectedIndex +
-                    ': $_selectedIndex',
+                selectedItem[_selectedIndex],
               ),
             ),
           )

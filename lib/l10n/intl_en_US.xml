@@ -1038,10 +1038,6 @@
     description="Navigation Rail destination Third label."
     >Third</string>
   <string
-    name="demoNavigationRailSelectedIndex"
-    description="Navigation Rail body text."
-    >selectedIndex</string>
-  <string
     name="demoMenuAnItemWithASimpleMenu"
     description="Label next to a button that opens a simple menu. A menu displays a list of choices on a temporary surface. Used as an example in a demo."
     >An item with a simple menu</string>
