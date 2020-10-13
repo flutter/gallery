@@ -665,33 +665,33 @@
   "@demoButtonTitle": {
     "description": "Title for the material buttons component demo."
   },
-  "demoButtonSubtitle": "Flat, raised, outline, and more",
+  "demoButtonSubtitle": "Text, elevated, outlined, and more",
   "@demoButtonSubtitle": {
     "description": "Subtitle for the material buttons component demo."
   },
-  "demoFlatButtonTitle": "Flat Button",
-  "@demoFlatButtonTitle": {
-    "description": "Title for the flat button component demo."
+  "demoTextButtonTitle": "Text Button",
+  "@demoTextButtonTitle": {
+    "description": "Title for the text button component demo."
   },
-  "demoFlatButtonDescription": "A flat button displays an ink splash on press but does not lift. Use flat buttons on toolbars, in dialogs and inline with padding",
-  "@demoFlatButtonDescription": {
-    "description": "Description for the flat button component demo."
+  "demoTextButtonDescription": "A text button displays an ink splash on press but does not lift. Use text buttons on toolbars, in dialogs and inline with padding",
+  "@demoTextButtonDescription": {
+    "description": "Description for the text button component demo."
   },
-  "demoRaisedButtonTitle": "Raised Button",
-  "@demoRaisedButtonTitle": {
-    "description": "Title for the raised button component demo."
+  "demoElevatedButtonTitle": "Elevated Button",
+  "@demoElevatedButtonTitle": {
+    "description": "Title for the elevated button component demo."
   },
-  "demoRaisedButtonDescription": "Raised buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces.",
-  "@demoRaisedButtonDescription": {
-    "description": "Description for the raised button component demo."
+  "demoElevatedButtonDescription": "Elevated buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces.",
+  "@demoElevatedButtonDescription": {
+    "description": "Description for the elevated button component demo."
   },
-  "demoOutlineButtonTitle": "Outline Button",
-  "@demoOutlineButtonTitle": {
-    "description": "Title for the outline button component demo."
+  "demoOutlinedButtonTitle": "Outlined Button",
+  "@demoOutlinedButtonTitle": {
+    "description": "Title for the outlined button component demo."
   },
-  "demoOutlineButtonDescription": "Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action.",
-  "@demoOutlineButtonDescription": {
-    "description": "Description for the outline button component demo."
+  "demoOutlinedButtonDescription": "Outlined buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action.",
+  "@demoOutlinedButtonDescription": {
+    "description": "Description for the outlined button component demo."
   },
   "demoToggleButtonTitle": "Toggle Buttons",
   "@demoToggleButtonTitle": {

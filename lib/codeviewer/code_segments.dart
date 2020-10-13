@@ -3038,7 +3038,7 @@ class CodeSegments {
     ]);
   }
 
-  static TextSpan buttonDemoFlat(BuildContext context) {
+  static TextSpan buttonDemoElevated(BuildContext context) {
     final codeStyle = CodeStyle.of(context);
     return TextSpan(children: [
       TextSpan(
@@ -3070,7 +3070,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a'),
       TextSpan(style: codeStyle.keywordStyle, text: 'class'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.classStyle, text: '_FlatButtonDemo'),
+      TextSpan(style: codeStyle.classStyle, text: '_ElevatedButtonDemo'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.keywordStyle, text: 'extends'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -3110,7 +3110,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '['),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
-      TextSpan(style: codeStyle.classStyle, text: 'FlatButton'),
+      TextSpan(style: codeStyle.classStyle, text: 'ElevatedButton'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            child'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
@@ -3144,7 +3144,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.numberStyle, text: '12'),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
-      TextSpan(style: codeStyle.classStyle, text: 'FlatButton'),
+      TextSpan(style: codeStyle.classStyle, text: 'ElevatedButton'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'icon'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
@@ -3364,7 +3364,7 @@ class CodeSegments {
     ]);
   }
 
-  static TextSpan buttonDemoOutline(BuildContext context) {
+  static TextSpan buttonDemoOutlined(BuildContext context) {
     final codeStyle = CodeStyle.of(context);
     return TextSpan(children: [
       TextSpan(
@@ -3396,7 +3396,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a'),
       TextSpan(style: codeStyle.keywordStyle, text: 'class'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.classStyle, text: '_OutlineButtonDemo'),
+      TextSpan(style: codeStyle.classStyle, text: '_OutlinedButtonDemo'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.keywordStyle, text: 'extends'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -3436,32 +3436,8 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '['),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
-      TextSpan(style: codeStyle.classStyle, text: 'OutlineButton'),
+      TextSpan(style: codeStyle.classStyle, text: 'OutlinedButton'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text:
-              '// TODO: Should update to OutlineButton follow material spec.'),
-      TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a            highlightedBorderColor'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a                '),
-      TextSpan(style: codeStyle.classStyle, text: 'Theme'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'of'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: 'context'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ').'),
-      TextSpan(style: codeStyle.baseStyle, text: 'colorScheme'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'onSurface'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'withOpacity'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.numberStyle, text: '0.12'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            child'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -3494,34 +3470,10 @@ class CodeSegments {
       TextSpan(style: codeStyle.numberStyle, text: '12'),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
-      TextSpan(style: codeStyle.classStyle, text: 'OutlineButton'),
+      TextSpan(style: codeStyle.classStyle, text: 'OutlinedButton'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'icon'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
-      TextSpan(
-          style: codeStyle.commentStyle,
-          text:
-              '// TODO: Should update to OutlineButton follow material spec.'),
-      TextSpan(
-          style: codeStyle.baseStyle,
-          text: '\u000a            highlightedBorderColor'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a                '),
-      TextSpan(style: codeStyle.classStyle, text: 'Theme'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'of'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: 'context'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ').'),
-      TextSpan(style: codeStyle.baseStyle, text: 'colorScheme'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'onSurface'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'withOpacity'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.numberStyle, text: '0.12'),
-      TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            icon'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -3573,7 +3525,7 @@ class CodeSegments {
     ]);
   }
 
-  static TextSpan buttonDemoRaised(BuildContext context) {
+  static TextSpan buttonDemoText(BuildContext context) {
     final codeStyle = CodeStyle.of(context);
     return TextSpan(children: [
       TextSpan(
@@ -3605,7 +3557,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a'),
       TextSpan(style: codeStyle.keywordStyle, text: 'class'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.classStyle, text: '_RaisedButtonDemo'),
+      TextSpan(style: codeStyle.classStyle, text: '_TextButtonDemo'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.keywordStyle, text: 'extends'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -3645,7 +3597,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '['),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
-      TextSpan(style: codeStyle.classStyle, text: 'RaisedButton'),
+      TextSpan(style: codeStyle.classStyle, text: 'TextButton'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            child'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
@@ -3679,7 +3631,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.numberStyle, text: '12'),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
-      TextSpan(style: codeStyle.classStyle, text: 'RaisedButton'),
+      TextSpan(style: codeStyle.classStyle, text: 'TextButton'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'icon'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),

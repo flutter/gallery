@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 enum ButtonDemoType {
-  flat,
-  raised,
-  outline,
+  text,
+  elevated,
+  outlined,
   toggle,
   floating,
 }
@@ -21,12 +21,12 @@ class ButtonDemo extends StatelessWidget {
 
   String _title(BuildContext context) {
     switch (type) {
-      case ButtonDemoType.flat:
-        return GalleryLocalizations.of(context).demoFlatButtonTitle;
-      case ButtonDemoType.raised:
-        return GalleryLocalizations.of(context).demoRaisedButtonTitle;
-      case ButtonDemoType.outline:
-        return GalleryLocalizations.of(context).demoOutlineButtonTitle;
+      case ButtonDemoType.text:
+        return GalleryLocalizations.of(context).demoTextButtonTitle;
+      case ButtonDemoType.elevated:
+        return GalleryLocalizations.of(context).demoElevatedButtonTitle;
+      case ButtonDemoType.outlined:
+        return GalleryLocalizations.of(context).demoOutlinedButtonTitle;
       case ButtonDemoType.toggle:
         return GalleryLocalizations.of(context).demoToggleButtonTitle;
       case ButtonDemoType.floating:
@@ -39,14 +39,14 @@ class ButtonDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget buttons;
     switch (type) {
-      case ButtonDemoType.flat:
-        buttons = _FlatButtonDemo();
+      case ButtonDemoType.text:
+        buttons = _TextButtonDemo();
         break;
-      case ButtonDemoType.raised:
-        buttons = _RaisedButtonDemo();
+      case ButtonDemoType.elevated:
+        buttons = _ElevatedButtonDemo();
         break;
-      case ButtonDemoType.outline:
-        buttons = _OutlineButtonDemo();
+      case ButtonDemoType.outlined:
+        buttons = _OutlinedButtonDemo();
         break;
       case ButtonDemoType.toggle:
         buttons = _ToggleButtonsDemo();
@@ -66,21 +66,21 @@ class ButtonDemo extends StatelessWidget {
   }
 }
 
-// BEGIN buttonDemoFlat
+// BEGIN buttonDemoText
 
-class _FlatButtonDemo extends StatelessWidget {
+class _TextButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FlatButton(
+          TextButton(
             child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
           ),
           const SizedBox(height: 12),
-          FlatButton.icon(
+          TextButton.icon(
             icon: const Icon(Icons.add, size: 18),
             label: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
@@ -93,21 +93,21 @@ class _FlatButtonDemo extends StatelessWidget {
 
 // END
 
-// BEGIN buttonDemoRaised
+// BEGIN buttonDemoElevated
 
-class _RaisedButtonDemo extends StatelessWidget {
+class _ElevatedButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          RaisedButton(
+          ElevatedButton(
             child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
           ),
           const SizedBox(height: 12),
-          RaisedButton.icon(
+          ElevatedButton.icon(
             icon: const Icon(Icons.add, size: 18),
             label: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
@@ -120,27 +120,21 @@ class _RaisedButtonDemo extends StatelessWidget {
 
 // END
 
-// BEGIN buttonDemoOutline
+// BEGIN buttonDemoOutlined
 
-class _OutlineButtonDemo extends StatelessWidget {
+class _OutlinedButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          OutlineButton(
-            // TODO: Should update to OutlineButton follow material spec.
-            highlightedBorderColor:
-                Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+          OutlinedButton(
             child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
           ),
           const SizedBox(height: 12),
-          OutlineButton.icon(
-            // TODO: Should update to OutlineButton follow material spec.
-            highlightedBorderColor:
-                Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+          OutlinedButton.icon(
             icon: const Icon(Icons.add, size: 18),
             label: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},

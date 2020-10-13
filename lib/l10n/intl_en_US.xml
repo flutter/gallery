@@ -588,31 +588,31 @@
   <string
     name="demoButtonSubtitle"
     description="Subtitle for the material buttons component demo."
-    >Flat, raised, outline, and more</string>
+    >Text, elevated, outlined, and more</string>
   <string
-    name="demoFlatButtonTitle"
-    description="Title for the flat button component demo."
-    >Flat Button</string>
+    name="demoTextButtonTitle"
+    description="Title for the text button component demo."
+    >Text Button</string>
   <string
-    name="demoFlatButtonDescription"
-    description="Description for the flat button component demo."
-    >A flat button displays an ink splash on press but does not lift. Use flat buttons on toolbars, in dialogs and inline with padding</string>
+    name="demoTextButtonDescription"
+    description="Description for the text button component demo."
+    >A text button displays an ink splash on press but does not lift. Use text buttons on toolbars, in dialogs and inline with padding</string>
   <string
-    name="demoRaisedButtonTitle"
-    description="Title for the raised button component demo."
-    >Raised Button</string>
+    name="demoElevatedButtonTitle"
+    description="Title for the elevated button component demo."
+    >Elevated Button</string>
   <string
-    name="demoRaisedButtonDescription"
-    description="Description for the raised button component demo."
-    >Raised buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces.</string>
+    name="demoElevatedButtonDescription"
+    description="Description for the elevated button component demo."
+    >Elevated buttons add dimension to mostly flat layouts. They emphasize functions on busy or wide spaces.</string>
   <string
-    name="demoOutlineButtonTitle"
-    description="Title for the outline button component demo."
-    >Outline Button</string>
+    name="demoOutlinedButtonTitle"
+    description="Title for the outlined button component demo."
+    >Outlined Button</string>
   <string
-    name="demoOutlineButtonDescription"
-    description="Description for the outline button component demo."
-    >Outline buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action.</string>
+    name="demoOutlinedButtonDescription"
+    description="Description for the outlined button component demo."
+    >Outlined buttons become opaque and elevate when pressed. They are often paired with raised buttons to indicate an alternative, secondary action.</string>
   <string
     name="demoToggleButtonTitle"
     description="Title for the toggle buttons component demo."
