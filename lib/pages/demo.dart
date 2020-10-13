@@ -761,12 +761,13 @@ class CodeDisplayPage extends StatelessWidget {
           padding: isDesktop
               ? const EdgeInsets.only(bottom: 8)
               : const EdgeInsets.symmetric(vertical: 8),
-          child: FlatButton(
-            color: Colors.white.withOpacity(0.15),
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white.withOpacity(0.15),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(4)),
+              ),
             ),
             onPressed: () async {
               await Clipboard.setData(ClipboardData(text: _plainTextCode))

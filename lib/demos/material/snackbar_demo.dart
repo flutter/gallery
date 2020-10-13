@@ -18,7 +18,7 @@ class SnackbarsDemo extends StatelessWidget {
         title: Text(GalleryLocalizations.of(context).demoSnackbarsTitle),
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child:
               Text(GalleryLocalizations.of(context).demoSnackbarsButtonLabel),
           onPressed: () {

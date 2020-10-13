@@ -105,12 +105,13 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     child: Semantics(
                       sortKey:
                           const OrdinalSortKey(3, name: _ordinalSortKeyName),
-                      child: RaisedButton(
-                        shape: const BeveledRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: const BeveledRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(7)),
+                          ),
+                          primary: shrinePink100,
                         ),
-                        color: shrinePink100,
-                        splashColor: shrineBrown600,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           child: Text(

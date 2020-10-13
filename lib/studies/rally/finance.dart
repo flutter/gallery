@@ -116,12 +116,14 @@ class FinancialEntityCategoryView extends StatelessWidget {
         closedColor: RallyColors.primaryBackground,
         closedElevation: 0,
         closedBuilder: (context, openContainer) {
-          return FlatButton(
+          return TextButton(
+            style: TextButton.styleFrom(primary: Colors.black),
             onPressed: openContainer,
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                   child: Row(
                     children: [
                       Container(
@@ -373,9 +375,12 @@ class _DetailedEventCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    return FlatButton(
+    return TextButton(
+      style: TextButton.styleFrom(
+        primary: Colors.black,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+      ),
       onPressed: () {},
-      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
           Container(

@@ -169,10 +169,10 @@ class _AlertsView extends StatelessWidget {
                 children: [
                   Text(GalleryLocalizations.of(context).rallyAlerts),
                   if (!isDesktop)
-                    FlatButton(
+                    TextButton(
+                      style: TextButton.styleFrom(primary: Colors.white),
                       onPressed: () {},
                       child: Text(GalleryLocalizations.of(context).rallySeeAll),
-                      textColor: Colors.white,
                     ),
                 ],
               ),
@@ -278,12 +278,12 @@ class _FinancialView extends StatelessWidget {
             ),
             ...financialItemViews.sublist(
                 0, math.min(financialItemViews.length, 3)),
-            FlatButton(
+            TextButton(
+              style: TextButton.styleFrom(primary: Colors.white),
               child: Text(
                 GalleryLocalizations.of(context).rallySeeAll,
                 semanticsLabel: buttonSemanticsLabel,
               ),
-              textColor: Colors.white,
               onPressed: () {},
             ),
           ],
