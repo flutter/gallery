@@ -54,10 +54,10 @@ jobs:
         fetch-depth: 0
     - name: Add Flutter to the PATH for Linux and macOS
       if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
-      run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
+      run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
     - name: Add Flutter to the PATH for Windows
       if: startsWith(matrix.os, 'windows')
-      run: echo "::add-path::${env:GITHUB_WORKSPACE}\flutter\bin"
+      run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
     - name: Install Linux dependencies
       if: startsWith(matrix.target, 'linux')
       run: |
