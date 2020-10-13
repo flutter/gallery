@@ -349,20 +349,18 @@ class TravelDestinationContent extends StatelessWidget {
           ButtonBar(
             alignment: MainAxisAlignment.start,
             children: [
-              FlatButton(
+              TextButton(
                 child: Text(GalleryLocalizations.of(context).demoMenuShare,
                     semanticsLabel: GalleryLocalizations.of(context)
                         .cardsDemoShareSemantics(destination.title)),
-                textColor: Colors.amber.shade500,
                 onPressed: () {
                   print('pressed');
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text(GalleryLocalizations.of(context).cardsDemoExplore,
                     semanticsLabel: GalleryLocalizations.of(context)
                         .cardsDemoExploreSemantics(destination.title)),
-                textColor: Colors.amber.shade500,
                 onPressed: () {
                   print('pressed');
                 },

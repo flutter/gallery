@@ -68,15 +68,15 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  FlatButton(
+                  TextButton(
                     onPressed: _isLoggedIn ? _toggleLoginStatus : null,
                     child: Text(localizations.demoSharedXAxisBackButtonText),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: _isLoggedIn ? null : _toggleLoginStatus,
                     child: Text(localizations.demoSharedXAxisNextButtonText),
                   ),
@@ -222,7 +222,7 @@ class _SignInPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: 10),
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {},
                     child: Text(
                       localizations.demoSharedXAxisForgotEmailButtonText,
@@ -231,7 +231,7 @@ class _SignInPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: 10),
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () {},
                     child: Text(
                       localizations.demoSharedXAxisCreateAccountButtonText,

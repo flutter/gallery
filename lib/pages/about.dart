@@ -100,8 +100,7 @@ class _AboutDialog extends StatelessWidget {
         ),
       ),
       actions: [
-        FlatButton(
-          textColor: colorScheme.primary,
+        TextButton(
           child: Text(
             MaterialLocalizations.of(context).viewLicensesButtonLabel,
           ),
@@ -122,8 +121,7 @@ class _AboutDialog extends StatelessWidget {
             ));
           },
         ),
-        FlatButton(
-          textColor: colorScheme.primary,
+        TextButton(
           child: Text(MaterialLocalizations.of(context).closeButtonLabel),
           onPressed: () {
             Navigator.pop(context);

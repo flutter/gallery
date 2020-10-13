@@ -181,16 +181,18 @@ class _CancelAndNextButtons extends StatelessWidget {
         ButtonBar(
           buttonPadding: isDesktop ? EdgeInsets.zero : null,
           children: [
-            FlatButton(
+            TextButton(
+              style: TextButton.styleFrom(
+                shape: const BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(7)),
+                ),
+              ),
               child: Padding(
                 padding: buttonTextPadding,
                 child: Text(
                   GalleryLocalizations.of(context).shrineCancelButtonCaption,
                   style: TextStyle(color: colorScheme.onSurface),
                 ),
-              ),
-              shape: const BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(7)),
               ),
               onPressed: () {
                 // The login screen is immediately displayed on top of
@@ -200,7 +202,13 @@ class _CancelAndNextButtons extends StatelessWidget {
                 Navigator.of(context, rootNavigator: true).pop();
               },
             ),
-            RaisedButton(
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 8,
+                shape: const BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(7)),
+                ),
+              ),
               child: Padding(
                 padding: buttonTextPadding,
                 child: Text(
@@ -208,10 +216,6 @@ class _CancelAndNextButtons extends StatelessWidget {
                   style: TextStyle(
                       letterSpacing: letterSpacingOrNone(largeLetterSpacing)),
                 ),
-              ),
-              elevation: 8,
-              shape: const BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(7)),
               ),
               onPressed: () {
                 Navigator.of(context).pushNamed(ShrineApp.homeRoute);

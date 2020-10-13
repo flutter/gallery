@@ -148,13 +148,13 @@ class _ExampleAlertDialog extends StatelessWidget {
     return AlertDialog(
       content: Text(localizations.demoFadeScaleAlertDialogHeader),
       actions: [
-        FlatButton(
+        TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           child: Text(localizations.demoFadeScaleAlertDialogCancelButton),
         ),
-        FlatButton(
+        TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },

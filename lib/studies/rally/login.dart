@@ -367,16 +367,15 @@ class _BorderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlineButton(
-      borderSide: const BorderSide(color: RallyColors.buttonColor),
-      color: RallyColors.buttonColor,
-      highlightedBorderColor: RallyColors.buttonColor,
-      focusColor: RallyColors.buttonColor.withOpacity(0.8),
-      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        primary: Colors.white,
+        side: const BorderSide(color: RallyColors.buttonColor),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
-      textColor: Colors.white,
       onPressed: () {
         Navigator.of(context).pushNamed(RallyApp.homeRoute);
       },
@@ -394,11 +393,15 @@ class _FilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      color: RallyColors.buttonColor,
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: RallyColors.buttonColor,
+        onPrimary: Colors.black,
+        elevation: 0,
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
       ),
       onPressed: onTap,
       child: Row(

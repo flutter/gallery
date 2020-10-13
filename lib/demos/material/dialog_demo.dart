@@ -196,7 +196,7 @@ class _DialogButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       child: Text(text),
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pop(text);
@@ -256,7 +256,7 @@ class _FullScreenDialogDemo extends StatelessWidget {
           appBar: AppBar(
             title: Text(GalleryLocalizations.of(context).dialogFullscreenTitle),
             actions: [
-              FlatButton(
+              TextButton(
                 child: Text(
                   GalleryLocalizations.of(context).dialogFullscreenSave,
                   style: theme.textTheme.bodyText2.copyWith(
