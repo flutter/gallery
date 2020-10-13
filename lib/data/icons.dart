@@ -167,4 +167,8 @@ class GalleryIcons {
     0xe927,
     fontFamily: 'GalleryIcons',
   );
+  static const IconData navigationRail = IconData(
+    60080,
+    fontFamily: 'MaterialIcons',
+  );
 }
