@@ -46,7 +46,10 @@ class _SettingsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-    style: TextButton.styleFrom(primary: Colors.white, padding: EdgeInsets.zero,),
+      style: TextButton.styleFrom(
+        primary: Colors.white,
+        padding: EdgeInsets.zero,
+      ),
       child: Container(
         alignment: AlignmentDirectional.centerStart,
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 28),
