@@ -18,7 +18,7 @@ jobs:
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH
-      run: echo "::add-path::$GITHUB_WORKSPACE/flutter/bin"
+      run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
     - name: Run Flutter doctor
       run: flutter doctor -v
     - name: Enable Flutter web
