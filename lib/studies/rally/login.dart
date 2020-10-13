@@ -393,11 +393,10 @@ class _FilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        primary: RallyColors.buttonColor,
-        onPrimary: Colors.black,
-        elevation: 0,
+    return TextButton(
+      style: TextButton.styleFrom(
+        backgroundColor: RallyColors.buttonColor,
+        primary: Colors.black,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
