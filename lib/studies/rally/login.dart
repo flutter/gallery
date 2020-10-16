@@ -397,7 +397,7 @@ class _FilledButton extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: RallyColors.buttonColor,
         primary: Colors.black,
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -407,13 +407,7 @@ class _FilledButton extends StatelessWidget {
         children: [
           const Icon(Icons.lock),
           const SizedBox(width: 6),
-          Container(
-            margin: const EdgeInsets.only(top: 4.0),
-            child: SizedBox(
-              height: 14,
-              child: Text(text),
-            ),
-          ),
+          Text(text),
         ],
       ),
     );

@@ -70,6 +70,7 @@ class RallyApp extends StatelessWidget {
         fillColor: RallyColors.inputBackground,
         focusedBorder: InputBorder.none,
       ),
+      visualDensity: VisualDensity.standard,
     );
   }
 
