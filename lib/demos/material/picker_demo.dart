@@ -28,7 +28,7 @@ class PickerDemo extends StatefulWidget {
 class _PickerDemoState extends State<PickerDemo> {
   DateTime _fromDate = DateTime.now();
   TimeOfDay _fromTime = TimeOfDay.fromDateTime(DateTime.now());
-  DateTimeRange _initialDate =
+  DateTimeRange _fromRange =
       DateTimeRange(start: DateTime.now(), end: DateTime.now());
 
   String get _title {
@@ -51,9 +51,9 @@ class _PickerDemoState extends State<PickerDemo> {
       case PickerDemoType.time:
         return _fromTime.format(context);
       case PickerDemoType.range:
-        return DateFormat.yMMMd().format(_initialDate.start) +
+        return DateFormat.yMMMd().format(_fromRange.start) +
             ' - ' +
-            DateFormat.yMMMd().format(_initialDate.end);
+            DateFormat.yMMMd().format(_fromRange.end);
         break;
     }
     return '';
@@ -93,7 +93,7 @@ class _PickerDemoState extends State<PickerDemo> {
     );
     if (picked != null) {
       setState(() {
-        _initialDate = picked;
+        _fromRange = picked;
       });
     }
   }
