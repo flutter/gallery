@@ -1824,6 +1824,14 @@
   "@demoTimePickerDescription": {
     "description": "Description for time picker demo."
   },
+  "demoDateRangePickerTitle": "Date Range Picker",
+  "@demoDateRangePickerTitle": {
+    "description": "Title for date range picker demo."
+  },
+  "demoDateRangePickerDescription": "Shows a dialog containing a Material Design date range picker.",
+  "@demoDateRangePickerDescription": {
+    "description": "Description for date range picker demo."
+  },
   "demoPickersShowPicker": "SHOW PICKER",
   "@demoPickersShowPicker": {
     "description": "Button text to show the date or time picker in the demo."

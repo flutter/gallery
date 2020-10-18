@@ -576,9 +576,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           code: CodeSegments.pickerDemo,
         ),
         GalleryDemoConfiguration(
-          title: 'DateRange Picker',
-          description: localizations.demoTimePickerDescription,
-          documentationUrl: '$_docsBaseUrl/material/showTimePicker.html',
+          title: localizations.demoDateRangePickerTitle,
+          description: localizations.demoDateRangePickerDescription,
+          documentationUrl: '$_docsBaseUrl/material/showDateRangePicker.html',
           buildRoute: (context) => const PickerDemo(type: PickerDemoType.range),
           code: CodeSegments.pickerDemo,
         ),

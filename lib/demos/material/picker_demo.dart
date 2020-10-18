@@ -38,7 +38,7 @@ class _PickerDemoState extends State<PickerDemo> {
       case PickerDemoType.time:
         return GalleryLocalizations.of(context).demoTimePickerTitle;
       case PickerDemoType.range:
-        return 'DateRange Picker';
+        return GalleryLocalizations.of(context).demoDateRangePickerTitle;
         break;
     }
     return '';
