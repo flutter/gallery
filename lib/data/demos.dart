@@ -575,6 +575,13 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           buildRoute: (context) => const PickerDemo(type: PickerDemoType.time),
           code: CodeSegments.pickerDemo,
         ),
+        GalleryDemoConfiguration(
+          title: 'DateRange Picker',
+          description: localizations.demoTimePickerDescription,
+          documentationUrl: '$_docsBaseUrl/material/showTimePicker.html',
+          buildRoute: (context) => const PickerDemo(type: PickerDemoType.range),
+          code: CodeSegments.pickerDemo,
+        ),
       ],
       category: GalleryDemoCategory.material,
     ),
