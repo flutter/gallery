@@ -61,7 +61,6 @@ class _PickerDemoState extends State<PickerDemo> {
 
   Future<void> _showDatePicker(BuildContext context) async {
     final picked = await showDatePicker(
-      useRootNavigator: false,
       context: context,
       initialDate: _fromDate,
       firstDate: DateTime(2015, 1),
@@ -76,7 +75,6 @@ class _PickerDemoState extends State<PickerDemo> {
 
   Future<void> _showTimePicker(BuildContext context) async {
     final picked = await showTimePicker(
-      useRootNavigator: false,
       context: context,
       initialTime: _fromTime,
     );
