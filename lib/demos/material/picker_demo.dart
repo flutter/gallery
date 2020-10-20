@@ -59,7 +59,7 @@ class _PickerDemoState extends State<PickerDemo> {
     return '';
   }
 
-  Future<void> _showDatePicker() async {
+  Future<void> _showDatePicker(BuildContext context) async {
     final picked = await showDatePicker(
       context: context,
       initialDate: _fromDate,
@@ -73,7 +73,7 @@ class _PickerDemoState extends State<PickerDemo> {
     }
   }
 
-  Future<void> _showTimePicker() async {
+  Future<void> _showTimePicker(BuildContext context) async {
     final picked = await showTimePicker(
       context: context,
       initialTime: _fromTime,
@@ -85,8 +85,9 @@ class _PickerDemoState extends State<PickerDemo> {
     }
   }
 
-  Future<void> _showDateRangePicker() async {
+  Future<void> _showDateRangePicker(BuildContext context) async {
     final picked = await showDateRangePicker(
+      useRootNavigator: false,
       context: context,
       firstDate: DateTime(DateTime.now().year - 5),
       lastDate: DateTime(DateTime.now().year + 5),
@@ -100,38 +101,44 @@ class _PickerDemoState extends State<PickerDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(_title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(_labelText),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              child: Text(
-                GalleryLocalizations.of(context).demoPickersShowPicker,
+    return Navigator(
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute<void>(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: Text(_title),
+            ),
+            body: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(_labelText),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    child: Text(
+                      GalleryLocalizations.of(context).demoPickersShowPicker,
+                    ),
+                    onPressed: () {
+                      switch (widget.type) {
+                        case PickerDemoType.date:
+                          _showDatePicker(context);
+                          break;
+                        case PickerDemoType.time:
+                          _showTimePicker(context);
+                          break;
+                        case PickerDemoType.range:
+                          _showDateRangePicker(context);
+                          break;
+                      }
+                    },
+                  )
+                ],
               ),
-              onPressed: () {
-                switch (widget.type) {
-                  case PickerDemoType.date:
-                    _showDatePicker();
-                    break;
-                  case PickerDemoType.time:
-                    _showTimePicker();
-                    break;
-                  case PickerDemoType.range:
-                    _showDateRangePicker();
-                    break;
-                }
-              },
-            )
-          ],
-        ),
-      ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
