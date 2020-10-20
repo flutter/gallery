@@ -1710,6 +1710,14 @@
     description="Description for time picker demo."
     >Shows a dialog containing a Material Design time picker.</string>
   <string
+    name="demoDateRangePickerTitle"
+    description="Title for date range picker demo."
+    >Date Range Picker</string>
+  <string
+    name="demoDateRangePickerDescription"
+    description="Description for date range picker demo."
+    >Shows a dialog containing a Material Design date range picker.</string>
+  <string
     name="demoPickersShowPicker"
     description="Button text to show the date or time picker in the demo."
     >SHOW PICKER</string>
