@@ -44,8 +44,9 @@ class CupertinoContextMenuDemo extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           const Padding(
-              padding: EdgeInsets.all(30),
-              child: Text('Tap and hold flutter logo to see context menu')),
+            padding: EdgeInsets.all(30),
+            child: Text('Tap and hold flutter logo to see context menu'),
+          ),
         ],
       ),
     );
