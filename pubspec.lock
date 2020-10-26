@@ -478,7 +478,7 @@ packages:
       name: scoped_model
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.1.0"
   shared_preferences:
     dependency: "direct main"
     description:
