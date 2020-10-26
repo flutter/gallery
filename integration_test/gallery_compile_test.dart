@@ -21,11 +21,10 @@ void main() {
         'main.dart.js',
       );
       await _runProcess('flutter', [
-        'build',
-        'web',
-        '-v',
-        '--release',
-        '--no-pub',
+        'pub',
+        'run',
+        'grinder',
+        'build-web',
       ]);
       await _runProcess('gzip', ['-k', js]);
       final bundleSize = await _measureSize(js);
