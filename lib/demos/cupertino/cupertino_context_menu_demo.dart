@@ -12,30 +12,37 @@ class CupertinoContextMenuDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          child: CupertinoContextMenu(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
             child: Container(
-              color: Colors.red,
+              width: 100,
+              height: 100,
+              child: CupertinoContextMenu(
+                child: Container(
+                  child: const FlutterLogo(size: 250),
+                ),
+                actions: <Widget>[
+                  CupertinoContextMenuAction(
+                    child: const Text('Action one'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  CupertinoContextMenuAction(
+                    child: const Text('Action two'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              ),
             ),
-            actions: <Widget>[
-              CupertinoContextMenuAction(
-                child: const Text('Action one'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              CupertinoContextMenuAction(
-                child: const Text('Action two'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
           ),
-        ),
+          const SizedBox(height: 20),
+          const Text('Tap and hold flutter logo to see context menu'),
+        ],
       ),
     );
   }
