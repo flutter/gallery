@@ -114,7 +114,7 @@ flutter pub run grinder update-code-segments
 
 3. Publish the firebase hosted web release.
     * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
-    * `flutter build web`
+    * `flutter pub run grinder build-web`
     * `firebase deploy -P prod` to deploy to production (equivalent to `firebase deploy`).
     * `firebase deploy -P staging` to deploy to staging. Check with the team to see if the staging
        instance is currently used for a special purpose.

@@ -94,6 +94,19 @@ Future<void> verifyCodeSegments() async {
   }
 }
 
+@Task('Build web')
+Future<void> buildWeb({String directory}) async {
+  final fileName = 'l10n.yaml';
+  final originalContents = await File(fileName).readAsString();
+  final newContents = originalContents.replaceAll(
+    RegExp(r'use-deferred-loading: false'),
+    'use-deferred-loading: true',
+  );
+  await File(fileName).writeAsString(newContents);
+  await _runProcess('flutter', ['build', 'web']);
+  await File(fileName).writeAsString(originalContents);
+}
+
 Future<void> _runProcess(String executable, List<String> arguments) async {
   final result = await Process.run(executable, arguments);
   stdout.write(result.stdout);
