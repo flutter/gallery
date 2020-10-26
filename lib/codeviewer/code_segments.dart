@@ -10646,10 +10646,14 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'Text'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: 'galleryLocalizations'),
+      TextSpan(
+          style: codeStyle.baseStyle,
+          text: '\u000a          galleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(
           style: codeStyle.baseStyle, text: 'demoCupertinoContextMenuTitle'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a        '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
@@ -10731,11 +10735,13 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                        galleryLocalizations'),
+          text: '\u000a                      galleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(
           style: codeStyle.baseStyle,
           text: 'demoCupertinoContextMenuActionOne'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a                    '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(
           style: codeStyle.baseStyle,
@@ -10768,11 +10774,13 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                        galleryLocalizations'),
+          text: '\u000a                      galleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(
           style: codeStyle.baseStyle,
           text: 'demoCupertinoContextMenuActionTwo'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a                    '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(
           style: codeStyle.baseStyle,
@@ -10828,14 +10836,18 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            child'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a                '),
+      TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'Text'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: 'galleryLocalizations'),
+      TextSpan(
+          style: codeStyle.baseStyle,
+          text: '\u000a              galleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(
           style: codeStyle.baseStyle,
           text: 'demoCupertinoContextMenuActionText'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),

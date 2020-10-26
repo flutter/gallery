@@ -17,7 +17,9 @@ class CupertinoContextMenuDemo extends StatelessWidget {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text(galleryLocalizations.demoCupertinoContextMenuTitle),
+        middle: Text(
+          galleryLocalizations.demoCupertinoContextMenuTitle,
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,14 +35,16 @@ class CupertinoContextMenuDemo extends StatelessWidget {
                 actions: <Widget>[
                   CupertinoContextMenuAction(
                     child: Text(
-                        galleryLocalizations.demoCupertinoContextMenuActionOne),
+                      galleryLocalizations.demoCupertinoContextMenuActionOne,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
                   ),
                   CupertinoContextMenuAction(
                     child: Text(
-                        galleryLocalizations.demoCupertinoContextMenuActionTwo),
+                      galleryLocalizations.demoCupertinoContextMenuActionTwo,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -52,8 +56,9 @@ class CupertinoContextMenuDemo extends StatelessWidget {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.all(30),
-            child:
-                Text(galleryLocalizations.demoCupertinoContextMenuActionText),
+            child: Text(
+              galleryLocalizations.demoCupertinoContextMenuActionText,
+            ),
           ),
         ],
       ),
