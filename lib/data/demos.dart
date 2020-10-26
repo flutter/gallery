@@ -850,14 +850,14 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
       category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
-      title: 'Context Menu',
+      title: localizations.demoCupertinoContextMenuTitle,
       icon: GalleryIcons.genericButtons,
       slug: 'cupertino-context-menu',
-      subtitle: localizations.demoCupertinoButtonsSubtitle,
+      subtitle: localizations.demoCupertinoContextMenuSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Context Menu',
-          description: 'Context Menu',
+          title: localizations.demoCupertinoContextMenuTitle,
+          description: localizations.demoCupertinoContextMenuDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
           buildRoute: (_) => const CupertinoContextMenuDemo(),

@@ -1189,6 +1189,18 @@
   "@demoCupertinoContextMenuDescription": {
     "description": "Description for the cupertino context menu component demo."
   },
+  "demoCupertinoContextMenuActionOne": "Action one",
+  "@demoCupertinoContextMenuActionOne": {
+    "description": "Context menu list option one"
+  },
+  "demoCupertinoContextMenuActionTwo": "Action two",
+  "@demoCupertinoContextMenuActionTwo": {
+    "description": "Context menu list option two"
+  },
+  "demoCupertinoContextMenuActionText": "Tap and hold flutter logo to see context menu.",
+  "@demoCupertinoContextMenuActionText": {
+    "description": "Context menu text."
+  },
   "demoCupertinoAlertsTitle": "Alerts",
   "@demoCupertinoAlertsTitle": {
     "description": "Title for the cupertino alerts component demo."

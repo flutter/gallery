@@ -4,15 +4,17 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 class CupertinoContextMenuDemo extends StatelessWidget {
   const CupertinoContextMenuDemo();
 
   @override
   Widget build(BuildContext context) {
+    final galleryLocalizations = GalleryLocalizations.of(context);
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Context Menu'),
+      navigationBar: CupertinoNavigationBar(
+        middle: Text(galleryLocalizations.demoCupertinoContextMenuTitle),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -27,13 +29,15 @@ class CupertinoContextMenuDemo extends StatelessWidget {
                 ),
                 actions: <Widget>[
                   CupertinoContextMenuAction(
-                    child: const Text('Action one'),
+                    child: Text(
+                        galleryLocalizations.demoCupertinoContextMenuActionOne),
                     onPressed: () {
                       Navigator.pop(context);
                     },
                   ),
                   CupertinoContextMenuAction(
-                    child: const Text('Action two'),
+                    child: Text(
+                        galleryLocalizations.demoCupertinoContextMenuActionTwo),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -43,9 +47,10 @@ class CupertinoContextMenuDemo extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.all(30),
-            child: Text('Tap and hold flutter logo to see context menu'),
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child:
+                Text(galleryLocalizations.demoCupertinoContextMenuActionText),
           ),
         ],
       ),
