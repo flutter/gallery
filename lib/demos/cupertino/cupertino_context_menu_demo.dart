@@ -2,17 +2,19 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
-
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CupertinoContextMenuDemo extends StatelessWidget {
   const CupertinoContextMenuDemo();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return CupertinoPageScaffold(
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Context Menu'),
+      ),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
@@ -41,7 +43,9 @@ class CupertinoContextMenuDemo extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Text('Tap and hold flutter logo to see context menu'),
+          const Padding(
+              padding: EdgeInsets.all(30),
+              child: Text('Tap and hold flutter logo to see context menu')),
         ],
       ),
     );
