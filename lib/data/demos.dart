@@ -859,9 +859,9 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           title: localizations.demoCupertinoContextMenuTitle,
           description: localizations.demoCupertinoContextMenuDescription,
           documentationUrl:
-              '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoContextMenu-class.html',
           buildRoute: (_) => const CupertinoContextMenuDemo(),
-          code: CodeSegments.cupertinoButtonDemo,
+          code: CodeSegments.cupertinoContextMenuDemo,
         ),
       ],
       category: GalleryDemoCategory.cupertino,
