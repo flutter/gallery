@@ -94,6 +94,10 @@ Future<void> verifyCodeSegments() async {
   }
 }
 
+// TODO(perclasson): Work around to let us build the web version with deferred
+// loading. When Flutter supports using different yaml files in different
+// environments, this should be updated:
+// https://github.com/flutter/flutter/issues/69023.
 @Task('Build web')
 Future<void> buildWeb({String directory}) async {
   final fileName = 'l10n.yaml';
