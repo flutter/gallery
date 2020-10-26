@@ -166,30 +166,23 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Navigator(
-      onGenerateRoute: (settings) {
-        return CupertinoPageRoute<void>(
-          builder: (context) => CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(
-              automaticallyImplyLeading: false,
-              middle: Text(
-                  GalleryLocalizations.of(context).demoCupertinoPickerTitle),
-            ),
-            child: DefaultTextStyle(
-              style: CupertinoTheme.of(context).textTheme.textStyle,
-              child: ListView(
-                children: [
-                  const SizedBox(height: 32),
-                  _buildDatePicker(context),
-                  _buildTimePicker(context),
-                  _buildDateAndTimePicker(context),
-                  _buildCountdownTimerPicker(context),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
+        middle: Text(GalleryLocalizations.of(context).demoCupertinoPickerTitle),
+      ),
+      child: DefaultTextStyle(
+        style: CupertinoTheme.of(context).textTheme.textStyle,
+        child: ListView(
+          children: [
+            const SizedBox(height: 32),
+            _buildDatePicker(context),
+            _buildTimePicker(context),
+            _buildDateAndTimePicker(context),
+            _buildCountdownTimerPicker(context),
+          ],
+        ),
+      ),
     );
   }
 }
