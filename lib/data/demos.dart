@@ -851,7 +851,7 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
     ),
     GalleryDemo(
       title: localizations.demoCupertinoContextMenuTitle,
-      icon: GalleryIcons.genericButtons,
+      icon: GalleryIcons.moreVert,
       slug: 'cupertino-context-menu',
       subtitle: localizations.demoCupertinoContextMenuSubtitle,
       configurations: [
