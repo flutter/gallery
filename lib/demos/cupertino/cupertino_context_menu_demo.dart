@@ -16,6 +16,7 @@ class CupertinoContextMenuDemo extends StatelessWidget {
     final galleryLocalizations = GalleryLocalizations.of(context);
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        automaticallyImplyLeading: false,
         middle: Text(galleryLocalizations.demoCupertinoContextMenuTitle),
       ),
       child: Column(

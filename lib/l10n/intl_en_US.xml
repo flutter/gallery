@@ -1088,7 +1088,7 @@
   <string
     name="demoCupertinoContextMenuDescription"
     description="Description for the cupertino context menu component demo."
-    >A full-screen modal route that opens when the child is long-pressed. When open, the CupertinoContextMenu shows the child, or the widget returned by previewBuilder if given, in a large full-screen Overlay with a list of buttons specified by actions.</string>
+    >An iOS-style full screen contextual menu that appears when an element is long-pressed.</string>
   <string
     name="demoCupertinoContextMenuActionOne"
     description="Context menu list item one"

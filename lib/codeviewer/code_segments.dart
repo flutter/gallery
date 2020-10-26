@@ -10634,6 +10634,13 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'CupertinoNavigationBar'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
+      TextSpan(
+          style: codeStyle.baseStyle,
+          text: '\u000a        automaticallyImplyLeading'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
+      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.keywordStyle, text: 'false'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a        middle'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
