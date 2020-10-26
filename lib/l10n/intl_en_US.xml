@@ -1084,18 +1084,18 @@
   <string
     name="demoCupertinoContextMenuSubtitle"
     description="Subtitle for the cupertino context menu component demo."
-    >iOS-style context menu dialogs</string>
+    >iOS-style context menu</string>
   <string
     name="demoCupertinoContextMenuDescription"
     description="Description for the cupertino context menu component demo."
     >A full-screen modal route that opens when the child is long-pressed. When open, the CupertinoContextMenu shows the child, or the widget returned by previewBuilder if given, in a large full-screen Overlay with a list of buttons specified by actions.</string>
   <string
     name="demoCupertinoContextMenuActionOne"
-    description="Context menu list option one"
+    description="Context menu list item one"
     >Action one</string>
   <string
     name="demoCupertinoContextMenuActionTwo"
-    description="Context menu list option two"
+    description="Context menu list item two"
     >Action two</string>
   <string
     name="demoCupertinoContextMenuActionText"

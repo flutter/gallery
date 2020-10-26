@@ -1181,7 +1181,7 @@
   "@demoCupertinoContextMenuTitle": {
     "description": "Title for the cupertino context menu component demo."
   },
-  "demoCupertinoContextMenuSubtitle": "iOS-style context menu dialogs",
+  "demoCupertinoContextMenuSubtitle": "iOS-style context menu",
   "@demoCupertinoContextMenuSubtitle": {
     "description": "Subtitle for the cupertino context menu component demo."
   },
@@ -1191,11 +1191,11 @@
   },
   "demoCupertinoContextMenuActionOne": "Action one",
   "@demoCupertinoContextMenuActionOne": {
-    "description": "Context menu list option one"
+    "description": "Context menu list item one"
   },
   "demoCupertinoContextMenuActionTwo": "Action two",
   "@demoCupertinoContextMenuActionTwo": {
-    "description": "Context menu list option two"
+    "description": "Context menu list item two"
   },
   "demoCupertinoContextMenuActionText": "Tap and hold flutter logo to see context menu.",
   "@demoCupertinoContextMenuActionText": {
