@@ -32,6 +32,9 @@ dependencies:
   provider: ^4.3.2
   adaptive_breakpoints: ^0.0.2
 
+  web_benchmarks:
+    path: /Users/tianguang/Documents/dev/fpgs/packages/packages/web_benchmarks
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
