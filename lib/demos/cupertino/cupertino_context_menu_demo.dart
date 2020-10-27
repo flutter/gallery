@@ -58,6 +58,10 @@ class CupertinoContextMenuDemo extends StatelessWidget {
             padding: const EdgeInsets.all(30),
             child: Text(
               galleryLocalizations.demoCupertinoContextMenuActionText,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.black,
+              ),
             ),
           ),
         ],
