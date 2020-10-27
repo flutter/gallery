@@ -1197,7 +1197,7 @@
   "@demoCupertinoContextMenuActionTwo": {
     "description": "Context menu list item two"
   },
-  "demoCupertinoContextMenuActionText": "Tap and hold flutter logo to see context menu.",
+  "demoCupertinoContextMenuActionText": "Tap and hold the Flutter logo to see the context menu.",
   "@demoCupertinoContextMenuActionText": {
     "description": "Context menu text."
   },
