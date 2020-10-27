@@ -6,7 +6,7 @@ import 'package:web_benchmarks/server.dart';
 Future<void> main() async {
   final taskResult = await serveWebBenchmark(
     benchmarkAppDirectory: Directory('.'),
-    entryPoint: 'lib/benchmarks/benchmark_list.dart',
+    entryPoint: 'lib/benchmarks/client.dart',
     useCanvasKit: false,
   );
 
