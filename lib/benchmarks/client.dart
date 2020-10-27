@@ -1,5 +1,4 @@
 import 'package:web_benchmarks/client.dart';
-import 'package:web_benchmarks/server.dart';
 
 import 'gallery_automator.dart';
 import 'gallery_recorder.dart';
