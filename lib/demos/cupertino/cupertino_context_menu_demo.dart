@@ -32,7 +32,7 @@ class CupertinoContextMenuDemo extends StatelessWidget {
                 child: Container(
                   child: const FlutterLogo(size: 250),
                 ),
-                actions: <Widget>[
+                actions: [
                   CupertinoContextMenuAction(
                     child: Text(
                       galleryLocalizations.demoCupertinoContextMenuActionOne,

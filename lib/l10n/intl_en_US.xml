@@ -1100,7 +1100,7 @@
   <string
     name="demoCupertinoContextMenuActionText"
     description="Context menu text."
-    >Tap and hold flutter logo to see context menu.</string>
+    >Tap and hold the Flutter logo to see the context menu.</string>
   <string
     name="demoCupertinoAlertsTitle"
     description="Title for the cupertino alerts component demo."
