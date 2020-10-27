@@ -9,11 +9,11 @@ import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
 ///
 /// Used to build adaptive and responsive layouts.
 bool isDisplayDesktop(BuildContext context) =>
-    getWindowType(context) >= AdaptiveWindowType.m;
+    getWindowType(context) >= AdaptiveWindowType.medium;
 
 /// Returns boolean value whether the window is considered medium size.
 ///
 /// Used to build adaptive and responsive layouts.
 bool isDisplaySmallDesktop(BuildContext context) {
-  return getWindowType(context) == AdaptiveWindowType.m;
+  return getWindowType(context) == AdaptiveWindowType.medium;
 }
