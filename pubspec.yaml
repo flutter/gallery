@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   rally_assets: ^2.0.0
   meta: ^1.1.8
-  scoped_model: ^1.0.1
+  scoped_model: ^1.1.0
   shrine_images: ^1.1.2
   flare_dart: ^2.3.4
   flare_flutter: ^2.0.2
