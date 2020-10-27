@@ -1,4 +1,5 @@
 import 'package:web_benchmarks/client.dart';
+import 'package:web_benchmarks/server.dart';
 
 import 'gallery_automator.dart';
 import 'gallery_recorder.dart';
@@ -25,3 +26,9 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
     testScrollsOnly: true,
   ),
 };
+
+// Run benchmarks.
+Future<void> main() async {
+  await runBenchmarks(benchmarks);
+}
+
