@@ -1,7 +1,7 @@
 import 'package:web_benchmarks/client.dart';
 
-import 'gallery_recorder.dart';
 import 'gallery_automator.dart';
+import 'gallery_recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
 
