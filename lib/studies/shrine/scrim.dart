@@ -17,7 +17,7 @@ class Scrim extends StatelessWidget {
         animation: controller,
         builder: (context, child) {
           final color =
-              const Color(0xFFF0EA).withOpacity(double.tryParse((controller.value * 0.87).toString()));
+              const Color(0xFFF0EA).withOpacity(double.tryParse(controller.value.toString()) * 0.87);
 
           final Widget scrimRectangle = Container(
               width: deviceSize.width, height: deviceSize.height, color: color);
