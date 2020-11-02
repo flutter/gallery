@@ -7,7 +7,7 @@ Future<void> main() async {
   print ('Starting web benchmark tests ...');
 
   final taskResult = await serveWebBenchmark(
-    benchmarkAppDirectory: Directory.current,
+    benchmarkAppDirectory: Directory.current.absolute,
     entryPoint: 'lib/benchmarks/client.dart',
     useCanvasKit: false,
   );
