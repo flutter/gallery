@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:web_benchmarks/server.dart';
 
 Future<void> main() async {
-  print ('Starting...');
+  print ('Starting web benchmark tests ...');
 
   final taskResult = await serveWebBenchmark(
     benchmarkAppDirectory: Directory.current,
@@ -12,7 +12,7 @@ Future<void> main() async {
     useCanvasKit: false,
   );
 
-  print ('Done.');
+  print ('Web benchmark tests finished.');
 
   print ((const JsonEncoder.withIndent('  ')).convert(taskResult.toJson()));
 }
