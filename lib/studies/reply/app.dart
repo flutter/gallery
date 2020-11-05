@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 
 final rootNavKey = GlobalKey<NavigatorState>();
 
-class ReplyApp extends StatelessWidget {
+class ReplyApp extends StatefulWidget {
   const ReplyApp();
 
   static const String homeRoute = '/reply';
@@ -35,6 +35,27 @@ class ReplyApp extends StatelessWidget {
   }
 
   @override
+  _ReplyAppState createState() => _ReplyAppState();
+}
+
+class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
+  final _RestorableEmailState _appState = _RestorableEmailState();
+
+  @override
+  String get restorationId => 'replyState';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_appState, 'state');
+  }
+
+  @override
+  void dispose() {
+    _appState.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final galleryThemeMode = GalleryOptions.of(context).themeMode;
     final isDark = galleryThemeMode == ThemeMode.system
@@ -44,35 +65,69 @@ class ReplyApp extends StatelessWidget {
     final replyTheme =
         isDark ? _buildReplyDarkTheme(context) : _buildReplyLightTheme(context);
 
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<EmailStore>.value(value: EmailStore()),
-      ],
-      child: MaterialApp(
-        navigatorKey: rootNavKey,
-        title: 'Reply',
-        debugShowCheckedModeBanner: false,
-        theme: replyTheme,
-        localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-        supportedLocales: GalleryLocalizations.supportedLocales,
-        locale: GalleryOptions.of(context).locale,
-        initialRoute: homeRoute,
-        onGenerateRoute: (settings) {
-          switch (settings.name) {
-            case homeRoute:
-              return MaterialPageRoute<void>(
-                builder: (context) => const AdaptiveNav(),
-                settings: settings,
-              );
-              break;
-            case composeRoute:
-              return createComposeRoute(settings);
-              break;
-          }
-          return null;
-        },
+    return RestorationScope(
+      restorationId: 'replyAppState',
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<EmailStore>.value(
+            value: _appState.value,
+          ),
+        ],
+        child: MaterialApp(
+          navigatorKey: rootNavKey,
+          restorationScopeId: 'appNavigator',
+          title: 'Reply',
+          debugShowCheckedModeBanner: false,
+          theme: replyTheme,
+          localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+          supportedLocales: GalleryLocalizations.supportedLocales,
+          locale: GalleryOptions.of(context).locale,
+          initialRoute: ReplyApp.homeRoute,
+          onGenerateRoute: (settings) {
+            switch (settings.name) {
+              case ReplyApp.homeRoute:
+                return MaterialPageRoute<void>(
+                  builder: (context) => const AdaptiveNav(),
+                  settings: settings,
+                );
+                break;
+              case ReplyApp.composeRoute:
+                return ReplyApp.createComposeRoute(settings);
+                break;
+            }
+            return null;
+          },
+        ),
       ),
     );
+  }
+}
+
+class _RestorableEmailState extends RestorableListenable<EmailStore> {
+  @override
+  EmailStore createDefaultValue() {
+    return EmailStore();
+  }
+
+  @override
+  EmailStore fromPrimitives(Object data) {
+    final appState = EmailStore();
+    final appData = Map<String, dynamic>.from(data as Map);
+
+    appState.currentlySelectedEmailId = appData['currentlySelectedEmailId'] as int;
+    appState.currentlySelectedInbox = appData['currentlySelectedInbox'] as String;
+    appState.onSearchPage = appData['onSearchPage'] as bool;
+
+    return appState;
+  }
+
+  @override
+  Object toPrimitives() {
+    return <String, dynamic>{
+      'currentlySelectedEmailId': value.currentlySelectedEmailId,
+      'currentlySelectedInbox': value.currentlySelectedInbox,
+      'onSearchPage': value.onSearchPage,
+    };
   }
 }
 

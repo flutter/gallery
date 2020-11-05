@@ -5,11 +5,8 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class InboxPage extends StatelessWidget {
-  const InboxPage({Key key, @required this.destination})
-      : assert(destination != null),
-        super(key: key);
-
-  final String destination;
+  const InboxPage({Key key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +25,14 @@ class InboxPage extends StatelessWidget {
 
     return Consumer<EmailStore>(
       builder: (context, model, child) {
+        final destination = model.currentlySelectedInbox;
         return SafeArea(
           bottom: false,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: model.emails[destination].isEmpty
+                child: model.emails[model.currentlySelectedInbox].isEmpty
                     ? Center(
                         child: Text(
                           'Empty in ${destination.toLowerCase()}',

@@ -36,6 +36,8 @@ class MailPreviewCard extends StatelessWidget {
       listen: false,
     ).isEmailStarred(email);
 
+    // TODO(shihaohong): State restoration of mail view page is
+    // blocked because OpenContainer does not support restorablePush.
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);

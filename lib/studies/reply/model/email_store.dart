@@ -16,6 +16,7 @@ class EmailStore with ChangeNotifier {
 
   static final _mainInbox = <Email>{
     const Email(
+      id: 1,
       sender: 'Google Express',
       time: '15 minutes ago',
       subject: 'Package shipped!',
@@ -27,6 +28,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
     ),
     const Email(
+      id: 2,
       sender: 'Ali Connors',
       time: '4 hrs ago',
       subject: 'Brunch this weekend?',
@@ -40,6 +42,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
     ),
     const Email(
+      id: 3,
       sender: 'Allison Trabucco',
       time: '5 hrs ago',
       subject: 'Bonjour from Paris',
@@ -49,6 +52,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: true,
     ),
     const Email(
+      id: 4,
       sender: 'Trevor Hansen',
       time: '9 hrs ago',
       subject: 'Brazil trip',
@@ -65,6 +69,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
     ),
     const Email(
+      id: 5,
       sender: 'Frank Hawkins',
       time: '10 hrs ago',
       subject: 'Update to Your Itinerary',
@@ -74,6 +79,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
     ),
     const Email(
+      id: 6,
       sender: 'Google Express',
       time: '12 hrs ago',
       subject: 'Delivered',
@@ -88,6 +94,7 @@ class EmailStore with ChangeNotifier {
 
   static final _outbox = <Email>{
     const Email(
+      id: 7,
       sender: 'Kim Alen',
       time: '4 hrs ago',
       subject: 'High school reunion?',
@@ -100,6 +107,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
     ),
     const Email(
+      id: 8,
       sender: 'Sandra Adams',
       time: '7 hrs ago',
       subject: 'Recipe to try',
@@ -114,6 +122,7 @@ class EmailStore with ChangeNotifier {
 
   static final _trash = <Email>{
     const Email(
+      id: 9,
       sender: 'Frank Hawkins',
       time: '4 hrs ago',
       subject: 'Your update on the Google Play Store is live!',
@@ -125,6 +134,7 @@ class EmailStore with ChangeNotifier {
       containsPictures: false,
     ),
     const Email(
+      id: 10,
       sender: 'Allison Trabucco',
       time: '6 hrs ago',
       subject: 'Try a free TrailGo account',
@@ -139,6 +149,7 @@ class EmailStore with ChangeNotifier {
 
   static final _spam = <Email>{
     const Email(
+      id: 11,
       sender: 'Allison Trabucco',
       time: '4 hrs ago',
       subject: 'Free money',
@@ -152,6 +163,7 @@ class EmailStore with ChangeNotifier {
 
   static final _drafts = <Email>{
     const Email(
+      id: 12,
       sender: 'Sandra Adams',
       time: '2 hrs ago',
       subject: '(No subject)',

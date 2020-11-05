@@ -1,5 +1,6 @@
 class Email {
   const Email({
+    this.id,
     this.sender,
     this.time,
     this.subject,
@@ -9,6 +10,7 @@ class Email {
     this.containsPictures,
   });
 
+  final int id;
   final String sender;
   final String time;
   final String subject;
