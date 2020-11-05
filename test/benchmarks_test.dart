@@ -1,15 +1,21 @@
 import 'dart:convert' show JsonEncoder;
+import 'dart:io';
 
 import 'package:test/test.dart';
 
+import 'package:web_benchmarks/server.dart';
+
 import 'package:gallery/benchmarks/client.dart' as client;
-import 'package:gallery/benchmarks/run_benchmarks.dart';
 
 Future<void> main() async {
   test('Can run a web benchmark', () async {
     print ('Starting web benchmark tests ...');
 
-    final taskResult = await serveGalleryWebBenchmarks();
+    final taskResult = await serveWebBenchmark(
+      benchmarkAppDirectory: Directory.current.absolute,
+      entryPoint: 'lib/benchmarks/client.dart',
+      useCanvasKit: false,
+    );
 
     print ('Web benchmark tests finished.');
 
