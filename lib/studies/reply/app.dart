@@ -114,8 +114,10 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
     final appState = EmailStore();
     final appData = Map<String, dynamic>.from(data as Map);
 
-    appState.currentlySelectedEmailId = appData['currentlySelectedEmailId'] as int;
-    appState.currentlySelectedInbox = appData['currentlySelectedInbox'] as String;
+    appState.currentlySelectedEmailId =
+        appData['currentlySelectedEmailId'] as int;
+    appState.currentlySelectedInbox =
+        appData['currentlySelectedInbox'] as String;
     appState.onSearchPage = appData['onSearchPage'] as bool;
 
     return appState;

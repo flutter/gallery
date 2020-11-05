@@ -28,13 +28,13 @@ const double _kFlingVelocity = 2.0;
 const _kAnimationDuration = Duration(milliseconds: 300);
 
 class AdaptiveNav extends StatefulWidget {
-  const AdaptiveNav({ Key key }) : super(key: key);
+  const AdaptiveNav({Key key}) : super(key: key);
 
   @override
   _AdaptiveNavState createState() => _AdaptiveNavState();
 }
 
-class _AdaptiveNavState extends State<AdaptiveNav>{
+class _AdaptiveNavState extends State<AdaptiveNav> {
   UniqueKey _inboxKey = UniqueKey();
 
   @override
@@ -195,7 +195,9 @@ class _DesktopNavState extends State<_DesktopNav>
                               for (var destination in widget.destinations)
                                 NavigationRailDestination(
                                   icon: Material(
-                                    key: ValueKey('Reply-${destination.textLabel}'),
+                                    key: ValueKey(
+                                      'Reply-${destination.textLabel}',
+                                    ),
                                     color: Colors.transparent,
                                     child: ImageIcon(
                                       AssetImage(
@@ -682,7 +684,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               selectedInbox: model.currentlySelectedInbox,
               toggleBottomDrawerVisibility: _toggleBottomDrawerVisibility,
             );
-          }
+          },
         ),
         floatingActionButton: _bottomDrawerVisible
             ? null
@@ -769,8 +771,10 @@ class _AnimatedBottomAppBar extends StatelessWidget {
                                 : FadeTransition(
                                     opacity: fadeOut,
                                     child: Text(
-                                      navigationDestinations.firstWhere((destination) {
-                                        return destination.value == selectedInbox;
+                                      navigationDestinations
+                                          .firstWhere((destination) {
+                                        return destination.value ==
+                                            selectedInbox;
                                       }).textLabel,
                                       style: Theme.of(context)
                                           .textTheme
@@ -970,8 +974,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
               style: theme.textTheme.bodyText2.copyWith(
                 color: index == selectedIndex
                     ? theme.colorScheme.secondary
-                    : theme
-                        .navigationRailTheme.unselectedLabelTextStyle.color,
+                    : theme.navigationRailTheme.unselectedLabelTextStyle.color,
               ),
             ),
           ),
@@ -1151,7 +1154,8 @@ class _ReplyFabState extends State<_ReplyFab>
             (route) {
               var currentRoute = route.settings.name;
               if (currentRoute != ReplyApp.composeRoute && !onSearchPage) {
-                desktopMailNavKey.currentState.restorablePushNamed(ReplyApp.composeRoute);
+                desktopMailNavKey.currentState
+                    .restorablePushNamed(ReplyApp.composeRoute);
               }
               return true;
             },
