@@ -708,6 +708,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.0"
+  vm_service_client:
+    dependency: transitive
+    description:
+      name: vm_service_client
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.6+2"
   watcher:
     dependency: transitive
     description:
@@ -715,13 +722,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7+15"
-  web_benchmarks:
-    dependency: "direct main"
-    description:
-      name: web_benchmarks
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
   web_socket_channel:
     dependency: transitive
     description:
@@ -765,5 +765,5 @@ packages:
     source: hosted
     version: "2.2.1"
 sdks:
-  dart: ">=2.11.0-0.0 <=2.12.0-3.0.dev"
+  dart: ">=2.11.0-0.0 <2.12.0"
   flutter: ">=1.22.0 <2.0.0"
