@@ -32,8 +32,6 @@ dependencies:
   provider: ^4.3.2
   adaptive_breakpoints: ^0.0.2
 
-  web_benchmarks: ^0.0.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -46,6 +44,7 @@ dev_dependencies:
   intl_translation:
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
+  web_benchmarks: ^0.0.2
 
 flutter:
   assets:
