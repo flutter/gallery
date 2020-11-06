@@ -5,13 +5,6 @@ import 'package:gallery/benchmarks/common.dart';
 import 'package:test/test.dart';
 import 'package:web_benchmarks/server.dart';
 
-final listOfBenchmarks = <String>[
-  galleryStudiesPerf,
-  galleryUnanimatedPerf,
-  galleryAnimatedPerf,
-  galleryScrollPerf,
-];
-
 final metricList = <String>[
   'preroll_frame',
   'apply_frame',

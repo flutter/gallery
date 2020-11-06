@@ -31,3 +31,4 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
   ),
 };
 
+final listOfBenchmarks = benchmarks.keys;
