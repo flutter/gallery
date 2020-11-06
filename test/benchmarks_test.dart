@@ -12,6 +12,7 @@ final listOfBenchmarks = <String>[
   galleryScrollPerf,
 ];
 
+/// Tests that the Gallery web benchmarks are run and reported correctly.
 Future<void> main() async {
   test('Can run a web benchmark', () async {
     print ('Starting web benchmark tests ...');
