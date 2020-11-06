@@ -1,10 +1,8 @@
 import 'dart:convert' show JsonEncoder;
 import 'dart:io';
 
-import 'package:test/test.dart';
-
 import 'package:gallery/benchmarks/common.dart';
-
+import 'package:test/test.dart';
 import 'package:web_benchmarks/server.dart';
 
 final listOfBenchmarks = <String>[

@@ -3,9 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
 import 'package:gallery/benchmarks/gallery_automator.dart';
-
 import 'package:web_benchmarks/client.dart';
 
 /// A recorder that measures frame building durations for the Gallery.
