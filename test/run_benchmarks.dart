@@ -9,7 +9,7 @@ Future<void> main() async {
 
   final taskResult = await serveWebBenchmark(
     benchmarkAppDirectory: Directory.current.absolute,
-    entryPoint: 'lib/benchmarks/client.dart',
+    entryPoint: 'test/benchmarks/client.dart',
     useCanvasKit: false,
   );
 

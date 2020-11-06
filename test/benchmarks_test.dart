@@ -1,9 +1,10 @@
 import 'dart:convert' show JsonEncoder;
 import 'dart:io';
 
-import 'package:gallery/benchmarks/common.dart';
 import 'package:test/test.dart';
 import 'package:web_benchmarks/server.dart';
+
+import 'benchmarks/common.dart';
 
 final metricList = <String>[
   'preroll_frame',
@@ -25,7 +26,7 @@ Future<void> main() async {
 
     final taskResult = await serveWebBenchmark(
       benchmarkAppDirectory: Directory.current.absolute,
-      entryPoint: 'lib/benchmarks/client.dart',
+      entryPoint: 'test/benchmarks/client.dart',
       useCanvasKit: false,
     );
 
