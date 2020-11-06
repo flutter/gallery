@@ -24,8 +24,13 @@ Future<void> main() async {
   test('Can run a web benchmark', () async {
     print('Starting web benchmark tests ...');
 
+    final rootDirectory = Directory.current.absolute;
+
+    print ('rootDirectory = $rootDirectory');
+    print ('rootDirectory.path = ${rootDirectory.path}');
+
     final taskResult = await serveWebBenchmark(
-      benchmarkAppDirectory: Directory.current.absolute,
+      benchmarkAppDirectory: rootDirectory,
       entryPoint: 'test/benchmarks/client.dart',
       useCanvasKit: false,
     );
