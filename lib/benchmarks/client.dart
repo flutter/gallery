@@ -21,7 +21,7 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
   ),
   galleryScrollPerf: () => GalleryRecorder(
     benchmarkName: galleryScrollPerf,
-    testScrollsOnly: true,
+    testScrollingOnly: true,
   ),
 };
 

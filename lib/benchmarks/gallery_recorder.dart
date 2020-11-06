@@ -13,8 +13,8 @@ class GalleryRecorder extends WidgetRecorder {
   GalleryRecorder({
     @required this.benchmarkName,
     this.shouldRunPredicate,
-    this.testScrollsOnly = false,
-  }) : assert(testScrollsOnly || shouldRunPredicate != null),
+    this.testScrollingOnly = false,
+  }) : assert(testScrollingOnly || shouldRunPredicate != null),
         super(name: benchmarkName, useCustomWarmUp: true);
 
   /// The name of the gallery benchmark to be run.
@@ -25,7 +25,7 @@ class GalleryRecorder extends WidgetRecorder {
   final bool Function(String) shouldRunPredicate;
 
   /// Whether this benchmark only tests scrolling.
-  final bool testScrollsOnly;
+  final bool testScrollingOnly;
 
   /// Whether we should continue recording.
   @override
@@ -40,7 +40,7 @@ class GalleryRecorder extends WidgetRecorder {
     _galleryAutomator = GalleryAutomator(
       benchmarkName: benchmarkName,
       shouldRunPredicate: shouldRunPredicate,
-      testScrollsOnly: testScrollsOnly,
+      testScrollsOnly: testScrollingOnly,
       stopWarmingUpCallback: profile.stopWarmingUp,
     );
     return _galleryAutomator.createWidget();
