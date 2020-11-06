@@ -4,9 +4,9 @@ import 'package:path/path.dart' as path;
 bool _hasPubspec(Directory directory) {
   return directory.listSync().any(
         (entity) =>
-    FileSystemEntity.isFileSync(entity.path) &&
-        path.basename(entity.path) == 'pubspec.yaml',
-  );
+            FileSystemEntity.isFileSync(entity.path) &&
+            path.basename(entity.path) == 'pubspec.yaml',
+      );
 }
 
 Directory projectRootDirectory() {
@@ -22,4 +22,3 @@ Directory projectRootDirectory() {
 
   return current;
 }
-
