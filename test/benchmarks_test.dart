@@ -22,15 +22,16 @@ final valueList = <String>[
 
 bool hasPubspec(Directory directory) {
   return directory.listSync().any(
-    (entity) => FileSystemEntity.isFileSync(entity.path)
-        && path.basename(entity.path) == 'pubspec.yaml',
-  );
+        (entity) =>
+            FileSystemEntity.isFileSync(entity.path) &&
+            path.basename(entity.path) == 'pubspec.yaml',
+      );
 }
 
 Directory projectRootDirectory() {
   var current = Directory.current.absolute;
 
-  while (! hasPubspec(current)) {
+  while (!hasPubspec(current)) {
     if (current.path == current.parent.path) {
       throw Exception('Reached file system root when seeking project root.');
     }
