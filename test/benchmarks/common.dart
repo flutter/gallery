@@ -6,7 +6,7 @@ const String galleryUnanimatedPerf =
 const String galleryAnimatedPerf = '${galleryBenchmarkPrefix}_animated_perf';
 const String galleryScrollPerf = '${galleryBenchmarkPrefix}_scroll_perf';
 
-final benchmarkList = <String>[
+const benchmarkList = <String>[
   galleryStudiesPerf,
   galleryUnanimatedPerf,
   galleryAnimatedPerf,
