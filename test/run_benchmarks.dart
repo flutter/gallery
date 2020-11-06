@@ -5,7 +5,7 @@ import 'package:web_benchmarks/server.dart';
 
 /// Runs the Gallery web benchmarks and reports the benchmark data.
 Future<void> main() async {
-  print ('Starting web benchmark tests ...');
+  print('Starting web benchmark tests ...');
 
   final taskResult = await serveWebBenchmark(
     benchmarkAppDirectory: Directory.current.absolute,
@@ -13,12 +13,11 @@ Future<void> main() async {
     useCanvasKit: false,
   );
 
-  print ('Web benchmark tests finished.');
+  print('Web benchmark tests finished.');
 
-  print ('==== Results ====');
+  print('==== Results ====');
 
-  print (const JsonEncoder.withIndent('  ').convert(taskResult.toJson()));
+  print(const JsonEncoder.withIndent('  ').convert(taskResult.toJson()));
 
-  print ('==== End of results ====');
+  print('==== End of results ====');
 }
-

@@ -8,21 +8,23 @@ typedef RecorderFactory = Recorder Function();
 
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
   galleryStudiesPerf: () => GalleryRecorder(
-    benchmarkName: galleryStudiesPerf,
-    shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.study,
-  ),
+        benchmarkName: galleryStudiesPerf,
+        shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.study,
+      ),
   galleryUnanimatedPerf: () => GalleryRecorder(
-    benchmarkName: galleryUnanimatedPerf,
-    shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
-  ),
+        benchmarkName: galleryUnanimatedPerf,
+        shouldRunPredicate: (demo) =>
+            typeOfDemo(demo) == DemoType.unanimatedWidget,
+      ),
   galleryAnimatedPerf: () => GalleryRecorder(
-    benchmarkName: galleryAnimatedPerf,
-    shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.animatedWidget,
-  ),
+        benchmarkName: galleryAnimatedPerf,
+        shouldRunPredicate: (demo) =>
+            typeOfDemo(demo) == DemoType.animatedWidget,
+      ),
   galleryScrollPerf: () => GalleryRecorder(
-    benchmarkName: galleryScrollPerf,
-    testScrollingOnly: true,
-  ),
+        benchmarkName: galleryScrollPerf,
+        testScrollingOnly: true,
+      ),
 };
 
 /// Runs the client of the Gallery web benchmarks.
@@ -33,4 +35,3 @@ final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
 Future<void> main() async {
   await runBenchmarks(benchmarks);
 }
-

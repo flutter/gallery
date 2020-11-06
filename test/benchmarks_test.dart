@@ -22,7 +22,7 @@ final valueList = <String>[
 /// Tests that the Gallery web benchmarks are run and reported correctly.
 Future<void> main() async {
   test('Can run a web benchmark', () async {
-    print ('Starting web benchmark tests ...');
+    print('Starting web benchmark tests ...');
 
     final taskResult = await serveWebBenchmark(
       benchmarkAppDirectory: Directory.current.absolute,
@@ -30,7 +30,7 @@ Future<void> main() async {
       useCanvasKit: false,
     );
 
-    print ('Web benchmark tests finished.');
+    print('Web benchmark tests finished.');
 
     expect(taskResult.scores.keys, hasLength(benchmarkList.length));
 
@@ -65,4 +65,3 @@ Future<void> main() async {
     );
   }, timeout: Timeout.none);
 }
-
