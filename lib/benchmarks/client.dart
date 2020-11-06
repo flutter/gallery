@@ -1,27 +1,26 @@
 import 'package:web_benchmarks/client.dart';
 
+import 'common.dart';
 import 'gallery_automator.dart';
 import 'gallery_recorder.dart';
 
 typedef RecorderFactory = Recorder Function();
 
-const String _galleryBenchmarkPrefix = 'gallery_v2';
-
 final Map<String, RecorderFactory> benchmarks = <String, RecorderFactory>{
-  '${_galleryBenchmarkPrefix}_studies_perf': () => GalleryRecorder(
-    benchmarkName: '${_galleryBenchmarkPrefix}_studies_perf',
-    shouldRunPredicate: (String demo) => typeOfDemo(demo) == DemoType.study,
+  galleryStudiesPerf: () => GalleryRecorder(
+    benchmarkName: galleryStudiesPerf,
+    shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.study,
   ),
-  '${_galleryBenchmarkPrefix}_unanimated_perf': () => GalleryRecorder(
-    benchmarkName: '${_galleryBenchmarkPrefix}_unanimated_perf',
-    shouldRunPredicate: (String demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
+  galleryUnanimatedPerf: () => GalleryRecorder(
+    benchmarkName: galleryUnanimatedPerf,
+    shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.unanimatedWidget,
   ),
-  '${_galleryBenchmarkPrefix}_animated_perf': () => GalleryRecorder(
-    benchmarkName: '${_galleryBenchmarkPrefix}_animated_perf',
-    shouldRunPredicate: (String demo) => typeOfDemo(demo) == DemoType.animatedWidget,
+  galleryAnimatedPerf: () => GalleryRecorder(
+    benchmarkName: galleryAnimatedPerf,
+    shouldRunPredicate: (demo) => typeOfDemo(demo) == DemoType.animatedWidget,
   ),
-  '${_galleryBenchmarkPrefix}_scroll_perf': () => GalleryRecorder(
-    benchmarkName: '${_galleryBenchmarkPrefix}_scroll_perf',
+  galleryScrollPerf: () => GalleryRecorder(
+    benchmarkName: galleryScrollPerf,
     testScrollsOnly: true,
   ),
 };

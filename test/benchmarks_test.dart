@@ -3,9 +3,16 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
+import 'package:gallery/benchmarks/common.dart';
+
 import 'package:web_benchmarks/server.dart';
 
-import 'package:gallery/benchmarks/client.dart' as client;
+final listOfBenchmarks = <String>[
+  galleryStudiesPerf,
+  galleryUnanimatedPerf,
+  galleryAnimatedPerf,
+  galleryScrollPerf,
+];
 
 Future<void> main() async {
   test('Can run a web benchmark', () async {
@@ -19,7 +26,7 @@ Future<void> main() async {
 
     print ('Web benchmark tests finished.');
 
-    for (final benchmarkName in client.benchmarks.keys) {
+    for (final benchmarkName in listOfBenchmarks) {
       for (final metricName in <String>[
         'preroll_frame',
         'apply_frame',
