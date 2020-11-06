@@ -12,6 +12,19 @@ final listOfBenchmarks = <String>[
   galleryScrollPerf,
 ];
 
+final metricList = <String>[
+  'preroll_frame',
+  'apply_frame',
+  'drawFrameDuration',
+];
+
+final valueList = <String>[
+  'average',
+  'outlierAverage',
+  'outlierRatio',
+  'noise',
+];
+
 /// Tests that the Gallery web benchmarks are run and reported correctly.
 Future<void> main() async {
   test('Can run a web benchmark', () async {
@@ -25,18 +38,16 @@ Future<void> main() async {
 
     print ('Web benchmark tests finished.');
 
+    expect(taskResult.scores.keys, hasLength(listOfBenchmarks.length));
+
     for (final benchmarkName in listOfBenchmarks) {
-      for (final metricName in <String>[
-        'preroll_frame',
-        'apply_frame',
-        'drawFrameDuration',
-      ]) {
-        for (final valueName in <String>[
-          'average',
-          'outlierAverage',
-          'outlierRatio',
-          'noise',
-        ]) {
+      expect(
+        taskResult.scores[benchmarkName],
+        hasLength(metricList.length * valueList.length + 1),
+      );
+
+      for (final metricName in metricList) {
+        for (final valueName in valueList) {
           expect(
             taskResult.scores[benchmarkName].where(
               (score) => score.metric == '$metricName.$valueName',
