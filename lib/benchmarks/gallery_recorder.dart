@@ -22,6 +22,13 @@ class GalleryRecorder extends WidgetRecorder {
 
   /// A function that accepts the name of a demo and returns whether we should
   /// run this demo in this benchmark.
+  ///
+  /// See [client.dart] for examples.
+  ///
+  /// The name of any demo has the format `<demo-name>@<demo-type>`, such as
+  /// `progress-indicator@material`.
+  /// A list of all demo names can be obtained using
+  /// [allGalleryDemoDescriptions].
   final bool Function(String) shouldRunPredicate;
 
   /// Whether this benchmark only tests scrolling.
