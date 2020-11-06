@@ -26,8 +26,8 @@ Future<void> main() async {
 
     final rootDirectory = Directory.current.absolute;
 
-    print ('rootDirectory = $rootDirectory');
-    print ('rootDirectory.path = ${rootDirectory.path}');
+    print('rootDirectory = $rootDirectory');
+    print('rootDirectory.path = ${rootDirectory.path}');
 
     final taskResult = await serveWebBenchmark(
       benchmarkAppDirectory: rootDirectory,
