@@ -16,12 +16,14 @@ class GalleryRecorder extends WidgetRecorder {
         super(name: benchmarkName, useCustomWarmUp: true);
 
   /// The name of the gallery benchmark to be run.
+  ///
+  /// See `common.dart` for the list of the names of all benchmarks.
   final String benchmarkName;
 
   /// A function that accepts the name of a demo and returns whether we should
   /// run this demo in this benchmark.
   ///
-  /// See [client.dart] for examples.
+  /// See `common.dart` for examples.
   ///
   /// The name of any demo has the format `<demo-name>@<demo-type>`, such as
   /// `progress-indicator@material`.
