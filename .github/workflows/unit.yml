@@ -45,9 +45,6 @@ jobs:
     - name: Ensure the Dart code is formatted correctly
       run: flutter format --set-exit-if-changed --dry-run .
       working-directory: code
-    - name: Enable build on web
-      run: flutter config --enable-web
-      working-directory: code
     - name: Run Flutter unit tests
       run: flutter test
       working-directory: code
