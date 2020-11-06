@@ -34,12 +34,12 @@ class GalleryRecorder extends WidgetRecorder {
   /// Whether this benchmark only tests scrolling.
   final bool testScrollingOnly;
 
+  GalleryAutomator _galleryAutomator;
+  bool get _finished => _galleryAutomator?.finished ?? false;
+
   /// Whether we should continue recording.
   @override
   bool shouldContinue() => !_finished || profile.shouldContinue();
-
-  GalleryAutomator _galleryAutomator;
-  bool get _finished => _galleryAutomator?.finished ?? false;
 
   /// Creates the [GalleryAutomator] widget.
   @override
