@@ -31,9 +31,9 @@ Future<void> main() async {
 
     print ('Web benchmark tests finished.');
 
-    expect(taskResult.scores.keys, hasLength(listOfBenchmarks.length));
+    expect(taskResult.scores.keys, hasLength(benchmarkList.length));
 
-    for (final benchmarkName in listOfBenchmarks) {
+    for (final benchmarkName in benchmarkList) {
       expect(
         taskResult.scores[benchmarkName],
         hasLength(metricList.length * valueList.length + 1),
