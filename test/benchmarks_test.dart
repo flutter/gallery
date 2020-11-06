@@ -2,6 +2,7 @@ import 'dart:convert' show JsonEncoder;
 import 'dart:io';
 
 import 'package:test/test.dart';
+import 'package:path/path.dart' as path;
 import 'package:web_benchmarks/server.dart';
 
 import 'benchmarks/common.dart';
@@ -19,12 +20,33 @@ final valueList = <String>[
   'noise',
 ];
 
+bool hasPubspec(Directory directory) {
+  return directory.listSync().any(
+    (entity) => FileSystemEntity.isFileSync(entity.path)
+        && path.basename(entity.path) == 'pubspec.yaml',
+  );
+}
+
+Directory projectRootDirectory() {
+  var current = Directory.current.absolute;
+
+  while (! hasPubspec(current)) {
+    if (current.path == current.parent.path) {
+      throw Exception('Reached file system root when seeking project root.');
+    }
+
+    current = current.parent;
+  }
+
+  return current;
+}
+
 /// Tests that the Gallery web benchmarks are run and reported correctly.
 Future<void> main() async {
   test('Can run a web benchmark', () async {
     print('Starting web benchmark tests ...');
 
-    final rootDirectory = Directory.current.absolute;
+    final rootDirectory = projectRootDirectory();
 
     print('rootDirectory = $rootDirectory');
     print('rootDirectory.path = ${rootDirectory.path}');
