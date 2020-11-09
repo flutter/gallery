@@ -94,11 +94,13 @@ class SettingsIconPainter extends CustomPainter {
   }
 
   Paint get pinkPaint {
-    // TODO
+    // TODO: use gradient
+    return Paint()..color = pinkLeft;
   }
 
   Paint get tealPaint {
-    // TODO
+    // TODO: use gradient
+    return Paint()..color = tealLeft;
   }
 
   Offset _transform(Offset offset) {
