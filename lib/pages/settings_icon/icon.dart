@@ -140,7 +140,6 @@ class SettingsIconPainter extends CustomPainter {
         center: _transform(upperColorOffset(time)),
         length: _size(colorLength(time)),
         width: _size(stickWidth),
-        angle: 0,
         paint: pinkPaint,
       );
 
@@ -148,7 +147,6 @@ class SettingsIconPainter extends CustomPainter {
         center: _transform(lowerColorOffset(time)),
         length: _size(colorLength(time)),
         width: _size(stickWidth),
-        angle: 0,
         paint: tealPaint,
       );
 
@@ -156,7 +154,6 @@ class SettingsIconPainter extends CustomPainter {
         center: _transform(movingUpperMonoOffset(time)),
         length: _size(monoLength(time)),
         width: _size(knobDiameter),
-        angle: 0,
         paint: monoPaint,
       );
 
@@ -164,7 +161,6 @@ class SettingsIconPainter extends CustomPainter {
         center: _transform(movingLowerMonoOffset(time)),
         length: _size(monoLength(time)),
         width: _size(knobDiameter),
-        angle: 0,
         paint: monoPaint,
       );
     } else {
@@ -198,7 +194,7 @@ class SettingsIconPainter extends CustomPainter {
     @required Offset center,
     @required double length,
     @required double width,
-    @required double angle,
+    double angle = 0,
     @required Paint paint,
   }) {
     width = min(width, length);
