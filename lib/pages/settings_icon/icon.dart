@@ -86,6 +86,21 @@ class SettingsIconPainter extends CustomPainter {
         : Offset(size.width - unitWidth * _scaling / 2, size.height / 2);
   }
 
+  Paint get monoPaint {
+    final monoColor = Theme.of(context).colorScheme.brightness == Brightness.light
+        ? Colors.black
+        : Colors.white;
+    return Paint()..color = monoColor;
+  }
+
+  Paint get pinkPaint {
+    // TODO
+  }
+
+  Paint get tealPaint {
+    // TODO
+  }
+
   Offset _transform(Offset offset) {
     return _center + offset * _scaling;
   }
@@ -107,8 +122,7 @@ class SettingsIconPainter extends CustomPainter {
         length: _size(movingMonoLength(time)),
         width: _size(knobDiameter),
         angle: 0,
-        paint: Paint()
-          ..color = Colors.pink,
+        paint: monoPaint,
       );
 
       paintStick(
@@ -117,8 +131,7 @@ class SettingsIconPainter extends CustomPainter {
         length: _size(movingMonoLength(time)),
         width: _size(knobDiameter),
         angle: 0,
-        paint: Paint()
-          ..color = Colors.teal,
+        paint: monoPaint,
       );
     } else {
       paintStick(
@@ -127,8 +140,7 @@ class SettingsIconPainter extends CustomPainter {
         length: _size(stickLength),
         width: _size(knobDiameter),
         angle: knobRotation(time),
-        paint: Paint()
-          ..color = Colors.pink,
+        paint: monoPaint,
       );
 
       paintStick(
@@ -137,8 +149,7 @@ class SettingsIconPainter extends CustomPainter {
         length: _size(stickLength),
         width: _size(knobDiameter),
         angle: -knobRotation(time),
-        paint: Paint()
-          ..color = Colors.teal,
+        paint: monoPaint,
       );
     }
   }
