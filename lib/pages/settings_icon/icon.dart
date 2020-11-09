@@ -23,27 +23,8 @@ class IconDisplayer extends StatefulWidget {
   _IconDisplayerState createState() => _IconDisplayerState();
 }
 
-class _IconDisplayerState extends State<IconDisplayer> with FlareController{
-  ActorAnimation _icon;
-
-  double _time = 0.0;
-
-  @override
-  void setViewTransform(Mat2D viewTransform) {}
-
-  @override
-  bool advance(FlutterActorArtboard artboard, double elapsed) {
-    debug('running advance $artboard $elapsed');
-    debug('_time = $_time');
-    _icon.apply(_time, artboard, 1);
-    return true;
-  }
-
-  @override
-  void initialize(FlutterActorArtboard artboard) {
-    debug('initializing $artboard');
-    _icon = artboard.getAnimation('Animations');
-  }
+class _IconDisplayerState extends State<IconDisplayer>{
+  double _time = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +38,7 @@ class _IconDisplayerState extends State<IconDisplayer> with FlareController{
               ),
               width: 600,
               height: 600,
-              child: FlareActor(
-                'packages/flutter_gallery_assets/assets/icons/settings/settings_dark.flr',
-                fit: BoxFit.fill,
-                controller: this,
-              ),
+              child: SettingsIcon(_time),
             ),
             Slider(
               min: 0,
@@ -81,3 +58,17 @@ class _IconDisplayerState extends State<IconDisplayer> with FlareController{
   }
 }
 
+class SettingsIcon extends StatelessWidget {
+  const SettingsIcon(this.time);
+  
+  final double time;
+  
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, _unusedWidget) => CustomPaint(
+      painter: SettingsIconPainter(time: time),
+      size: Size(100, 100),
+      child: Container(width: 100, height: 100),
+    ));
+  }
+}
