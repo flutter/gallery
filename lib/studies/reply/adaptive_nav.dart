@@ -140,7 +140,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
     Key key,
-    this.selectedIndex,
     this.inboxKey,
     this.currentInbox,
     this.extended,
@@ -149,7 +148,6 @@ class _DesktopNav extends StatefulWidget {
     this.onItemTapped,
   }) : super(key: key);
 
-  final int selectedIndex;
   final bool extended;
   final UniqueKey inboxKey;
   final String currentInbox;
@@ -176,60 +174,70 @@ class _DesktopNavState extends State<_DesktopNav>
     return Scaffold(
       body: Row(
         children: [
-          LayoutBuilder(
-            builder: (context, constraints) {
-              return Container(
-                color: Theme.of(context).navigationRailTheme.backgroundColor,
-                child: SingleChildScrollView(
-                  clipBehavior: Clip.antiAlias,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: constraints.maxHeight,
-                    ),
-                    child: IntrinsicHeight(
-                      child: ValueListenableBuilder<bool>(
-                        valueListenable: _isExtended,
-                        builder: (context, value, child) {
-                          return NavigationRail(
-                            destinations: [
-                              for (var destination in widget.destinations)
-                                NavigationRailDestination(
-                                  icon: Material(
-                                    key: ValueKey(
-                                      'Reply-${destination.textLabel}',
-                                    ),
-                                    color: Colors.transparent,
-                                    child: ImageIcon(
-                                      AssetImage(
-                                        destination.icon,
-                                        package: _assetsPackage,
+          Consumer<EmailStore>(
+            builder: (context, model, child) {
+              return LayoutBuilder(
+                builder: (context, constraints) {
+                  final selectedIndex =
+                      widget.destinations.indexWhere((destination) {
+                    return destination.type ==
+                        model.currentlySelectedMailboxPage;
+                  });
+                  return Container(
+                    color:
+                        Theme.of(context).navigationRailTheme.backgroundColor,
+                    child: SingleChildScrollView(
+                      clipBehavior: Clip.antiAlias,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: IntrinsicHeight(
+                          child: ValueListenableBuilder<bool>(
+                            valueListenable: _isExtended,
+                            builder: (context, value, child) {
+                              return NavigationRail(
+                                destinations: [
+                                  for (var destination in widget.destinations)
+                                    NavigationRailDestination(
+                                      icon: Material(
+                                        key: ValueKey(
+                                          'Reply-${destination.textLabel}',
+                                        ),
+                                        color: Colors.transparent,
+                                        child: ImageIcon(
+                                          AssetImage(
+                                            destination.icon,
+                                            package: _assetsPackage,
+                                          ),
+                                        ),
                                       ),
+                                      label: Text(destination.textLabel),
                                     ),
-                                  ),
-                                  label: Text(destination.textLabel),
+                                ],
+                                extended: _isExtended.value,
+                                labelType: NavigationRailLabelType.none,
+                                leading: _NavigationRailHeader(
+                                  extended: _isExtended,
                                 ),
-                            ],
-                            extended: _isExtended.value,
-                            labelType: NavigationRailLabelType.none,
-                            leading: _NavigationRailHeader(
-                              extended: _isExtended,
-                            ),
-                            trailing: _NavigationRailFolderSection(
-                              folders: widget.folders,
-                            ),
-                            selectedIndex: widget.selectedIndex,
-                            onDestinationSelected: (index) {
-                              widget.onItemTapped(
-                                index,
-                                widget.destinations[index].type,
+                                trailing: _NavigationRailFolderSection(
+                                  folders: widget.folders,
+                                ),
+                                selectedIndex: selectedIndex,
+                                onDestinationSelected: (index) {
+                                  widget.onItemTapped(
+                                    index,
+                                    widget.destinations[index].type,
+                                  );
+                                },
                               );
                             },
-                          );
-                        },
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               );
             },
           ),

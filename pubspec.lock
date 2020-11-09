@@ -588,7 +588,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0-nullsafety.3"
+    version: "1.8.0-nullsafety.4"
   stack_trace:
     dependency: transitive
     description:
@@ -630,21 +630,21 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.16.0-nullsafety.8"
+    version: "1.16.0-nullsafety.9"
   test_api:
     dependency: transitive
     description:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.19-nullsafety.5"
+    version: "0.2.19-nullsafety.6"
   test_core:
     dependency: transitive
     description:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.12-nullsafety.8"
+    version: "0.3.12-nullsafety.9"
   typed_data:
     dependency: transitive
     description:
@@ -715,6 +715,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.7+15"
+  web_benchmarks:
+    dependency: "direct dev"
+    description:
+      name: web_benchmarks
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   web_socket_channel:
     dependency: transitive
     description:
@@ -758,5 +765,5 @@ packages:
     source: hosted
     version: "2.2.1"
 sdks:
-  dart: ">=2.12.0-0 <=2.12.0-15.0.dev"
+  dart: ">=2.12.0-0.0 <=2.12.0-27.0.dev"
   flutter: ">=1.22.0 <2.0.0"
