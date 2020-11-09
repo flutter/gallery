@@ -1,6 +1,0 @@
-pink_leftmost      #ff5983
-pink_rightmost     #ff8383
-
-teal_leftmost      #1cddc8
-teal_rightmost     #00a5b3
-
