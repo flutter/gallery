@@ -11,8 +11,8 @@ const tealRight = Color(0xFF00A5B3);
 
 // Dimensions.
 const unitHeight = 1;
+const unitWidth = 1;
 
-const sideOffset = 1/5;
 const stickLength = 5/9;
 const stickWidth = 5/36;
 const stickRadius = stickWidth / 2;
@@ -20,9 +20,6 @@ const knobDiameter = 5/54;
 const knobRadius = knobDiameter / 2;
 const stickGap = 5/54;
 const verticalMargin = 17/54;
-
-// const unitWidth = stickLength + 2 * sideOffset;
-const unitWidth = 1;
 
 // Locations.
 const knobDistanceFromCenter = stickGap / 2 + stickWidth / 2;
