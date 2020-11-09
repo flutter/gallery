@@ -18,8 +18,9 @@ const stickGap = 5/54;
 const verticalMargin = 17/54;
 
 // Durations.
-const monoKnobExpansionDuration = 1;
-const conversionDuration = 10;
-const colorKnobContractionDuration = 3;
-const crossoverDuration = 9;
+const animationLength = 23;
+
+const colorKnobExpansionStarts = 1;
+const monoKnobExpansionEnds = 11;
+const colorKnobExpansionEnds = 14;
 
