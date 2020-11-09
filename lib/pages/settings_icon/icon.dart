@@ -164,8 +164,8 @@ class SettingsIconPainter extends CustomPainter {
 
     canvas.drawPath(
       Path()
-        ..addArc(leftOval, pi / 2, pi)
-        ..addArc(rightOval, -pi / 2, pi),
+        ..arcTo(leftOval, pi / 2, pi, false)
+        ..arcTo(rightOval, -pi / 2, pi, false),
       Paint()..color = Colors.blue,
     );
 
