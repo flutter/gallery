@@ -7,10 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'metrics.dart';
 
-void debug(String x) {
-  print(x);
-}
-
 class SettingsIcon extends StatelessWidget {
   const SettingsIcon(this.time);
 
@@ -138,8 +134,6 @@ class _SettingsIconPainter extends CustomPainter {
     _computeCenterAndScaling(size);
     _canvas = canvas;
 
-    debug ('repainted at $size $time');
-
     if (isTransitionPhase(time)) {
       paintStick(
         center: upperColorOffset(time),
@@ -191,7 +185,6 @@ class _SettingsIconPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) {
     final ans = oldDelegate is! _SettingsIconPainter
         || (oldDelegate as _SettingsIconPainter).time != time;
-    debug ('shouldrepaint: $ans');
     return ans;
   }
 }
