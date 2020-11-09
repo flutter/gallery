@@ -8,7 +8,7 @@ const tealLeft = Color(0xFF1CDDC8);
 const tealRight = Color(0xFF00A5B3);
 
 // Dimensions.
-const squareHeight = 1;
+const unitHeight = 1;
 
 const sideOffset = 1/5;
 const stickLength = 5/9;
@@ -17,7 +17,7 @@ const knobDiameter = 5/54;
 const stickGap = 5/54;
 const verticalMargin = 17/54;
 
-const squareWidth = stickLength + 2 * sideOffset;
+const unitWidth = stickLength + 2 * sideOffset;
 
 // Durations.
 const animationLength = 23;
