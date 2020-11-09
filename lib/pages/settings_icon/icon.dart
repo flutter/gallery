@@ -34,6 +34,8 @@ class _SettingsIconPainter extends CustomPainter {
   double _scaling;
   Canvas _canvas;
 
+  /// Computes [_center] and [_scaling], parameters used to convert offsets
+  /// and lengths in relative units into logical pixels.
   void _computeCenterAndScaling(Size size) {
     _scaling = min(size.width / unitWidth, size.height / unitHeight);
     _center = Directionality.of(context) == TextDirection.ltr
@@ -41,6 +43,24 @@ class _SettingsIconPainter extends CustomPainter {
         : Offset(size.width - unitWidth * _scaling / 2, size.height / 2);
   }
 
+  /// Transforms an offset in relative units into an offset in logical pixels.
+  Offset _transform (Offset offset) {
+    return _center + offset * _scaling;
+  }
+
+  /// Transforms a length in relative units into a dimension in logical pixels.
+  double _size (double length) {
+    return length * _scaling;
+  }
+
+  /// A rectangle with a fixed location, used to locate gradients.
+  Rect get fixedRect {
+    final topLeft = Offset(- _size(stickLength / 2), - _size(stickWidth / 2));
+    final bottomRight = Offset(_size(stickLength / 2), _size(stickWidth / 2));
+    return Rect.fromPoints(topLeft, bottomRight);
+  }
+
+  /// Black or white paint, depending on brightness.
   Paint get monoPaint {
     final monoColor = Theme.of(context).colorScheme.brightness == Brightness.light
         ? Colors.black
@@ -48,12 +68,7 @@ class _SettingsIconPainter extends CustomPainter {
     return Paint()..color = monoColor;
   }
 
-  Rect get fixedRect {
-    final topLeft = Offset(- _size(stickLength / 2), - _size(stickWidth / 2));
-    final bottomRight = Offset(_size(stickLength / 2), _size(stickWidth / 2));
-    return Rect.fromPoints(topLeft, bottomRight);
-  }
-
+  /// Pink paint with horizontal gradient.
   Paint get pinkPaint {
     const shader = LinearGradient(colors: [pinkLeft, pinkRight]);
     final shaderRect = fixedRect.translate(
@@ -64,6 +79,7 @@ class _SettingsIconPainter extends CustomPainter {
     return Paint()..shader = shader.createShader(shaderRect);
   }
 
+  /// Teal paint with horizontal gradient.
   Paint get tealPaint {
     const shader = LinearGradient(colors: [tealLeft, tealRight]);
     final shaderRect = fixedRect.translate(
@@ -74,12 +90,47 @@ class _SettingsIconPainter extends CustomPainter {
     return Paint()..shader = shader.createShader(shaderRect);
   }
 
-  Offset _transform(Offset offset) {
-    return _center + offset * _scaling;
-  }
+  /// Paints a stadium-shaped stick.
+  void paintStick ({
+    @required Offset center,
+    @required double length,
+    @required double width,
+    double angle = 0,
+    @required Paint paint,
+  }) {
+    // Convert to pixels.
+    center = _transform(center);
+    length = _size(length);
+    width = _size(width);
 
-  double _size(double length) {
-    return length * _scaling;
+    // Paint.
+    width = min(width, length);
+    final stretch = length / 2;
+    final radius = width / 2;
+
+    _canvas.save();
+
+    _canvas.translate(center.dx, center.dy);
+    _canvas.rotate(angle);
+
+    final leftOval = Rect.fromCircle(
+      center: Offset(-stretch + radius, 0),
+      radius: radius,
+    );
+
+    final rightOval = Rect.fromCircle(
+      center: Offset(stretch - radius, 0),
+      radius: radius,
+    );
+
+    _canvas.drawPath(
+      Path()
+        ..arcTo(leftOval, pi / 2, pi, false)
+        ..arcTo(rightOval, -pi / 2, pi, false),
+      paint,
+    );
+
+    _canvas.restore();
   }
 
   @override
@@ -142,47 +193,5 @@ class _SettingsIconPainter extends CustomPainter {
         || (oldDelegate as _SettingsIconPainter).time != time;
     debug ('shouldrepaint: $ans');
     return ans;
-  }
-
-  void paintStick ({
-    @required Offset center,
-    @required double length,
-    @required double width,
-    double angle = 0,
-    @required Paint paint,
-  }) {
-    // Convert to pixels.
-    center = _transform(center);
-    length = _size(length);
-    width = _size(width);
-
-    // Paint.
-    width = min(width, length);
-    final stretch = length / 2;
-    final radius = width / 2;
-
-    _canvas.save();
-
-    _canvas.translate(center.dx, center.dy);
-    _canvas.rotate(angle);
-
-    final leftOval = Rect.fromCircle(
-      center: Offset(-stretch + radius, 0),
-      radius: radius,
-    );
-
-    final rightOval = Rect.fromCircle(
-      center: Offset(stretch - radius, 0),
-      radius: radius,
-    );
-
-    _canvas.drawPath(
-      Path()
-        ..arcTo(leftOval, pi / 2, pi, false)
-        ..arcTo(rightOval, -pi / 2, pi, false),
-      paint,
-    );
-
-    _canvas.restore();
   }
 }
