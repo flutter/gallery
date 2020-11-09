@@ -73,12 +73,15 @@ class SettingsIcon extends StatelessWidget {
 }
 
 class SettingsIconPainter extends CustomPainter {
-  const SettingsIconPainter(this.time);
+  SettingsIconPainter(this.time);
 
   final double time;
 
+  Size _size;
+
   @override
   void paint (Canvas canvas, Size size) {
+    _size = size;
     debug ('repainted at $size $time');
     canvas.drawCircle(Offset(time * 50, 0), 30, Paint()..color = Colors.blue);
   }
