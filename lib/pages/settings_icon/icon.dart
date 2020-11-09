@@ -78,6 +78,7 @@ class SettingsIconPainter extends CustomPainter {
 
   Offset _center;
   double _scaling;
+  Canvas _canvas;
 
   void _computeCenterAndScaling(Size size) {
     _scaling = min(size.width / unitWidth, size.height / unitHeight);
@@ -130,12 +131,12 @@ class SettingsIconPainter extends CustomPainter {
   @override
   void paint (Canvas canvas, Size size) {
     _computeCenterAndScaling(size);
+    _canvas = canvas;
 
     debug ('repainted at $size $time');
 
     if (isTransitionPhase(time)) {
       paintStick(
-        canvas: canvas,
         center: _transform(upperColorOffset(time)),
         length: _size(colorLength(time)),
         width: _size(stickWidth),
@@ -144,7 +145,6 @@ class SettingsIconPainter extends CustomPainter {
       );
 
       paintStick(
-        canvas: canvas,
         center: _transform(lowerColorOffset(time)),
         length: _size(colorLength(time)),
         width: _size(stickWidth),
@@ -153,7 +153,6 @@ class SettingsIconPainter extends CustomPainter {
       );
 
       paintStick(
-        canvas: canvas,
         center: _transform(movingUpperMonoOffset(time)),
         length: _size(monoLength(time)),
         width: _size(knobDiameter),
@@ -162,7 +161,6 @@ class SettingsIconPainter extends CustomPainter {
       );
 
       paintStick(
-        canvas: canvas,
         center: _transform(movingLowerMonoOffset(time)),
         length: _size(monoLength(time)),
         width: _size(knobDiameter),
@@ -171,7 +169,6 @@ class SettingsIconPainter extends CustomPainter {
       );
     } else {
       paintStick(
-        canvas: canvas,
         center: _transform(upperKnobCenter),
         length: _size(stickLength),
         width: _size(knobDiameter),
@@ -180,7 +177,6 @@ class SettingsIconPainter extends CustomPainter {
       );
 
       paintStick(
-        canvas: canvas,
         center: _transform(knobCenter(time)),
         length: _size(stickLength),
         width: _size(knobDiameter),
@@ -199,7 +195,6 @@ class SettingsIconPainter extends CustomPainter {
   }
 
   void paintStick ({
-    @required Canvas canvas,
     @required Offset center,
     @required double length,
     @required double width,
@@ -210,10 +205,10 @@ class SettingsIconPainter extends CustomPainter {
     final stretch = length / 2;
     final radius = width / 2;
 
-    canvas.save();
+    _canvas.save();
 
-    canvas.translate(center.dx, center.dy);
-    canvas.rotate(angle);
+    _canvas.translate(center.dx, center.dy);
+    _canvas.rotate(angle);
 
     final leftOval = Rect.fromCircle(
       center: Offset(-stretch + radius, 0),
@@ -225,13 +220,13 @@ class SettingsIconPainter extends CustomPainter {
       radius: radius,
     );
 
-    canvas.drawPath(
+    _canvas.drawPath(
       Path()
         ..arcTo(leftOval, pi / 2, pi, false)
         ..arcTo(rightOval, -pi / 2, pi, false),
       paint,
     );
 
-    canvas.restore();
+    _canvas.restore();
   }
 }
