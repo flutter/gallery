@@ -21,7 +21,8 @@ const verticalMargin = 17/54;
 const unitWidth = stickLength + 2 * sideOffset;
 
 // Locations.
-
+const lowerKnobCenter = Offset(0, stickGap / 2 + stickWidth / 2);
+const upperKnobCenter = Offset(0, - stickGap / 2 - stickWidth / 2);
 
 // Durations.
 const colorKnobContractionBegins = 1/23;
@@ -47,3 +48,4 @@ double rotationProgress (double time) =>
 
 double knobRotation (double time) => rotationProgress(time) * pi / 4;
 
+// Moving objects.
