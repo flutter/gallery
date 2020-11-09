@@ -21,7 +21,8 @@ const knobRadius = knobDiameter / 2;
 const stickGap = 5/54;
 const verticalMargin = 17/54;
 
-const unitWidth = stickLength + 2 * sideOffset;
+// const unitWidth = stickLength + 2 * sideOffset;
+const unitWidth = 1;
 
 // Locations.
 const knobDistanceFromCenter = stickGap / 2 + stickWidth / 2;
