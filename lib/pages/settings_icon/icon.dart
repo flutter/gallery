@@ -102,7 +102,7 @@ class SettingsIconPainter extends CustomPainter {
   Paint get pinkPaint {
     const shader = LinearGradient(colors: [pinkLeft, pinkRight]);
     final shaderRect = fixedRect.translate(
-      _size(- (stickLength - movingColorLength(time)) / 2),
+      _size(- (stickLength - colorLength(time)) / 2),
       0,
     );
 
@@ -112,7 +112,7 @@ class SettingsIconPainter extends CustomPainter {
   Paint get tealPaint {
     const shader = LinearGradient(colors: [tealLeft, tealRight]);
     final shaderRect = fixedRect.translate(
-      _size((stickLength - movingColorLength(time)) / 2),
+      _size((stickLength - colorLength(time)) / 2),
       0,
     );
 
@@ -136,8 +136,8 @@ class SettingsIconPainter extends CustomPainter {
     if (isTransitionPhase(time)) {
       paintStick(
         canvas: canvas,
-        center: _transform(movingUpperColorOffset(time)),
-        length: _size(movingColorLength(time)),
+        center: _transform(upperColorOffset(time)),
+        length: _size(colorLength(time)),
         width: _size(stickWidth),
         angle: 0,
         paint: pinkPaint,
@@ -145,8 +145,8 @@ class SettingsIconPainter extends CustomPainter {
 
       paintStick(
         canvas: canvas,
-        center: _transform(movingLowerColorOffset(time)),
-        length: _size(movingColorLength(time)),
+        center: _transform(lowerColorOffset(time)),
+        length: _size(colorLength(time)),
         width: _size(stickWidth),
         angle: 0,
         paint: tealPaint,
@@ -155,7 +155,7 @@ class SettingsIconPainter extends CustomPainter {
       paintStick(
         canvas: canvas,
         center: _transform(movingUpperMonoOffset(time)),
-        length: _size(movingMonoLength(time)),
+        length: _size(monoLength(time)),
         width: _size(knobDiameter),
         angle: 0,
         paint: monoPaint,
@@ -164,7 +164,7 @@ class SettingsIconPainter extends CustomPainter {
       paintStick(
         canvas: canvas,
         center: _transform(movingLowerMonoOffset(time)),
-        length: _size(movingMonoLength(time)),
+        length: _size(monoLength(time)),
         width: _size(knobDiameter),
         angle: 0,
         paint: monoPaint,
@@ -181,7 +181,7 @@ class SettingsIconPainter extends CustomPainter {
 
       paintStick(
         canvas: canvas,
-        center: _transform(movingKnobCenter(time)),
+        center: _transform(knobCenter(time)),
         length: _size(stickLength),
         width: _size(knobDiameter),
         angle: -knobRotation(time),
