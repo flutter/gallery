@@ -119,4 +119,38 @@ class SettingsIconPainter extends CustomPainter {
     debug ('shouldrepaint: $ans');
     return ans;
   }
+
+  void paintStick ({
+    @required Canvas canvas,
+    @required Offset center,
+    @required double length,
+    @required double width,
+    @required double angle,
+  }) {
+    width = min(width, length);
+    final stretch = length / 2;
+    final radius = width / 2;
+
+    final visualCenter = _transform(center);
+
+    canvas.translate(visualCenter.dx, visualCenter.dy);
+    canvas.rotate(angle);
+
+    final leftOval = Rect.fromCircle(
+      center: Offset(-stretch + radius, 0),
+      radius: radius,
+    );
+
+    final rightOval = Rect.fromCircle(
+      center: Offset(stretch - radius, 0),
+      radius: radius,
+    );
+
+    canvas.drawPath(
+      Path()
+        ..addArc(leftOval, pi / 2, 3 * pi / 2)
+        ..addArc(rightOval, -pi / 2, pi / 2),
+      Paint()..color = Colors.blue,
+    );
+  }
 }
