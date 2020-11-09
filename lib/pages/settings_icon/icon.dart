@@ -100,19 +100,21 @@ class SettingsIconPainter extends CustomPainter {
   }
 
   Paint get pinkPaint {
-    const shader = LinearGradient(colors: [Colors.red, Colors.black]);
-    /* final shaderRect = _transform(Offset(movingColorLength(time) - stickLength, 0))
-         & Size(_size(stickLength), _size(stickWidth)); */
-    final shaderRect = fixedRect.translate(_size(- (stickLength - movingColorLength(time)) / 2), 0);
+    const shader = LinearGradient(colors: [pinkLeft, pinkRight]);
+    final shaderRect = fixedRect.translate(
+      _size(- (stickLength - movingColorLength(time)) / 2),
+      0,
+    );
 
     return Paint()..shader = shader.createShader(shaderRect);
   }
 
   Paint get tealPaint {
-    const shader = LinearGradient(colors: [Colors.red, Colors.black]);
-    /* final shaderRect = Offset.zero
-        & Size(_size(stickLength), _size(stickWidth)); */
-    final shaderRect = fixedRect.translate(_size((stickLength - movingColorLength(time)) / 2), 0);
+    const shader = LinearGradient(colors: [tealLeft, tealRight]);
+    final shaderRect = fixedRect.translate(
+      _size((stickLength - movingColorLength(time)) / 2),
+      0,
+    );
 
     return Paint()..shader = shader.createShader(shaderRect);
   }
