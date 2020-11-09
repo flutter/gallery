@@ -202,6 +202,7 @@ class SettingsIconPainter extends CustomPainter {
     length = _size(length);
     width = _size(width);
 
+    // Paint.
     width = min(width, length);
     final stretch = length / 2;
     final radius = width / 2;
