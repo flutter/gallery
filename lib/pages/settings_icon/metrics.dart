@@ -72,3 +72,24 @@ Offset movingKnobCenter (double time) {
     return center + Offset.fromDirection(angle, radius);
   }
 }
+
+// Changing lengths.
+double movingMonoLength (double time) =>
+    monoKnobProgress(time) * (stickLength - knobDiameter) + knobDiameter;
+
+double movingMonoLengthLeft (double time) =>
+    min (movingMonoLength(time) - knobDiameter, stickRadius);
+
+double movingMonoLengthRight (double time) =>
+    movingMonoLength(time) - movingMonoLengthLeft(time);
+
+double movingMonoHorizontalOffset (double time) =>
+    (movingMonoLengthRight(time) - movingMonoLengthLeft(time)) / 2
+    + (- stickLength / 2 + stickRadius);
+
+Offset movingUpperMonoOffset (double time) =>
+    upperKnobCenter + Offset(movingMonoHorizontalOffset(time), 0);
+
+Offset movingLowerMonoOffset (double time) =>
+    lowerKnobCenter + Offset(- movingMonoHorizontalOffset(time), 0);
+
