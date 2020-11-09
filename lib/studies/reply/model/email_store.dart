@@ -165,10 +165,10 @@ class EmailStore with ChangeNotifier {
   ];
 
   List<Email> get _allEmails => [
-    ..._inbox,
-    ..._outbox,
-    ..._drafts,
-  ];
+        ..._inbox,
+        ..._outbox,
+        ..._drafts,
+      ];
 
   List<Email> get inboxEmails {
     return _inbox.where((email) {
@@ -196,9 +196,11 @@ class EmailStore with ChangeNotifier {
     return _allEmails.where((email) => email.isTrash).toList();
   }
 
-  Email get currentEmail => _allEmails.firstWhere((email) => email.id == _currentlySelectedEmailId);
+  Email get currentEmail =>
+      _allEmails.firstWhere((email) => email.id == _currentlySelectedEmailId);
 
-  List<Email> get outboxEmails => _outbox.where((email) => !email.isTrash).toList();
+  List<Email> get outboxEmails =>
+      _outbox.where((email) => !email.isTrash).toList();
 
   List<Email> get draftEmails => _drafts;
 
@@ -237,6 +239,7 @@ class EmailStore with ChangeNotifier {
     _currentlySelectedEmailId = value;
     notifyListeners();
   }
+
   bool get onMailView => _currentlySelectedEmailId > -1;
 
   String _currentlySelectedMailboxPage = 'inbox';

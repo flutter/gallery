@@ -857,7 +857,8 @@ class _BottomAppBarActionItems extends StatelessWidget {
                             } else {
                               model.starEmail(currentEmail.id);
                             }
-                            if (model.currentlySelectedMailboxPage == 'starred') {
+                            if (model.currentlySelectedMailboxPage ==
+                                'starred') {
                               mobileMailNavKey.currentState.pop();
                               model.currentlySelectedEmailId = -1;
                             }

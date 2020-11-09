@@ -40,17 +40,17 @@ class InboxEmail extends Email {
     bool isTrash = false,
     this.inboxType = InboxType.normal,
   }) : super(
-      id: id,
-      sender: sender,
-      time: time,
-      subject: subject,
-      message: message,
-      avatar: avatar,
-      recipients: recipients,
-      containsPictures: containsPictures,
-      mailboxType: MailboxType.inbox,
-      isStarred: isStarred,
-    );
+          id: id,
+          sender: sender,
+          time: time,
+          subject: subject,
+          message: message,
+          avatar: avatar,
+          recipients: recipients,
+          containsPictures: containsPictures,
+          mailboxType: MailboxType.inbox,
+          isStarred: isStarred,
+        );
 
   InboxType inboxType;
 }

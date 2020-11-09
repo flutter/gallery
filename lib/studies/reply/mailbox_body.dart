@@ -29,30 +29,36 @@ class MailboxBody extends StatelessWidget {
         List<Email> emails;
 
         switch (destination) {
-          case 'inbox': {
-            emails = model.inboxEmails;
-            break;
-          }
-          case 'sent': {
-            emails = model.outboxEmails;
-            break;
-          }
-          case 'starred': {
-            emails = model.starredEmails;
-            break;
-          }
-          case 'trash': {
-            emails = model.trashEmails;
-            break;
-          }
-          case 'spam': {
-            emails = model.spamEmails;
-            break;
-          }
-          case 'drafts': {
-            emails = model.draftEmails;
-            break;
-          }
+          case 'inbox':
+            {
+              emails = model.inboxEmails;
+              break;
+            }
+          case 'sent':
+            {
+              emails = model.outboxEmails;
+              break;
+            }
+          case 'starred':
+            {
+              emails = model.starredEmails;
+              break;
+            }
+          case 'trash':
+            {
+              emails = model.trashEmails;
+              break;
+            }
+          case 'spam':
+            {
+              emails = model.spamEmails;
+              break;
+            }
+          case 'drafts':
+            {
+              emails = model.draftEmails;
+              break;
+            }
         }
 
         return SafeArea(
@@ -83,10 +89,10 @@ class MailboxBody extends StatelessWidget {
                           return MailPreviewCard(
                             id: email.id,
                             email: email,
-                            onDelete: () =>
-                                model.deleteEmail(email.id),
+                            onDelete: () => model.deleteEmail(email.id),
                             onStar: () => model.starEmail(email.id),
-                            onStarredMailbox: model.currentlySelectedMailboxPage == 'starred',
+                            onStarredMailbox:
+                                model.currentlySelectedMailboxPage == 'starred',
                           );
                         },
                       ),
