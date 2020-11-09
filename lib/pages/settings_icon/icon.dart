@@ -9,6 +9,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gallery/pages/settings_icon/metrics.dart';
 
 void debug(String x) {
   print(x);
@@ -67,23 +68,43 @@ class SettingsIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: SettingsIconPainter(time),
+      painter: SettingsIconPainter(time: time, context: context),
     );
   }
 }
 
 class SettingsIconPainter extends CustomPainter {
-  SettingsIconPainter(this.time);
+  SettingsIconPainter({@required this.time, @required this.context});
 
   final double time;
+  final BuildContext context;
 
-  Size _size;
+  Offset _center;
+  double _scaling;
+
+  void _computeCenterAndScaling(Size size) {
+    _scaling = min(size.width / unitWidth, size.height / unitHeight);
+    _center = Directionality.of(context) == TextDirection.ltr
+        ? Offset(unitWidth * _scaling / 2, size.height / 2)
+        : Offset(size.width - unitWidth * _scaling / 2, size.height / 2);
+  }
+
+  Offset _transform(Offset offset) {
+    return _center + offset * _scaling;
+  }
+
+  double _size(double length) {
+    return length * _scaling;
+  }
 
   @override
   void paint (Canvas canvas, Size size) {
-    _size = size;
+    _computeCenterAndScaling(size);
+
     debug ('repainted at $size $time');
-    canvas.drawCircle(Offset(time * 50, 0), 30, Paint()..color = Colors.blue);
+    print (_transform(Offset(0, 0)));
+    print (_size(5/9));
+    canvas.drawCircle(_transform(Offset(0, 0)), _size(5/9), Paint()..color = Colors.blue);
   }
 
   @override
