@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.16.1
-  flutter_localized_locales: ^1.1.1
+  intl: ">=0.16.1 <=0.17.0"
+  flutter_localized_locales: ">=1.1.1 <=2.0.0"
   cupertino_icons: ^1.0.0
   rally_assets: ^2.0.0
   meta: ^1.1.8
@@ -41,7 +41,6 @@ dev_dependencies:
   path:
   args:
   grinder: ^0.8.0
-  intl_translation:
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
   web_benchmarks: ^0.0.2
