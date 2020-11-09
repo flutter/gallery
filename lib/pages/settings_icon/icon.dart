@@ -106,6 +106,8 @@ class SettingsIconPainter extends CustomPainter {
 
     final paint = Paint()..color = Colors.blue;
 
+    canvas.translate(-100, 100);
+
     canvas.drawCircle(_transform(upperKnobCenter), _size(stickWidth/2), paint);
     canvas.drawCircle(_transform(movingKnobCenter(time)), _size(stickWidth/2), paint);
   }
