@@ -137,45 +137,45 @@ class SettingsIconPainter extends CustomPainter {
 
     if (isTransitionPhase(time)) {
       paintStick(
-        center: _transform(upperColorOffset(time)),
-        length: _size(colorLength(time)),
-        width: _size(stickWidth),
+        center: upperColorOffset(time),
+        length: colorLength(time),
+        width: stickWidth,
         paint: pinkPaint,
       );
 
       paintStick(
-        center: _transform(lowerColorOffset(time)),
-        length: _size(colorLength(time)),
-        width: _size(stickWidth),
+        center: lowerColorOffset(time),
+        length: colorLength(time),
+        width: stickWidth,
         paint: tealPaint,
       );
 
       paintStick(
-        center: _transform(movingUpperMonoOffset(time)),
-        length: _size(monoLength(time)),
-        width: _size(knobDiameter),
+        center: movingUpperMonoOffset(time),
+        length: monoLength(time),
+        width: knobDiameter,
         paint: monoPaint,
       );
 
       paintStick(
-        center: _transform(movingLowerMonoOffset(time)),
-        length: _size(monoLength(time)),
-        width: _size(knobDiameter),
+        center: movingLowerMonoOffset(time),
+        length: monoLength(time),
+        width: knobDiameter,
         paint: monoPaint,
       );
     } else {
       paintStick(
-        center: _transform(upperKnobCenter),
-        length: _size(stickLength),
-        width: _size(knobDiameter),
+        center: upperKnobCenter,
+        length: stickLength,
+        width: knobDiameter,
         angle: knobRotation(time),
         paint: monoPaint,
       );
 
       paintStick(
-        center: _transform(knobCenter(time)),
-        length: _size(stickLength),
-        width: _size(knobDiameter),
+        center: knobCenter(time),
+        length: stickLength,
+        width: knobDiameter,
         angle: -knobRotation(time),
         paint: monoPaint,
       );
@@ -197,6 +197,11 @@ class SettingsIconPainter extends CustomPainter {
     double angle = 0,
     @required Paint paint,
   }) {
+    // Convert to pixels.
+    center = _transform(center);
+    length = _size(length);
+    width = _size(width);
+
     width = min(width, length);
     final stretch = length / 2;
     final radius = width / 2;
