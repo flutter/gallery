@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter/animation.dart' show Curves;
 import 'package:flutter/material.dart';
 
 // Color gradient.
@@ -14,7 +15,9 @@ const unitHeight = 1;
 const sideOffset = 1/5;
 const stickLength = 5/9;
 const stickWidth = 5/36;
+const stickRadius = stickWidth / 2;
 const knobDiameter = 5/54;
+const knobRadius = knobDiameter / 2;
 const stickGap = 5/54;
 const verticalMargin = 17/54;
 
@@ -24,6 +27,8 @@ const unitWidth = stickLength + 2 * sideOffset;
 const knobDistanceFromCenter = stickGap / 2 + stickWidth / 2;
 const lowerKnobCenter = Offset(0, knobDistanceFromCenter);
 const upperKnobCenter = Offset(0, - knobDistanceFromCenter);
+
+const knobDeviation = stickLength / 2 - stickRadius;
 
 // Durations.
 const colorKnobContractionBegins = 1/23;
