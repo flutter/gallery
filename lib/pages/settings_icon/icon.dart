@@ -147,6 +147,8 @@ class SettingsIconPainter extends CustomPainter {
     final stretch = length / 2;
     final radius = width / 2;
 
+    canvas.save();
+
     canvas.translate(center.dx, center.dy);
     canvas.rotate(angle);
 
@@ -162,9 +164,11 @@ class SettingsIconPainter extends CustomPainter {
 
     canvas.drawPath(
       Path()
-        ..addArc(leftOval, pi / 2, 3 * pi / 2)
-        ..addArc(rightOval, -pi / 2, pi / 2),
+        ..addArc(leftOval, pi / 2, pi)
+        ..addArc(rightOval, -pi / 2, pi),
       Paint()..color = Colors.blue,
     );
+
+    canvas.restore();
   }
 }
