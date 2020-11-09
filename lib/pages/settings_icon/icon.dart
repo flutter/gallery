@@ -93,18 +93,26 @@ class SettingsIconPainter extends CustomPainter {
     return Paint()..color = monoColor;
   }
 
+  Rect get fixedRect {
+    final topLeft = Offset(- _size(stickLength / 2), - _size(stickWidth / 2));
+    final bottomRight = Offset(_size(stickLength / 2), _size(stickWidth / 2));
+    return Rect.fromPoints(topLeft, bottomRight);
+  }
+
   Paint get pinkPaint {
-    const shader = LinearGradient(colors: [Colors.grey, Colors.black]);
-    final shaderRect = _transform(Offset(movingColorLength(time) - stickLength, 0))
-        & Size(_size(stickLength), _size(stickWidth));
+    const shader = LinearGradient(colors: [Colors.red, Colors.black]);
+    /* final shaderRect = _transform(Offset(movingColorLength(time) - stickLength, 0))
+         & Size(_size(stickLength), _size(stickWidth)); */
+    final shaderRect = fixedRect.translate(_size(- (stickLength - movingColorLength(time)) / 2), 0);
 
     return Paint()..shader = shader.createShader(shaderRect);
   }
 
   Paint get tealPaint {
-    const shader = LinearGradient(colors: [Colors.grey, Colors.black]);
-    final shaderRect = Offset.zero
-        & Size(_size(stickLength), _size(stickWidth));
+    const shader = LinearGradient(colors: [Colors.red, Colors.black]);
+    /* final shaderRect = Offset.zero
+        & Size(_size(stickLength), _size(stickWidth)); */
+    final shaderRect = fixedRect.translate(_size((stickLength - movingColorLength(time)) / 2), 0);
 
     return Paint()..shader = shader.createShader(shaderRect);
   }
