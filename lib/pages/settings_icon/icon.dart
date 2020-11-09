@@ -100,19 +100,13 @@ class SettingsIconPainter extends CustomPainter {
 
     debug ('repainted at $size $time');
 
-    final paint = Paint()..color = Colors.blue;
-
-    // canvas.translate(-100, 100);
-
-    // canvas.drawCircle(_transform(upperKnobCenter), _size(stickWidth/2), paint);
-    // canvas.drawCircle(_transform(movingKnobCenter(time)), _size(stickWidth/2), paint);
-
     paintStick(
       canvas: canvas,
       center: _transform(upperKnobCenter),
       length: _size(stickLength),
       width: _size(stickWidth),
       angle: knobRotation(time),
+      paint: Paint()..color = Colors.pink,
     );
 
     paintStick(
@@ -121,6 +115,7 @@ class SettingsIconPainter extends CustomPainter {
       length: _size(stickLength),
       width: _size(stickWidth),
       angle: - knobRotation(time),
+      paint: Paint()..color = Colors.teal,
     );
   }
 
@@ -138,6 +133,7 @@ class SettingsIconPainter extends CustomPainter {
     @required double length,
     @required double width,
     @required double angle,
+    @required Paint paint,
   }) {
     width = min(width, length);
     final stretch = length / 2;
@@ -162,7 +158,7 @@ class SettingsIconPainter extends CustomPainter {
       Path()
         ..arcTo(leftOval, pi / 2, pi, false)
         ..arcTo(rightOval, -pi / 2, pi, false),
-      Paint()..color = Colors.blue,
+      paint,
     );
 
     canvas.restore();
