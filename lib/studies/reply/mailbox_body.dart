@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/mail_card_preview.dart';
+import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
-class InboxPage extends StatelessWidget {
-  const InboxPage({Key key}) : super(key: key);
+class MailboxBody extends StatelessWidget {
+  const MailboxBody({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +25,50 @@ class InboxPage extends StatelessWidget {
 
     return Consumer<EmailStore>(
       builder: (context, model, child) {
-        final destination = model.currentlySelectedInbox;
+        final destination = model.currentlySelectedMailboxPage;
+        List<Email> emails;
+
+        switch (destination) {
+          case 'inbox': {
+            emails = model.inboxEmails;
+            break;
+          }
+          case 'sent': {
+            emails = model.outboxEmails;
+            break;
+          }
+          case 'starred': {
+            emails = model.starredEmails;
+            break;
+          }
+          case 'trash': {
+            emails = model.trashEmails;
+            break;
+          }
+          case 'spam': {
+            emails = model.spamEmails;
+            break;
+          }
+          case 'drafts': {
+            emails = model.draftEmails;
+            break;
+          }
+        }
+
         return SafeArea(
           bottom: false,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: model.emails[model.currentlySelectedInbox].isEmpty
+                child: emails.isEmpty
                     ? Center(
                         child: Text(
                           'Empty in ${destination.toLowerCase()}',
                         ),
                       )
                     : ListView.separated(
-                        itemCount: model.emails[destination].length,
+                        itemCount: emails.length,
                         padding: EdgeInsetsDirectional.only(
                           start: startPadding,
                           end: endPadding,
@@ -49,12 +79,14 @@ class InboxPage extends StatelessWidget {
                         separatorBuilder: (context, index) =>
                             const SizedBox(height: 4),
                         itemBuilder: (context, index) {
+                          var email = emails[index];
                           return MailPreviewCard(
-                            id: index,
-                            email: model.emails[destination].elementAt(index),
+                            id: email.id,
+                            email: email,
                             onDelete: () =>
-                                model.deleteEmail(destination, index),
-                            onStar: () => model.starEmail(destination, index),
+                                model.deleteEmail(email.id),
+                            onStar: () => model.starEmail(email.id),
+                            onStarredMailbox: model.currentlySelectedMailboxPage == 'starred',
                           );
                         },
                       ),

@@ -116,8 +116,8 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
 
     appState.currentlySelectedEmailId =
         appData['currentlySelectedEmailId'] as int;
-    appState.currentlySelectedInbox =
-        appData['currentlySelectedInbox'] as String;
+    appState.currentlySelectedMailboxPage =
+        appData['currentlySelectedMailboxPage'] as String;
     appState.onSearchPage = appData['onSearchPage'] as bool;
 
     return appState;
@@ -127,7 +127,7 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
   Object toPrimitives() {
     return <String, dynamic>{
       'currentlySelectedEmailId': value.currentlySelectedEmailId,
-      'currentlySelectedInbox': value.currentlySelectedInbox,
+      'currentlySelectedMailboxPage': value.currentlySelectedMailboxPage,
       'onSearchPage': value.onSearchPage,
     };
   }
