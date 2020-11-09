@@ -106,10 +106,26 @@ class SettingsIconPainter extends CustomPainter {
 
     final paint = Paint()..color = Colors.blue;
 
-    canvas.translate(-100, 100);
+    // canvas.translate(-100, 100);
 
-    canvas.drawCircle(_transform(upperKnobCenter), _size(stickWidth/2), paint);
-    canvas.drawCircle(_transform(movingKnobCenter(time)), _size(stickWidth/2), paint);
+    // canvas.drawCircle(_transform(upperKnobCenter), _size(stickWidth/2), paint);
+    // canvas.drawCircle(_transform(movingKnobCenter(time)), _size(stickWidth/2), paint);
+
+    paintStick(
+      canvas: canvas,
+      center: _transform(upperKnobCenter),
+      length: _size(stickLength),
+      width: _size(stickWidth),
+      angle: knobRotation(time),
+    );
+
+    paintStick(
+      canvas: canvas,
+      center: _transform(movingKnobCenter(time)),
+      length: _size(stickLength),
+      width: _size(stickWidth),
+      angle: - knobRotation(time),
+    );
   }
 
   @override
@@ -131,9 +147,7 @@ class SettingsIconPainter extends CustomPainter {
     final stretch = length / 2;
     final radius = width / 2;
 
-    final visualCenter = _transform(center);
-
-    canvas.translate(visualCenter.dx, visualCenter.dy);
+    canvas.translate(center.dx, center.dy);
     canvas.rotate(angle);
 
     final leftOval = Rect.fromCircle(
