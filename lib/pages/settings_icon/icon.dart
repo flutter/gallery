@@ -94,13 +94,20 @@ class SettingsIconPainter extends CustomPainter {
   }
 
   Paint get pinkPaint {
-    // TODO: use gradient
-    return Paint()..color = pinkLeft;
+    const shader = LinearGradient(colors: [pinkLeft, Colors.black],
+    stops: [0, 1]);
+    final shaderRect = Offset(movingColorLength(time) - stickLength, 0)
+        & const Size(stickLength, stickWidth);
+
+    return Paint()..shader = shader.createShader(shaderRect);
   }
 
   Paint get tealPaint {
-    // TODO: use gradient
-    return Paint()..color = tealLeft;
+    const shader = LinearGradient(colors: [tealLeft, Colors.black]);
+    final shaderRect = Offset.zero
+        & const Size(stickLength, stickWidth);
+
+    return Paint()..shader = shader.createShader(shaderRect);
   }
 
   Offset _transform(Offset offset) {
