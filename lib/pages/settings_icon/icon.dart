@@ -102,8 +102,6 @@ class SettingsIconPainter extends CustomPainter {
     _computeCenterAndScaling(size);
 
     debug ('repainted at $size $time');
-    print (_transform(Offset(0, 0)));
-    print (_size(5/9));
     canvas.drawCircle(_transform(Offset(0, 0)), _size(5/9), Paint()..color = Colors.blue);
   }
 

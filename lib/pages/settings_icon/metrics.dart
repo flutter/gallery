@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 // Color gradient.
@@ -19,10 +20,30 @@ const verticalMargin = 17/54;
 
 const unitWidth = stickLength + 2 * sideOffset;
 
-// Durations.
-const animationLength = 23;
+// Locations.
 
-const colorKnobExpansionStarts = 1;
-const monoKnobExpansionEnds = 11;
-const colorKnobExpansionEnds = 14;
+
+// Durations.
+const colorKnobContractionBegins = 1/23;
+const monoKnobExpansionEnds = 11/23;
+const colorKnobContractionEnds = 14/23;
+
+// Stages.
+bool isTransitionPhase (double time) => time < colorKnobContractionEnds;
+bool isRotationPhase (double time) => time >= colorKnobContractionEnds;
+
+double monoKnobProgress (double time) =>
+    (time / monoKnobExpansionEnds).clamp(0, 1).toDouble();
+
+double colorKnobProgress (double time) =>
+    ((time - colorKnobContractionBegins)
+        / (colorKnobContractionEnds - colorKnobContractionBegins))
+        .clamp(0, 1).toDouble();
+
+double rotationProgress (double time) =>
+    ((time - colorKnobContractionEnds)
+        / (1 - colorKnobContractionEnds))
+        .clamp(0, 1).toDouble();
+
+double knobRotation (double time) => rotationProgress(time) * pi / 4;
 
