@@ -73,12 +73,12 @@ Offset movingKnobCenter (double time) {
   }
 }
 
-// Changing lengths.
+// Changing lengths: mono
 double movingMonoLength (double time) =>
     monoKnobProgress(time) * (stickLength - knobDiameter) + knobDiameter;
 
 double movingMonoLengthLeft (double time) =>
-    min (movingMonoLength(time) - knobDiameter, stickRadius);
+    min (movingMonoLength(time) - knobRadius, stickRadius);
 
 double movingMonoLengthRight (double time) =>
     movingMonoLength(time) - movingMonoLengthLeft(time);
@@ -92,4 +92,14 @@ Offset movingUpperMonoOffset (double time) =>
 
 Offset movingLowerMonoOffset (double time) =>
     lowerKnobCenter + Offset(- movingMonoHorizontalOffset(time), 0);
+
+// Changing lengths: color
+double movingColorLength (double time) =>
+    (1 - colorKnobProgress(time)) * stickLength;
+
+Offset movingUpperColorOffset (double time) =>
+    upperKnobCenter + Offset(stickLength / 2 - movingColorLength(time) / 2, 0);
+
+Offset movingLowerColorOffset (double time) =>
+    lowerKnobCenter + Offset(- stickLength / 2 + movingColorLength(time) / 2, 0);
 

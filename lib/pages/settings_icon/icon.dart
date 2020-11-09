@@ -120,6 +120,24 @@ class SettingsIconPainter extends CustomPainter {
     if (isTransitionPhase(time)) {
       paintStick(
         canvas: canvas,
+        center: _transform(movingUpperColorOffset(time)),
+        length: _size(movingColorLength(time)),
+        width: _size(stickWidth),
+        angle: 0,
+        paint: pinkPaint,
+      );
+
+      paintStick(
+        canvas: canvas,
+        center: _transform(movingLowerColorOffset(time)),
+        length: _size(movingColorLength(time)),
+        width: _size(stickWidth),
+        angle: 0,
+        paint: tealPaint,
+      );
+
+      paintStick(
+        canvas: canvas,
         center: _transform(movingUpperMonoOffset(time)),
         length: _size(movingMonoLength(time)),
         width: _size(knobDiameter),
