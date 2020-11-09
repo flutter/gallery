@@ -18,6 +18,7 @@ class MailPreviewCard extends StatelessWidget {
     @required this.email,
     @required this.onDelete,
     @required this.onStar,
+    @required this.isStarred,
     @required this.onStarredMailbox,
   })  : assert(id != null),
         assert(email != null),
@@ -27,6 +28,7 @@ class MailPreviewCard extends StatelessWidget {
   final Email email;
   final VoidCallback onDelete;
   final VoidCallback onStar;
+  final bool isStarred;
   final bool onStarredMailbox;
 
   @override
@@ -98,10 +100,10 @@ class MailPreviewCard extends StatelessWidget {
             },
             secondaryBackground: _DismissibleContainer(
               icon: 'twotone_star',
-              backgroundColor: email.isStarred
+              backgroundColor: isStarred
                   ? colorScheme.secondary
                   : theme.scaffoldBackgroundColor,
-              iconColor: email.isStarred
+              iconColor: isStarred
                   ? colorScheme.onSecondary
                   : colorScheme.onBackground,
               alignment: Alignment.centerRight,

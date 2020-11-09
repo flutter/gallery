@@ -89,6 +89,7 @@ class MailboxBody extends StatelessWidget {
                           return MailPreviewCard(
                             id: email.id,
                             email: email,
+                            isStarred: model.isEmailStarred(email.id),
                             onDelete: () => model.deleteEmail(email.id),
                             onStar: () => model.starEmail(email.id),
                             onStarredMailbox:

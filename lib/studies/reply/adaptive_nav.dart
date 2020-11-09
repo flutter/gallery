@@ -820,7 +820,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
         Color starIconColor;
 
         if (onMailView) {
-          starIconColor = model.currentEmail.isStarred
+          starIconColor = model.isCurrentEmailStarred
               ? Theme.of(context).colorScheme.secondary
               : ReplyColors.white50;
         }
@@ -852,7 +852,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
                           ),
                           onPressed: () {
                             final currentEmail = model.currentEmail;
-                            if (currentEmail.isStarred) {
+                            if (model.isCurrentEmailStarred) {
                               model.unstarEmail(currentEmail.id);
                             } else {
                               model.starEmail(currentEmail.id);

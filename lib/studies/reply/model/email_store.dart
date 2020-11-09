@@ -90,7 +90,6 @@ class EmailStore with ChangeNotifier {
       avatar: '$_avatarsLocation/avatar_4.jpg',
       recipients: 'Jeff',
       containsPictures: false,
-      isTrash: true,
     ),
     InboxEmail(
       id: 8,
@@ -103,7 +102,6 @@ class EmailStore with ChangeNotifier {
       avatar: '$_avatarsLocation/avatar_3.jpg',
       recipients: 'Jeff',
       containsPictures: false,
-      isTrash: true,
     ),
     InboxEmail(
       id: 9,
@@ -132,7 +130,6 @@ class EmailStore with ChangeNotifier {
       avatar: '$_avatarsLocation/avatar_7.jpg',
       recipients: 'Jeff',
       containsPictures: false,
-      mailboxType: MailboxType.outbox,
     ),
     Email(
       id: 11,
@@ -145,7 +142,6 @@ class EmailStore with ChangeNotifier {
       avatar: '$_avatarsLocation/avatar_2.jpg',
       recipients: 'Jeff',
       containsPictures: false,
-      mailboxType: MailboxType.outbox,
     ),
   ];
 
@@ -160,7 +156,6 @@ class EmailStore with ChangeNotifier {
       avatar: '$_avatarsLocation/avatar_2.jpg',
       recipients: 'Jeff',
       containsPictures: false,
-      mailboxType: MailboxType.draft,
     ),
   ];
 
@@ -173,65 +168,65 @@ class EmailStore with ChangeNotifier {
   List<Email> get inboxEmails {
     return _inbox.where((email) {
       if (email is InboxEmail) {
-        return email.inboxType == InboxType.normal && !email.isTrash;
+        return email.inboxType == InboxType.normal &&
+            !trashEmailIds.contains(email.id);
       }
       return false;
     }).toList();
-  }
-
-  List<Email> get starredEmails {
-    return _allEmails.where((email) => email.isStarred).toList();
   }
 
   List<Email> get spamEmails {
     return _inbox.where((email) {
       if (email is InboxEmail) {
-        return email.inboxType == InboxType.spam && !email.isTrash;
+        return email.inboxType == InboxType.spam &&
+            !trashEmailIds.contains(email.id);
       }
       return false;
     }).toList();
-  }
-
-  List<Email> get trashEmails {
-    return _allEmails.where((email) => email.isTrash).toList();
   }
 
   Email get currentEmail =>
       _allEmails.firstWhere((email) => email.id == _currentlySelectedEmailId);
 
   List<Email> get outboxEmails =>
-      _outbox.where((email) => !email.isTrash).toList();
+      _outbox.where((email) => !trashEmailIds.contains(email.id)).toList();
 
-  List<Email> get draftEmails => _drafts;
+  List<Email> get draftEmails =>
+      _drafts.where((email) => !trashEmailIds.contains(email.id)).toList();
 
-  void deleteEmail(int id) {
-    _allEmails.forEach((email) {
-      if (email.id == id) {
-        email.isTrash = true;
-      }
-    });
-    notifyListeners();
+  Set<int> starredEmailIds = {};
+  bool isEmailStarred(int id) =>
+      _allEmails.any((email) => email.id == id && starredEmailIds.contains(id));
+  bool get isCurrentEmailStarred => starredEmailIds.contains(currentEmail.id);
+
+  List<Email> get starredEmails {
+    return _allEmails
+        .where((email) => starredEmailIds.contains(email.id))
+        .toList();
   }
 
   void starEmail(int id) {
-    _allEmails.forEach((email) {
-      if (email.id == id) {
-        email.isStarred = true;
-      }
-    });
+    starredEmailIds.add(id);
     notifyListeners();
   }
 
   void unstarEmail(int id) {
-    _allEmails.forEach((email) {
-      if (email.id == id) {
-        email.isStarred = false;
-      }
-    });
+    starredEmailIds.remove(id);
     notifyListeners();
   }
 
-  bool isEmailStarred(int id) => _allEmails.any((email) => email.id == id);
+  final Set<int> trashEmailIds = {7, 8};
+
+  List<Email> get trashEmails {
+    return _allEmails
+        .where((email) => trashEmailIds.contains(email.id))
+        .toList();
+  }
+
+  void deleteEmail(int id) {
+    trashEmailIds.add(id);
+    notifyListeners();
+  }
 
   int _currentlySelectedEmailId = -1;
   int get currentlySelectedEmailId => _currentlySelectedEmailId;
