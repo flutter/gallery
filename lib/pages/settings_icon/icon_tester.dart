@@ -20,13 +20,25 @@ class _IconDisplayerState extends State<IconDisplayer>{
       home: Scaffold(
         body: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.pink, width: 2),
-              ),
-              width: 600,
-              height: 600,
-              child: SettingsIcon(_time),
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.pink, width: 2),
+                  ),
+                  width: 600,
+                  height: 600,
+                  child: SettingsIcon(_time),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.pink, width: 2),
+                  ),
+                  width: 600,
+                  height: 600,
+                  child: SettingsIcon(_time),
+                ),
+              ],
             ),
             Slider(
                 min: 0,
