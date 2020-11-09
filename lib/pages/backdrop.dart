@@ -263,7 +263,7 @@ class _BackdropState extends State<Backdrop>
             ),
           ],
           _SettingsIcon(
-            animationController: _settingsPanelController,
+            animationController: _iconController,
             toggleSettings: _toggleSettings,
             flareController: this,
             isSettingsOpenNotifier: _isSettingsOpenNotifier,
