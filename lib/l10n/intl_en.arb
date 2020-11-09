@@ -1177,6 +1177,30 @@
   "@demoCupertinoButtonsDescription": {
     "description": "Description for the cupertino buttons component demo."
   },
+  "demoCupertinoContextMenuTitle": "Context Menu",
+  "@demoCupertinoContextMenuTitle": {
+    "description": "Title for the cupertino context menu component demo."
+  },
+  "demoCupertinoContextMenuSubtitle": "iOS-style context menu",
+  "@demoCupertinoContextMenuSubtitle": {
+    "description": "Subtitle for the cupertino context menu component demo."
+  },
+  "demoCupertinoContextMenuDescription": "An iOS-style full screen contextual menu that appears when an element is long-pressed.",
+  "@demoCupertinoContextMenuDescription": {
+    "description": "Description for the cupertino context menu component demo."
+  },
+  "demoCupertinoContextMenuActionOne": "Action one",
+  "@demoCupertinoContextMenuActionOne": {
+    "description": "Context menu list item one"
+  },
+  "demoCupertinoContextMenuActionTwo": "Action two",
+  "@demoCupertinoContextMenuActionTwo": {
+    "description": "Context menu list item two"
+  },
+  "demoCupertinoContextMenuActionText": "Tap and hold the Flutter logo to see the context menu.",
+  "@demoCupertinoContextMenuActionText": {
+    "description": "Context menu text."
+  },
   "demoCupertinoAlertsTitle": "Alerts",
   "@demoCupertinoAlertsTitle": {
     "description": "Title for the cupertino alerts component demo."

@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ import 'package:gallery/data/icons.dart';
 import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_context_menu_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_picker_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
@@ -845,6 +845,23 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
               '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
           buildRoute: (_) => const CupertinoButtonDemo(),
           code: CodeSegments.cupertinoButtonDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.cupertino,
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoContextMenuTitle,
+      icon: GalleryIcons.moreVert,
+      slug: 'cupertino-context-menu',
+      subtitle: localizations.demoCupertinoContextMenuSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoContextMenuTitle,
+          description: localizations.demoCupertinoContextMenuDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoContextMenu-class.html',
+          buildRoute: (_) => const CupertinoContextMenuDemo(),
+          code: CodeSegments.cupertinoContextMenuDemo,
         ),
       ],
       category: GalleryDemoCategory.cupertino,

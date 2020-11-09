@@ -1078,6 +1078,30 @@
     description="Description for the cupertino buttons component demo."
     >An iOS-style button. It takes in text and/or an icon that fades out and in on touch. May optionally have a background.</string>
   <string
+    name="demoCupertinoContextMenuTitle"
+    description="Title for the cupertino context menu component demo."
+    >Context Menu</string>
+  <string
+    name="demoCupertinoContextMenuSubtitle"
+    description="Subtitle for the cupertino context menu component demo."
+    >iOS-style context menu</string>
+  <string
+    name="demoCupertinoContextMenuDescription"
+    description="Description for the cupertino context menu component demo."
+    >An iOS-style full screen contextual menu that appears when an element is long-pressed.</string>
+  <string
+    name="demoCupertinoContextMenuActionOne"
+    description="Context menu list item one"
+    >Action one</string>
+  <string
+    name="demoCupertinoContextMenuActionTwo"
+    description="Context menu list item two"
+    >Action two</string>
+  <string
+    name="demoCupertinoContextMenuActionText"
+    description="Context menu text."
+    >Tap and hold the Flutter logo to see the context menu.</string>
+  <string
     name="demoCupertinoAlertsTitle"
     description="Title for the cupertino alerts component demo."
     >Alerts</string>
