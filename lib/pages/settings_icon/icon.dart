@@ -13,9 +13,9 @@ void debug(String x) {
 
 class SettingsIcon extends StatelessWidget {
   const SettingsIcon(this.time);
-  
+
   final double time;
-  
+
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
