@@ -38,7 +38,7 @@ class _IconDisplayerState extends State<IconDisplayer>{
               ),
               width: 600,
               height: 600,
-              child: AspectRatio(aspectRatio: 3/2, child: SettingsIcon(_time)),
+              child: SettingsIcon(_time),
             ),
             Slider(
               min: 0,
