@@ -28,7 +28,7 @@ const upperKnobCenter = Offset(0, - knobDistanceFromCenter);
 
 const knobDeviation = stickLength / 2 - stickRadius;
 
-// Durations.
+// Key moments in animation.
 const colorKnobContractionBegins = 1/23;
 const monoKnobExpansionEnds = 11/23;
 const colorKnobContractionEnds = 14/23;
@@ -71,7 +71,7 @@ Offset knobCenter (double time) {
   }
 }
 
-// Changing lengths: mono
+// Changing lengths: mono.
 double monoLength (double time) =>
     monoKnobProgress(time) * (stickLength - knobDiameter) + knobDiameter;
 
@@ -91,7 +91,7 @@ Offset movingUpperMonoOffset (double time) =>
 Offset movingLowerMonoOffset (double time) =>
     lowerKnobCenter + Offset(- monoHorizontalOffset(time), 0);
 
-// Changing lengths: color
+// Changing lengths: color.
 double colorLength (double time) =>
     (1 - colorKnobProgress(time)) * stickLength;
 
