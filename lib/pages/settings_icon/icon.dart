@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 void debug(String x) {
-
+  print(x);
 }
 
 void main(){
@@ -46,9 +46,10 @@ class _IconDisplayerState extends State<IconDisplayer>{
               value: _time * 100,
               divisions: 100,
               onChanged: (double value) {
-                debug ('value changed to $value');
-                _time = value / 100;
-                //setState(() {_time = value;});
+                setState( () {
+                  debug('value changed to $value');
+                  _time = value / 100;
+                });
               }
             ),
           ],
@@ -80,11 +81,15 @@ class SettingsIconPainter extends CustomPainter {
 
   @override
   void paint (Canvas canvas, Size size) {
+    debug ('repainted at $size $time');
     canvas.drawCircle(Offset(time * 50, 0), 30, Paint()..color = Colors.blue);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) =>
-      oldDelegate is! SettingsIconPainter
-      || (oldDelegate as SettingsIconPainter).time != time;
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    final ans = oldDelegate is! SettingsIconPainter
+        || (oldDelegate as SettingsIconPainter).time != time;
+    debug ('shouldrepaint: $ans');
+    return ans;
+  }
 }
