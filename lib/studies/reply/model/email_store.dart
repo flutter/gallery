@@ -215,8 +215,7 @@ class EmailStore with ChangeNotifier {
     notifyListeners();
   }
 
-  final Set<int> trashEmailIds = {7, 8};
-
+  Set<int> trashEmailIds = {7, 8};
   List<Email> get trashEmails {
     return _allEmails
         .where((email) => trashEmailIds.contains(email.id))

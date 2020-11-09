@@ -13,7 +13,6 @@ import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/mailbox_body.dart';
-import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 import 'package:gallery/studies/reply/search_page.dart';
