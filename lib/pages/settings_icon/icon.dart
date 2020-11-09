@@ -100,23 +100,47 @@ class SettingsIconPainter extends CustomPainter {
 
     debug ('repainted at $size $time');
 
-    paintStick(
-      canvas: canvas,
-      center: _transform(upperKnobCenter),
-      length: _size(stickLength),
-      width: _size(stickWidth),
-      angle: knobRotation(time),
-      paint: Paint()..color = Colors.pink,
-    );
+    if (isTransitionPhase(time)) {
+      paintStick(
+        canvas: canvas,
+        center: _transform(movingUpperMonoOffset(time)),
+        length: _size(movingMonoLength(time)),
+        width: _size(knobDiameter),
+        angle: 0,
+        paint: Paint()
+          ..color = Colors.pink,
+      );
 
-    paintStick(
-      canvas: canvas,
-      center: _transform(movingKnobCenter(time)),
-      length: _size(stickLength),
-      width: _size(stickWidth),
-      angle: - knobRotation(time),
-      paint: Paint()..color = Colors.teal,
-    );
+      paintStick(
+        canvas: canvas,
+        center: _transform(movingLowerMonoOffset(time)),
+        length: _size(movingMonoLength(time)),
+        width: _size(knobDiameter),
+        angle: 0,
+        paint: Paint()
+          ..color = Colors.teal,
+      );
+    } else {
+      paintStick(
+        canvas: canvas,
+        center: _transform(upperKnobCenter),
+        length: _size(stickLength),
+        width: _size(knobDiameter),
+        angle: knobRotation(time),
+        paint: Paint()
+          ..color = Colors.pink,
+      );
+
+      paintStick(
+        canvas: canvas,
+        center: _transform(movingKnobCenter(time)),
+        length: _size(stickLength),
+        width: _size(knobDiameter),
+        angle: -knobRotation(time),
+        paint: Paint()
+          ..color = Colors.teal,
+      );
+    }
   }
 
   @override
