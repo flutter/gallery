@@ -15,6 +15,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/pages/settings.dart';
+import 'settings_icon/icon.dart' as settings_icon;
 
 const double _settingsButtonWidth = 64;
 const double _settingsButtonHeightDesktop = 56;
@@ -324,16 +325,7 @@ class _SettingsIcon extends AnimatedWidget {
               },
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(start: 3, end: 18),
-                child: FlareActor(
-                  Theme.of(context).colorScheme.brightness == Brightness.light
-                      ? 'packages/flutter_gallery_assets/assets/icons/settings/settings_light.flr'
-                      : 'packages/flutter_gallery_assets/assets/icons/settings/settings_dark.flr',
-                  alignment: Directionality.of(context) == TextDirection.ltr
-                      ? Alignment.bottomLeft
-                      : Alignment.bottomRight,
-                  fit: BoxFit.contain,
-                  controller: flareController,
-                ),
+                child: settings_icon.SettingsIcon(animationController.value),
               ),
             ),
           ),
