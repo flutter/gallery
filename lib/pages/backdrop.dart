@@ -35,8 +35,9 @@ class Backdrop extends StatefulWidget {
 }
 
 class _BackdropState extends State<Backdrop>
-    with SingleTickerProviderStateMixin, FlareController {
+    with TickerProviderStateMixin, FlareController {
   AnimationController _settingsPanelController;
+  AnimationController _iconController;
   FocusNode _settingsPageFocusNode;
   ValueNotifier<bool> _isSettingsOpenNotifier;
   Widget _settingsPage;
@@ -52,6 +53,10 @@ class _BackdropState extends State<Backdrop>
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
+    _iconController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
     _settingsPageFocusNode = FocusNode();
     _isSettingsOpenNotifier = ValueNotifier(false);
     _settingsPage = widget.settingsPage ??
@@ -64,6 +69,7 @@ class _BackdropState extends State<Backdrop>
   @override
   void dispose() {
     _settingsPanelController.dispose();
+    _iconController.dispose();
     _settingsPageFocusNode.dispose();
     _isSettingsOpenNotifier.dispose();
     super.dispose();
@@ -107,7 +113,11 @@ class _BackdropState extends State<Backdrop>
     initAnimationLayer();
     // Animate the settings panel to open or close.
     _settingsPanelController.fling(
-        velocity: _isSettingsOpenNotifier.value ? -1 : 1);
+      velocity: _isSettingsOpenNotifier.value ? -1 : 1,
+    );
+    _iconController.fling(
+      velocity: _isSettingsOpenNotifier.value ? -1 : 1,
+    );
     _isSettingsOpenNotifier.value = !_isSettingsOpenNotifier.value;
     isActive.value = true;
   }
