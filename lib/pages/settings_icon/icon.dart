@@ -20,13 +20,13 @@ class SettingsIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: SettingsIconPainter(time: time, context: context),
+      painter: _SettingsIconPainter(time: time, context: context),
     );
   }
 }
 
-class SettingsIconPainter extends CustomPainter {
-  SettingsIconPainter({@required this.time, @required this.context});
+class _SettingsIconPainter extends CustomPainter {
+  _SettingsIconPainter({@required this.time, @required this.context});
 
   final double time;
   final BuildContext context;
@@ -139,8 +139,8 @@ class SettingsIconPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    final ans = oldDelegate is! SettingsIconPainter
-        || (oldDelegate as SettingsIconPainter).time != time;
+    final ans = oldDelegate is! _SettingsIconPainter
+        || (oldDelegate as _SettingsIconPainter).time != time;
     debug ('shouldrepaint: $ans');
     return ans;
   }
