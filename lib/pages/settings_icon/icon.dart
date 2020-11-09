@@ -10,6 +10,7 @@ import 'package:flare_flutter/flare_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gallery/pages/settings_icon/metrics.dart';
+import 'metrics.dart';
 
 void debug(String x) {
   print(x);
@@ -102,7 +103,11 @@ class SettingsIconPainter extends CustomPainter {
     _computeCenterAndScaling(size);
 
     debug ('repainted at $size $time');
-    canvas.drawCircle(_transform(Offset(0, 0)), _size(5/9), Paint()..color = Colors.blue);
+
+    final paint = Paint()..color = Colors.blue;
+
+    canvas.drawCircle(_transform(upperKnobCenter), _size(stickWidth/2), paint);
+    canvas.drawCircle(_transform(movingKnobCenter(time)), _size(stickWidth/2), paint);
   }
 
   @override
