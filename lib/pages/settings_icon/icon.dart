@@ -66,9 +66,25 @@ class SettingsIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, _unusedWidget) => CustomPaint(
-      painter: SettingsIconPainter(time: time),
+      painter: SettingsIconPainter(time),
       size: Size(100, 100),
       child: Container(width: 100, height: 100),
     ));
   }
+}
+
+class SettingsIconPainter extends CustomPainter {
+  const SettingsIconPainter(this.time);
+
+  final double time;
+
+  @override
+  void paint (Canvas canvas, Size size) {
+    canvas.drawCircle(Offset(time * 50, 0), 30, Paint()..color = Colors.blue);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) =>
+      oldDelegate is! SettingsIconPainter
+      || (oldDelegate as SettingsIconPainter).time != time;
 }
