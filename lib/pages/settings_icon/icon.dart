@@ -38,7 +38,7 @@ class _IconDisplayerState extends State<IconDisplayer>{
               ),
               width: 600,
               height: 600,
-              child: SettingsIcon(_time),
+              child: AspectRatio(aspectRatio: 3/2, child: SettingsIcon(_time)),
             ),
             Slider(
               min: 0,
@@ -66,11 +66,9 @@ class SettingsIcon extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, _unusedWidget) => CustomPaint(
+    return CustomPaint(
       painter: SettingsIconPainter(time),
-      size: Size(100, 100),
-      child: Container(width: 100, height: 100),
-    ));
+    );
   }
 }
 
