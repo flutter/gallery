@@ -26,7 +26,9 @@ class MailboxBody extends StatelessWidget {
     return Consumer<EmailStore>(
       builder: (context, model, child) {
         final destination = model.selectedMailboxPage;
-        final destinationString = destination.toString().substring(destination.toString().indexOf('.') + 1);
+        final destinationString = destination
+            .toString()
+            .substring(destination.toString().indexOf('.') + 1);
         List<Email> emails;
 
         switch (destination) {
