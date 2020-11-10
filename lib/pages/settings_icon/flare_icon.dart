@@ -65,7 +65,7 @@ class _FlareDisplayerState extends State<FlareDisplayer> with FlareController{
               width: 600,
               height: 600,
               child: FlareActor(
-                'packages/flutter_gallery_assets/assets/icons/settings/settings_dark.flr',
+                'packages/flutter_gallery_assets/assets/icons/settings/settings_light.flr',
                 fit: BoxFit.fill,
                 controller: this,
               ),
