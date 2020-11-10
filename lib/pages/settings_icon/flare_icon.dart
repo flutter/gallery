@@ -9,15 +9,13 @@ import 'package:flare_flutter/flare_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-void debug(String x) {
-
-}
-
 void main(){
   runApp(MaterialApp(home: Scaffold(body: IconDisplayer())));
 }
 
 class IconDisplayer extends StatefulWidget {
+  ValueChanged<double> callback;
+
   @override
   _IconDisplayerState createState() => _IconDisplayerState();
 }
@@ -28,19 +26,27 @@ class _IconDisplayerState extends State<IconDisplayer> with FlareController{
   double _time = 0.0;
 
   @override
+  void initState() {
+    widget.callback = (double time) {
+      setState(() {_time = time;});
+    };
+    super.initState();
+  }
+
+  @override
   void setViewTransform(Mat2D viewTransform) {}
 
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
-    debug('running advance $artboard $elapsed');
-    debug('_time = $_time');
+    print('running advance $artboard $elapsed');
+    print('_time = $_time');
     _icon.apply(_time, artboard, 1);
     return true;
   }
 
   @override
   void initialize(FlutterActorArtboard artboard) {
-    debug('initializing $artboard');
+    print('initializing $artboard');
     _icon = artboard.getAnimation('Animations');
   }
 
@@ -61,17 +67,6 @@ class _IconDisplayerState extends State<IconDisplayer> with FlareController{
                 fit: BoxFit.fill,
                 controller: this,
               ),
-            ),
-            Slider(
-              min: 0,
-              max: 100,
-              value: _time * 100,
-              divisions: 100,
-              onChanged: (double value) {
-                debug ('value changed to $value');
-                _time = value / 100;
-                //setState(() {_time = value;});
-              }
             ),
           ],
         ),
