@@ -8,7 +8,7 @@ import 'package:gallery/studies/reply/search_page.dart';
 
 void main() {
   testWidgets(
-    'Restoration test - Reply',
+    'State restoration test - Reply Study',
     (tester) async {
       await tester.pumpWidget(const GalleryApp());
       // Let the splash page animations complete.
