@@ -10,17 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 void main(){
-  runApp(MaterialApp(home: Scaffold(body: IconDisplayer())));
+  runApp(MaterialApp(home: Scaffold(body: FlareDisplayer())));
 }
 
-class IconDisplayer extends StatefulWidget {
+class FlareDisplayer extends StatefulWidget {
   List<ValueChanged<double>> callbacks;
 
   @override
-  _IconDisplayerState createState() => _IconDisplayerState();
+  _FlareDisplayerState createState() => _FlareDisplayerState();
 }
 
-class _IconDisplayerState extends State<IconDisplayer> with FlareController{
+class _FlareDisplayerState extends State<FlareDisplayer> with FlareController{
   ActorAnimation _icon;
 
   double _time = 0.0;
