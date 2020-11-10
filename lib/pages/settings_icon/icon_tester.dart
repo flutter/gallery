@@ -47,7 +47,7 @@ class _IconDisplayerState extends State<IconDisplayer>{
                 divisions: 100,
                 onChanged: (double value) {
                   setState( () {
-                    debug('value changed to $value');
+                    print('value changed to $value');
                     _time = value / 100;
                   });
                 }
