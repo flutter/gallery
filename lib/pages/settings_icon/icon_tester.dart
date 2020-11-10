@@ -52,6 +52,7 @@ class _IconDisplayerState extends State<IconDisplayer>{
                   setState( () {
                     print('value changed to $value');
                     _time = value / 100;
+                    callbacks.single.call(_time);
                   });
                 }
             ),
