@@ -754,6 +754,7 @@ class _AnimatedBottomAppBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
+                      key: const ValueKey('navigation_button'),
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       onTap: toggleBottomDrawerVisibility,
                       child: Row(
@@ -850,6 +851,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
+                          key: const ValueKey('star_email_button'),
                           icon: ImageIcon(
                             const AssetImage(
                               '$_iconAssetLocation/twotone_star.png',
