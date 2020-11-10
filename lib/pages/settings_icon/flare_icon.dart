@@ -14,7 +14,7 @@ void main(){
 }
 
 class IconDisplayer extends StatefulWidget {
-  ValueChanged<double> callback;
+  List<ValueChanged<double>> callbacks;
 
   @override
   _IconDisplayerState createState() => _IconDisplayerState();
@@ -27,9 +27,9 @@ class _IconDisplayerState extends State<IconDisplayer> with FlareController{
 
   @override
   void initState() {
-    widget.callback = (double time) {
+    widget.callbacks.add ((double time) {
       setState(() {_time = time;});
-    };
+    });
     super.initState();
   }
 

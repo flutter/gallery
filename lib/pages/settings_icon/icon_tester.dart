@@ -14,6 +14,8 @@ class IconDisplayer extends StatefulWidget {
 class _IconDisplayerState extends State<IconDisplayer>{
   double _time = 0;
 
+  final callbacks = <ValueChanged<double>>[];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
