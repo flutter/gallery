@@ -186,7 +186,7 @@ class EmailStore with ChangeNotifier {
   }
 
   Email get currentEmail =>
-      _allEmails.firstWhere((email) => email.id == _currentlySelectedEmailId);
+      _allEmails.firstWhere((email) => email.id == _selectedEmailId);
 
   List<Email> get outboxEmails =>
       _outbox.where((email) => !trashEmailIds.contains(email.id)).toList();
@@ -227,21 +227,19 @@ class EmailStore with ChangeNotifier {
     notifyListeners();
   }
 
-  int _currentlySelectedEmailId = -1;
-  int get currentlySelectedEmailId => _currentlySelectedEmailId;
-  set currentlySelectedEmailId(int value) {
-    _currentlySelectedEmailId = value;
+  int _selectedEmailId = -1;
+  int get selectedEmailId => _selectedEmailId;
+  set selectedEmailId(int value) {
+    _selectedEmailId = value;
     notifyListeners();
   }
 
-  bool get onMailView => _currentlySelectedEmailId > -1;
+  bool get onMailView => _selectedEmailId > -1;
 
-  String _currentlySelectedMailboxPage = 'inbox';
-  String get currentlySelectedMailboxPage => _currentlySelectedMailboxPage;
-  set currentlySelectedMailboxPage(String mailboxPage) {
-    if (mailboxPage.contains(mailboxPage)) {
-      _currentlySelectedMailboxPage = mailboxPage;
-    }
+  MailboxPageType _selectedMailboxPage = MailboxPageType.inbox;
+  MailboxPageType get selectedMailboxPage => _selectedMailboxPage;
+  set selectedMailboxPage(MailboxPageType mailboxPage) {
+    _selectedMailboxPage = mailboxPage;
     notifyListeners();
   }
 

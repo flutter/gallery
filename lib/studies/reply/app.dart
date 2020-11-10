@@ -6,6 +6,7 @@ import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
+import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -113,12 +114,12 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
   EmailStore fromPrimitives(Object data) {
     final appState = EmailStore();
     final appData = Map<String, dynamic>.from(data as Map);
-
-    appState.currentlySelectedEmailId =
-        appData['currentlySelectedEmailId'] as int;
-    appState.currentlySelectedMailboxPage =
-        appData['currentlySelectedMailboxPage'] as String;
+    appState.selectedEmailId = appData['selectedEmailId'] as int;
     appState.onSearchPage = appData['onSearchPage'] as bool;
+
+    // The index of the MailboxPageType enum is restored.
+    final mailboxPageIndex = appData['selectedMailboxPage'] as int;
+    appState.selectedMailboxPage = MailboxPageType.values[mailboxPageIndex];
 
     final starredEmailIdsList = appData['starredEmailIds'] as List<dynamic>;
     appState.starredEmailIds = {
@@ -134,8 +135,10 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
   @override
   Object toPrimitives() {
     return <String, dynamic>{
-      'currentlySelectedEmailId': value.currentlySelectedEmailId,
-      'currentlySelectedMailboxPage': value.currentlySelectedMailboxPage,
+      'selectedEmailId': value.selectedEmailId,
+      // The index of the MailboxPageType enum is stored, since the value
+      // has to be serializable.
+      'selectedMailboxPage': value.selectedMailboxPage.index,
       'onSearchPage': value.onSearchPage,
       'starredEmailIds': value.starredEmailIds.toList(),
       'trashEmailIds': value.trashEmailIds.toList(),

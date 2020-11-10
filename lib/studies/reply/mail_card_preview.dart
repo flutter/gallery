@@ -189,7 +189,7 @@ class _MailPreview extends StatelessWidget {
         Provider.of<EmailStore>(
           context,
           listen: false,
-        ).currentlySelectedEmailId = id;
+        ).selectedEmailId = id;
         onTap();
       },
       child: LayoutBuilder(

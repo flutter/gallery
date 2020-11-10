@@ -25,36 +25,37 @@ class MailboxBody extends StatelessWidget {
 
     return Consumer<EmailStore>(
       builder: (context, model, child) {
-        final destination = model.currentlySelectedMailboxPage;
+        final destination = model.selectedMailboxPage;
+        final destinationString = destination.toString().substring(destination.toString().indexOf('.') + 1);
         List<Email> emails;
 
         switch (destination) {
-          case 'inbox':
+          case MailboxPageType.inbox:
             {
               emails = model.inboxEmails;
               break;
             }
-          case 'sent':
+          case MailboxPageType.sent:
             {
               emails = model.outboxEmails;
               break;
             }
-          case 'starred':
+          case MailboxPageType.starred:
             {
               emails = model.starredEmails;
               break;
             }
-          case 'trash':
+          case MailboxPageType.trash:
             {
               emails = model.trashEmails;
               break;
             }
-          case 'spam':
+          case MailboxPageType.spam:
             {
               emails = model.spamEmails;
               break;
             }
-          case 'drafts':
+          case MailboxPageType.drafts:
             {
               emails = model.draftEmails;
               break;
@@ -68,11 +69,7 @@ class MailboxBody extends StatelessWidget {
             children: [
               Expanded(
                 child: emails.isEmpty
-                    ? Center(
-                        child: Text(
-                          'Empty in ${destination.toLowerCase()}',
-                        ),
-                      )
+                    ? Center(child: Text('Empty in $destinationString'))
                     : ListView.separated(
                         itemCount: emails.length,
                         padding: EdgeInsetsDirectional.only(
@@ -92,8 +89,8 @@ class MailboxBody extends StatelessWidget {
                             isStarred: model.isEmailStarred(email.id),
                             onDelete: () => model.deleteEmail(email.id),
                             onStar: () => model.starEmail(email.id),
-                            onStarredMailbox:
-                                model.currentlySelectedMailboxPage == 'starred',
+                            onStarredMailbox: model.selectedMailboxPage ==
+                                MailboxPageType.starred,
                           );
                         },
                       ),

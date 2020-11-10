@@ -13,6 +13,7 @@ import 'package:gallery/studies/reply/bottom_drawer.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/mailbox_body.dart';
+import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:gallery/studies/reply/profile_avatar.dart';
 import 'package:gallery/studies/reply/search_page.dart';
@@ -49,32 +50,32 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     final localizations = GalleryLocalizations.of(context);
     final _navigationDestinations = <_Destination>[
       _Destination(
-        type: 'inbox',
+        type: MailboxPageType.inbox,
         textLabel: localizations.replyInboxLabel,
         icon: '$_iconAssetLocation/twotone_inbox.png',
       ),
       _Destination(
-        type: 'starred',
+        type: MailboxPageType.starred,
         textLabel: localizations.replyStarredLabel,
         icon: '$_iconAssetLocation/twotone_star.png',
       ),
       _Destination(
-        type: 'sent',
+        type: MailboxPageType.sent,
         textLabel: localizations.replySentLabel,
         icon: '$_iconAssetLocation/twotone_send.png',
       ),
       _Destination(
-        type: 'trash',
+        type: MailboxPageType.trash,
         textLabel: localizations.replyTrashLabel,
         icon: '$_iconAssetLocation/twotone_delete.png',
       ),
       _Destination(
-        type: 'spam',
+        type: MailboxPageType.spam,
         textLabel: localizations.replySpamLabel,
         icon: '$_iconAssetLocation/twotone_error.png',
       ),
       _Destination(
-        type: 'drafts',
+        type: MailboxPageType.drafts,
         textLabel: localizations.replyDraftsLabel,
         icon: '$_iconAssetLocation/twotone_drafts.png',
       ),
@@ -107,7 +108,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     }
   }
 
-  void _onDestinationSelected(int index, String destination) {
+  void _onDestinationSelected(int index, MailboxPageType destination) {
     var emailStore = Provider.of<EmailStore>(
       context,
       listen: false,
@@ -115,11 +116,11 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
     final isDesktop = isDisplayDesktop(context);
 
-    if (emailStore.currentlySelectedMailboxPage != destination) {
+    if (emailStore.selectedMailboxPage != destination) {
       _inboxKey = UniqueKey();
     }
 
-    emailStore.currentlySelectedMailboxPage = destination;
+    emailStore.selectedMailboxPage = destination;
 
     if (isDesktop) {
       while (desktopMailNavKey.currentState.canPop()) {
@@ -132,7 +133,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
         mobileMailNavKey.currentState.pop();
       }
 
-      emailStore.currentlySelectedEmailId = -1;
+      emailStore.selectedEmailId = -1;
     }
   }
 }
@@ -153,7 +154,7 @@ class _DesktopNav extends StatefulWidget {
   final String currentInbox;
   final List<_Destination> destinations;
   final Map<String, String> folders;
-  final void Function(int, String) onItemTapped;
+  final void Function(int, MailboxPageType) onItemTapped;
 
   @override
   _DesktopNavState createState() => _DesktopNavState();
@@ -180,8 +181,7 @@ class _DesktopNavState extends State<_DesktopNav>
                 builder: (context, constraints) {
                   final selectedIndex =
                       widget.destinations.indexWhere((destination) {
-                    return destination.type ==
-                        model.currentlySelectedMailboxPage;
+                    return destination.type == model.selectedMailboxPage;
                   });
                   return Container(
                     color:
@@ -460,7 +460,7 @@ class _MobileNav extends StatefulWidget {
   final UniqueKey inboxKey;
   final List<_Destination> destinations;
   final Map<String, String> folders;
-  final void Function(int, String) onItemTapped;
+  final void Function(int, MailboxPageType) onItemTapped;
 
   @override
   _MobileNavState createState() => _MobileNavState();
@@ -659,7 +659,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                     destinations: widget.destinations,
                     drawerController: _drawerController,
                     dropArrowController: _dropArrowController,
-                    selectedMailbox: model.currentlySelectedMailboxPage,
+                    selectedMailbox: model.selectedMailboxPage,
                     onItemTapped: widget.onItemTapped,
                   );
                 },
@@ -689,7 +689,7 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
               drawerController: _drawerController,
               dropArrowCurve: _dropArrowCurve,
               navigationDestinations: widget.destinations,
-              selectedMailbox: model.currentlySelectedMailboxPage,
+              selectedMailbox: model.selectedMailboxPage,
               toggleBottomDrawerVisibility: _toggleBottomDrawerVisibility,
             );
           },
@@ -724,7 +724,7 @@ class _AnimatedBottomAppBar extends StatelessWidget {
   final AnimationController drawerController;
   final Animation<double> dropArrowCurve;
   final List<_Destination> navigationDestinations;
-  final String selectedMailbox;
+  final MailboxPageType selectedMailbox;
   final ui.VoidCallback toggleBottomDrawerVisibility;
 
   @override
@@ -864,10 +864,10 @@ class _BottomAppBarActionItems extends StatelessWidget {
                             } else {
                               model.starEmail(currentEmail.id);
                             }
-                            if (model.currentlySelectedMailboxPage ==
-                                'starred') {
+                            if (model.selectedMailboxPage ==
+                                MailboxPageType.starred) {
                               mobileMailNavKey.currentState.pop();
-                              model.currentlySelectedEmailId = -1;
+                              model.selectedEmailId = -1;
                             }
                           },
                           color: ReplyColors.white50,
@@ -881,11 +881,11 @@ class _BottomAppBarActionItems extends StatelessWidget {
                           ),
                           onPressed: () {
                             model.deleteEmail(
-                              model.currentlySelectedEmailId,
+                              model.selectedEmailId,
                             );
 
                             mobileMailNavKey.currentState.pop();
-                            model.currentlySelectedEmailId = -1;
+                            model.selectedEmailId = -1;
                           },
                           color: ReplyColors.white50,
                         ),
@@ -932,8 +932,8 @@ class _BottomDrawerDestinations extends StatelessWidget {
   final List<_Destination> destinations;
   final AnimationController drawerController;
   final AnimationController dropArrowController;
-  final String selectedMailbox;
-  final void Function(int, String) onItemTapped;
+  final MailboxPageType selectedMailbox;
+  final void Function(int, MailboxPageType) onItemTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -999,7 +999,7 @@ class _Destination {
         assert(icon != null);
 
   // Which mailbox page to display. For example, 'Starred' or 'Trash'.
-  final String type;
+  final MailboxPageType type;
   // The localized text label for the inbox.
   final String textLabel;
   // The icon that appears next to the text label for the inbox.

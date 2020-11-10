@@ -45,17 +45,15 @@ class InboxEmail extends Email {
   InboxType inboxType;
 }
 
-// A set of the different mailbox pages that the Reply app
-// contains. An enum would be preferable, but only primitives
-// values are state restorable.
-const Set<String> mailboxPage = {
-  'inbox',
-  'starred',
-  'sent',
-  'trash',
-  'spam',
-  'drafts',
-};
+// The different mailbox pages that the Reply app contains.
+enum MailboxPageType {
+  inbox,
+  starred,
+  sent,
+  trash,
+  spam,
+  drafts,
+}
 
 // Different types of mail that can be sent to the inbox.
 enum InboxType {
