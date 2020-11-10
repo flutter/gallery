@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'icon.dart';
+import 'flare_icon.dart';
 
 void main(){
   runApp(MaterialApp(home: Scaffold(body: IconDisplayer())));
@@ -30,7 +31,7 @@ class _IconDisplayerState extends State<IconDisplayer>{
                   ),
                   width: 600,
                   height: 600,
-                  child: SettingsIcon(_time),
+                  child: FlareDisplayer(callbacks: callbacks),
                 ),
                 Container(
                   decoration: BoxDecoration(

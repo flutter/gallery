@@ -14,6 +14,8 @@ void main(){
 }
 
 class FlareDisplayer extends StatefulWidget {
+  FlareDisplayer({@required this.callbacks});
+
   List<ValueChanged<double>> callbacks;
 
   @override
