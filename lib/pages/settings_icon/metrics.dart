@@ -6,7 +6,7 @@ import 'dart:math';
 import 'package:flutter/animation.dart' show Curves;
 import 'package:flutter/material.dart';
 
-// Color gradient.
+// Color gradients.
 const pinkLeft = Color(0xFFFF5983);
 const pinkRight = Color(0xFFFF8383);
 
