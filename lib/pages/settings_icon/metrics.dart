@@ -79,7 +79,7 @@ Offset knobCenter (double time) {
   } else if (progress == 1) {
     return upperKnobCenter;
   } else {
-    // Calculate the current location.
+    // Calculates the current location.
     final center = Offset(knobDistanceFromCenter / tan(pi / 8), 0);
     final radius = (lowerKnobCenter - center).distance;
     final angle = pi + (progress - 1/2) * pi/4;
