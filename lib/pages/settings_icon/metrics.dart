@@ -104,10 +104,10 @@ double _monoLengthRight (double time) =>
 double _monoHorizontalOffset (double time) =>
     (_monoLengthRight(time) - _monoLengthLeft(time)) / 2 - knobDeviation;
 
-Offset movingUpperMonoOffset (double time) =>
+Offset upperMonoOffset (double time) =>
     upperKnobCenter + Offset(_monoHorizontalOffset(time), 0);
 
-Offset movingLowerMonoOffset (double time) =>
+Offset lowerMonoOffset (double time) =>
     lowerKnobCenter + Offset(- _monoHorizontalOffset(time), 0);
 
 // Changing lengths: color.

@@ -150,14 +150,14 @@ class _SettingsIconPainter extends CustomPainter {
       );
 
       _paintStick(
-        center: movingUpperMonoOffset(time),
+        center: upperMonoOffset(time),
         length: monoLength(time),
         width: knobDiameter,
         paint: _monoPaint,
       );
 
       _paintStick(
-        center: movingLowerMonoOffset(time),
+        center: lowerMonoOffset(time),
         length: monoLength(time),
         width: knobDiameter,
         paint: _monoPaint,
