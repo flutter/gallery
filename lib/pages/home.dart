@@ -1023,7 +1023,7 @@ class _CarouselCard extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(studyRoute);
+            Navigator.of(context).restorablePushNamed(studyRoute);
           },
           child: Stack(
             fit: StackFit.expand,

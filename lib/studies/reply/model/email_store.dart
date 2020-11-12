@@ -5,17 +5,9 @@ import 'email_model.dart';
 const _avatarsLocation = 'reply/avatars';
 
 class EmailStore with ChangeNotifier {
-  final _categories = <String, Set<Email>>{
-    'Inbox': _mainInbox,
-    'Starred': _starredInbox,
-    'Sent': _outbox,
-    'Trash': _trash,
-    'Spam': _spam,
-    'Drafts': _drafts,
-  };
-
-  static final _mainInbox = <Email>{
-    const Email(
+  static final _inbox = <Email>[
+    InboxEmail(
+      id: 1,
       sender: 'Google Express',
       time: '15 minutes ago',
       subject: 'Package shipped!',
@@ -26,7 +18,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-    const Email(
+    InboxEmail(
+      id: 2,
       sender: 'Ali Connors',
       time: '4 hrs ago',
       subject: 'Brunch this weekend?',
@@ -39,7 +32,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-    const Email(
+    InboxEmail(
+      id: 3,
       sender: 'Allison Trabucco',
       time: '5 hrs ago',
       subject: 'Bonjour from Paris',
@@ -48,7 +42,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: true,
     ),
-    const Email(
+    InboxEmail(
+      id: 4,
       sender: 'Trevor Hansen',
       time: '9 hrs ago',
       subject: 'Brazil trip',
@@ -64,7 +59,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Allison, Kim, Jeff',
       containsPictures: false,
     ),
-    const Email(
+    InboxEmail(
+      id: 5,
       sender: 'Frank Hawkins',
       time: '10 hrs ago',
       subject: 'Update to Your Itinerary',
@@ -73,7 +69,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-    const Email(
+    InboxEmail(
+      id: 6,
       sender: 'Google Express',
       time: '12 hrs ago',
       subject: 'Delivered',
@@ -82,12 +79,47 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-  };
+    InboxEmail(
+      id: 7,
+      sender: 'Frank Hawkins',
+      time: '4 hrs ago',
+      subject: 'Your update on the Google Play Store is live!',
+      message:
+          'Your update is now live on the Play Store and available for your alpha users to start testing.\n\n'
+          'Your alpha testers will be automatically notified. If you\'d rather send them a link directly, go to your Google Play Console and follow the instructions for obtaining an open alpha testing link.',
+      avatar: '$_avatarsLocation/avatar_4.jpg',
+      recipients: 'Jeff',
+      containsPictures: false,
+    ),
+    InboxEmail(
+      id: 8,
+      sender: 'Allison Trabucco',
+      time: '6 hrs ago',
+      subject: 'Try a free TrailGo account',
+      message:
+          'Looking for the best hiking trails in your area? TrailGo gets you on the path to the outdoors faster than you can pack a sandwich.\n\n'
+          'Whether you\'re an experienced hiker or just looking to get outside for the afternoon, there\'s a segment that suits you.',
+      avatar: '$_avatarsLocation/avatar_3.jpg',
+      recipients: 'Jeff',
+      containsPictures: false,
+    ),
+    InboxEmail(
+      id: 9,
+      sender: 'Allison Trabucco',
+      time: '4 hrs ago',
+      subject: 'Free money',
+      message:
+          'You\'ve been selected as a winner in our latest raffle! To claim your prize, click on the link.',
+      avatar: '$_avatarsLocation/avatar_3.jpg',
+      recipients: 'Jeff',
+      containsPictures: false,
+      inboxType: InboxType.spam,
+    ),
+  ];
 
-  static final _starredInbox = <Email>{};
-
-  static final _outbox = <Email>{
-    const Email(
+  static final _outbox = <Email>[
+    Email(
+      id: 10,
       sender: 'Kim Alen',
       time: '4 hrs ago',
       subject: 'High school reunion?',
@@ -99,7 +131,8 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-    const Email(
+    Email(
+      id: 11,
       sender: 'Sandra Adams',
       time: '7 hrs ago',
       subject: 'Recipe to try',
@@ -110,48 +143,11 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-  };
+  ];
 
-  static final _trash = <Email>{
-    const Email(
-      sender: 'Frank Hawkins',
-      time: '4 hrs ago',
-      subject: 'Your update on the Google Play Store is live!',
-      message:
-          'Your update is now live on the Play Store and available for your alpha users to start testing.\n\n'
-          'Your alpha testers will be automatically notified. If you\'d rather send them a link directly, go to your Google Play Console and follow the instructions for obtaining an open alpha testing link.',
-      avatar: '$_avatarsLocation/avatar_4.jpg',
-      recipients: 'Jeff',
-      containsPictures: false,
-    ),
-    const Email(
-      sender: 'Allison Trabucco',
-      time: '6 hrs ago',
-      subject: 'Try a free TrailGo account',
-      message:
-          'Looking for the best hiking trails in your area? TrailGo gets you on the path to the outdoors faster than you can pack a sandwich.\n\n'
-          'Whether you\'re an experienced hiker or just looking to get outside for the afternoon, there\'s a segment that suits you.',
-      avatar: '$_avatarsLocation/avatar_3.jpg',
-      recipients: 'Jeff',
-      containsPictures: false,
-    ),
-  };
-
-  static final _spam = <Email>{
-    const Email(
-      sender: 'Allison Trabucco',
-      time: '4 hrs ago',
-      subject: 'Free money',
-      message:
-          'You\'ve been selected as a winner in our latest raffle! To claim your prize, click on the link.',
-      avatar: '$_avatarsLocation/avatar_3.jpg',
-      recipients: 'Jeff',
-      containsPictures: false,
-    ),
-  };
-
-  static final _drafts = <Email>{
-    const Email(
+  static final _drafts = <Email>[
+    Email(
+      id: 12,
       sender: 'Sandra Adams',
       time: '2 hrs ago',
       subject: '(No subject)',
@@ -161,61 +157,94 @@ class EmailStore with ChangeNotifier {
       recipients: 'Jeff',
       containsPictures: false,
     ),
-  };
+  ];
 
-  int _currentlySelectedEmailId = -1;
-  String _currentlySelectedInbox = 'Inbox';
+  List<Email> get _allEmails => [
+        ..._inbox,
+        ..._outbox,
+        ..._drafts,
+      ];
+
+  List<Email> get inboxEmails {
+    return _inbox.where((email) {
+      if (email is InboxEmail) {
+        return email.inboxType == InboxType.normal &&
+            !trashEmailIds.contains(email.id);
+      }
+      return false;
+    }).toList();
+  }
+
+  List<Email> get spamEmails {
+    return _inbox.where((email) {
+      if (email is InboxEmail) {
+        return email.inboxType == InboxType.spam &&
+            !trashEmailIds.contains(email.id);
+      }
+      return false;
+    }).toList();
+  }
+
+  Email get currentEmail =>
+      _allEmails.firstWhere((email) => email.id == _selectedEmailId);
+
+  List<Email> get outboxEmails =>
+      _outbox.where((email) => !trashEmailIds.contains(email.id)).toList();
+
+  List<Email> get draftEmails =>
+      _drafts.where((email) => !trashEmailIds.contains(email.id)).toList();
+
+  Set<int> starredEmailIds = {};
+  bool isEmailStarred(int id) =>
+      _allEmails.any((email) => email.id == id && starredEmailIds.contains(id));
+  bool get isCurrentEmailStarred => starredEmailIds.contains(currentEmail.id);
+
+  List<Email> get starredEmails {
+    return _allEmails
+        .where((email) => starredEmailIds.contains(email.id))
+        .toList();
+  }
+
+  void starEmail(int id) {
+    starredEmailIds.add(id);
+    notifyListeners();
+  }
+
+  void unstarEmail(int id) {
+    starredEmailIds.remove(id);
+    notifyListeners();
+  }
+
+  Set<int> trashEmailIds = {7, 8};
+  List<Email> get trashEmails {
+    return _allEmails
+        .where((email) => trashEmailIds.contains(email.id))
+        .toList();
+  }
+
+  void deleteEmail(int id) {
+    trashEmailIds.add(id);
+    notifyListeners();
+  }
+
+  int _selectedEmailId = -1;
+  int get selectedEmailId => _selectedEmailId;
+  set selectedEmailId(int value) {
+    _selectedEmailId = value;
+    notifyListeners();
+  }
+
+  bool get onMailView => _selectedEmailId > -1;
+
+  MailboxPageType _selectedMailboxPage = MailboxPageType.inbox;
+  MailboxPageType get selectedMailboxPage => _selectedMailboxPage;
+  set selectedMailboxPage(MailboxPageType mailboxPage) {
+    _selectedMailboxPage = mailboxPage;
+    notifyListeners();
+  }
+
   bool _onSearchPage = false;
-
-  Map<String, Set<Email>> get emails =>
-      Map<String, Set<Email>>.unmodifiable(_categories);
-
-  void deleteEmail(String category, int id) {
-    final email = _categories[category].elementAt(id);
-
-    _categories.forEach(
-      (key, value) {
-        if (value.contains(email)) {
-          value.remove(email);
-        }
-      },
-    );
-
-    notifyListeners();
-  }
-
-  void starEmail(String category, int id) {
-    final email = _categories[category].elementAt(id);
-    var alreadyStarred = isEmailStarred(email);
-
-    if (alreadyStarred) {
-      _categories['Starred'].remove(email);
-    } else {
-      _categories['Starred'].add(email);
-    }
-
-    notifyListeners();
-  }
-
-  int get currentlySelectedEmailId => _currentlySelectedEmailId;
-  String get currentlySelectedInbox => _currentlySelectedInbox;
-  bool get onMailView => _currentlySelectedEmailId > -1;
   bool get onSearchPage => _onSearchPage;
-
-  bool isEmailStarred(Email email) {
-    return _categories['Starred'].contains(email);
-  }
-
-  set currentlySelectedEmailId(int value) {
-    _currentlySelectedEmailId = value;
-    notifyListeners();
-  }
-
-  set currentlySelectedInbox(String inbox) {
-    _currentlySelectedInbox = inbox;
-    notifyListeners();
-  }
-
   set onSearchPage(bool value) {
     _onSearchPage = value;
     notifyListeners();

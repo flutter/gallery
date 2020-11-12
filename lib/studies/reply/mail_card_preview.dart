@@ -18,6 +18,8 @@ class MailPreviewCard extends StatelessWidget {
     @required this.email,
     @required this.onDelete,
     @required this.onStar,
+    @required this.isStarred,
+    @required this.onStarredMailbox,
   })  : assert(id != null),
         assert(email != null),
         super(key: key);
@@ -26,16 +28,16 @@ class MailPreviewCard extends StatelessWidget {
   final Email email;
   final VoidCallback onDelete;
   final VoidCallback onStar;
+  final bool isStarred;
+  final bool onStarredMailbox;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final currentEmailStarred = Provider.of<EmailStore>(
-      context,
-      listen: false,
-    ).isEmailStarred(email);
-
+    // TODO(shihaohong): State restoration of mail view page is
+    // blocked because OpenContainer does not support restorablePush.
+    // See https://github.com/flutter/flutter/issues/69924.
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);
@@ -56,11 +58,6 @@ class MailPreviewCard extends StatelessWidget {
           onStar: onStar,
           onDelete: onDelete,
         );
-        final onStarredInbox = Provider.of<EmailStore>(
-              context,
-              listen: false,
-            ).currentlySelectedInbox ==
-            'Starred';
 
         if (isDesktop) {
           return mailPreview;
@@ -74,7 +71,7 @@ class MailPreviewCard extends StatelessWidget {
             onDismissed: (direction) {
               switch (direction) {
                 case DismissDirection.endToStart:
-                  if (onStarredInbox) {
+                  if (onStarredMailbox) {
                     onStar();
                   }
                   break;
@@ -93,7 +90,7 @@ class MailPreviewCard extends StatelessWidget {
             ),
             confirmDismiss: (direction) async {
               if (direction == DismissDirection.endToStart) {
-                if (onStarredInbox) {
+                if (onStarredMailbox) {
                   return true;
                 }
                 onStar();
@@ -104,10 +101,10 @@ class MailPreviewCard extends StatelessWidget {
             },
             secondaryBackground: _DismissibleContainer(
               icon: 'twotone_star',
-              backgroundColor: currentEmailStarred
+              backgroundColor: isStarred
                   ? colorScheme.secondary
                   : theme.scaffoldBackgroundColor,
-              iconColor: currentEmailStarred
+              iconColor: isStarred
                   ? colorScheme.onSecondary
                   : colorScheme.onBackground,
               alignment: Alignment.centerRight,
@@ -193,7 +190,7 @@ class _MailPreview extends StatelessWidget {
         Provider.of<EmailStore>(
           context,
           listen: false,
-        ).currentlySelectedEmailId = id;
+        ).selectedEmailId = id;
         onTap();
       },
       child: LayoutBuilder(
@@ -227,7 +224,7 @@ class _MailPreview extends StatelessWidget {
                       ),
                       _MailPreviewActionBar(
                         avatar: email.avatar,
-                        isStarred: emailStore.isEmailStarred(email),
+                        isStarred: emailStore.isEmailStarred(email.id),
                         onStar: onStar,
                         onDelete: onDelete,
                       ),
