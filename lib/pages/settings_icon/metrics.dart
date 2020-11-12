@@ -35,7 +35,6 @@ const _colorKnobContractionEnds = 14/23;
 
 // Stages.
 bool isTransitionPhase (double time) => time < _colorKnobContractionEnds;
-bool isRotationPhase (double time) => time >= _colorKnobContractionEnds;
 
 // Curve easing.
 const _curve = Curves.easeInOutCubic;
