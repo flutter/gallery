@@ -29,28 +29,28 @@ const upperKnobCenter = Offset(0, - knobDistanceFromCenter);
 const knobDeviation = stickLength / 2 - stickRadius;
 
 // Key moments in animation.
-const colorKnobContractionBegins = 1/23;
-const monoKnobExpansionEnds = 11/23;
-const colorKnobContractionEnds = 14/23;
+const _colorKnobContractionBegins = 1/23;
+const _monoKnobExpansionEnds = 11/23;
+const _colorKnobContractionEnds = 14/23;
 
 // Stages.
-bool isTransitionPhase (double time) => time < colorKnobContractionEnds;
-bool isRotationPhase (double time) => time >= colorKnobContractionEnds;
+bool isTransitionPhase (double time) => time < _colorKnobContractionEnds;
+bool isRotationPhase (double time) => time >= _colorKnobContractionEnds;
 
 // Curve easing.
 const _curve = Curves.easeInOutCubic;
 
 double monoKnobProgress (double time) =>
-    _curve.transform((time / monoKnobExpansionEnds).clamp(0, 1).toDouble());
+    _curve.transform((time / _monoKnobExpansionEnds).clamp(0, 1).toDouble());
 
 double colorKnobProgress (double time) =>
-    _curve.transform(((time - colorKnobContractionBegins)
-        / (colorKnobContractionEnds - colorKnobContractionBegins))
+    _curve.transform(((time - _colorKnobContractionBegins)
+        / (_colorKnobContractionEnds - _colorKnobContractionBegins))
         .clamp(0, 1).toDouble());
 
 double rotationProgress (double time) =>
-    _curve.transform(((time - colorKnobContractionEnds)
-        / (1 - colorKnobContractionEnds))
+    _curve.transform(((time - _colorKnobContractionEnds)
+        / (1 - _colorKnobContractionEnds))
         .clamp(0, 1).toDouble());
 
 // Moving objects.
