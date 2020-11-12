@@ -167,7 +167,7 @@ class _SettingsIconPainter extends CustomPainter {
         center: upperKnobCenter,
         length: stickLength,
         width: knobDiameter,
-        angle: knobRotation(time),
+        angle: -knobRotation(time),
         paint: monoPaint,
       );
 
@@ -175,7 +175,7 @@ class _SettingsIconPainter extends CustomPainter {
         center: knobCenter(time),
         length: stickLength,
         width: knobDiameter,
-        angle: -knobRotation(time),
+        angle: knobRotation(time),
         paint: monoPaint,
       );
     }
