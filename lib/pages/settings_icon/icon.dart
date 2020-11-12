@@ -50,14 +50,14 @@ class _SettingsIconPainter extends CustomPainter {
   }
 
   /// A rectangle with a fixed location, used to locate gradients.
-  Rect get fixedRect {
+  Rect get _fixedRect {
     final topLeft = Offset(- _size(stickLength / 2), - _size(stickWidth / 2));
     final bottomRight = Offset(_size(stickLength / 2), _size(stickWidth / 2));
     return Rect.fromPoints(topLeft, bottomRight);
   }
 
   /// Black or white paint, depending on brightness.
-  Paint get monoPaint {
+  Paint get _monoPaint {
     final monoColor = Theme.of(context).colorScheme.brightness == Brightness.light
         ? Colors.black
         : Colors.white;
@@ -65,9 +65,9 @@ class _SettingsIconPainter extends CustomPainter {
   }
 
   /// Pink paint with horizontal gradient.
-  Paint get pinkPaint {
+  Paint get _pinkPaint {
     const shader = LinearGradient(colors: [pinkLeft, pinkRight]);
-    final shaderRect = fixedRect.translate(
+    final shaderRect = _fixedRect.translate(
       _size(- (stickLength - colorLength(time)) / 2),
       0,
     );
@@ -76,9 +76,9 @@ class _SettingsIconPainter extends CustomPainter {
   }
 
   /// Teal paint with horizontal gradient.
-  Paint get tealPaint {
+  Paint get _tealPaint {
     const shader = LinearGradient(colors: [tealLeft, tealRight]);
-    final shaderRect = fixedRect.translate(
+    final shaderRect = _fixedRect.translate(
       _size((stickLength - colorLength(time)) / 2),
       0,
     );
@@ -87,7 +87,7 @@ class _SettingsIconPainter extends CustomPainter {
   }
 
   /// Paints a stadium-shaped stick.
-  void paintStick ({
+  void _paintStick ({
     @required Offset center,
     @required double length,
     @required double width,
@@ -135,48 +135,48 @@ class _SettingsIconPainter extends CustomPainter {
     _canvas = canvas;
 
     if (isTransitionPhase(time)) {
-      paintStick(
+      _paintStick(
         center: upperColorOffset(time),
         length: colorLength(time),
         width: stickWidth,
-        paint: pinkPaint,
+        paint: _pinkPaint,
       );
 
-      paintStick(
+      _paintStick(
         center: lowerColorOffset(time),
         length: colorLength(time),
         width: stickWidth,
-        paint: tealPaint,
+        paint: _tealPaint,
       );
 
-      paintStick(
+      _paintStick(
         center: movingUpperMonoOffset(time),
         length: monoLength(time),
         width: knobDiameter,
-        paint: monoPaint,
+        paint: _monoPaint,
       );
 
-      paintStick(
+      _paintStick(
         center: movingLowerMonoOffset(time),
         length: monoLength(time),
         width: knobDiameter,
-        paint: monoPaint,
+        paint: _monoPaint,
       );
     } else {
-      paintStick(
+      _paintStick(
         center: upperKnobCenter,
         length: stickLength,
         width: knobDiameter,
         angle: -knobRotation(time),
-        paint: monoPaint,
+        paint: _monoPaint,
       );
 
-      paintStick(
+      _paintStick(
         center: knobCenter(time),
         length: stickLength,
         width: knobDiameter,
         angle: knobRotation(time),
-        paint: monoPaint,
+        paint: _monoPaint,
       );
     }
   }
