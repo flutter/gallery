@@ -40,24 +40,24 @@ bool isRotationPhase (double time) => time >= _colorKnobContractionEnds;
 // Curve easing.
 const _curve = Curves.easeInOutCubic;
 
-double monoKnobProgress (double time) =>
+double _monoKnobProgress (double time) =>
     _curve.transform((time / _monoKnobExpansionEnds).clamp(0, 1).toDouble());
 
-double colorKnobProgress (double time) =>
+double _colorKnobProgress (double time) =>
     _curve.transform(((time - _colorKnobContractionBegins)
         / (_colorKnobContractionEnds - _colorKnobContractionBegins))
         .clamp(0, 1).toDouble());
 
-double rotationProgress (double time) =>
+double _rotationProgress (double time) =>
     _curve.transform(((time - _colorKnobContractionEnds)
         / (1 - _colorKnobContractionEnds))
         .clamp(0, 1).toDouble());
 
 // Moving objects.
-double knobRotation (double time) => rotationProgress(time) * pi / 4;
+double knobRotation (double time) => _rotationProgress(time) * pi / 4;
 
 Offset knobCenter (double time) {
-  final progress = rotationProgress(time);
+  final progress = _rotationProgress(time);
   if (progress == 0) {
     return lowerKnobCenter;
   } else if (progress == 1) {
@@ -73,7 +73,7 @@ Offset knobCenter (double time) {
 
 // Changing lengths: mono.
 double monoLength (double time) =>
-    monoKnobProgress(time) * (stickLength - knobDiameter) + knobDiameter;
+    _monoKnobProgress(time) * (stickLength - knobDiameter) + knobDiameter;
 
 double _monoLengthLeft (double time) =>
     min (monoLength(time) - knobRadius, stickRadius);
@@ -81,19 +81,19 @@ double _monoLengthLeft (double time) =>
 double _monoLengthRight (double time) =>
     monoLength(time) - _monoLengthLeft(time);
 
-double monoHorizontalOffset (double time) =>
+double _monoHorizontalOffset (double time) =>
     (_monoLengthRight(time) - _monoLengthLeft(time)) / 2
     + (- stickLength / 2 + stickRadius);
 
 Offset movingUpperMonoOffset (double time) =>
-    upperKnobCenter + Offset(monoHorizontalOffset(time), 0);
+    upperKnobCenter + Offset(_monoHorizontalOffset(time), 0);
 
 Offset movingLowerMonoOffset (double time) =>
-    lowerKnobCenter + Offset(- monoHorizontalOffset(time), 0);
+    lowerKnobCenter + Offset(- _monoHorizontalOffset(time), 0);
 
 // Changing lengths: color.
 double colorLength (double time) =>
-    (1 - colorKnobProgress(time)) * stickLength;
+    (1 - _colorKnobProgress(time)) * stickLength;
 
 Offset upperColorOffset (double time) =>
     upperKnobCenter + Offset(stickLength / 2 - colorLength(time) / 2, 0);
