@@ -38,18 +38,18 @@ bool isTransitionPhase (double time) => time < colorKnobContractionEnds;
 bool isRotationPhase (double time) => time >= colorKnobContractionEnds;
 
 // Curve easing.
-const curve = Curves.easeInOutCubic;
+const _curve = Curves.easeInOutCubic;
 
 double monoKnobProgress (double time) =>
-    curve.transform((time / monoKnobExpansionEnds).clamp(0, 1).toDouble());
+    _curve.transform((time / monoKnobExpansionEnds).clamp(0, 1).toDouble());
 
 double colorKnobProgress (double time) =>
-    curve.transform(((time - colorKnobContractionBegins)
+    _curve.transform(((time - colorKnobContractionBegins)
         / (colorKnobContractionEnds - colorKnobContractionBegins))
         .clamp(0, 1).toDouble());
 
 double rotationProgress (double time) =>
-    curve.transform(((time - colorKnobContractionEnds)
+    _curve.transform(((time - colorKnobContractionEnds)
         / (1 - colorKnobContractionEnds))
         .clamp(0, 1).toDouble());
 
