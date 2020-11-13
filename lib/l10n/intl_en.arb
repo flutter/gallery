@@ -597,11 +597,11 @@
   "@demoTopAppBarTitle": {
     "description": "Title for the material Top app bar component demo."
   },
-  "demoTopAppBarSubtitle": "Displays navigation and actions at the Top",
+  "demoTopAppBarSubtitle": "A material design app bar.",
   "@demoTopAppBarSubtitle": {
     "description": "Subtitle for the material Top app bar component demo."
   },
-  "demoTopAppBarDescription": "Top app bars provide access to a Top navigation drawer and up to four actions, including the floating action button.",
+  "demoTopAppBarDescription": "The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions",
   "@demoTopAppBarDescription": {
     "description": "Description for the material Top app bar component demo."
   },
@@ -621,11 +621,11 @@
   "@demoBottomAppBarTitle": {
     "description": "Title for the material bottom app bar component demo."
   },
-  "demoBottomAppBarSubtitle": "A material design app bar.",
+  "demoBottomAppBarSubtitle": "Displays navigation and actions at the bottom",
   "@demoBottomAppBarSubtitle": {
     "description": "Subtitle for the material bottom app bar component demo."
   },
-  "demoBottomAppBarDescription": "The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.",
+  "demoBottomAppBarDescription": "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.",
   "@demoBottomAppBarDescription": {
     "description": "Description for the material bottom app bar component demo."
   },

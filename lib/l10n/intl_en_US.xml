@@ -520,11 +520,11 @@
   <string
     name="demoTopAppBarSubtitle"
     description="Subtitle for the material Top app bar component demo."
-    >Displays navigation and actions at the Top</string>
+    >A material design app bar.</string>
   <string
     name="demoTopAppBarDescription"
     description="Description for the material Top app bar component demo."
-    >Top app bars provide access to a Top navigation drawer and up to four actions, including the floating action button.</string>
+    >The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions</string>
   <string
     name="demoTopAppBarMenuItemText1"
     description="Top app bar demo Popup menu item text1."
@@ -544,11 +544,11 @@
   <string
     name="demoBottomAppBarSubtitle"
     description="Subtitle for the material bottom app bar component demo."
-    >A material design app bar.</string>
+    >Displays navigation and actions at the bottom</string>
   <string
     name="demoBottomAppBarDescription"
     description="Description for the material bottom app bar component demo."
-    >The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.</string>
+    >Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.</string>
   <string
     name="bottomAppBarNotch"
     description="A toggle for whether to have a notch (or cutout) in the bottom app bar demo."

@@ -209,8 +209,8 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
       subtitle: localizations.demoTopAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: localizations.demoTopAppBarDescription,
-          description: localizations.demoTopAppBarTitle,
+          title: localizations.demoTopAppBarTitle,
+          description: localizations.demoTopAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
           buildRoute: (_) => const TopAppBarDemo(),
           code: CodeSegments.topAppbarDemo,
