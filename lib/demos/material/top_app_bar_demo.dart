@@ -5,6 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
+// BEGIN topAppbarDemo
+
 class TopAppBarDemo extends StatelessWidget {
   const TopAppBarDemo({Key key}) : super(key: key);
 
@@ -56,3 +58,5 @@ class TopAppBarDemo extends StatelessWidget {
     );
   }
 }
+
+// END

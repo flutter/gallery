@@ -621,11 +621,11 @@
   "@demoBottomAppBarTitle": {
     "description": "Title for the material bottom app bar component demo."
   },
-  "demoBottomAppBarSubtitle": "Displays navigation and actions at the bottom",
+  "demoBottomAppBarSubtitle": "A material design app bar.",
   "@demoBottomAppBarSubtitle": {
     "description": "Subtitle for the material bottom app bar component demo."
   },
-  "demoBottomAppBarDescription": "Bottom app bars provide access to a bottom navigation drawer and up to four actions, including the floating action button.",
+  "demoBottomAppBarDescription": "The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.",
   "@demoBottomAppBarDescription": {
     "description": "Description for the material bottom app bar component demo."
   },
