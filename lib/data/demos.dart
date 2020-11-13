@@ -44,7 +44,7 @@ import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
-import 'package:gallery/demos/material/top_app_bar_demo.dart';
+import 'package:gallery/demos/material/app_bar_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
