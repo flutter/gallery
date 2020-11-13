@@ -213,7 +213,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoTopAppBarTitle,
           documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
           buildRoute: (_) => const TopAppBarDemo(),
-          code: CodeSegments.bottomAppBarDemo,
+          code: CodeSegments.topAppbarDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
