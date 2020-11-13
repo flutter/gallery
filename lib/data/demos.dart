@@ -44,6 +44,7 @@ import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
+import 'package:gallery/demos/material/top_app_bar_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
@@ -197,6 +198,22 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
           buildRoute: (_) => const BannerDemo(),
           code: CodeSegments.bannerDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
+      title: 'Top AppBar',
+      icon: GalleryIcons.bottomAppBar,
+      slug: 'top-app-bar',
+      subtitle: 'Top AppBar',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: 'Top AppBar',
+          description: 'Top AppBar',
+          documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
+          buildRoute: (_) => const TopAppBarDemo(),
+          code: CodeSegments.bottomAppBarDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
