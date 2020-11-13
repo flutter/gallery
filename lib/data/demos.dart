@@ -204,7 +204,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
     ),
     GalleryDemo(
       title: localizations.demoTopAppBarTitle,
-      icon: GalleryIcons.bottomAppBar,
+      icon: GalleryIcons.topAppbar,
       slug: 'top-app-bar',
       subtitle: localizations.demoTopAppBarSubtitle,
       configurations: [
