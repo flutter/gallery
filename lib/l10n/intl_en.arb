@@ -593,16 +593,16 @@
   "@settingsAttribution": {
     "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
   },
-  "demoTopAppBarTitle": "App bar",
-  "@demoTopAppBarTitle": {
+  "demoAppBarTitle": "App bar",
+  "@demoAppBarTitle": {
     "description": "Title for the material App bar component demo."
   },
-  "demoTopAppBarSubtitle": "Displays information and actions relating to the current screen",
-  "@demoTopAppBarSubtitle": {
+  "demoAppBarSubtitle": "Displays information and actions relating to the current screen",
+  "@demoAppBarSubtitle": {
     "description": "Subtitle for the material App bar component demo."
   },
-  "demoTopAppBarDescription": "The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions",
-  "@demoTopAppBarDescription": {
+  "demoAppBarDescription": "The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions",
+  "@demoAppBarDescription": {
     "description": "Description for the material App bar component demo."
   },
   "demoBottomAppBarTitle": "Bottom app bar",

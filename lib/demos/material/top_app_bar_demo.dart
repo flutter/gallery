@@ -5,10 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
-// BEGIN topAppbarDemo
+// BEGIN appbarDemo
 
-class TopAppBarDemo extends StatelessWidget {
-  const TopAppBarDemo({Key key}) : super(key: key);
+class AppBarDemo extends StatelessWidget {
+  const AppBarDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class TopAppBarDemo extends StatelessWidget {
           onPressed: () {},
         ),
         title: Text(
-          localization.demoTopAppBarTitle,
+          localization.demoAppBarTitle,
         ),
         actions: [
           IconButton(

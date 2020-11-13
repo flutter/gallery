@@ -187,17 +187,17 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
 List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
-      title: localizations.demoTopAppBarTitle,
-      icon: GalleryIcons.topAppbar,
-      slug: 'top-app-bar',
-      subtitle: localizations.demoTopAppBarSubtitle,
+      title: localizations.demoAppBarTitle,
+      icon: GalleryIcons.appbar,
+      slug: 'app-bar',
+      subtitle: localizations.demoAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: localizations.demoTopAppBarTitle,
-          description: localizations.demoTopAppBarDescription,
+          title: localizations.demoAppBarTitle,
+          description: localizations.demoAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
-          buildRoute: (_) => const TopAppBarDemo(),
-          code: CodeSegments.topAppbarDemo,
+          buildRoute: (_) => const AppBarDemo(),
+          code: CodeSegments.appbarDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
