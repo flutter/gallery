@@ -3,20 +3,20 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 class TopAppBarDemo extends StatelessWidget {
   const TopAppBarDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var localization = GalleryLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(
           Icons.tag_faces,
         ),
-        title: const Text(
-          'Sample title',
-        ),
+        title: Text(localization.demoTopAppBarTitle),
         actions: <Widget>[
           IconButton(
             icon: const Icon(
@@ -33,14 +33,14 @@ class TopAppBarDemo extends StatelessWidget {
           PopupMenuButton<Text>(
             itemBuilder: (context) {
               return [
-                const PopupMenuItem(
+                PopupMenuItem(
                   child: Text(
-                    'Boat',
+                    localization.demoTopAppBarMenuItemText1,
                   ),
                 ),
-                const PopupMenuItem(
+                PopupMenuItem(
                   child: Text(
-                    'Train',
+                    localization.demoTopAppBarMenuItemText2,
                   ),
                 ),
               ];
@@ -48,9 +48,9 @@ class TopAppBarDemo extends StatelessWidget {
           )
         ],
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'Hello',
+          localization.demoTopAppBarBodyText,
         ),
       ),
     );

@@ -514,6 +514,30 @@
     description="Title for attribution (TOASTER is a proper name and should remain in English)."
     >Designed by TOASTER in London</string>
   <string
+    name="demoTopAppBarTitle"
+    description="Title for the material Top app bar component demo."
+    >Top app bar</string>
+  <string
+    name="demoTopAppBarSubtitle"
+    description="Subtitle for the material Top app bar component demo."
+    >Displays navigation and actions at the Top</string>
+  <string
+    name="demoTopAppBarDescription"
+    description="Description for the material Top app bar component demo."
+    >Top app bars provide access to a Top navigation drawer and up to four actions, including the floating action button.</string>
+  <string
+    name="demoTopAppBarMenuItemText1"
+    description="Top app bar demo Popup menu item text1."
+    >Boat</string>
+  <string
+    name="demoTopAppBarMenuItemText2"
+    description="Top app bar demo Popup menu item text2."
+    >Train</string>
+  <string
+    name="demoTopAppBarBodyText"
+    description="Top app bar body text."
+    >Hello</string>
+  <string
     name="demoBottomAppBarTitle"
     description="Title for the material bottom app bar component demo."
     >Bottom app bar</string>

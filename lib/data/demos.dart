@@ -203,15 +203,15 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
       category: GalleryDemoCategory.material,
     ),
     GalleryDemo(
-      title: 'Top AppBar',
+      title: localizations.demoTopAppBarTitle,
       icon: GalleryIcons.bottomAppBar,
       slug: 'top-app-bar',
-      subtitle: 'Top AppBar',
+      subtitle: localizations.demoTopAppBarSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: 'Top AppBar',
-          description: 'Top AppBar',
-          documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
+          title: localizations.demoTopAppBarDescription,
+          description: localizations.demoTopAppBarTitle,
+          documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
           buildRoute: (_) => const TopAppBarDemo(),
           code: CodeSegments.bottomAppBarDemo,
         ),

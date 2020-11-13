@@ -593,6 +593,30 @@
   "@settingsAttribution": {
     "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
   },
+  "demoTopAppBarTitle": "Top app bar",
+  "@demoTopAppBarTitle": {
+    "description": "Title for the material Top app bar component demo."
+  },
+  "demoTopAppBarSubtitle": "Displays navigation and actions at the Top",
+  "@demoTopAppBarSubtitle": {
+    "description": "Subtitle for the material Top app bar component demo."
+  },
+  "demoTopAppBarDescription": "Top app bars provide access to a Top navigation drawer and up to four actions, including the floating action button.",
+  "@demoTopAppBarDescription": {
+    "description": "Description for the material Top app bar component demo."
+  },
+  "demoTopAppBarMenuItemText1": "Boat",
+  "@demoTopAppBarMenuItemText1": {
+    "description": "Top app bar demo Popup menu item text1."
+  },
+  "demoTopAppBarMenuItemText2": "Train",
+  "@demoTopAppBarMenuItemText2": {
+    "description": "Top app bar demo Popup menu item text2."
+  },
+  "demoTopAppBarBodyText": "Hello",
+  "@demoTopAppBarBodyText": {
+    "description": "Top app bar body text."
+  },
   "demoBottomAppBarTitle": "Bottom app bar",
   "@demoBottomAppBarTitle": {
     "description": "Title for the material bottom app bar component demo."
