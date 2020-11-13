@@ -515,28 +515,16 @@
     >Designed by TOASTER in London</string>
   <string
     name="demoTopAppBarTitle"
-    description="Title for the material Top app bar component demo."
-    >Top app bar</string>
+    description="Title for the material App bar component demo."
+    >App bar</string>
   <string
     name="demoTopAppBarSubtitle"
-    description="Subtitle for the material Top app bar component demo."
-    >A material design app bar.</string>
+    description="Subtitle for the material App bar component demo."
+    >Displays information and actions relating to the current screen</string>
   <string
     name="demoTopAppBarDescription"
-    description="Description for the material Top app bar component demo."
-    >The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions</string>
-  <string
-    name="demoTopAppBarMenuItemText1"
-    description="Top app bar demo Popup menu item text1."
-    >Boat</string>
-  <string
-    name="demoTopAppBarMenuItemText2"
-    description="Top app bar demo Popup menu item text2."
-    >Train</string>
-  <string
-    name="demoTopAppBarBodyText"
-    description="Top app bar body text."
-    >Hello</string>
+    description="Description for the material App bar component demo."
+    >The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions</string>
   <string
     name="demoBottomAppBarTitle"
     description="Title for the material bottom app bar component demo."

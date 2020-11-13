@@ -187,22 +187,6 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
 List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
-      title: localizations.demoBannerTitle,
-      icon: GalleryIcons.listsLeaveBehind,
-      slug: 'banner',
-      subtitle: localizations.demoBannerSubtitle,
-      configurations: [
-        GalleryDemoConfiguration(
-          title: localizations.demoBannerTitle,
-          description: localizations.demoBannerDescription,
-          documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
-          buildRoute: (_) => const BannerDemo(),
-          code: CodeSegments.bannerDemo,
-        ),
-      ],
-      category: GalleryDemoCategory.material,
-    ),
-    GalleryDemo(
       title: localizations.demoTopAppBarTitle,
       icon: GalleryIcons.topAppbar,
       slug: 'top-app-bar',
@@ -214,6 +198,22 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
           buildRoute: (_) => const TopAppBarDemo(),
           code: CodeSegments.topAppbarDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
+      title: localizations.demoBannerTitle,
+      icon: GalleryIcons.listsLeaveBehind,
+      slug: 'banner',
+      subtitle: localizations.demoBannerSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoBannerTitle,
+          description: localizations.demoBannerDescription,
+          documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
+          buildRoute: (_) => const BannerDemo(),
+          code: CodeSegments.bannerDemo,
         ),
       ],
       category: GalleryDemoCategory.material,

@@ -15,20 +15,23 @@ class TopAppBarDemo extends StatelessWidget {
     var localization = GalleryLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.tag_faces,
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {},
         ),
-        title: Text(localization.demoTopAppBarTitle),
-        actions: <Widget>[
+        title: Text(
+          localization.demoTopAppBarTitle,
+        ),
+        actions: [
           IconButton(
             icon: const Icon(
-              Icons.directions_bike,
+              Icons.favorite,
             ),
             onPressed: () {},
           ),
           IconButton(
             icon: const Icon(
-              Icons.directions_bus,
+              Icons.search,
             ),
             onPressed: () {},
           ),
@@ -37,12 +40,17 @@ class TopAppBarDemo extends StatelessWidget {
               return [
                 PopupMenuItem(
                   child: Text(
-                    localization.demoTopAppBarMenuItemText1,
+                    localization.demoNavigationRailFirst,
                   ),
                 ),
                 PopupMenuItem(
                   child: Text(
-                    localization.demoTopAppBarMenuItemText2,
+                    localization.demoNavigationRailSecond,
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Text(
+                    localization.demoNavigationRailThird,
                   ),
                 ),
               ];
@@ -52,7 +60,7 @@ class TopAppBarDemo extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          localization.demoTopAppBarBodyText,
+          localization.cupertinoTabBarHomeTab,
         ),
       ),
     );
