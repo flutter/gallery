@@ -11,7 +11,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/pages/settings.dart';
-import 'settings_icon/icon.dart' as settings_icon;
+import 'package:gallery/pages/settings_icon/icon.dart' as settings_icon;
 
 const double _settingsButtonWidth = 64;
 const double _settingsButtonHeightDesktop = 56;
