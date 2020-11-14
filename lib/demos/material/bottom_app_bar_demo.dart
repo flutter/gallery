@@ -8,32 +8,53 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN bottomAppBarDemo
 
 class BottomAppBarDemo extends StatefulWidget {
-  const BottomAppBarDemo();
+  const BottomAppBarDemo({ this.restorationId });
+
+  final String restorationId;
 
   @override
   State createState() => _BottomAppBarDemoState();
 }
 
-class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
-  var _showFab = true;
-  var _showNotch = true;
-  var _fabLocation = FloatingActionButtonLocation.endDocked;
+class _BottomAppBarDemoState extends State<BottomAppBarDemo> with RestorationMixin {
+  final RestorableBool _showFab = RestorableBool(true);
+  final RestorableBool _showNotch = RestorableBool(true);
+  final RestorableInt _currentFabLocation = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_showFab, 'show_fab');
+    registerForRestoration(_showNotch, 'show_notch');
+    registerForRestoration(_currentFabLocation, 'fab_location');
+  }
+
+  // Since FloatingActionButtonLocation is not an enum, the index of the
+  // selected FlocatingActionButtonLocation is used for state restoration.
+  static const List<FloatingActionButtonLocation> _fabLocations = [
+    FloatingActionButtonLocation.endDocked,
+    FloatingActionButtonLocation.centerDocked,
+    FloatingActionButtonLocation.endFloat,
+    FloatingActionButtonLocation.centerFloat,
+  ];
 
   void _onShowNotchChanged(bool value) {
     setState(() {
-      _showNotch = value;
+      _showNotch.value = value;
     });
   }
 
   void _onShowFabChanged(bool value) {
     setState(() {
-      _showFab = value;
+      _showFab.value = value;
     });
   }
 
-  void _onFabLocationChanged(FloatingActionButtonLocation value) {
+  void _onFabLocationChanged(int value) {
     setState(() {
-      _fabLocation = value;
+      _currentFabLocation.value = value;
     });
   }
 
@@ -51,54 +72,54 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
             title: Text(
               GalleryLocalizations.of(context).demoFloatingButtonTitle,
             ),
-            value: _showFab,
+            value: _showFab.value,
             onChanged: _onShowFabChanged,
           ),
           SwitchListTile(
             title: Text(GalleryLocalizations.of(context).bottomAppBarNotch),
-            value: _showNotch,
+            value: _showNotch.value,
             onChanged: _onShowNotchChanged,
           ),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Text(GalleryLocalizations.of(context).bottomAppBarPosition),
           ),
-          RadioListTile<FloatingActionButtonLocation>(
+          RadioListTile<int>(
             title: Text(
               GalleryLocalizations.of(context).bottomAppBarPositionDockedEnd,
             ),
-            value: FloatingActionButtonLocation.endDocked,
-            groupValue: _fabLocation,
+            value: 0,
+            groupValue: _currentFabLocation.value,
             onChanged: _onFabLocationChanged,
           ),
-          RadioListTile<FloatingActionButtonLocation>(
+          RadioListTile<int>(
             title: Text(
               GalleryLocalizations.of(context).bottomAppBarPositionDockedCenter,
             ),
-            value: FloatingActionButtonLocation.centerDocked,
-            groupValue: _fabLocation,
+            value: 1,
+            groupValue: _currentFabLocation.value,
             onChanged: _onFabLocationChanged,
           ),
-          RadioListTile<FloatingActionButtonLocation>(
+          RadioListTile<int>(
             title: Text(
               GalleryLocalizations.of(context).bottomAppBarPositionFloatingEnd,
             ),
-            value: FloatingActionButtonLocation.endFloat,
-            groupValue: _fabLocation,
+            value: 2,
+            groupValue: _currentFabLocation.value,
             onChanged: _onFabLocationChanged,
           ),
-          RadioListTile<FloatingActionButtonLocation>(
+          RadioListTile<int>(
             title: Text(
               GalleryLocalizations.of(context)
                   .bottomAppBarPositionFloatingCenter,
             ),
-            value: FloatingActionButtonLocation.centerFloat,
-            groupValue: _fabLocation,
+            value: 3,
+            groupValue: _currentFabLocation.value,
             onChanged: _onFabLocationChanged,
           ),
         ],
       ),
-      floatingActionButton: _showFab
+      floatingActionButton: _showFab.value
           ? FloatingActionButton(
               onPressed: () {
                 print('Floating action button pressed');
@@ -107,10 +128,10 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo> {
               tooltip: GalleryLocalizations.of(context).buttonTextCreate,
             )
           : null,
-      floatingActionButtonLocation: _fabLocation,
+      floatingActionButtonLocation: _fabLocations[_currentFabLocation.value],
       bottomNavigationBar: _DemoBottomAppBar(
-        fabLocation: _fabLocation,
-        shape: _showNotch ? const CircularNotchedRectangle() : null,
+        fabLocation: _fabLocations[_currentFabLocation.value],
+        shape: _showNotch.value ? const CircularNotchedRectangle() : null,
       ),
     );
   }
