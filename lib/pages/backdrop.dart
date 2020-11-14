@@ -222,7 +222,6 @@ class _BackdropState extends State<Backdrop>
           _SettingsIcon(
             animationController: _iconController,
             toggleSettings: _toggleSettings,
-            flareController: this,
             isSettingsOpenNotifier: _isSettingsOpenNotifier,
           ),
         ],
@@ -241,13 +240,11 @@ class _BackdropState extends State<Backdrop>
 class _SettingsIcon extends AnimatedWidget {
   _SettingsIcon(
       {this.animationController,
-      this.flareController,
       this.toggleSettings,
       this.isSettingsOpenNotifier})
       : super(listenable: animationController);
 
   final AnimationController animationController;
-  final FlareController flareController;
   final VoidCallback toggleSettings;
   final ValueNotifier<bool> isSettingsOpenNotifier;
 
