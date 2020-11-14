@@ -370,6 +370,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
         ListView(
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
+          restorationId: 'home_list_view',
           children: [
             const SizedBox(height: 8),
             Container(
@@ -394,6 +395,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 key: const PageStorageKey<GalleryDemoCategory>(
                   GalleryDemoCategory.material,
                 ),
+                restorationId: 'home_material_category_list',
                 category: GalleryDemoCategory.material,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(localizations),
@@ -407,6 +409,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 key: const PageStorageKey<GalleryDemoCategory>(
                   GalleryDemoCategory.cupertino,
                 ),
+                restorationId: 'home_cupertino_category_list',
                 category: GalleryDemoCategory.cupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(localizations),
@@ -420,6 +423,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 key: const PageStorageKey<GalleryDemoCategory>(
                   GalleryDemoCategory.other,
                 ),
+                restorationId: 'home_other_category_list',
                 category: GalleryDemoCategory.other,
                 imageString: 'assets/icons/reference/reference.png',
                 demos: otherDemos(localizations),

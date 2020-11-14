@@ -11,6 +11,7 @@ import 'package:gallery/pages/demo.dart';
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
     Key key,
+    this.restorationId,
     this.category,
     this.imageString,
     this.demos = const [],
@@ -19,6 +20,7 @@ class CategoryListItem extends StatefulWidget {
         super(key: key);
 
   final GalleryDemoCategory category;
+  final String restorationId;
   final String imageString;
   final List<GalleryDemo> demos;
   final bool initiallyExpanded;
@@ -46,6 +48,7 @@ class _CategoryListItemState extends State<CategoryListItem>
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(duration: _expandDuration, vsync: this);
     _childrenHeightFactor = _controller.drive(_easeInTween);
     _headerChevronOpacity = _controller.drive(_easeInTween);
@@ -70,6 +73,7 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: BorderRadius.zero,
     ).animate(_controller);
 
+    // TODO(shihaohong): [PageStorage] properties are not state restorable.
     _isExpanded = PageStorage.of(context)?.readState(context) as bool ??
         widget.initiallyExpanded;
     if (_isExpanded) {
@@ -279,7 +283,7 @@ class CategoryDemoItem extends StatelessWidget {
       child: MergeSemantics(
         child: InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(
+            Navigator.of(context).restorablePushNamed(
               '${DemoPage.baseRoute}/${demo.slug}',
             );
           },
