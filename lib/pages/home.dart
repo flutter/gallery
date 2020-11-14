@@ -239,10 +239,13 @@ class HomePage extends StatelessWidget {
       );
     } else {
       return Scaffold(
-        body: _AnimatedHomePage(
-          isSplashPageAnimationFinished:
-              SplashPageAnimation.of(context).isFinished,
-          carouselCards: carouselCards,
+        body: RestorationScope(
+          restorationId: 'home_page',
+          child: _AnimatedHomePage(
+            isSplashPageAnimationFinished:
+                SplashPageAnimation.of(context).isFinished,
+            carouselCards: carouselCards,
+          ),
         ),
       );
     }
@@ -375,8 +378,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               child: _GalleryHeader(),
             ),
             _Carousel(
-              children: widget.carouselCards,
               animationController: _animationController,
+              restorationId: 'home_carousel',
+              children: widget.carouselCards,
             ),
             Container(
               margin:
@@ -687,21 +691,32 @@ class _AnimatedCarouselCard extends StatelessWidget {
 class _Carousel extends StatefulWidget {
   const _Carousel({
     Key key,
-    this.children,
     this.animationController,
+    this.restorationId,
+    this.children,
   }) : super(key: key);
 
-  final List<Widget> children;
   final AnimationController animationController;
+  final String restorationId;
+  final List<Widget> children;
 
   @override
   _CarouselState createState() => _CarouselState();
 }
 
 class _CarouselState extends State<_Carousel>
-    with SingleTickerProviderStateMixin {
+    with RestorationMixin, SingleTickerProviderStateMixin {
   PageController _controller;
-  int _currentPage = 0;
+
+  final RestorableInt _currentPage = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_currentPage, 'carousel_page');
+  }
 
   @override
   void didChangeDependencies() {
@@ -712,7 +727,7 @@ class _CarouselState extends State<_Carousel>
       final width = MediaQuery.of(context).size.width;
       final padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
       _controller = PageController(
-        initialPage: _currentPage,
+        initialPage: _currentPage.value,
         viewportFraction: (width - padding) / width,
       );
     }
@@ -733,7 +748,7 @@ class _CarouselState extends State<_Carousel>
           value = _controller.page - index;
         } else {
           // If haveDimensions is false, use _currentPage to calculate value.
-          value = (_currentPage - index).toDouble();
+          value = (_currentPage.value - index).toDouble();
         }
         // We want the peeking cards to be 160 in height and 0.38 helps
         // achieve that.
@@ -770,7 +785,7 @@ class _CarouselState extends State<_Carousel>
         key: const ValueKey('studyDemoList'),
         onPageChanged: (value) {
           setState(() {
-            _currentPage = value;
+            _currentPage.value = value;
           });
         },
         controller: _controller,
