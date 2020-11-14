@@ -31,16 +31,13 @@ class Backdrop extends StatefulWidget {
 }
 
 class _BackdropState extends State<Backdrop>
-    with TickerProviderStateMixin, FlareController {
+    with TickerProviderStateMixin {
   AnimationController _settingsPanelController;
   AnimationController _iconController;
   FocusNode _settingsPageFocusNode;
   ValueNotifier<bool> _isSettingsOpenNotifier;
   Widget _settingsPage;
   Widget _homePage;
-
-  FlutterActorArtboard _artboard;
-  FlareAnimationLayer _animationLayer;
 
   @override
   void initState() {
@@ -71,42 +68,7 @@ class _BackdropState extends State<Backdrop>
     super.dispose();
   }
 
-  @override
-  void initialize(FlutterActorArtboard artboard) {
-    _artboard = artboard;
-    initAnimationLayer();
-  }
-
-  @override
-  void setViewTransform(Mat2D viewTransform) {
-    // This is a necessary override for the [FlareController] mixin.
-  }
-
-  @override
-  bool advance(FlutterActorArtboard artboard, double elapsed) {
-    if (_animationLayer != null) {
-      final layer = _animationLayer;
-      layer.time = _settingsPanelController.value * layer.duration;
-      layer.animation.apply(layer.time, _artboard, 1);
-      if (layer.isDone || layer.time == 0) {
-        _animationLayer = null;
-      }
-    }
-    return _animationLayer != null;
-  }
-
-  void initAnimationLayer() {
-    if (_artboard != null) {
-      final animationName = 'Animations';
-      final animation = _artboard.getAnimation(animationName);
-      _animationLayer = FlareAnimationLayer()
-        ..name = animationName
-        ..animation = animation;
-    }
-  }
-
   void _toggleSettings() {
-    initAnimationLayer();
     // Animate the settings panel to open or close.
     if (_isSettingsOpenNotifier.value) {
       _settingsPanelController.reverse();
@@ -116,7 +78,6 @@ class _BackdropState extends State<Backdrop>
       _iconController.forward();
     }
     _isSettingsOpenNotifier.value = !_isSettingsOpenNotifier.value;
-    isActive.value = true;
   }
 
   Animation<RelativeRect> _slideDownSettingsPageAnimation(
