@@ -16,6 +16,7 @@ class AppBarDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
+          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
           icon: const Icon(Icons.menu),
           onPressed: () {},
         ),
@@ -24,12 +25,14 @@ class AppBarDemo extends StatelessWidget {
         ),
         actions: [
           IconButton(
+            tooltip: localization.starterAppTooltipFavorite,
             icon: const Icon(
               Icons.favorite,
             ),
             onPressed: () {},
           ),
           IconButton(
+            tooltip: localization.starterAppTooltipSearch,
             icon: const Icon(
               Icons.search,
             ),
