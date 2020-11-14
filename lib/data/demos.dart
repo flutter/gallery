@@ -259,7 +259,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoBottomSheetPersistentDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
           buildRoute: (_) =>
-              const BottomSheetDemo(type: BottomSheetDemoType.persistent),
+              const BottomSheetDemo(
+                type: BottomSheetDemoType.persistent,
+              ),
           code: CodeSegments.bottomSheetDemoPersistent,
         ),
         GalleryDemoConfiguration(
@@ -267,7 +269,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoBottomSheetModalDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
           buildRoute: (_) =>
-              const BottomSheetDemo(type: BottomSheetDemoType.modal),
+              const BottomSheetDemo(
+                type: BottomSheetDemoType.modal,
+              ),
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],
