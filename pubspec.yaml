@@ -45,8 +45,6 @@ dev_dependencies:
 
 flutter:
   assets:
-    - packages/flutter_gallery_assets/assets/icons/settings/settings_light.flr
-    - packages/flutter_gallery_assets/assets/icons/settings/settings_dark.flr
     - packages/flutter_gallery_assets/assets/studies/shrine_card_dark.png
     - packages/flutter_gallery_assets/assets/studies/starter_card.png
     - packages/flutter_gallery_assets/assets/studies/starter_card_dark.png
