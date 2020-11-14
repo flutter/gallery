@@ -195,7 +195,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBannerTitle,
           description: localizations.demoBannerDescription,
           documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
-          buildRoute: (_) => const BannerDemo(),
+          buildRoute: (_) => const BannerDemo(restorationId: 'banner_demo'),
           code: CodeSegments.bannerDemo,
         ),
       ],
