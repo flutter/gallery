@@ -211,7 +211,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomAppBarTitle,
           description: localizations.demoBottomAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
-          buildRoute: (_) => const BottomAppBarDemo(),
+          buildRoute: (_) => const BottomAppBarDemo(restorationId: 'bottom_app_bar_demo'),
           code: CodeSegments.bottomAppBarDemo,
         ),
       ],
@@ -229,7 +229,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => const BottomNavigationDemo(
-              type: BottomNavigationDemoType.withLabels),
+            type: BottomNavigationDemoType.withLabels,
+            restorationId: 'bottom_navigation_labels_demo',
+          ),
           code: CodeSegments.bottomNavigationDemo,
         ),
         GalleryDemoConfiguration(
@@ -238,7 +240,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => const BottomNavigationDemo(
-              type: BottomNavigationDemoType.withoutLabels),
+            type: BottomNavigationDemoType.withoutLabels,
+            restorationId: 'bottom_navigation_without_labels_demo',
+          ),
           code: CodeSegments.bottomNavigationDemo,
         ),
       ],
