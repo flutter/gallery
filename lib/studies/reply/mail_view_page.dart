@@ -78,7 +78,7 @@ class _MailViewHeader extends StatelessWidget {
                 Provider.of<EmailStore>(
                   context,
                   listen: false,
-                ).currentlySelectedEmailId = -1;
+                ).selectedEmailId = -1;
                 Navigator.pop(context);
               },
               splashRadius: 20,
