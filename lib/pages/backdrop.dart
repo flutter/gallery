@@ -30,8 +30,7 @@ class Backdrop extends StatefulWidget {
   _BackdropState createState() => _BackdropState();
 }
 
-class _BackdropState extends State<Backdrop>
-    with TickerProviderStateMixin {
+class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   AnimationController _settingsPanelController;
   AnimationController _iconController;
   FocusNode _settingsPageFocusNode;

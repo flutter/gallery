@@ -37,32 +37,35 @@ class _SettingsIconPainter extends CustomPainter {
   void _computeCenterAndScaling(Size size) {
     _scaling = min(size.width / unitWidth, size.height / unitHeight);
     _center = Directionality.of(context) == TextDirection.ltr
-        ? Offset(unitWidth * _scaling / 2, size.height - unitHeight * _scaling / 2)
-        : Offset(size.width - unitWidth * _scaling / 2, size.height - unitHeight * _scaling / 2);
+        ? Offset(
+            unitWidth * _scaling / 2, size.height - unitHeight * _scaling / 2)
+        : Offset(size.width - unitWidth * _scaling / 2,
+            size.height - unitHeight * _scaling / 2);
   }
 
   /// Transforms an offset in relative units into an offset in logical pixels.
-  Offset _transform (Offset offset) {
+  Offset _transform(Offset offset) {
     return _center + offset * _scaling;
   }
 
   /// Transforms a length in relative units into a dimension in logical pixels.
-  double _size (double length) {
+  double _size(double length) {
     return length * _scaling;
   }
 
   /// A rectangle with a fixed location, used to locate gradients.
   Rect get _fixedRect {
-    final topLeft = Offset(- _size(stickLength / 2), - _size(stickWidth / 2));
+    final topLeft = Offset(-_size(stickLength / 2), -_size(stickWidth / 2));
     final bottomRight = Offset(_size(stickLength / 2), _size(stickWidth / 2));
     return Rect.fromPoints(topLeft, bottomRight);
   }
 
   /// Black or white paint, depending on brightness.
   Paint get _monoPaint {
-    final monoColor = Theme.of(context).colorScheme.brightness == Brightness.light
-        ? Colors.black
-        : Colors.white;
+    final monoColor =
+        Theme.of(context).colorScheme.brightness == Brightness.light
+            ? Colors.black
+            : Colors.white;
     return Paint()..color = monoColor;
   }
 
@@ -70,7 +73,7 @@ class _SettingsIconPainter extends CustomPainter {
   Paint get _pinkPaint {
     const shader = LinearGradient(colors: [pinkLeft, pinkRight]);
     final shaderRect = _fixedRect.translate(
-      _size(- (stickLength - colorLength(time)) / 2),
+      _size(-(stickLength - colorLength(time)) / 2),
       0,
     );
 
@@ -89,7 +92,7 @@ class _SettingsIconPainter extends CustomPainter {
   }
 
   /// Paints a stadium-shaped stick.
-  void _paintStick ({
+  void _paintStick({
     @required Offset center,
     @required double length,
     @required double width,
@@ -132,7 +135,7 @@ class _SettingsIconPainter extends CustomPainter {
   }
 
   @override
-  void paint (Canvas canvas, Size size) {
+  void paint(Canvas canvas, Size size) {
     _computeCenterAndScaling(size);
     _canvas = canvas;
 
@@ -185,6 +188,6 @@ class _SettingsIconPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) =>
-      oldDelegate is! _SettingsIconPainter
-        || (oldDelegate as _SettingsIconPainter).time != time;
+      oldDelegate is! _SettingsIconPainter ||
+      (oldDelegate as _SettingsIconPainter).time != time;
 }
