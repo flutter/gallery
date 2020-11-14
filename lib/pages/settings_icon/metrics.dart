@@ -68,24 +68,6 @@ double _rotationProgress(double time) => _progress(
       end: 1,
     );
 
-// Moving objects.
-double knobRotation(double time) => _rotationProgress(time) * pi / 4;
-
-Offset knobCenter(double time) {
-  final progress = _rotationProgress(time);
-  if (progress == 0) {
-    return lowerKnobCenter;
-  } else if (progress == 1) {
-    return upperKnobCenter;
-  } else {
-    // Calculates the current location.
-    final center = Offset(knobDistanceFromCenter / tan(pi / 8), 0);
-    final radius = (lowerKnobCenter - center).distance;
-    final angle = pi + (progress - 1 / 2) * pi / 4;
-    return center + Offset.fromDirection(angle, radius);
-  }
-}
-
 // Changing lengths: mono.
 double monoLength(double time) =>
     _monoKnobProgress(time) * (stickLength - knobDiameter) + knobDiameter;
@@ -113,3 +95,21 @@ Offset upperColorOffset(double time) =>
 
 Offset lowerColorOffset(double time) =>
     lowerKnobCenter + Offset(-stickLength / 2 + colorLength(time) / 2, 0);
+
+// Moving objects.
+double knobRotation(double time) => _rotationProgress(time) * pi / 4;
+
+Offset knobCenter(double time) {
+  final progress = _rotationProgress(time);
+  if (progress == 0) {
+    return lowerKnobCenter;
+  } else if (progress == 1) {
+    return upperKnobCenter;
+  } else {
+    // Calculates the current location.
+    final center = Offset(knobDistanceFromCenter / tan(pi / 8), 0);
+    final radius = (lowerKnobCenter - center).distance;
+    final angle = pi + (progress - 1 / 2) * pi / 4;
+    return center + Offset.fromDirection(angle, radius);
+  }
+}
