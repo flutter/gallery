@@ -141,20 +141,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.0-nullsafety.4"
-  flare_dart:
-    dependency: "direct main"
-    description:
-      name: flare_dart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.3.4"
-  flare_flutter:
-    dependency: "direct main"
-    description:
-      name: flare_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.6"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -183,7 +169,7 @@ packages:
       name: flutter_localized_locales
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.2"
+    version: "2.0.0-nullsafety"
   flutter_staggered_grid_view:
     dependency: "direct main"
     description:
@@ -254,7 +240,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.1"
+    version: "0.17.0-nullsafety.2"
   io:
     dependency: transitive
     description:
