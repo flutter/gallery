@@ -44,6 +44,7 @@ import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
+import 'package:gallery/demos/material/app_bar_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
@@ -185,6 +186,22 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
 
 List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
   return [
+    GalleryDemo(
+      title: localizations.demoAppBarTitle,
+      icon: GalleryIcons.appbar,
+      slug: 'app-bar',
+      subtitle: localizations.demoAppBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoAppBarTitle,
+          description: localizations.demoAppBarDescription,
+          documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
+          buildRoute: (_) => const AppBarDemo(),
+          code: CodeSegments.appbarDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
     GalleryDemo(
       title: localizations.demoBannerTitle,
       icon: GalleryIcons.listsLeaveBehind,
