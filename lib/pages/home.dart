@@ -311,10 +311,12 @@ class Header extends StatelessWidget {
 class _AnimatedHomePage extends StatefulWidget {
   const _AnimatedHomePage({
     Key key,
+    @required this.restorationId,
     @required this.carouselCards,
     @required this.isSplashPageAnimationFinished,
   }) : super(key: key);
 
+  final String restorationId;
   final List<Widget> carouselCards;
   final bool isSplashPageAnimationFinished;
 
@@ -323,9 +325,17 @@ class _AnimatedHomePage extends StatefulWidget {
 }
 
 class _AnimatedHomePageState extends State<_AnimatedHomePage>
-    with SingleTickerProviderStateMixin {
+    with RestorationMixin, SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Timer _launchTimer;
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    // TODO: implement restoreState
+  }
 
   @override
   void initState() {

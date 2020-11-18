@@ -43,13 +43,13 @@ class _CategoryListItemState extends State<CategoryListItem>
   Animation<EdgeInsetsGeometry> _childrenPadding;
   Animation<BorderRadius> _headerBorderRadius;
 
-  bool _isExpanded = false;
-
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(duration: _expandDuration, vsync: this);
+    _controller.addStatusListener((status) { setState(() {}); });
+
     _childrenHeightFactor = _controller.drive(_easeInTween);
     _headerChevronOpacity = _controller.drive(_easeInTween);
     _headerHeight = Tween<double>(
@@ -73,10 +73,7 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: BorderRadius.zero,
     ).animate(_controller);
 
-    // TODO(shihaohong): [PageStorage] properties are not state restorable.
-    _isExpanded = PageStorage.of(context)?.readState(context) as bool ??
-        widget.initiallyExpanded;
-    if (_isExpanded) {
+    if (widget.initiallyExpanded) {
       _controller.value = 1.0;
     }
   }
@@ -87,23 +84,25 @@ class _CategoryListItemState extends State<CategoryListItem>
     super.dispose();
   }
 
+  bool _shouldOpenList() {
+    switch(_controller.status) {
+      case AnimationStatus.completed:
+      case AnimationStatus.forward:
+        return false;
+      case AnimationStatus.dismissed:
+      case AnimationStatus.reverse:
+        return true;
+    }
+    assert(false);
+    return null;
+  }
+
   void _handleTap() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-      if (_isExpanded) {
-        _controller.forward();
-      } else {
-        _controller.reverse().then<void>((value) {
-          if (!mounted) {
-            return;
-          }
-          setState(() {
-            // Rebuild without widget.demos.
-          });
-        });
-      }
-      PageStorage.of(context)?.writeState(context, _isExpanded);
-    });
+    if (_shouldOpenList()) {
+      _controller.forward();
+    } else {
+      _controller.reverse();
+    }
   }
 
   Widget _buildHeaderWithChildren(BuildContext context, Widget child) {
@@ -135,11 +134,10 @@ class _CategoryListItemState extends State<CategoryListItem>
 
   @override
   Widget build(BuildContext context) {
-    final closed = !_isExpanded && _controller.isDismissed;
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
-      child: closed
+      child: _shouldOpenList()
           ? null
           : _ExpandedCategoryDemos(
               category: widget.category,
