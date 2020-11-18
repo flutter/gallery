@@ -33,7 +33,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
   }
 
   // Since FloatingActionButtonLocation is not an enum, the index of the
-  // selected FlocatingActionButtonLocation is used for state restoration.
+  // selected FloatingActionButtonLocation is used for state restoration.
   static const List<FloatingActionButtonLocation> _fabLocations = [
     FloatingActionButtonLocation.endDocked,
     FloatingActionButtonLocation.centerDocked,
