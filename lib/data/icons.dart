@@ -171,4 +171,8 @@ class GalleryIcons {
     60080,
     fontFamily: 'MaterialIcons',
   );
+  static const IconData appbar = IconData(
+    60134,
+    fontFamily: 'MaterialIcons',
+  );
 }
