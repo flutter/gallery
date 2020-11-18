@@ -242,6 +242,7 @@ class HomePage extends StatelessWidget {
         body: RestorationScope(
           restorationId: 'home_page',
           child: _AnimatedHomePage(
+            restorationId: 'animated_page',
             isSplashPageAnimationFinished:
                 SplashPageAnimation.of(context).isFinished,
             carouselCards: carouselCards,
@@ -328,13 +329,18 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
     with RestorationMixin, SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Timer _launchTimer;
+  final RestorableBool _isMaterialListExpanded = RestorableBool(false);
+  final RestorableBool _isCupertinoListExpanded = RestorableBool(false);
+  final RestorableBool _isOtherListExpanded = RestorableBool(false);
 
   @override
   String get restorationId => widget.restorationId;
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
-    // TODO: implement restoreState
+    registerForRestoration(_isMaterialListExpanded, 'material_list');
+    registerForRestoration(_isCupertinoListExpanded, 'cupertino_list');
+    registerForRestoration(_isOtherListExpanded, 'other_list');
   }
 
   @override
@@ -409,7 +415,10 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.material,
                 imageString: 'assets/icons/material/material.png',
                 demos: materialDemos(localizations),
-                initiallyExpanded: isTestMode,
+                initiallyExpanded: _isMaterialListExpanded.value || isTestMode,
+                onTap: (shouldOpenList) {
+                  _isMaterialListExpanded.value = shouldOpenList;
+                }
               ),
             ),
             _AnimatedCategoryItem(
@@ -423,7 +432,10 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.cupertino,
                 imageString: 'assets/icons/cupertino/cupertino.png',
                 demos: cupertinoDemos(localizations),
-                initiallyExpanded: isTestMode,
+                initiallyExpanded: _isCupertinoListExpanded.value || isTestMode,
+                onTap: (shouldOpenList) {
+                  _isCupertinoListExpanded.value = shouldOpenList;
+                }
               ),
             ),
             _AnimatedCategoryItem(
@@ -437,7 +449,10 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                 category: GalleryDemoCategory.other,
                 imageString: 'assets/icons/reference/reference.png',
                 demos: otherDemos(localizations),
-                initiallyExpanded: isTestMode,
+                initiallyExpanded: _isOtherListExpanded.value || isTestMode,
+                onTap: (shouldOpenList) {
+                  _isOtherListExpanded.value = shouldOpenList;
+                }
               ),
             ),
           ],

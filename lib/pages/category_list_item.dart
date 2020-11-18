@@ -8,6 +8,8 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/demo.dart';
 
+typedef CategoryHeaderTapCallback = Function(bool shouldOpenList);
+
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
     Key key,
@@ -16,6 +18,7 @@ class CategoryListItem extends StatefulWidget {
     this.imageString,
     this.demos = const [],
     this.initiallyExpanded = false,
+    this.onTap,
   })  : assert(initiallyExpanded != null),
         super(key: key);
 
@@ -24,6 +27,7 @@ class CategoryListItem extends StatefulWidget {
   final String imageString;
   final List<GalleryDemo> demos;
   final bool initiallyExpanded;
+  final CategoryHeaderTapCallback onTap;
 
   @override
   _CategoryListItemState createState() => _CategoryListItemState();
@@ -100,8 +104,14 @@ class _CategoryListItemState extends State<CategoryListItem>
   void _handleTap() {
     if (_shouldOpenList()) {
       _controller.forward();
+      if (widget.onTap != null) {
+        widget.onTap(true);
+      }
     } else {
       _controller.reverse();
+      if (widget.onTap != null) {
+        widget.onTap(false);
+      }
     }
   }
 
