@@ -28,7 +28,8 @@ class BottomNavigationDemo extends StatefulWidget {
   _BottomNavigationDemoState createState() => _BottomNavigationDemoState();
 }
 
-class _BottomNavigationDemoState extends State<BottomNavigationDemo> with RestorationMixin {
+class _BottomNavigationDemoState extends State<BottomNavigationDemo>
+    with RestorationMixin {
   final RestorableInt _currentIndex = RestorableInt(0);
 
   @override
@@ -82,8 +83,9 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> with Restor
     if (widget.type == BottomNavigationDemoType.withLabels) {
       bottomNavigationBarItems = bottomNavigationBarItems.sublist(
           0, bottomNavigationBarItems.length - 2);
-      _currentIndex.value =
-          _currentIndex.value.clamp(0, bottomNavigationBarItems.length - 1).toInt();
+      _currentIndex.value = _currentIndex.value
+          .clamp(0, bottomNavigationBarItems.length - 1)
+          .toInt();
     }
 
     return Scaffold(

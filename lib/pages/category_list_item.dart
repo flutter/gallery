@@ -52,7 +52,9 @@ class _CategoryListItemState extends State<CategoryListItem>
     super.initState();
 
     _controller = AnimationController(duration: _expandDuration, vsync: this);
-    _controller.addStatusListener((status) { setState(() {}); });
+    _controller.addStatusListener((status) {
+      setState(() {});
+    });
 
     _childrenHeightFactor = _controller.drive(_easeInTween);
     _headerChevronOpacity = _controller.drive(_easeInTween);
@@ -89,7 +91,7 @@ class _CategoryListItemState extends State<CategoryListItem>
   }
 
   bool _shouldOpenList() {
-    switch(_controller.status) {
+    switch (_controller.status) {
       case AnimationStatus.completed:
       case AnimationStatus.forward:
         return false;

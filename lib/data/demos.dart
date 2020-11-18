@@ -211,7 +211,8 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomAppBarTitle,
           description: localizations.demoBottomAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
-          buildRoute: (_) => const BottomAppBarDemo(restorationId: 'bottom_app_bar_demo'),
+          buildRoute: (_) =>
+              const BottomAppBarDemo(restorationId: 'bottom_app_bar_demo'),
           code: CodeSegments.bottomAppBarDemo,
         ),
       ],
@@ -258,20 +259,18 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomSheetPersistentTitle,
           description: localizations.demoBottomSheetPersistentDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) =>
-              const BottomSheetDemo(
-                type: BottomSheetDemoType.persistent,
-              ),
+          buildRoute: (_) => const BottomSheetDemo(
+            type: BottomSheetDemoType.persistent,
+          ),
           code: CodeSegments.bottomSheetDemoPersistent,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoBottomSheetModalTitle,
           description: localizations.demoBottomSheetModalDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) =>
-              const BottomSheetDemo(
-                type: BottomSheetDemoType.modal,
-              ),
+          buildRoute: (_) => const BottomSheetDemo(
+            type: BottomSheetDemoType.modal,
+          ),
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],

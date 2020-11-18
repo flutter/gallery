@@ -86,7 +86,6 @@ class GalleryDemoPage extends StatefulWidget {
 
 class _GalleryDemoPageState extends State<GalleryDemoPage>
     with RestorationMixin, TickerProviderStateMixin {
-
   final RestorableInt _demoStateIndex = RestorableInt(_DemoState.normal.index);
   final RestorableInt _configIndex = RestorableInt(0);
 
@@ -171,14 +170,17 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     if (_demoStateIndex.value == newStateIndex && isDisplayDesktop(context)) {
       if (_demoStateIndex.value == _DemoState.fullscreen.index) {
         setStateAndUpdate(() {
-          _demoStateIndex.value = _hasOptions ? _DemoState.options.index : _DemoState.info.index;
+          _demoStateIndex.value =
+              _hasOptions ? _DemoState.options.index : _DemoState.info.index;
         });
       }
       return;
     }
 
     setStateAndUpdate(() {
-      _demoStateIndex.value = _demoStateIndex.value == newStateIndex ? _DemoState.normal.index : newStateIndex;
+      _demoStateIndex.value = _demoStateIndex.value == newStateIndex
+          ? _DemoState.normal.index
+          : newStateIndex;
     });
   }
 
@@ -210,12 +212,15 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   void _resolveState(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    if (_DemoState.values[_demoStateIndex.value] == _DemoState.fullscreen && !isDesktop) {
+    if (_DemoState.values[_demoStateIndex.value] == _DemoState.fullscreen &&
+        !isDesktop) {
       // Do not allow fullscreen state for mobile.
       _demoStateIndex.value = _DemoState.normal.index;
-    } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal && isDesktop) {
+    } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal &&
+        isDesktop) {
       // Do not allow normal state for desktop.
-      _demoStateIndex.value = _hasOptions ? _DemoState.options.index : _DemoState.info.index;
+      _demoStateIndex.value =
+          _hasOptions ? _DemoState.options.index : _DemoState.info.index;
     } else if (isDesktop != _isDesktop) {
       _isDesktop = isDesktop;
       // When going from desktop to mobile, return to normal state.
@@ -282,13 +287,17 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         IconButton(
           icon: const Icon(Icons.info),
           tooltip: GalleryLocalizations.of(context).demoInfoTooltip,
-          color: currentDemoState == _DemoState.info ? selectedIconColor : iconColor,
+          color: currentDemoState == _DemoState.info
+              ? selectedIconColor
+              : iconColor,
           onPressed: () => _handleTap(_DemoState.info),
         ),
         IconButton(
           icon: const Icon(Icons.code),
           tooltip: GalleryLocalizations.of(context).demoCodeTooltip,
-          color: currentDemoState == _DemoState.code ? selectedIconColor : iconColor,
+          color: currentDemoState == _DemoState.code
+              ? selectedIconColor
+              : iconColor,
           onPressed: () => _handleTap(_DemoState.code),
         ),
         IconButton(
@@ -301,8 +310,9 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
           IconButton(
             icon: const Icon(Icons.fullscreen),
             tooltip: GalleryLocalizations.of(context).demoFullscreenTooltip,
-            color:
-                currentDemoState == _DemoState.fullscreen ? selectedIconColor : iconColor,
+            color: currentDemoState == _DemoState.fullscreen
+                ? selectedIconColor
+                : iconColor,
             onPressed: () => _handleTap(_DemoState.fullscreen),
           ),
         SizedBox(width: appBarPadding),

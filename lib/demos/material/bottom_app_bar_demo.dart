@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN bottomAppBarDemo
 
 class BottomAppBarDemo extends StatefulWidget {
-  const BottomAppBarDemo({ this.restorationId });
+  const BottomAppBarDemo({this.restorationId});
 
   final String restorationId;
 
@@ -16,7 +16,8 @@ class BottomAppBarDemo extends StatefulWidget {
   State createState() => _BottomAppBarDemoState();
 }
 
-class _BottomAppBarDemoState extends State<BottomAppBarDemo> with RestorationMixin {
+class _BottomAppBarDemoState extends State<BottomAppBarDemo>
+    with RestorationMixin {
   final RestorableBool _showFab = RestorableBool(true);
   final RestorableBool _showNotch = RestorableBool(true);
   final RestorableInt _currentFabLocation = RestorableInt(0);

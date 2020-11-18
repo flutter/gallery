@@ -14,7 +14,7 @@ enum BannerDemoAction {
 }
 
 class BannerDemo extends StatefulWidget {
-  const BannerDemo({ this.restorationId });
+  const BannerDemo({this.restorationId});
 
   final String restorationId;
 
@@ -121,19 +121,20 @@ class _BannerDemoState extends State<BannerDemo> with RestorationMixin {
         ],
       ),
       body: ListView.builder(
-          restorationId: 'banner_demo_list_view',
-          itemCount: _displayBanner.value ? _itemCount + 1 : _itemCount,
-          itemBuilder: (context, index) {
-            if (index == 0 && _displayBanner.value) {
-              return banner;
-            }
-            return ListTile(
-              title: Text(
-                GalleryLocalizations.of(context)
-                    .starterAppDrawerItem(_displayBanner.value ? index : index + 1),
-              ),
-            );
-          },),
+        restorationId: 'banner_demo_list_view',
+        itemCount: _displayBanner.value ? _itemCount + 1 : _itemCount,
+        itemBuilder: (context, index) {
+          if (index == 0 && _displayBanner.value) {
+            return banner;
+          }
+          return ListTile(
+            title: Text(
+              GalleryLocalizations.of(context).starterAppDrawerItem(
+                  _displayBanner.value ? index : index + 1),
+            ),
+          );
+        },
+      ),
     );
   }
 }

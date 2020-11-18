@@ -408,52 +408,51 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.material,
-                ),
-                restorationId: 'home_material_category_list',
-                category: GalleryDemoCategory.material,
-                imageString: 'assets/icons/material/material.png',
-                demos: materialDemos(localizations),
-                initiallyExpanded: _isMaterialListExpanded.value || isTestMode,
-                onTap: (shouldOpenList) {
-                  _isMaterialListExpanded.value = shouldOpenList;
-                }
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.material,
+                  ),
+                  restorationId: 'home_material_category_list',
+                  category: GalleryDemoCategory.material,
+                  imageString: 'assets/icons/material/material.png',
+                  demos: materialDemos(localizations),
+                  initiallyExpanded:
+                      _isMaterialListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isMaterialListExpanded.value = shouldOpenList;
+                  }),
             ),
             _AnimatedCategoryItem(
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.cupertino,
-                ),
-                restorationId: 'home_cupertino_category_list',
-                category: GalleryDemoCategory.cupertino,
-                imageString: 'assets/icons/cupertino/cupertino.png',
-                demos: cupertinoDemos(localizations),
-                initiallyExpanded: _isCupertinoListExpanded.value || isTestMode,
-                onTap: (shouldOpenList) {
-                  _isCupertinoListExpanded.value = shouldOpenList;
-                }
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.cupertino,
+                  ),
+                  restorationId: 'home_cupertino_category_list',
+                  category: GalleryDemoCategory.cupertino,
+                  imageString: 'assets/icons/cupertino/cupertino.png',
+                  demos: cupertinoDemos(localizations),
+                  initiallyExpanded:
+                      _isCupertinoListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isCupertinoListExpanded.value = shouldOpenList;
+                  }),
             ),
             _AnimatedCategoryItem(
               startDelayFraction: 0.10,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.other,
-                ),
-                restorationId: 'home_other_category_list',
-                category: GalleryDemoCategory.other,
-                imageString: 'assets/icons/reference/reference.png',
-                demos: otherDemos(localizations),
-                initiallyExpanded: _isOtherListExpanded.value || isTestMode,
-                onTap: (shouldOpenList) {
-                  _isOtherListExpanded.value = shouldOpenList;
-                }
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.other,
+                  ),
+                  restorationId: 'home_other_category_list',
+                  category: GalleryDemoCategory.other,
+                  imageString: 'assets/icons/reference/reference.png',
+                  demos: otherDemos(localizations),
+                  initiallyExpanded: _isOtherListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isOtherListExpanded.value = shouldOpenList;
+                  }),
             ),
           ],
         ),
