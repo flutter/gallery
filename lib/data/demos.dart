@@ -212,7 +212,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBannerTitle,
           description: localizations.demoBannerDescription,
           documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
-          buildRoute: (_) => const BannerDemo(),
+          buildRoute: (_) => const BannerDemo(restorationId: 'banner_demo'),
           code: CodeSegments.bannerDemo,
         ),
       ],
@@ -228,7 +228,8 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomAppBarTitle,
           description: localizations.demoBottomAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
-          buildRoute: (_) => const BottomAppBarDemo(),
+          buildRoute: (_) =>
+              const BottomAppBarDemo(restorationId: 'bottom_app_bar_demo'),
           code: CodeSegments.bottomAppBarDemo,
         ),
       ],
@@ -246,7 +247,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => const BottomNavigationDemo(
-              type: BottomNavigationDemoType.withLabels),
+            type: BottomNavigationDemoType.withLabels,
+            restorationId: 'bottom_navigation_labels_demo',
+          ),
           code: CodeSegments.bottomNavigationDemo,
         ),
         GalleryDemoConfiguration(
@@ -255,7 +258,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => const BottomNavigationDemo(
-              type: BottomNavigationDemoType.withoutLabels),
+            type: BottomNavigationDemoType.withoutLabels,
+            restorationId: 'bottom_navigation_without_labels_demo',
+          ),
           code: CodeSegments.bottomNavigationDemo,
         ),
       ],
@@ -271,16 +276,18 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomSheetPersistentTitle,
           description: localizations.demoBottomSheetPersistentDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) =>
-              const BottomSheetDemo(type: BottomSheetDemoType.persistent),
+          buildRoute: (_) => const BottomSheetDemo(
+            type: BottomSheetDemoType.persistent,
+          ),
           code: CodeSegments.bottomSheetDemoPersistent,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoBottomSheetModalTitle,
           description: localizations.demoBottomSheetModalDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) =>
-              const BottomSheetDemo(type: BottomSheetDemoType.modal),
+          buildRoute: (_) => const BottomSheetDemo(
+            type: BottomSheetDemoType.modal,
+          ),
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],

@@ -15,16 +15,30 @@ enum BottomNavigationDemoType {
 }
 
 class BottomNavigationDemo extends StatefulWidget {
-  const BottomNavigationDemo({Key key, @required this.type}) : super(key: key);
+  const BottomNavigationDemo({
+    Key key,
+    @required this.restorationId,
+    @required this.type,
+  }) : super(key: key);
 
+  final String restorationId;
   final BottomNavigationDemoType type;
 
   @override
   _BottomNavigationDemoState createState() => _BottomNavigationDemoState();
 }
 
-class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
-  int _currentIndex = 0;
+class _BottomNavigationDemoState extends State<BottomNavigationDemo>
+    with RestorationMixin {
+  final RestorableInt _currentIndex = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_currentIndex, 'bottom_navigation_tab_index');
+  }
 
   String _title(BuildContext context) {
     switch (widget.type) {
@@ -69,8 +83,9 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
     if (widget.type == BottomNavigationDemoType.withLabels) {
       bottomNavigationBarItems = bottomNavigationBarItems.sublist(
           0, bottomNavigationBarItems.length - 2);
-      _currentIndex =
-          _currentIndex.clamp(0, bottomNavigationBarItems.length - 1).toInt();
+      _currentIndex.value = _currentIndex.value
+          .clamp(0, bottomNavigationBarItems.length - 1)
+          .toInt();
     }
 
     return Scaffold(
@@ -83,7 +98,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
           child: _NavigationDestinationView(
             // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
             key: UniqueKey(),
-            item: bottomNavigationBarItems[_currentIndex],
+            item: bottomNavigationBarItems[_currentIndex.value],
           ),
           transitionBuilder: (child, animation, secondaryAnimation) {
             return FadeThroughTransition(
@@ -98,13 +113,13 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo> {
         showUnselectedLabels:
             widget.type == BottomNavigationDemoType.withLabels,
         items: bottomNavigationBarItems,
-        currentIndex: _currentIndex,
+        currentIndex: _currentIndex.value,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: textTheme.caption.fontSize,
         unselectedFontSize: textTheme.caption.fontSize,
         onTap: (index) {
           setState(() {
-            _currentIndex = index;
+            _currentIndex.value = index;
           });
         },
         selectedItemColor: colorScheme.onPrimary,

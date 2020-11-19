@@ -8,20 +8,26 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/demo.dart';
 
+typedef CategoryHeaderTapCallback = Function(bool shouldOpenList);
+
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
     Key key,
+    this.restorationId,
     this.category,
     this.imageString,
     this.demos = const [],
     this.initiallyExpanded = false,
+    this.onTap,
   })  : assert(initiallyExpanded != null),
         super(key: key);
 
   final GalleryDemoCategory category;
+  final String restorationId;
   final String imageString;
   final List<GalleryDemo> demos;
   final bool initiallyExpanded;
+  final CategoryHeaderTapCallback onTap;
 
   @override
   _CategoryListItemState createState() => _CategoryListItemState();
@@ -41,12 +47,15 @@ class _CategoryListItemState extends State<CategoryListItem>
   Animation<EdgeInsetsGeometry> _childrenPadding;
   Animation<BorderRadius> _headerBorderRadius;
 
-  bool _isExpanded = false;
-
   @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(duration: _expandDuration, vsync: this);
+    _controller.addStatusListener((status) {
+      setState(() {});
+    });
+
     _childrenHeightFactor = _controller.drive(_easeInTween);
     _headerChevronOpacity = _controller.drive(_easeInTween);
     _headerHeight = Tween<double>(
@@ -70,9 +79,7 @@ class _CategoryListItemState extends State<CategoryListItem>
       end: BorderRadius.zero,
     ).animate(_controller);
 
-    _isExpanded = PageStorage.of(context)?.readState(context) as bool ??
-        widget.initiallyExpanded;
-    if (_isExpanded) {
+    if (widget.initiallyExpanded) {
       _controller.value = 1.0;
     }
   }
@@ -83,23 +90,31 @@ class _CategoryListItemState extends State<CategoryListItem>
     super.dispose();
   }
 
+  bool _shouldOpenList() {
+    switch (_controller.status) {
+      case AnimationStatus.completed:
+      case AnimationStatus.forward:
+        return false;
+      case AnimationStatus.dismissed:
+      case AnimationStatus.reverse:
+        return true;
+    }
+    assert(false);
+    return null;
+  }
+
   void _handleTap() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-      if (_isExpanded) {
-        _controller.forward();
-      } else {
-        _controller.reverse().then<void>((value) {
-          if (!mounted) {
-            return;
-          }
-          setState(() {
-            // Rebuild without widget.demos.
-          });
-        });
+    if (_shouldOpenList()) {
+      _controller.forward();
+      if (widget.onTap != null) {
+        widget.onTap(true);
       }
-      PageStorage.of(context)?.writeState(context, _isExpanded);
-    });
+    } else {
+      _controller.reverse();
+      if (widget.onTap != null) {
+        widget.onTap(false);
+      }
+    }
   }
 
   Widget _buildHeaderWithChildren(BuildContext context, Widget child) {
@@ -131,11 +146,10 @@ class _CategoryListItemState extends State<CategoryListItem>
 
   @override
   Widget build(BuildContext context) {
-    final closed = !_isExpanded && _controller.isDismissed;
     return AnimatedBuilder(
       animation: _controller.view,
       builder: _buildHeaderWithChildren,
-      child: closed
+      child: _shouldOpenList()
           ? null
           : _ExpandedCategoryDemos(
               category: widget.category,
@@ -279,7 +293,7 @@ class CategoryDemoItem extends StatelessWidget {
       child: MergeSemantics(
         child: InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(
+            Navigator.of(context).restorablePushNamed(
               '${DemoPage.baseRoute}/${demo.slug}',
             );
           },
