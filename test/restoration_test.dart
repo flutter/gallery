@@ -21,9 +21,17 @@ void main() {
       expect(find.byKey(const ValueKey('reply@study')), findsOneWidget);
 
       // Move two carousel cards over.
-      await tester.fling(find.byKey(const ValueKey('reply@study')), const Offset(-200, 0), 1000);
+      await tester.fling(
+        find.byKey(const ValueKey('reply@study')),
+        const Offset(-200, 0),
+        1000,
+      );
       await tester.pumpAndSettle();
-      await tester.fling(find.byKey(const ValueKey('shrine@study')), const Offset(-200, 0), 1000);
+      await tester.fling(
+        find.byKey(const ValueKey('shrine@study')),
+        const Offset(-200, 0),
+        1000,
+      );
       await tester.pumpAndSettle();
 
       expect(find.byKey(const ValueKey('rally@study')), findsOneWidget);
@@ -76,8 +84,8 @@ void main() {
       expect(find.byType(GalleryDemoPage), findsOneWidget);
 
       const bannerDescriptionText = 'A banner displays an important, succinct '
-        'message, and provides actions for users to address (or dismiss the '
-        'banner). A user action is required for it to be dismissed.';
+          'message, and provides actions for users to address (or dismiss the '
+          'banner). A user action is required for it to be dismissed.';
 
       expect(find.text(bannerDescriptionText), findsNothing);
 
