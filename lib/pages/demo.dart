@@ -506,14 +506,18 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             }),
       );
     } else {
-      page = Container(
-        color: colorScheme.background,
-        child: ApplyTextOptions(
-          child: Scaffold(
-            appBar: appBar,
-            body: body,
-          ),
-        ),
+      page = Builder(
+        builder: (context) {
+          return Container(
+            color: colorScheme.background,
+            child: ApplyTextOptions(
+              child: Scaffold(
+                appBar: appBar,
+                body: body,
+              ),
+            ),
+          );
+        },
       );
     }
 
