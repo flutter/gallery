@@ -403,7 +403,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoDataTableTitle,
           description: localizations.demoDataTableDescription,
           documentationUrl: '$_docsBaseUrl/material/DataTable-class.html',
-          buildRoute: (_) => const DataTableDemo(),
+          buildRoute: (_) => const DataTableDemo(
+            restorationId: 'data_table_demo',
+          ),
           code: CodeSegments.dataTableDemo,
         ),
       ],
