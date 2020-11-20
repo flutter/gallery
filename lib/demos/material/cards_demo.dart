@@ -165,25 +165,23 @@ class TappableTravelDestinationItem extends StatelessWidget {
   }
 }
 
-class SelectableTravelDestinationItem extends StatefulWidget {
-  const SelectableTravelDestinationItem(
-      {Key key, @required this.destination, this.shape})
-      : assert(destination != null),
+class SelectableTravelDestinationItem extends StatelessWidget {
+  const SelectableTravelDestinationItem({
+    Key key,
+    @required this.destination,
+    @required this.isSelected,
+    @required this.onSelected,
+    this.shape,
+  })  : assert(destination != null),
         super(key: key);
 
   final TravelDestination destination;
   final ShapeBorder shape;
+  final bool isSelected;
+  final VoidCallback onSelected;
 
-  @override
-  _SelectableTravelDestinationItemState createState() =>
-      _SelectableTravelDestinationItemState();
-}
-
-class _SelectableTravelDestinationItemState
-    extends State<SelectableTravelDestinationItem> {
   // This height will allow for all the Card's content to fit comfortably within the card.
   static const height = 298.0;
-  var _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -203,13 +201,10 @@ class _SelectableTravelDestinationItemState
               child: Card(
                 // This ensures that the Card's children (including the ink splash) are clipped correctly.
                 clipBehavior: Clip.antiAlias,
-                shape: widget.shape,
+                shape: shape,
                 child: InkWell(
                   onLongPress: () {
-                    print('Selectable card state changed');
-                    setState(() {
-                      _isSelected = !_isSelected;
-                    });
+                    onSelected();
                   },
                   // Generally, material cards use onSurface with 12% opacity for the pressed state.
                   splashColor: colorScheme.onSurface.withOpacity(0.12),
@@ -218,20 +213,20 @@ class _SelectableTravelDestinationItemState
                   child: Stack(
                     children: [
                       Container(
-                        color: _isSelected
+                        color: isSelected
                             // Generally, material cards use primary with 8% opacity for the selected state.
                             // See: https://material.io/design/interaction/states.html#anatomy
                             ? colorScheme.primary.withOpacity(0.08)
                             : Colors.transparent,
                       ),
-                      TravelDestinationContent(destination: widget.destination),
+                      TravelDestinationContent(destination: destination),
                       Align(
                         alignment: Alignment.topRight,
                         child: Padding(
                           padding: const EdgeInsets.all(8),
                           child: Icon(
                             Icons.check_circle,
-                            color: _isSelected
+                            color: isSelected
                                 ? colorScheme.primary
                                 : Colors.transparent,
                           ),
@@ -373,13 +368,27 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
-  const CardsDemo();
+  const CardsDemo({
+    this.restorationId,
+  });
+
+  final String restorationId;
 
   @override
   _CardsDemoState createState() => _CardsDemoState();
 }
 
-class _CardsDemoState extends State<CardsDemo> {
+class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
+  final RestorableBool _isSelected = RestorableBool(false);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_isSelected, 'is_selected');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -389,6 +398,7 @@ class _CardsDemoState extends State<CardsDemo> {
       ),
       body: Scrollbar(
         child: ListView(
+          restorationId: 'cards_demo_list_view',
           padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
           children: [
             for (final destination in destinations(context))
@@ -400,7 +410,14 @@ class _CardsDemoState extends State<CardsDemo> {
                         ? TappableTravelDestinationItem(
                             destination: destination)
                         : SelectableTravelDestinationItem(
-                            destination: destination),
+                            destination: destination,
+                            isSelected: _isSelected.value,
+                            onSelected: () {
+                              setState(() {
+                                _isSelected.value = !_isSelected.value;
+                              });
+                            },
+                          ),
               ),
           ],
         ),

@@ -348,7 +348,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoCardTitle,
           description: localizations.demoCardDescription,
           documentationUrl: '$_docsBaseUrl/material/Card-class.html',
-          buildRoute: (context) => const CardsDemo(),
+          buildRoute: (context) => const CardsDemo(
+            restorationId: 'cards_demo',
+          ),
           code: CodeSegments.cardsDemo,
         ),
       ],
