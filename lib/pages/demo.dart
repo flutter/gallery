@@ -449,60 +449,62 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     Widget page;
 
     if (isDesktop) {
-      page = AnimatedBuilder(
-          animation: _codeBackgroundColorController,
-          builder: (context, child) {
-            Brightness themeBrightness;
+      page = ScaffoldMessenger(
+        child: AnimatedBuilder(
+            animation: _codeBackgroundColorController,
+            builder: (context, child) {
+              Brightness themeBrightness;
 
-            switch (GalleryOptions.of(context).themeMode) {
-              case ThemeMode.system:
-                themeBrightness = MediaQuery.of(context).platformBrightness;
-                break;
-              case ThemeMode.light:
-                themeBrightness = Brightness.light;
-                break;
-              case ThemeMode.dark:
-                themeBrightness = Brightness.dark;
-                break;
-            }
+              switch (GalleryOptions.of(context).themeMode) {
+                case ThemeMode.system:
+                  themeBrightness = MediaQuery.of(context).platformBrightness;
+                  break;
+                case ThemeMode.light:
+                  themeBrightness = Brightness.light;
+                  break;
+                case ThemeMode.dark:
+                  themeBrightness = Brightness.dark;
+                  break;
+              }
 
-            Widget contents = Container(
-              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-              child: ApplyTextOptions(
-                child: Scaffold(
-                  appBar: appBar,
-                  body: body,
-                  backgroundColor: Colors.transparent,
-                ),
-              ),
-            );
-
-            if (themeBrightness == Brightness.light) {
-              // If it is currently in light mode, add a
-              // dark background for code.
-              Widget codeBackground = Container(
-                padding: const EdgeInsets.only(top: 56),
-                child: Container(
-                  color: ColorTween(
-                    begin: Colors.transparent,
-                    end: GalleryThemeData.darkThemeData.canvasColor,
-                  ).animate(_codeBackgroundColorController).value,
+              Widget contents = Container(
+                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: ApplyTextOptions(
+                  child: Scaffold(
+                    appBar: appBar,
+                    body: body,
+                    backgroundColor: Colors.transparent,
+                  ),
                 ),
               );
 
-              contents = Stack(
-                children: [
-                  codeBackground,
-                  contents,
-                ],
-              );
-            }
+              if (themeBrightness == Brightness.light) {
+                // If it is currently in light mode, add a
+                // dark background for code.
+                Widget codeBackground = Container(
+                  padding: const EdgeInsets.only(top: 56),
+                  child: Container(
+                    color: ColorTween(
+                      begin: Colors.transparent,
+                      end: GalleryThemeData.darkThemeData.canvasColor,
+                    ).animate(_codeBackgroundColorController).value,
+                  ),
+                );
 
-            return Container(
-              color: colorScheme.background,
-              child: contents,
-            );
-          });
+                contents = Stack(
+                  children: [
+                    codeBackground,
+                    contents,
+                  ],
+                );
+              }
+
+              return Container(
+                color: colorScheme.background,
+                child: contents,
+              );
+            }),
+      );
     } else {
       page = Container(
         color: colorScheme.background,
