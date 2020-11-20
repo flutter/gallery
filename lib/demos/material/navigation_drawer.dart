@@ -8,8 +8,8 @@ import 'package:flutter/cupertino.dart';
 
 // BEGIN navDrawerDemo
 
-// Pressing the Navigation Drawer button the left of Appbar to show
-// a simple Drawer with Two items.
+// Pressing the Navigation Drawer button the left of AppBar to show
+// a simple Drawer with two items.
 class NavDrawerDemo extends StatelessWidget {
   const NavDrawerDemo({Key key}) : super(key: key);
 

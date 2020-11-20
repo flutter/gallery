@@ -8,14 +8,27 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN navRailDemo
 
 class NavRailDemo extends StatefulWidget {
-  const NavRailDemo({Key key}) : super(key: key);
+  const NavRailDemo({
+    Key key,
+    @required this.restorationId,
+  }) : super(key: key);
+
+  final String restorationId;
 
   @override
   _NavRailDemoState createState() => _NavRailDemoState();
 }
 
-class _NavRailDemoState extends State<NavRailDemo> {
-  int _selectedIndex = 0;
+class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
+  final RestorableInt _selectedIndex = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_selectedIndex, 'selected_index');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +54,10 @@ class _NavRailDemoState extends State<NavRailDemo> {
               child: const Icon(Icons.add),
               onPressed: () {},
             ),
-            selectedIndex: _selectedIndex,
+            selectedIndex: _selectedIndex.value,
             onDestinationSelected: (index) {
               setState(() {
-                _selectedIndex = index;
+                _selectedIndex.value = index;
               });
             },
             labelType: NavigationRailLabelType.selected,
@@ -88,7 +101,7 @@ class _NavRailDemoState extends State<NavRailDemo> {
           Expanded(
             child: Center(
               child: Text(
-                selectedItem[_selectedIndex],
+                selectedItem[_selectedIndex.value],
               ),
             ),
           ),
