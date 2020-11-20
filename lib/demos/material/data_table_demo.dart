@@ -22,7 +22,8 @@ class DataTableDemo extends StatefulWidget {
 }
 
 class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
-  final RestorableInt _rowsPerPage = RestorableInt(PaginatedDataTable.defaultRowsPerPage);
+  final RestorableInt _rowsPerPage =
+      RestorableInt(PaginatedDataTable.defaultRowsPerPage);
   final RestorableInt _sortColumnIndex = RestorableInt(-1);
   final RestorableBool _sortAscending = RestorableBool(true);
   _DessertDataSource _dessertsDataSource;
@@ -88,7 +89,8 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
               },
               // RestorableBool's value cannot be null, so -1 is used as a
               // placeholder to represent `null` in [DataTable]s.
-              sortColumnIndex: _sortColumnIndex.value == -1 ? null : _sortColumnIndex.value,
+              sortColumnIndex:
+                  _sortColumnIndex.value == -1 ? null : _sortColumnIndex.value,
               sortAscending: _sortAscending.value,
               onSelectAll: _dessertsDataSource._selectAll,
               columns: [
