@@ -59,7 +59,10 @@ class _MenuDemoState extends State<MenuDemo> {
         demo = _SimpleMenuDemo(showInSnackBar: showInSnackBar);
         break;
       case MenuDemoType.checklistMenu:
-        demo = _ChecklistMenuDemo(showInSnackBar: showInSnackBar);
+        demo = _ChecklistMenuDemo(
+          restorationId: 'checklist_menu_demo',
+          showInSnackBar: showInSnackBar,
+        );
         break;
     }
 
@@ -277,37 +280,80 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
 // Pressing the PopupMenuButton on the right of this item shows a menu
 // whose items have checked icons that reflect this app's state.
 class _ChecklistMenuDemo extends StatefulWidget {
-  const _ChecklistMenuDemo({Key key, this.showInSnackBar}) : super(key: key);
+  const _ChecklistMenuDemo({
+    Key key,
+    @required this.restorationId,
+    this.showInSnackBar,
+  }) : super(key: key);
 
+  final String restorationId;
   final void Function(String value) showInSnackBar;
 
   @override
   _ChecklistMenuDemoState createState() => _ChecklistMenuDemoState();
 }
 
-class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo> {
-  List<CheckedValue> _checkedValues;
+class _RestorableCheckedValue extends RestorableValue<Set<int>> {
+  _RestorableCheckedValue(
+    this._defaultValue,
+  ) : assert(_defaultValue != null);
+
+  final Set<int> _defaultValue;
 
   @override
-  void initState() {
-    super.initState();
-    _checkedValues = [CheckedValue.three];
+  Set<int> createDefaultValue() => _defaultValue;
+
+  @override
+  void didUpdateValue(Set<int> oldValue) {
+    notifyListeners();
+  }
+
+  @override
+  Set<int> fromPrimitives(Object data) {
+    final checkedValues = data as List<dynamic>;
+    return Set.from(checkedValues.map<int>((dynamic id) => id as int));
+  }
+
+  @override
+  Object toPrimitives() {
+    return value.toList();
+  }
+
+  @override
+  bool get enabled => value != null;
+}
+
+class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
+    with RestorationMixin {
+  final _RestorableCheckedValue _checkedValues = _RestorableCheckedValue({
+    CheckedValue.three.index,
+  });
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_checkedValues, 'checked_values');
   }
 
   void showCheckedMenuSelections(BuildContext context, CheckedValue value) {
-    if (_checkedValues.contains(value)) {
+    final index = value.index;
+    if (_checkedValues.value.contains(index)) {
       setState(() {
-        _checkedValues.remove(value);
+        _checkedValues.value = Set.from(_checkedValues.value..remove(value));
       });
     } else {
       setState(() {
-        _checkedValues.add(value);
+        _checkedValues.value = Set.from(_checkedValues.value..add(index));
       });
     }
 
     widget.showInSnackBar(
       GalleryLocalizations.of(context).demoMenuChecked(
-        _checkedValues.map((value) => checkedValueToString(context, value)),
+        _checkedValues.value.map((value) {
+          return checkedValueToString(context, CheckedValue.values[value]);
+        }),
       ),
     );
   }
@@ -319,7 +365,8 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo> {
         CheckedValue.four: GalleryLocalizations.of(context).demoMenuFour,
       }[value];
 
-  bool isChecked(CheckedValue value) => _checkedValues.contains(value);
+  bool isChecked(CheckedValue value) =>
+      _checkedValues.value.contains(value.index);
 
   @override
   Widget build(BuildContext context) {
