@@ -14,31 +14,44 @@ enum BannerDemoAction {
 }
 
 class BannerDemo extends StatefulWidget {
-  const BannerDemo();
+  const BannerDemo({this.restorationId});
+
+  final String restorationId;
 
   @override
   _BannerDemoState createState() => _BannerDemoState();
 }
 
-class _BannerDemoState extends State<BannerDemo> {
+class _BannerDemoState extends State<BannerDemo> with RestorationMixin {
   static const _itemCount = 20;
-  var _displayBanner = true;
-  var _showMultipleActions = true;
-  var _showLeading = true;
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_displayBanner, 'display_banner');
+    registerForRestoration(_showMultipleActions, 'show_multiple_actions');
+    registerForRestoration(_showLeading, 'show_leading');
+  }
+
+  final RestorableBool _displayBanner = RestorableBool(true);
+  final RestorableBool _showMultipleActions = RestorableBool(true);
+  final RestorableBool _showLeading = RestorableBool(true);
 
   void handleDemoAction(BannerDemoAction action) {
     setState(() {
       switch (action) {
         case BannerDemoAction.reset:
-          _displayBanner = true;
-          _showMultipleActions = true;
-          _showLeading = true;
+          _displayBanner.value = true;
+          _showMultipleActions.value = true;
+          _showLeading.value = true;
           break;
         case BannerDemoAction.showMultipleActions:
-          _showMultipleActions = !_showMultipleActions;
+          _showMultipleActions.value = !_showMultipleActions.value;
           break;
         case BannerDemoAction.showLeading:
-          _showLeading = !_showLeading;
+          _showLeading.value = !_showLeading.value;
           break;
       }
     });
@@ -49,7 +62,7 @@ class _BannerDemoState extends State<BannerDemo> {
     final colorScheme = Theme.of(context).colorScheme;
     final banner = MaterialBanner(
       content: Text(GalleryLocalizations.of(context).bannerDemoText),
-      leading: _showLeading
+      leading: _showLeading.value
           ? CircleAvatar(
               child: Icon(Icons.access_alarm, color: colorScheme.onPrimary),
               backgroundColor: colorScheme.primary,
@@ -60,16 +73,16 @@ class _BannerDemoState extends State<BannerDemo> {
           child: Text(GalleryLocalizations.of(context).signIn),
           onPressed: () {
             setState(() {
-              _displayBanner = false;
+              _displayBanner.value = false;
             });
           },
         ),
-        if (_showMultipleActions)
+        if (_showMultipleActions.value)
           TextButton(
             child: Text(GalleryLocalizations.of(context).dismiss),
             onPressed: () {
               setState(() {
-                _displayBanner = false;
+                _displayBanner.value = false;
               });
             },
           ),
@@ -93,13 +106,13 @@ class _BannerDemoState extends State<BannerDemo> {
               const PopupMenuDivider(),
               CheckedPopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.showMultipleActions,
-                checked: _showMultipleActions,
+                checked: _showMultipleActions.value,
                 child: Text(
                     GalleryLocalizations.of(context).bannerDemoMultipleText),
               ),
               CheckedPopupMenuItem<BannerDemoAction>(
                 value: BannerDemoAction.showLeading,
-                checked: _showLeading,
+                checked: _showLeading.value,
                 child: Text(
                     GalleryLocalizations.of(context).bannerDemoLeadingText),
               ),
@@ -108,18 +121,20 @@ class _BannerDemoState extends State<BannerDemo> {
         ],
       ),
       body: ListView.builder(
-          itemCount: _displayBanner ? _itemCount + 1 : _itemCount,
-          itemBuilder: (context, index) {
-            if (index == 0 && _displayBanner) {
-              return banner;
-            }
-            return ListTile(
-              title: Text(
-                GalleryLocalizations.of(context)
-                    .starterAppDrawerItem(_displayBanner ? index : index + 1),
-              ),
-            );
-          }),
+        restorationId: 'banner_demo_list_view',
+        itemCount: _displayBanner.value ? _itemCount + 1 : _itemCount,
+        itemBuilder: (context, index) {
+          if (index == 0 && _displayBanner.value) {
+            return banner;
+          }
+          return ListTile(
+            title: Text(
+              GalleryLocalizations.of(context).starterAppDrawerItem(
+                  _displayBanner.value ? index : index + 1),
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -239,10 +239,14 @@ class HomePage extends StatelessWidget {
       );
     } else {
       return Scaffold(
-        body: _AnimatedHomePage(
-          isSplashPageAnimationFinished:
-              SplashPageAnimation.of(context).isFinished,
-          carouselCards: carouselCards,
+        body: RestorationScope(
+          restorationId: 'home_page',
+          child: _AnimatedHomePage(
+            restorationId: 'animated_page',
+            isSplashPageAnimationFinished:
+                SplashPageAnimation.of(context).isFinished,
+            carouselCards: carouselCards,
+          ),
         ),
       );
     }
@@ -308,10 +312,12 @@ class Header extends StatelessWidget {
 class _AnimatedHomePage extends StatefulWidget {
   const _AnimatedHomePage({
     Key key,
+    @required this.restorationId,
     @required this.carouselCards,
     @required this.isSplashPageAnimationFinished,
   }) : super(key: key);
 
+  final String restorationId;
   final List<Widget> carouselCards;
   final bool isSplashPageAnimationFinished;
 
@@ -320,9 +326,22 @@ class _AnimatedHomePage extends StatefulWidget {
 }
 
 class _AnimatedHomePageState extends State<_AnimatedHomePage>
-    with SingleTickerProviderStateMixin {
+    with RestorationMixin, SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Timer _launchTimer;
+  final RestorableBool _isMaterialListExpanded = RestorableBool(false);
+  final RestorableBool _isCupertinoListExpanded = RestorableBool(false);
+  final RestorableBool _isOtherListExpanded = RestorableBool(false);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_isMaterialListExpanded, 'material_list');
+    registerForRestoration(_isCupertinoListExpanded, 'cupertino_list');
+    registerForRestoration(_isOtherListExpanded, 'other_list');
+  }
 
   @override
   void initState() {
@@ -367,6 +386,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
         ListView(
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
+          restorationId: 'home_list_view',
           children: [
             const SizedBox(height: 8),
             Container(
@@ -375,8 +395,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               child: _GalleryHeader(),
             ),
             _Carousel(
-              children: widget.carouselCards,
               animationController: _animationController,
+              restorationId: 'home_carousel',
+              children: widget.carouselCards,
             ),
             Container(
               margin:
@@ -387,40 +408,51 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.material,
-                ),
-                category: GalleryDemoCategory.material,
-                imageString: 'assets/icons/material/material.png',
-                demos: materialDemos(localizations),
-                initiallyExpanded: isTestMode,
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.material,
+                  ),
+                  restorationId: 'home_material_category_list',
+                  category: GalleryDemoCategory.material,
+                  imageString: 'assets/icons/material/material.png',
+                  demos: materialDemos(localizations),
+                  initiallyExpanded:
+                      _isMaterialListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isMaterialListExpanded.value = shouldOpenList;
+                  }),
             ),
             _AnimatedCategoryItem(
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.cupertino,
-                ),
-                category: GalleryDemoCategory.cupertino,
-                imageString: 'assets/icons/cupertino/cupertino.png',
-                demos: cupertinoDemos(localizations),
-                initiallyExpanded: isTestMode,
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.cupertino,
+                  ),
+                  restorationId: 'home_cupertino_category_list',
+                  category: GalleryDemoCategory.cupertino,
+                  imageString: 'assets/icons/cupertino/cupertino.png',
+                  demos: cupertinoDemos(localizations),
+                  initiallyExpanded:
+                      _isCupertinoListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isCupertinoListExpanded.value = shouldOpenList;
+                  }),
             ),
             _AnimatedCategoryItem(
               startDelayFraction: 0.10,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.other,
-                ),
-                category: GalleryDemoCategory.other,
-                imageString: 'assets/icons/reference/reference.png',
-                demos: otherDemos(localizations),
-                initiallyExpanded: isTestMode,
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.other,
+                  ),
+                  restorationId: 'home_other_category_list',
+                  category: GalleryDemoCategory.other,
+                  imageString: 'assets/icons/reference/reference.png',
+                  demos: otherDemos(localizations),
+                  initiallyExpanded: _isOtherListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isOtherListExpanded.value = shouldOpenList;
+                  }),
             ),
           ],
         ),
@@ -687,21 +719,32 @@ class _AnimatedCarouselCard extends StatelessWidget {
 class _Carousel extends StatefulWidget {
   const _Carousel({
     Key key,
-    this.children,
     this.animationController,
+    this.restorationId,
+    this.children,
   }) : super(key: key);
 
-  final List<Widget> children;
   final AnimationController animationController;
+  final String restorationId;
+  final List<Widget> children;
 
   @override
   _CarouselState createState() => _CarouselState();
 }
 
 class _CarouselState extends State<_Carousel>
-    with SingleTickerProviderStateMixin {
+    with RestorationMixin, SingleTickerProviderStateMixin {
   PageController _controller;
-  int _currentPage = 0;
+
+  final RestorableInt _currentPage = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_currentPage, 'carousel_page');
+  }
 
   @override
   void didChangeDependencies() {
@@ -712,7 +755,7 @@ class _CarouselState extends State<_Carousel>
       final width = MediaQuery.of(context).size.width;
       final padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
       _controller = PageController(
-        initialPage: _currentPage,
+        initialPage: _currentPage.value,
         viewportFraction: (width - padding) / width,
       );
     }
@@ -733,7 +776,7 @@ class _CarouselState extends State<_Carousel>
           value = _controller.page - index;
         } else {
           // If haveDimensions is false, use _currentPage to calculate value.
-          value = (_currentPage - index).toDouble();
+          value = (_currentPage.value - index).toDouble();
         }
         // We want the peeking cards to be 160 in height and 0.38 helps
         // achieve that.
@@ -770,7 +813,7 @@ class _CarouselState extends State<_Carousel>
         key: const ValueKey('studyDemoList'),
         onPageChanged: (value) {
           setState(() {
-            _currentPage = value;
+            _currentPage.value = value;
           });
         },
         controller: _controller,
