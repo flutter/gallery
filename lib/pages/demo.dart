@@ -63,9 +63,11 @@ class _DemoPageState extends State<DemoPage> {
       // Return to root if invalid slug.
       Navigator.of(context).pop();
     }
-    return GalleryDemoPage(
-      restorationId: widget.slug,
-      demo: slugToDemoMap[widget.slug],
+    return ScaffoldMessenger(
+        child: GalleryDemoPage(
+        restorationId: widget.slug,
+        demo: slugToDemoMap[widget.slug],
+      )
     );
   }
 }
@@ -382,9 +384,11 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     }
 
     Widget body;
-    Widget demoContent = DemoContent(
-      height: contentHeight,
-      buildRoute: _currentConfig.buildRoute,
+    Widget demoContent = ScaffoldMessenger(
+      child: DemoContent(
+        height: contentHeight,
+        buildRoute: _currentConfig.buildRoute,
+      ),
     );
     if (isDesktop) {
       final isFullScreen = currentDemoState == _DemoState.fullscreen;
@@ -449,75 +453,69 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     Widget page;
 
     if (isDesktop) {
-      page = ScaffoldMessenger(
-        child: AnimatedBuilder(
-            animation: _codeBackgroundColorController,
-            builder: (context, child) {
-              Brightness themeBrightness;
+      page = AnimatedBuilder(
+          animation: _codeBackgroundColorController,
+          builder: (context, child) {
+            Brightness themeBrightness;
 
-              switch (GalleryOptions.of(context).themeMode) {
-                case ThemeMode.system:
-                  themeBrightness = MediaQuery.of(context).platformBrightness;
-                  break;
-                case ThemeMode.light:
-                  themeBrightness = Brightness.light;
-                  break;
-                case ThemeMode.dark:
-                  themeBrightness = Brightness.dark;
-                  break;
-              }
+            switch (GalleryOptions.of(context).themeMode) {
+              case ThemeMode.system:
+                themeBrightness = MediaQuery.of(context).platformBrightness;
+                break;
+              case ThemeMode.light:
+                themeBrightness = Brightness.light;
+                break;
+              case ThemeMode.dark:
+                themeBrightness = Brightness.dark;
+                break;
+            }
 
-              Widget contents = Container(
-                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-                child: ApplyTextOptions(
-                  child: Scaffold(
-                    appBar: appBar,
-                    body: body,
-                    backgroundColor: Colors.transparent,
-                  ),
+            Widget contents = Container(
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+              child: ApplyTextOptions(
+                child: Scaffold(
+                  appBar: appBar,
+                  body: body,
+                  backgroundColor: Colors.transparent,
+                ),
+              ),
+            );
+
+            if (themeBrightness == Brightness.light) {
+              // If it is currently in light mode, add a
+              // dark background for code.
+              Widget codeBackground = Container(
+                padding: const EdgeInsets.only(top: 56),
+                child: Container(
+                  color: ColorTween(
+                    begin: Colors.transparent,
+                    end: GalleryThemeData.darkThemeData.canvasColor,
+                  ).animate(_codeBackgroundColorController).value,
                 ),
               );
 
-              if (themeBrightness == Brightness.light) {
-                // If it is currently in light mode, add a
-                // dark background for code.
-                Widget codeBackground = Container(
-                  padding: const EdgeInsets.only(top: 56),
-                  child: Container(
-                    color: ColorTween(
-                      begin: Colors.transparent,
-                      end: GalleryThemeData.darkThemeData.canvasColor,
-                    ).animate(_codeBackgroundColorController).value,
-                  ),
-                );
-
-                contents = Stack(
-                  children: [
-                    codeBackground,
-                    contents,
-                  ],
-                );
-              }
-
-              return Container(
-                color: colorScheme.background,
-                child: contents,
+              contents = Stack(
+                children: [
+                  codeBackground,
+                  contents,
+                ],
               );
-            }),
-      );
+            }
+
+            return Container(
+              color: colorScheme.background,
+              child: contents,
+            );
+          });
     } else {
-      page = Builder(
-        builder: (context) {
-          return Container(
-            color: colorScheme.background,
-            child: ApplyTextOptions(
-              child: Scaffold(
-                appBar: appBar,
-                body: body,
-              ),
-            ),
-          );
-        },
+      page = Container(
+        color: colorScheme.background,
+        child: ApplyTextOptions(
+          child: Scaffold(
+            appBar: appBar,
+            body: body,
+          ),
+        ),
       );
     }
 

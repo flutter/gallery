@@ -21,7 +21,7 @@ class TextFieldDemo extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Text(GalleryLocalizations.of(context).demoTextFieldTitle),
       ),
-      body: const ScaffoldMessenger(child: TextFormFieldDemo()),
+      body: const TextFormFieldDemo(),
     );
   }
 }

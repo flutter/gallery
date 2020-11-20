@@ -12,39 +12,33 @@ class SnackbarsDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
-            appBar: AppBar(
-              automaticallyImplyLeading: false,
-              title: Text(GalleryLocalizations.of(context).demoSnackbarsTitle),
-            ),
-            body: Center(
-              child: ElevatedButton(
-                child:
-                Text(GalleryLocalizations.of(context).demoSnackbarsButtonLabel),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(GalleryLocalizations.of(context).demoSnackbarsTitle),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child:
+              Text(GalleryLocalizations.of(context).demoSnackbarsButtonLabel),
+          onPressed: () {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(GalleryLocalizations.of(context).demoSnackbarsText),
+              action: SnackBarAction(
+                label: GalleryLocalizations.of(context)
+                    .demoSnackbarsActionButtonLabel,
                 onPressed: () {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(GalleryLocalizations.of(context).demoSnackbarsText),
-                    action: SnackBarAction(
-                      label: GalleryLocalizations.of(context)
-                        .demoSnackbarsActionButtonLabel,
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                            GalleryLocalizations.of(context).demoSnackbarsAction,
-                          )));
-                      },
-                    ),
-                  ));
+                      content: Text(
+                    GalleryLocalizations.of(context).demoSnackbarsAction,
+                  )));
                 },
               ),
-            ),
-          );
-        },
+            ));
+          },
+        ),
       ),
     );
   }

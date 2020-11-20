@@ -61,17 +61,15 @@ class _MenuDemoState extends State<MenuDemo> {
         break;
     }
 
-    return ScaffoldMessenger(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(GalleryLocalizations.of(context).demoMenuTitle),
-          automaticallyImplyLeading: false,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Center(
-            child: demo,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(GalleryLocalizations.of(context).demoMenuTitle),
+        automaticallyImplyLeading: false,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Center(
+          child: demo,
         ),
       ),
     );

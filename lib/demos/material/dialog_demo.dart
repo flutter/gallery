@@ -124,49 +124,47 @@ class DialogDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldMessenger(
-      child: Navigator(
-        // Adding [ValueKey] to make sure that the widget gets rebuilt when
-        // changing type.
-        key: ValueKey(type),
-        onGenerateRoute: (settings) {
-          return _NoAnimationMaterialPageRoute<void>(
-            builder: (context) => Scaffold(
-              appBar: AppBar(
-                automaticallyImplyLeading: false,
-                title: Text(_title(context)),
-              ),
-              body: Center(
-                child: ElevatedButton(
-                  child: Text(GalleryLocalizations.of(context).dialogShow),
-                  onPressed: () {
-                    switch (type) {
-                      case DialogDemoType.alert:
-                        _showAlertDialog(context);
-                        break;
-                      case DialogDemoType.alertTitle:
-                        _showAlertDialogWithTitle(context);
-                        break;
-                      case DialogDemoType.simple:
-                        _showSimpleDialog(context);
-                        break;
-                      case DialogDemoType.fullscreen:
-                        Navigator.push<void>(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => _FullScreenDialogDemo(),
-                            fullscreenDialog: true,
-                          ),
-                        );
-                        break;
-                    }
-                  },
-                ),
+    return Navigator(
+      // Adding [ValueKey] to make sure that the widget gets rebuilt when
+      // changing type.
+      key: ValueKey(type),
+      onGenerateRoute: (settings) {
+        return _NoAnimationMaterialPageRoute<void>(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: Text(_title(context)),
+            ),
+            body: Center(
+              child: ElevatedButton(
+                child: Text(GalleryLocalizations.of(context).dialogShow),
+                onPressed: () {
+                  switch (type) {
+                    case DialogDemoType.alert:
+                      _showAlertDialog(context);
+                      break;
+                    case DialogDemoType.alertTitle:
+                      _showAlertDialogWithTitle(context);
+                      break;
+                    case DialogDemoType.simple:
+                      _showSimpleDialog(context);
+                      break;
+                    case DialogDemoType.fullscreen:
+                      Navigator.push<void>(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => _FullScreenDialogDemo(),
+                          fullscreenDialog: true,
+                        ),
+                      );
+                      break;
+                  }
+                },
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
