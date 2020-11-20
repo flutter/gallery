@@ -172,7 +172,8 @@ class _RestorableBoolItem {
   final String restorationId;
 }
 
-class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> with RestorationMixin {
+class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
+    with RestorationMixin {
   final isSelected = <_RestorableBoolItem>[
     _RestorableBoolItem(
       restorableBool: RestorableBool(false),
@@ -214,7 +215,9 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> with Restoration
             restorableBool.value = !restorableBool.value;
           });
         },
-        isSelected: isSelected.map((item) => item.restorableBool.value).toList(),
+        isSelected: isSelected.map((item) {
+          return item.restorableBool.value;
+        }).toList(),
       ),
     );
   }

@@ -13,7 +13,10 @@ enum ChipDemoType {
 }
 
 class ChipDemo extends StatelessWidget {
-  const ChipDemo({Key key, this.type, }) : super(key: key);
+  const ChipDemo({
+    Key key,
+    this.type,
+  }) : super(key: key);
 
   final ChipDemoType type;
 
@@ -92,7 +95,8 @@ class _ChoiceChipDemo extends StatefulWidget {
   _ChoiceChipDemoState createState() => _ChoiceChipDemoState();
 }
 
-class _ChoiceChipDemoState extends State<_ChoiceChipDemo> with RestorationMixin {
+class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
+    with RestorationMixin {
   final RestorableInt _indexSelected = RestorableInt(-1);
 
   @override
@@ -158,7 +162,8 @@ class _FilterChipDemo extends StatefulWidget {
   _FilterChipDemoState createState() => _FilterChipDemoState();
 }
 
-class _FilterChipDemoState extends State<_FilterChipDemo> with RestorationMixin{
+class _FilterChipDemoState extends State<_FilterChipDemo>
+    with RestorationMixin {
   final RestorableBool isSelectedElevator = RestorableBool(false);
   final RestorableBool isSelectedWasher = RestorableBool(false);
   final RestorableBool isSelectedFireplace = RestorableBool(false);
