@@ -49,7 +49,7 @@ class ButtonDemo extends StatelessWidget {
         buttons = _OutlinedButtonDemo();
         break;
       case ButtonDemoType.toggle:
-        buttons = _ToggleButtonsDemo();
+        buttons = _ToggleButtonsDemo(restorationId: 'toggle_button_demo');
         break;
       case ButtonDemoType.floating:
         buttons = _FloatingActionButtonDemo();
@@ -150,12 +150,54 @@ class _OutlinedButtonDemo extends StatelessWidget {
 // BEGIN buttonDemoToggle
 
 class _ToggleButtonsDemo extends StatefulWidget {
+  _ToggleButtonsDemo({
+    @required this.restorationId,
+  });
+
+  final String restorationId;
+
   @override
   _ToggleButtonsDemoState createState() => _ToggleButtonsDemoState();
 }
 
-class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> {
-  final isSelected = <bool>[false, false, false];
+// A convenience class to house a [RestorableBool] and a correspoding
+// restoration id to register for state restoration.
+class _RestorableBoolItem {
+  _RestorableBoolItem({
+    this.restorableBool,
+    this.restorationId,
+  });
+
+  final RestorableBool restorableBool;
+  final String restorationId;
+}
+
+class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> with RestorationMixin {
+  final isSelected = <_RestorableBoolItem>[
+    _RestorableBoolItem(
+      restorableBool: RestorableBool(false),
+      restorationId: 'ac_unit',
+    ),
+    _RestorableBoolItem(
+      restorableBool: RestorableBool(false),
+      restorationId: 'call',
+    ),
+    _RestorableBoolItem(
+      restorableBool: RestorableBool(false),
+      restorationId: 'cake',
+    ),
+  ];
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    for (var i = 0; i < isSelected.length; i += 1) {
+      var item = isSelected[i];
+      registerForRestoration(item.restorableBool, item.restorationId);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -167,11 +209,12 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> {
           Icon(Icons.cake),
         ],
         onPressed: (index) {
+          final restorableBool = isSelected[index].restorableBool;
           setState(() {
-            isSelected[index] = !isSelected[index];
+            restorableBool.value = !restorableBool.value;
           });
         },
-        isSelected: isSelected,
+        isSelected: isSelected.map((item) => item.restorableBool.value).toList(),
       ),
     );
   }

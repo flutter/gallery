@@ -13,7 +13,7 @@ enum ChipDemoType {
 }
 
 class ChipDemo extends StatelessWidget {
-  const ChipDemo({Key key, this.type}) : super(key: key);
+  const ChipDemo({Key key, this.type, }) : super(key: key);
 
   final ChipDemoType type;
 
@@ -39,10 +39,10 @@ class ChipDemo extends StatelessWidget {
         buttons = _ActionChipDemo();
         break;
       case ChipDemoType.choice:
-        buttons = _ChoiceChipDemo();
+        buttons = _ChoiceChipDemo(restorationId: 'choice_chip_demo');
         break;
       case ChipDemoType.filter:
-        buttons = _FilterChipDemo();
+        buttons = _FilterChipDemo(restorationId: 'filter_chip_demo');
         break;
       case ChipDemoType.input:
         buttons = _InputChipDemo();
@@ -82,12 +82,26 @@ class _ActionChipDemo extends StatelessWidget {
 // BEGIN chipDemoChoice
 
 class _ChoiceChipDemo extends StatefulWidget {
+  _ChoiceChipDemo({
+    @required this.restorationId,
+  });
+
+  final String restorationId;
+
   @override
   _ChoiceChipDemoState createState() => _ChoiceChipDemoState();
 }
 
-class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
-  int indexSelected = -1;
+class _ChoiceChipDemoState extends State<_ChoiceChipDemo> with RestorationMixin {
+  final RestorableInt _indexSelected = RestorableInt(-1);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_indexSelected, 'choice_chip');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,30 +110,30 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
         children: [
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipSmall),
-            selected: indexSelected == 0,
+            selected: _indexSelected.value == 0,
             onSelected: (value) {
               setState(() {
-                indexSelected = value ? 0 : -1;
+                _indexSelected.value = value ? 0 : -1;
               });
             },
           ),
           const SizedBox(width: 8),
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipMedium),
-            selected: indexSelected == 1,
+            selected: _indexSelected.value == 1,
             onSelected: (value) {
               setState(() {
-                indexSelected = value ? 1 : -1;
+                _indexSelected.value = value ? 1 : -1;
               });
             },
           ),
           const SizedBox(width: 8),
           ChoiceChip(
             label: Text(GalleryLocalizations.of(context).chipLarge),
-            selected: indexSelected == 2,
+            selected: _indexSelected.value == 2,
             onSelected: (value) {
               setState(() {
-                indexSelected = value ? 2 : -1;
+                _indexSelected.value = value ? 2 : -1;
               });
             },
           ),
@@ -134,42 +148,58 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo> {
 // BEGIN chipDemoFilter
 
 class _FilterChipDemo extends StatefulWidget {
+  _FilterChipDemo({
+    @required this.restorationId,
+  });
+
+  final String restorationId;
+
   @override
   _FilterChipDemoState createState() => _FilterChipDemoState();
 }
 
-class _FilterChipDemoState extends State<_FilterChipDemo> {
-  bool isSelectedElevator = false;
-  bool isSelectedWasher = false;
-  bool isSelectedFireplace = false;
+class _FilterChipDemoState extends State<_FilterChipDemo> with RestorationMixin{
+  final RestorableBool isSelectedElevator = RestorableBool(false);
+  final RestorableBool isSelectedWasher = RestorableBool(false);
+  final RestorableBool isSelectedFireplace = RestorableBool(false);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(isSelectedElevator, 'selected_elevator');
+    registerForRestoration(isSelectedWasher, 'selected_washer');
+    registerForRestoration(isSelectedFireplace, 'selected_fireplace');
+  }
 
   @override
   Widget build(BuildContext context) {
     final chips = [
       FilterChip(
         label: Text(GalleryLocalizations.of(context).chipElevator),
-        selected: isSelectedElevator,
+        selected: isSelectedElevator.value,
         onSelected: (value) {
           setState(() {
-            isSelectedElevator = !isSelectedElevator;
+            isSelectedElevator.value = !isSelectedElevator.value;
           });
         },
       ),
       FilterChip(
         label: Text(GalleryLocalizations.of(context).chipWasher),
-        selected: isSelectedWasher,
+        selected: isSelectedWasher.value,
         onSelected: (value) {
           setState(() {
-            isSelectedWasher = !isSelectedWasher;
+            isSelectedWasher.value = !isSelectedWasher.value;
           });
         },
       ),
       FilterChip(
         label: Text(GalleryLocalizations.of(context).chipFireplace),
-        selected: isSelectedFireplace,
+        selected: isSelectedFireplace.value,
         onSelected: (value) {
           setState(() {
-            isSelectedFireplace = !isSelectedFireplace;
+            isSelectedFireplace.value = !isSelectedFireplace.value;
           });
         },
       ),
