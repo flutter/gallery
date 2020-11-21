@@ -63,10 +63,11 @@ class _DemoPageState extends State<DemoPage> {
       // Return to root if invalid slug.
       Navigator.of(context).pop();
     }
-    return GalleryDemoPage(
+    return ScaffoldMessenger(
+        child: GalleryDemoPage(
       restorationId: widget.slug,
       demo: slugToDemoMap[widget.slug],
-    );
+    ));
   }
 }
 
@@ -382,9 +383,11 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     }
 
     Widget body;
-    Widget demoContent = DemoContent(
-      height: contentHeight,
-      buildRoute: _currentConfig.buildRoute,
+    Widget demoContent = ScaffoldMessenger(
+      child: DemoContent(
+        height: contentHeight,
+        buildRoute: _currentConfig.buildRoute,
+      ),
     );
     if (isDesktop) {
       final isFullScreen = currentDemoState == _DemoState.fullscreen;
