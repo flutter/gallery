@@ -65,10 +65,9 @@ class _DemoPageState extends State<DemoPage> {
     }
     return ScaffoldMessenger(
         child: GalleryDemoPage(
-        restorationId: widget.slug,
-        demo: slugToDemoMap[widget.slug],
-      )
-    );
+      restorationId: widget.slug,
+      demo: slugToDemoMap[widget.slug],
+    ));
   }
 }
 
