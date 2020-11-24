@@ -42,10 +42,10 @@ class ChipDemo extends StatelessWidget {
         buttons = _ActionChipDemo();
         break;
       case ChipDemoType.choice:
-        buttons = _ChoiceChipDemo(restorationId: 'choice_chip_demo');
+        buttons = _ChoiceChipDemo();
         break;
       case ChipDemoType.filter:
-        buttons = _FilterChipDemo(restorationId: 'filter_chip_demo');
+        buttons = _FilterChipDemo();
         break;
       case ChipDemoType.input:
         buttons = _InputChipDemo();
@@ -85,12 +85,6 @@ class _ActionChipDemo extends StatelessWidget {
 // BEGIN chipDemoChoice
 
 class _ChoiceChipDemo extends StatefulWidget {
-  _ChoiceChipDemo({
-    @required this.restorationId,
-  });
-
-  final String restorationId;
-
   @override
   _ChoiceChipDemoState createState() => _ChoiceChipDemoState();
 }
@@ -100,7 +94,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
   final RestorableInt _indexSelected = RestorableInt(-1);
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'choice_chip_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
@@ -152,12 +146,6 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
 // BEGIN chipDemoFilter
 
 class _FilterChipDemo extends StatefulWidget {
-  _FilterChipDemo({
-    @required this.restorationId,
-  });
-
-  final String restorationId;
-
   @override
   _FilterChipDemoState createState() => _FilterChipDemoState();
 }
@@ -169,7 +157,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
   final RestorableBool isSelectedFireplace = RestorableBool(false);
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'filter_chip_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
