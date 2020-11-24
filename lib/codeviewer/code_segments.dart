@@ -6871,6 +6871,14 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '{'),
       TextSpan(
           style: codeStyle.baseStyle,
+          text: '\u000a                              print'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '('),
+      TextSpan(
+          style: codeStyle.stringStyle,
+          text: '\u0027Selectable card state changed\u0027'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ');'),
+      TextSpan(
+          style: codeStyle.baseStyle,
           text: '\u000a                              setState'),
       TextSpan(style: codeStyle.punctuationStyle, text: '(()'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
