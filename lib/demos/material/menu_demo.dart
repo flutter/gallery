@@ -36,8 +36,6 @@ class MenuDemo extends StatefulWidget {
 }
 
 class _MenuDemoState extends State<MenuDemo> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   void showInSnackBar(String value) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -67,7 +65,6 @@ class _MenuDemoState extends State<MenuDemo> {
     }
 
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(GalleryLocalizations.of(context).demoMenuTitle),
         automaticallyImplyLeading: false,
