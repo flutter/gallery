@@ -49,7 +49,7 @@ class ButtonDemo extends StatelessWidget {
         buttons = _OutlinedButtonDemo();
         break;
       case ButtonDemoType.toggle:
-        buttons = _ToggleButtonsDemo(restorationId: 'toggle_button_demo');
+        buttons = _ToggleButtonsDemo();
         break;
       case ButtonDemoType.floating:
         buttons = _FloatingActionButtonDemo();
@@ -150,54 +150,26 @@ class _OutlinedButtonDemo extends StatelessWidget {
 // BEGIN buttonDemoToggle
 
 class _ToggleButtonsDemo extends StatefulWidget {
-  _ToggleButtonsDemo({
-    @required this.restorationId,
-  });
-
-  final String restorationId;
-
   @override
   _ToggleButtonsDemoState createState() => _ToggleButtonsDemoState();
 }
 
-class _RestorableBoolList extends RestorableValue<List<bool>> {
-  _RestorableBoolList(
-    this._defaultValue,
-  ) : assert(_defaultValue != null);
-
-  final List<bool> _defaultValue;
-
-  @override
-  List<bool> createDefaultValue() => _defaultValue;
-
-  @override
-  void didUpdateValue(List<bool> oldValue) {
-    notifyListeners();
-  }
-
-  @override
-  List<bool> fromPrimitives(Object data) {
-    final checkedValues = data as List<dynamic>;
-    return checkedValues.map<bool>((dynamic id) => id as bool).toList();
-  }
-
-  @override
-  Object toPrimitives() => value;
-
-  @override
-  bool get enabled => value != null;
-}
-
 class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
     with RestorationMixin {
-  final isSelected = _RestorableBoolList([false, false, false]);
+  final isSelected = [
+    RestorableBool(false),
+    RestorableBool(true),
+    RestorableBool(false),
+  ];
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'toggle_button_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
-    registerForRestoration(isSelected, 'is_selected_list');
+    registerForRestoration(isSelected[0], 'first_item');
+    registerForRestoration(isSelected[1], 'second_item');
+    registerForRestoration(isSelected[2], 'third_item');
   }
 
   @override
@@ -211,13 +183,10 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
         ],
         onPressed: (index) {
           setState(() {
-            isSelected.value[index] = !isSelected.value[index];
-            // A new list has to be created to notify state restoration
-            // listeners.
-            isSelected.value = List.from(isSelected.value);
+            isSelected[index].value = !isSelected[index].value;
           });
         },
-        isSelected: isSelected.value,
+        isSelected: isSelected.map((element) => element.value).toList(),
       ),
     );
   }
