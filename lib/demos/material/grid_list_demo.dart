@@ -91,6 +91,7 @@ class GridListDemo extends StatelessWidget {
         title: Text(GalleryLocalizations.of(context).demoGridListsTitle),
       ),
       body: GridView.count(
+        restorationId: 'grid_view_demo_grid_offset',
         crossAxisCount: 2,
         mainAxisSpacing: 8,
         crossAxisSpacing: 8,
