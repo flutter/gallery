@@ -57,10 +57,7 @@ class _MenuDemoState extends State<MenuDemo> {
         demo = _SimpleMenuDemo(showInSnackBar: showInSnackBar);
         break;
       case MenuDemoType.checklistMenu:
-        demo = _ChecklistMenuDemo(
-          restorationId: 'checklist_menu_demo',
-          showInSnackBar: showInSnackBar,
-        );
+        demo = _ChecklistMenuDemo(showInSnackBar: showInSnackBar);
         break;
     }
 
@@ -279,11 +276,9 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
 class _ChecklistMenuDemo extends StatefulWidget {
   const _ChecklistMenuDemo({
     Key key,
-    @required this.restorationId,
     this.showInSnackBar,
   }) : super(key: key);
 
-  final String restorationId;
   final void Function(String value) showInSnackBar;
 
   @override
@@ -343,7 +338,7 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
     ..check(CheckedValue.three);
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'checklist_menu_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {

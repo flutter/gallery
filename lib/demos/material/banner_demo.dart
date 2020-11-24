@@ -14,9 +14,7 @@ enum BannerDemoAction {
 }
 
 class BannerDemo extends StatefulWidget {
-  const BannerDemo({this.restorationId});
-
-  final String restorationId;
+  const BannerDemo();
 
   @override
   _BannerDemoState createState() => _BannerDemoState();
@@ -26,7 +24,7 @@ class _BannerDemoState extends State<BannerDemo> with RestorationMixin {
   static const _itemCount = 20;
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'banner_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {

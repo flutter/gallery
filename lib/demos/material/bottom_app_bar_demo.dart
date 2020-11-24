@@ -8,9 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN bottomAppBarDemo
 
 class BottomAppBarDemo extends StatefulWidget {
-  const BottomAppBarDemo({this.restorationId});
-
-  final String restorationId;
+  const BottomAppBarDemo();
 
   @override
   State createState() => _BottomAppBarDemoState();
@@ -23,7 +21,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
   final RestorableInt _currentFabLocation = RestorableInt(0);
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'bottom_app_bar_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {

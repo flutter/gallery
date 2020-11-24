@@ -11,11 +11,7 @@ import 'package:intl/intl.dart';
 // BEGIN dataTableDemo
 
 class DataTableDemo extends StatefulWidget {
-  const DataTableDemo({
-    this.restorationId,
-  });
-
-  final String restorationId;
+  const DataTableDemo();
 
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
@@ -29,7 +25,7 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
   _DessertDataSource _dessertsDataSource;
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'data_table_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {

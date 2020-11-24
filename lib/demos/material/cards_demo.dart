@@ -368,11 +368,7 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
-  const CardsDemo({
-    this.restorationId,
-  });
-
-  final String restorationId;
+  const CardsDemo();
 
   @override
   _CardsDemoState createState() => _CardsDemoState();
@@ -382,7 +378,7 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
   final RestorableBool _isSelected = RestorableBool(false);
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'cards_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
