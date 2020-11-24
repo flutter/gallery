@@ -409,6 +409,7 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
                             destination: destination,
                             isSelected: _isSelected.value,
                             onSelected: () {
+                              print('Selectable card state changed');
                               setState(() {
                                 _isSelected.value = !_isSelected.value;
                               });
