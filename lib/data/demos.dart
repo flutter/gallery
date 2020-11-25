@@ -212,7 +212,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBannerTitle,
           description: localizations.demoBannerDescription,
           documentationUrl: '$_docsBaseUrl/material/MaterialBanner-class.html',
-          buildRoute: (_) => const BannerDemo(restorationId: 'banner_demo'),
+          buildRoute: (_) => const BannerDemo(),
           code: CodeSegments.bannerDemo,
         ),
       ],
@@ -228,8 +228,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomAppBarTitle,
           description: localizations.demoBottomAppBarDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomAppBar-class.html',
-          buildRoute: (_) =>
-              const BottomAppBarDemo(restorationId: 'bottom_app_bar_demo'),
+          buildRoute: (_) => const BottomAppBarDemo(),
           code: CodeSegments.bottomAppBarDemo,
         ),
       ],
