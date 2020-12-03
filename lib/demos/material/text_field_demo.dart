@@ -16,6 +16,8 @@ class TextFieldDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO(shihaohong): Implement state restoration for TextFormField
+    // on the framework.
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
