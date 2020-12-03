@@ -79,37 +79,78 @@ class _TabsScrollableDemo extends StatelessWidget {
 
 // BEGIN tabsNonScrollableDemo
 
-class _TabsNonScrollableDemo extends StatelessWidget {
+class _TabsNonScrollableDemo extends StatefulWidget {
+  @override
+  __TabsNonScrollableDemoState createState() => __TabsNonScrollableDemoState();
+}
+
+class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo> with SingleTickerProviderStateMixin, RestorationMixin {
+  TabController _tabController;
+
+  final RestorableInt tabIndex = RestorableInt(0);
+
+  @override
+  String get restorationId => 'tab_non_scrollable_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(tabIndex, 'tab_index');
+  }
+
+  @override
+  void initState() {
+    _tabController = TabController(
+      initialIndex: 0,
+      length: 3,
+      vsync: this,
+    );
+    _tabController.addListener(() {
+      setState(() {
+        tabIndex.value = _tabController.index;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_tabController.index != tabIndex.value) {
+      _tabController.index = tabIndex.value;
+    }
+
     final tabs = [
       GalleryLocalizations.of(context).colorsRed,
       GalleryLocalizations.of(context).colorsOrange,
       GalleryLocalizations.of(context).colorsGreen,
     ];
 
-    return DefaultTabController(
-      length: tabs.length,
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title:
-              Text(GalleryLocalizations.of(context).demoTabsNonScrollingTitle),
-          bottom: TabBar(
-            isScrollable: false,
-            tabs: [
-              for (final tab in tabs) Tab(text: tab),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            for (final tab in tabs)
-              Center(
-                child: Text(tab),
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title:
+            Text(GalleryLocalizations.of(context).demoTabsNonScrollingTitle,),
+        bottom: TabBar(
+          controller: _tabController,
+          isScrollable: false,
+          tabs: [
+            for (final tab in tabs) Tab(text: tab),
           ],
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          for (final tab in tabs)
+            Center(
+              child: Text(tab),
+            ),
+        ],
       ),
     );
   }
