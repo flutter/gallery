@@ -84,7 +84,8 @@ class _TabsNonScrollableDemo extends StatefulWidget {
   __TabsNonScrollableDemoState createState() => __TabsNonScrollableDemoState();
 }
 
-class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo> with SingleTickerProviderStateMixin, RestorationMixin {
+class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
+    with SingleTickerProviderStateMixin, RestorationMixin {
   TabController _tabController;
 
   final RestorableInt tabIndex = RestorableInt(0);
@@ -133,8 +134,9 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo> with Si
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title:
-            Text(GalleryLocalizations.of(context).demoTabsNonScrollingTitle,),
+        title: Text(
+          GalleryLocalizations.of(context).demoTabsNonScrollingTitle,
+        ),
         bottom: TabBar(
           controller: _tabController,
           isScrollable: false,

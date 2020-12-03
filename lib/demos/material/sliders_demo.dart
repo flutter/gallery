@@ -92,9 +92,11 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                     textAlign: TextAlign.center,
                     onSubmitted: (value) {
                       final newValue = double.tryParse(value);
-                      if (newValue != null && newValue != _continuousValue.value) {
+                      if (newValue != null &&
+                          newValue != _continuousValue.value) {
                         setState(() {
-                          _continuousValue.value = newValue.clamp(0, 100) as double;
+                          _continuousValue.value =
+                              newValue.clamp(0, 100) as double;
                         });
                       }
                     },
@@ -466,8 +468,10 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
-    registerForRestoration(_continuousStartCustomValue, 'continuous_start_custom_value');
-    registerForRestoration(_continuousEndCustomValue, 'continuous_end_custom_value');
+    registerForRestoration(
+        _continuousStartCustomValue, 'continuous_start_custom_value');
+    registerForRestoration(
+        _continuousEndCustomValue, 'continuous_end_custom_value');
     registerForRestoration(_discreteCustomValue, 'discrete_custom_value');
   }
 
