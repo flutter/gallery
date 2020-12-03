@@ -572,9 +572,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoNavigationRailTitle,
           description: localizations.demoNavigationRailDescription,
           documentationUrl: '$_docsBaseUrl/material/NavigationRail-class.html',
-          buildRoute: (_) => const NavRailDemo(
-            restorationId: 'nav_rail_demo',
-          ),
+          buildRoute: (_) => const NavRailDemo(),
           code: CodeSegments.navRailDemo,
         ),
       ],

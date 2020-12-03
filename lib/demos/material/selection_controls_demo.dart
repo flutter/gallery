@@ -63,7 +63,10 @@ class _CheckboxDemo extends StatefulWidget {
   _CheckboxDemoState createState() => _CheckboxDemoState();
 }
 
-class _CheckboxDemoState extends State<_CheckboxDemo> {
+class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
+  // TODO(shihaohong): Introduce RestorableBoolN into the framework
+  // to allow checkboxes to be properly state restorable (null value has
+  // meaning in checkboxes).
   bool checkboxValueA = true;
   bool checkboxValueB = false;
   bool checkboxValueC;

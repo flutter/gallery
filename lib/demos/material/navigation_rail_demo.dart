@@ -8,12 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN navRailDemo
 
 class NavRailDemo extends StatefulWidget {
-  const NavRailDemo({
-    Key key,
-    @required this.restorationId,
-  }) : super(key: key);
-
-  final String restorationId;
+  const NavRailDemo({ Key key }) : super(key: key);
 
   @override
   _NavRailDemoState createState() => _NavRailDemoState();
@@ -23,7 +18,7 @@ class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
   final RestorableInt _selectedIndex = RestorableInt(0);
 
   @override
-  String get restorationId => widget.restorationId;
+  String get restorationId => 'nav_rail_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
