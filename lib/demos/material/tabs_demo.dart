@@ -43,7 +43,7 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   final RestorableInt tabIndex = RestorableInt(0);
 
   @override
-  String get restorationId => 'tab_non_scrollable_demo';
+  String get restorationId => 'tab_scrollable_demo';
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
@@ -58,6 +58,8 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
       vsync: this,
     );
     _tabController.addListener(() {
+      // When the tab controller's value is updated, make sure to update the
+      // tab index value, which is state restorable.
       setState(() {
         tabIndex.value = _tabController.index;
       });
@@ -73,6 +75,8 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
 
   @override
   Widget build(BuildContext context) {
+    // Ensures that the tab controller's index is updated with the
+    // state restorable tab index value.
     if (_tabController.index != tabIndex.value) {
       _tabController.index = tabIndex.value;
     }
