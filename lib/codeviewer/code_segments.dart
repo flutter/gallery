@@ -37640,6 +37640,15 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '(()'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '{'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
+      TextSpan(
+          style: codeStyle.commentStyle,
+          text:
+              '// When the tab controller\u0027s value is updated, make sure to update the'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
+      TextSpan(
+          style: codeStyle.commentStyle,
+          text: '// tab index value, which is state restorable.'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a      setState'),
       TextSpan(style: codeStyle.punctuationStyle, text: '(()'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -37693,6 +37702,15 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ')'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '{'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a    '),
+      TextSpan(
+          style: codeStyle.commentStyle,
+          text:
+              '// Ensures that the tab controller\u0027s index is updated with the'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a    '),
+      TextSpan(
+          style: codeStyle.commentStyle,
+          text: '// state restorable tab index value.'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a    '),
       TextSpan(style: codeStyle.keywordStyle, text: 'if'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),

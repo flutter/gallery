@@ -152,6 +152,8 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
       vsync: this,
     );
     _tabController.addListener(() {
+      // When the tab controller's value is updated, make sure to update the
+      // tab index value, which is state restorable.
       setState(() {
         tabIndex.value = _tabController.index;
       });
@@ -167,6 +169,8 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
 
   @override
   Widget build(BuildContext context) {
+    // Ensures that the tab controller's index is updated with the
+    // state restorable tab index value.
     if (_tabController.index != tabIndex.value) {
       _tabController.index = tabIndex.value;
     }
