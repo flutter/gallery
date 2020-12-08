@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
@@ -14,6 +13,7 @@ import 'package:gallery/data/icons.dart';
 import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_context_menu_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_picker_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
@@ -44,6 +44,7 @@ import 'package:gallery/demos/material/snackbar_demo.dart';
 import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
+import 'package:gallery/demos/material/app_bar_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
@@ -186,6 +187,22 @@ Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
 List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
+      title: localizations.demoAppBarTitle,
+      icon: GalleryIcons.appbar,
+      slug: 'app-bar',
+      subtitle: localizations.demoAppBarSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoAppBarTitle,
+          description: localizations.demoAppBarDescription,
+          documentationUrl: '$_docsBaseUrl/material/AppBar-class.html',
+          buildRoute: (_) => const AppBarDemo(),
+          code: CodeSegments.appbarDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
       title: localizations.demoBannerTitle,
       icon: GalleryIcons.listsLeaveBehind,
       slug: 'banner',
@@ -229,7 +246,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => const BottomNavigationDemo(
-              type: BottomNavigationDemoType.withLabels),
+            type: BottomNavigationDemoType.withLabels,
+            restorationId: 'bottom_navigation_labels_demo',
+          ),
           code: CodeSegments.bottomNavigationDemo,
         ),
         GalleryDemoConfiguration(
@@ -238,7 +257,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl:
               '$_docsBaseUrl/material/BottomNavigationBar-class.html',
           buildRoute: (_) => const BottomNavigationDemo(
-              type: BottomNavigationDemoType.withoutLabels),
+            type: BottomNavigationDemoType.withoutLabels,
+            restorationId: 'bottom_navigation_without_labels_demo',
+          ),
           code: CodeSegments.bottomNavigationDemo,
         ),
       ],
@@ -254,16 +275,18 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoBottomSheetPersistentTitle,
           description: localizations.demoBottomSheetPersistentDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) =>
-              const BottomSheetDemo(type: BottomSheetDemoType.persistent),
+          buildRoute: (_) => const BottomSheetDemo(
+            type: BottomSheetDemoType.persistent,
+          ),
           code: CodeSegments.bottomSheetDemoPersistent,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoBottomSheetModalTitle,
           description: localizations.demoBottomSheetModalDescription,
           documentationUrl: '$_docsBaseUrl/material/BottomSheet-class.html',
-          buildRoute: (_) =>
-              const BottomSheetDemo(type: BottomSheetDemoType.modal),
+          buildRoute: (_) => const BottomSheetDemo(
+            type: BottomSheetDemoType.modal,
+          ),
           code: CodeSegments.bottomSheetDemoModal,
         ),
       ],
@@ -845,6 +868,23 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
               '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
           buildRoute: (_) => const CupertinoButtonDemo(),
           code: CodeSegments.cupertinoButtonDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.cupertino,
+    ),
+    GalleryDemo(
+      title: localizations.demoCupertinoContextMenuTitle,
+      icon: GalleryIcons.moreVert,
+      slug: 'cupertino-context-menu',
+      subtitle: localizations.demoCupertinoContextMenuSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoContextMenuTitle,
+          description: localizations.demoCupertinoContextMenuDescription,
+          documentationUrl:
+              '$_docsBaseUrl/cupertino/CupertinoContextMenu-class.html',
+          buildRoute: (_) => const CupertinoContextMenuDemo(),
+          code: CodeSegments.cupertinoContextMenuDemo,
         ),
       ],
       category: GalleryDemoCategory.cupertino,

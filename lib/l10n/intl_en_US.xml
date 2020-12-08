@@ -514,6 +514,18 @@
     description="Title for attribution (TOASTER is a proper name and should remain in English)."
     >Designed by TOASTER in London</string>
   <string
+    name="demoAppBarTitle"
+    description="Title for the material App bar component demo."
+    >App bar</string>
+  <string
+    name="demoAppBarSubtitle"
+    description="Subtitle for the material App bar component demo."
+    >Displays information and actions relating to the current screen</string>
+  <string
+    name="demoAppBarDescription"
+    description="Description for the material App bar component demo."
+    >The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions</string>
+  <string
     name="demoBottomAppBarTitle"
     description="Title for the material bottom app bar component demo."
     >Bottom app bar</string>
@@ -1077,6 +1089,30 @@
     name="demoCupertinoButtonsDescription"
     description="Description for the cupertino buttons component demo."
     >An iOS-style button. It takes in text and/or an icon that fades out and in on touch. May optionally have a background.</string>
+  <string
+    name="demoCupertinoContextMenuTitle"
+    description="Title for the cupertino context menu component demo."
+    >Context Menu</string>
+  <string
+    name="demoCupertinoContextMenuSubtitle"
+    description="Subtitle for the cupertino context menu component demo."
+    >iOS-style context menu</string>
+  <string
+    name="demoCupertinoContextMenuDescription"
+    description="Description for the cupertino context menu component demo."
+    >An iOS-style full screen contextual menu that appears when an element is long-pressed.</string>
+  <string
+    name="demoCupertinoContextMenuActionOne"
+    description="Context menu list item one"
+    >Action one</string>
+  <string
+    name="demoCupertinoContextMenuActionTwo"
+    description="Context menu list item two"
+    >Action two</string>
+  <string
+    name="demoCupertinoContextMenuActionText"
+    description="Context menu text."
+    >Tap and hold the Flutter logo to see the context menu.</string>
   <string
     name="demoCupertinoAlertsTitle"
     description="Title for the cupertino alerts component demo."

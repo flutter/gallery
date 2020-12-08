@@ -64,6 +64,9 @@ class _CheckboxDemo extends StatefulWidget {
 }
 
 class _CheckboxDemoState extends State<_CheckboxDemo> {
+  // TODO(shihaohong): Introduce RestorableBoolN into the framework
+  // to allow checkboxes to be properly state restorable (null value has
+  // meaning in checkboxes).
   bool checkboxValueA = true;
   bool checkboxValueB = false;
   bool checkboxValueC;
@@ -114,12 +117,20 @@ class _RadioDemo extends StatefulWidget {
   _RadioDemoState createState() => _RadioDemoState();
 }
 
-class _RadioDemoState extends State<_RadioDemo> {
-  int radioValue = 0;
+class _RadioDemoState extends State<_RadioDemo> with RestorationMixin {
+  final RestorableInt radioValue = RestorableInt(0);
+
+  @override
+  String get restorationId => 'radio_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(radioValue, 'radio_value');
+  }
 
   void handleRadioValueChanged(int value) {
     setState(() {
-      radioValue = value;
+      radioValue.value = value;
     });
   }
 
@@ -132,7 +143,7 @@ class _RadioDemoState extends State<_RadioDemo> {
           for (int index = 0; index < 3; ++index)
             Radio<int>(
               value: index,
-              groupValue: radioValue,
+              groupValue: radioValue.value,
               onChanged: handleRadioValueChanged,
             ),
         ],
@@ -150,8 +161,16 @@ class _SwitchDemo extends StatefulWidget {
   _SwitchDemoState createState() => _SwitchDemoState();
 }
 
-class _SwitchDemoState extends State<_SwitchDemo> {
-  bool switchValue = false;
+class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
+  RestorableBool switchValue = RestorableBool(false);
+
+  @override
+  String get restorationId => 'switch_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(switchValue, 'switch_value');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,10 +180,10 @@ class _SwitchDemoState extends State<_SwitchDemo> {
         label:
             GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
         child: Switch(
-          value: switchValue,
+          value: switchValue.value,
           onChanged: (value) {
             setState(() {
-              switchValue = value;
+              switchValue.value = value;
             });
           },
         ),

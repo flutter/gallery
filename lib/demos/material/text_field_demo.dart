@@ -16,6 +16,8 @@ class TextFieldDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO(shihaohong): Implement state restoration for TextFormField
+    // on the framework.
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -102,8 +104,6 @@ class _PasswordFieldState extends State<PasswordField> {
 }
 
 class TextFormFieldDemoState extends State<TextFormFieldDemo> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   PersonData person = PersonData();
 
   void showInSnackBar(String value) {
@@ -172,7 +172,6 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
     const sizedBoxSpace = SizedBox(height: 24);
 
     return Scaffold(
-      key: _scaffoldKey,
       body: Form(
         key: _formKey,
         autovalidateMode: _autoValidateMode,

@@ -593,6 +593,18 @@
   "@settingsAttribution": {
     "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
   },
+  "demoAppBarTitle": "App bar",
+  "@demoAppBarTitle": {
+    "description": "Title for the material App bar component demo."
+  },
+  "demoAppBarSubtitle": "Displays information and actions relating to the current screen",
+  "@demoAppBarSubtitle": {
+    "description": "Subtitle for the material App bar component demo."
+  },
+  "demoAppBarDescription": "The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions",
+  "@demoAppBarDescription": {
+    "description": "Description for the material App bar component demo."
+  },
   "demoBottomAppBarTitle": "Bottom app bar",
   "@demoBottomAppBarTitle": {
     "description": "Title for the material bottom app bar component demo."
@@ -1176,6 +1188,30 @@
   "demoCupertinoButtonsDescription": "An iOS-style button. It takes in text and/or an icon that fades out and in on touch. May optionally have a background.",
   "@demoCupertinoButtonsDescription": {
     "description": "Description for the cupertino buttons component demo."
+  },
+  "demoCupertinoContextMenuTitle": "Context Menu",
+  "@demoCupertinoContextMenuTitle": {
+    "description": "Title for the cupertino context menu component demo."
+  },
+  "demoCupertinoContextMenuSubtitle": "iOS-style context menu",
+  "@demoCupertinoContextMenuSubtitle": {
+    "description": "Subtitle for the cupertino context menu component demo."
+  },
+  "demoCupertinoContextMenuDescription": "An iOS-style full screen contextual menu that appears when an element is long-pressed.",
+  "@demoCupertinoContextMenuDescription": {
+    "description": "Description for the cupertino context menu component demo."
+  },
+  "demoCupertinoContextMenuActionOne": "Action one",
+  "@demoCupertinoContextMenuActionOne": {
+    "description": "Context menu list item one"
+  },
+  "demoCupertinoContextMenuActionTwo": "Action two",
+  "@demoCupertinoContextMenuActionTwo": {
+    "description": "Context menu list item two"
+  },
+  "demoCupertinoContextMenuActionText": "Tap and hold the Flutter logo to see the context menu.",
+  "@demoCupertinoContextMenuActionText": {
+    "description": "Context menu text."
   },
   "demoCupertinoAlertsTitle": "Alerts",
   "@demoCupertinoAlertsTitle": {

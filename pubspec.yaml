@@ -11,15 +11,13 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.16.1
-  flutter_localized_locales: ^1.1.1
+  intl: ">=0.16.1 <=0.17.0"
+  flutter_localized_locales: ">=1.1.1 <=2.0.0"
   cupertino_icons: ^1.0.0
   rally_assets: ^2.0.0
   meta: ^1.1.8
   scoped_model: ^1.1.0
   shrine_images: ^1.1.2
-  flare_dart: ^2.3.4
-  flare_flutter: ^2.0.2
   url_launcher: ^5.6.0
   vector_math: ^2.0.8
   shared_preferences: ^0.5.4
@@ -41,14 +39,12 @@ dev_dependencies:
   path:
   args:
   grinder: ^0.8.0
-  intl_translation:
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
+  web_benchmarks: ^0.0.2
 
 flutter:
   assets:
-    - packages/flutter_gallery_assets/assets/icons/settings/settings_light.flr
-    - packages/flutter_gallery_assets/assets/icons/settings/settings_dark.flr
     - packages/flutter_gallery_assets/assets/studies/shrine_card_dark.png
     - packages/flutter_gallery_assets/assets/studies/starter_card.png
     - packages/flutter_gallery_assets/assets/studies/starter_card_dark.png
@@ -248,4 +244,3 @@ flutter:
     - family: GalleryIcons
       fonts:
         - asset: packages/flutter_gallery_assets/fonts/GalleryIcons.ttf
-

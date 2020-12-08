@@ -27,6 +27,7 @@ class ListDemo extends StatelessWidget {
       ),
       body: Scrollbar(
         child: ListView(
+          restorationId: 'list_demo_list_view',
           padding: const EdgeInsets.symmetric(vertical: 8),
           children: [
             for (int index = 1; index < 21; index++)

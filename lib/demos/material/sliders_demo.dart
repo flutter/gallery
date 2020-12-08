@@ -59,9 +59,18 @@ class _Sliders extends StatefulWidget {
   _SlidersState createState() => _SlidersState();
 }
 
-class _SlidersState extends State<_Sliders> {
-  double _continuousValue = 25;
-  double _discreteValue = 20;
+class _SlidersState extends State<_Sliders> with RestorationMixin {
+  final RestorableDouble _continuousValue = RestorableDouble(25);
+  final RestorableDouble _discreteValue = RestorableDouble(20);
+
+  @override
+  String get restorationId => 'slider_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_continuousValue, 'continuous_value');
+    registerForRestoration(_discreteValue, 'discrete_value');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,26 +92,28 @@ class _SlidersState extends State<_Sliders> {
                     textAlign: TextAlign.center,
                     onSubmitted: (value) {
                       final newValue = double.tryParse(value);
-                      if (newValue != null && newValue != _continuousValue) {
+                      if (newValue != null &&
+                          newValue != _continuousValue.value) {
                         setState(() {
-                          _continuousValue = newValue.clamp(0, 100) as double;
+                          _continuousValue.value =
+                              newValue.clamp(0, 100) as double;
                         });
                       }
                     },
                     keyboardType: TextInputType.number,
                     controller: TextEditingController(
-                      text: _continuousValue.toStringAsFixed(0),
+                      text: _continuousValue.value.toStringAsFixed(0),
                     ),
                   ),
                 ),
               ),
               Slider(
-                value: _continuousValue,
+                value: _continuousValue.value,
                 min: 0,
                 max: 100,
                 onChanged: (value) {
                   setState(() {
-                    _continuousValue = value;
+                    _continuousValue.value = value;
                   });
                 },
               ),
@@ -115,14 +126,14 @@ class _SlidersState extends State<_Sliders> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Slider(
-                value: _discreteValue,
+                value: _discreteValue.value,
                 min: 0,
                 max: 200,
                 divisions: 5,
-                label: _discreteValue.round().toString(),
+                label: _discreteValue.value.round().toString(),
                 onChanged: (value) {
                   setState(() {
-                    _discreteValue = value;
+                    _discreteValue.value = value;
                   });
                 },
               ),
@@ -144,12 +155,34 @@ class _RangeSliders extends StatefulWidget {
   _RangeSlidersState createState() => _RangeSlidersState();
 }
 
-class _RangeSlidersState extends State<_RangeSliders> {
-  RangeValues _continuousValues = const RangeValues(25, 75);
-  RangeValues _discreteValues = const RangeValues(40, 120);
+class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
+  final RestorableDouble _continuousStartValue = RestorableDouble(25);
+  final RestorableDouble _continuousEndValue = RestorableDouble(75);
+  final RestorableDouble _discreteStartValue = RestorableDouble(40);
+  final RestorableDouble _discreteEndValue = RestorableDouble(120);
+
+  @override
+  String get restorationId => 'range_sliders_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_continuousStartValue, 'continuous_start_value');
+    registerForRestoration(_continuousEndValue, 'continuous_end_value');
+    registerForRestoration(_discreteStartValue, 'discrete_start_value');
+    registerForRestoration(_discreteEndValue, 'discrete_end_value');
+  }
 
   @override
   Widget build(BuildContext context) {
+    final _continuousValues = RangeValues(
+      _continuousStartValue.value,
+      _continuousEndValue.value,
+    );
+    final _discreteValues = RangeValues(
+      _discreteStartValue.value,
+      _discreteEndValue.value,
+    );
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
@@ -164,7 +197,8 @@ class _RangeSlidersState extends State<_RangeSliders> {
                 max: 100,
                 onChanged: (values) {
                   setState(() {
-                    _continuousValues = values;
+                    _continuousStartValue.value = values.start;
+                    _continuousEndValue.value = values.end;
                   });
                 },
               ),
@@ -186,7 +220,8 @@ class _RangeSlidersState extends State<_RangeSliders> {
                 ),
                 onChanged: (values) {
                   setState(() {
-                    _discreteValues = values;
+                    _discreteStartValue.value = values.start;
+                    _discreteEndValue.value = values.end;
                   });
                 },
               ),
@@ -423,12 +458,29 @@ class _CustomSliders extends StatefulWidget {
   _CustomSlidersState createState() => _CustomSlidersState();
 }
 
-class _CustomSlidersState extends State<_CustomSliders> {
-  double _discreteCustomValue = 25;
-  RangeValues _continuousCustomValues = const RangeValues(40, 160);
+class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
+  final RestorableDouble _continuousStartCustomValue = RestorableDouble(40);
+  final RestorableDouble _continuousEndCustomValue = RestorableDouble(160);
+  final RestorableDouble _discreteCustomValue = RestorableDouble(25);
+
+  @override
+  String get restorationId => 'custom_sliders_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(
+        _continuousStartCustomValue, 'continuous_start_custom_value');
+    registerForRestoration(
+        _continuousEndCustomValue, 'continuous_end_custom_value');
+    registerForRestoration(_discreteCustomValue, 'discrete_custom_value');
+  }
 
   @override
   Widget build(BuildContext context) {
+    final customRangeValue = RangeValues(
+      _continuousStartCustomValue.value,
+      _continuousEndCustomValue.value,
+    );
     final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -457,16 +509,16 @@ class _CustomSlidersState extends State<_CustomSliders> {
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
                 child: Slider(
-                  value: _discreteCustomValue,
+                  value: _discreteCustomValue.value,
                   min: 0,
                   max: 200,
                   divisions: 5,
                   semanticFormatterCallback: (value) =>
                       value.round().toString(),
-                  label: '${_discreteCustomValue.round()}',
+                  label: '${_discreteCustomValue.value.round()}',
                   onChanged: (value) {
                     setState(() {
-                      _discreteCustomValue = value;
+                      _discreteCustomValue.value = value;
                     });
                   },
                 ),
@@ -492,12 +544,13 @@ class _CustomSlidersState extends State<_CustomSliders> {
                   showValueIndicator: ShowValueIndicator.never,
                 ),
                 child: RangeSlider(
-                  values: _continuousCustomValues,
+                  values: customRangeValue,
                   min: 0,
                   max: 200,
                   onChanged: (values) {
                     setState(() {
-                      _continuousCustomValues = values;
+                      _continuousStartCustomValue.value = values.start;
+                      _continuousEndCustomValue.value = values.end;
                     });
                   },
                 ),

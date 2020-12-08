@@ -17,11 +17,22 @@ class DataTableDemo extends StatefulWidget {
   _DataTableDemoState createState() => _DataTableDemoState();
 }
 
-class _DataTableDemoState extends State<DataTableDemo> {
-  int _rowsPerPage = PaginatedDataTable.defaultRowsPerPage;
-  int _sortColumnIndex;
-  bool _sortAscending = true;
+class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
+  final RestorableInt _rowsPerPage =
+      RestorableInt(PaginatedDataTable.defaultRowsPerPage);
+  final RestorableInt _sortColumnIndex = RestorableInt(-1);
+  final RestorableBool _sortAscending = RestorableBool(true);
   _DessertDataSource _dessertsDataSource;
+
+  @override
+  String get restorationId => 'data_table_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_rowsPerPage, 'rows_per_page');
+    registerForRestoration(_sortColumnIndex, 'sort_column_index');
+    registerForRestoration(_sortAscending, 'sort_ascending');
+  }
 
   @override
   void didChangeDependencies() {
@@ -36,13 +47,23 @@ class _DataTableDemoState extends State<DataTableDemo> {
   ) {
     _dessertsDataSource._sort<T>(getField, ascending);
     setState(() {
-      _sortColumnIndex = columnIndex;
-      _sortAscending = ascending;
+      // [RestorableBool]'s value cannot be null, so -1 is used as a placeholder
+      // to represent `null` in [DataTable]s.
+      if (columnIndex == null) {
+        _sortColumnIndex.value = -1;
+      } else {
+        _sortColumnIndex.value = columnIndex;
+      }
+      _sortAscending.value = ascending;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // Need to call sort on build to ensure that the data values are correctly
+    // sorted on state restoration.
+    _sort<num>((d) => d.calories, _sortColumnIndex.value, _sortAscending.value);
+
     final localizations = GalleryLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -51,18 +72,22 @@ class _DataTableDemoState extends State<DataTableDemo> {
       ),
       body: Scrollbar(
         child: ListView(
+          restorationId: 'data_table_list_view',
           padding: const EdgeInsets.all(16),
           children: [
             PaginatedDataTable(
               header: Text(localizations.dataTableHeader),
-              rowsPerPage: _rowsPerPage,
+              rowsPerPage: _rowsPerPage.value,
               onRowsPerPageChanged: (value) {
                 setState(() {
-                  _rowsPerPage = value;
+                  _rowsPerPage.value = value;
                 });
               },
-              sortColumnIndex: _sortColumnIndex,
-              sortAscending: _sortAscending,
+              // RestorableBool's value cannot be null, so -1 is used as a
+              // placeholder to represent `null` in [DataTable]s.
+              sortColumnIndex:
+                  _sortColumnIndex.value == -1 ? null : _sortColumnIndex.value,
+              sortAscending: _sortAscending.value,
               onSelectAll: _dessertsDataSource._selectAll,
               columns: [
                 DataColumn(

@@ -36,8 +36,6 @@ class MenuDemo extends StatefulWidget {
 }
 
 class _MenuDemoState extends State<MenuDemo> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   void showInSnackBar(String value) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -64,7 +62,6 @@ class _MenuDemoState extends State<MenuDemo> {
     }
 
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: Text(GalleryLocalizations.of(context).demoMenuTitle),
         automaticallyImplyLeading: false,
@@ -277,7 +274,10 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
 // Pressing the PopupMenuButton on the right of this item shows a menu
 // whose items have checked icons that reflect this app's state.
 class _ChecklistMenuDemo extends StatefulWidget {
-  const _ChecklistMenuDemo({Key key, this.showInSnackBar}) : super(key: key);
+  const _ChecklistMenuDemo({
+    Key key,
+    this.showInSnackBar,
+  }) : super(key: key);
 
   final void Function(String value) showInSnackBar;
 
@@ -285,54 +285,106 @@ class _ChecklistMenuDemo extends StatefulWidget {
   _ChecklistMenuDemoState createState() => _ChecklistMenuDemoState();
 }
 
-class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo> {
-  List<CheckedValue> _checkedValues;
+class _RestorableCheckedValues extends RestorableProperty<Set<CheckedValue>> {
+  Set<CheckedValue> _checked = <CheckedValue>{};
 
-  @override
-  void initState() {
-    super.initState();
-    _checkedValues = [CheckedValue.three];
+  void check(CheckedValue value) {
+    _checked.add(value);
+    notifyListeners();
   }
 
-  void showCheckedMenuSelections(BuildContext context, CheckedValue value) {
-    if (_checkedValues.contains(value)) {
-      setState(() {
-        _checkedValues.remove(value);
-      });
-    } else {
-      setState(() {
-        _checkedValues.add(value);
-      });
-    }
-
-    widget.showInSnackBar(
-      GalleryLocalizations.of(context).demoMenuChecked(
-        _checkedValues.map((value) => checkedValueToString(context, value)),
-      ),
-    );
+  void uncheck(CheckedValue value) {
+    _checked.remove(value);
+    notifyListeners();
   }
 
-  String checkedValueToString(BuildContext context, CheckedValue value) => {
+  bool isChecked(CheckedValue value) => _checked.contains(value);
+
+  Iterable<String> checkedValuesToString(BuildContext context) {
+    return _checked.map((value) {
+      return {
         CheckedValue.one: GalleryLocalizations.of(context).demoMenuOne,
         CheckedValue.two: GalleryLocalizations.of(context).demoMenuTwo,
         CheckedValue.three: GalleryLocalizations.of(context).demoMenuThree,
         CheckedValue.four: GalleryLocalizations.of(context).demoMenuFour,
       }[value];
+    });
+  }
 
-  bool isChecked(CheckedValue value) => _checkedValues.contains(value);
+  @override
+  Set<CheckedValue> createDefaultValue() => _checked;
+
+  @override
+  Set<CheckedValue> initWithValue(Set<CheckedValue> a) {
+    _checked = a;
+    return _checked;
+  }
+
+  @override
+  Object toPrimitives() => _checked.map((value) => value.index).toList();
+
+  @override
+  Set<CheckedValue> fromPrimitives(Object data) {
+    final checkedValues = data as List<dynamic>;
+    return Set.from(checkedValues.map<CheckedValue>((dynamic id) {
+      return CheckedValue.values[id as int];
+    }));
+  }
+}
+
+class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
+    with RestorationMixin {
+  final _RestorableCheckedValues _checkedValues = _RestorableCheckedValues()
+    ..check(CheckedValue.three);
+
+  @override
+  String get restorationId => 'checklist_menu_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_checkedValues, 'checked_values');
+  }
+
+  void showCheckedMenuSelections(BuildContext context, CheckedValue value) {
+    if (_checkedValues.isChecked(value)) {
+      setState(() {
+        _checkedValues.uncheck(value);
+      });
+    } else {
+      setState(() {
+        _checkedValues.check(value);
+      });
+    }
+
+    widget.showInSnackBar(
+      GalleryLocalizations.of(context).demoMenuChecked(
+        _checkedValues.checkedValuesToString(context),
+      ),
+    );
+  }
+
+  String checkedValueToString(BuildContext context, CheckedValue value) {
+    return {
+      CheckedValue.one: GalleryLocalizations.of(context).demoMenuOne,
+      CheckedValue.two: GalleryLocalizations.of(context).demoMenuTwo,
+      CheckedValue.three: GalleryLocalizations.of(context).demoMenuThree,
+      CheckedValue.four: GalleryLocalizations.of(context).demoMenuFour,
+    }[value];
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-          GalleryLocalizations.of(context).demoMenuAnItemWithAChecklistMenu),
+        GalleryLocalizations.of(context).demoMenuAnItemWithAChecklistMenu,
+      ),
       trailing: PopupMenuButton<CheckedValue>(
         padding: EdgeInsets.zero,
         onSelected: (value) => showCheckedMenuSelections(context, value),
         itemBuilder: (context) => <PopupMenuItem<CheckedValue>>[
           CheckedPopupMenuItem<CheckedValue>(
             value: CheckedValue.one,
-            checked: isChecked(CheckedValue.one),
+            checked: _checkedValues.isChecked(CheckedValue.one),
             child: Text(
               checkedValueToString(context, CheckedValue.one),
             ),
@@ -340,21 +392,21 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo> {
           CheckedPopupMenuItem<CheckedValue>(
             value: CheckedValue.two,
             enabled: false,
-            checked: isChecked(CheckedValue.two),
+            checked: _checkedValues.isChecked(CheckedValue.two),
             child: Text(
               checkedValueToString(context, CheckedValue.two),
             ),
           ),
           CheckedPopupMenuItem<CheckedValue>(
             value: CheckedValue.three,
-            checked: isChecked(CheckedValue.three),
+            checked: _checkedValues.isChecked(CheckedValue.three),
             child: Text(
               checkedValueToString(context, CheckedValue.three),
             ),
           ),
           CheckedPopupMenuItem<CheckedValue>(
             value: CheckedValue.four,
-            checked: isChecked(CheckedValue.four),
+            checked: _checkedValues.isChecked(CheckedValue.four),
             child: Text(
               checkedValueToString(context, CheckedValue.four),
             ),
