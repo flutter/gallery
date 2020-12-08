@@ -18,10 +18,7 @@ import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-const _demoViewedCountKey = 'demoViewedCountKey';
 
 enum _DemoState {
   normal,
@@ -132,12 +129,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    SharedPreferences.getInstance().then((preferences) {
-      setState(() {
-        _demoViewedCount = preferences.getInt(_demoViewedCountKey) ?? 0;
-        preferences.setInt(_demoViewedCountKey, _demoViewedCount + 1);
-      });
-    });
+    // TODO(rami-a): Add back shared_preferences check once migrated to NNBD.
+    _demoViewedCount = 10;
   }
 
   @override
