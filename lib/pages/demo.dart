@@ -20,9 +20,6 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-// TODO(rami-a): Re-enable once shared_preferences is migrated to NNBD.
-//const _demoViewedCountKey = 'demoViewedCountKey';
-
 enum _DemoState {
   normal,
   options,
@@ -132,14 +129,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    // TODO(rami-a): Re-enable once shared_preferences is migrated to NNBD.
+    // TODO(rami-a): Add back shared_preferences check once migrated to NNBD.
     _demoViewedCount = 10;
-//    SharedPreferences.getInstance().then((preferences) {
-//      setState(() {
-//        _demoViewedCount = preferences.getInt(_demoViewedCountKey) ?? 0;
-//        preferences.setInt(_demoViewedCountKey, _demoViewedCount + 1);
-//      });
-//    });
   }
 
   @override
