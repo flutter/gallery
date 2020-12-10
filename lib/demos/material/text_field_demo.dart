@@ -214,7 +214,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                     person.phoneNumber = value;
                   },
                   maxLength: 14,
-                  maxLengthEnforced: false,
+                  maxLengthEnforcement: MaxLengthEnforcement.none,
                   validator: _validatePhoneNumber,
                   // TextInputFormatters are applied in sequence.
                   inputFormatters: <TextInputFormatter>[
