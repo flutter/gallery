@@ -39613,7 +39613,9 @@ class CodeSegments {
           text: '\u000a                  maxLengthEnforcement'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'MaxLengthEnforcement.none'),
+      TextSpan(style: codeStyle.classStyle, text: 'MaxLengthEnforcement'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
+      TextSpan(style: codeStyle.baseStyle, text: 'none'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle,
