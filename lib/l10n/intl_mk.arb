@@ -679,7 +679,7 @@
   "shrineDescription": "Модерна апликација за малопродажба",
   "craneDescription": "Персонализирана апликација за патување",
   "homeCategoryReference": "СТИЛОВИ И ДРУГО",
-  "demoInvalidURL": "URL-адресата не можеше да се прикаже:",
+  "demoInvalidURL": "URL-адресата не може да се прикаже:",
   "demoOptionsTooltip": "Опции",
   "demoInfoTooltip": "Информации",
   "demoCodeTooltip": "Код за демонстрација",
