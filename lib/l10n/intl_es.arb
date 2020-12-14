@@ -9,7 +9,7 @@
   "demoNavigationDrawerTitle": "Panel de navegación",
   "demoNavigationRailThird": "Tercera",
   "replyStarredLabel": "Destacados",
-  "demoTextButtonDescription": "Al pulsar un botón de texto, se muestra una salpicadura de tinta que no recupera el relieve al dejar de pulsarse. Utiliza este tipo de botones en barras de herramientas, cuadros de diálogo y elementos insertados con márgenes.",
+  "demoTextButtonDescription": "Al pulsar un botón de texto, se muestra una salpicadura de tinta que no recupera el relieve al dejar de pulsarse. Utiliza este tipo de botones en barras de herramientas, cuadros de diálogo y elementos insertados con espacios de relleno.",
   "demoElevatedButtonTitle": "Botón con relieve",
   "demoElevatedButtonDescription": "Los botones con relieve añaden dimensión a los diseños que son planos en su mayoría. Destacan funciones en espacios llenos o amplios.",
   "demoOutlinedButtonTitle": "Botones con contorno",
