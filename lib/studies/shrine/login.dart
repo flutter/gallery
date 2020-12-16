@@ -121,6 +121,7 @@ class _UsernameTextField extends StatelessWidget {
       color: shrineBrown900,
       child: Container(
         child: TextField(
+          restorationId: 'username_text_field',
           controller: _usernameController,
           cursorColor: colorScheme.onSurface,
           decoration: InputDecoration(
@@ -148,6 +149,7 @@ class _PasswordTextField extends StatelessWidget {
       color: shrineBrown900,
       child: Container(
         child: TextField(
+          restorationId: 'password_text_field',
           controller: _passwordController,
           cursorColor: colorScheme.onSurface,
           obscureText: true,
@@ -218,7 +220,7 @@ class _CancelAndNextButtons extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed(ShrineApp.homeRoute);
+                Navigator.of(context).restorablePushNamed(ShrineApp.homeRoute);
               },
             ),
           ],

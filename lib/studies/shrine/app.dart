@@ -112,32 +112,36 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
       ),
     );
 
-    return ScopedModel<AppStateModel>(
-      model: _model,
-      child: WillPopScope(
-        onWillPop: _onWillPop,
-        child: MaterialApp(
-          title: 'Shrine',
-          debugShowCheckedModeBanner: false,
-          initialRoute: ShrineApp.loginRoute,
-          onGenerateInitialRoutes: (_) {
-            return [
-              MaterialPageRoute<void>(
-                builder: (context) => const LoginPage(),
-              ),
-            ];
-          },
-          routes: {
-            ShrineApp.loginRoute: (context) => const LoginPage(),
-            ShrineApp.homeRoute: (context) => home,
-          },
-          theme: shrineTheme.copyWith(
-            platform: GalleryOptions.of(context).platform,
+    return RestorationScope(
+      restorationId: 'shrineAppState',
+      child: ScopedModel<AppStateModel>(
+        model: _model,
+        child: WillPopScope(
+          onWillPop: _onWillPop,
+          child: MaterialApp(
+            restorationScopeId: 'shrineApp',
+            title: 'Shrine',
+            debugShowCheckedModeBanner: false,
+            initialRoute: ShrineApp.loginRoute,
+            onGenerateInitialRoutes: (_) {
+              return [
+                MaterialPageRoute<void>(
+                  builder: (context) => const LoginPage(),
+                ),
+              ];
+            },
+            routes: {
+              ShrineApp.loginRoute: (context) => const LoginPage(),
+              ShrineApp.homeRoute: (context) => home,
+            },
+            theme: shrineTheme.copyWith(
+              platform: GalleryOptions.of(context).platform,
+            ),
+            // L10n settings.
+            localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+            supportedLocales: GalleryLocalizations.supportedLocales,
+            locale: GalleryOptions.of(context).locale,
           ),
-          // L10n settings.
-          localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-          supportedLocales: GalleryLocalizations.supportedLocales,
-          locale: GalleryOptions.of(context).locale,
         ),
       ),
     );
