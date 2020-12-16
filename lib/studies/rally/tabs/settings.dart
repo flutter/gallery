@@ -21,6 +21,7 @@ class _SettingsViewState extends State<SettingsView> {
       child: Container(
         padding: EdgeInsets.only(top: isDisplayDesktop(context) ? 24 : 0),
         child: ListView(
+          restorationId: 'settings_list_view',
           shrinkWrap: true,
           children: [
             for (String title
@@ -56,7 +57,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(RallyApp.loginRoute);
+        Navigator.of(context).restorablePushNamed(RallyApp.loginRoute);
       },
     );
   }

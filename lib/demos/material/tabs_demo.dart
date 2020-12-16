@@ -146,6 +146,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
 
   @override
   void initState() {
+    super.initState();
     _tabController = TabController(
       initialIndex: 0,
       length: 3,
@@ -158,7 +159,6 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
         tabIndex.value = _tabController.index;
       });
     });
-    super.initState();
   }
 
   @override
