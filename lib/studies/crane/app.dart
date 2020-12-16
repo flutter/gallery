@@ -19,7 +19,7 @@ class CraneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      restorationScopeId: 'appNavigator',
+      restorationScopeId: 'crane_app',
       title: 'Crane',
       debugShowCheckedModeBanner: false,
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
