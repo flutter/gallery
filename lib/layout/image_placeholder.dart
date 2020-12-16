@@ -63,6 +63,7 @@ class _FadeInImagePlaceholderState extends State<FadeInImagePlaceholder> {
 
   @override
   void initState() {
+    super.initState();
     // Once the image is loaded, we no longer need to show a placeholder
     widget.image
         .resolve(ImageConfiguration.empty)
@@ -73,7 +74,6 @@ class _FadeInImagePlaceholderState extends State<FadeInImagePlaceholder> {
         });
       },
     ));
-    super.initState();
   }
 
   @override
