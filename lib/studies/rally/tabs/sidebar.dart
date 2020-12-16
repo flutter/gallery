@@ -38,7 +38,6 @@ class TabWithSidebar extends StatelessWidget {
               height: double.infinity,
               alignment: AlignmentDirectional.centerStart,
               child: ListView(
-                restorationId: 'sidebar_list_view',
                 shrinkWrap: true,
                 children: sidebarItems,
               ),
@@ -47,7 +46,10 @@ class TabWithSidebar extends StatelessWidget {
         ],
       );
     } else {
-      return SingleChildScrollView(child: mainView);
+      return SingleChildScrollView(
+        restorationId: 'sidebar_scroll_view',
+        child: mainView,
+      );
     }
   }
 }
