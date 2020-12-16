@@ -17,7 +17,7 @@ class StarterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      restorationScopeId: 'appNavigator',
+      restorationScopeId: 'starter_app',
       title: GalleryLocalizations.of(context).starterAppTitle,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
