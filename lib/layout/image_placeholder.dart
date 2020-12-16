@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 /// to specify a widget as a [placeholder], instead of just an [ImageProvider].
 /// It also lets you override the [child] argument, in case you want to wrap
 /// the image with another widget, for example an [Ink.image].
-class FadeInImagePlaceholder extends StatelessWidget {
+class FadeInImagePlaceholder extends StatefulWidget {
   const FadeInImagePlaceholder({
     Key key,
     @required this.image,
@@ -55,22 +55,47 @@ class FadeInImagePlaceholder extends StatelessWidget {
   final BoxFit fit;
 
   @override
+  _FadeInImagePlaceholderState createState() => _FadeInImagePlaceholderState();
+}
+
+class _FadeInImagePlaceholderState extends State<FadeInImagePlaceholder> {
+  bool _isLoaded = false;
+
+  @override
+  void initState() {
+    // Once the image is loaded, we no longer need to show a placeholder
+    widget.image
+        .resolve(ImageConfiguration.empty)
+        .addListener(ImageStreamListener(
+      (imageInfo, synchronousCall) {
+        setState(() {
+          _isLoaded = true;
+        });
+      },
+    ));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Image(
-      image: image,
-      excludeFromSemantics: excludeFromSemantics,
-      width: width,
-      height: height,
-      fit: fit,
+      image: widget.image,
+      excludeFromSemantics: widget.excludeFromSemantics,
+      width: widget.width,
+      height: widget.height,
+      fit: widget.fit,
       frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
         // We only need to animate the loading of images on the web. We can
         // also return early if the images are already in the cache.
         if (wasSynchronouslyLoaded || !kIsWeb) {
-          return this.child ?? child;
+          if (!_isLoaded) {
+            return widget.placeholder;
+          }
+          return widget.child ?? child;
         } else {
           return AnimatedSwitcher(
-            duration: duration,
-            child: frame != null ? this.child ?? child : placeholder,
+            duration: widget.duration,
+            child: frame != null ? widget.child ?? child : widget.placeholder,
           );
         }
       },
