@@ -24,6 +24,7 @@ class FortnightlyApp extends StatelessWidget {
         ? const _FortnightlyHomeDesktop()
         : const _FortnightlyHomeMobile();
     return MaterialApp(
+      restorationScopeId: 'appNavigator',
       title: _fortnightlyTitle,
       debugShowCheckedModeBanner: false,
       theme: buildTheme(context).copyWith(
@@ -76,6 +77,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView(
+          restorationId: 'list_view',
           children: [
             HashtagBar(),
             for (final item in buildArticlePreviewItems(context))
