@@ -123,13 +123,6 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
             title: 'Shrine',
             debugShowCheckedModeBanner: false,
             initialRoute: ShrineApp.loginRoute,
-            onGenerateInitialRoutes: (_) {
-              return [
-                MaterialPageRoute<void>(
-                  builder: (context) => const LoginPage(),
-                ),
-              ];
-            },
             routes: {
               ShrineApp.loginRoute: (context) => const LoginPage(),
               ShrineApp.homeRoute: (context) => home,
