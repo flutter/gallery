@@ -60,7 +60,8 @@ class ShrineApp extends StatefulWidget {
   _ShrineAppState createState() => _ShrineAppState();
 }
 
-class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin, RestorationMixin {
+class _ShrineAppState extends State<ShrineApp>
+    with TickerProviderStateMixin, RestorationMixin {
   // Controller to coordinate both the opening/closing of backdrop and sliding
   // of expanding bottom sheet
   AnimationController _controller;
