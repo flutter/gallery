@@ -19,37 +19,6 @@ import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class _RestorableAppStateModel extends RestorableListenable<AppStateModel> {
-  @override
-  AppStateModel createDefaultValue() => AppStateModel()..loadProducts();
-
-  @override
-  AppStateModel fromPrimitives(Object data) {
-    final appState = AppStateModel()..loadProducts();
-    final appData = Map<String, dynamic>.from(data as Map);
-
-    // Reset selected category.
-    final categoryIndex = appData['category_index'] as int;
-    appState.setCategory(categories[categoryIndex]);
-
-    // Reset cart items.
-    final cartItems = appData['cart_data'] as Map<dynamic, dynamic>;
-    cartItems.forEach((dynamic id, dynamic quantity) {
-      appState.addMultipleProductsToCart(id as int, quantity as int);
-    });
-
-    return appState;
-  }
-
-  @override
-  Object toPrimitives() {
-    return <String, dynamic>{
-      'cart_data': value.productsInCart,
-      'category_index': categories.indexOf(value.selectedCategory),
-    };
-  }
-}
-
 class ShrineApp extends StatefulWidget {
   const ShrineApp();
 
@@ -70,6 +39,8 @@ class _ShrineAppState extends State<ShrineApp>
   AnimationController _expandingController;
 
   final _RestorableAppStateModel _model = _RestorableAppStateModel();
+  final RestorableBool _isExpandingControllerCompleted = RestorableBool(false);
+  final RestorableBool _isControllerCompleted = RestorableBool(true);
 
   final Map<String, List<List<int>>> _layouts = {};
 
@@ -79,6 +50,9 @@ class _ShrineAppState extends State<ShrineApp>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_model, 'app_state_model');
+    registerForRestoration(
+        _isExpandingControllerCompleted, 'is_expanding_controller_completed');
+    registerForRestoration(_isControllerCompleted, 'is_controller_completed');
   }
 
   @override
@@ -88,11 +62,31 @@ class _ShrineAppState extends State<ShrineApp>
       vsync: this,
       duration: const Duration(milliseconds: 450),
       value: 1,
-    );
+    )..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          setState(() {
+            _isControllerCompleted.value = true;
+          });
+        } else if (status == AnimationStatus.dismissed) {
+          setState(() {
+            _isControllerCompleted.value = false;
+          });
+        }
+      });
     _expandingController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
-    );
+    )..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          setState(() {
+            _isExpandingControllerCompleted.value = true;
+          });
+        } else if (status == AnimationStatus.dismissed) {
+          setState(() {
+            _isExpandingControllerCompleted.value = false;
+          });
+        }
+      });
   }
 
   @override
@@ -133,6 +127,15 @@ class _ShrineAppState extends State<ShrineApp>
 
   @override
   Widget build(BuildContext context) {
+    if (_isExpandingControllerCompleted.value !=
+        _expandingController.isCompleted) {
+      _expandingController.value = 1;
+    }
+
+    if (_isControllerCompleted.value != _controller.isCompleted) {
+      _controller.value = 0;
+    }
+
     final isDesktop = isDisplayDesktop(context);
 
     final backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
@@ -178,5 +181,36 @@ class _ShrineAppState extends State<ShrineApp>
         ),
       ),
     );
+  }
+}
+
+class _RestorableAppStateModel extends RestorableListenable<AppStateModel> {
+  @override
+  AppStateModel createDefaultValue() => AppStateModel()..loadProducts();
+
+  @override
+  AppStateModel fromPrimitives(Object data) {
+    final appState = AppStateModel()..loadProducts();
+    final appData = Map<String, dynamic>.from(data as Map);
+
+    // Reset selected category.
+    final categoryIndex = appData['category_index'] as int;
+    appState.setCategory(categories[categoryIndex]);
+
+    // Reset cart items.
+    final cartItems = appData['cart_data'] as Map<dynamic, dynamic>;
+    cartItems.forEach((dynamic id, dynamic quantity) {
+      appState.addMultipleProductsToCart(id as int, quantity as int);
+    });
+
+    return appState;
+  }
+
+  @override
+  Object toPrimitives() {
+    return <String, dynamic>{
+      'cart_data': value.productsInCart,
+      'category_index': categories.indexOf(value.selectedCategory),
+    };
   }
 }
