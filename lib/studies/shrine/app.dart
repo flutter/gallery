@@ -21,40 +21,31 @@ import 'package:scoped_model/scoped_model.dart';
 
 class _RestorableAppStateModel extends RestorableListenable<AppStateModel> {
   @override
-  AppStateModel createDefaultValue() {
-    return AppStateModel()..loadProducts();
-  }
+  AppStateModel createDefaultValue() => AppStateModel()..loadProducts();
 
   @override
   AppStateModel fromPrimitives(Object data) {
     final appState = AppStateModel()..loadProducts();
-
-    // Logic for how to retrieve data from native store
     final appData = Map<String, dynamic>.from(data as Map);
-    print(appData);
+
+    // Reset selected category.
+    final categoryIndex = appData['category_index'] as int;
+    appState.setCategory(categories[categoryIndex]);
+
+    // Reset cart items.
+    final cartItems = appData['cart_data'] as Map<dynamic, dynamic>;
+    cartItems.forEach((dynamic id, dynamic quantity) {
+      appState.addMultipleProductsToCart(id as int, quantity as int);
+    });
 
     return appState;
-
-    // final appData = Map<String, dynamic>.from(data as Map);
-    // // The index of the MailboxPageType enum is restored.
-    // final mailboxPageIndex = appData['selectedMailboxPage'] as int;
-    // appState.selectedMailboxPage = MailboxPageType.values[mailboxPageIndex];
-    // final starredEmailIdsList = appData['starredEmailIds'] as List<dynamic>;
-    // appState.starredEmailIds = {
-    //   ...starredEmailIdsList.map<int>((dynamic id) => id as int),
-    // };
   }
 
   @override
   Object toPrimitives() {
-    // Logic for how to serialize data.
-    print('serializing');
-    print(value.selectedCategory);
-    print(categories.indexOf(value.selectedCategory));
-
     return <String, dynamic>{
       'cart_data': value.productsInCart,
-      'category': categories.indexOf(value.selectedCategory),
+      'category_index': categories.indexOf(value.selectedCategory),
     };
   }
 }

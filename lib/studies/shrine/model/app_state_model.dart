@@ -72,6 +72,20 @@ class AppStateModel extends Model {
     notifyListeners();
   }
 
+  // Adds products to the cart by a certain amount.
+  // quantity must be non-null positive value.
+  void addMultipleProductsToCart(int productId, int quantity) {
+    assert(quantity > 0);
+    assert(quantity != null);
+    if (!_productsInCart.containsKey(productId)) {
+      _productsInCart[productId] = quantity;
+    } else {
+      _productsInCart[productId] += quantity;
+    }
+
+    notifyListeners();
+  }
+
   // Removes an item from the cart.
   void removeItemFromCart(int productId) {
     if (_productsInCart.containsKey(productId)) {
