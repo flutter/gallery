@@ -12,11 +12,52 @@ import 'package:gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:gallery/studies/shrine/home.dart';
 import 'package:gallery/studies/shrine/login.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
+import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/scrim.dart';
 import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 import 'package:gallery/studies/shrine/theme.dart';
 import 'package:scoped_model/scoped_model.dart';
+
+class _RestorableAppStateModel extends RestorableListenable<AppStateModel> {
+  @override
+  AppStateModel createDefaultValue() {
+    return AppStateModel()..loadProducts();
+  }
+
+  @override
+  AppStateModel fromPrimitives(Object data) {
+    final appState = AppStateModel()..loadProducts();
+
+    // Logic for how to retrieve data from native store
+    final appData = Map<String, dynamic>.from(data as Map);
+    print(appData);
+
+    return appState;
+
+    // final appData = Map<String, dynamic>.from(data as Map);
+    // // The index of the MailboxPageType enum is restored.
+    // final mailboxPageIndex = appData['selectedMailboxPage'] as int;
+    // appState.selectedMailboxPage = MailboxPageType.values[mailboxPageIndex];
+    // final starredEmailIdsList = appData['starredEmailIds'] as List<dynamic>;
+    // appState.starredEmailIds = {
+    //   ...starredEmailIdsList.map<int>((dynamic id) => id as int),
+    // };
+  }
+
+  @override
+  Object toPrimitives() {
+    // Logic for how to serialize data.
+    print('serializing');
+    print(value.selectedCategory);
+    print(categories.indexOf(value.selectedCategory));
+
+    return <String, dynamic>{
+      'cart_data': value.productsInCart,
+      'category': categories.indexOf(value.selectedCategory),
+    };
+  }
+}
 
 class ShrineApp extends StatefulWidget {
   const ShrineApp();
@@ -28,7 +69,7 @@ class ShrineApp extends StatefulWidget {
   _ShrineAppState createState() => _ShrineAppState();
 }
 
-class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
+class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin, RestorationMixin {
   // Controller to coordinate both the opening/closing of backdrop and sliding
   // of expanding bottom sheet
   AnimationController _controller;
@@ -36,9 +77,17 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
   // Animation Controller for expanding/collapsing the cart menu.
   AnimationController _expandingController;
 
-  AppStateModel _model;
+  final _RestorableAppStateModel _model = _RestorableAppStateModel();
 
   final Map<String, List<List<int>>> _layouts = {};
+
+  @override
+  String get restorationId => 'shrine_app_state';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_model, 'app_state_model');
+  }
 
   @override
   void initState() {
@@ -52,7 +101,6 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    _model = AppStateModel()..loadProducts();
   }
 
   @override
@@ -115,7 +163,7 @@ class _ShrineAppState extends State<ShrineApp> with TickerProviderStateMixin {
     return RestorationScope(
       restorationId: 'shrineAppState',
       child: ScopedModel<AppStateModel>(
-        model: _model,
+        model: _model.value,
         child: WillPopScope(
           onWillPop: _onWillPop,
           child: MaterialApp(
