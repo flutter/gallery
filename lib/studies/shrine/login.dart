@@ -62,6 +62,7 @@ class LoginPage extends StatelessWidget {
               appBar: AppBar(backgroundColor: Colors.white),
               body: SafeArea(
                 child: ListView(
+                  restorationId: 'login_list_view',
                   physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: _horizontalPadding,
@@ -115,14 +116,11 @@ class _UsernameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    final _usernameController = TextEditingController();
-
     return PrimaryColorOverride(
       color: shrineBrown900,
       child: Container(
         child: TextField(
           restorationId: 'username_text_field',
-          controller: _usernameController,
           cursorColor: colorScheme.onSurface,
           decoration: InputDecoration(
             labelText:
@@ -143,14 +141,11 @@ class _PasswordTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    final _passwordController = TextEditingController();
-
     return PrimaryColorOverride(
       color: shrineBrown900,
       child: Container(
         child: TextField(
           restorationId: 'password_text_field',
-          controller: _passwordController,
           cursorColor: colorScheme.onSurface,
           obscureText: true,
           decoration: InputDecoration(
