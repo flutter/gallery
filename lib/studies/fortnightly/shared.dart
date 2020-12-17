@@ -244,6 +244,7 @@ class HashtagBar extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ListView(
+        restorationId: 'hashtag_bar_list_view',
         scrollDirection: Axis.horizontal,
         children: [
           const SizedBox(width: 16),

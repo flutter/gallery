@@ -63,9 +63,7 @@ class FadeInImagePlaceholder extends StatelessWidget {
       height: height,
       fit: fit,
       frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-        // We only need to animate the loading of images on the web. We can
-        // also return early if the images are already in the cache.
-        if (wasSynchronouslyLoaded || !kIsWeb) {
+        if (wasSynchronouslyLoaded) {
           return this.child ?? child;
         } else {
           return AnimatedSwitcher(

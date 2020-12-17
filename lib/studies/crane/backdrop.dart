@@ -96,6 +96,8 @@ class _FrontLayerState extends State<_FrontLayer> {
               ),
             ),
           ),
+          // TODO(shihaohong): Migrate flutter_staggered_grid_view to
+          // wire restorationId into BoxScrollView.
           child: StaggeredGridView.countBuilder(
             key: ValueKey('CraneListView-${widget.index}'),
             crossAxisCount: crossAxisCount,
@@ -150,7 +152,9 @@ class Backdrop extends StatefulWidget {
   _BackdropState createState() => _BackdropState();
 }
 
-class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
+class _BackdropState extends State<Backdrop>
+    with TickerProviderStateMixin, RestorationMixin {
+  final RestorableInt tabIndex = RestorableInt(0);
   TabController _tabController;
   Animation<Offset> _flyLayerHorizontalOffset;
   Animation<Offset> _sleepLayerHorizontalOffset;
@@ -161,9 +165,24 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   static const _sleepLayerTopOffset = 60.0;
 
   @override
+  String get restorationId => 'tab_non_scrollable_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(tabIndex, 'tab_index');
+  }
+
+  @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      // When the tab controller's value is updated, make sure to update the
+      // tab index value, which is state restorable.
+      setState(() {
+        tabIndex.value = _tabController.index;
+      });
+    });
 
     // Offsets to create a horizontal gap between front layers.
     _flyLayerHorizontalOffset = _tabController.animation.drive(
@@ -189,6 +208,12 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    // Ensures that the tab controller's index is updated with the
+    // state restorable tab index value.
+    if (_tabController.index != tabIndex.value) {
+      _tabController.index = tabIndex.value;
+    }
+
     final isDesktop = isDisplayDesktop(context);
     final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
 

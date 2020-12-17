@@ -63,13 +63,20 @@ class _CheckboxDemo extends StatefulWidget {
   _CheckboxDemoState createState() => _CheckboxDemoState();
 }
 
-class _CheckboxDemoState extends State<_CheckboxDemo> {
-  // TODO(shihaohong): Introduce RestorableBoolN into the framework
-  // to allow checkboxes to be properly state restorable (null value has
-  // meaning in checkboxes).
-  bool checkboxValueA = true;
-  bool checkboxValueB = false;
-  bool checkboxValueC;
+class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
+  RestorableBoolN checkboxValueA = RestorableBoolN(true);
+  RestorableBoolN checkboxValueB = RestorableBoolN(false);
+  RestorableBoolN checkboxValueC = RestorableBoolN(null);
+
+  @override
+  String get restorationId => 'checkbox_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(checkboxValueA, 'checkbox_a');
+    registerForRestoration(checkboxValueB, 'checkbox_b');
+    registerForRestoration(checkboxValueC, 'checkbox_c');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,27 +85,27 @@ class _CheckboxDemoState extends State<_CheckboxDemo> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Checkbox(
-            value: checkboxValueA,
+            value: checkboxValueA.value,
             onChanged: (value) {
               setState(() {
-                checkboxValueA = value;
+                checkboxValueA.value = value;
               });
             },
           ),
           Checkbox(
-            value: checkboxValueB,
+            value: checkboxValueB.value,
             onChanged: (value) {
               setState(() {
-                checkboxValueB = value;
+                checkboxValueB.value = value;
               });
             },
           ),
           Checkbox(
-            value: checkboxValueC,
+            value: checkboxValueC.value,
             tristate: true,
             onChanged: (value) {
               setState(() {
-                checkboxValueC = value;
+                checkboxValueC.value = value;
               });
             },
           ),
