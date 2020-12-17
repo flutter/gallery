@@ -239,14 +239,11 @@ class HomePage extends StatelessWidget {
       );
     } else {
       return Scaffold(
-        body: RestorationScope(
-          restorationId: 'home_page',
-          child: _AnimatedHomePage(
-            restorationId: 'animated_page',
-            isSplashPageAnimationFinished:
-                SplashPageAnimation.of(context).isFinished,
-            carouselCards: carouselCards,
-          ),
+        body: _AnimatedHomePage(
+          restorationId: 'animated_page',
+          isSplashPageAnimationFinished:
+              SplashPageAnimation.of(context).isFinished,
+          carouselCards: carouselCards,
         ),
       );
     }
@@ -1143,7 +1140,10 @@ class _StudyWrapperState extends State<StudyWrapper> {
         children: [
           Semantics(
             sortKey: const OrdinalSortKey(1),
-            child: widget.study,
+            child: RestorationScope(
+              restorationId: 'study_wrapper',
+              child: widget.study,
+            ),
           ),
           Align(
             alignment: widget.alignment,

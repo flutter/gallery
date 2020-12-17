@@ -155,29 +155,26 @@ class _ShrineAppState extends State<ShrineApp>
       ),
     );
 
-    return RestorationScope(
-      restorationId: 'shrineAppState',
-      child: ScopedModel<AppStateModel>(
-        model: _model.value,
-        child: WillPopScope(
-          onWillPop: _onWillPop,
-          child: MaterialApp(
-            restorationScopeId: 'shrineApp',
-            title: 'Shrine',
-            debugShowCheckedModeBanner: false,
-            initialRoute: ShrineApp.loginRoute,
-            routes: {
-              ShrineApp.loginRoute: (context) => const LoginPage(),
-              ShrineApp.homeRoute: (context) => home,
-            },
-            theme: shrineTheme.copyWith(
-              platform: GalleryOptions.of(context).platform,
-            ),
-            // L10n settings.
-            localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-            supportedLocales: GalleryLocalizations.supportedLocales,
-            locale: GalleryOptions.of(context).locale,
+    return ScopedModel<AppStateModel>(
+      model: _model.value,
+      child: WillPopScope(
+        onWillPop: _onWillPop,
+        child: MaterialApp(
+          restorationScopeId: 'shrineApp',
+          title: 'Shrine',
+          debugShowCheckedModeBanner: false,
+          initialRoute: ShrineApp.loginRoute,
+          routes: {
+            ShrineApp.loginRoute: (context) => const LoginPage(),
+            ShrineApp.homeRoute: (context) => home,
+          },
+          theme: shrineTheme.copyWith(
+            platform: GalleryOptions.of(context).platform,
           ),
+          // L10n settings.
+          localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+          supportedLocales: GalleryLocalizations.supportedLocales,
+          locale: GalleryOptions.of(context).locale,
         ),
       ),
     );
