@@ -93,6 +93,8 @@ class _ShrineAppState extends State<ShrineApp>
   void dispose() {
     _controller.dispose();
     _expandingController.dispose();
+    _isExpandingControllerCompleted.dispose();
+    _isControllerCompleted.dispose();
     super.dispose();
   }
 
