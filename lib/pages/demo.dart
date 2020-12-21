@@ -135,6 +135,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   @override
   void dispose() {
+    _demoStateIndex.dispose();
+    _configIndex.dispose();
     _codeBackgroundColorController.dispose();
     super.dispose();
   }

@@ -373,6 +373,12 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
   }
 
   @override
+  void dispose() {
+    _checkedValues.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(

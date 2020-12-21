@@ -374,6 +374,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
     _animationController.dispose();
     _launchTimer?.cancel();
     _launchTimer = null;
+    _isMaterialListExpanded.dispose();
+    _isCupertinoListExpanded.dispose();
+    _isOtherListExpanded.dispose();
     super.dispose();
   }
 
@@ -764,6 +767,7 @@ class _CarouselState extends State<_Carousel>
   @override
   void dispose() {
     _controller.dispose();
+    _currentPage.dispose();
     super.dispose();
   }
 
