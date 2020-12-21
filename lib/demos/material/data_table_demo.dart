@@ -59,6 +59,14 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    _rowsPerPage.dispose();
+    _sortColumnIndex.dispose();
+    _sortAscending.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // Need to call sort on build to ensure that the data values are correctly
     // sorted on state restoration.

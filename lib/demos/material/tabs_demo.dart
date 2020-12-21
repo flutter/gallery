@@ -70,6 +70,7 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
@@ -164,6 +165,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
