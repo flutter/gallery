@@ -30,6 +30,7 @@ class _BillsViewState extends State<BillsView>
     );
 
     return TabWithSidebar(
+      restorationId: 'bills_view',
       mainView: FinancialEntityView(
         heroLabel: GalleryLocalizations.of(context).rallyBillsDue,
         heroAmount: dueTotal,

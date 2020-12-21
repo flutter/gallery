@@ -31,6 +31,7 @@ class _OverviewViewState extends State<OverviewView> {
     if (isDisplayDesktop(context)) {
       const sortKeyName = 'Overview';
       return SingleChildScrollView(
+        restorationId: 'overview_scroll_view',
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24),
           child: Row(
@@ -62,6 +63,7 @@ class _OverviewViewState extends State<OverviewView> {
       );
     } else {
       return SingleChildScrollView(
+        restorationId: 'overview_scroll_view',
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Column(

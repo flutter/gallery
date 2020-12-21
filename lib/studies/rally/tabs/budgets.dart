@@ -29,6 +29,7 @@ class _BudgetsViewState extends State<BudgetsView>
     );
 
     return TabWithSidebar(
+      restorationId: 'budgets_view',
       mainView: FinancialEntityView(
         heroLabel: GalleryLocalizations.of(context).rallyBudgetLeft,
         heroAmount: capTotal - usedTotal,
