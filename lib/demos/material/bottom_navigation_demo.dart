@@ -40,6 +40,12 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
     registerForRestoration(_currentIndex, 'bottom_navigation_tab_index');
   }
 
+  @override
+  void dispose() {
+    _currentIndex.dispose();
+    super.dispose();
+  }
+
   String _title(BuildContext context) {
     switch (widget.type) {
       case BottomNavigationDemoType.withLabels:

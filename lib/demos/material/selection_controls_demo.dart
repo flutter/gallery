@@ -79,6 +79,14 @@ class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    checkboxValueA.dispose();
+    checkboxValueB.dispose();
+    checkboxValueC.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Row(
@@ -142,6 +150,12 @@ class _RadioDemoState extends State<_RadioDemo> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    radioValue.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Row(
@@ -177,6 +191,12 @@ class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(switchValue, 'switch_value');
+  }
+
+  @override
+  void dispose() {
+    switchValue.dispose();
+    super.dispose();
   }
 
   @override

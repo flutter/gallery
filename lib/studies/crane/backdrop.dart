@@ -198,6 +198,7 @@ class _BackdropState extends State<Backdrop>
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
