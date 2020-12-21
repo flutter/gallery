@@ -26,6 +26,12 @@ class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    _selectedIndex.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final localization = GalleryLocalizations.of(context);
     final destinationFirst = localization.demoNavigationRailFirst;

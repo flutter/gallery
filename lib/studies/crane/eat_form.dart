@@ -33,6 +33,15 @@ class _EatFormState extends State<EatForm> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    dinerController.dispose();
+    dateController.dispose();
+    timeController.dispose();
+    locationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return HeaderForm(
       fields: <HeaderFormField>[

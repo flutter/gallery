@@ -102,6 +102,12 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
   }
 
   @override
+  void dispose() {
+    _indexSelected.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Wrap(
@@ -164,6 +170,14 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
     registerForRestoration(isSelectedElevator, 'selected_elevator');
     registerForRestoration(isSelectedWasher, 'selected_washer');
     registerForRestoration(isSelectedFireplace, 'selected_fireplace');
+  }
+
+  @override
+  void dispose() {
+    isSelectedElevator.dispose();
+    isSelectedWasher.dispose();
+    isSelectedFireplace.dispose();
+    super.dispose();
   }
 
   @override

@@ -31,6 +31,14 @@ class _SleepFormState extends State<SleepForm> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    travelerController.dispose();
+    dateController.dispose();
+    locationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return HeaderForm(
       fields: <HeaderFormField>[

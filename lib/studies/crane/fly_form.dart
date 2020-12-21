@@ -33,6 +33,15 @@ class _FlyFormState extends State<FlyForm> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    travelerController.dispose();
+    countryDestinationController.dispose();
+    destinationController.dispose();
+    dateController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return HeaderForm(
       fields: <HeaderFormField>[

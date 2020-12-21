@@ -37,6 +37,14 @@ class _BannerDemoState extends State<BannerDemo> with RestorationMixin {
   final RestorableBool _showMultipleActions = RestorableBool(true);
   final RestorableBool _showLeading = RestorableBool(true);
 
+  @override
+  void dispose() {
+    _displayBanner.dispose();
+    _showMultipleActions.dispose();
+    _showLeading.dispose();
+    super.dispose();
+  }
+
   void handleDemoAction(BannerDemoAction action) {
     setState(() {
       switch (action) {
