@@ -55,4 +55,4 @@ translation console and changing the filename may require manually updating
 already translated messages to point to the new file. Therefore, avoid doing so
 unless necessary.
 
-Then, see `/third_party/dart/flutter_gallery/README.md` for how to import this file and export translations.
+See `/third_party/dart/flutter_gallery/README.md` for how to import this file and export translations.
