@@ -29,6 +29,48 @@ class ShrineApp extends StatefulWidget {
   _ShrineAppState createState() => _ShrineAppState();
 }
 
+class _RestorableAnimationValue extends RestorableDouble {
+  _RestorableAnimationValue(double defaultValue) : super(defaultValue);
+
+  AnimationController _animationController;
+  AnimationController get animationController => _animationController;
+  void setAnimationController(
+      AnimationController controller, StateSetter setState) {
+    _animationController = controller;
+    // After setting the animation controller, add a listener that
+    // sets the animation controller value whenever an animation completes or
+    // is dismisses. This saves the latest animation state and serializes
+    // it on the device.
+    _animationController.addStatusListener((status) {
+      // Only modify the value after the property has been registered with a
+      // RestorationMixin.
+      if (isRegistered) {
+        if (status == AnimationStatus.completed) {
+          setState(() {
+            value = _animationController.value;
+          });
+        } else if (status == AnimationStatus.dismissed) {
+          setState(() {
+            value = _animationController.value;
+          });
+        }
+      }
+    });
+  }
+
+  @override
+  double fromPrimitives(Object data) {
+    // When retrieving serialized data, set the animation controller value to
+    // the saved value.
+    final savedAnimationValue = data as double;
+    if (_animationController != null &&
+        _animationController.value != savedAnimationValue) {
+      _animationController.value = savedAnimationValue;
+    }
+    return super.fromPrimitives(data);
+  }
+}
+
 class _ShrineAppState extends State<ShrineApp>
     with TickerProviderStateMixin, RestorationMixin {
   // Controller to coordinate both the opening/closing of backdrop and sliding
@@ -39,9 +81,9 @@ class _ShrineAppState extends State<ShrineApp>
   AnimationController _expandingController;
 
   final _RestorableAppStateModel _model = _RestorableAppStateModel();
-  final RestorableBool _isExpandingControllerCompleted = RestorableBool(false);
-  final RestorableBool _isControllerCompleted = RestorableBool(true);
-
+  final _RestorableAnimationValue _expandingTabIndex =
+      _RestorableAnimationValue(0.0);
+  final _RestorableAnimationValue _tabIndex = _RestorableAnimationValue(1.0);
   final Map<String, List<List<int>>> _layouts = {};
 
   @override
@@ -51,8 +93,10 @@ class _ShrineAppState extends State<ShrineApp>
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_model, 'app_state_model');
     registerForRestoration(
-        _isExpandingControllerCompleted, 'is_expanding_controller_completed');
-    registerForRestoration(_isControllerCompleted, 'is_controller_completed');
+      _expandingTabIndex,
+      'expanding_tab_index',
+    );
+    registerForRestoration(_tabIndex, 'tab_index');
   }
 
   @override
@@ -62,39 +106,21 @@ class _ShrineAppState extends State<ShrineApp>
       vsync: this,
       duration: const Duration(milliseconds: 450),
       value: 1,
-    )..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          setState(() {
-            _isControllerCompleted.value = true;
-          });
-        } else if (status == AnimationStatus.dismissed) {
-          setState(() {
-            _isControllerCompleted.value = false;
-          });
-        }
-      });
+    );
+    _tabIndex.setAnimationController(_controller, setState);
     _expandingController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
-    )..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          setState(() {
-            _isExpandingControllerCompleted.value = true;
-          });
-        } else if (status == AnimationStatus.dismissed) {
-          setState(() {
-            _isExpandingControllerCompleted.value = false;
-          });
-        }
-      });
+    );
+    _expandingTabIndex.setAnimationController(_expandingController, setState);
   }
 
   @override
   void dispose() {
     _controller.dispose();
     _expandingController.dispose();
-    _isExpandingControllerCompleted.dispose();
-    _isControllerCompleted.dispose();
+    _tabIndex.dispose();
+    _expandingTabIndex.dispose();
     super.dispose();
   }
 
@@ -129,17 +155,7 @@ class _ShrineAppState extends State<ShrineApp>
 
   @override
   Widget build(BuildContext context) {
-    if (_isExpandingControllerCompleted.value !=
-        _expandingController.isCompleted) {
-      _expandingController.value = 1;
-    }
-
-    if (_isControllerCompleted.value != _controller.isCompleted) {
-      _controller.value = 0;
-    }
-
     final isDesktop = isDisplayDesktop(context);
-
     final backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
     final Widget home = LayoutCache(
       layouts: _layouts,
