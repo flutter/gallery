@@ -26,11 +26,13 @@ class _FrontLayer extends StatefulWidget {
     this.title,
     this.index,
     this.mobileTopOffset,
+    this.restorationId,
   }) : super(key: key);
 
   final String title;
   final int index;
   final double mobileTopOffset;
+  final String restorationId;
 
   @override
   _FrontLayerState createState() => _FrontLayerState();
@@ -96,10 +98,9 @@ class _FrontLayerState extends State<_FrontLayer> {
               ),
             ),
           ),
-          // TODO(shihaohong): Migrate flutter_staggered_grid_view to
-          // wire restorationId into BoxScrollView.
           child: StaggeredGridView.countBuilder(
             key: ValueKey('CraneListView-${widget.index}'),
+            restorationId: widget.restorationId,
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: 16.0,
             padding: isDesktop
@@ -272,6 +273,7 @@ class _BackdropState extends State<Backdrop>
                                   .craneFlySubhead,
                               index: 0,
                               mobileTopOffset: _sleepLayerTopOffset,
+                              restorationId: 'fly-subhead',
                             ),
                           ),
                           SlideTransition(
@@ -281,6 +283,7 @@ class _BackdropState extends State<Backdrop>
                                   .craneSleepSubhead,
                               index: 1,
                               mobileTopOffset: 0,
+                              restorationId: 'sleep-subhead',
                             ),
                           ),
                           SlideTransition(
@@ -290,6 +293,7 @@ class _BackdropState extends State<Backdrop>
                                   .craneEatSubhead,
                               index: 2,
                               mobileTopOffset: _sleepLayerTopOffset,
+                              restorationId: 'eat-subhead',
                             ),
                           ),
                         ],
