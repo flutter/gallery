@@ -34,28 +34,33 @@ class _RestorableAnimationValue extends RestorableDouble {
 
   AnimationController _animationController;
   AnimationController get animationController => _animationController;
-  void setAnimationController(
-      AnimationController controller, StateSetter setState) {
+
+  void _updateAnimationValue(AnimationStatus status) {
+    // Only modify the value after the property has been registered with a
+    // RestorationMixin.
+    if (isRegistered &&
+        (status == AnimationStatus.completed ||
+            status == AnimationStatus.dismissed)) {
+      value = _animationController.value;
+    }
+  }
+
+  /// Registers a status listener to the controller that sets
+  /// [RestorableDouble.value] if the animation completes or is dismissed.
+  void registerStatusListener(AnimationController controller) {
     _animationController = controller;
     // After setting the animation controller, add a listener that
     // sets the animation controller value whenever an animation completes or
     // is dismisses. This saves the latest animation state and serializes
     // it on the device.
-    _animationController.addStatusListener((status) {
-      // Only modify the value after the property has been registered with a
-      // RestorationMixin.
-      if (isRegistered) {
-        if (status == AnimationStatus.completed) {
-          setState(() {
-            value = _animationController.value;
-          });
-        } else if (status == AnimationStatus.dismissed) {
-          setState(() {
-            value = _animationController.value;
-          });
-        }
-      }
-    });
+    _animationController.addStatusListener(_updateAnimationValue);
+  }
+
+  @override
+  void dispose() {
+    _animationController.removeStatusListener(_updateAnimationValue);
+    _animationController = null;
+    super.dispose();
   }
 
   @override
@@ -107,12 +112,12 @@ class _ShrineAppState extends State<ShrineApp>
       duration: const Duration(milliseconds: 450),
       value: 1,
     );
-    _tabIndex.setAnimationController(_controller, setState);
+    _tabIndex.registerStatusListener(_controller);
     _expandingController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    _expandingTabIndex.setAnimationController(_expandingController, setState);
+    _expandingTabIndex.registerStatusListener(_expandingController);
   }
 
   @override
