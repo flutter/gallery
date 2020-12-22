@@ -386,6 +386,12 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    _isSelected.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

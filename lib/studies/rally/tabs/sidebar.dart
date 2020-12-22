@@ -9,12 +9,14 @@ import 'package:gallery/studies/rally/colors.dart';
 class TabWithSidebar extends StatelessWidget {
   const TabWithSidebar({
     Key key,
+    this.restorationId,
     @required this.mainView,
     @required this.sidebarItems,
   }) : super(key: key);
 
   final Widget mainView;
   final List<Widget> sidebarItems;
+  final String restorationId;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,10 @@ class TabWithSidebar extends StatelessWidget {
         ],
       );
     } else {
-      return SingleChildScrollView(child: mainView);
+      return SingleChildScrollView(
+        restorationId: restorationId,
+        child: mainView,
+      );
     }
   }
 }

@@ -70,6 +70,7 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
@@ -146,6 +147,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
 
   @override
   void initState() {
+    super.initState();
     _tabController = TabController(
       initialIndex: 0,
       length: 3,
@@ -158,12 +160,12 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
         tabIndex.value = _tabController.index;
       });
     });
-    super.initState();
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 

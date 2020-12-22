@@ -30,6 +30,14 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
     registerForRestoration(_currentFabLocation, 'fab_location');
   }
 
+  @override
+  void dispose() {
+    _showFab.dispose();
+    _showNotch.dispose();
+    _currentFabLocation.dispose();
+    super.dispose();
+  }
+
   // Since FloatingActionButtonLocation is not an enum, the index of the
   // selected FloatingActionButtonLocation is used for state restoration.
   static const List<FloatingActionButtonLocation> _fabLocations = [

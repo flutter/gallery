@@ -31,6 +31,7 @@ class RallyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      restorationScopeId: 'rally_app',
       title: 'Rally',
       debugShowCheckedModeBanner: false,
       theme: _buildRallyTheme().copyWith(

@@ -73,6 +73,13 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
   }
 
   @override
+  void dispose() {
+    _continuousValue.dispose();
+    _discreteValue.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -170,6 +177,15 @@ class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
     registerForRestoration(_continuousEndValue, 'continuous_end_value');
     registerForRestoration(_discreteStartValue, 'discrete_start_value');
     registerForRestoration(_discreteEndValue, 'discrete_end_value');
+  }
+
+  @override
+  void dispose() {
+    _continuousStartValue.dispose();
+    _continuousEndValue.dispose();
+    _discreteStartValue.dispose();
+    _discreteEndValue.dispose();
+    super.dispose();
   }
 
   @override
@@ -473,6 +489,14 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
     registerForRestoration(
         _continuousEndCustomValue, 'continuous_end_custom_value');
     registerForRestoration(_discreteCustomValue, 'discrete_custom_value');
+  }
+
+  @override
+  void dispose() {
+    _continuousStartCustomValue.dispose();
+    _continuousEndCustomValue.dispose();
+    _discreteCustomValue.dispose();
+    super.dispose();
   }
 
   @override

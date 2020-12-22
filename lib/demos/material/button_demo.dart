@@ -173,6 +173,14 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
   }
 
   @override
+  void dispose() {
+    isSelected.forEach((restorableBool) {
+      restorableBool.dispose();
+    });
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: ToggleButtons(
