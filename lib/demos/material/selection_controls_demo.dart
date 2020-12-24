@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 enum SelectionControlsDemoType {
@@ -20,13 +19,11 @@ class SelectionControlsDemo extends StatelessWidget {
   String _title(BuildContext context) {
     switch (type) {
       case SelectionControlsDemoType.checkbox:
-        return GalleryLocalizations.of(context)
-            .demoSelectionControlsCheckboxTitle;
+        return GalleryLocalizations.of(context).demoSelectionControlsCheckboxTitle;
       case SelectionControlsDemoType.radio:
         return GalleryLocalizations.of(context).demoSelectionControlsRadioTitle;
       case SelectionControlsDemoType.switches:
-        return GalleryLocalizations.of(context)
-            .demoSelectionControlsSwitchTitle;
+        return GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle;
     }
     return '';
   }
@@ -64,9 +61,9 @@ class _CheckboxDemo extends StatefulWidget {
 }
 
 class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
-  RestorableBoolN checkboxValueA = RestorableBoolN(true);
-  RestorableBoolN checkboxValueB = RestorableBoolN(false);
-  RestorableBoolN checkboxValueC = RestorableBoolN(null);
+  RestorableBool checkboxValueA = RestorableBool(true);
+  RestorableBool checkboxValueB = RestorableBool(false);
+  RestorableBool checkboxValueC = RestorableBool(null);
 
   @override
   String get restorationId => 'checkbox_demo';
@@ -204,8 +201,7 @@ class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
     return Center(
       child: Semantics(
         container: true,
-        label:
-            GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+        label: GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
         child: Switch(
           value: switchValue.value,
           onChanged: (value) {

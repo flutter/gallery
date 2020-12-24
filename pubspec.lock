@@ -169,7 +169,7 @@ packages:
       name: flutter_localized_locales
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-nullsafety"
+    version: "1.1.2"
   flutter_staggered_grid_view:
     dependency: "direct main"
     description:
@@ -240,7 +240,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.0-nullsafety.2"
+    version: "0.16.1"
   io:
     dependency: transitive
     description:
@@ -616,7 +616,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.5.0"
+    version: "5.2.0"
   watcher:
     dependency: transitive
     description:

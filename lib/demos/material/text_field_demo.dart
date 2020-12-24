@@ -2,11 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter/services.dart';
 import 'package:flutter/gestures.dart' show DragStartBehavior;
-
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN textFieldDemo
@@ -91,11 +89,7 @@ class _PasswordFieldState extends State<PasswordField> {
           },
           child: Icon(
             _obscureText ? Icons.visibility : Icons.visibility_off,
-            semanticLabel: _obscureText
-                ? GalleryLocalizations.of(context)
-                    .demoTextFieldShowPasswordLabel
-                : GalleryLocalizations.of(context)
-                    .demoTextFieldHidePasswordLabel,
+            semanticLabel: _obscureText ? GalleryLocalizations.of(context).demoTextFieldShowPasswordLabel : GalleryLocalizations.of(context).demoTextFieldHidePasswordLabel,
           ),
         ),
       ),
@@ -116,23 +110,19 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final GlobalKey<FormFieldState<String>> _passwordFieldKey =
-      GlobalKey<FormFieldState<String>>();
-  final _UsNumberTextInputFormatter _phoneNumberFormatter =
-      _UsNumberTextInputFormatter();
+  final GlobalKey<FormFieldState<String>> _passwordFieldKey = GlobalKey<FormFieldState<String>>();
+  final _UsNumberTextInputFormatter _phoneNumberFormatter = _UsNumberTextInputFormatter();
 
   void _handleSubmitted() {
     final form = _formKey.currentState;
     if (!form.validate()) {
-      _autoValidateMode =
-          AutovalidateMode.always; // Start validating on every change.
+      _autoValidateMode = AutovalidateMode.always; // Start validating on every change.
       showInSnackBar(
         GalleryLocalizations.of(context).demoTextFieldFormErrors,
       );
     } else {
       form.save();
-      showInSnackBar(GalleryLocalizations.of(context)
-          .demoTextFieldNameHasPhoneNumber(person.name, person.phoneNumber));
+      showInSnackBar(GalleryLocalizations.of(context).demoTextFieldNameHasPhoneNumber(person.name, person.phoneNumber));
     }
   }
 
@@ -142,8 +132,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
     }
     final nameExp = RegExp(r'^[A-Za-z ]+$');
     if (!nameExp.hasMatch(value)) {
-      return GalleryLocalizations.of(context)
-          .demoTextFieldOnlyAlphabeticalChars;
+      return GalleryLocalizations.of(context).demoTextFieldOnlyAlphabeticalChars;
     }
     return null;
   }
@@ -188,10 +177,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   decoration: InputDecoration(
                     filled: true,
                     icon: const Icon(Icons.person),
-                    hintText: GalleryLocalizations.of(context)
-                        .demoTextFieldWhatDoPeopleCallYou,
-                    labelText:
-                        GalleryLocalizations.of(context).demoTextFieldNameField,
+                    hintText: GalleryLocalizations.of(context).demoTextFieldWhatDoPeopleCallYou,
+                    labelText: GalleryLocalizations.of(context).demoTextFieldNameField,
                   ),
                   onSaved: (value) {
                     person.name = value;
@@ -203,10 +190,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   decoration: InputDecoration(
                     filled: true,
                     icon: const Icon(Icons.phone),
-                    hintText: GalleryLocalizations.of(context)
-                        .demoTextFieldWhereCanWeReachYou,
-                    labelText: GalleryLocalizations.of(context)
-                        .demoTextFieldPhoneNumber,
+                    hintText: GalleryLocalizations.of(context).demoTextFieldWhereCanWeReachYou,
+                    labelText: GalleryLocalizations.of(context).demoTextFieldPhoneNumber,
                     prefixText: '+1 ',
                   ),
                   keyboardType: TextInputType.phone,
@@ -214,7 +199,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                     person.phoneNumber = value;
                   },
                   maxLength: 14,
-                  maxLengthEnforcement: MaxLengthEnforcement.none,
+
                   validator: _validatePhoneNumber,
                   // TextInputFormatters are applied in sequence.
                   inputFormatters: <TextInputFormatter>[
@@ -228,10 +213,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   decoration: InputDecoration(
                     filled: true,
                     icon: const Icon(Icons.email),
-                    hintText: GalleryLocalizations.of(context)
-                        .demoTextFieldYourEmailAddress,
-                    labelText:
-                        GalleryLocalizations.of(context).demoTextFieldEmail,
+                    hintText: GalleryLocalizations.of(context).demoTextFieldYourEmailAddress,
+                    labelText: GalleryLocalizations.of(context).demoTextFieldEmail,
                   ),
                   keyboardType: TextInputType.emailAddress,
                   onSaved: (value) {
@@ -242,12 +225,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                 TextFormField(
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    hintText: GalleryLocalizations.of(context)
-                        .demoTextFieldTellUsAboutYourself,
-                    helperText: GalleryLocalizations.of(context)
-                        .demoTextFieldKeepItShort,
-                    labelText:
-                        GalleryLocalizations.of(context).demoTextFieldLifeStory,
+                    hintText: GalleryLocalizations.of(context).demoTextFieldTellUsAboutYourself,
+                    helperText: GalleryLocalizations.of(context).demoTextFieldKeepItShort,
+                    labelText: GalleryLocalizations.of(context).demoTextFieldLifeStory,
                   ),
                   maxLines: 3,
                 ),
@@ -256,20 +236,16 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    labelText:
-                        GalleryLocalizations.of(context).demoTextFieldSalary,
-                    suffixText:
-                        GalleryLocalizations.of(context).demoTextFieldUSD,
+                    labelText: GalleryLocalizations.of(context).demoTextFieldSalary,
+                    suffixText: GalleryLocalizations.of(context).demoTextFieldUSD,
                   ),
                   maxLines: 1,
                 ),
                 sizedBoxSpace,
                 PasswordField(
                   fieldKey: _passwordFieldKey,
-                  helperText:
-                      GalleryLocalizations.of(context).demoTextFieldNoMoreThan,
-                  labelText:
-                      GalleryLocalizations.of(context).demoTextFieldPassword,
+                  helperText: GalleryLocalizations.of(context).demoTextFieldNoMoreThan,
+                  labelText: GalleryLocalizations.of(context).demoTextFieldPassword,
                   onFieldSubmitted: (value) {
                     setState(() {
                       person.password = value;
@@ -280,8 +256,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                 TextFormField(
                   decoration: InputDecoration(
                     filled: true,
-                    labelText: GalleryLocalizations.of(context)
-                        .demoTextFieldRetypePassword,
+                    labelText: GalleryLocalizations.of(context).demoTextFieldRetypePassword,
                   ),
                   maxLength: 8,
                   obscureText: true,
@@ -290,8 +265,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
                 sizedBoxSpace,
                 Center(
                   child: ElevatedButton(
-                    child: Text(
-                        GalleryLocalizations.of(context).demoTextFieldSubmit),
+                    child: Text(GalleryLocalizations.of(context).demoTextFieldSubmit),
                     onPressed: _handleSubmitted,
                   ),
                 ),
