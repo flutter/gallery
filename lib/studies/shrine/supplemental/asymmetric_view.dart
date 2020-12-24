@@ -142,6 +142,7 @@ class MobileAsymmetricView extends StatelessWidget {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return ListView(
+                restorationId: 'product_page_list_view',
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsetsDirectional.fromSTEB(
                   0,
