@@ -66,39 +66,36 @@ class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
     final replyTheme =
         isDark ? _buildReplyDarkTheme(context) : _buildReplyLightTheme(context);
 
-    return RestorationScope(
-      restorationId: 'replyAppState',
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider<EmailStore>.value(
-            value: _appState.value,
-          ),
-        ],
-        child: MaterialApp(
-          navigatorKey: rootNavKey,
-          restorationScopeId: 'appNavigator',
-          title: 'Reply',
-          debugShowCheckedModeBanner: false,
-          theme: replyTheme,
-          localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-          supportedLocales: GalleryLocalizations.supportedLocales,
-          locale: GalleryOptions.of(context).locale,
-          initialRoute: ReplyApp.homeRoute,
-          onGenerateRoute: (settings) {
-            switch (settings.name) {
-              case ReplyApp.homeRoute:
-                return MaterialPageRoute<void>(
-                  builder: (context) => const AdaptiveNav(),
-                  settings: settings,
-                );
-                break;
-              case ReplyApp.composeRoute:
-                return ReplyApp.createComposeRoute(settings);
-                break;
-            }
-            return null;
-          },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<EmailStore>.value(
+          value: _appState.value,
         ),
+      ],
+      child: MaterialApp(
+        navigatorKey: rootNavKey,
+        restorationScopeId: 'appNavigator',
+        title: 'Reply',
+        debugShowCheckedModeBanner: false,
+        theme: replyTheme,
+        localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+        supportedLocales: GalleryLocalizations.supportedLocales,
+        locale: GalleryOptions.of(context).locale,
+        initialRoute: ReplyApp.homeRoute,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case ReplyApp.homeRoute:
+              return MaterialPageRoute<void>(
+                builder: (context) => const AdaptiveNav(),
+                settings: settings,
+              );
+              break;
+            case ReplyApp.composeRoute:
+              return ReplyApp.createComposeRoute(settings);
+              break;
+          }
+          return null;
+        },
       ),
     );
   }

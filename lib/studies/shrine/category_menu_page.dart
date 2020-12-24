@@ -134,7 +134,8 @@ class CategoryMenuPage extends StatelessWidget {
                     enabled: true,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushNamed(ShrineApp.loginRoute);
+                        Navigator.of(context)
+                            .restorablePushNamed(ShrineApp.loginRoute);
                       },
                       child: _buttonText(
                         GalleryLocalizations.of(context)
@@ -183,7 +184,8 @@ class CategoryMenuPage extends StatelessWidget {
                           if (onCategoryTap != null) {
                             onCategoryTap();
                           }
-                          Navigator.of(context).pushNamed(ShrineApp.loginRoute);
+                          Navigator.of(context)
+                              .restorablePushNamed(ShrineApp.loginRoute);
                         },
                         child: _buttonText(
                           GalleryLocalizations.of(context)
