@@ -1149,30 +1149,33 @@ class _StudyWrapperState extends State<StudyWrapper> {
               child: widget.study,
             ),
           ),
-          Align(
-            alignment: widget.alignment,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Semantics(
-                sortKey: const OrdinalSortKey(0),
-                label: GalleryLocalizations.of(context).backToGallery,
-                button: true,
-                enabled: true,
-                excludeSemantics: true,
-                child: FloatingActionButton.extended(
-                  heroTag: _BackButtonHeroTag(),
-                  key: const ValueKey('Back'),
-                  onPressed: () {
-                    Navigator.of(context)
-                        .popUntil((route) => route.settings.name == '/');
-                  },
-                  icon: IconTheme(
-                    data: IconThemeData(color: colorScheme.onPrimary),
-                    child: const BackButtonIcon(),
-                  ),
-                  label: Text(
-                    MaterialLocalizations.of(context).backButtonTooltip,
-                    style: textTheme.button.apply(color: colorScheme.onPrimary),
+          SafeArea(
+            child: Align(
+              alignment: widget.alignment,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Semantics(
+                  sortKey: const OrdinalSortKey(0),
+                  label: GalleryLocalizations.of(context).backToGallery,
+                  button: true,
+                  enabled: true,
+                  excludeSemantics: true,
+                  child: FloatingActionButton.extended(
+                    heroTag: _BackButtonHeroTag(),
+                    key: const ValueKey('Back'),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .popUntil((route) => route.settings.name == '/');
+                    },
+                    icon: IconTheme(
+                      data: IconThemeData(color: colorScheme.onPrimary),
+                      child: const BackButtonIcon(),
+                    ),
+                    label: Text(
+                      MaterialLocalizations.of(context).backButtonTooltip,
+                      style:
+                          textTheme.button.apply(color: colorScheme.onPrimary),
+                    ),
                   ),
                 ),
               ),
