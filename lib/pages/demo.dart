@@ -82,7 +82,8 @@ class GalleryDemoPage extends StatefulWidget {
   _GalleryDemoPageState createState() => _GalleryDemoPageState();
 }
 
-class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin, TickerProviderStateMixin {
+class _GalleryDemoPageState extends State<GalleryDemoPage>
+    with RestorationMixin, TickerProviderStateMixin {
   final RestorableInt _demoStateIndex = RestorableInt(_DemoState.normal.index);
   final RestorableInt _configIndex = RestorableInt(0);
 
@@ -107,12 +108,18 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
 
   bool get _hasOptions => widget.demo.configurations.length > 1;
 
-  bool get _isSupportedSharedPreferencesPlatform => !kIsWeb && (Platform.isAndroid || Platform.isIOS);
+  bool get _isSupportedSharedPreferencesPlatform =>
+      !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
   // Only show the feature highlight on Android/iOS, in mobile layout, non-test
   // mode, and only on the first and fourth time the demo page is viewed.
   bool _showFeatureHighlightForPlatform(BuildContext context) {
-    return _showFeatureHighlight && _isSupportedSharedPreferencesPlatform && !isDisplayDesktop(context) && !GalleryOptions.of(context).isTestMode && (_demoViewedCount != null && (_demoViewedCount == 0 || _demoViewedCount == 3));
+    return _showFeatureHighlight &&
+        _isSupportedSharedPreferencesPlatform &&
+        !isDisplayDesktop(context) &&
+        !GalleryOptions.of(context).isTestMode &&
+        (_demoViewedCount != null &&
+            (_demoViewedCount == 0 || _demoViewedCount == 3));
   }
 
   @override
@@ -159,14 +166,17 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
     if (_demoStateIndex.value == newStateIndex && isDisplayDesktop(context)) {
       if (_demoStateIndex.value == _DemoState.fullscreen.index) {
         setStateAndUpdate(() {
-          _demoStateIndex.value = _hasOptions ? _DemoState.options.index : _DemoState.info.index;
+          _demoStateIndex.value =
+              _hasOptions ? _DemoState.options.index : _DemoState.info.index;
         });
       }
       return;
     }
 
     setStateAndUpdate(() {
-      _demoStateIndex.value = _demoStateIndex.value == newStateIndex ? _DemoState.normal.index : newStateIndex;
+      _demoStateIndex.value = _demoStateIndex.value == newStateIndex
+          ? _DemoState.normal.index
+          : newStateIndex;
     });
   }
 
@@ -198,12 +208,15 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
 
   void _resolveState(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    if (_DemoState.values[_demoStateIndex.value] == _DemoState.fullscreen && !isDesktop) {
+    if (_DemoState.values[_demoStateIndex.value] == _DemoState.fullscreen &&
+        !isDesktop) {
       // Do not allow fullscreen state for mobile.
       _demoStateIndex.value = _DemoState.normal.index;
-    } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal && isDesktop) {
+    } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal &&
+        isDesktop) {
       // Do not allow normal state for desktop.
-      _demoStateIndex.value = _hasOptions ? _DemoState.options.index : _DemoState.info.index;
+      _demoStateIndex.value =
+          _hasOptions ? _DemoState.options.index : _DemoState.info.index;
     } else if (isDesktop != _isDesktop) {
       _isDesktop = isDesktop;
       // When going from desktop to mobile, return to normal state.
@@ -242,7 +255,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
           IconButton(
             icon: FeatureDiscovery(
               title: GalleryLocalizations.of(context).demoOptionsFeatureTitle,
-              description: GalleryLocalizations.of(context).demoOptionsFeatureDescription,
+              description: GalleryLocalizations.of(context)
+                  .demoOptionsFeatureDescription,
               showOverlay: _showFeatureHighlightForPlatform(context),
               color: colorScheme.primary,
               onDismiss: () {
@@ -257,7 +271,10 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
               },
               child: Icon(
                 Icons.tune,
-                color: currentDemoState == _DemoState.options || _showFeatureHighlightForPlatform(context) ? selectedIconColor : iconColor,
+                color: currentDemoState == _DemoState.options ||
+                        _showFeatureHighlightForPlatform(context)
+                    ? selectedIconColor
+                    : iconColor,
               ),
             ),
             tooltip: GalleryLocalizations.of(context).demoOptionsTooltip,
@@ -266,13 +283,17 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
         IconButton(
           icon: const Icon(Icons.info),
           tooltip: GalleryLocalizations.of(context).demoInfoTooltip,
-          color: currentDemoState == _DemoState.info ? selectedIconColor : iconColor,
+          color: currentDemoState == _DemoState.info
+              ? selectedIconColor
+              : iconColor,
           onPressed: () => _handleTap(_DemoState.info),
         ),
         IconButton(
           icon: const Icon(Icons.code),
           tooltip: GalleryLocalizations.of(context).demoCodeTooltip,
-          color: currentDemoState == _DemoState.code ? selectedIconColor : iconColor,
+          color: currentDemoState == _DemoState.code
+              ? selectedIconColor
+              : iconColor,
           onPressed: () => _handleTap(_DemoState.code),
         ),
         IconButton(
@@ -285,7 +306,9 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
           IconButton(
             icon: const Icon(Icons.fullscreen),
             tooltip: GalleryLocalizations.of(context).demoFullscreenTooltip,
-            color: currentDemoState == _DemoState.fullscreen ? selectedIconColor : iconColor,
+            color: currentDemoState == _DemoState.fullscreen
+                ? selectedIconColor
+                : iconColor,
             onPressed: () => _handleTap(_DemoState.fullscreen),
           ),
         SizedBox(width: appBarPadding),
@@ -294,7 +317,10 @@ class _GalleryDemoPageState extends State<GalleryDemoPage> with RestorationMixin
 
     final mediaQuery = MediaQuery.of(context);
     final bottomSafeArea = mediaQuery.padding.bottom;
-    final contentHeight = mediaQuery.size.height - mediaQuery.padding.top - mediaQuery.padding.bottom - appBar.preferredSize.height;
+    final contentHeight = mediaQuery.size.height -
+        mediaQuery.padding.top -
+        mediaQuery.padding.bottom -
+        appBar.preferredSize.height;
     final maxSectionHeight = isDesktop ? contentHeight : contentHeight - 64;
     final horizontalPadding = isDesktop ? mediaQuery.size.width * 0.12 : 0.0;
     final maxSectionWidth = 420.0;
@@ -541,7 +567,8 @@ class _DemoSectionOptions extends StatelessWidget {
                 GalleryLocalizations.of(context).demoOptionsTooltip,
                 style: textTheme.headline4.apply(
                   color: colorScheme.onSurface,
-                  fontSizeDelta: isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+                  fontSizeDelta:
+                      isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
                 ),
               ),
             ),
@@ -599,7 +626,8 @@ class _DemoSectionOptionsItem extends StatelessWidget {
           child: Text(
             title,
             style: Theme.of(context).textTheme.bodyText2.apply(
-                  color: isSelected ? colorScheme.primary : colorScheme.onSurface,
+                  color:
+                      isSelected ? colorScheme.primary : colorScheme.onSurface,
                 ),
           ),
         ),
@@ -646,7 +674,8 @@ class _DemoSectionInfo extends StatelessWidget {
                 title,
                 style: textTheme.headline4.apply(
                   color: colorScheme.onSurface,
-                  fontSizeDelta: isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+                  fontSizeDelta:
+                      isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
                 ),
               ),
               const SizedBox(height: 12),
@@ -734,7 +763,8 @@ class CodeDisplayPage extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            GalleryLocalizations.of(context).demoCodeViewerCopiedToClipboardMessage,
+            GalleryLocalizations.of(context)
+                .demoCodeViewerCopiedToClipboardMessage,
           ),
         ),
       );
@@ -744,7 +774,8 @@ class CodeDisplayPage extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            GalleryLocalizations.of(context).demoCodeViewerFailedToCopyToClipboardMessage(exception),
+            GalleryLocalizations.of(context)
+                .demoCodeViewerFailedToCopyToClipboardMessage(exception),
           ),
         ),
       );
@@ -754,7 +785,9 @@ class CodeDisplayPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: isDesktop ? const EdgeInsets.only(bottom: 8) : const EdgeInsets.symmetric(vertical: 8),
+          padding: isDesktop
+              ? const EdgeInsets.only(bottom: 8)
+              : const EdgeInsets.symmetric(vertical: 8),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.white.withOpacity(0.15),
@@ -764,7 +797,9 @@ class CodeDisplayPage extends StatelessWidget {
               ),
             ),
             onPressed: () async {
-              await Clipboard.setData(ClipboardData(text: _plainTextCode)).then(_showSnackBarOnCopySuccess).catchError(_showSnackBarOnCopyFailure);
+              await Clipboard.setData(ClipboardData(text: _plainTextCode))
+                  .then(_showSnackBarOnCopySuccess)
+                  .catchError(_showSnackBarOnCopyFailure);
             },
             child: Text(
               GalleryLocalizations.of(context).demoCodeViewerCopyAll,
