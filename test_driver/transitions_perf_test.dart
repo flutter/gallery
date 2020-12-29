@@ -237,7 +237,7 @@ void main([List<String> args = const <String>[]]) {
         await driver.close();
       }
 
-      print('Timeline summaries have been output to the build/ directory.');
+      print('Timeline summaries for profiled demos have been output to the build/ directory.');
     });
 
     test('only Crane', () async {
