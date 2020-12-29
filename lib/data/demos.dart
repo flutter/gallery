@@ -1144,25 +1144,3 @@ Map<String, GalleryDemo> slugToDemo(BuildContext context) {
     key: (dynamic demo) => demo.slug as String,
   );
 }
-
-class DemoWrapper extends StatelessWidget {
-  const DemoWrapper({Key key, this.child}) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Theme(
-      data: MaterialDemoThemeData.themeData.copyWith(
-        platform: GalleryOptions.of(context).platform,
-      ),
-      child: ApplyTextOptions(
-        child: CupertinoTheme(
-          data:
-              const CupertinoThemeData().copyWith(brightness: Brightness.light),
-          child: child,
-        ),
-      ),
-    );
-  }
-}

@@ -4,6 +4,7 @@
 
 import 'dart:io' show Platform;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +18,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
+import 'package:gallery/themes/material_demo_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -379,7 +381,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
     Widget body;
     Widget demoContent = ScaffoldMessenger(
-      child: DemoContent(
+      child: DemoWrapper(
         height: contentHeight,
         buildRoute: _currentConfig.buildRoute,
       ),
@@ -508,6 +510,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
           child: Scaffold(
             appBar: appBar,
             body: body,
+            resizeToAvoidBottomInset: false,
           ),
         ),
       );
@@ -691,8 +694,8 @@ class _DemoSectionInfo extends StatelessWidget {
   }
 }
 
-class DemoContent extends StatelessWidget {
-  const DemoContent({
+class DemoWrapper extends StatelessWidget {
+  const DemoWrapper({
     Key key,
     @required this.height,
     @required this.buildRoute,
@@ -712,7 +715,18 @@ class DemoContent extends StatelessWidget {
           top: Radius.circular(10.0),
           bottom: Radius.circular(2.0),
         ),
-        child: DemoWrapper(child: Builder(builder: buildRoute)),
+        child: Theme(
+          data: MaterialDemoThemeData.themeData.copyWith(
+            platform: GalleryOptions.of(context).platform,
+          ),
+          child: CupertinoTheme(
+            data: const CupertinoThemeData()
+                .copyWith(brightness: Brightness.light),
+            child: ApplyTextOptions(
+              child: Builder(builder: buildRoute),
+            ),
+          ),
+        ),
       ),
     );
   }
