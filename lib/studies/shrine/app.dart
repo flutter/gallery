@@ -66,6 +66,8 @@ class _ShrineAppState extends State<ShrineApp>
       duration: const Duration(milliseconds: 450),
       value: 1,
     );
+    // Save state restoration animation values only when the cart page
+    // fully opens or closes.
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed ||
           status == AnimationStatus.dismissed) {
@@ -76,6 +78,8 @@ class _ShrineAppState extends State<ShrineApp>
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
+    // Save state restoration animation values only when the menu page
+    // fully opens or closes.
     _expandingController.addStatusListener((status) {
       if (status == AnimationStatus.completed ||
           status == AnimationStatus.dismissed) {
