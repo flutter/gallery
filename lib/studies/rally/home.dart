@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
+    _tabController.index = tabIndex.value;
   }
 
   @override
@@ -58,12 +59,6 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    // Ensures that the tab controller's index is updated with the
-    // state restorable tab index value.
-    if (_tabController.index != tabIndex.value) {
-      _tabController.index = tabIndex.value;
-    }
-
     final theme = Theme.of(context);
     final isDesktop = isDisplayDesktop(context);
     Widget tabBarView;
