@@ -34,22 +34,31 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
     registerForRestoration(_sortAscending, 'sort_ascending');
 
     _dessertsDataSource ??= _DessertDataSource(context);
-    if (_sortColumnIndex.value == 0) {
-      _dessertsDataSource._sort<String>((d) => d.name, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 1) {
-      _dessertsDataSource._sort<num>((d) => d.calories, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 2) {
-      _dessertsDataSource._sort<num>((d) => d.fat, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 3) {
-      _dessertsDataSource._sort<num>((d) => d.carbs, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 4) {
-      _dessertsDataSource._sort<num>((d) => d.protein, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 5) {
-      _dessertsDataSource._sort<num>((d) => d.sodium, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 6) {
-      _dessertsDataSource._sort<num>((d) => d.calcium, _sortAscending.value);
-    } else if (_sortColumnIndex.value == 7) {
-      _dessertsDataSource._sort<num>((d) => d.iron, _sortAscending.value);
+    switch (_sortColumnIndex.value) {
+      case 0:
+        _dessertsDataSource._sort<String>((d) => d.name, _sortAscending.value);
+        break;
+      case 1:
+        _dessertsDataSource._sort<num>((d) => d.calories, _sortAscending.value);
+        break;
+      case 2:
+        _dessertsDataSource._sort<num>((d) => d.fat, _sortAscending.value);
+        break;
+      case 3:
+        _dessertsDataSource._sort<num>((d) => d.carbs, _sortAscending.value);
+        break;
+      case 4:
+        _dessertsDataSource._sort<num>((d) => d.protein, _sortAscending.value);
+        break;
+      case 5:
+        _dessertsDataSource._sort<num>((d) => d.sodium, _sortAscending.value);
+        break;
+      case 6:
+        _dessertsDataSource._sort<num>((d) => d.calcium, _sortAscending.value);
+        break;
+      case 7:
+        _dessertsDataSource._sort<num>((d) => d.iron, _sortAscending.value);
+        break;
     }
   }
 
