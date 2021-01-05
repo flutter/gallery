@@ -8,7 +8,6 @@ import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/data/icons.dart';
 import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
@@ -57,7 +56,6 @@ import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
     show GalleryLocalizationsEn;
-import 'package:gallery/themes/material_demo_theme_data.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 const _docsAnimationsUrl =
@@ -1143,26 +1141,4 @@ Map<String, GalleryDemo> slugToDemo(BuildContext context) {
     allGalleryDemos(localizations),
     key: (dynamic demo) => demo.slug as String,
   );
-}
-
-class DemoWrapper extends StatelessWidget {
-  const DemoWrapper({Key key, this.child}) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Theme(
-      data: MaterialDemoThemeData.themeData.copyWith(
-        platform: GalleryOptions.of(context).platform,
-      ),
-      child: ApplyTextOptions(
-        child: CupertinoTheme(
-          data:
-              const CupertinoThemeData().copyWith(brightness: Brightness.light),
-          child: child,
-        ),
-      ),
-    );
-  }
 }
