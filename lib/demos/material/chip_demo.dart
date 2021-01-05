@@ -91,7 +91,7 @@ class _ChoiceChipDemo extends StatefulWidget {
 
 class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
     with RestorationMixin {
-  final RestorableInt _indexSelected = RestorableInt(-1);
+  final RestorableIntN _indexSelected = RestorableIntN(null);
 
   @override
   String get restorationId => 'choice_chip_demo';

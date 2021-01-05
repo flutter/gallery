@@ -29,53 +29,6 @@ class ShrineApp extends StatefulWidget {
   _ShrineAppState createState() => _ShrineAppState();
 }
 
-class _RestorableAnimationValue extends RestorableDouble {
-  _RestorableAnimationValue(double defaultValue) : super(defaultValue);
-
-  AnimationController _animationController;
-  AnimationController get animationController => _animationController;
-
-  void _updateAnimationValue(AnimationStatus status) {
-    // Only modify the value after the property has been registered with a
-    // RestorationMixin.
-    if (isRegistered &&
-        (status == AnimationStatus.completed ||
-            status == AnimationStatus.dismissed)) {
-      value = _animationController.value;
-    }
-  }
-
-  /// Registers a status listener to the controller that sets
-  /// [RestorableDouble.value] if the animation completes or is dismissed.
-  void registerStatusListener(AnimationController controller) {
-    _animationController = controller;
-    // After setting the animation controller, add a listener that
-    // sets the animation controller value whenever an animation completes or
-    // is dismisses. This saves the latest animation state and serializes
-    // it on the device.
-    _animationController.addStatusListener(_updateAnimationValue);
-  }
-
-  @override
-  void dispose() {
-    _animationController.removeStatusListener(_updateAnimationValue);
-    _animationController = null;
-    super.dispose();
-  }
-
-  @override
-  double fromPrimitives(Object data) {
-    // When retrieving serialized data, set the animation controller value to
-    // the saved value.
-    final savedAnimationValue = data as double;
-    if (_animationController != null &&
-        _animationController.value != savedAnimationValue) {
-      _animationController.value = savedAnimationValue;
-    }
-    return super.fromPrimitives(data);
-  }
-}
-
 class _ShrineAppState extends State<ShrineApp>
     with TickerProviderStateMixin, RestorationMixin {
   // Controller to coordinate both the opening/closing of backdrop and sliding
@@ -86,9 +39,8 @@ class _ShrineAppState extends State<ShrineApp>
   AnimationController _expandingController;
 
   final _RestorableAppStateModel _model = _RestorableAppStateModel();
-  final _RestorableAnimationValue _expandingTabIndex =
-      _RestorableAnimationValue(0.0);
-  final _RestorableAnimationValue _tabIndex = _RestorableAnimationValue(1.0);
+  final RestorableDouble _expandingTabIndex = RestorableDouble(0);
+  final RestorableDouble _tabIndex = RestorableDouble(1);
   final Map<String, List<List<int>>> _layouts = {};
 
   @override
@@ -97,11 +49,13 @@ class _ShrineAppState extends State<ShrineApp>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_model, 'app_state_model');
+    registerForRestoration(_tabIndex, 'tab_index');
     registerForRestoration(
       _expandingTabIndex,
       'expanding_tab_index',
     );
-    registerForRestoration(_tabIndex, 'tab_index');
+    _controller.value = _tabIndex.value;
+    _expandingController.value = _expandingTabIndex.value;
   }
 
   @override
@@ -112,12 +66,26 @@ class _ShrineAppState extends State<ShrineApp>
       duration: const Duration(milliseconds: 450),
       value: 1,
     );
-    _tabIndex.registerStatusListener(_controller);
+    // Save state restoration animation values only when the cart page
+    // fully opens or closes.
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed ||
+          status == AnimationStatus.dismissed) {
+        _tabIndex.value = _controller.value;
+      }
+    });
     _expandingController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    _expandingTabIndex.registerStatusListener(_expandingController);
+    // Save state restoration animation values only when the menu page
+    // fully opens or closes.
+    _expandingController.addStatusListener((status) {
+      if (status == AnimationStatus.completed ||
+          status == AnimationStatus.dismissed) {
+        _expandingTabIndex.value = _expandingController.value;
+      }
+    });
   }
 
   @override
