@@ -47,7 +47,8 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
       RestorableInt(PaginatedDataTable.defaultRowsPerPage);
   final RestorableIntN _sortColumnIndex = RestorableIntN(null);
   final RestorableBool _sortAscending = RestorableBool(true);
-  final _RestorableSelectedDessertIndices _selectedRows = _RestorableSelectedDessertIndices({});
+  final _RestorableSelectedDessertIndices _selectedRows =
+      _RestorableSelectedDessertIndices({});
 
   _DessertDataSource _dessertsDataSource;
 
@@ -65,17 +66,7 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
     _selectedRows.value.forEach((index) {
       _dessertsDataSource._desserts[index].selected = true;
     });
-    _dessertsDataSource.addListener(() {
-      // Save new list of rows.
-      final selectedRows = <int>{};
-      for (var i = 0; i < _dessertsDataSource._desserts.length; i += 1) {
-        var dessert = _dessertsDataSource._desserts[i];
-        if (dessert.selected) {
-          selectedRows.add(i);
-        }
-      }
-      _selectedRows.value = selectedRows;
-    });
+    _dessertsDataSource.addListener(_addSelectedDessertRowListener);
 
     switch (_sortColumnIndex.value) {
       case 0:
@@ -109,17 +100,18 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _dessertsDataSource ??= _DessertDataSource(context);
-    _dessertsDataSource.addListener(() {
-      // Save new list of rows.
-      final selectedRows = <int>{};
-      for (var i = 0; i < _dessertsDataSource._desserts.length; i += 1) {
-        var dessert = _dessertsDataSource._desserts[i];
-        if (dessert.selected) {
-          selectedRows.add(i);
-        }
+    _dessertsDataSource.addListener(_addSelectedDessertRowListener);
+  }
+
+  void _addSelectedDessertRowListener() {
+    final selectedRows = <int>{};
+    for (var i = 0; i < _dessertsDataSource._desserts.length; i += 1) {
+      var dessert = _dessertsDataSource._desserts[i];
+      if (dessert.selected) {
+        selectedRows.add(i);
       }
-      _selectedRows.value = selectedRows;
-    });
+    }
+    _selectedRows.value = selectedRows;
   }
 
   void _sort<T>(
@@ -139,6 +131,8 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
     _rowsPerPage.dispose();
     _sortColumnIndex.dispose();
     _sortAscending.dispose();
+    _dessertsDataSource.removeListener(_addSelectedDessertRowListener);
+    _dessertsDataSource.dispose();
     super.dispose();
   }
 
