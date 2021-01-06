@@ -17,11 +17,38 @@ class DataTableDemo extends StatefulWidget {
   _DataTableDemoState createState() => _DataTableDemoState();
 }
 
+class _RestorableSelectedDessertIndices extends RestorableValue<Set<int>> {
+  _RestorableSelectedDessertIndices(this._defaultValue) : super();
+
+  final Set<int> _defaultValue;
+
+  @override
+  Set<int> createDefaultValue() => _defaultValue;
+
+  @override
+  void didUpdateValue(Set<int> oldValue) {
+    notifyListeners();
+  }
+
+  @override
+  Set<int> fromPrimitives(Object serialized) {
+    final selectedItemIndices = serialized as List<dynamic>;
+    return {
+      ...selectedItemIndices.map<int>((dynamic id) => id as int),
+    };
+  }
+
+  @override
+  Object toPrimitives() => value.toList();
+}
+
 class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
   final RestorableInt _rowsPerPage =
       RestorableInt(PaginatedDataTable.defaultRowsPerPage);
   final RestorableIntN _sortColumnIndex = RestorableIntN(null);
   final RestorableBool _sortAscending = RestorableBool(true);
+  final _RestorableSelectedDessertIndices _selectedRows = _RestorableSelectedDessertIndices({});
+
   _DessertDataSource _dessertsDataSource;
 
   @override
@@ -32,8 +59,24 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
     registerForRestoration(_rowsPerPage, 'rows_per_page');
     registerForRestoration(_sortColumnIndex, 'sort_column_index');
     registerForRestoration(_sortAscending, 'sort_ascending');
+    registerForRestoration(_selectedRows, 'selected_indices');
 
     _dessertsDataSource ??= _DessertDataSource(context);
+    _selectedRows.value.forEach((index) {
+      _dessertsDataSource._desserts[index].selected = true;
+    });
+    _dessertsDataSource.addListener(() {
+      // Save new list of rows.
+      final selectedRows = <int>{};
+      for (var i = 0; i < _dessertsDataSource._desserts.length; i += 1) {
+        var dessert = _dessertsDataSource._desserts[i];
+        if (dessert.selected) {
+          selectedRows.add(i);
+        }
+      }
+      _selectedRows.value = selectedRows;
+    });
+
     switch (_sortColumnIndex.value) {
       case 0:
         _dessertsDataSource._sort<String>((d) => d.name, _sortAscending.value);
@@ -66,6 +109,17 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _dessertsDataSource ??= _DessertDataSource(context);
+    _dessertsDataSource.addListener(() {
+      // Save new list of rows.
+      final selectedRows = <int>{};
+      for (var i = 0; i < _dessertsDataSource._desserts.length; i += 1) {
+        var dessert = _dessertsDataSource._desserts[i];
+        if (dessert.selected) {
+          selectedRows.add(i);
+        }
+      }
+      _selectedRows.value = selectedRows;
+    });
   }
 
   void _sort<T>(
@@ -171,8 +225,17 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
 }
 
 class _Dessert {
-  _Dessert(this.name, this.calories, this.fat, this.carbs, this.protein,
-      this.sodium, this.calcium, this.iron);
+  _Dessert(
+    this.name,
+    this.calories,
+    this.fat,
+    this.carbs,
+    this.protein,
+    this.sodium,
+    this.calcium,
+    this.iron,
+  );
+
   final String name;
   final int calories;
   final double fat;
@@ -181,7 +244,6 @@ class _Dessert {
   final int sodium;
   final int calcium;
   final int iron;
-
   bool selected = false;
 }
 
