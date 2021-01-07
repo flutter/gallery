@@ -59,13 +59,13 @@ class _RestorableDessertSelections extends RestorableProperty<Set<int>> {
 }
 
 class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
-  final RestorableInt _rowsPerPage =
-      RestorableInt(PaginatedDataTable.defaultRowsPerPage);
-  final RestorableIntN _sortColumnIndex = RestorableIntN(null);
-  final RestorableBool _sortAscending = RestorableBool(true);
   final _RestorableDessertSelections _dessertSelections =
       _RestorableDessertSelections();
-
+  final RestorableInt _rowIndex = RestorableInt(0);
+  final RestorableInt _rowsPerPage =
+      RestorableInt(PaginatedDataTable.defaultRowsPerPage);
+  final RestorableBool _sortAscending = RestorableBool(true);
+  final RestorableIntN _sortColumnIndex = RestorableIntN(null);
   _DessertDataSource _dessertsDataSource;
 
   @override
@@ -73,10 +73,11 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
-    registerForRestoration(_rowsPerPage, 'rows_per_page');
-    registerForRestoration(_sortColumnIndex, 'sort_column_index');
-    registerForRestoration(_sortAscending, 'sort_ascending');
     registerForRestoration(_dessertSelections, 'selected_row_indices');
+    registerForRestoration(_rowIndex, 'current_row_index');
+    registerForRestoration(_rowsPerPage, 'rows_per_page');
+    registerForRestoration(_sortAscending, 'sort_ascending');
+    registerForRestoration(_sortColumnIndex, 'sort_column_index');
 
     _dessertsDataSource ??= _DessertDataSource(context);
     switch (_sortColumnIndex.value) {
@@ -161,6 +162,12 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
               onRowsPerPageChanged: (value) {
                 setState(() {
                   _rowsPerPage.value = value;
+                });
+              },
+              initialFirstRowIndex: _rowIndex.value,
+              onPageChanged: (rowIndex) {
+                setState(() {
+                  _rowIndex.value = rowIndex;
                 });
               },
               sortColumnIndex: _sortColumnIndex.value,
