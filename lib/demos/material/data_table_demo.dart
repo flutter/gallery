@@ -17,29 +17,45 @@ class DataTableDemo extends StatefulWidget {
   _DataTableDemoState createState() => _DataTableDemoState();
 }
 
-class _RestorableSelectedDessertIndices extends RestorableValue<Set<int>> {
-  _RestorableSelectedDessertIndices(this._defaultValue) : super();
+class _RestorableDessertSelections extends RestorableProperty<Set<int>> {
+  Set<int> _dessertSelections = {};
 
-  final Set<int> _defaultValue;
+  /// Returns whether or not a dessert row is selected by index.
+  bool isSelected(int index) => _dessertSelections.contains(index);
 
-  @override
-  Set<int> createDefaultValue() => _defaultValue;
-
-  @override
-  void didUpdateValue(Set<int> oldValue) {
+  /// Takes a list of [_Dessert]s and saves the row indices of selected rows
+  /// into a [Set].
+  void setDessertSelections(List<_Dessert> desserts) {
+    final updatedSet = <int>{};
+    for (var i = 0; i < desserts.length; i += 1) {
+      var dessert = desserts[i];
+      if (dessert.selected) {
+        updatedSet.add(i);
+      }
+    }
+    _dessertSelections = updatedSet;
     notifyListeners();
   }
 
   @override
-  Set<int> fromPrimitives(Object serialized) {
-    final selectedItemIndices = serialized as List<dynamic>;
-    return {
+  Set<int> createDefaultValue() => _dessertSelections;
+
+  @override
+  Set<int> fromPrimitives(Object data) {
+    final selectedItemIndices = data as List<dynamic>;
+    _dessertSelections = {
       ...selectedItemIndices.map<int>((dynamic id) => id as int),
     };
+    return _dessertSelections;
   }
 
   @override
-  Object toPrimitives() => value.toList();
+  void initWithValue(Set<int> value) {
+    _dessertSelections = value;
+  }
+
+  @override
+  Object toPrimitives() => _dessertSelections.toList();
 }
 
 class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
@@ -47,8 +63,8 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
       RestorableInt(PaginatedDataTable.defaultRowsPerPage);
   final RestorableIntN _sortColumnIndex = RestorableIntN(null);
   final RestorableBool _sortAscending = RestorableBool(true);
-  final _RestorableSelectedDessertIndices _selectedRows =
-      _RestorableSelectedDessertIndices({});
+  final _RestorableDessertSelections _dessertSelections =
+      _RestorableDessertSelections();
 
   _DessertDataSource _dessertsDataSource;
 
@@ -60,14 +76,9 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
     registerForRestoration(_rowsPerPage, 'rows_per_page');
     registerForRestoration(_sortColumnIndex, 'sort_column_index');
     registerForRestoration(_sortAscending, 'sort_ascending');
-    registerForRestoration(_selectedRows, 'selected_indices');
+    registerForRestoration(_dessertSelections, 'selected_row_indices');
 
     _dessertsDataSource ??= _DessertDataSource(context);
-    _selectedRows.value.forEach((index) {
-      _dessertsDataSource._desserts[index].selected = true;
-    });
-    _dessertsDataSource.addListener(_addSelectedDessertRowListener);
-
     switch (_sortColumnIndex.value) {
       case 0:
         _dessertsDataSource._sort<String>((d) => d.name, _sortAscending.value);
@@ -94,24 +105,19 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
         _dessertsDataSource._sort<num>((d) => d.iron, _sortAscending.value);
         break;
     }
+    _dessertsDataSource.updateSelectedDesserts(_dessertSelections);
+    _dessertsDataSource.addListener(_updateSelectedDessertRowListener);
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _dessertsDataSource ??= _DessertDataSource(context);
-    _dessertsDataSource.addListener(_addSelectedDessertRowListener);
+    _dessertsDataSource.addListener(_updateSelectedDessertRowListener);
   }
 
-  void _addSelectedDessertRowListener() {
-    final selectedRows = <int>{};
-    for (var i = 0; i < _dessertsDataSource._desserts.length; i += 1) {
-      var dessert = _dessertsDataSource._desserts[i];
-      if (dessert.selected) {
-        selectedRows.add(i);
-      }
-    }
-    _selectedRows.value = selectedRows;
+  void _updateSelectedDessertRowListener() {
+    _dessertSelections.setDessertSelections(_dessertsDataSource._desserts);
   }
 
   void _sort<T>(
@@ -131,7 +137,7 @@ class _DataTableDemoState extends State<DataTableDemo> with RestorationMixin {
     _rowsPerPage.dispose();
     _sortColumnIndex.dispose();
     _sortAscending.dispose();
-    _dessertsDataSource.removeListener(_addSelectedDessertRowListener);
+    _dessertsDataSource.removeListener(_updateSelectedDessertRowListener);
     _dessertsDataSource.dispose();
     super.dispose();
   }
@@ -603,6 +609,19 @@ class _DessertDataSource extends DataTableSource {
   }
 
   int _selectedCount = 0;
+  void updateSelectedDesserts(_RestorableDessertSelections selectedRows) {
+    _selectedCount = 0;
+    for (var i = 0; i < _desserts.length; i += 1) {
+      var dessert = _desserts[i];
+      if (selectedRows.isSelected(i)) {
+        dessert.selected = true;
+        _selectedCount += 1;
+      } else {
+        dessert.selected = false;
+      }
+    }
+    notifyListeners();
+  }
 
   @override
   DataRow getRow(int index) {
