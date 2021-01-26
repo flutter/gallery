@@ -120,6 +120,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final isDesktop = isDisplayDesktop(context);
+    final isFoldable = isDisplayFoldable(context);
 
     final Widget settingsPage = ValueListenableBuilder<bool>(
       valueListenable: _isSettingsOpenNotifier,
@@ -156,7 +157,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
       value: GalleryOptions.of(context).resolvedSystemUiOverlayStyle(),
       child: Stack(
         children: [
-          if (!isDesktop) ...[
+          if (!isDesktop && !isFoldable) ...[
             // Slides the settings page up and down from the top of the
             // screen.
             PositionedTransition(
@@ -170,7 +171,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
               child: homePage,
             ),
           ],
-          if (isDesktop) ...[
+          if (isDesktop || isFoldable) ...[
             Semantics(sortKey: const OrdinalSortKey(2), child: homePage),
             ValueListenableBuilder<bool>(
               valueListenable: _isSettingsOpenNotifier,

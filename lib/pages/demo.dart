@@ -210,12 +210,13 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   void _resolveState(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isFoldable = isDisplayFoldable(context);
     if (_DemoState.values[_demoStateIndex.value] == _DemoState.fullscreen &&
         !isDesktop) {
       // Do not allow fullscreen state for mobile.
       _demoStateIndex.value = _DemoState.normal.index;
     } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal &&
-        isDesktop) {
+        (isDesktop || isFoldable )) {
       // Do not allow normal state for desktop.
       _demoStateIndex.value =
           _hasOptions ? _DemoState.options.index : _DemoState.info.index;
@@ -230,6 +231,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   @override
   Widget build(BuildContext context) {
+    final isFoldable = isDisplayFoldable(context);
     final isDesktop = isDisplayDesktop(context);
     _resolveState(context);
 
@@ -403,6 +405,14 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
           child: sectionAndDemo,
         ),
       );
+    } else if (isFoldable) {
+      body = Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: TwoPane(
+          pane1: demoContent,
+          pane2: section,
+        ),
+      );
     } else {
       section = AnimatedSize(
         vsync: this,
@@ -448,7 +458,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
     Widget page;
 
-    if (isDesktop) {
+    if (isDesktop || isFoldable) {
       page = AnimatedBuilder(
           animation: _codeBackgroundColorController,
           builder: (context, child) {
@@ -480,13 +490,15 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             if (themeBrightness == Brightness.light) {
               // If it is currently in light mode, add a
               // dark background for code.
-              Widget codeBackground = Container(
-                padding: const EdgeInsets.only(top: 56),
+              Widget codeBackground = SafeArea(
                 child: Container(
-                  color: ColorTween(
-                    begin: Colors.transparent,
-                    end: GalleryThemeData.darkThemeData.canvasColor,
-                  ).animate(_codeBackgroundColorController).value,
+                  padding: const EdgeInsets.only(top: 56),
+                  child: Container(
+                    color: ColorTween(
+                      begin: Colors.transparent,
+                      end: GalleryThemeData.darkThemeData.canvasColor,
+                    ).animate(_codeBackgroundColorController).value,
+                  ),
                 ),
               );
 
