@@ -8,19 +8,12 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoNavigationBarDemo
 
-class CupertinoNavigationBarDemo extends StatefulWidget {
+class CupertinoNavigationBarDemo extends StatelessWidget {
   const CupertinoNavigationBarDemo();
 
   static const String homeRoute = '/home';
   static const String secondPageRoute = '/home/item';
 
-  @override
-  _CupertinoNavigationBarDemoState createState() =>
-      _CupertinoNavigationBarDemoState();
-}
-
-class _CupertinoNavigationBarDemoState
-    extends State<CupertinoNavigationBarDemo> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
