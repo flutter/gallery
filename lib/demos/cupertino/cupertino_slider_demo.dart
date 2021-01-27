@@ -15,7 +15,8 @@ class CupertinoSliderDemo extends StatefulWidget {
   _CupertinoSliderDemoState createState() => _CupertinoSliderDemoState();
 }
 
-class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> with RestorationMixin {
+class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
+    with RestorationMixin {
   final RestorableDouble _value = RestorableDouble(25.0);
   final RestorableDouble _discreteValue = RestorableDouble(20.0);
 

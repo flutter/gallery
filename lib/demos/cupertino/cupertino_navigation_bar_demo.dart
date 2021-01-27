@@ -15,10 +15,12 @@ class CupertinoNavigationBarDemo extends StatefulWidget {
   static const String secondPageRoute = '/home/item';
 
   @override
-  _CupertinoNavigationBarDemoState createState() => _CupertinoNavigationBarDemoState();
+  _CupertinoNavigationBarDemoState createState() =>
+      _CupertinoNavigationBarDemoState();
 }
 
-class _CupertinoNavigationBarDemoState extends State<CupertinoNavigationBarDemo> {
+class _CupertinoNavigationBarDemoState
+    extends State<CupertinoNavigationBarDemo> {
   @override
   Widget build(BuildContext context) {
     return Navigator(
@@ -28,7 +30,8 @@ class _CupertinoNavigationBarDemoState extends State<CupertinoNavigationBarDemo>
         switch (settings.name) {
           case CupertinoNavigationBarDemo.homeRoute:
             return _NoAnimationCupertinoPageRoute<void>(
-              title: GalleryLocalizations.of(context).demoCupertinoNavigationBarTitle,
+              title: GalleryLocalizations.of(context)
+                  .demoCupertinoNavigationBarTitle,
               settings: settings,
               builder: (context) => _FirstPage(),
             );
@@ -59,9 +62,8 @@ class _FirstPage extends StatelessWidget {
             automaticallyImplyLeading: false,
           ),
           SliverPadding(
-            padding: MediaQuery.of(context)
-                .removePadding(removeTop: true)
-                .padding,
+            padding:
+                MediaQuery.of(context).removePadding(removeTop: true).padding,
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
@@ -71,7 +73,7 @@ class _FirstPage extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).restorablePushNamed<void>(
                         CupertinoNavigationBarDemo.secondPageRoute,
-                        arguments: { 'pageTitle': title },
+                        arguments: {'pageTitle': title},
                       );
                     },
                     title: Text(title),
@@ -104,10 +106,10 @@ class _NoAnimationCupertinoPageRoute<T> extends CupertinoPageRoute<T> {
     RouteSettings settings,
     String title,
   }) : super(
-         builder: builder,
-         settings: settings,
-         title: title,
-       );
+          builder: builder,
+          settings: settings,
+          title: title,
+        );
 
   @override
   Widget buildTransitions(

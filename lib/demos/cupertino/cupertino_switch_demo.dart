@@ -15,7 +15,8 @@ class CupertinoSwitchDemo extends StatefulWidget {
   _CupertinoSwitchDemoState createState() => _CupertinoSwitchDemoState();
 }
 
-class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo> with RestorationMixin{
+class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
+    with RestorationMixin {
   final RestorableBool _switchValue = RestorableBool(false);
 
   @override
