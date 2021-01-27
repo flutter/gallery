@@ -29,7 +29,8 @@ class CupertinoAlertDemo extends StatefulWidget {
   _CupertinoAlertDemoState createState() => _CupertinoAlertDemoState();
 }
 
-class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with RestorationMixin {
+class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
+    with RestorationMixin {
   RestorableStringN lastSelectedValue = RestorableStringN(null);
   RestorableRouteFuture<String> _alertDialogRoute;
   RestorableRouteFuture<String> _alertWithTitleDialogRoute;
@@ -43,9 +44,12 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with Restoratio
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(lastSelectedValue, 'last_selected_value');
     registerForRestoration(_alertDialogRoute, 'alert_demo_dialog_route');
-    registerForRestoration(_alertWithTitleDialogRoute, 'alert_with_title_press_demo_dialog_route');
-    registerForRestoration(_alertWithButtonsDialogRoute, 'alert_with_title_press_demo_dialog_route');
-    registerForRestoration(_alertWithButtonsOnlyDialogRoute, 'alert_with_title_press_demo_dialog_route');
+    registerForRestoration(
+        _alertWithTitleDialogRoute, 'alert_with_title_press_demo_dialog_route');
+    registerForRestoration(_alertWithButtonsDialogRoute,
+        'alert_with_title_press_demo_dialog_route');
+    registerForRestoration(_alertWithButtonsOnlyDialogRoute,
+        'alert_with_title_press_demo_dialog_route');
   }
 
   void setSelectedValue(String value) {
@@ -101,7 +105,8 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with Restoratio
     return '';
   }
 
-  static Route<String> _alertDemoDialog(BuildContext context, Object arguments) {
+  static Route<String> _alertDemoDialog(
+      BuildContext context, Object arguments) {
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => ApplyTextOptions(
@@ -135,7 +140,8 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with Restoratio
     );
   }
 
-  static Route<String> _alertWithTitleDialog(BuildContext context, Object arguments) {
+  static Route<String> _alertWithTitleDialog(
+      BuildContext context, Object arguments) {
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => ApplyTextOptions(
@@ -169,7 +175,8 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with Restoratio
     );
   }
 
-  static Route<String> _alertWithButtonsDialog(BuildContext context, Object arguments) {
+  static Route<String> _alertWithButtonsDialog(
+      BuildContext context, Object arguments) {
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => ApplyTextOptions(
@@ -185,7 +192,8 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with Restoratio
     );
   }
 
-  static Route<String> _alertWithButtonsOnlyDialog(BuildContext context, Object arguments) {
+  static Route<String> _alertWithButtonsOnlyDialog(
+      BuildContext context, Object arguments) {
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => const ApplyTextOptions(
