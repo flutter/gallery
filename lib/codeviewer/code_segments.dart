@@ -13199,7 +13199,8 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
-          style: codeStyle.stringStyle, text: '\u0027cupertino_tab_view\u0027'),
+          style: codeStyle.stringStyle,
+          text: '\u0027cupertino_tab_view_\u0024index\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            builder'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),

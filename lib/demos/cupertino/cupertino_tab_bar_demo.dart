@@ -50,7 +50,7 @@ class CupertinoTabBarDemo extends StatelessWidget {
         ),
         tabBuilder: (context, index) {
           return CupertinoTabView(
-            restorationScopeId: 'cupertino_tab_view',
+            restorationScopeId: 'cupertino_tab_view_$index',
             builder: (context) => _CupertinoDemoTab(
               title: _tabInfo[index].title,
               icon: _tabInfo[index].icon,
