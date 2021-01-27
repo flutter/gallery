@@ -73,7 +73,7 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     return '';
   }
 
-  static Route<String> _alertDialogDemo(
+  static Route<String> _alertDialogDemoRoute(
     BuildContext context,
     Object arguments,
   ) {
@@ -110,7 +110,7 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     );
   }
 
-  static Route<String> _alertDialogDemoRoute(
+  static Route<String> _alertDialogWithTitleDemoRoute(
     BuildContext context,
     Object arguments,
   ) {
