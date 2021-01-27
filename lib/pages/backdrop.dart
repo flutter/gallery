@@ -157,7 +157,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
       value: GalleryOptions.of(context).resolvedSystemUiOverlayStyle(),
       child: Stack(
         children: [
-          if (!isDesktop && !isFoldable) ...[
+          if (!isDesktop) ...[
             // Slides the settings page up and down from the top of the
             // screen.
             PositionedTransition(
@@ -171,7 +171,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
               child: homePage,
             ),
           ],
-          if (isDesktop || isFoldable) ...[
+          if (isDesktop) ...[
             Semantics(sortKey: const OrdinalSortKey(2), child: homePage),
             ValueListenableBuilder<bool>(
               valueListenable: _isSettingsOpenNotifier,

@@ -13,7 +13,7 @@ import 'package:gallery/studies/starter/app.dart';
 typedef PathWidgetBuilder = Widget Function(BuildContext, String);
 
 class Path {
-  const Path(this.pattern, this.builder);
+  const Path(this.pattern, this.builder, this.openInSecondScreen);
 
   /// A RegEx string for route matching.
   final String pattern;
@@ -29,6 +29,8 @@ class Path {
   /// )
   /// ```
   final PathWidgetBuilder builder;
+  
+  final bool openInSecondScreen;
 }
 
 class RouteConfiguration {
@@ -41,22 +43,27 @@ class RouteConfiguration {
     Path(
       r'^' + DemoPage.baseRoute + r'/([\w-]+)$',
       (context, match) => DemoPage(slug: match),
+      false,
     ),
     Path(
       r'^' + RallyApp.homeRoute,
       (context, match) => const StudyWrapper(study: RallyApp()),
+      true,
     ),
     Path(
       r'^' + ShrineApp.homeRoute,
       (context, match) => const StudyWrapper(study: ShrineApp()),
+      true,
     ),
     Path(
       r'^' + CraneApp.defaultRoute,
       (context, match) => const StudyWrapper(study: CraneApp()),
+      true,
     ),
     Path(
       r'^' + FortnightlyApp.defaultRoute,
       (context, match) => const StudyWrapper(study: FortnightlyApp()),
+      true,
     ),
     Path(
       r'^' + ReplyApp.homeRoute,
@@ -64,14 +71,17 @@ class RouteConfiguration {
         alignment: AlignmentDirectional.topCenter,
         study: ReplyApp(),
       ),
+      true,
     ),
     Path(
       r'^' + StarterApp.defaultRoute,
       (context, match) => const StudyWrapper(study: StarterApp()),
+      true,
     ),
     Path(
       r'^/',
       (context, match) => const RootPage(),
+      false,
     ),
   ];
 
@@ -91,10 +101,17 @@ class RouteConfiguration {
             settings: settings,
           );
         }
-        return MaterialPageRoute<void>(
-          builder: (context) => path.builder(context, match),
-          settings: settings,
-        );
+        if (path.openInSecondScreen) {
+          return TwoPanePageRoute<void>(
+            builder: (context) => path.builder(context, match),
+            settings: settings,
+          );
+        } else {
+          return MaterialPageRoute<void>(
+            builder: (context) => path.builder(context, match),
+            settings: settings,
+          );
+        }
       }
     }
 
@@ -117,5 +134,32 @@ class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
     Widget child,
   ) {
     return child;
+  }
+}
+
+class TwoPanePageRoute<T> extends OverlayRoute<T> {
+  TwoPanePageRoute({
+    this.builder,
+    RouteSettings settings,
+  }) : super(settings: settings);
+
+  final WidgetBuilder builder;
+
+  @override
+  Iterable<OverlayEntry> createOverlayEntries() sync* {
+    yield OverlayEntry(builder: (context) {
+      final hinge = MediaQuery.of(context).displayFeatures.firstWhere((element) => element.bounds.height > MediaQuery.of(context).size.height, orElse: () => null)?.bounds;
+      if (hinge == null) {
+        return builder.call(context);
+      } else {
+        return Positioned(
+            top: 0,
+            left: hinge.right,
+            right: 0,
+            bottom: 0,
+            child: builder.call(context)
+        );
+      }
+    });
   }
 }
