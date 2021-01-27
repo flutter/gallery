@@ -16,13 +16,51 @@ enum DialogDemoType {
   fullscreen,
 }
 
-class DialogDemo extends StatelessWidget {
+class DialogDemo extends StatefulWidget {
   DialogDemo({Key key, @required this.type}) : super(key: key);
 
   final DialogDemoType type;
 
+  @override
+  _DialogDemoState createState() => _DialogDemoState();
+}
+
+class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
+  RestorableRouteFuture<String> _alertDialogRoute;
+
+  @override
+  String get restorationId => 'dialog_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_alertDialogRoute, 'alert_demo_dialog_route');
+  }
+
+  // Displays the popped String value in a snackbar.
+  void _showInSnackBar(String value) {
+    // The value passed to Navigator.pop() or null.
+    if (value != null) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content:
+            Text(GalleryLocalizations.of(context).dialogSelectedOption(value)),
+      ));
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _alertDialogRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_alertDialogDemoRoute);
+      },
+      onComplete: _showInSnackBar,
+    );
+  }
+
   String _title(BuildContext context) {
-    switch (type) {
+    switch (widget.type) {
       case DialogDemoType.alert:
         return GalleryLocalizations.of(context).demoAlertDialogTitle;
       case DialogDemoType.alertTitle:
@@ -33,6 +71,80 @@ class DialogDemo extends StatelessWidget {
         return GalleryLocalizations.of(context).demoFullscreenDialogTitle;
     }
     return '';
+  }
+
+  static Route<String> _alertDialogDemo(
+    BuildContext context,
+    Object arguments,
+  ) {
+    final theme = Theme.of(context);
+    final dialogTextStyle = theme.textTheme.subtitle1
+        .copyWith(color: theme.textTheme.caption.color);
+
+    final themes = InheritedTheme.capture(
+      from: context,
+      to: Navigator.of(
+        context,
+        rootNavigator: true,
+      ).context,
+    );
+
+    return DialogRoute<String>(
+      context: context,
+      themes: themes,
+      builder: (context) => ApplyTextOptions(
+        child: Theme(
+          data: Theme.of(context),
+          child: AlertDialog(
+            content: Text(
+              GalleryLocalizations.of(context).dialogDiscardTitle,
+              style: dialogTextStyle,
+            ),
+            actions: [
+              _DialogButton(text: GalleryLocalizations.of(context).dialogCancel),
+              _DialogButton(text: GalleryLocalizations.of(context).dialogDiscard),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  static Route<String> _alertDialogDemoRoute(
+    BuildContext context,
+    Object arguments,
+  ) {
+    final theme = Theme.of(context);
+    final dialogTextStyle = theme.textTheme.subtitle1
+        .copyWith(color: theme.textTheme.caption.color);
+
+    final themes = InheritedTheme.capture(
+      from: context,
+      to: Navigator.of(
+        context,
+        rootNavigator: true,
+      ).context,
+    );
+
+    return DialogRoute<String>(
+      context: context,
+      themes: themes,
+      builder: (context) => ApplyTextOptions(
+        child: Theme(
+          data: Theme.of(context),
+          child: AlertDialog(
+            content: Text(
+              GalleryLocalizations.of(context).dialogDiscardTitle,
+              style: dialogTextStyle,
+            ),
+            actions: [
+              _DialogButton(text: GalleryLocalizations.of(context).dialogCancel),
+              _DialogButton(text: GalleryLocalizations.of(context).dialogDiscard),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Future<void> _showDemoDialog<T>({BuildContext context, Widget child}) async {
@@ -54,25 +166,6 @@ class DialogDemo extends StatelessWidget {
             Text(GalleryLocalizations.of(context).dialogSelectedOption(value)),
       ));
     }
-  }
-
-  void _showAlertDialog(BuildContext context) {
-    final theme = Theme.of(context);
-    final dialogTextStyle = theme.textTheme.subtitle1
-        .copyWith(color: theme.textTheme.caption.color);
-    _showDemoDialog<String>(
-      context: context,
-      child: AlertDialog(
-        content: Text(
-          GalleryLocalizations.of(context).dialogDiscardTitle,
-          style: dialogTextStyle,
-        ),
-        actions: [
-          _DialogButton(text: GalleryLocalizations.of(context).dialogCancel),
-          _DialogButton(text: GalleryLocalizations.of(context).dialogDiscard),
-        ],
-      ),
-    );
   }
 
   void _showAlertDialogWithTitle(BuildContext context) {
@@ -127,9 +220,11 @@ class DialogDemo extends StatelessWidget {
     return Navigator(
       // Adding [ValueKey] to make sure that the widget gets rebuilt when
       // changing type.
-      key: ValueKey(type),
+      key: ValueKey(widget.type),
+      restorationScopeId: 'navigator',
       onGenerateRoute: (settings) {
         return _NoAnimationMaterialPageRoute<void>(
+          settings: settings,
           builder: (context) => Scaffold(
             appBar: AppBar(
               automaticallyImplyLeading: false,
@@ -139,9 +234,9 @@ class DialogDemo extends StatelessWidget {
               child: ElevatedButton(
                 child: Text(GalleryLocalizations.of(context).dialogShow),
                 onPressed: () {
-                  switch (type) {
+                  switch (widget.type) {
                     case DialogDemoType.alert:
-                      _showAlertDialog(context);
+                      _alertDialogRoute.present();
                       break;
                     case DialogDemoType.alertTitle:
                       _showAlertDialogWithTitle(context);
@@ -180,7 +275,8 @@ class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
             builder: builder,
             maintainState: maintainState,
             settings: settings,
-            fullscreenDialog: fullscreenDialog);
+            fullscreenDialog: fullscreenDialog,
+        );
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
