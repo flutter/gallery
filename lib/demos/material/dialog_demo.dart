@@ -36,7 +36,8 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_alertDialogRoute, 'alert_demo_dialog_route');
-    registerForRestoration(_alertDialogWithTitleRoute, 'alert_demo_with_title_dialog_route');
+    registerForRestoration(
+        _alertDialogWithTitleRoute, 'alert_demo_with_title_dialog_route');
     registerForRestoration(_simpleDialogRoute, 'simple_dialog_route');
   }
 
@@ -117,8 +118,10 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
               style: dialogTextStyle,
             ),
             actions: [
-              _DialogButton(text: GalleryLocalizations.of(context).dialogCancel),
-              _DialogButton(text: GalleryLocalizations.of(context).dialogDiscard),
+              _DialogButton(
+                  text: GalleryLocalizations.of(context).dialogCancel),
+              _DialogButton(
+                  text: GalleryLocalizations.of(context).dialogDiscard),
             ],
           ),
         ),
@@ -155,7 +158,8 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
               style: dialogTextStyle,
             ),
             actions: [
-              _DialogButton(text: GalleryLocalizations.of(context).dialogDisagree),
+              _DialogButton(
+                  text: GalleryLocalizations.of(context).dialogDisagree),
               _DialogButton(text: GalleryLocalizations.of(context).dialogAgree),
             ],
           ),
@@ -208,7 +212,10 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     );
   }
 
-  static Route<void> _fullscreenDialogRoute(BuildContext context, Object arguments,) {
+  static Route<void> _fullscreenDialogRoute(
+    BuildContext context,
+    Object arguments,
+  ) {
     return MaterialPageRoute<void>(
       builder: (context) => _FullScreenDialogDemo(),
       fullscreenDialog: true,
@@ -245,7 +252,8 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
                       _simpleDialogRoute.present();
                       break;
                     case DialogDemoType.fullscreen:
-                      Navigator.restorablePush<void>(context, _fullscreenDialogRoute);
+                      Navigator.restorablePush<void>(
+                          context, _fullscreenDialogRoute);
                       break;
                   }
                 },
@@ -266,10 +274,10 @@ class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
     bool maintainState = true,
     bool fullscreenDialog = false,
   }) : super(
-            builder: builder,
-            maintainState: maintainState,
-            settings: settings,
-            fullscreenDialog: fullscreenDialog,
+          builder: builder,
+          maintainState: maintainState,
+          settings: settings,
+          fullscreenDialog: fullscreenDialog,
         );
 
   @override
