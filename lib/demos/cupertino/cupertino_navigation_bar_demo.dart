@@ -8,48 +8,82 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoNavigationBarDemo
 
-class CupertinoNavigationBarDemo extends StatelessWidget {
+class CupertinoNavigationBarDemo extends StatefulWidget {
   const CupertinoNavigationBarDemo();
 
+  static const String homeRoute = '/home';
+  static const String secondPageRoute = '/home/item';
+
+  @override
+  _CupertinoNavigationBarDemoState createState() => _CupertinoNavigationBarDemoState();
+}
+
+class _CupertinoNavigationBarDemoState extends State<CupertinoNavigationBarDemo> {
   @override
   Widget build(BuildContext context) {
-    return Navigator(onGenerateRoute: (settings) {
-      return _NoAnimationCupertinoPageRoute<void>(
-        title: GalleryLocalizations.of(context).demoCupertinoNavigationBarTitle,
-        builder: (context) => CupertinoPageScaffold(
-          child: CustomScrollView(
-            slivers: [
-              const CupertinoSliverNavigationBar(
-                automaticallyImplyLeading: false,
-              ),
-              SliverPadding(
-                padding: MediaQuery.of(context)
-                    .removePadding(removeTop: true)
-                    .padding,
-                sliver: SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final title = GalleryLocalizations.of(context)
-                          .starterAppDrawerItem(index + 1);
-                      return ListTile(
-                        onTap: () {
-                          Navigator.of(context).push(CupertinoPageRoute<void>(
-                            title: title,
-                            builder: (context) => _SecondPage(),
-                          ));
-                        },
-                        title: Text(title),
+    return Navigator(
+      restorationScopeId: 'navigator',
+      initialRoute: CupertinoNavigationBarDemo.homeRoute,
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case CupertinoNavigationBarDemo.homeRoute:
+            return _NoAnimationCupertinoPageRoute<void>(
+              title: GalleryLocalizations.of(context).demoCupertinoNavigationBarTitle,
+              settings: settings,
+              builder: (context) => _FirstPage(),
+            );
+            break;
+          case CupertinoNavigationBarDemo.secondPageRoute:
+            final arguments = settings.arguments as Map<dynamic, dynamic>;
+            final title = arguments['pageTitle'] as String;
+            return CupertinoPageRoute<void>(
+              title: title,
+              settings: settings,
+              builder: (context) => _SecondPage(),
+            );
+            break;
+        }
+        return null;
+      },
+    );
+  }
+}
+
+class _FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      child: CustomScrollView(
+        slivers: [
+          const CupertinoSliverNavigationBar(
+            automaticallyImplyLeading: false,
+          ),
+          SliverPadding(
+            padding: MediaQuery.of(context)
+                .removePadding(removeTop: true)
+                .padding,
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final title = GalleryLocalizations.of(context)
+                      .starterAppDrawerItem(index + 1);
+                  return ListTile(
+                    onTap: () {
+                      Navigator.of(context).restorablePushNamed<void>(
+                        CupertinoNavigationBarDemo.secondPageRoute,
+                        arguments: { 'pageTitle': title },
                       );
                     },
-                    childCount: 20,
-                  ),
-                ),
+                    title: Text(title),
+                  );
+                },
+                childCount: 20,
               ),
-            ],
+            ),
           ),
-        ),
-      );
-    });
+        ],
+      ),
+    );
   }
 }
 
@@ -67,8 +101,13 @@ class _SecondPage extends StatelessWidget {
 class _NoAnimationCupertinoPageRoute<T> extends CupertinoPageRoute<T> {
   _NoAnimationCupertinoPageRoute({
     @required WidgetBuilder builder,
+    RouteSettings settings,
     String title,
-  }) : super(builder: builder, title: title);
+  }) : super(
+         builder: builder,
+         settings: settings,
+         title: title,
+       );
 
   @override
   Widget buildTransitions(

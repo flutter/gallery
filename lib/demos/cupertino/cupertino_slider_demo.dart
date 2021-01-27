@@ -15,9 +15,18 @@ class CupertinoSliderDemo extends StatefulWidget {
   _CupertinoSliderDemoState createState() => _CupertinoSliderDemoState();
 }
 
-class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
-  double _value = 25.0;
-  double _discreteValue = 20.0;
+class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> with RestorationMixin {
+  final RestorableDouble _value = RestorableDouble(25.0);
+  final RestorableDouble _discreteValue = RestorableDouble(20.0);
+
+  @override
+  String get restorationId => 'cupertino_slider_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_value, 'value');
+    registerForRestoration(_discreteValue, 'discrete_value');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +47,12 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
                   SizedBox(
                     width: double.infinity,
                     child: CupertinoSlider(
-                      value: _value,
+                      value: _value.value,
                       min: 0.0,
                       max: 100.0,
                       onChanged: (value) {
                         setState(() {
-                          _value = value;
+                          _value.value = value;
                         });
                       },
                     ),
@@ -52,7 +61,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
                     child: Text(
                       GalleryLocalizations.of(context)
                           .demoCupertinoSliderContinuous(
-                        _value.toStringAsFixed(1),
+                        _value.value.toStringAsFixed(1),
                       ),
                     ),
                   ),
@@ -64,13 +73,13 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
                   SizedBox(
                     width: double.infinity,
                     child: CupertinoSlider(
-                      value: _discreteValue,
+                      value: _discreteValue.value,
                       min: 0.0,
                       max: 100.0,
                       divisions: 5,
                       onChanged: (value) {
                         setState(() {
-                          _discreteValue = value;
+                          _discreteValue.value = value;
                         });
                       },
                     ),
@@ -79,7 +88,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo> {
                     child: Text(
                       GalleryLocalizations.of(context)
                           .demoCupertinoSliderDiscrete(
-                        _discreteValue.toStringAsFixed(1),
+                        _discreteValue.value.toStringAsFixed(1),
                       ),
                     ),
                   ),
