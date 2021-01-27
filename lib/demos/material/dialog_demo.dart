@@ -27,6 +27,8 @@ class DialogDemo extends StatefulWidget {
 
 class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
   RestorableRouteFuture<String> _alertDialogRoute;
+  RestorableRouteFuture<String> _alertDialogWithTitleRoute;
+  RestorableRouteFuture<String> _simpleDialogRoute;
 
   @override
   String get restorationId => 'dialog_demo';
@@ -34,6 +36,8 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_alertDialogRoute, 'alert_demo_dialog_route');
+    registerForRestoration(_alertDialogWithTitleRoute, 'alert_demo_with_title_dialog_route');
+    registerForRestoration(_simpleDialogRoute, 'simple_dialog_route');
   }
 
   // Displays the popped String value in a snackbar.
@@ -54,6 +58,18 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     _alertDialogRoute = RestorableRouteFuture<String>(
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(_alertDialogDemoRoute);
+      },
+      onComplete: _showInSnackBar,
+    );
+    _alertDialogWithTitleRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_alertDialogWithTitleDemoRoute);
+      },
+      onComplete: _showInSnackBar,
+    );
+    _simpleDialogRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_simpleDialogDemoRoute);
       },
       onComplete: _showInSnackBar,
     );
@@ -133,13 +149,14 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
         child: Theme(
           data: Theme.of(context),
           child: AlertDialog(
+            title: Text(GalleryLocalizations.of(context).dialogLocationTitle),
             content: Text(
-              GalleryLocalizations.of(context).dialogDiscardTitle,
+              GalleryLocalizations.of(context).dialogLocationDescription,
               style: dialogTextStyle,
             ),
             actions: [
-              _DialogButton(text: GalleryLocalizations.of(context).dialogCancel),
-              _DialogButton(text: GalleryLocalizations.of(context).dialogDiscard),
+              _DialogButton(text: GalleryLocalizations.of(context).dialogDisagree),
+              _DialogButton(text: GalleryLocalizations.of(context).dialogAgree),
             ],
           ),
         ),
@@ -147,71 +164,54 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     );
   }
 
-  Future<void> _showDemoDialog<T>({BuildContext context, Widget child}) async {
-    child = ApplyTextOptions(
-      child: Theme(
-        data: Theme.of(context),
-        child: child,
-      ),
-    );
-    final value = await showDialog<T>(
-      context: context,
-      builder: (context) => child,
-    );
-    // The value passed to Navigator.pop() or null.
-    if (value != null && value is String) {
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content:
-            Text(GalleryLocalizations.of(context).dialogSelectedOption(value)),
-      ));
-    }
-  }
-
-  void _showAlertDialogWithTitle(BuildContext context) {
+  static Route<String> _simpleDialogDemoRoute(
+    BuildContext context,
+    Object arguments,
+  ) {
     final theme = Theme.of(context);
-    final dialogTextStyle = theme.textTheme.subtitle1
-        .copyWith(color: theme.textTheme.caption.color);
-    _showDemoDialog<String>(
+    final themes = InheritedTheme.capture(
+      from: context,
+      to: Navigator.of(
+        context,
+        rootNavigator: true,
+      ).context,
+    );
+
+    return DialogRoute<String>(
       context: context,
-      child: AlertDialog(
-        title: Text(GalleryLocalizations.of(context).dialogLocationTitle),
-        content: Text(
-          GalleryLocalizations.of(context).dialogLocationDescription,
-          style: dialogTextStyle,
+      themes: themes,
+      builder: (context) => ApplyTextOptions(
+        child: Theme(
+          data: Theme.of(context),
+          child: SimpleDialog(
+            title: Text(GalleryLocalizations.of(context).dialogSetBackup),
+            children: [
+              _DialogDemoItem(
+                icon: Icons.account_circle,
+                color: theme.colorScheme.primary,
+                text: 'username@gmail.com',
+              ),
+              _DialogDemoItem(
+                icon: Icons.account_circle,
+                color: theme.colorScheme.secondary,
+                text: 'user02@gmail.com',
+              ),
+              _DialogDemoItem(
+                icon: Icons.add_circle,
+                text: GalleryLocalizations.of(context).dialogAddAccount,
+                color: theme.disabledColor,
+              ),
+            ],
+          ),
         ),
-        actions: [
-          _DialogButton(text: GalleryLocalizations.of(context).dialogDisagree),
-          _DialogButton(text: GalleryLocalizations.of(context).dialogAgree),
-        ],
       ),
     );
   }
 
-  void _showSimpleDialog(BuildContext context) {
-    final theme = Theme.of(context);
-    _showDemoDialog<String>(
-      context: context,
-      child: SimpleDialog(
-        title: Text(GalleryLocalizations.of(context).dialogSetBackup),
-        children: [
-          _DialogDemoItem(
-            icon: Icons.account_circle,
-            color: theme.colorScheme.primary,
-            text: 'username@gmail.com',
-          ),
-          _DialogDemoItem(
-            icon: Icons.account_circle,
-            color: theme.colorScheme.secondary,
-            text: 'user02@gmail.com',
-          ),
-          _DialogDemoItem(
-            icon: Icons.add_circle,
-            text: GalleryLocalizations.of(context).dialogAddAccount,
-            color: theme.disabledColor,
-          ),
-        ],
-      ),
+  static Route<void> _fullscreenDialogRoute(BuildContext context, Object arguments,) {
+    return MaterialPageRoute<void>(
+      builder: (context) => _FullScreenDialogDemo(),
+      fullscreenDialog: true,
     );
   }
 
@@ -239,19 +239,13 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
                       _alertDialogRoute.present();
                       break;
                     case DialogDemoType.alertTitle:
-                      _showAlertDialogWithTitle(context);
+                      _alertDialogWithTitleRoute.present();
                       break;
                     case DialogDemoType.simple:
-                      _showSimpleDialog(context);
+                      _simpleDialogRoute.present();
                       break;
                     case DialogDemoType.fullscreen:
-                      Navigator.push<void>(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => _FullScreenDialogDemo(),
-                          fullscreenDialog: true,
-                        ),
-                      );
+                      Navigator.restorablePush<void>(context, _fullscreenDialogRoute);
                       break;
                   }
                 },
