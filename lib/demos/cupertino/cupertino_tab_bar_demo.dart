@@ -38,6 +38,7 @@ class CupertinoTabBarDemo extends StatelessWidget {
     return DefaultTextStyle(
       style: CupertinoTheme.of(context).textTheme.textStyle,
       child: CupertinoTabScaffold(
+        restorationId: 'cupertino_tab_scaffold',
         tabBar: CupertinoTabBar(
           items: [
             for (final tabInfo in _tabInfo)
@@ -49,6 +50,7 @@ class CupertinoTabBarDemo extends StatelessWidget {
         ),
         tabBuilder: (context, index) {
           return CupertinoTabView(
+            restorationScopeId: 'cupertino_tab_view',
             builder: (context) => _CupertinoDemoTab(
               title: _tabInfo[index].title,
               icon: _tabInfo[index].icon,

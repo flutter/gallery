@@ -29,8 +29,59 @@ class CupertinoAlertDemo extends StatefulWidget {
   _CupertinoAlertDemoState createState() => _CupertinoAlertDemoState();
 }
 
-class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
-  String lastSelectedValue;
+class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> with RestorationMixin {
+  RestorableStringN lastSelectedValue = RestorableStringN(null);
+  RestorableRouteFuture<String> _alertDialogRoute;
+  RestorableRouteFuture<String> _alertWithTitleDialogRoute;
+  RestorableRouteFuture<String> _alertWithButtonsDialogRoute;
+  RestorableRouteFuture<String> _alertWithButtonsOnlyDialogRoute;
+
+  @override
+  String get restorationId => 'cupertino_alert_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(lastSelectedValue, 'last_selected_value');
+    registerForRestoration(_alertDialogRoute, 'alert_demo_dialog_route');
+    registerForRestoration(_alertWithTitleDialogRoute, 'alert_with_title_press_demo_dialog_route');
+    registerForRestoration(_alertWithButtonsDialogRoute, 'alert_with_title_press_demo_dialog_route');
+    registerForRestoration(_alertWithButtonsOnlyDialogRoute, 'alert_with_title_press_demo_dialog_route');
+  }
+
+  void setSelectedValue(String value) {
+    setState(() {
+      lastSelectedValue.value = value;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _alertDialogRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_alertDemoDialog);
+      },
+      onComplete: setSelectedValue,
+    );
+    _alertWithTitleDialogRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_alertWithTitleDialog);
+      },
+      onComplete: setSelectedValue,
+    );
+    _alertWithButtonsDialogRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_alertWithButtonsDialog);
+      },
+      onComplete: setSelectedValue,
+    );
+    _alertWithButtonsOnlyDialogRoute = RestorableRouteFuture<String>(
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(_alertWithButtonsOnlyDialog);
+      },
+      onComplete: setSelectedValue,
+    );
+  }
 
   String _title(BuildContext context) {
     switch (widget.type) {
@@ -50,17 +101,97 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
     return '';
   }
 
-  void _showDemoDialog({BuildContext context, Widget child}) {
-    showCupertinoDialog<String>(
+  static Route<String> _alertDemoDialog(BuildContext context, Object arguments) {
+    return CupertinoDialogRoute<String>(
       context: context,
-      builder: (context) => ApplyTextOptions(child: child),
-    ).then((value) {
-      if (value != null) {
-        setState(() {
-          lastSelectedValue = value;
-        });
-      }
-    });
+      builder: (context) => ApplyTextOptions(
+        child: CupertinoAlertDialog(
+          title: Text(GalleryLocalizations.of(context).dialogDiscardTitle),
+          actions: [
+            CupertinoDialogAction(
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertDiscard,
+              ),
+              isDestructiveAction: true,
+              onPressed: () {
+                Navigator.of(
+                  context,
+                  rootNavigator: true,
+                ).pop(GalleryLocalizations.of(context).cupertinoAlertDiscard);
+              },
+            ),
+            CupertinoDialogAction(
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertCancel,
+              ),
+              isDefaultAction: true,
+              onPressed: () => Navigator.of(context, rootNavigator: true).pop(
+                GalleryLocalizations.of(context).cupertinoAlertCancel,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Route<String> _alertWithTitleDialog(BuildContext context, Object arguments) {
+    return CupertinoDialogRoute<String>(
+      context: context,
+      builder: (context) => ApplyTextOptions(
+        child: CupertinoAlertDialog(
+          title: Text(
+            GalleryLocalizations.of(context).cupertinoAlertLocationTitle,
+          ),
+          content: Text(
+            GalleryLocalizations.of(context).cupertinoAlertLocationDescription,
+          ),
+          actions: [
+            CupertinoDialogAction(
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertDontAllow,
+              ),
+              onPressed: () => Navigator.of(context, rootNavigator: true).pop(
+                GalleryLocalizations.of(context).cupertinoAlertDontAllow,
+              ),
+            ),
+            CupertinoDialogAction(
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertAllow,
+              ),
+              onPressed: () => Navigator.of(context, rootNavigator: true).pop(
+                GalleryLocalizations.of(context).cupertinoAlertAllow,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Route<String> _alertWithButtonsDialog(BuildContext context, Object arguments) {
+    return CupertinoDialogRoute<String>(
+      context: context,
+      builder: (context) => ApplyTextOptions(
+        child: CupertinoDessertDialog(
+          title: Text(
+            GalleryLocalizations.of(context).cupertinoAlertFavoriteDessert,
+          ),
+          content: Text(
+            GalleryLocalizations.of(context).cupertinoAlertDessertDescription,
+          ),
+        ),
+      ),
+    );
+  }
+
+  static Route<String> _alertWithButtonsOnlyDialog(BuildContext context, Object arguments) {
+    return CupertinoDialogRoute<String>(
+      context: context,
+      builder: (context) => const ApplyTextOptions(
+        child: CupertinoDessertDialog(),
+      ),
+    );
   }
 
   void _showDemoActionSheet({BuildContext context, Widget child}) {
@@ -76,92 +207,10 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
     ).then((value) {
       if (value != null) {
         setState(() {
-          lastSelectedValue = value;
+          lastSelectedValue.value = value;
         });
       }
     });
-  }
-
-  void _onAlertPress(BuildContext context) {
-    _showDemoDialog(
-      context: context,
-      child: CupertinoAlertDialog(
-        title: Text(GalleryLocalizations.of(context).dialogDiscardTitle),
-        actions: [
-          CupertinoDialogAction(
-            child: Text(
-              GalleryLocalizations.of(context).cupertinoAlertDiscard,
-            ),
-            isDestructiveAction: true,
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(
-              GalleryLocalizations.of(context).cupertinoAlertDiscard,
-            ),
-          ),
-          CupertinoDialogAction(
-            child: Text(
-              GalleryLocalizations.of(context).cupertinoAlertCancel,
-            ),
-            isDefaultAction: true,
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(
-              GalleryLocalizations.of(context).cupertinoAlertCancel,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _onAlertWithTitlePress(BuildContext context) {
-    _showDemoDialog(
-      context: context,
-      child: CupertinoAlertDialog(
-        title: Text(
-          GalleryLocalizations.of(context).cupertinoAlertLocationTitle,
-        ),
-        content: Text(
-          GalleryLocalizations.of(context).cupertinoAlertLocationDescription,
-        ),
-        actions: [
-          CupertinoDialogAction(
-            child: Text(
-              GalleryLocalizations.of(context).cupertinoAlertDontAllow,
-            ),
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(
-              GalleryLocalizations.of(context).cupertinoAlertDontAllow,
-            ),
-          ),
-          CupertinoDialogAction(
-            child: Text(
-              GalleryLocalizations.of(context).cupertinoAlertAllow,
-            ),
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(
-              GalleryLocalizations.of(context).cupertinoAlertAllow,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _onAlertWithButtonsPress(BuildContext context) {
-    _showDemoDialog(
-      context: context,
-      child: CupertinoDessertDialog(
-        title: Text(
-          GalleryLocalizations.of(context).cupertinoAlertFavoriteDessert,
-        ),
-        content: Text(
-          GalleryLocalizations.of(context).cupertinoAlertDessertDescription,
-        ),
-      ),
-    );
-  }
-
-  void _onAlertButtonsOnlyPress(BuildContext context) {
-    _showDemoDialog(
-      context: context,
-      child: const CupertinoDessertDialog(),
-    );
   }
 
   void _onActionSheetPress(BuildContext context) {
@@ -233,18 +282,20 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
                     onPressed: () {
                       switch (widget.type) {
                         case AlertDemoType.alert:
-                          _onAlertPress(context);
+                          _alertDialogRoute.present();
                           break;
                         case AlertDemoType.alertTitle:
-                          _onAlertWithTitlePress(context);
+                          _alertWithTitleDialogRoute.present();
                           break;
                         case AlertDemoType.alertButtons:
-                          _onAlertWithButtonsPress(context);
+                          _alertWithButtonsDialogRoute.present();
                           break;
                         case AlertDemoType.alertButtonsOnly:
-                          _onAlertButtonsOnlyPress(context);
+                          _alertWithButtonsOnlyDialogRoute.present();
                           break;
                         case AlertDemoType.actionSheet:
+                          // TODO(shihaohong): Expose _CupertinoModalPopupRoute
+                          // so that it is state restorable.
                           _onActionSheetPress(context);
                           break;
                       }
@@ -252,12 +303,12 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
                   ),
                 ),
               ),
-              if (lastSelectedValue != null)
+              if (lastSelectedValue.value != null)
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text(
                     GalleryLocalizations.of(context)
-                        .dialogSelectedOption(lastSelectedValue),
+                        .dialogSelectedOption(lastSelectedValue.value),
                     style: CupertinoTheme.of(context).textTheme.textStyle,
                     textAlign: TextAlign.center,
                   ),
