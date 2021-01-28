@@ -35,10 +35,18 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
 
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
-    registerForRestoration(_alertDialogRoute, 'alert_demo_dialog_route');
     registerForRestoration(
-        _alertDialogWithTitleRoute, 'alert_demo_with_title_dialog_route');
-    registerForRestoration(_simpleDialogRoute, 'simple_dialog_route');
+      _alertDialogRoute,
+      'alert_demo_dialog_route',
+    );
+    registerForRestoration(
+      _alertDialogWithTitleRoute,
+      'alert_demo_with_title_dialog_route',
+    );
+    registerForRestoration(
+      _simpleDialogRoute,
+      'simple_dialog_route',
+    );
   }
 
   // Displays the popped String value in a snackbar.
@@ -46,10 +54,13 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     // The value passed to Navigator.pop() or null.
     if (value != null) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content:
-            Text(GalleryLocalizations.of(context).dialogSelectedOption(value)),
-      ));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            GalleryLocalizations.of(context).dialogSelectedOption(value),
+          ),
+        ),
+      );
     }
   }
 
@@ -98,32 +109,18 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     final dialogTextStyle = theme.textTheme.subtitle1
         .copyWith(color: theme.textTheme.caption.color);
 
-    final themes = InheritedTheme.capture(
-      from: context,
-      to: Navigator.of(
-        context,
-        rootNavigator: true,
-      ).context,
-    );
-
     return DialogRoute<String>(
       context: context,
-      themes: themes,
       builder: (context) => ApplyTextOptions(
-        child: Theme(
-          data: Theme.of(context),
-          child: AlertDialog(
-            content: Text(
-              GalleryLocalizations.of(context).dialogDiscardTitle,
-              style: dialogTextStyle,
-            ),
-            actions: [
-              _DialogButton(
-                  text: GalleryLocalizations.of(context).dialogCancel),
-              _DialogButton(
-                  text: GalleryLocalizations.of(context).dialogDiscard),
-            ],
+        child: AlertDialog(
+          content: Text(
+            GalleryLocalizations.of(context).dialogDiscardTitle,
+            style: dialogTextStyle,
           ),
+          actions: [
+            _DialogButton(text: GalleryLocalizations.of(context).dialogCancel),
+            _DialogButton(text: GalleryLocalizations.of(context).dialogDiscard),
+          ],
         ),
       ),
     );
@@ -137,32 +134,20 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     final dialogTextStyle = theme.textTheme.subtitle1
         .copyWith(color: theme.textTheme.caption.color);
 
-    final themes = InheritedTheme.capture(
-      from: context,
-      to: Navigator.of(
-        context,
-        rootNavigator: true,
-      ).context,
-    );
-
     return DialogRoute<String>(
       context: context,
-      themes: themes,
       builder: (context) => ApplyTextOptions(
-        child: Theme(
-          data: Theme.of(context),
-          child: AlertDialog(
-            title: Text(GalleryLocalizations.of(context).dialogLocationTitle),
-            content: Text(
-              GalleryLocalizations.of(context).dialogLocationDescription,
-              style: dialogTextStyle,
-            ),
-            actions: [
-              _DialogButton(
-                  text: GalleryLocalizations.of(context).dialogDisagree),
-              _DialogButton(text: GalleryLocalizations.of(context).dialogAgree),
-            ],
+        child: AlertDialog(
+          title: Text(GalleryLocalizations.of(context).dialogLocationTitle),
+          content: Text(
+            GalleryLocalizations.of(context).dialogLocationDescription,
+            style: dialogTextStyle,
           ),
+          actions: [
+            _DialogButton(
+                text: GalleryLocalizations.of(context).dialogDisagree),
+            _DialogButton(text: GalleryLocalizations.of(context).dialogAgree),
+          ],
         ),
       ),
     );
@@ -173,40 +158,29 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     Object arguments,
   ) {
     final theme = Theme.of(context);
-    final themes = InheritedTheme.capture(
-      from: context,
-      to: Navigator.of(
-        context,
-        rootNavigator: true,
-      ).context,
-    );
 
     return DialogRoute<String>(
       context: context,
-      themes: themes,
       builder: (context) => ApplyTextOptions(
-        child: Theme(
-          data: Theme.of(context),
-          child: SimpleDialog(
-            title: Text(GalleryLocalizations.of(context).dialogSetBackup),
-            children: [
-              _DialogDemoItem(
-                icon: Icons.account_circle,
-                color: theme.colorScheme.primary,
-                text: 'username@gmail.com',
-              ),
-              _DialogDemoItem(
-                icon: Icons.account_circle,
-                color: theme.colorScheme.secondary,
-                text: 'user02@gmail.com',
-              ),
-              _DialogDemoItem(
-                icon: Icons.add_circle,
-                text: GalleryLocalizations.of(context).dialogAddAccount,
-                color: theme.disabledColor,
-              ),
-            ],
-          ),
+        child: SimpleDialog(
+          title: Text(GalleryLocalizations.of(context).dialogSetBackup),
+          children: [
+            _DialogDemoItem(
+              icon: Icons.account_circle,
+              color: theme.colorScheme.primary,
+              text: 'username@gmail.com',
+            ),
+            _DialogDemoItem(
+              icon: Icons.account_circle,
+              color: theme.colorScheme.secondary,
+              text: 'user02@gmail.com',
+            ),
+            _DialogDemoItem(
+              icon: Icons.add_circle,
+              text: GalleryLocalizations.of(context).dialogAddAccount,
+              color: theme.disabledColor,
+            ),
+          ],
         ),
       ),
     );
@@ -281,8 +255,12 @@ class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
         );
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return child;
   }
 }
@@ -297,7 +275,7 @@ class _DialogButton extends StatelessWidget {
     return TextButton(
       child: Text(text),
       onPressed: () {
-        Navigator.of(context, rootNavigator: true).pop(text);
+        Navigator.of(context).pop(text);
       },
     );
   }
@@ -319,7 +297,7 @@ class _DialogDemoItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialogOption(
       onPressed: () {
-        Navigator.of(context, rootNavigator: true).pop(text);
+        Navigator.of(context).pop(text);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
