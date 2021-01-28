@@ -30,6 +30,7 @@ import 'package:gallery/demos/material/cards_demo.dart';
 import 'package:gallery/demos/material/chip_demo.dart';
 import 'package:gallery/demos/material/data_table_demo.dart';
 import 'package:gallery/demos/material/dialog_demo.dart';
+import 'package:gallery/demos/material/divider_demo.dart';
 import 'package:gallery/demos/material/grid_list_demo.dart';
 import 'package:gallery/demos/material/list_demo.dart';
 import 'package:gallery/demos/material/menu_demo.dart';
@@ -438,6 +439,22 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
               '$_docsBaseUrl/widgets/PageRoute/fullscreenDialog.html',
           buildRoute: (_) => DialogDemo(type: DialogDemoType.fullscreen),
           code: CodeSegments.dialogDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
+      title: localizations.demoDividerTitle,
+      icon: GalleryIcons.divider,
+      slug: 'divider',
+      subtitle: localizations.demoDividerSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoDividerTitle,
+          description: localizations.demoDividerDescription,
+          documentationUrl: '$_docsBaseUrl/material/Divider-class.html',
+          buildRoute: (_) => const DividerDemo(),
+          code: CodeSegments.dividerDemo,
         ),
       ],
       category: GalleryDemoCategory.material,

@@ -907,6 +907,26 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
+    "demoDividerTitle": "Divider",
+  "@demoDividerTitle": {
+    "description": "Title for the divider component demo."
+  },
+  "demoDividerSubtitle": "A thin horizontal line, with padding on either side",
+  "@demoDividerSubtitle": {
+    "description": "Subtitle for the divider component demo."
+  },
+  "demoDividerDescription": "Dividers can be used in lists, Drawers, and elsewhere to separate content.",
+  "@demoDividerDescription": {
+    "description": "Description for the divider component demo."
+  },
+  "demoDividerAbove": "Above",
+  "@demoDividerAbove": {
+    "description": "Text one for the divider component demo."
+  },
+  "demoDividerBelow": "Below",
+  "@demoDividerBelow": {
+    "description": "Text two for the divider component demo."
+  },
   "demoGridListsTitle": "Grid Lists",
   "@demoGridListsTitle": {
     "description": "Title for the grid lists component demo."

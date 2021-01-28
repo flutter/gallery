@@ -818,6 +818,26 @@
     description="Description for the simple dialog component demo."
     >A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.</string>
   <string
+    name="demoDividerTitle"
+    description="Title for the divider component demo."
+    >Divider</string>
+  <string
+    name="demoDividerSubtitle"
+    description="Subtitle for the divider component demo."
+    >A thin horizontal line, with padding on either side</string>
+  <string
+    name="demoDividerDescription"
+    description="Description for the divider component demo."
+    >Dividers can be used in lists, Drawers, and elsewhere to separate content.</string>
+  <string
+    name="demoDividerAbove"
+    description="Text one for the divider component demo."
+    >Above</string>
+  <string
+    name="demoDividerBelow"
+    description="Text two for the divider component demo."
+    >Below</string>
+  <string
     name="demoGridListsTitle"
     description="Title for the grid lists component demo."
     >Grid Lists</string>
