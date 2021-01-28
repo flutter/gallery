@@ -21,6 +21,7 @@ final valueList = <String>[
 
 /// Tests that the Gallery web benchmarks are run and reported correctly.
 Future<void> main() async {
+  // See https://github.com/flutter/gallery/issues/411 for why it is skipped.
   test('Can run a web benchmark', () async {
     print('Starting web benchmark tests ...');
 
@@ -28,6 +29,7 @@ Future<void> main() async {
       benchmarkAppDirectory: projectRootDirectory(),
       entryPoint: 'test/benchmarks/client.dart',
       useCanvasKit: false,
+      headless: true,
     );
 
     print('Web benchmark tests finished.');
@@ -63,5 +65,5 @@ Future<void> main() async {
       const JsonEncoder.withIndent('  ').convert(taskResult.toJson()),
       isA<String>(),
     );
-  }, timeout: Timeout.none);
+  }, timeout: Timeout.none, skip: true);
 }
