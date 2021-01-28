@@ -15,8 +15,17 @@ class CupertinoSwitchDemo extends StatefulWidget {
   _CupertinoSwitchDemoState createState() => _CupertinoSwitchDemoState();
 }
 
-class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo> {
-  bool _switchValue = false;
+class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
+    with RestorationMixin {
+  final RestorableBool _switchValue = RestorableBool(false);
+
+  @override
+  String get restorationId => 'cupertino_switch_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_switchValue, 'switch_value');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +42,10 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo> {
           label:
               GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
           child: CupertinoSwitch(
-            value: _switchValue,
+            value: _switchValue.value,
             onChanged: (value) {
               setState(() {
-                _switchValue = value;
+                _switchValue.value = value;
               });
             },
           ),
