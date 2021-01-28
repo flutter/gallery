@@ -842,10 +842,6 @@
     description="Title for the vertical divider component demo."
     >Vertical Divider</string>
   <string
-    name="demoVerticalDividerSubtitle"
-    description="Subtitle for the vertical divider component demo."
-    >A thin vertical line, with padding on either side</string>
-  <string
     name="demoVerticalDividerDescription"
     description="Description for the vertical divider component demo."
     >Dividers can be used in lists, drawers, and elsewhere to separate content.</string>

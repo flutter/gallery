@@ -931,10 +931,6 @@
   "@demoVerticalDividerTitle": {
     "description": "Title for the vertical divider component demo."
   },
-  "demoVerticalDividerSubtitle": "A thin vertical line, with padding on either side",
-  "@demoVerticalDividerSubtitle": {
-    "description": "Subtitle for the vertical divider component demo."
-  },
   "demoVerticalDividerDescription": "Dividers can be used in lists, drawers, and elsewhere to separate content.",
   "@demoVerticalDividerDescription": {
     "description": "Description for the vertical divider component demo."

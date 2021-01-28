@@ -5,59 +5,136 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
-// BEGIN dividerDemo
+enum DividerDemoType {
+  horizontal,
+  vertical,
+}
 
 class DividerDemo extends StatelessWidget {
-  const DividerDemo({Key key}) : super(key: key);
+  const DividerDemo({Key key, this.type}) : super(key: key);
+
+  final DividerDemoType type;
+
+  String _title(BuildContext context) {
+    switch (type) {
+      case DividerDemoType.horizontal:
+        return GalleryLocalizations.of(context).demoDividerTitle;
+      case DividerDemoType.vertical:
+        return GalleryLocalizations.of(context).demoVerticalDividerTitle;
+    }
+    return '';
+  }
 
   @override
   Widget build(BuildContext context) {
-    final localization = GalleryLocalizations.of(context);
+    Widget dividers;
+    switch (type) {
+      case DividerDemoType.horizontal:
+        dividers = _HorDividerDemo();
+        break;
+      case DividerDemoType.vertical:
+        dividers = _VerDividerDemo();
+        break;
+    }
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          localization.demoDividerTitle,
+          _title(context),
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Expanded(
-              child: DivContainer(
-                colors: Colors.deepOrangeAccent,
-                text: localization.demoDividerAbove,
-              ),
+      body: dividers,
+    );
+  }
+}
+
+// BEGIN dividerDemo
+
+class _HorDividerDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final localization = GalleryLocalizations.of(context);
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Expanded(
+            child: buildContainer(
+              text: localization.demoDividerAbove,
+              colors: Colors.deepOrangeAccent,
             ),
-            const Divider(
-              color: Colors.grey,
-              height: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 0,
+          ),
+          const Divider(
+            color: Colors.grey,
+            height: 20,
+            thickness: 1,
+            indent: 20,
+            endIndent: 0,
+          ),
+          Expanded(
+            child: buildContainer(
+              text: localization.demoDividerBelow,
+              colors: Colors.deepPurpleAccent,
             ),
-            Expanded(
-              child: DivContainer(
-                colors: Colors.deepPurpleAccent,
-                text: localization.demoDividerBelow,
-              ),
-            ),
-          ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container buildContainer({String text, Color colors}) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: colors,
+      ),
+      child: Center(
+        child: Text(
+          text,
         ),
       ),
     );
   }
 }
 
-class DivContainer extends StatelessWidget {
-  final Color colors;
-  final String text;
+// END
 
-  const DivContainer({this.colors, this.text});
+// BEGIN verDividerDemo
 
+class _VerDividerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final localization = GalleryLocalizations.of(context);
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        children: [
+          Expanded(
+            child: buildContainer(
+              text: localization.demoVerticalDividerLeft,
+              colors: Colors.deepOrangeAccent,
+            ),
+          ),
+          const VerticalDivider(
+            color: Colors.grey,
+            thickness: 1,
+            indent: 20,
+            endIndent: 0,
+            width: 20,
+          ),
+          Expanded(
+            child: buildContainer(
+              text: localization.demoVerticalDividerRight,
+              colors: Colors.deepPurpleAccent,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container buildContainer({String text, Color colors}) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
