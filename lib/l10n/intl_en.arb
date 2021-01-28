@@ -915,7 +915,7 @@
   "@demoDividerSubtitle": {
     "description": "Subtitle for the divider component demo."
   },
-  "demoDividerDescription": "Dividers can be used in lists, Drawers, and elsewhere to separate content.",
+  "demoDividerDescription": "Dividers can be used in lists, drawers, and elsewhere to separate content.",
   "@demoDividerDescription": {
     "description": "Description for the divider component demo."
   },
