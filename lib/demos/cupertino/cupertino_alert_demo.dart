@@ -69,7 +69,7 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     );
   }
 
-  void setSelectedValue(String value) {
+  void _setSelectedValue(String value) {
     if (value != null) {
       setState(() {
         lastSelectedValue.value = value;
@@ -84,31 +84,31 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(_alertDemoDialog);
       },
-      onComplete: setSelectedValue,
+      onComplete: _setSelectedValue,
     );
     _alertWithTitleDialogRoute = RestorableRouteFuture<String>(
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(_alertWithTitleDialog);
       },
-      onComplete: setSelectedValue,
+      onComplete: _setSelectedValue,
     );
     _alertWithButtonsDialogRoute = RestorableRouteFuture<String>(
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(_alertWithButtonsDialog);
       },
-      onComplete: setSelectedValue,
+      onComplete: _setSelectedValue,
     );
     _alertWithButtonsOnlyDialogRoute = RestorableRouteFuture<String>(
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(_alertWithButtonsOnlyDialog);
       },
-      onComplete: setSelectedValue,
+      onComplete: _setSelectedValue,
     );
     _modalPopupRoute = RestorableRouteFuture<String>(
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(_modalRoute);
       },
-      onComplete: setSelectedValue,
+      onComplete: _setSelectedValue,
     );
   }
 
