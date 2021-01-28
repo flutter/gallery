@@ -102,7 +102,10 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo> {
               GalleryLocalizations.of(context).cupertinoAlertCancel,
             ),
             isDefaultAction: true,
-            onPressed: () => Navigator.of(context, rootNavigator: true).pop(
+            onPressed: () => Navigator.of(
+              context,
+              rootNavigator: true,
+            ).pop(
               GalleryLocalizations.of(context).cupertinoAlertCancel,
             ),
           ),
