@@ -5,10 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
-// BEGIN dividerDemo
+// BEGIN verDividerDemo
 
-class DividerDemo extends StatelessWidget {
-  const DividerDemo({Key key}) : super(key: key);
+class VerDividerDemo extends StatelessWidget {
+  const VerDividerDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,30 +17,30 @@ class DividerDemo extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          localization.demoDividerTitle,
+          localization.demoVerticalDividerTitle,
         ),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
-        child: Column(
+        child: Row(
           children: [
             Expanded(
               child: DivContainer(
                 colors: Colors.deepOrangeAccent,
-                text: localization.demoDividerAbove,
+                text: localization.demoVerticalDividerLeft,
               ),
             ),
-            const Divider(
+            const VerticalDivider(
               color: Colors.grey,
-              height: 20,
               thickness: 1,
               indent: 20,
               endIndent: 0,
+              width: 20,
             ),
             Expanded(
               child: DivContainer(
                 colors: Colors.deepPurpleAccent,
-                text: localization.demoDividerBelow,
+                text: localization.demoVerticalDividerRight,
               ),
             ),
           ],

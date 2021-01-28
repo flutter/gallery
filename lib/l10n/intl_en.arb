@@ -911,7 +911,7 @@
   "@demoDividerTitle": {
     "description": "Title for the divider component demo."
   },
-  "demoDividerSubtitle": "A thin horizontal line, with padding on either side",
+  "demoDividerSubtitle": "A divider is a thin line that groups content in lists and layouts",
   "@demoDividerSubtitle": {
     "description": "Subtitle for the divider component demo."
   },
@@ -926,6 +926,26 @@
   "demoDividerBelow": "Below",
   "@demoDividerBelow": {
     "description": "Text two for the divider component demo."
+  },
+  "demoVerticalDividerTitle": "Vertical Divider",
+  "@demoVerticalDividerTitle": {
+    "description": "Title for the vertical divider component demo."
+  },
+  "demoVerticalDividerSubtitle": "A thin vertical line, with padding on either side",
+  "@demoVerticalDividerSubtitle": {
+    "description": "Subtitle for the vertical divider component demo."
+  },
+  "demoVerticalDividerDescription": "Dividers can be used in lists, drawers, and elsewhere to separate content.",
+  "@demoVerticalDividerDescription": {
+    "description": "Description for the vertical divider component demo."
+  },
+  "demoVerticalDividerLeft": "Left",
+  "@demoVerticalDividerLeft": {
+    "description": "Text one for the Vertical divider component demo."
+  },
+  "demoVerticalDividerRight": "Right",
+  "@demoVerticalDividerRight": {
+    "description": "Text two for the Verticaldivider component demo."
   },
   "demoGridListsTitle": "Grid Lists",
   "@demoGridListsTitle": {

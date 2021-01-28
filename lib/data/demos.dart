@@ -45,6 +45,7 @@ import 'package:gallery/demos/material/tabs_demo.dart';
 import 'package:gallery/demos/material/text_field_demo.dart';
 import 'package:gallery/demos/material/tooltip_demo.dart';
 import 'package:gallery/demos/material/app_bar_demo.dart';
+import 'package:gallery/demos/material/vertical_divider_demo.dart';
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
@@ -455,6 +456,22 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           documentationUrl: '$_docsBaseUrl/material/Divider-class.html',
           buildRoute: (_) => const DividerDemo(),
           code: CodeSegments.dividerDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
+      title: localizations.demoVerticalDividerTitle,
+      icon: GalleryIcons.divider,
+      slug: 'vertical-divider',
+      subtitle: localizations.demoVerticalDividerSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoVerticalDividerTitle,
+          description: localizations.demoVerticalDividerDescription,
+          documentationUrl: '$_docsBaseUrl/material/VerticalDivider-class.html',
+          buildRoute: (_) => const VerDividerDemo(),
+          code: CodeSegments.verDividerDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
