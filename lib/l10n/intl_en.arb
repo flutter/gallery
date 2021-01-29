@@ -907,7 +907,7 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
-    "demoDividerTitle": "Divider",
+  "demoDividerTitle": "Divider",
   "@demoDividerTitle": {
     "description": "Title for the divider component demo."
   },
