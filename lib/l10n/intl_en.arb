@@ -931,10 +931,6 @@
   "@demoVerticalDividerTitle": {
     "description": "Title for the vertical divider component demo."
   },
-  "demoVerticalDividerDescription": "Vertical dividers can be used in horizontally scrolling lists, such as a ListView.",
-  "@demoVerticalDividerDescription": {
-    "description": "Description for the vertical divider component demo."
-  },
   "demoVerticalDividerLeft": "Left",
   "@demoVerticalDividerLeft": {
     "description": "Text one for the Vertical divider component demo."

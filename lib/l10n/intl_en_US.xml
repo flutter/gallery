@@ -828,7 +828,7 @@
   <string
     name="demoDividerDescription"
     description="Description for the divider component demo."
-    >Dividers can be used in lists, Drawers, and elsewhere to separate content.</string>
+    >Dividers can be used in lists, drawers, and elsewhere to separate content.</string>
   <string
     name="demoDividerAbove"
     description="Text one for the divider component demo."
@@ -841,10 +841,6 @@
     name="demoVerticalDividerTitle"
     description="Title for the vertical divider component demo."
     >Vertical Divider</string>
-  <string
-    name="demoVerticalDividerDescription"
-    description="Description for the vertical divider component demo."
-    >Vertical dividers can be used in horizontally scrolling lists, such as a ListView.</string>
   <string
     name="demoVerticalDividerLeft"
     description="Text one for the Vertical divider component demo."
