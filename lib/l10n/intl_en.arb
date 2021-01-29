@@ -911,11 +911,11 @@
   "@demoDividerTitle": {
     "description": "Title for the divider component demo."
   },
-  "demoDividerSubtitle": "A divider is a thin line that groups content in lists and layouts",
+  "demoDividerSubtitle": "A divider is a thin line that groups content in lists and layouts.",
   "@demoDividerSubtitle": {
     "description": "Subtitle for the divider component demo."
   },
-  "demoDividerDescription": "Dividers can be used in lists, drawers, and elsewhere to separate content.",
+  "demoDividerDescription": "Dividers can be used in lists, Drawers, and elsewhere to separate content.",
   "@demoDividerDescription": {
     "description": "Description for the divider component demo."
   },
@@ -931,7 +931,7 @@
   "@demoVerticalDividerTitle": {
     "description": "Title for the vertical divider component demo."
   },
-  "demoVerticalDividerDescription": "Dividers can be used in lists, drawers, and elsewhere to separate content.",
+  "demoVerticalDividerDescription": "Vertical dividers can be used in horizontally scrolling lists, such as a ListView.",
   "@demoVerticalDividerDescription": {
     "description": "Description for the vertical divider component demo."
   },

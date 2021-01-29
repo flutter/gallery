@@ -30,10 +30,10 @@ class DividerDemo extends StatelessWidget {
     Widget dividers;
     switch (type) {
       case DividerDemoType.horizontal:
-        dividers = _HorDividerDemo();
+        dividers = _HorizontalDividerDemo();
         break;
       case DividerDemoType.vertical:
-        dividers = _VerDividerDemo();
+        dividers = _VerticalDividerDemo();
         break;
     }
 
@@ -51,7 +51,7 @@ class DividerDemo extends StatelessWidget {
 
 // BEGIN dividerDemo
 
-class _HorDividerDemo extends StatelessWidget {
+class _HorizontalDividerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = GalleryLocalizations.of(context);
@@ -60,9 +60,9 @@ class _HorDividerDemo extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-            child: buildContainer(
+            child: _buildContainer(
               text: localization.demoDividerAbove,
-              colors: Colors.deepOrangeAccent,
+              color: Colors.deepOrangeAccent,
             ),
           ),
           const Divider(
@@ -73,36 +73,36 @@ class _HorDividerDemo extends StatelessWidget {
             endIndent: 0,
           ),
           Expanded(
-            child: buildContainer(
+            child: _buildContainer(
               text: localization.demoDividerBelow,
-              colors: Colors.deepPurpleAccent,
+              color: Colors.deepPurpleAccent,
             ),
           ),
         ],
       ),
     );
   }
-
-  Container buildContainer({String text, Color colors}) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: colors,
-      ),
-      child: Center(
-        child: Text(
-          text,
-        ),
-      ),
-    );
-  }
 }
 
-// END
+// BEGIN verticalDividerDemo
 
-// BEGIN verDividerDemo
+Container _buildContainer({String text, Color color}) {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: color,
+    ),
+    child: Center(
+      child: Text(
+        text,
+      ),
+    ),
+  );
+}
 
-class _VerDividerDemo extends StatelessWidget {
+// END dividerDemo
+
+class _VerticalDividerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = GalleryLocalizations.of(context);
@@ -111,9 +111,9 @@ class _VerDividerDemo extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: buildContainer(
+            child: _buildContainer(
               text: localization.demoVerticalDividerLeft,
-              colors: Colors.deepOrangeAccent,
+              color: Colors.deepOrangeAccent,
             ),
           ),
           const VerticalDivider(
@@ -124,29 +124,15 @@ class _VerDividerDemo extends StatelessWidget {
             width: 20,
           ),
           Expanded(
-            child: buildContainer(
+            child: _buildContainer(
               text: localization.demoVerticalDividerRight,
-              colors: Colors.deepPurpleAccent,
+              color: Colors.deepPurpleAccent,
             ),
           ),
         ],
       ),
     );
   }
-
-  Container buildContainer({String text, Color colors}) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: colors,
-      ),
-      child: Center(
-        child: Text(
-          text,
-        ),
-      ),
-    );
-  }
 }
 
-// END
+// END verticalDividerDemo

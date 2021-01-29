@@ -462,7 +462,7 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoVerticalDividerDescription,
           documentationUrl: '$_docsBaseUrl/material/VerticalDivider-class.html',
           buildRoute: (_) => const DividerDemo(type: DividerDemoType.vertical),
-          code: CodeSegments.verDividerDemo,
+          code: CodeSegments.verticalDividerDemo,
         ),
       ],
       category: GalleryDemoCategory.material,
