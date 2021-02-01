@@ -919,25 +919,9 @@
   "@demoDividerDescription": {
     "description": "Description for the divider component demo."
   },
-  "demoDividerAbove": "Above",
-  "@demoDividerAbove": {
-    "description": "Text one for the divider component demo."
-  },
-  "demoDividerBelow": "Below",
-  "@demoDividerBelow": {
-    "description": "Text two for the divider component demo."
-  },
   "demoVerticalDividerTitle": "Vertical Divider",
   "@demoVerticalDividerTitle": {
     "description": "Title for the vertical divider component demo."
-  },
-  "demoVerticalDividerLeft": "Left",
-  "@demoVerticalDividerLeft": {
-    "description": "Text one for the Vertical divider component demo."
-  },
-  "demoVerticalDividerRight": "Right",
-  "@demoVerticalDividerRight": {
-    "description": "Text two for the Verticaldivider component demo."
   },
   "demoGridListsTitle": "Grid Lists",
   "@demoGridListsTitle": {

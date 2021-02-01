@@ -54,15 +54,16 @@ class DividerDemo extends StatelessWidget {
 class _HorizontalDividerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final localization = GalleryLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
           Expanded(
-            child: _buildContainer(
-              text: localization.demoDividerAbove,
-              color: Colors.deepOrangeAccent,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.deepPurpleAccent,
+              ),
             ),
           ),
           const Divider(
@@ -73,9 +74,11 @@ class _HorizontalDividerDemo extends StatelessWidget {
             endIndent: 0,
           ),
           Expanded(
-            child: _buildContainer(
-              text: localization.demoDividerBelow,
-              color: Colors.deepPurpleAccent,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.deepOrangeAccent,
+              ),
             ),
           ),
         ],
@@ -84,36 +87,23 @@ class _HorizontalDividerDemo extends StatelessWidget {
   }
 }
 
+// END
+
 // BEGIN verticalDividerDemo
-
-Container _buildContainer({String text, Color color}) {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: color,
-    ),
-    child: Center(
-      child: Text(
-        text,
-      ),
-    ),
-  );
-}
-
-// END dividerDemo
 
 class _VerticalDividerDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final localization = GalleryLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(10),
       child: Row(
         children: [
           Expanded(
-            child: _buildContainer(
-              text: localization.demoVerticalDividerLeft,
-              color: Colors.deepOrangeAccent,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.deepPurpleAccent,
+              ),
             ),
           ),
           const VerticalDivider(
@@ -124,9 +114,11 @@ class _VerticalDividerDemo extends StatelessWidget {
             width: 20,
           ),
           Expanded(
-            child: _buildContainer(
-              text: localization.demoVerticalDividerRight,
-              color: Colors.deepPurpleAccent,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.deepOrangeAccent,
+              ),
             ),
           ),
         ],
@@ -135,4 +127,4 @@ class _VerticalDividerDemo extends StatelessWidget {
   }
 }
 
-// END verticalDividerDemo
+// END
