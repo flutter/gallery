@@ -12,6 +12,7 @@ import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/home.dart';
 import 'package:gallery/studies/rally/login.dart';
+import 'package:gallery/studies/rally/routes.dart' as routes;
 
 /// The RallyApp is a MaterialApp with a theme and 2 routes.
 ///
@@ -20,8 +21,8 @@ import 'package:gallery/studies/rally/login.dart';
 class RallyApp extends StatelessWidget {
   const RallyApp();
 
-  static const String loginRoute = '/rally/login';
-  static const String homeRoute = '/rally';
+  static const String loginRoute = routes.loginRoute;
+  static const String homeRoute = routes.homeRoute;
 
   final sharedZAxisTransitionBuilder = const SharedAxisPageTransitionsBuilder(
     fillColor: RallyColors.primaryBackground,

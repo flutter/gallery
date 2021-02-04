@@ -8,6 +8,7 @@ import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:gallery/studies/reply/routes.dart' as routes;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +17,8 @@ final rootNavKey = GlobalKey<NavigatorState>();
 class ReplyApp extends StatefulWidget {
   const ReplyApp();
 
-  static const String homeRoute = '/reply';
-  static const String composeRoute = '/reply/compose';
+  static const String homeRoute = routes.homeRoute;
+  static const String composeRoute = routes.composeRoute;
 
   static Route createComposeRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(

@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
 import 'package:gallery/pages/home.dart';
-import 'package:gallery/studies/crane/app.dart';
-import 'package:gallery/studies/fortnightly/app.dart';
-import 'package:gallery/studies/rally/app.dart';
-import 'package:gallery/studies/reply/app.dart';
-import 'package:gallery/studies/shrine/app.dart';
+import 'package:gallery/studies/crane/app.dart' deferred as crane;
+import 'package:gallery/studies/crane/routes.dart' as crane_routes;
+import 'package:gallery/studies/fortnightly/app.dart' deferred as fortnightly;
+import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
+import 'package:gallery/studies/rally/app.dart' deferred as rally;
+import 'package:gallery/studies/rally/routes.dart' as rally_routes;
+import 'package:gallery/studies/reply/app.dart' deferred as reply;
+import 'package:gallery/studies/reply/routes.dart' as reply_routes;
+import 'package:gallery/studies/shrine/app.dart' deferred as shrine;
+import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/app.dart';
 
 typedef PathWidgetBuilder = Widget Function(BuildContext, String);
@@ -43,26 +48,43 @@ class RouteConfiguration {
       (context, match) => DemoPage(slug: match),
     ),
     Path(
-      r'^' + RallyApp.homeRoute,
-      (context, match) => const StudyWrapper(study: RallyApp()),
+      r'^' + rally_routes.homeRoute,
+      (context, match) => StudyWrapper(study:
+        DeferredLoader(child: rally.loadLibrary().then((dynamic _) {
+          return rally.RallyApp();
+        })),
+      ),
     ),
     Path(
-      r'^' + ShrineApp.homeRoute,
-      (context, match) => const StudyWrapper(study: ShrineApp()),
+      r'^' + shrine_routes.homeRoute,
+      (context, match) => StudyWrapper(study:
+        DeferredLoader(child: shrine.loadLibrary().then((dynamic _) {
+          return shrine.ShrineApp();
+        })),
+      ),
     ),
     Path(
-      r'^' + CraneApp.defaultRoute,
-      (context, match) => const StudyWrapper(study: CraneApp()),
+      r'^' + crane_routes.defaultRoute,
+      (context, match) => StudyWrapper(study:
+        DeferredLoader(child: crane.loadLibrary().then((dynamic _) {
+          return crane.CraneApp();
+        })),
+      ),
     ),
     Path(
-      r'^' + FortnightlyApp.defaultRoute,
-      (context, match) => const StudyWrapper(study: FortnightlyApp()),
+      r'^' + fortnightly_routes.defaultRoute,
+      (context, match) => StudyWrapper(study:
+        DeferredLoader(child: fortnightly.loadLibrary().then((dynamic _) {
+          return fortnightly.FortnightlyApp();
+        })),
+      ),
     ),
     Path(
-      r'^' + ReplyApp.homeRoute,
-      (context, match) => const StudyWrapper(
-        alignment: AlignmentDirectional.topCenter,
-        study: ReplyApp(),
+      r'^' + reply_routes.homeRoute,
+      (context, match) => StudyWrapper(study:
+        DeferredLoader(child: reply.loadLibrary().then((dynamic _) {
+          return reply.ReplyApp();
+        })),
       ),
     ),
     Path(
