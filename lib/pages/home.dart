@@ -1118,30 +1118,32 @@ double _carouselHeight(double scaleFactor, BuildContext context) => math.max(
         scaleFactor,
     _carouselHeightMin);
 
-/// Wraps the child inside a deferred module loader.
-class DeferredLoader extends StatefulWidget {
-  const DeferredLoader({
-    Key key,
-    this.child,
-  }) : super(key: key);
+typedef LibraryLoader = Future<void> Function();
+typedef DeferredWidgetBuilder = Widget Function();
 
-  final Future<Widget> child;
+/// Wraps the child inside a deferred module loader.
+class DeferredWidget extends StatefulWidget {
+  const DeferredWidget(this.libraryLoader, this.createWidget,
+      {Key key}) : super(key: key);
+
+  final LibraryLoader libraryLoader;
+  final DeferredWidgetBuilder createWidget;
 
   @override
-  _DeferredLoaderState createState() => _DeferredLoaderState();
+  _DeferredWidgetState createState() => _DeferredWidgetState();
 }
 
-class _DeferredLoaderState extends State<DeferredLoader> {
+class _DeferredWidgetState extends State<DeferredWidget> {
   Widget _loadedChild;
 
   @override void initState() {
-    widget.child.then(_onWidgetLoaded);
+    widget.libraryLoader().then(_onLibraryLoaded);
     super.initState();
   }
 
-  void _onWidgetLoaded(Widget widget) {
+  void _onLibraryLoaded(dynamic _) {
     setState(() {
-      _loadedChild = widget;
+      _loadedChild = widget.createWidget();
     });
   }
 

@@ -49,42 +49,32 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + rally_routes.homeRoute,
-      (context, match) => StudyWrapper(study:
-        DeferredLoader(child: rally.loadLibrary().then((dynamic _) {
-          return rally.RallyApp();
-        })),
+      (context, match) => StudyWrapper(
+          study: DeferredWidget(rally.loadLibrary, () => rally.RallyApp()),
       ),
     ),
     Path(
       r'^' + shrine_routes.homeRoute,
-      (context, match) => StudyWrapper(study:
-        DeferredLoader(child: shrine.loadLibrary().then((dynamic _) {
-          return shrine.ShrineApp();
-        })),
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(rally.loadLibrary, () => shrine.ShrineApp()),
       ),
     ),
     Path(
       r'^' + crane_routes.defaultRoute,
-      (context, match) => StudyWrapper(study:
-        DeferredLoader(child: crane.loadLibrary().then((dynamic _) {
-          return crane.CraneApp();
-        })),
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(rally.loadLibrary, () => crane.CraneApp()),
       ),
     ),
     Path(
       r'^' + fortnightly_routes.defaultRoute,
-      (context, match) => StudyWrapper(study:
-        DeferredLoader(child: fortnightly.loadLibrary().then((dynamic _) {
-          return fortnightly.FortnightlyApp();
-        })),
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(rally.loadLibrary, () => fortnightly.FortnightlyApp()),
       ),
     ),
     Path(
       r'^' + reply_routes.homeRoute,
-      (context, match) => StudyWrapper(study:
-        DeferredLoader(child: reply.loadLibrary().then((dynamic _) {
-          return reply.ReplyApp();
-        })),
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(reply.loadLibrary, () => reply.ReplyApp()),
       ),
     ),
     Path(
