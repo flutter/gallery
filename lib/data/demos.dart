@@ -9,41 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
-import 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_context_menu_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_picker_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart';
-import 'package:gallery/demos/cupertino/cupertino_text_field_demo.dart';
-import 'package:gallery/demos/material/banner_demo.dart';
-import 'package:gallery/demos/material/bottom_app_bar_demo.dart';
-import 'package:gallery/demos/material/bottom_navigation_demo.dart';
-import 'package:gallery/demos/material/bottom_sheet_demo.dart';
-import 'package:gallery/demos/material/button_demo.dart';
-import 'package:gallery/demos/material/cards_demo.dart';
-import 'package:gallery/demos/material/chip_demo.dart';
-import 'package:gallery/demos/material/data_table_demo.dart';
-import 'package:gallery/demos/material/dialog_demo.dart';
-import 'package:gallery/demos/material/grid_list_demo.dart';
-import 'package:gallery/demos/material/list_demo.dart';
-import 'package:gallery/demos/material/menu_demo.dart';
-import 'package:gallery/demos/material/navigation_drawer.dart';
-import 'package:gallery/demos/material/navigation_rail_demo.dart';
-import 'package:gallery/demos/material/picker_demo.dart';
-import 'package:gallery/demos/material/progress_indicator_demo.dart';
-import 'package:gallery/demos/material/selection_controls_demo.dart';
-import 'package:gallery/demos/material/sliders_demo.dart';
-import 'package:gallery/demos/material/snackbar_demo.dart';
-import 'package:gallery/demos/material/tabs_demo.dart';
-import 'package:gallery/demos/material/text_field_demo.dart';
-import 'package:gallery/demos/material/tooltip_demo.dart';
-import 'package:gallery/demos/material/app_bar_demo.dart';
+import 'package:gallery/demos/cupertino/cupertino_demos.dart' deferred as cupertino_demos;
+import 'package:gallery/demos/cupertino/demo_types.dart';
+import 'package:gallery/demos/material/material_demos.dart' deferred as material_demos;
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
@@ -56,6 +24,7 @@ import 'package:gallery/demos/reference/typography_demo.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
     show GalleryLocalizationsEn;
+import 'package:gallery/pages/home.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 const _docsAnimationsUrl =
@@ -793,7 +762,12 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoActivityIndicatorDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoActivityIndicator-class.html',
-          buildRoute: (_) => const CupertinoProgressIndicatorDemo(),
+          buildRoute:
+            (_) => DeferredLoader(
+              child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoProgressIndicatorDemo();
+              })
+            ),
           code: CodeSegments.cupertinoActivityIndicatorDemo,
         ),
       ],
@@ -810,8 +784,9 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
-          buildRoute: (_) =>
-              const CupertinoAlertDemo(type: AlertDemoType.alert),
+          buildRoute: (_) => DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+              return cupertino_demos.CupertinoAlertDemo(type: AlertDemoType.alert);
+            })),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -819,8 +794,9 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
-          buildRoute: (_) =>
-              const CupertinoAlertDemo(type: AlertDemoType.alertTitle),
+          buildRoute: (_) => DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+              return cupertino_demos.CupertinoAlertDemo(type: AlertDemoType.alertTitle);
+            })),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -828,8 +804,9 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
-          buildRoute: (_) =>
-              const CupertinoAlertDemo(type: AlertDemoType.alertButtons),
+          buildRoute: (_) =>DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+              return cupertino_demos.CupertinoAlertDemo(type: AlertDemoType.alertButtons);
+            })),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -837,8 +814,9 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoAlertDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoAlertDialog-class.html',
-          buildRoute: (_) =>
-              const CupertinoAlertDemo(type: AlertDemoType.alertButtonsOnly),
+          buildRoute: (_) => DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+              return cupertino_demos.CupertinoAlertDemo(type: AlertDemoType.alertButtonsOnly);
+            })),
           code: CodeSegments.cupertinoAlertDemo,
         ),
         GalleryDemoConfiguration(
@@ -846,8 +824,9 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoActionSheetDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoActionSheet-class.html',
-          buildRoute: (_) =>
-              const CupertinoAlertDemo(type: AlertDemoType.actionSheet),
+          buildRoute: (_) => DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+              return cupertino_demos.CupertinoAlertDemo(type: AlertDemoType.actionSheet);
+            })),
           code: CodeSegments.cupertinoAlertDemo,
         ),
       ],
@@ -864,7 +843,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoButtonsDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoButton-class.html',
-          buildRoute: (_) => const CupertinoButtonDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoButtonDemo();
+              })),
           code: CodeSegments.cupertinoButtonDemo,
         ),
       ],
@@ -881,7 +863,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoContextMenuDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoContextMenu-class.html',
-          buildRoute: (_) => const CupertinoContextMenuDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoContextMenuDemo();
+              })),
           code: CodeSegments.cupertinoContextMenuDemo,
         ),
       ],
@@ -898,7 +883,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoNavigationBarDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoNavigationBar-class.html',
-          buildRoute: (_) => const CupertinoNavigationBarDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoNavigationBarDemo();
+              })),
           code: CodeSegments.cupertinoNavigationBarDemo,
         ),
       ],
@@ -915,7 +903,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoPickerDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoDatePicker-class.html',
-          buildRoute: (_) => const CupertinoPickerDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoPickerDemo();
+              })),
           code: CodeSegments.cupertinoPickersDemo,
         ),
       ],
@@ -932,7 +923,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoPullToRefreshDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSliverRefreshControl-class.html',
-          buildRoute: (_) => const CupertinoRefreshControlDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoRefreshControlDemo();
+              })),
           code: CodeSegments.cupertinoRefreshDemo,
         ),
       ],
@@ -949,7 +943,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoSegmentedControlDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSegmentedControl-class.html',
-          buildRoute: (_) => const CupertinoSegmentedControlDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoSegmentedControlDemo();
+              })),
           code: CodeSegments.cupertinoSegmentedControlDemo,
         ),
       ],
@@ -966,7 +963,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoSliderDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSlider-class.html',
-          buildRoute: (_) => const CupertinoSliderDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoSliderDemo();
+              })),
           code: CodeSegments.cupertinoSliderDemo,
         ),
       ],
@@ -983,7 +983,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoSwitchDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoSwitch-class.html',
-          buildRoute: (_) => const CupertinoSwitchDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoSwitchDemo();
+              })),
           code: CodeSegments.cupertinoSwitchDemo,
         ),
       ],
@@ -1000,7 +1003,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoTabBarDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoTabBar-class.html',
-          buildRoute: (_) => const CupertinoTabBarDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoTabBarDemo();
+              })),
           code: CodeSegments.cupertinoNavigationDemo,
         ),
       ],
@@ -1017,7 +1023,10 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           description: localizations.demoCupertinoTextFieldDescription,
           documentationUrl:
               '$_docsBaseUrl/cupertino/CupertinoTextField-class.html',
-          buildRoute: (_) => const CupertinoTextFieldDemo(),
+          buildRoute: (_) =>
+              DeferredLoader(child: cupertino_demos.loadLibrary().then((dynamic _) {
+                return cupertino_demos.CupertinoTextFieldDemo();
+              })),
           code: CodeSegments.cupertinoTextFieldDemo,
         ),
       ],
