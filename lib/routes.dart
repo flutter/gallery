@@ -13,7 +13,8 @@ import 'package:gallery/studies/reply/app.dart' deferred as reply;
 import 'package:gallery/studies/reply/routes.dart' as reply_routes;
 import 'package:gallery/studies/shrine/app.dart' deferred as shrine;
 import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
-import 'package:gallery/studies/starter/app.dart';
+import 'package:gallery/studies/starter/app.dart' as starter_app;
+import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 typedef PathWidgetBuilder = Widget Function(BuildContext, String);
 
@@ -78,8 +79,10 @@ class RouteConfiguration {
       ),
     ),
     Path(
-      r'^' + StarterApp.defaultRoute,
-      (context, match) => const StudyWrapper(study: StarterApp()),
+      r'^' + starter_app_routes.StarterApp.defaultRoute,
+      (context, match) => const StudyWrapper(
+        study: DeferredWidget(starter_app.loadLibrary, () => starter_app.StarterApp()),
+      ),
     ),
     Path(
       r'^/',
