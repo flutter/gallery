@@ -10,11 +10,11 @@ import 'package:gallery/studies/fortnightly/app.dart' deferred as fortnightly;
 import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
 import 'package:gallery/studies/rally/app.dart' deferred as rally;
 import 'package:gallery/studies/rally/routes.dart' as rally_routes;
-import 'package:gallery/studies/reply/app.dart' deferred as reply;
+import 'package:gallery/studies/reply/app.dart' as reply;
 import 'package:gallery/studies/reply/routes.dart' as reply_routes;
 import 'package:gallery/studies/shrine/app.dart' deferred as shrine;
 import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
-import 'package:gallery/studies/starter/app.dart' deferred as starter_app;
+import 'package:gallery/studies/starter/app.dart' as starter_app;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 typedef PathWidgetBuilder = Widget Function(BuildContext, String);
@@ -81,18 +81,12 @@ class RouteConfiguration {
     ),
     Path(
       r'^' + reply_routes.homeRoute,
-      (context, match) => StudyWrapper(
-        study: DeferredWidget(reply.loadLibrary,
-            () => reply.ReplyApp()), // ignore: prefer_const_constructors
-      ),
+      (context, match) => const StudyWrapper(study: reply.ReplyApp()),
     ),
     Path(
       r'^' + starter_app_routes.defaultRoute,
-      (context, match) => StudyWrapper(
-        study: DeferredWidget(
-            starter_app.loadLibrary,
-            () =>
-                starter_app.StarterApp()), // ignore: prefer_const_constructors
+      (context, match) => const StudyWrapper(
+        study: starter_app.StarterApp(),
       ),
     ),
     Path(
