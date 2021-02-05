@@ -9,8 +9,8 @@ typedef DeferredWidgetBuilder = Widget Function();
 
 /// Wraps the child inside a deferred module loader.
 class DeferredWidget extends StatefulWidget {
-  const DeferredWidget(this.libraryLoader, this.createWidget,
-      {Key key}) : super(key: key);
+  const DeferredWidget(this.libraryLoader, this.createWidget, {Key key})
+      : super(key: key);
 
   final LibraryLoader libraryLoader;
   final DeferredWidgetBuilder createWidget;
@@ -22,7 +22,8 @@ class DeferredWidget extends StatefulWidget {
 class _DeferredWidgetState extends State<DeferredWidget> {
   Widget _loadedChild;
 
-  @override void initState() {
+  @override
+  void initState() {
     widget.libraryLoader().then(_onLibraryLoaded);
     super.initState();
   }

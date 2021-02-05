@@ -52,37 +52,47 @@ class RouteConfiguration {
     Path(
       r'^' + rally_routes.homeRoute,
       (context, match) => StudyWrapper(
-          study: DeferredWidget(rally.loadLibrary, () => rally.RallyApp()),  // ignore: prefer_const_constructors
+        study: DeferredWidget(rally.loadLibrary,
+            () => rally.RallyApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
       r'^' + shrine_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(rally.loadLibrary, () => shrine.ShrineApp()), // ignore: prefer_const_constructors
+        study: DeferredWidget(rally.loadLibrary,
+            () => shrine.ShrineApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
       r'^' + crane_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(rally.loadLibrary, () => crane.CraneApp()), // ignore: prefer_const_constructors
+        study: DeferredWidget(rally.loadLibrary,
+            () => crane.CraneApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
       r'^' + fortnightly_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(rally.loadLibrary, () => fortnightly.FortnightlyApp()), // ignore: prefer_const_constructors
+        study: DeferredWidget(
+            rally.loadLibrary,
+            // ignore: prefer_const_constructors
+            () => fortnightly.FortnightlyApp()),
       ),
     ),
     Path(
       r'^' + reply_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(reply.loadLibrary, () => reply.ReplyApp()), // ignore: prefer_const_constructors
+        study: DeferredWidget(reply.loadLibrary,
+            () => reply.ReplyApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
       r'^' + starter_app_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(starter_app.loadLibrary, () => starter_app.StarterApp()), // ignore: prefer_const_constructors
+        study: DeferredWidget(
+            starter_app.loadLibrary,
+            () =>
+                starter_app.StarterApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
