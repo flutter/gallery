@@ -113,6 +113,16 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   FocusNode _phoneNumber, _email, _lifeStory, _password, _retypePassword;
 
   @override
+  void initState() {
+    super.initState();
+    _phoneNumber = FocusNode();
+    _email = FocusNode();
+    _lifeStory = FocusNode();
+    _password = FocusNode();
+    _retypePassword = FocusNode();
+  }
+
+  @override
   void dispose() {
     _phoneNumber.dispose();
     _email.dispose();
@@ -120,16 +130,6 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
     _password.dispose();
     _retypePassword.dispose();
     super.dispose();
-  }
-  
-  @override
-  void initState() {
-    _phoneNumber = FocusNode();
-    _email = FocusNode();
-    _lifeStory = FocusNode();
-    _password = FocusNode();
-    _retypePassword = FocusNode();
-    super.initState();
   }
 
   void showInSnackBar(String value) {
