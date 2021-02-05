@@ -10,6 +10,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/constants.dart';
+import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -1117,41 +1118,6 @@ double _carouselHeight(double scaleFactor, BuildContext context) => math.max(
         GalleryOptions.of(context).textScaleFactor(context) *
         scaleFactor,
     _carouselHeightMin);
-
-typedef LibraryLoader = Future<void> Function();
-typedef DeferredWidgetBuilder = Widget Function();
-
-/// Wraps the child inside a deferred module loader.
-class DeferredWidget extends StatefulWidget {
-  const DeferredWidget(this.libraryLoader, this.createWidget,
-      {Key key}) : super(key: key);
-
-  final LibraryLoader libraryLoader;
-  final DeferredWidgetBuilder createWidget;
-
-  @override
-  _DeferredWidgetState createState() => _DeferredWidgetState();
-}
-
-class _DeferredWidgetState extends State<DeferredWidget> {
-  Widget _loadedChild;
-
-  @override void initState() {
-    widget.libraryLoader().then(_onLibraryLoaded);
-    super.initState();
-  }
-
-  void _onLibraryLoaded(dynamic _) {
-    setState(() {
-      _loadedChild = widget.createWidget();
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return _loadedChild ?? Container();
-  }
-}
 
 /// Wrap the studies with this to display a back button and allow the user to
 /// exit them at any time.
