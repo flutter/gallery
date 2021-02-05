@@ -609,7 +609,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.1-nullsafety.0"
+    version: "6.0.1-nullsafety.1"
   watcher:
     dependency: transitive
     description:
@@ -637,7 +637,7 @@ packages:
       name: webdriver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0-nullsafety.0"
+    version: "3.0.0-nullsafety.1"
   webkit_inspection_protocol:
     dependency: transitive
     description:
