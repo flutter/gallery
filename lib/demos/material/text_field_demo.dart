@@ -121,7 +121,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
     _retypePassword.dispose();
     super.dispose();
   }
-
+  
   @override
   void initState() {
     _phoneNumber = FocusNode();
