@@ -13,15 +13,15 @@ import 'package:gallery/demos/cupertino/cupertino_demos.dart' deferred as cupert
 import 'package:gallery/demos/cupertino/demo_types.dart';
 import 'package:gallery/demos/material/material_demos.dart' deferred as material_demos;
 import 'package:gallery/demos/material/material_demo_types.dart';
-import 'package:gallery/demos/reference/motion_demo_container_transition.dart';
+import 'package:gallery/demos/reference/motion_demo_container_transition.dart' deferred as motion_demo_container;
 import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_x_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dart';
-import 'package:gallery/demos/reference/colors_demo.dart';
-import 'package:gallery/demos/reference/transformations_demo.dart';
-import 'package:gallery/demos/reference/typography_demo.dart';
+import 'package:gallery/demos/reference/colors_demo.dart' deferred as colors_demo;
+import 'package:gallery/demos/reference/transformations_demo.dart' deferred as transformations_demo;
+import 'package:gallery/demos/reference/typography_demo.dart' deferred as typography;
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
     show GalleryLocalizationsEn;
@@ -1093,7 +1093,8 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demoContainerTransformTitle,
           description: localizations.demoContainerTransformDescription,
           documentationUrl: '$_docsAnimationsUrl/OpenContainer-class.html',
-          buildRoute: (_) => const OpenContainerTransformDemo(),
+          buildRoute: (_) => DeferredWidget(motion_demo_container.loadLibrary,
+              () => motion_demo_container.OpenContainerTransformDemo()),
           code: CodeSegments.openContainerTransformDemo,
         ),
         GalleryDemoConfiguration(
@@ -1149,7 +1150,8 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demoColorsTitle,
           description: localizations.demoColorsDescription,
           documentationUrl: '$_docsBaseUrl/material/MaterialColor-class.html',
-          buildRoute: (_) => const ColorsDemo(),
+          buildRoute: (_) =>
+              DeferredWidget(colors_demo.loadLibrary, ()=> colors_demo.ColorsDemo()),
           code: CodeSegments.colorsDemo,
         ),
       ],
@@ -1165,7 +1167,8 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demoTypographyTitle,
           description: localizations.demoTypographyDescription,
           documentationUrl: '$_docsBaseUrl/material/TextTheme-class.html',
-          buildRoute: (_) => const TypographyDemo(),
+          buildRoute: (_) => DeferredWidget(typography.loadLibrary,
+              () => typography.TypographyDemo()),
           code: CodeSegments.typographyDemo,
         ),
       ],
@@ -1181,7 +1184,8 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demo2dTransformationsTitle,
           description: localizations.demo2dTransformationsDescription,
           documentationUrl: '$_docsBaseUrl/widgets/GestureDetector-class.html',
-          buildRoute: (_) => const TransformationsDemo(),
+          buildRoute: (_) => DeferredWidget(transformations_demo.loadLibrary,
+              () => transformations_demo.TransformationsDemo()),
           code: CodeSegments.transformationsDemo,
         ),
       ],
