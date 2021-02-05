@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
+import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/demos/cupertino/cupertino_demos.dart' deferred as cupertino_demos;
 import 'package:gallery/demos/cupertino/demo_types.dart';
 import 'package:gallery/demos/material/material_demos.dart' deferred as material_demos;
