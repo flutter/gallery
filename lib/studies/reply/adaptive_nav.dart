@@ -248,7 +248,8 @@ class _DesktopNavState extends State<_DesktopNav>
               children: [
                 Flexible(
                   child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1340),
+                    constraints:
+                        BoxConstraints(maxWidth: widget.extended ? 1340 : 800),
                     child: _SharedAxisTransitionSwitcher(
                       defaultChild: _MailNavigator(
                         child: MailboxBody(key: widget.inboxKey),
