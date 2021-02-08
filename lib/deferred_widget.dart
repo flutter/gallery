@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 typedef LibraryLoader = Future<void> Function();
@@ -24,11 +25,15 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 
   @override
   void initState() {
-    widget.libraryLoader().then(_onLibraryLoaded);
+    final Zone currentZone = Zone.current;
+    Zone.root.run(() => () {
+      widget.libraryLoader().then(
+              (dynamic _) => currentZone.run(_onLibraryLoaded));
+    });
     super.initState();
   }
 
-  void _onLibraryLoaded(dynamic _) {
+  void _onLibraryLoaded() {
     setState(() {
       _loadedChild = widget.createWidget();
     });

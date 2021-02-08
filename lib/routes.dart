@@ -59,14 +59,14 @@ class RouteConfiguration {
     Path(
       r'^' + shrine_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(rally.loadLibrary,
+        study: DeferredWidget(shrine.loadLibrary,
             () => shrine.ShrineApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
       r'^' + crane_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(rally.loadLibrary,
+        study: DeferredWidget(crane.loadLibrary,
             () => crane.CraneApp()), // ignore: prefer_const_constructors
       ),
     ),
@@ -74,14 +74,15 @@ class RouteConfiguration {
       r'^' + fortnightly_routes.defaultRoute,
       (context, match) => StudyWrapper(
         study: DeferredWidget(
-            rally.loadLibrary,
+            fortnightly.loadLibrary,
             // ignore: prefer_const_constructors
             () => fortnightly.FortnightlyApp()),
       ),
     ),
     Path(
       r'^' + reply_routes.homeRoute,
-      (context, match) => const StudyWrapper(study: reply.ReplyApp()),
+      // ignore: prefer_const_constructors
+      (context, match) => StudyWrapper(study: reply.ReplyApp())
     ),
     Path(
       r'^' + starter_app_routes.defaultRoute,
