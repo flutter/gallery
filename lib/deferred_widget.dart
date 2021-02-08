@@ -27,9 +27,10 @@ class _DeferredWidgetState extends State<DeferredWidget> {
   void initState() {
     final currentZone = Zone.current;
     Zone.root.run(() => () {
-      widget.libraryLoader().then(
-              (dynamic _) => currentZone.run(_onLibraryLoaded));
-    });
+          widget
+              .libraryLoader()
+              .then((dynamic _) => currentZone.run(_onLibraryLoaded));
+        });
     super.initState();
   }
 

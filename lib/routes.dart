@@ -80,10 +80,9 @@ class RouteConfiguration {
       ),
     ),
     Path(
-      r'^' + reply_routes.homeRoute,
-      // ignore: prefer_const_constructors
-      (context, match) => StudyWrapper(study: reply.ReplyApp())
-    ),
+        r'^' + reply_routes.homeRoute,
+        // ignore: prefer_const_constructors
+        (context, match) => StudyWrapper(study: reply.ReplyApp())),
     Path(
       r'^' + starter_app_routes.defaultRoute,
       (context, match) => const StudyWrapper(
