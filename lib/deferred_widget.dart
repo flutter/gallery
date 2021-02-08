@@ -15,6 +15,14 @@ class DeferredWidget extends StatefulWidget {
 
   final LibraryLoader libraryLoader;
   final DeferredWidgetBuilder createWidget;
+  static final Map<LibraryLoader, Future<void>> _moduleLoaders = {};
+
+  static Future<void> preload(LibraryLoader loader) {
+    if (!_moduleLoaders.containsKey(loader)) {
+      _moduleLoaders[loader] = loader();
+    }
+    return _moduleLoaders[loader];
+  }
 
   @override
   _DeferredWidgetState createState() => _DeferredWidgetState();
@@ -25,7 +33,8 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 
   @override
   void initState() {
-    widget.libraryLoader().then((dynamic _) => _onLibraryLoaded());
+    DeferredWidget.preload(widget.libraryLoader)
+        .then((dynamic _) => _onLibraryLoaded());
     super.initState();
   }
 
