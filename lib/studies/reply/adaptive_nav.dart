@@ -241,7 +241,7 @@ class _DesktopNavState extends State<_DesktopNav>
               );
             },
           ),
-          const VerticalDivider(thickness: 1, width: 1),
+          const VerticalDivider(thickness: 1, width: 2),
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
