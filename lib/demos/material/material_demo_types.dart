@@ -75,3 +75,8 @@ enum TabsDemoType {
   scrollable,
   nonScrollable,
 }
+
+enum DividerDemoType {
+  horizontal,
+  vertical,
+}

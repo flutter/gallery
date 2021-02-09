@@ -7,6 +7,7 @@ export 'package:gallery/demos/material/cards_demo.dart';
 export 'package:gallery/demos/material/chip_demo.dart';
 export 'package:gallery/demos/material/data_table_demo.dart';
 export 'package:gallery/demos/material/dialog_demo.dart';
+export 'package:gallery/demos/material/divider_demo.dart';
 export 'package:gallery/demos/material/grid_list_demo.dart';
 export 'package:gallery/demos/material/list_demo.dart';
 export 'package:gallery/demos/material/menu_demo.dart';

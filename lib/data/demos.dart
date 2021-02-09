@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
+
 import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/demos/cupertino/cupertino_demos.dart'
     deferred as cupertino_demos;
@@ -475,6 +476,33 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           buildRoute: (context) => DeferredWidget(materialDemosLibrary,
               () => material_demos.DialogDemo(type: DialogDemoType.fullscreen)),
           code: CodeSegments.dialogDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.material,
+    ),
+    GalleryDemo(
+      title: localizations.demoDividerTitle,
+      icon: GalleryIcons.divider,
+      slug: 'divider',
+      subtitle: localizations.demoDividerSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoDividerTitle,
+          description: localizations.demoDividerDescription,
+          documentationUrl: '$_docsBaseUrl/material/Divider-class.html',
+          buildRoute: (_) => DeferredWidget(materialDemosLibrary,
+              // ignore: prefer_const_constructors
+              () => material_demos.DividerDemo(type: DividerDemoType.horizontal)),
+          code: CodeSegments.dividerDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoVerticalDividerTitle,
+          description: localizations.demoDividerDescription,
+          documentationUrl: '$_docsBaseUrl/material/VerticalDivider-class.html',
+          buildRoute: (_) => DeferredWidget(materialDemosLibrary,
+              // ignore: prefer_const_constructors
+              () => material_demos.DividerDemo(type: DividerDemoType.vertical)),
+          code: CodeSegments.verticalDividerDemo,
         ),
       ],
       category: GalleryDemoCategory.material,

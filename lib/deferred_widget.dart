@@ -10,7 +10,7 @@ typedef DeferredWidgetBuilder = Widget Function();
 
 /// Wraps the child inside a deferred module loader.
 class DeferredWidget extends StatefulWidget {
-  const DeferredWidget(this.libraryLoader, this.createWidget, {Key key})
+  DeferredWidget(this.libraryLoader, this.createWidget, {Key key})
       : super(key: key);
 
   final LibraryLoader libraryLoader;
