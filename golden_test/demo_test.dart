@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:gallery/main.dart';
-import 'package:gallery/deferred_widget.dart';
 
 import 'testing/precache_images.dart';
 import 'testing/util.dart';
