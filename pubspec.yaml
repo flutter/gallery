@@ -40,7 +40,7 @@ dev_dependencies:
   grinder: ^0.8.0
   pedantic: ^1.9.0
   string_scanner: ^1.0.5
-  web_benchmarks: ^0.0.2
+  web_benchmarks: ^0.0.3
 
 flutter:
   assets:
