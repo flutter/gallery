@@ -14,6 +14,7 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
+export 'package:gallery/data/demos.dart' show pumpDeferredLibraries;
 
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
