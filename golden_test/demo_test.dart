@@ -24,9 +24,6 @@ void main() {
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.runAsync<void>(() {
-        return;
-      });
       await tester.pumpAndSettle();
 
       await expectLater(
