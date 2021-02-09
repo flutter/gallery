@@ -23,9 +23,9 @@ import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
 import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/reply/routes.dart' as reply_routes;
-import 'package:gallery/studies/shrine/app.dart';
+import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/shrine/colors.dart';
-import 'package:gallery/studies/starter/app.dart';
+import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 const _horizontalPadding = 32.0;
 const _carouselItemMargin = 8.0;
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF543B3C),
         textColor: shrineBrown900,
-        studyRoute: ShrineApp.loginRoute,
+        studyRoute: shrine_routes.loginRoute,
       ),
       _CarouselCard(
         demo: studyDemos['rally'],
@@ -130,7 +130,7 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF3F3D45),
         textColor: Colors.black,
-        studyRoute: StarterApp.defaultRoute,
+        studyRoute: starter_app_routes.defaultRoute,
       ),
     ];
 
