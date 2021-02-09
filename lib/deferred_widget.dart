@@ -53,8 +53,7 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (_loadedCreator != widget.createWidget &&
-        _loadedCreator != null) {
+    if (_loadedCreator != widget.createWidget && _loadedCreator != null) {
       _loadedCreator = widget.createWidget;
       _loadedChild = _loadedCreator();
     }

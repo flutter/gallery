@@ -490,16 +490,19 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoDividerTitle,
           description: localizations.demoDividerDescription,
           documentationUrl: '$_docsBaseUrl/material/Divider-class.html',
-          buildRoute: (_) => DeferredWidget(materialDemosLibrary,
-              // ignore: prefer_const_constructors
-              () => material_demos.DividerDemo(type: DividerDemoType.horizontal)),
+          buildRoute: (_) => DeferredWidget(
+              materialDemosLibrary,
+              () =>
+                  // ignore: prefer_const_constructors
+                  material_demos.DividerDemo(type: DividerDemoType.horizontal)),
           code: CodeSegments.dividerDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoVerticalDividerTitle,
           description: localizations.demoDividerDescription,
           documentationUrl: '$_docsBaseUrl/material/VerticalDivider-class.html',
-          buildRoute: (_) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (_) => DeferredWidget(
+              materialDemosLibrary,
               // ignore: prefer_const_constructors
               () => material_demos.DividerDemo(type: DividerDemoType.vertical)),
           code: CodeSegments.verticalDividerDemo,
