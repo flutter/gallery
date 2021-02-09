@@ -9,6 +9,10 @@ typedef LibraryLoader = Future<void> Function();
 typedef DeferredWidgetBuilder = Widget Function();
 
 /// Wraps the child inside a deferred module loader.
+///
+/// The child is created and a single instance of the Widget is maintained in
+/// state as long as closure to create widget stays the same.
+///
 class DeferredWidget extends StatefulWidget {
   DeferredWidget(this.libraryLoader, this.createWidget, {Key key})
       : super(key: key);
@@ -29,7 +33,9 @@ class DeferredWidget extends StatefulWidget {
 }
 
 class _DeferredWidgetState extends State<DeferredWidget> {
+  _DeferredWidgetState();
   Widget _loadedChild;
+  DeferredWidgetBuilder _loadedCreator;
 
   @override
   void initState() {
@@ -40,12 +46,18 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 
   void _onLibraryLoaded() {
     setState(() {
-      _loadedChild = widget.createWidget();
+      _loadedCreator = widget.createWidget;
+      _loadedChild = _loadedCreator();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_loadedCreator != widget.createWidget &&
+        _loadedCreator != null) {
+      _loadedCreator = widget.createWidget;
+      _loadedChild = _loadedCreator();
+    }
     return _loadedChild ?? Container();
   }
 }
