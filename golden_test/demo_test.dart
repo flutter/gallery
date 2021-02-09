@@ -18,12 +18,16 @@ void main() {
   group('mobile', () {
     testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester);
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.runAsync<void>(() {
+        return;
+      });
+      await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
@@ -33,12 +37,13 @@ void main() {
 
     testWidgets('dark demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, brightness: Brightness.dark);
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
@@ -50,12 +55,13 @@ void main() {
   group('desktop', () {
     testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, size: desktopSize);
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),
@@ -69,12 +75,13 @@ void main() {
         size: desktopSize,
         brightness: Brightness.dark,
       );
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
 
       await expectLater(
         find.byType(GalleryApp),

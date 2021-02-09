@@ -1361,3 +1361,16 @@ Map<String, GalleryDemo> slugToDemo(BuildContext context) {
     key: (dynamic demo) => demo.slug as String,
   );
 }
+
+/// Awaits all deferred libraries for tests.
+Future<void> pumpDeferredLibraries() {
+  final futures = <Future<void>>[
+    DeferredWidget.preload(cupertino_demos.loadLibrary),
+    DeferredWidget.preload(material_demos.loadLibrary),
+    DeferredWidget.preload(motion_demo_container.loadLibrary),
+    DeferredWidget.preload(colors_demo.loadLibrary),
+    DeferredWidget.preload(transformations_demo.loadLibrary),
+    DeferredWidget.preload(typography.loadLibrary),
+  ];
+  return Future.wait(futures);
+}
