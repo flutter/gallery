@@ -7,9 +7,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:gallery/main.dart';
 import 'package:gallery/deferred_widget.dart';
-// ignore: unused_import
-import 'package:gallery/demos/material/material_demos.dart'
-    deferred as material_demos;
 
 import 'testing/precache_images.dart';
 import 'testing/util.dart';
@@ -22,16 +19,12 @@ void main() {
   group('mobile', () {
     testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester);
-      // Preload deferred material demos widgets.
-      await tester
-          .runAsync(() => DeferredWidget.preload(material_demos.loadLibrary));
-
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettle(const Duration(seconds: 1));
 
       await expectLater(
         find.byType(GalleryApp),
@@ -41,16 +34,12 @@ void main() {
 
     testWidgets('dark demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, brightness: Brightness.dark);
-      // Preload deferred material demos widgets.
-      await tester
-          .runAsync(() => DeferredWidget.preload(material_demos.loadLibrary));
-
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettle(const Duration(seconds: 1));
 
       await expectLater(
         find.byType(GalleryApp),
@@ -62,16 +51,12 @@ void main() {
   group('desktop', () {
     testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, size: desktopSize);
-      // Preload deferred material demos widgets.
-      await tester
-          .runAsync(() => DeferredWidget.preload(material_demos.loadLibrary));
-
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettle(const Duration(seconds: 1));
 
       await expectLater(
         find.byType(GalleryApp),
@@ -85,16 +70,12 @@ void main() {
         size: desktopSize,
         brightness: Brightness.dark,
       );
-      // Preload deferred material demos widgets.
-      await tester
-          .runAsync(() => DeferredWidget.preload(material_demos.loadLibrary));
-
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
         homeAssets,
       );
-      await tester.pumpAndSettle();
+      await tester.pumpAndSettle(const Duration(seconds: 1));
 
       await expectLater(
         find.byType(GalleryApp),
