@@ -51,6 +51,8 @@ class PasswordField extends StatefulWidget {
     this.onSaved,
     this.validator,
     this.onFieldSubmitted,
+    this.focusNode,
+    this.textInputAction,
   });
 
   final Key fieldKey;
@@ -60,6 +62,8 @@ class PasswordField extends StatefulWidget {
   final FormFieldSetter<String> onSaved;
   final FormFieldValidator<String> validator;
   final ValueChanged<String> onFieldSubmitted;
+  final FocusNode focusNode;
+  final TextInputAction textInputAction;
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
@@ -105,6 +109,28 @@ class _PasswordFieldState extends State<PasswordField> {
 
 class TextFormFieldDemoState extends State<TextFormFieldDemo> {
   PersonData person = PersonData();
+
+  FocusNode _phoneNumber, _email, _lifeStory, _password, _retypePassword;
+
+  @override
+  void initState() {
+    super.initState();
+    _phoneNumber = FocusNode();
+    _email = FocusNode();
+    _lifeStory = FocusNode();
+    _password = FocusNode();
+    _retypePassword = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _phoneNumber.dispose();
+    _email.dispose();
+    _lifeStory.dispose();
+    _password.dispose();
+    _retypePassword.dispose();
+    super.dispose();
+  }
 
   void showInSnackBar(String value) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -180,6 +206,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
           children: [
             sizedBoxSpace,
             TextFormField(
+              textInputAction: TextInputAction.next,
               textCapitalization: TextCapitalization.words,
               decoration: InputDecoration(
                 filled: true,
@@ -191,11 +218,14 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
               ),
               onSaved: (value) {
                 person.name = value;
+                _phoneNumber.requestFocus();
               },
               validator: _validateName,
             ),
             sizedBoxSpace,
             TextFormField(
+              textInputAction: TextInputAction.next,
+              focusNode: _phoneNumber,
               decoration: InputDecoration(
                 filled: true,
                 icon: const Icon(Icons.phone),
@@ -208,6 +238,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
               keyboardType: TextInputType.phone,
               onSaved: (value) {
                 person.phoneNumber = value;
+                _email.requestFocus();
               },
               maxLength: 14,
               maxLengthEnforcement: MaxLengthEnforcement.none,
@@ -221,6 +252,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
             ),
             sizedBoxSpace,
             TextFormField(
+              textInputAction: TextInputAction.next,
+              focusNode: _email,
               decoration: InputDecoration(
                 filled: true,
                 icon: const Icon(Icons.email),
@@ -231,10 +264,12 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
               keyboardType: TextInputType.emailAddress,
               onSaved: (value) {
                 person.email = value;
+                _lifeStory.requestFocus();
               },
             ),
             sizedBoxSpace,
             TextFormField(
+              focusNode: _lifeStory,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 hintText: GalleryLocalizations.of(context)
@@ -248,6 +283,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
             ),
             sizedBoxSpace,
             TextFormField(
+              textInputAction: TextInputAction.next,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
@@ -258,6 +294,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
             ),
             sizedBoxSpace,
             PasswordField(
+              textInputAction: TextInputAction.next,
+              focusNode: _password,
               fieldKey: _passwordFieldKey,
               helperText:
                   GalleryLocalizations.of(context).demoTextFieldNoMoreThan,
@@ -265,11 +303,13 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
               onFieldSubmitted: (value) {
                 setState(() {
                   person.password = value;
+                  _retypePassword.requestFocus();
                 });
               },
             ),
             sizedBoxSpace,
             TextFormField(
+              focusNode: _retypePassword,
               decoration: InputDecoration(
                 filled: true,
                 labelText: GalleryLocalizations.of(context)
@@ -278,6 +318,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> {
               maxLength: 8,
               obscureText: true,
               validator: _validatePassword,
+              onFieldSubmitted: (value) {
+                _handleSubmitted();
+              },
             ),
             sizedBoxSpace,
             Center(
