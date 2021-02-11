@@ -241,12 +241,11 @@ class _DesktopNavState extends State<_DesktopNav>
               );
             },
           ),
-          const VerticalDivider(thickness: 1, width: 2),
+          const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: Center(
               child: ConstrainedBox(
-                constraints:
-                    BoxConstraints(maxWidth: widget.extended ? 1340 : 800),
+                constraints: const BoxConstraints(maxWidth: 1340),
                 child: _SharedAxisTransitionSwitcher(
                   defaultChild: _MailNavigator(
                     child: MailboxBody(key: widget.inboxKey),
