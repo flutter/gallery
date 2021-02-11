@@ -25,8 +25,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, RestorationMixin {
   TabController _tabController;
+  RestorableInt tabIndex = RestorableInt(0);
+
+  @override
+  String get restorationId => 'home_page';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(tabIndex, 'tab_index');
+    _tabController.index = tabIndex.value;
+  }
 
   @override
   void initState() {
@@ -34,13 +44,16 @@ class _HomePageState extends State<HomePage>
     _tabController = TabController(length: tabCount, vsync: this)
       ..addListener(() {
         // Set state to make sure that the [_RallyTab] widgets get updated when changing tabs.
-        setState(() {});
+        setState(() {
+          tabIndex.value = _tabController.index;
+        });
       });
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 

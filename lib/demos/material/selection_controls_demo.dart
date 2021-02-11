@@ -5,12 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum SelectionControlsDemoType {
-  checkbox,
-  radio,
-  switches,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class SelectionControlsDemo extends StatelessWidget {
   const SelectionControlsDemo({Key key, @required this.type}) : super(key: key);
@@ -63,10 +58,28 @@ class _CheckboxDemo extends StatefulWidget {
   _CheckboxDemoState createState() => _CheckboxDemoState();
 }
 
-class _CheckboxDemoState extends State<_CheckboxDemo> {
-  bool checkboxValueA = true;
-  bool checkboxValueB = false;
-  bool checkboxValueC;
+class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
+  RestorableBoolN checkboxValueA = RestorableBoolN(true);
+  RestorableBoolN checkboxValueB = RestorableBoolN(false);
+  RestorableBoolN checkboxValueC = RestorableBoolN(null);
+
+  @override
+  String get restorationId => 'checkbox_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(checkboxValueA, 'checkbox_a');
+    registerForRestoration(checkboxValueB, 'checkbox_b');
+    registerForRestoration(checkboxValueC, 'checkbox_c');
+  }
+
+  @override
+  void dispose() {
+    checkboxValueA.dispose();
+    checkboxValueB.dispose();
+    checkboxValueC.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,27 +88,27 @@ class _CheckboxDemoState extends State<_CheckboxDemo> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Checkbox(
-            value: checkboxValueA,
+            value: checkboxValueA.value,
             onChanged: (value) {
               setState(() {
-                checkboxValueA = value;
+                checkboxValueA.value = value;
               });
             },
           ),
           Checkbox(
-            value: checkboxValueB,
+            value: checkboxValueB.value,
             onChanged: (value) {
               setState(() {
-                checkboxValueB = value;
+                checkboxValueB.value = value;
               });
             },
           ),
           Checkbox(
-            value: checkboxValueC,
+            value: checkboxValueC.value,
             tristate: true,
             onChanged: (value) {
               setState(() {
-                checkboxValueC = value;
+                checkboxValueC.value = value;
               });
             },
           ),
@@ -114,13 +127,27 @@ class _RadioDemo extends StatefulWidget {
   _RadioDemoState createState() => _RadioDemoState();
 }
 
-class _RadioDemoState extends State<_RadioDemo> {
-  int radioValue = 0;
+class _RadioDemoState extends State<_RadioDemo> with RestorationMixin {
+  final RestorableInt radioValue = RestorableInt(0);
+
+  @override
+  String get restorationId => 'radio_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(radioValue, 'radio_value');
+  }
 
   void handleRadioValueChanged(int value) {
     setState(() {
-      radioValue = value;
+      radioValue.value = value;
     });
+  }
+
+  @override
+  void dispose() {
+    radioValue.dispose();
+    super.dispose();
   }
 
   @override
@@ -132,7 +159,7 @@ class _RadioDemoState extends State<_RadioDemo> {
           for (int index = 0; index < 3; ++index)
             Radio<int>(
               value: index,
-              groupValue: radioValue,
+              groupValue: radioValue.value,
               onChanged: handleRadioValueChanged,
             ),
         ],
@@ -150,8 +177,22 @@ class _SwitchDemo extends StatefulWidget {
   _SwitchDemoState createState() => _SwitchDemoState();
 }
 
-class _SwitchDemoState extends State<_SwitchDemo> {
-  bool switchValue = false;
+class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
+  RestorableBool switchValue = RestorableBool(false);
+
+  @override
+  String get restorationId => 'switch_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(switchValue, 'switch_value');
+  }
+
+  @override
+  void dispose() {
+    switchValue.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,10 +202,10 @@ class _SwitchDemoState extends State<_SwitchDemo> {
         label:
             GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
         child: Switch(
-          value: switchValue,
+          value: switchValue.value,
           onChanged: (value) {
             setState(() {
-              switchValue = value;
+              switchValue.value = value;
             });
           },
         ),

@@ -6,17 +6,19 @@ import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
+import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:gallery/studies/reply/routes.dart' as routes;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 final rootNavKey = GlobalKey<NavigatorState>();
 
-class ReplyApp extends StatelessWidget {
+class ReplyApp extends StatefulWidget {
   const ReplyApp();
 
-  static const String homeRoute = '/reply';
-  static const String composeRoute = '/reply/compose';
+  static const String homeRoute = routes.homeRoute;
+  static const String composeRoute = routes.composeRoute;
 
   static Route createComposeRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(
@@ -35,6 +37,27 @@ class ReplyApp extends StatelessWidget {
   }
 
   @override
+  _ReplyAppState createState() => _ReplyAppState();
+}
+
+class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
+  final _RestorableEmailState _appState = _RestorableEmailState();
+
+  @override
+  String get restorationId => 'replyState';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_appState, 'state');
+  }
+
+  @override
+  void dispose() {
+    _appState.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final galleryThemeMode = GalleryOptions.of(context).themeMode;
     final isDark = galleryThemeMode == ThemeMode.system
@@ -46,33 +69,78 @@ class ReplyApp extends StatelessWidget {
 
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<EmailStore>.value(value: EmailStore()),
+        ChangeNotifierProvider<EmailStore>.value(
+          value: _appState.value,
+        ),
       ],
       child: MaterialApp(
         navigatorKey: rootNavKey,
+        restorationScopeId: 'appNavigator',
         title: 'Reply',
         debugShowCheckedModeBanner: false,
         theme: replyTheme,
         localizationsDelegates: GalleryLocalizations.localizationsDelegates,
         supportedLocales: GalleryLocalizations.supportedLocales,
         locale: GalleryOptions.of(context).locale,
-        initialRoute: homeRoute,
+        initialRoute: ReplyApp.homeRoute,
         onGenerateRoute: (settings) {
           switch (settings.name) {
-            case homeRoute:
+            case ReplyApp.homeRoute:
               return MaterialPageRoute<void>(
                 builder: (context) => const AdaptiveNav(),
                 settings: settings,
               );
               break;
-            case composeRoute:
-              return createComposeRoute(settings);
+            case ReplyApp.composeRoute:
+              return ReplyApp.createComposeRoute(settings);
               break;
           }
           return null;
         },
       ),
     );
+  }
+}
+
+class _RestorableEmailState extends RestorableListenable<EmailStore> {
+  @override
+  EmailStore createDefaultValue() {
+    return EmailStore();
+  }
+
+  @override
+  EmailStore fromPrimitives(Object data) {
+    final appState = EmailStore();
+    final appData = Map<String, dynamic>.from(data as Map);
+    appState.selectedEmailId = appData['selectedEmailId'] as int;
+    appState.onSearchPage = appData['onSearchPage'] as bool;
+
+    // The index of the MailboxPageType enum is restored.
+    final mailboxPageIndex = appData['selectedMailboxPage'] as int;
+    appState.selectedMailboxPage = MailboxPageType.values[mailboxPageIndex];
+
+    final starredEmailIdsList = appData['starredEmailIds'] as List<dynamic>;
+    appState.starredEmailIds = {
+      ...starredEmailIdsList.map<int>((dynamic id) => id as int),
+    };
+    final trashEmailIdsList = appData['trashEmailIds'] as List<dynamic>;
+    appState.trashEmailIds = {
+      ...trashEmailIdsList.map<int>((dynamic id) => id as int),
+    };
+    return appState;
+  }
+
+  @override
+  Object toPrimitives() {
+    return <String, dynamic>{
+      'selectedEmailId': value.selectedEmailId,
+      // The index of the MailboxPageType enum is stored, since the value
+      // has to be serializable.
+      'selectedMailboxPage': value.selectedMailboxPage.index,
+      'onSearchPage': value.onSearchPage,
+      'starredEmailIds': value.starredEmailIds.toList(),
+      'trashEmailIds': value.trashEmailIds.toList(),
+    };
   }
 }
 

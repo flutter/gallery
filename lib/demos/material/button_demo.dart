@@ -5,14 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum ButtonDemoType {
-  text,
-  elevated,
-  outlined,
-  toggle,
-  floating,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class ButtonDemo extends StatelessWidget {
   const ButtonDemo({Key key, this.type}) : super(key: key);
@@ -154,8 +147,31 @@ class _ToggleButtonsDemo extends StatefulWidget {
   _ToggleButtonsDemoState createState() => _ToggleButtonsDemoState();
 }
 
-class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> {
-  final isSelected = <bool>[false, false, false];
+class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
+    with RestorationMixin {
+  final isSelected = [
+    RestorableBool(false),
+    RestorableBool(true),
+    RestorableBool(false),
+  ];
+
+  @override
+  String get restorationId => 'toggle_button_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(isSelected[0], 'first_item');
+    registerForRestoration(isSelected[1], 'second_item');
+    registerForRestoration(isSelected[2], 'third_item');
+  }
+
+  @override
+  void dispose() {
+    isSelected.forEach((restorableBool) {
+      restorableBool.dispose();
+    });
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -168,10 +184,10 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo> {
         ],
         onPressed: (index) {
           setState(() {
-            isSelected[index] = !isSelected[index];
+            isSelected[index].value = !isSelected[index].value;
           });
         },
-        isSelected: isSelected,
+        isSelected: isSelected.map((element) => element.value).toList(),
       ),
     );
   }

@@ -18,12 +18,20 @@ class CupertinoSegmentedControlDemo extends StatefulWidget {
 }
 
 class _CupertinoSegmentedControlDemoState
-    extends State<CupertinoSegmentedControlDemo> {
-  int currentSegment = 0;
+    extends State<CupertinoSegmentedControlDemo> with RestorationMixin {
+  RestorableInt currentSegment = RestorableInt(0);
+
+  @override
+  String get restorationId => 'cupertino_segmented_control';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(currentSegment, 'current_segment');
+  }
 
   void onValueChanged(int newValue) {
     setState(() {
-      currentSegment = newValue;
+      currentSegment.value = newValue;
     });
   }
 
@@ -58,7 +66,7 @@ class _CupertinoSegmentedControlDemoState
                 child: CupertinoSegmentedControl<int>(
                   children: children,
                   onValueChanged: onValueChanged,
-                  groupValue: currentSegment,
+                  groupValue: currentSegment.value,
                 ),
               ),
               SizedBox(
@@ -68,7 +76,7 @@ class _CupertinoSegmentedControlDemoState
                   child: CupertinoSlidingSegmentedControl<int>(
                     children: children,
                     onValueChanged: onValueChanged,
-                    groupValue: currentSegment,
+                    groupValue: currentSegment.value,
                   ),
                 ),
               ),

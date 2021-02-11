@@ -5,13 +5,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 // BEGIN listDemo
-
-enum ListDemoType {
-  oneLine,
-  twoLine,
-}
 
 class ListDemo extends StatelessWidget {
   const ListDemo({Key key, this.type}) : super(key: key);
@@ -27,6 +23,7 @@ class ListDemo extends StatelessWidget {
       ),
       body: Scrollbar(
         child: ListView(
+          restorationId: 'list_demo_list_view',
           padding: const EdgeInsets.symmetric(vertical: 8),
           children: [
             for (int index = 1; index < 21; index++)

@@ -19,6 +19,7 @@ class AccountsView extends StatelessWidget {
     final balanceTotal = sumAccountDataPrimaryAmount(items);
 
     return TabWithSidebar(
+      restorationId: 'accounts_view',
       mainView: FinancialEntityView(
         heroLabel: GalleryLocalizations.of(context).rallyAccountTotal,
         heroAmount: balanceTotal,

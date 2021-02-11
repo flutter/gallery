@@ -171,4 +171,12 @@ class GalleryIcons {
     60080,
     fontFamily: 'MaterialIcons',
   );
+  static const IconData appbar = IconData(
+    60134,
+    fontFamily: 'MaterialIcons',
+  );
+  static const IconData divider = IconData(
+    0xe8f0,
+    fontFamily: 'MaterialIcons',
+  );
 }

@@ -100,32 +100,35 @@ flutter pub run grinder update-code-segments
 
 ## Creating a new release (for Flutter org members)
 
-1. Bump the version number up in the `pubspec.yaml`. Use semantic versioning to determine
-   which number to increment. For example `2.2.0+020200` should become `2.3.0+020300`.
+1. Create a PR to bump the version number up in `pubspec.yaml`. Use [semantic versioning](https://semver.org/) to determine
+   which number to increment. The version number after the `+`should also be incremented. For example `1.2.3+010203`
+   with a patch should become `1.2.4+010204`.
 
-2. Create tag on master branch after the version is bumped. This will start a
-   Github Actions job that will create a release draft with desktop applications
+2. Create a tag on master branch after the version bump PR is merged. This will start a
+   Github Actions job that will draft a [release]((https://github.com/flutter/gallery/releases)) with desktop applications
    and apk included.
    ```bash
    git pull upstream master
-   git tag v2.3
-   git push upstream v2.3
+   git tag v1.2.3
+   git push upstream v1.2.3
    ```
 
 3. Publish the firebase hosted web release.
     * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
-    * `flutter build web`
+    * `flutter pub run grinder build-web`
     * `firebase deploy -P prod` to deploy to production (equivalent to `firebase deploy`).
     * `firebase deploy -P staging` to deploy to staging. Check with the team to see if the staging
        instance is currently used for a special purpose.
+       
+4. Write some release notes about what changes have been done since the
+    last release.
 
-4. Publish the Android release
+5. Publish the Android release
     * Ensure you have the correct signing certificates.
     * Create the app bundle with `flutter build appbundle`.
-    * Upload to the Play store console.
-    * Publish the Play store release.
+    * Include the release notes in "What's new".
+    * Upload to the Play store console and publish.
 
-5. Go to Releases and see the latest draft.
-    * Update the description to include what changes have been done since the
-    last release.
+6. Go to [Releases](https://github.com/flutter/gallery/releases) and see the latest draft.
+    * Include the release notes in the description.
     * Publish the release.

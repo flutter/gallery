@@ -5,14 +5,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum BottomSheetDemoType {
-  persistent,
-  modal,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class BottomSheetDemo extends StatelessWidget {
-  const BottomSheetDemo({Key key, @required this.type}) : super(key: key);
+  const BottomSheetDemo({
+    Key key,
+    @required this.type,
+  }) : super(key: key);
 
   final BottomSheetDemoType type;
 

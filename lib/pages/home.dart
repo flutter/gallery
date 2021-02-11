@@ -17,15 +17,15 @@ import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/pages/category_list_item.dart';
 import 'package:gallery/pages/settings.dart';
 import 'package:gallery/pages/splash.dart';
-import 'package:gallery/studies/crane/app.dart';
 import 'package:gallery/studies/crane/colors.dart';
-import 'package:gallery/studies/fortnightly/app.dart';
-import 'package:gallery/studies/rally/app.dart';
+import 'package:gallery/studies/crane/routes.dart' as crane_routes;
+import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
+import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/rally/colors.dart';
-import 'package:gallery/studies/reply/app.dart';
-import 'package:gallery/studies/shrine/app.dart';
+import 'package:gallery/studies/reply/routes.dart' as reply_routes;
+import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/shrine/colors.dart';
-import 'package:gallery/studies/starter/app.dart';
+import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 const _horizontalPadding = 32.0;
 const _carouselItemMargin = 8.0;
@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF1D2327),
         textColor: Colors.white,
-        studyRoute: ReplyApp.homeRoute,
+        studyRoute: reply_routes.homeRoute,
       ),
       _CarouselCard(
         demo: studyDemos['shrine'],
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF543B3C),
         textColor: shrineBrown900,
-        studyRoute: ShrineApp.loginRoute,
+        studyRoute: shrine_routes.loginRoute,
       ),
       _CarouselCard(
         demo: studyDemos['rally'],
@@ -86,7 +86,7 @@ class HomePage extends StatelessWidget {
           package: 'flutter_gallery_assets',
         ),
         assetDarkColor: const Color(0xFF253538),
-        studyRoute: RallyApp.loginRoute,
+        studyRoute: rally_routes.loginRoute,
       ),
       _CarouselCard(
         demo: studyDemos['crane'],
@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF591946),
         textColor: cranePurple700,
-        studyRoute: CraneApp.defaultRoute,
+        studyRoute: crane_routes.defaultRoute,
       ),
       _CarouselCard(
         demo: studyDemos['fortnightly'],
@@ -115,7 +115,7 @@ class HomePage extends StatelessWidget {
           package: 'flutter_gallery_assets',
         ),
         assetDarkColor: const Color(0xFF1F1F1F),
-        studyRoute: FortnightlyApp.defaultRoute,
+        studyRoute: fortnightly_routes.defaultRoute,
       ),
       _CarouselCard(
         demo: studyDemos['starterApp'],
@@ -130,7 +130,7 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF3F3D45),
         textColor: Colors.black,
-        studyRoute: StarterApp.defaultRoute,
+        studyRoute: starter_app_routes.defaultRoute,
       ),
     ];
 
@@ -240,6 +240,7 @@ class HomePage extends StatelessWidget {
     } else {
       return Scaffold(
         body: _AnimatedHomePage(
+          restorationId: 'animated_page',
           isSplashPageAnimationFinished:
               SplashPageAnimation.of(context).isFinished,
           carouselCards: carouselCards,
@@ -308,10 +309,12 @@ class Header extends StatelessWidget {
 class _AnimatedHomePage extends StatefulWidget {
   const _AnimatedHomePage({
     Key key,
+    @required this.restorationId,
     @required this.carouselCards,
     @required this.isSplashPageAnimationFinished,
   }) : super(key: key);
 
+  final String restorationId;
   final List<Widget> carouselCards;
   final bool isSplashPageAnimationFinished;
 
@@ -320,9 +323,22 @@ class _AnimatedHomePage extends StatefulWidget {
 }
 
 class _AnimatedHomePageState extends State<_AnimatedHomePage>
-    with SingleTickerProviderStateMixin {
+    with RestorationMixin, SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Timer _launchTimer;
+  final RestorableBool _isMaterialListExpanded = RestorableBool(false);
+  final RestorableBool _isCupertinoListExpanded = RestorableBool(false);
+  final RestorableBool _isOtherListExpanded = RestorableBool(false);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_isMaterialListExpanded, 'material_list');
+    registerForRestoration(_isCupertinoListExpanded, 'cupertino_list');
+    registerForRestoration(_isOtherListExpanded, 'other_list');
+  }
 
   @override
   void initState() {
@@ -355,6 +371,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
     _animationController.dispose();
     _launchTimer?.cancel();
     _launchTimer = null;
+    _isMaterialListExpanded.dispose();
+    _isCupertinoListExpanded.dispose();
+    _isOtherListExpanded.dispose();
     super.dispose();
   }
 
@@ -367,6 +386,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
         ListView(
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
+          restorationId: 'home_list_view',
           children: [
             const SizedBox(height: 8),
             Container(
@@ -375,8 +395,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               child: _GalleryHeader(),
             ),
             _Carousel(
-              children: widget.carouselCards,
               animationController: _animationController,
+              restorationId: 'home_carousel',
+              children: widget.carouselCards,
             ),
             Container(
               margin:
@@ -387,40 +408,51 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
               startDelayFraction: 0.00,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.material,
-                ),
-                category: GalleryDemoCategory.material,
-                imageString: 'assets/icons/material/material.png',
-                demos: materialDemos(localizations),
-                initiallyExpanded: isTestMode,
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.material,
+                  ),
+                  restorationId: 'home_material_category_list',
+                  category: GalleryDemoCategory.material,
+                  imageString: 'assets/icons/material/material.png',
+                  demos: materialDemos(localizations),
+                  initiallyExpanded:
+                      _isMaterialListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isMaterialListExpanded.value = shouldOpenList;
+                  }),
             ),
             _AnimatedCategoryItem(
               startDelayFraction: 0.05,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.cupertino,
-                ),
-                category: GalleryDemoCategory.cupertino,
-                imageString: 'assets/icons/cupertino/cupertino.png',
-                demos: cupertinoDemos(localizations),
-                initiallyExpanded: isTestMode,
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.cupertino,
+                  ),
+                  restorationId: 'home_cupertino_category_list',
+                  category: GalleryDemoCategory.cupertino,
+                  imageString: 'assets/icons/cupertino/cupertino.png',
+                  demos: cupertinoDemos(localizations),
+                  initiallyExpanded:
+                      _isCupertinoListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isCupertinoListExpanded.value = shouldOpenList;
+                  }),
             ),
             _AnimatedCategoryItem(
               startDelayFraction: 0.10,
               controller: _animationController,
               child: CategoryListItem(
-                key: const PageStorageKey<GalleryDemoCategory>(
-                  GalleryDemoCategory.other,
-                ),
-                category: GalleryDemoCategory.other,
-                imageString: 'assets/icons/reference/reference.png',
-                demos: otherDemos(localizations),
-                initiallyExpanded: isTestMode,
-              ),
+                  key: const PageStorageKey<GalleryDemoCategory>(
+                    GalleryDemoCategory.other,
+                  ),
+                  restorationId: 'home_other_category_list',
+                  category: GalleryDemoCategory.other,
+                  imageString: 'assets/icons/reference/reference.png',
+                  demos: otherDemos(localizations),
+                  initiallyExpanded: _isOtherListExpanded.value || isTestMode,
+                  onTap: (shouldOpenList) {
+                    _isOtherListExpanded.value = shouldOpenList;
+                  }),
             ),
           ],
         ),
@@ -687,21 +719,32 @@ class _AnimatedCarouselCard extends StatelessWidget {
 class _Carousel extends StatefulWidget {
   const _Carousel({
     Key key,
-    this.children,
     this.animationController,
+    this.restorationId,
+    this.children,
   }) : super(key: key);
 
-  final List<Widget> children;
   final AnimationController animationController;
+  final String restorationId;
+  final List<Widget> children;
 
   @override
   _CarouselState createState() => _CarouselState();
 }
 
 class _CarouselState extends State<_Carousel>
-    with SingleTickerProviderStateMixin {
+    with RestorationMixin, SingleTickerProviderStateMixin {
   PageController _controller;
-  int _currentPage = 0;
+
+  final RestorableInt _currentPage = RestorableInt(0);
+
+  @override
+  String get restorationId => widget.restorationId;
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_currentPage, 'carousel_page');
+  }
 
   @override
   void didChangeDependencies() {
@@ -712,7 +755,7 @@ class _CarouselState extends State<_Carousel>
       final width = MediaQuery.of(context).size.width;
       final padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
       _controller = PageController(
-        initialPage: _currentPage,
+        initialPage: _currentPage.value,
         viewportFraction: (width - padding) / width,
       );
     }
@@ -721,6 +764,7 @@ class _CarouselState extends State<_Carousel>
   @override
   void dispose() {
     _controller.dispose();
+    _currentPage.dispose();
     super.dispose();
   }
 
@@ -733,7 +777,7 @@ class _CarouselState extends State<_Carousel>
           value = _controller.page - index;
         } else {
           // If haveDimensions is false, use _currentPage to calculate value.
-          value = (_currentPage - index).toDouble();
+          value = (_currentPage.value - index).toDouble();
         }
         // We want the peeking cards to be 160 in height and 0.38 helps
         // achieve that.
@@ -770,7 +814,7 @@ class _CarouselState extends State<_Carousel>
         key: const ValueKey('studyDemoList'),
         onPageChanged: (value) {
           setState(() {
-            _currentPage = value;
+            _currentPage.value = value;
           });
         },
         controller: _controller,
@@ -1023,7 +1067,7 @@ class _CarouselCard extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(studyRoute);
+            Navigator.of(context).restorablePushNamed(studyRoute);
           },
           child: Stack(
             fit: StackFit.expand,
@@ -1100,32 +1144,38 @@ class _StudyWrapperState extends State<StudyWrapper> {
         children: [
           Semantics(
             sortKey: const OrdinalSortKey(1),
-            child: widget.study,
+            child: RestorationScope(
+              restorationId: 'study_wrapper',
+              child: widget.study,
+            ),
           ),
-          Align(
-            alignment: widget.alignment,
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Semantics(
-                sortKey: const OrdinalSortKey(0),
-                label: GalleryLocalizations.of(context).backToGallery,
-                button: true,
-                enabled: true,
-                excludeSemantics: true,
-                child: FloatingActionButton.extended(
-                  heroTag: _BackButtonHeroTag(),
-                  key: const ValueKey('Back'),
-                  onPressed: () {
-                    Navigator.of(context)
-                        .popUntil((route) => route.settings.name == '/');
-                  },
-                  icon: IconTheme(
-                    data: IconThemeData(color: colorScheme.onPrimary),
-                    child: const BackButtonIcon(),
-                  ),
-                  label: Text(
-                    MaterialLocalizations.of(context).backButtonTooltip,
-                    style: textTheme.button.apply(color: colorScheme.onPrimary),
+          SafeArea(
+            child: Align(
+              alignment: widget.alignment,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Semantics(
+                  sortKey: const OrdinalSortKey(0),
+                  label: GalleryLocalizations.of(context).backToGallery,
+                  button: true,
+                  enabled: true,
+                  excludeSemantics: true,
+                  child: FloatingActionButton.extended(
+                    heroTag: _BackButtonHeroTag(),
+                    key: const ValueKey('Back'),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .popUntil((route) => route.settings.name == '/');
+                    },
+                    icon: IconTheme(
+                      data: IconThemeData(color: colorScheme.onPrimary),
+                      child: const BackButtonIcon(),
+                    ),
+                    label: Text(
+                      MaterialLocalizations.of(context).backButtonTooltip,
+                      style:
+                          textTheme.button.apply(color: colorScheme.onPrimary),
+                    ),
                   ),
                 ),
               ),

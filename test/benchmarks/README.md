@@ -1,4 +1,4 @@
-# Devicelab Tests
+# Web Benchmark Tests
 
 This directory, `lib/benchmarks/`, is used for performance testing for the Gallery on Web.
 
