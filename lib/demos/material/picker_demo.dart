@@ -6,15 +6,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 import 'package:intl/intl.dart';
 
 // BEGIN pickerDemo
-
-enum PickerDemoType {
-  date,
-  time,
-  range,
-}
 
 class PickerDemo extends StatefulWidget {
   const PickerDemo({Key key, this.type}) : super(key: key);

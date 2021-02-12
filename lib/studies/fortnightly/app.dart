@@ -10,13 +10,14 @@ import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/studies/fortnightly/shared.dart';
+import 'package:gallery/studies/fortnightly/routes.dart' as routes;
 
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
   const FortnightlyApp();
 
-  static const String defaultRoute = '/fortnightly';
+  static const String defaultRoute = routes.defaultRoute;
 
   @override
   Widget build(BuildContext context) {
