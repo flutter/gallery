@@ -9,7 +9,7 @@ on:
 jobs:
   generate-release-notes:
     name: Generate release notes
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Get latest release tag
         id: get_latest_release
@@ -31,7 +31,7 @@ jobs:
           path: release_notes.md
   create-release:
     name: Create draft release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     needs: generate-release-notes
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
