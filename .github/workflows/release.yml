@@ -5,12 +5,32 @@ on:
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 jobs:
+  generate-release-notes:
+    name: Generate release notes
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Generate release notes
+        uses: charmixer/auto-changelog-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          output: 'release_notes.md' # output to STDOUT
+          future_release: ${{ github.ref }}
+      - name: Upload release notes
+        uses: actions/upload-artifact@v2
+        with:
+          name: release_notes
+          path: release_notes.md
   create-release:
     name: Create draft release
     runs-on: ubuntu-18.04
+    needs: generate-release-notes
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
-    steps:
+    steps:      
+    - name: Download release notes
+      uses: actions/download-artifact@v2
+      with:
+        name: release_notes
     - name: Create draft release
       id: create_release
       uses: actions/create-release@v1
@@ -19,6 +39,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Flutter Gallery ${{ github.ref }}
+        body_path: release_notes.md
         draft: true
         prerelease: false
   build:
