@@ -17,7 +17,7 @@ jobs:
         with:
           repository: ${{ github.repository }}
           excludes: prerelease, draft
-      - name: Generate release notes
+      - name: Generate release notes since last release
         uses: charmixer/auto-changelog-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
