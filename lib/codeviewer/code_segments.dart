@@ -35794,7 +35794,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a        '),
       TextSpan(style: codeStyle.keywordStyle, text: 'return'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.classStyle, text: 'Column'),
+      TextSpan(style: codeStyle.classStyle, text: 'ListView'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a          children'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
