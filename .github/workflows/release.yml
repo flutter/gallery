@@ -1,5 +1,7 @@
 name: Draft Flutter Gallery Release
 on:
+  pull_request:
+    types: [synchronize]
   push:
     # Sequence of patterns matched against refs/tags
     tags:
@@ -13,7 +15,7 @@ jobs:
         uses: charmixer/auto-changelog-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          output: 'release_notes.md' # output to STDOUT
+          output: 'release_notes.md'
           future_release: ${{ github.ref }}
       - name: Upload release notes
         uses: actions/upload-artifact@v2
@@ -26,7 +28,7 @@ jobs:
     needs: generate-release-notes
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
-    steps:      
+    steps:
     - name: Download release notes
       uses: actions/download-artifact@v2
       with:
