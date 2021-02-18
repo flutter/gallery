@@ -11,12 +11,19 @@ jobs:
     name: Generate release notes
     runs-on: ubuntu-18.04
     steps:
+      - name: Get latest release tag
+        id: get_latest_release
+        uses: pozetroninc/github-action-get-latest-release@v0.5.0
+        with:
+          repository: ${{ github.repository }}
+          excludes: prerelease, draft
       - name: Generate release notes
         uses: charmixer/auto-changelog-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           output: 'release_notes.md'
           future_release: ${{ github.ref }}
+          since_tag: ${{ steps.get_latest_release.outputs.release }}
       - name: Upload release notes
         uses: actions/upload-artifact@v2
         with:
