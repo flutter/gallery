@@ -234,6 +234,7 @@ class _UsernameInput extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(maxWidth: maxWidth ?? double.infinity),
         child: TextField(
+          textInputAction: TextInputAction.next,
           controller: usernameController,
           decoration: InputDecoration(
             labelText: GalleryLocalizations.of(context).rallyLoginUsername,
