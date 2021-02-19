@@ -42,6 +42,9 @@ dev_dependencies:
   test: ^1.16.0
   web_benchmarks: ^0.0.4
 
+dependency_overrides:
+  path_provider: ^2.0.0-nullsafety.1
+
 flutter:
   assets:
     - packages/flutter_gallery_assets/assets/studies/shrine_card_dark.png
