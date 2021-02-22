@@ -243,14 +243,9 @@ class _DesktopNavState extends State<_DesktopNav>
           ),
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
-            child: Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 1340),
-                child: _SharedAxisTransitionSwitcher(
-                  defaultChild: _MailNavigator(
-                    child: MailboxBody(key: widget.inboxKey),
-                  ),
-                ),
+            child: _SharedAxisTransitionSwitcher(
+              defaultChild: _MailNavigator(
+                child: MailboxBody(key: widget.inboxKey),
               ),
             ),
           ),
