@@ -10,6 +10,8 @@ import 'package:gallery/main.dart';
 import 'testing/precache_images.dart';
 import 'testing/util.dart';
 
+// Comment
+
 // The banner demo is used to test the layout of the demo page. The tests for
 // the banner component are done inside of flutter/flutter.
 const demoBannerRoute = '/demo/banner';
