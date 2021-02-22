@@ -10,13 +10,6 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN dialogDemo
 
-enum DialogDemoType {
-  alert,
-  alertTitle,
-  simple,
-  fullscreen,
-}
-
 class DialogDemo extends StatefulWidget {
   DialogDemo({Key key, @required this.type}) : super(key: key);
 
