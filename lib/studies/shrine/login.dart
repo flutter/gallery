@@ -120,6 +120,7 @@ class _UsernameTextField extends StatelessWidget {
       color: shrineBrown900,
       child: Container(
         child: TextField(
+          textInputAction: TextInputAction.next,
           restorationId: 'username_text_field',
           cursorColor: colorScheme.onSurface,
           decoration: InputDecoration(

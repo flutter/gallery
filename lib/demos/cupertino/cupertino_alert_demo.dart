@@ -6,16 +6,9 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/data/gallery_options.dart';
+import 'package:gallery/demos/cupertino/demo_types.dart';
 
 // BEGIN cupertinoAlertDemo
-
-enum AlertDemoType {
-  alert,
-  alertTitle,
-  alertButtons,
-  alertButtonsOnly,
-  actionSheet,
-}
 
 class CupertinoAlertDemo extends StatefulWidget {
   const CupertinoAlertDemo({

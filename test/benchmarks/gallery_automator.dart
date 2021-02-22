@@ -188,6 +188,8 @@ class GalleryAutomator {
   Future<void> warmUp() async {
     print('Warming up.');
 
+    await pumpDeferredLibraries();
+
     // Let animation stop.
     await animationStops();
 

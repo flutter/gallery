@@ -175,4 +175,8 @@ class GalleryIcons {
     60134,
     fontFamily: 'MaterialIcons',
   );
+  static const IconData divider = IconData(
+    0xe8f0,
+    fontFamily: 'MaterialIcons',
+  );
 }

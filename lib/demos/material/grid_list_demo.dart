@@ -4,14 +4,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 // BEGIN gridListsDemo
-
-enum GridListDemoType {
-  imageOnly,
-  header,
-  footer,
-}
 
 class GridListDemo extends StatelessWidget {
   const GridListDemo({Key key, this.type}) : super(key: key);

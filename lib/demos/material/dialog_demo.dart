@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/data/gallery_options.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN dialogDemo

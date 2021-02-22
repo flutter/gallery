@@ -18,6 +18,7 @@ void main() {
   group('mobile', () {
     testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester);
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
@@ -33,6 +34,7 @@ void main() {
 
     testWidgets('dark demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, brightness: Brightness.dark);
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
@@ -50,6 +52,7 @@ void main() {
   group('desktop', () {
     testWidgets('demo page matches golden screenshot', (tester) async {
       await setUpBinding(tester, size: desktopSize);
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
@@ -69,6 +72,7 @@ void main() {
         size: desktopSize,
         brightness: Brightness.dark,
       );
+      await tester.runAsync<void>(pumpDeferredLibraries);
       await pumpWidgetWithImages(
         tester,
         const GalleryApp(initialRoute: demoBannerRoute),
