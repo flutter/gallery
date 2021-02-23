@@ -130,5 +130,4 @@ flutter pub run grinder update-code-segments
     last release.
     * Publish the release.
 
-6. Upload to Google play store.
-    * go/gallery-play-store
+6. Upload to Google play store [instructions](https://docs.google.com/document/d/1M3NUVdVo0jHXkyTzZ8d-YRDA6gCqOl0JWV8enbwJF2w/edit?usp=sharing).
