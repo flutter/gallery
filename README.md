@@ -120,10 +120,6 @@ flutter pub run grinder update-code-segments
        instance is currently used for a special purpose.
 
 4. Publish the Android release
-    * Ensure you have the correct signing certificates.
-    * Create the app bundle with `flutter build appbundle`.
-    * Upload to the Play store console.
-    * Publish the Play store release.
     * Upload to Google play store [instructions](https://docs.google.com/document/d/1M3NUVdVo0jHXkyTzZ8d-YRDA6gCqOl0JWV8enbwJF2w/edit?usp=sharing).
 
 5. Go to Releases and see the latest draft.
