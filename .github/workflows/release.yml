@@ -53,18 +53,18 @@ jobs:
         path: 'flutter'
         fetch-depth: 0
     - name: Add Flutter to the PATH for Linux and macOS
-      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
+      if: matrix.target == 'linux' || matrix.target == 'macos'
       run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
     - name: Add Flutter to the PATH for Windows
-      if: startsWith(matrix.os, 'windows')
+      if: matrix.target == 'windows'
       run: echo "${env:GITHUB_WORKSPACE}\flutter\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
     - name: Install Linux dependencies
-      if: startsWith(matrix.target, 'linux')
+      if: matrix.target == 'linux'
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
     - name: Install Android dependencies
-      if: startsWith(matrix.target, 'apk')
+      if: matrix.target == 'apk'
       uses: actions/setup-java@v1
       with:
         java-version: '12.x'
@@ -90,7 +90,7 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
     - name: Copy VC redistributables to release directory
-      if: startsWith(matrix.target, 'windows')
+      if: matrix.target == 'windows'
       run: |
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\msvcp140.dll') .
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140.dll') .
@@ -101,7 +101,7 @@ jobs:
       run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }} .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
-      if: startsWith(matrix.os, 'windows')
+      if: matrix.target == 'windows'
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.path }}
     - name: Upload release asset
