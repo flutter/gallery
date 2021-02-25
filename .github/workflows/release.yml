@@ -71,6 +71,7 @@ jobs:
       with:
         java-version: '12.x'
     - name: Enable desktop support
+      if: matrix.target != 'apk'
       run: |
         flutter config --enable-linux-desktop
         flutter config --enable-macos-desktop
