@@ -118,9 +118,9 @@ jobs:
         vswhere
         vswhere -h
         echo 1
-        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll -latest'
+        vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
         echo 2
-        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
+        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll -sort'
 
     # Package build.
     - name: Copy VC redistributables to release directory
