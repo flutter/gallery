@@ -54,8 +54,8 @@ jobs:
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Add Flutter to the PATH for Linux and macOS
-      if: matrix.target == 'linux' || matrix.target == 'macos'
+    - name: Add Flutter to the PATH for Linux, macOS, apk
+      if: matrix.target != 'windows'
       run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
     - name: Add Flutter to the PATH for Windows
       if: matrix.target == 'windows'
