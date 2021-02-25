@@ -81,14 +81,12 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: 'code'
-    - name: Get packages for the Flutter project
-      run: flutter pub get
-      working-directory: code
 
     # Build the application for desktop.
     - name: Build project
       run: |
         flutter create .
+        flutter pub get
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
     - name: Copy VC redistributables to release directory
