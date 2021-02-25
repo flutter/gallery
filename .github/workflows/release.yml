@@ -102,17 +102,17 @@ jobs:
         echo 2
         ls $GITHUB_WORKSPACE
         echo 3
-      - name: debug-linux
-        if: matrix.target == 'linux'
-        working-directory: code/${{ matrix.path }}
-        run: |
-          echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
-          ls
-          echo 1
-          ls .
-          echo 2
-          ls $GITHUB_WORKSPACE
-          echo 3
+    - name: debug-linux2
+      if: matrix.target == 'linux'
+      working-directory: code/${{ matrix.path }}
+      run: |
+        echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
+        ls
+        echo 1
+        ls .
+        echo 2
+        ls $GITHUB_WORKSPACE
+        echo 3
 
 
     - name: debug-windows
