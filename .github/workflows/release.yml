@@ -96,22 +96,24 @@ jobs:
     - name: debug-linux
       if: matrix.target == 'linux'
       run: |
-        echo ${env:GITHUB_WORKSPACE}/flutter_gallery_${{ matrix.target }}
         echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
     - name: debug-windows
       if: matrix.target == 'windows'
-      run: vswhere
+      run: |
+        vswhere
+        vswhere -h
+        vswhere -find 'msvcp140.dll'
 
     - name: Copy VC redistributables to release directory
       if: matrix.target == 'windows'
       run: |
-        Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\msvcp140.dll') .
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\16.8.5\x64\Microsoft.VC142.CRT\msvcp140.dll') .
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140.dll') .
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux and macOS
       if: matrix.target == 'linux' || matrix.target == 'macos'
-      run: zip -r ${env:GITHUB_WORKSPACE}/flutter_gallery_${{ matrix.target }} .
+      run: zip -r "$GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}" .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
