@@ -98,41 +98,40 @@ jobs:
       run: |
         echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
         ls
-        echo $PWD
-        ls code/${{ matrix.path }}
+        echo 1
+        ls .
+        echo 2
+        ls
+        echo 3
+        $GITHUB_WORKSPACE
     - name: debug-windows
       if: matrix.target == 'windows'
       run: |
         vswhere
         vswhere -h
         echo 1
-        vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
+        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll' -latest
         echo 2
         vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
 
+    # Package build.
     - name: Copy VC redistributables to release directory
       if: matrix.target == 'windows'
       run: |
-        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
-        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
-        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll -latest') .
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll -latest') .
+        Copy-Item (vswhere -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll -latest') .
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux, macOS, apk
       if: matrix.target != 'windows'
-      run: |
-        echo $PWD
-        ls
-        echo 1
-        ls .
-        echo 2
-        ls
-        echo 3
-        zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
+      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.path }}
+
+    # Upload release asset.
     - name: Upload release asset
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
