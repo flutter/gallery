@@ -104,6 +104,7 @@ jobs:
         echo 3
       - name: debug-linux
         if: matrix.target == 'linux'
+        working-directory: code/${{ matrix.path }}
         run: |
           echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
           ls
@@ -112,7 +113,7 @@ jobs:
           echo 2
           ls $GITHUB_WORKSPACE
           echo 3
-        working-directory: code/${{ matrix.path }}
+
 
     - name: debug-windows
       if: matrix.target == 'windows'
