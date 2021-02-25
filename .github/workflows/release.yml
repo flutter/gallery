@@ -96,21 +96,31 @@ jobs:
     - name: debug-linux
       if: matrix.target == 'linux'
       run: |
-        echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
         ls
         echo 1
         ls .
         echo 2
-        ls
+        ls $GITHUB_WORKSPACE
         echo 3
-        $GITHUB_WORKSPACE
+      - name: debug-linux
+        if: matrix.target == 'linux'
+        run: |
+          echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
+          ls
+          echo 1
+          ls .
+          echo 2
+          ls $GITHUB_WORKSPACE
+          echo 3
+        working-directory: code/${{ matrix.path }}
+
     - name: debug-windows
       if: matrix.target == 'windows'
       run: |
         vswhere
         vswhere -h
         echo 1
-        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll' -latest
+        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll -latest'
         echo 2
         vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
 
