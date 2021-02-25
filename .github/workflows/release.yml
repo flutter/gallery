@@ -7,7 +7,7 @@ on:
 jobs:
   create-release:
     name: Create draft release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
@@ -28,16 +28,16 @@ jobs:
       matrix:
         target: [macos, windows, linux, apk]
         include:
-        - os: macos-10.15
+        - os: macos-10.15 # Catalina
           target: macos
           path: build/macos/Build/Products/Release
         - os: windows-2019
           target: windows
           path: build\windows\runner\Release
-        - os: ubuntu-18.04
+        - os: ubuntu-20.04
           target: linux
           path: build/linux/release/bundle
-        - os: ubuntu-18.04
+        - os: ubuntu-20.04
           target: apk
           path: build/app/outputs/apk/release/
       # Disable fail-fast as we want results from all even if one fails.
