@@ -97,6 +97,9 @@ jobs:
       if: matrix.target == 'linux'
       run: |
         echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
+        ls
+        echo $PWD
+        ls code/${{ matrix.path }}
     - name: debug-windows
       if: matrix.target == 'windows'
       run: |
