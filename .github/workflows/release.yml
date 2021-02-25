@@ -108,7 +108,6 @@ jobs:
       run: |
         echo $GITHUB_WORKSPACE
         echo 1
-        echo $PWD
         echo 2
 
 
@@ -120,15 +119,15 @@ jobs:
         echo 1
         vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
         echo 2
-        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll -sort'
+        vswhere -sort -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
 
     # Package build.
     - name: Copy VC redistributables to release directory
       if: matrix.target == 'windows'
       run: |
-        Copy-Item (vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll -latest') .
-        Copy-Item (vswhere -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll -latest') .
-        Copy-Item (vswhere -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll -latest') .
+        Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
+        Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
+        Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux, macOS, apk
       if: matrix.target != 'windows'
