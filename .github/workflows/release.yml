@@ -103,16 +103,16 @@ jobs:
         vswhere
         vswhere -h
         echo 1
-        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
+        vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
         echo 2
-        vswhere -find 'VC\Redist\MSVC\*\x64\Microsoft.VC142.CRT\msvcp140.dll'
+        vswhere -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
 
     - name: Copy VC redistributables to release directory
       if: matrix.target == 'windows'
       run: |
-        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\Microsoft.*.CRT\msvcp140.dll') .
-        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\Microsoft.*.CRT\vcruntime140.dll') .
-        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\Microsoft.*.CRT\vcruntime140_1.dll') .
+        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
+        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
+        Copy-Item (vswhere -find -latest 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux, macOS, apk
       if: matrix.target != 'windows'
