@@ -93,8 +93,8 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
 
-    - name: debug-linux
-      if: matrix.target == 'linux'
+    - name: debug
+      if: matrix.target != 'windows'
       run: |
         ls
         echo 1
@@ -102,17 +102,14 @@ jobs:
         echo 2
         ls $GITHUB_WORKSPACE
         echo 3
-    - name: debug-linux2
-      if: matrix.target == 'linux'
+    - name: debug2
+      if: matrix.target != 'windows'
       working-directory: code/${{ matrix.path }}
       run: |
-        echo $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}
-        ls
+        echo $GITHUB_WORKSPACE
         echo 1
-        ls .
+        echo $PWD
         echo 2
-        ls $GITHUB_WORKSPACE
-        echo 3
 
 
     - name: debug-windows
