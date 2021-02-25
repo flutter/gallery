@@ -107,8 +107,8 @@ jobs:
         Copy-Item (vswhere -find 'VC\Redist\MSVC\14.27.29016\x64\Microsoft.VC142.CRT\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux and macOS
-      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
-      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }} .
+      if: matrix.target == 'linux' || matrix.target == 'macos'
+      run: zip -r ${env:GITHUB_WORKSPACE}/flutter_gallery_${{ matrix.target }} .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
