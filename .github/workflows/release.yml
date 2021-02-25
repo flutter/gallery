@@ -116,7 +116,9 @@ jobs:
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux and macOS
       if: matrix.target == 'linux' || matrix.target == 'macos'
-      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
+      run: |
+        echo $PWD
+        zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
