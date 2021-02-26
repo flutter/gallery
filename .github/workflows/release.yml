@@ -33,15 +33,23 @@ jobs:
         - os: macos-10.15 # Catalina
           target: macos
           path: build/macos/Build/Products/Release
+          asset_extension: .zip
+          asset_content_type: application/zip
         - os: windows-2019
           target: windows
           path: build\windows\runner\Release
+          asset_extension: .zip
+          asset_content_type: application/zip
         - os: ubuntu-20.04
           target: linux
           path: build/linux/x64/release/bundle
+          asset_extension: .tar.gz
+          asset_content_type: application/gzip
         - os: ubuntu-20.04
           target: apk
           path: build/app/outputs/apk/release/
+          asset_extension: .apk
+          asset_content_type: application/vnd.android.package-archive
       # Disable fail-fast as we want results from all even if one fails.
       fail-fast: false
     needs: create-release
@@ -101,13 +109,13 @@ jobs:
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
-    - name: Compress build for Linux, apk
-      if: matrix.target == 'linux' || matrix.target == 'apk'
-      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
+    - name: Compress build for Linux
+      if: matrix.target == 'linux'
+      run: tar czf $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.tar.gz *
       working-directory: code/${{ matrix.path }}
     - name: Compress build for macOS
       if: matrix.target == 'macos'
-      run: ditto -c -k --sequesterRsrc --keepParent Flutter\ Gallery.app
+      run: ditto -c -k --sequesterRsrc --keepParent Flutter\ Gallery.app flutter_gallery_${{ matrix.target }}.zip
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
@@ -122,6 +130,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: ./flutter_gallery_${{ matrix.target }}.zip
-        asset_name: flutter_gallery_${{ matrix.target }}.zip
-        asset_content_type: application/zip
+        asset_path: ./flutter_gallery_${{ matrix.target }}.${{ matrix.asset_extension }}
+        asset_name: flutter_gallery_${{ matrix.target }}.${{ matrix.asset_extension }}
+        asset_content_type: ${{ matrix.asset_content_type }}
