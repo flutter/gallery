@@ -32,7 +32,7 @@ jobs:
         include:
         - os: macos-10.15 # Catalina
           target: macos
-          path: build/macos/Build/Products/Release
+          path: build/macos/Build/Products/Release/Flutter Gallery.app
         - os: windows-2019
           target: windows
           path: build\windows\runner\Release
