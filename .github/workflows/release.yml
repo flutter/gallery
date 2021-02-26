@@ -130,6 +130,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create-release.outputs.upload_url }}
-        asset_path: ./flutter_gallery_${{ matrix.target }}.${{ matrix.asset_extension }}
-        asset_name: flutter_gallery_${{ matrix.target }}.${{ matrix.asset_extension }}
+        asset_path: ./flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
+        asset_name: flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
         asset_content_type: ${{ matrix.asset_content_type }}
