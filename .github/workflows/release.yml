@@ -98,10 +98,8 @@ jobs:
       run: |
         ls
         echo 1
-        ls .
-        echo 2
         ls $GITHUB_WORKSPACE
-        echo 3
+        echo 2
         ls code/build/linux/x64/release/bundle/
 
     - name: debug-macOS
@@ -133,7 +131,7 @@ jobs:
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux, macOS, apk
       if: matrix.target != 'windows'
-      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }} .
+      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
