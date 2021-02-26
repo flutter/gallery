@@ -32,7 +32,7 @@ jobs:
         include:
         - os: macos-10.15 # Catalina
           target: macos
-          path: build/macos/Build/Products/Release/Flutter Gallery.app
+          path: build/macos/Build/Products/Release
         - os: windows-2019
           target: windows
           path: build\windows\runner\Release
@@ -101,9 +101,13 @@ jobs:
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
-    - name: Compress build for Linux, macOS, apk
-      if: matrix.target != 'windows'
+    - name: Compress build for Linux, apk
+      if: matrix.target == 'linux' || matrix.target == 'apk'
       run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
+      working-directory: code/${{ matrix.path }}
+    - name: Compress build for macOS
+      if: matrix.target == 'macos'
+      run: ditto -c -k --sequesterRsrc --keepParent Flutter\ Gallery.app
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
