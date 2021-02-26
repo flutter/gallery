@@ -111,7 +111,8 @@ jobs:
       working-directory: code\${{ matrix.path }}
     - name: Debug-apk2
       if: matrix.target == 'apk'
-      run: ls code/${{ matrix.path }}
+      run: ls code
+      continue-on-error: true
     - name: Debug-apk
       if: matrix.target == 'apk'
       run: ls $GITHUB_WORKSPACE
