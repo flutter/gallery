@@ -102,14 +102,6 @@ jobs:
         echo 2
         ls $GITHUB_WORKSPACE
         echo 3
-    - name: debug2
-      if: matrix.target != 'windows'
-      working-directory: code/${{ matrix.path }}
-      run: |
-        echo "$GITHUB_WORKSPACE"
-        echo 1
-        echo 2
-
 
     - name: debug-windows
       if: matrix.target == 'windows'
