@@ -102,16 +102,22 @@ jobs:
       working-directory: code
 
     # Package build.
-    - name: Copy VC redistributables to release directory
+    - name: Copy VC redistributables to release directory for Windows
       if: matrix.target == 'windows'
       run: |
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
+    - name: Debug-apk2
+      if: matrix.target == 'apk'
+      run: ls code/${{ matrix.path }}
+    - name: Debug-apk
+      if: matrix.target == 'apk'
+      run: ls $GITHUB_WORKSPACE
     - name: Rename build for apk
       if: matrix.target == 'apk'
-      run: mv app-release.apk $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.apk .
+      run: mv app-release.apk $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.apk
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Linux
       if: matrix.target == 'linux'
