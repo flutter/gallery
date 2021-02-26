@@ -38,7 +38,7 @@ jobs:
           path: build\windows\runner\Release
         - os: ubuntu-20.04
           target: linux
-          path: build/linux/release/bundle
+          path: build/linux/x64/release/bundle
         - os: ubuntu-20.04
           target: apk
           path: build/app/outputs/apk/release/
@@ -98,13 +98,9 @@ jobs:
       run: |
         ls
         echo 1
-        ls .
-        echo 2
         ls $GITHUB_WORKSPACE
-        echo 3
+        echo 2
         ls code/build/linux/x64/release/bundle/
-        echo 4
-        ls code/build/linux/release/bundle
 
     - name: debug-macOS
       if: matrix.target == 'macos'
@@ -135,7 +131,8 @@ jobs:
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux, macOS, apk
       if: matrix.target != 'windows'
-      run: zip -r flutter_gallery_${{ matrix.target }}.zip code/${{ matrix.path }}
+      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
+      working-directory: code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
