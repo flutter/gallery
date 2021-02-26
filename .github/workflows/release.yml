@@ -1,7 +1,5 @@
 name: Draft Flutter Gallery Release
 on:
-  pull_request:
-    types: [synchronize]
   push:
     # Sequence of patterns matched against refs/tags
     tags:
@@ -93,7 +91,7 @@ jobs:
       with:
         path: 'code'
 
-    # Build the application for desktop.
+    # Build the application.
     - name: Build project
       run: |
         flutter create .
@@ -101,7 +99,7 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
 
-    # Package build.
+    # Package the build.
     - name: Copy VC redistributables to release directory for Windows
       if: matrix.target == 'windows'
       run: |
@@ -109,13 +107,6 @@ jobs:
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
-    - name: Debug-apk2
-      if: matrix.target == 'apk'
-      run: ls code
-      continue-on-error: true
-    - name: Debug-apk
-      if: matrix.target == 'apk'
-      run: ls $GITHUB_WORKSPACE
     - name: Rename build for apk
       if: matrix.target == 'apk'
       run: mv app-release.apk $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.apk
@@ -133,7 +124,7 @@ jobs:
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
       working-directory: code\${{ matrix.path }}
 
-    # Upload release asset.
+    # Upload the build.
     - name: Upload release asset
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
