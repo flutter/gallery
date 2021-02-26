@@ -26,7 +26,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        target: [macos, windows, linux, apk]
+        target: [macos, windows, linux, android]
         include:
         - os: macos-10.15 # Catalina
           target: macos
@@ -44,7 +44,7 @@ jobs:
           asset_extension: .tar.gz
           asset_content_type: application/gzip
         - os: ubuntu-20.04
-          target: apk
+          target: android
           path: build/app/outputs/flutter-apk
           asset_extension: .apk
           asset_content_type: application/vnd.android.package-archive
@@ -60,7 +60,7 @@ jobs:
         ref: 'master'
         path: 'flutter'
         fetch-depth: 0
-    - name: Add Flutter to the PATH for Linux, macOS, apk
+    - name: Add Flutter to the PATH for Linux, macOS, Android
       if: matrix.target != 'windows'
       run: echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
     - name: Add Flutter to the PATH for Windows
@@ -72,12 +72,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
     - name: Install Android dependencies
-      if: matrix.target == 'apk'
+      if: matrix.target == 'android'
       uses: actions/setup-java@v1
       with:
         java-version: '12.x'
     - name: Enable desktop support
-      if: matrix.target != 'apk'
+      if: matrix.target != 'android'
       run: |
         flutter config --enable-linux-desktop
         flutter config --enable-macos-desktop
@@ -107,8 +107,8 @@ jobs:
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
-    - name: Rename build for apk
-      if: matrix.target == 'apk'
+    - name: Rename build for Android
+      if: matrix.target == 'android'
       run: mv app-release.apk $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.apk
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Linux
