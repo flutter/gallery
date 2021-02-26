@@ -93,34 +93,6 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
 
-    - name: debug-linux
-      if: matrix.target == 'linux'
-      run: |
-        ls
-        echo 1
-        ls $GITHUB_WORKSPACE
-        echo 2
-        ls code/build/linux/x64/release/bundle/
-
-    - name: debug-macOS
-      if: matrix.target == 'macos'
-      run: |
-        ls
-        echo 1
-        ls .
-        echo 2
-        ls $GITHUB_WORKSPACE
-
-    - name: debug-windows
-      if: matrix.target == 'windows'
-      run: |
-        vswhere
-        vswhere -h
-        echo 1
-        vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
-        echo 2
-        vswhere -sort -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll'
-
     # Package build.
     - name: Copy VC redistributables to release directory
       if: matrix.target == 'windows'
