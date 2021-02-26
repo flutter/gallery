@@ -93,8 +93,8 @@ jobs:
         flutter build -v ${{ matrix.target }} --release
       working-directory: code
 
-    - name: debug
-      if: matrix.target != 'windows'
+    - name: debug-linux
+      if: matrix.target == 'linux'
       run: |
         ls
         echo 1
@@ -105,6 +105,15 @@ jobs:
         ls build/linux/x64/release/bundle/
         echo 4
         ls build/linux/release/bundle
+
+    - name: debug-macOS
+      if: matrix.target == 'macos'
+      run: |
+        ls
+        echo 1
+        ls .
+        echo 2
+        ls $GITHUB_WORKSPACE
 
     - name: debug-windows
       if: matrix.target == 'windows'
