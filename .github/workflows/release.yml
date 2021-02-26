@@ -47,7 +47,7 @@ jobs:
           asset_content_type: application/gzip
         - os: ubuntu-20.04
           target: apk
-          path: build/app/outputs/apk/flutter-apk
+          path: build/app/outputs/flutter-apk
           asset_extension: .apk
           asset_content_type: application/vnd.android.package-archive
       # Disable fail-fast as we want results from all even if one fails.
