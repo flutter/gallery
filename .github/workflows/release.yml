@@ -47,7 +47,7 @@ jobs:
           asset_content_type: application/gzip
         - os: ubuntu-20.04
           target: apk
-          path: build/app/outputs/apk/release/
+          path: build/app/outputs/apk/flutter-apk
           asset_extension: .apk
           asset_content_type: application/vnd.android.package-archive
       # Disable fail-fast as we want results from all even if one fails.
@@ -109,9 +109,9 @@ jobs:
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
       working-directory: code\${{ matrix.path }}
-    - name: Compress build for apk
+    - name: Rename build for apk
       if: matrix.target == 'apk'
-      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
+      run: mv app-release.apk $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.apk .
       working-directory: code/${{ matrix.path }}
     - name: Compress build for Linux
       if: matrix.target == 'linux'
