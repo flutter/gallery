@@ -102,9 +102,9 @@ jobs:
         echo 2
         ls $GITHUB_WORKSPACE
         echo 3
-        ls build/linux/x64/release/bundle/
+        ls code/build/linux/x64/release/bundle/
         echo 4
-        ls build/linux/release/bundle
+        ls code/build/linux/release/bundle
 
     - name: debug-macOS
       if: matrix.target == 'macos'
