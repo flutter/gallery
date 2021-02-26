@@ -106,7 +106,7 @@ jobs:
       if: matrix.target != 'windows'
       working-directory: code/${{ matrix.path }}
       run: |
-        echo $GITHUB_WORKSPACE
+        echo "$GITHUB_WORKSPACE"
         echo 1
         echo 2
 
@@ -131,8 +131,7 @@ jobs:
       working-directory: code\${{ matrix.path }}
     - name: Compress build for Linux, macOS, apk
       if: matrix.target != 'windows'
-      run: zip -r $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip .
-      working-directory: code/${{ matrix.path }}
+      run: zip -r flutter_gallery_${{ matrix.target }}.zip code/${{ matrix.path }}
     - name: Compress build for Windows
       if: matrix.target == 'windows'
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
