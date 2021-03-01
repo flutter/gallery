@@ -75,6 +75,7 @@ jobs:
           asset_content_type: application/gzip
         - os: ubuntu-20.04
           target: android
+          build_target: apk
           path: build/app/outputs/flutter-apk
           asset_extension: .apk
           asset_content_type: application/vnd.android.package-archive
@@ -126,7 +127,7 @@ jobs:
       run: |
         flutter create .
         flutter pub get
-        flutter build -v ${{ matrix.target }} --release
+        flutter build -v ${{ matrix.build_target || matrix.target }} --release
       working-directory: code
 
     # Package the build.
