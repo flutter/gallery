@@ -7,8 +7,8 @@ on:
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 jobs:
-  generate-release-notes:
-    name: Generate release notes
+  generate-changelog:
+    name: Generate changelog
     runs-on: ubuntu-latest
     steps:
       - name: Get latest release tag
@@ -17,29 +17,28 @@ jobs:
         with:
           repository: ${{ github.repository }}
           excludes: prerelease, draft
-      - name: Generate release notes since last release
+      - name: Generate changelog since last release
         uses: charmixer/auto-changelog-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          output: 'release_notes.md'
           future_release: ${{ github.ref }}
           since_tag: ${{ steps.get_latest_release.outputs.release }}
-      - name: Upload release notes
+      - name: Upload changelog
         uses: actions/upload-artifact@v2
         with:
-          name: release_notes
-          path: release_notes.md
+          name: changelog
+          path: CHANGELOG.md
   create-release:
     name: Create draft release
-    needs: generate-release-notes
+    needs: generate-changelog
     runs-on: ubuntu-20.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-    - name: Download release notes
+    - name: Download changelog
       uses: actions/download-artifact@v2
       with:
-        name: release_notes
+        name: changelog
     - name: Create draft release
       id: create_release
       uses: actions/create-release@v1
@@ -48,7 +47,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Flutter Gallery ${{ github.ref }}
-        body_path: release_notes.md
+        body_path: CHANGELOG.md
         draft: true
         prerelease: false
   build:
