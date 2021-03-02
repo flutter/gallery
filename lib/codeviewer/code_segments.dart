@@ -16464,6 +16464,15 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.baseStyle,
+          text: '\u000a                textInputAction'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
+      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.classStyle, text: 'TextInputAction'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
+      TextSpan(style: codeStyle.baseStyle, text: 'next'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(
+          style: codeStyle.baseStyle,
           text: '\u000a                restorationId'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -16532,6 +16541,15 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.baseStyle,
+          text: '\u000a                textInputAction'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
+      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.classStyle, text: 'TextInputAction'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
+      TextSpan(style: codeStyle.baseStyle, text: 'next'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
+      TextSpan(
+          style: codeStyle.baseStyle,
           text: '\u000a                restorationId'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -16577,6 +16595,15 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: '\u000a            '),
       TextSpan(style: codeStyle.classStyle, text: 'CupertinoTextField'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
+      TextSpan(
+          style: codeStyle.baseStyle,
+          text: '\u000a              textInputAction'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
+      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.classStyle, text: 'TextInputAction'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
+      TextSpan(style: codeStyle.baseStyle, text: 'done'),
+      TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle,
           text: '\u000a              restorationId'),
