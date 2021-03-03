@@ -59,15 +59,15 @@ class _TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    var singlePane = TwoPaneSinglePane.both;
+    var panePriority = TwoPanePriority.both;
     if (widget.type == TwoPaneDemoType.singleScreen) {
-      singlePane = _currentIndex.value == -1 ? TwoPaneSinglePane.pane1 : TwoPaneSinglePane.pane2;
+      panePriority = _currentIndex.value == -1 ? TwoPanePriority.pane1 : TwoPanePriority.pane2;
     }
     return SimulateScreen(
       type: widget.type,
       child: TwoPane(
         paneProportion: 0.3,
-        singlePane: singlePane,
+        panePriority: panePriority,
         pane1: ListPane(
           selectedIndex: _currentIndex.value,
           onSelect: (index) {

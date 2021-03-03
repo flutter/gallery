@@ -104,6 +104,7 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
         .copyWith(color: theme.textTheme.caption.color);
 
     return DialogRoute<String>(
+      screen: 1,
       context: context,
       builder: (context) => ApplyTextOptions(
         child: AlertDialog(
