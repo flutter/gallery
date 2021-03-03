@@ -8,13 +8,14 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/studies/crane/backdrop.dart';
 import 'package:gallery/studies/crane/eat_form.dart';
 import 'package:gallery/studies/crane/fly_form.dart';
+import 'package:gallery/studies/crane/routes.dart' as routes;
 import 'package:gallery/studies/crane/sleep_form.dart';
 import 'package:gallery/studies/crane/theme.dart';
 
 class CraneApp extends StatelessWidget {
   const CraneApp();
 
-  static const String defaultRoute = '/crane';
+  static const String defaultRoute = routes.defaultRoute;
 
   @override
   Widget build(BuildContext context) {

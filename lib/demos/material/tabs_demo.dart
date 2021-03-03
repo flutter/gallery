@@ -4,11 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum TabsDemoType {
-  scrollable,
-  nonScrollable,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class TabsDemo extends StatelessWidget {
   const TabsDemo({Key key, this.type}) : super(key: key);

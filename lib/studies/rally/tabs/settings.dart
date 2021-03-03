@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/studies/rally/app.dart';
+import 'package:gallery/studies/rally/routes.dart' as rally_route;
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
 
@@ -57,7 +57,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.of(context).restorablePushNamed(RallyApp.loginRoute);
+        Navigator.of(context).restorablePushNamed(rally_route.loginRoute);
       },
     );
   }

@@ -14,6 +14,7 @@ import 'package:gallery/studies/shrine/login.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
+import 'package:gallery/studies/shrine/routes.dart' as routes;
 import 'package:gallery/studies/shrine/scrim.dart';
 import 'package:gallery/studies/shrine/supplemental/layout_cache.dart';
 import 'package:gallery/studies/shrine/theme.dart';
@@ -22,8 +23,8 @@ import 'package:scoped_model/scoped_model.dart';
 class ShrineApp extends StatefulWidget {
   const ShrineApp();
 
-  static const String loginRoute = '/shrine/login';
-  static const String homeRoute = '/shrine';
+  static const String loginRoute = routes.loginRoute;
+  static const String homeRoute = routes.homeRoute;
 
   @override
   _ShrineAppState createState() => _ShrineAppState();

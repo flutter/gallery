@@ -907,6 +907,22 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
+  "demoDividerTitle": "Divider",
+  "@demoDividerTitle": {
+    "description": "Title for the divider component demo."
+  },
+  "demoDividerSubtitle": "A divider is a thin line that groups content in lists and layouts.",
+  "@demoDividerSubtitle": {
+    "description": "Subtitle for the divider component demo."
+  },
+  "demoDividerDescription": "Dividers can be used in lists, drawers, and elsewhere to separate content.",
+  "@demoDividerDescription": {
+    "description": "Description for the divider component demo."
+  },
+  "demoVerticalDividerTitle": "Vertical Divider",
+  "@demoVerticalDividerTitle": {
+    "description": "Title for the vertical divider component demo."
+  },
   "demoGridListsTitle": "Grid Lists",
   "@demoGridListsTitle": {
     "description": "Title for the grid lists component demo."

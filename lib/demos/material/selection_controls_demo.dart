@@ -5,12 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum SelectionControlsDemoType {
-  checkbox,
-  radio,
-  switches,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class SelectionControlsDemo extends StatelessWidget {
   const SelectionControlsDemo({Key key, @required this.type}) : super(key: key);

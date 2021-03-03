@@ -5,13 +5,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 // BEGIN listDemo
-
-enum ListDemoType {
-  oneLine,
-  twoLine,
-}
 
 class ListDemo extends StatelessWidget {
   const ListDemo({Key key, this.type}) : super(key: key);
