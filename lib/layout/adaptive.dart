@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
 
@@ -20,8 +22,10 @@ bool isDisplaySmallDesktop(BuildContext context) {
 }
 
 bool isDisplayFoldable(BuildContext context) {
-  final size = MediaQuery.of(context).size;
-  return MediaQuery.of(context)
-      .displayFeatures
-      .any((e) => e.bounds.height > size.height);
+  final hinge = MediaQuery.of(context).hinge;
+  if (hinge == null) {
+    return false;
+  } else {
+    return hinge.bounds.size.aspectRatio < 1;
+  }
 }

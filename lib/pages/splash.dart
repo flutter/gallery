@@ -226,11 +226,19 @@ class _SplashBackLayer extends StatelessWidget {
       if (isDisplayFoldable(context)) {
         child = Container(
           color: Theme.of(context).colorScheme.background,
-          child: Center(
-            child: Image.asset(
-              'assets/logo/flutter_logo_color.png',
-              package: 'flutter_gallery_assets',
-            ),
+          child: Stack(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/logo/flutter_logo_color.png',
+                  package: 'flutter_gallery_assets',
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 100.0),
+                child: Center(child: Text('Select a demo')),
+              )
+            ],
           ),
         );
       }
@@ -249,13 +257,15 @@ class _SplashBackLayer extends StatelessWidget {
     }
 
     return ExcludeSemantics(
-      child: Container(
+      child: Material(
         // This is the background color of the gifs.
         color: const Color(0xFF030303),
-        padding: EdgeInsets.only(
-          bottom: isDisplayDesktop(context) ? homePeekDesktop : isDisplayFoldable(context) ? 0 : homePeekMobile,
+        child: Padding(
+          padding: EdgeInsets.only(
+            bottom: isDisplayDesktop(context) ? homePeekDesktop : isDisplayFoldable(context) ? 0 : homePeekMobile,
+          ),
+          child: child,
         ),
-        child: child,
       ),
     );
   }

@@ -120,7 +120,6 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     final isDesktop = isDisplayDesktop(context);
-    final isFoldable = isDisplayFoldable(context);
 
     final Widget settingsPage = ValueListenableBuilder<bool>(
       valueListenable: _isSettingsOpenNotifier,

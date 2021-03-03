@@ -3280,5 +3280,29 @@
   "replyDraftsLabel": "Drafts",
   "@replyDraftsLabel": {
     "description": "Text label for Drafts destination."
+  },
+  "demoTwoPaneDualScreenLabel": "Dual Screen",
+  "@demoTwoPaneDualScreenLabel": {
+    "description": "Option title for TwoPane demo in dual screen mode."
+  },
+  "demoTwoPaneDualScreenDescription": "This is how it behaves on a dual screen device.",
+  "@demoTwoPaneDualScreenDescription": {
+    "description": "Description for the dual screen option configuration on the TwoPane demo"
+  },
+  "demoTwoPaneSingleScreenLabel": "Single Screen",
+  "@demoTwoPaneSingleScreenLabel": {
+    "description": "Option title for TwoPane demo in single screen mode."
+  },
+  "demoTwoPaneSingleScreenDescription": "This is how it behaves on a single screen device.",
+  "@demoTwoPaneSingleScreenDescription": {
+    "description": "Description for the single screen option configuration on the TwoPane demo"
+  },
+  "demoTwoPaneTabletLabel": "Tablet / Desktop",
+  "@demoTwoPaneTabletLabel": {
+    "description": "Option title for TwoPane demo in tablet or desktop mode."
+  },
+  "demoTwoPaneTabletDescription": "This is how it behaves on a larger screen like a tablet or desktop.",
+  "@demoTwoPaneTabletDescription": {
+    "description": "Description for the tablet / desktop option configuration on the TwoPane demo"
   }
 }

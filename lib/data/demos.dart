@@ -53,6 +53,7 @@ import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dar
 import 'package:gallery/demos/reference/colors_demo.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart';
 import 'package:gallery/demos/reference/typography_demo.dart';
+import 'package:gallery/demos/reference/two_pane_demo.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
     show GalleryLocalizationsEn;
@@ -1028,6 +1029,45 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
 
 List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
+    GalleryDemo(
+      title: 'TwoPane',
+      icon: GalleryIcons.bottomSheetPersistent,
+      slug: 'two-pane',
+      subtitle: 'Responsive on dual, single or larger screens',
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoTwoPaneDualScreenLabel,
+          description: localizations.demoTwoPaneDualScreenDescription,
+          documentationUrl: '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+          buildRoute: (_) => const TwoPaneDemo(
+            type: TwoPaneDemoType.dualScreen,
+            restorationId: 'two_pane_dual_pane',
+          ),
+          code: CodeSegments.colorsDemo, // TODO: Generate and use new code
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoTwoPaneTabletLabel,
+          description: localizations.demoTwoPaneTabletDescription,
+          documentationUrl: '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+          buildRoute: (_) => const TwoPaneDemo(
+            type: TwoPaneDemoType.tablet,
+            restorationId: 'two_pane_tablet',
+          ),
+          code: CodeSegments.colorsDemo, // TODO: Generate and use new code
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoTwoPaneSingleScreenLabel,
+          description: localizations.demoTwoPaneSingleScreenDescription,
+          documentationUrl: '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+          buildRoute: (_) => const TwoPaneDemo(
+            type: TwoPaneDemoType.singleScreen,
+            restorationId: 'two_pane_tablet',
+          ),
+          code: CodeSegments.colorsDemo, // TODO: Generate and use new code
+        ),
+      ],
+      category: GalleryDemoCategory.other,
+    ),
     GalleryDemo(
       title: localizations.demoMotionTitle,
       icon: GalleryIcons.animation,
