@@ -1,7 +1,5 @@
 name: Draft Flutter Gallery Release
 on:
-  pull_request:
-    types: [synchronize]
   push:
     # Sequence of patterns matched against refs/tags
     tags:
