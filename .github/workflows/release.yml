@@ -29,7 +29,7 @@ jobs:
           name: changelog
           path: CHANGELOG.md
   create-release:
-    name: Create draft release
+    name: Create Github release draft
     needs: generate-changelog
     runs-on: ubuntu-20.04
     outputs:
