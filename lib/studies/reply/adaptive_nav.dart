@@ -1290,7 +1290,7 @@ class _SharedAxisTransitionSwitcher extends StatelessWidget {
           reverse: !onSearchPage,
           transitionBuilder: (child, animation, secondaryAnimation) {
             return SharedAxisTransition(
-              fillColor: Theme.of(context).cardColor,
+              fillColor: Theme.of(context).colorScheme.background,
               animation: animation,
               secondaryAnimation: secondaryAnimation,
               transitionType: SharedAxisTransitionType.scaled,
