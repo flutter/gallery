@@ -645,7 +645,7 @@
   "settingsSystemDefault": "Sistema",
   "settingsTitle": "Ajustes",
   "rallyDescription": "Una aplicación de finanzas personales",
-  "aboutDialogDescription": "Ve a {value} para ver el código fuente de esta aplicación.",
+  "aboutDialogDescription": "Ve a {repoLink} para ver el código fuente de esta aplicación.",
   "bottomNavigationCommentsTab": "Comentarios",
   "starterAppGenericBody": "Cuerpo",
   "starterAppGenericHeadline": "Título",

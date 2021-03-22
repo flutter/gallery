@@ -645,7 +645,7 @@
   "settingsSystemDefault": "Жүйе",
   "settingsTitle": "Параметрлер",
   "rallyDescription": "Бюджет жоспарлауға арналған қолданба",
-  "aboutDialogDescription": "Осы қолданбаның бастапқы кодын көру үшін {value} бетін ашыңыз.",
+  "aboutDialogDescription": "Осы қолданбаның бастапқы кодын көру үшін {repoLink} бетін ашыңыз.",
   "bottomNavigationCommentsTab": "Пікірлер",
   "starterAppGenericBody": "Негізгі мәтін",
   "starterAppGenericHeadline": "Тақырып",

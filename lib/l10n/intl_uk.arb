@@ -645,7 +645,7 @@
   "settingsSystemDefault": "Система",
   "settingsTitle": "Налаштування",
   "rallyDescription": "Додаток для керування особистими фінансами",
-  "aboutDialogDescription": "Щоб переглянути вихідний код цього додатка, відвідайте сторінку {value}.",
+  "aboutDialogDescription": "Щоб переглянути вихідний код цього додатка, відвідайте сторінку {repoLink}.",
   "bottomNavigationCommentsTab": "Коментарі",
   "starterAppGenericBody": "Основний текст",
   "starterAppGenericHeadline": "Заголовок",

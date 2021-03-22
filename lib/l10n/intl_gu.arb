@@ -645,7 +645,7 @@
   "settingsSystemDefault": "સિસ્ટમ",
   "settingsTitle": "સેટિંગ",
   "rallyDescription": "વ્યક્તિગત નાણાંકીય આયોજન માટેની ઍપ",
-  "aboutDialogDescription": "આ ઍપનો સૉર્સ કોડ જોવા માટે, કૃપા કરીને {value}ની મુલાકાત લો.",
+  "aboutDialogDescription": "આ ઍપનો સૉર્સ કોડ જોવા માટે, કૃપા કરીને {repoLink}ની મુલાકાત લો.",
   "bottomNavigationCommentsTab": "કૉમેન્ટ",
   "starterAppGenericBody": "મુખ્ય ભાગ",
   "starterAppGenericHeadline": "હેડલાઇન",

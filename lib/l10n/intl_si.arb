@@ -571,7 +571,7 @@
   "shrineCartTaxCaption": "බදු:",
   "shrineCartPageCaption": "බහලුම",
   "shrineProductQuantity": "ප්‍රමාණය: {quantity}",
-  "shrineProductPrice": "x {මිල}",
+  "shrineProductPrice": "x {price}",
   "shrineCartItemCount": "{quantity,plural, =0{අයිතම නැත}=1{අයිතම 1}one{අයිතම {quantity}}other{අයිතම {quantity}}}",
   "shrineCartClearButtonCaption": "කරත්තය හිස් කරන්න",
   "shrineCartTotalCaption": "එකතුව",
