@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="craneName">crane</string>
-  <string name="fortnightlyName">fortnightly</string>
-  <string name="rallyName">rally</string>
-  <string name="shrineName">shrine</string>
-  <string name="cupertinoName">cupertino</string>
-  <string name="materialName">material</string>
-  <string name="referenceName">reference</string>
 </resources>
