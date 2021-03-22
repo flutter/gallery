@@ -8,6 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:label="Flutter Gallery"
+        android:name="io.flutter.app.FlutterPlayStoreSplitApplication"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -42,5 +43,6 @@
                 android:name="flutterEmbedding"
                 android:value="2"/>
         </activity>
+        <meta-data android:name="io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager.loadingUnitMapping" android:value="2:crane,3:,4:,5:,6:,7:,8:,9:,10:,11:"/>
     </application>
 </manifest>
