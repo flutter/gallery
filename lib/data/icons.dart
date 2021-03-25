@@ -167,16 +167,7 @@ class GalleryIcons {
     0xe927,
     fontFamily: 'GalleryIcons',
   );
-  static const IconData navigationRail = IconData(
-    60080,
-    fontFamily: 'MaterialIcons',
-  );
-  static const IconData appbar = IconData(
-    60134,
-    fontFamily: 'MaterialIcons',
-  );
-  static const IconData divider = IconData(
-    0xe8f0,
-    fontFamily: 'MaterialIcons',
-  );
+  static const IconData navigationRail = Icons.vertical_split;
+  static const IconData appbar = Icons.web_asset;
+  static const IconData divider = Icons.credit_card;
 }
