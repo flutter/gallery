@@ -86,6 +86,10 @@ flutter:
         - packages/flutter_gallery_assets/crane/destinations/sleep_10.jpg
         - packages/flutter_gallery_assets/crane/destinations/sleep_11.jpg
         - packages/flutter_gallery_assets/crane/logo/logo.png
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Medium.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-SemiBold.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Regular.ttf
+        - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Light.ttf
 
   assets:
     - packages/flutter_gallery_assets/assets/studies/shrine_card_dark.png
@@ -113,8 +117,6 @@ flutter:
     - packages/flutter_gallery_assets/fonts/google_fonts/Rubik-Bold.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Merriweather-Light.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/RobotoCondensed-Bold.ttf
-    - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Medium.ttf
-    - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-SemiBold.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-Regular.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/RobotoMono-Regular.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-ExtraBold.ttf
@@ -122,10 +124,8 @@ flutter:
     - packages/flutter_gallery_assets/fonts/google_fonts/Oswald-SemiBold.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Oswald-Medium.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/LibreFranklin-SemiBold.ttf
-    - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Regular.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Montserrat-Bold.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Merriweather-BoldItalic.ttf
-    - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Light.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Rubik-Medium.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/Montserrat-SemiBold.ttf
     - packages/flutter_gallery_assets/fonts/google_fonts/RobotoCondensed-Regular.ttf
