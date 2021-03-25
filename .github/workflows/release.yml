@@ -5,12 +5,38 @@ on:
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 jobs:
+  generate-changelog:
+    name: Generate changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest release tag
+        id: get_latest_release
+        uses: pozetroninc/github-action-get-latest-release@v0.5.0
+        with:
+          repository: ${{ github.repository }}
+          excludes: prerelease, draft
+      - name: Generate changelog since last release
+        uses: charmixer/auto-changelog-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          future_release: ${{ github.ref }}
+          since_tag: ${{ steps.get_latest_release.outputs.release }}
+      - name: Upload changelog
+        uses: actions/upload-artifact@v2
+        with:
+          name: changelog
+          path: CHANGELOG.md
   create-release:
-    name: Create draft release
+    name: Create Github release draft
+    needs: generate-changelog
     runs-on: ubuntu-20.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
+    - name: Download changelog
+      uses: actions/download-artifact@v2
+      with:
+        name: changelog
     - name: Create draft release
       id: create_release
       uses: actions/create-release@v1
@@ -19,6 +45,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Flutter Gallery ${{ github.ref }}
+        body_path: CHANGELOG.md
         draft: true
         prerelease: false
   build:
@@ -45,6 +72,7 @@ jobs:
           asset_content_type: application/gzip
         - os: ubuntu-20.04
           target: android
+          build_target: apk
           path: build/app/outputs/flutter-apk
           asset_extension: .apk
           asset_content_type: application/vnd.android.package-archive
@@ -96,7 +124,7 @@ jobs:
       run: |
         flutter create .
         flutter pub get
-        flutter build -v ${{ matrix.target }} --release
+        flutter build -v ${{ matrix.build_target || matrix.target }} --release
       working-directory: code
 
     # Package the build.
