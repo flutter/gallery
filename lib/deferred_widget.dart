@@ -77,7 +77,7 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 /// Widget that displays a progress indicator and a text description explaining
 /// that the widget is a deferred component and loading.
 class DeferredLoadingPlaceholder extends StatelessWidget {
-  DeferredLoadingStatus({this.name = 'This widget'}) {}
+  DeferredLoadingStatus({String name = 'This widget'}) : this.name = name;
 
   final String name;
 
@@ -108,3 +108,4 @@ class DeferredLoadingPlaceholder extends StatelessWidget {
       )
     );
   }
+}
