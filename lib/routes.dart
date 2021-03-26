@@ -67,8 +67,8 @@ class RouteConfiguration {
       r'^' + crane_routes.defaultRoute,
       (context, match) => StudyWrapper(
         study: DeferredWidget(crane.loadLibrary,
-            () => crane.CraneApp(),
-            placeholder: DeferredLoadingPlaceholder(name: 'Crane')), // ignore: prefer_const_constructors
+            () => crane.CraneApp(), // ignore: prefer_const_constructors
+            placeholder: DeferredLoadingPlaceholder(name: 'Crane')),
       ),
     ),
     Path(

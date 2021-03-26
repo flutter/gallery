@@ -15,7 +15,7 @@ typedef DeferredWidgetBuilder = Widget Function();
 ///
 class DeferredWidget extends StatefulWidget {
   DeferredWidget(this.libraryLoader, this.createWidget, {Key key, Widget placeholder})
-      : this.placeholder = placeholder ?? Container(),
+      : placeholder = placeholder ?? Container(),
         super(key: key);
 
   final LibraryLoader libraryLoader;
@@ -74,10 +74,10 @@ class _DeferredWidgetState extends State<DeferredWidget> {
   }
 }
 
-/// Widget that displays a progress indicator and a text description explaining
-/// that the widget is a deferred component and loading.
+/// Displays a progress indicator and text description explaining that
+/// the widget is a deferred component and is currently being installed.
 class DeferredLoadingPlaceholder extends StatelessWidget {
-  DeferredLoadingStatus({String name = 'This widget'}) : this.name = name;
+  DeferredLoadingPlaceholder({String name = 'This widget'}) : name = name;
 
   final String name;
 
@@ -87,11 +87,11 @@ class DeferredLoadingPlaceholder extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            Text('${name} is installing.', style: Theme.of(context).textTheme.headline4),
+            Text('$name is installing.', style: Theme.of(context).textTheme.headline4),
             Container(height: 10),
-            Text('${name} is a deferred component which are downloaded and installed at runtime.', style: Theme.of(context).textTheme.body2),
+            Text('$name is a deferred component which are downloaded and installed at runtime.', style: Theme.of(context).textTheme.bodyText1),
             Container(height: 20),
-            Center(child: CircularProgressIndicator()),
+            const Center(child: CircularProgressIndicator()),
           ],
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +102,7 @@ class DeferredLoadingPlaceholder extends StatelessWidget {
             width: 20.0,
             color: Colors.grey[700],
           ),
-          borderRadius: BorderRadius.all(Radius.circular(10))
+          borderRadius: const BorderRadius.all(Radius.circular(10))
         ),
         width: 250.0,
       )
