@@ -266,7 +266,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions-crane', pretty: true);
+      await summary.writeTimelineToFile('transitions-crane', pretty: true);
     }, timeout: Timeout.none);
 
     test('only Reply', () async {
