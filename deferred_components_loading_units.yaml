@@ -1,0 +1,149 @@
+# ==============================================================================
+# The contents of this file are automatically generated and it is not
+# recommended to modify this file manually.
+# ==============================================================================
+#
+# In order to prevent unexpected splitting of deferred apps, this file records
+# the last generated set of loading units. It only possible to obtain the final
+# configuration of loading units after compilation is complete. This means
+# improperly setup deferred imports can only be detected after compilation.
+#
+# This file allows the build tool to detect any changes in the generated
+# loading units. During the next build attempt, loading units in this file are
+# compared against the newly generated loading units to check for any new or
+# removed loading units. In the case where loading units do not match, the build
+# will fail and ask the developer to verify that the `deferred-components`
+# configuration in `pubspec.yaml` is correct. Developers should make any
+# necessary changes to integrate new and changed loading units or remove no
+# longer existing loading units from the configuration. The build command should
+# then be re-run to continue the build process.
+#
+# Sometimes, changes to the generated loading units may be unintentional. If
+# the list of loading units in this file is not what is expected, the app's
+# deferred imports should be reviewed. Third party plugins and packages may
+# also introduce deferred imports that result in unexpected loading units.
+loading-units:
+  - id: 2
+    libraries:
+      - package:flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart
+      - package:flutter_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart
+      - package:flutter_staggered_grid_view/src/rendering/tile_container_render_object_mixin.dart
+      - package:flutter_staggered_grid_view/src/widgets/sliver.dart
+      - package:flutter_staggered_grid_view/src/widgets/staggered_grid_view.dart
+      - package:flutter_staggered_grid_view/src/widgets/staggered_tile.dart
+      - package:gallery/layout/highlight_focus.dart
+      - package:gallery/studies/crane/app.dart
+      - package:gallery/studies/crane/backdrop.dart
+      - package:gallery/studies/crane/eat_form.dart
+      - package:gallery/studies/crane/fly_form.dart
+      - package:gallery/studies/crane/sleep_form.dart
+      - package:gallery/studies/crane/theme.dart
+      - package:gallery/studies/crane/backlayer.dart
+      - package:gallery/studies/crane/border_tab_indicator.dart
+      - package:gallery/studies/crane/header_form.dart
+      - package:gallery/studies/crane/item_cards.dart
+      - package:gallery/studies/crane/model/data.dart
+      - package:gallery/studies/crane/model/destination.dart
+      - package:gallery/studies/crane/model/formatters.dart
+  - id: 3
+    libraries:
+      - package:gallery/studies/fortnightly/app.dart
+      - package:gallery/studies/fortnightly/shared.dart
+  - id: 4
+    libraries:
+      - package:gallery/studies/rally/app.dart
+      - package:gallery/studies/rally/home.dart
+      - package:gallery/studies/rally/login.dart
+      - package:gallery/studies/rally/charts/line_chart.dart
+      - package:gallery/studies/rally/data.dart
+      - package:gallery/studies/rally/formatters.dart
+      - package:gallery/studies/rally/charts/pie_chart.dart
+      - package:gallery/studies/rally/charts/vertical_fraction_bar.dart
+      - package:gallery/studies/rally/finance.dart
+      - package:gallery/studies/rally/tabs/accounts.dart
+      - package:gallery/studies/rally/tabs/bills.dart
+      - package:gallery/studies/rally/tabs/budgets.dart
+      - package:gallery/studies/rally/tabs/overview.dart
+      - package:gallery/studies/rally/tabs/settings.dart
+      - package:gallery/studies/rally/tabs/sidebar.dart
+  - id: 5
+    libraries:
+      - package:gallery/studies/shrine/app.dart
+      - package:gallery/studies/shrine/backdrop.dart
+      - package:gallery/studies/shrine/category_menu_page.dart
+      - package:gallery/studies/shrine/expanding_bottom_sheet.dart
+      - package:gallery/studies/shrine/home.dart
+      - package:gallery/studies/shrine/login.dart
+      - package:gallery/studies/shrine/model/app_state_model.dart
+      - package:gallery/studies/shrine/model/product.dart
+      - package:gallery/studies/shrine/page_status.dart
+      - package:gallery/studies/shrine/scrim.dart
+      - package:gallery/studies/shrine/supplemental/layout_cache.dart
+      - package:gallery/studies/shrine/theme.dart
+      - package:scoped_model/scoped_model.dart
+      - package:gallery/studies/shrine/triangle_category_indicator.dart
+      - package:gallery/studies/shrine/shopping_cart.dart
+      - package:gallery/studies/shrine/supplemental/asymmetric_view.dart
+      - package:gallery/studies/shrine/model/products_repository.dart
+      - package:gallery/studies/shrine/supplemental/balanced_layout.dart
+      - package:gallery/studies/shrine/supplemental/desktop_product_columns.dart
+      - package:gallery/studies/shrine/supplemental/product_columns.dart
+      - package:gallery/studies/shrine/supplemental/product_card.dart
+      - package:gallery/studies/shrine/supplemental/cut_corners_border.dart
+  - id: 6
+    libraries:
+      - package:gallery/demos/cupertino/cupertino_demos.dart
+      - package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart
+      - package:gallery/demos/cupertino/cupertino_alert_demo.dart
+      - package:gallery/demos/cupertino/cupertino_button_demo.dart
+      - package:gallery/demos/cupertino/cupertino_context_menu_demo.dart
+      - package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart
+      - package:gallery/demos/cupertino/cupertino_picker_demo.dart
+      - package:gallery/demos/cupertino/cupertino_refresh_demo.dart
+      - package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart
+      - package:gallery/demos/cupertino/cupertino_slider_demo.dart
+      - package:gallery/demos/cupertino/cupertino_switch_demo.dart
+      - package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart
+      - package:gallery/demos/cupertino/cupertino_text_field_demo.dart
+  - id: 7
+    libraries:
+      - package:gallery/demos/material/material_demos.dart
+      - package:gallery/demos/material/app_bar_demo.dart
+      - package:gallery/demos/material/banner_demo.dart
+      - package:gallery/demos/material/bottom_app_bar_demo.dart
+      - package:gallery/demos/material/bottom_navigation_demo.dart
+      - package:gallery/demos/material/bottom_sheet_demo.dart
+      - package:gallery/demos/material/button_demo.dart
+      - package:gallery/demos/material/cards_demo.dart
+      - package:gallery/demos/material/chip_demo.dart
+      - package:gallery/demos/material/data_table_demo.dart
+      - package:gallery/demos/material/dialog_demo.dart
+      - package:gallery/demos/material/divider_demo.dart
+      - package:gallery/demos/material/grid_list_demo.dart
+      - package:gallery/demos/material/list_demo.dart
+      - package:gallery/demos/material/menu_demo.dart
+      - package:gallery/demos/material/navigation_drawer.dart
+      - package:gallery/demos/material/navigation_rail_demo.dart
+      - package:gallery/demos/material/picker_demo.dart
+      - package:gallery/demos/material/progress_indicator_demo.dart
+      - package:gallery/demos/material/selection_controls_demo.dart
+      - package:gallery/demos/material/sliders_demo.dart
+      - package:gallery/demos/material/snackbar_demo.dart
+      - package:gallery/demos/material/tabs_demo.dart
+      - package:gallery/demos/material/text_field_demo.dart
+      - package:gallery/demos/material/tooltip_demo.dart
+  - id: 8
+    libraries:
+      - package:gallery/demos/reference/motion_demo_container_transition.dart
+  - id: 9
+    libraries:
+      - package:gallery/demos/reference/colors_demo.dart
+  - id: 10
+    libraries:
+      - package:gallery/demos/reference/transformations_demo.dart
+      - package:gallery/demos/reference/transformations_demo_board.dart
+      - package:gallery/demos/reference/transformations_demo_edit_board_point.dart
+      - package:gallery/demos/reference/transformations_demo_color_picker.dart
+  - id: 11
+    libraries:
+      - package:gallery/demos/reference/typography_demo.dart

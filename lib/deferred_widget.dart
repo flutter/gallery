@@ -14,11 +14,14 @@ typedef DeferredWidgetBuilder = Widget Function();
 /// state as long as closure to create widget stays the same.
 ///
 class DeferredWidget extends StatefulWidget {
-  DeferredWidget(this.libraryLoader, this.createWidget, {Key key})
-      : super(key: key);
+  DeferredWidget(this.libraryLoader, this.createWidget,
+      {Key key, Widget placeholder})
+      : placeholder = placeholder ?? Container(),
+        super(key: key);
 
   final LibraryLoader libraryLoader;
   final DeferredWidgetBuilder createWidget;
+  final Widget placeholder;
   static final Map<LibraryLoader, Future<void>> _moduleLoaders = {};
   static final Set<LibraryLoader> _loadedModules = {};
 
@@ -68,6 +71,43 @@ class _DeferredWidgetState extends State<DeferredWidget> {
       _loadedCreator = widget.createWidget;
       _loadedChild = _loadedCreator();
     }
-    return _loadedChild ?? Container();
+    return _loadedChild ?? widget.placeholder;
+  }
+}
+
+/// Displays a progress indicator and text description explaining that
+/// the widget is a deferred component and is currently being installed.
+class DeferredLoadingPlaceholder extends StatelessWidget {
+  DeferredLoadingPlaceholder({String name = 'This widget'}) : name = name;
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Container(
+      child: Column(
+        children: <Widget>[
+          Text('$name is installing.',
+              style: Theme.of(context).textTheme.headline4),
+          Container(height: 10),
+          Text(
+              '$name is a deferred component which are downloaded and installed at runtime.',
+              style: Theme.of(context).textTheme.bodyText1),
+          Container(height: 20),
+          const Center(child: CircularProgressIndicator()),
+        ],
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+      ),
+      decoration: BoxDecoration(
+          color: Colors.grey[700],
+          border: Border.all(
+            width: 20,
+            color: Colors.grey[700],
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
+      width: 250,
+    ));
   }
 }
