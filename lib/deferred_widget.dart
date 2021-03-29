@@ -14,7 +14,8 @@ typedef DeferredWidgetBuilder = Widget Function();
 /// state as long as closure to create widget stays the same.
 ///
 class DeferredWidget extends StatefulWidget {
-  DeferredWidget(this.libraryLoader, this.createWidget, {Key key, Widget placeholder})
+  DeferredWidget(this.libraryLoader, this.createWidget,
+      {Key key, Widget placeholder})
       : placeholder = placeholder ?? Container(),
         super(key: key);
 
@@ -87,9 +88,12 @@ class DeferredLoadingPlaceholder extends StatelessWidget {
       child: Container(
         child: Column(
           children: <Widget>[
-            Text('$name is installing.', style: Theme.of(context).textTheme.headline4),
+            Text('$name is installing.',
+                style: Theme.of(context).textTheme.headline4),
             Container(height: 10),
-            Text('$name is a deferred component which are downloaded and installed at runtime.', style: Theme.of(context).textTheme.bodyText1),
+            Text(
+                '$name is a deferred component which are downloaded and installed at runtime.',
+                style: Theme.of(context).textTheme.bodyText1),
             Container(height: 20),
             const Center(child: CircularProgressIndicator()),
           ],
@@ -99,12 +103,12 @@ class DeferredLoadingPlaceholder extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.grey[700],
           border: Border.all(
-            width: 20.0,
+            width: 20,
             color: Colors.grey[700],
           ),
           borderRadius: const BorderRadius.all(Radius.circular(10))
         ),
-        width: 250.0,
+        width: 250,
       )
     );
   }
