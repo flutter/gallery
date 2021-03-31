@@ -310,7 +310,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions-reply', pretty: true);
+      await summary.writeTimelineToFile('transitions-reply', pretty: true);
     }, timeout: Timeout.none);
 
     test('all demos', () async {
@@ -328,7 +328,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions', pretty: true);
+      await summary.writeTimelineToFile('transitions', pretty: true);
 
       // Execute the remaining tests.
       final unprofiledDemos = Set<String>.from(_allDemos)
