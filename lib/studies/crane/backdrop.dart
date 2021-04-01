@@ -26,11 +26,13 @@ class _FrontLayer extends StatefulWidget {
     this.title,
     this.index,
     this.mobileTopOffset,
+    this.restorationId,
   }) : super(key: key);
 
   final String title;
   final int index;
   final double mobileTopOffset;
+  final String restorationId;
 
   @override
   _FrontLayerState createState() => _FrontLayerState();
@@ -98,6 +100,7 @@ class _FrontLayerState extends State<_FrontLayer> {
           ),
           child: StaggeredGridView.countBuilder(
             key: ValueKey('CraneListView-${widget.index}'),
+            restorationId: widget.restorationId,
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: 16.0,
             padding: isDesktop
@@ -150,7 +153,9 @@ class Backdrop extends StatefulWidget {
   _BackdropState createState() => _BackdropState();
 }
 
-class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
+class _BackdropState extends State<Backdrop>
+    with TickerProviderStateMixin, RestorationMixin {
+  final RestorableInt tabIndex = RestorableInt(0);
   TabController _tabController;
   Animation<Offset> _flyLayerHorizontalOffset;
   Animation<Offset> _sleepLayerHorizontalOffset;
@@ -161,9 +166,25 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   static const _sleepLayerTopOffset = 60.0;
 
   @override
+  String get restorationId => 'tab_non_scrollable_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(tabIndex, 'tab_index');
+    _tabController.index = tabIndex.value;
+  }
+
+  @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      // When the tab controller's value is updated, make sure to update the
+      // tab index value, which is state restorable.
+      setState(() {
+        tabIndex.value = _tabController.index;
+      });
+    });
 
     // Offsets to create a horizontal gap between front layers.
     _flyLayerHorizontalOffset = _tabController.animation.drive(
@@ -179,6 +200,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
@@ -246,6 +268,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                                   .craneFlySubhead,
                               index: 0,
                               mobileTopOffset: _sleepLayerTopOffset,
+                              restorationId: 'fly-subhead',
                             ),
                           ),
                           SlideTransition(
@@ -255,6 +278,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                                   .craneSleepSubhead,
                               index: 1,
                               mobileTopOffset: 0,
+                              restorationId: 'sleep-subhead',
                             ),
                           ),
                           SlideTransition(
@@ -264,6 +288,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                                   .craneEatSubhead,
                               index: 2,
                               mobileTopOffset: _sleepLayerTopOffset,
+                              restorationId: 'eat-subhead',
                             ),
                           ),
                         ],

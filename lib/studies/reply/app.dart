@@ -8,6 +8,7 @@ import 'package:gallery/studies/reply/colors.dart';
 import 'package:gallery/studies/reply/compose_page.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
+import 'package:gallery/studies/reply/routes.dart' as routes;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +17,8 @@ final rootNavKey = GlobalKey<NavigatorState>();
 class ReplyApp extends StatefulWidget {
   const ReplyApp();
 
-  static const String homeRoute = '/reply';
-  static const String composeRoute = '/reply/compose';
+  static const String homeRoute = routes.homeRoute;
+  static const String composeRoute = routes.composeRoute;
 
   static Route createComposeRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(
@@ -66,39 +67,36 @@ class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
     final replyTheme =
         isDark ? _buildReplyDarkTheme(context) : _buildReplyLightTheme(context);
 
-    return RestorationScope(
-      restorationId: 'replyAppState',
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider<EmailStore>.value(
-            value: _appState.value,
-          ),
-        ],
-        child: MaterialApp(
-          navigatorKey: rootNavKey,
-          restorationScopeId: 'appNavigator',
-          title: 'Reply',
-          debugShowCheckedModeBanner: false,
-          theme: replyTheme,
-          localizationsDelegates: GalleryLocalizations.localizationsDelegates,
-          supportedLocales: GalleryLocalizations.supportedLocales,
-          locale: GalleryOptions.of(context).locale,
-          initialRoute: ReplyApp.homeRoute,
-          onGenerateRoute: (settings) {
-            switch (settings.name) {
-              case ReplyApp.homeRoute:
-                return MaterialPageRoute<void>(
-                  builder: (context) => const AdaptiveNav(),
-                  settings: settings,
-                );
-                break;
-              case ReplyApp.composeRoute:
-                return ReplyApp.createComposeRoute(settings);
-                break;
-            }
-            return null;
-          },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<EmailStore>.value(
+          value: _appState.value,
         ),
+      ],
+      child: MaterialApp(
+        navigatorKey: rootNavKey,
+        restorationScopeId: 'appNavigator',
+        title: 'Reply',
+        debugShowCheckedModeBanner: false,
+        theme: replyTheme,
+        localizationsDelegates: GalleryLocalizations.localizationsDelegates,
+        supportedLocales: GalleryLocalizations.supportedLocales,
+        locale: GalleryOptions.of(context).locale,
+        initialRoute: ReplyApp.homeRoute,
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case ReplyApp.homeRoute:
+              return MaterialPageRoute<void>(
+                builder: (context) => const AdaptiveNav(),
+                settings: settings,
+              );
+              break;
+            case ReplyApp.composeRoute:
+              return ReplyApp.createComposeRoute(settings);
+              break;
+          }
+          return null;
+        },
       ),
     );
   }

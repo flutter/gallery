@@ -1,14 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
 import 'package:gallery/pages/home.dart';
-import 'package:gallery/studies/crane/app.dart';
-import 'package:gallery/studies/fortnightly/app.dart';
-import 'package:gallery/studies/rally/app.dart';
-import 'package:gallery/studies/reply/app.dart';
-import 'package:gallery/studies/shrine/app.dart';
-import 'package:gallery/studies/starter/app.dart';
+import 'package:gallery/studies/crane/app.dart' deferred as crane;
+import 'package:gallery/studies/crane/routes.dart' as crane_routes;
+import 'package:gallery/studies/fortnightly/app.dart' deferred as fortnightly;
+import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
+import 'package:gallery/studies/rally/app.dart' deferred as rally;
+import 'package:gallery/studies/rally/routes.dart' as rally_routes;
+import 'package:gallery/studies/reply/app.dart' as reply;
+import 'package:gallery/studies/reply/routes.dart' as reply_routes;
+import 'package:gallery/studies/shrine/app.dart' deferred as shrine;
+import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
+import 'package:gallery/studies/starter/app.dart' as starter_app;
+import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 typedef PathWidgetBuilder = Widget Function(BuildContext, String);
 
@@ -43,31 +50,45 @@ class RouteConfiguration {
       (context, match) => DemoPage(slug: match),
     ),
     Path(
-      r'^' + RallyApp.homeRoute,
-      (context, match) => const StudyWrapper(study: RallyApp()),
-    ),
-    Path(
-      r'^' + ShrineApp.homeRoute,
-      (context, match) => const StudyWrapper(study: ShrineApp()),
-    ),
-    Path(
-      r'^' + CraneApp.defaultRoute,
-      (context, match) => const StudyWrapper(study: CraneApp()),
-    ),
-    Path(
-      r'^' + FortnightlyApp.defaultRoute,
-      (context, match) => const StudyWrapper(study: FortnightlyApp()),
-    ),
-    Path(
-      r'^' + ReplyApp.homeRoute,
-      (context, match) => const StudyWrapper(
-        alignment: AlignmentDirectional.topCenter,
-        study: ReplyApp(),
+      r'^' + rally_routes.homeRoute,
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(rally.loadLibrary,
+            () => rally.RallyApp()), // ignore: prefer_const_constructors
       ),
     ),
     Path(
-      r'^' + StarterApp.defaultRoute,
-      (context, match) => const StudyWrapper(study: StarterApp()),
+      r'^' + shrine_routes.homeRoute,
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(shrine.loadLibrary,
+            () => shrine.ShrineApp()), // ignore: prefer_const_constructors
+      ),
+    ),
+    Path(
+      r'^' + crane_routes.defaultRoute,
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(crane.loadLibrary,
+            () => crane.CraneApp(), // ignore: prefer_const_constructors
+            placeholder: DeferredLoadingPlaceholder(name: 'Crane')),
+      ),
+    ),
+    Path(
+      r'^' + fortnightly_routes.defaultRoute,
+      (context, match) => StudyWrapper(
+        study: DeferredWidget(
+            fortnightly.loadLibrary,
+            // ignore: prefer_const_constructors
+            () => fortnightly.FortnightlyApp()),
+      ),
+    ),
+    Path(
+        r'^' + reply_routes.homeRoute,
+        // ignore: prefer_const_constructors
+        (context, match) => StudyWrapper(study: reply.ReplyApp())),
+    Path(
+      r'^' + starter_app_routes.defaultRoute,
+      (context, match) => const StudyWrapper(
+        study: starter_app.StarterApp(),
+      ),
     ),
     Path(
       r'^/',

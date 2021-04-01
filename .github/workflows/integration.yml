@@ -35,5 +35,5 @@ jobs:
       run: flutter pub get
       working-directory: code
     - name: Run gallery_compile_test
-      run: flutter test integration_test/gallery_compile_test.dart
+      run: dart test integration_test/gallery_compile_test.dart
       working-directory: code

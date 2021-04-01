@@ -4,11 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum TabsDemoType {
-  scrollable,
-  nonScrollable,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class TabsDemo extends StatelessWidget {
   const TabsDemo({Key key, this.type}) : super(key: key);
@@ -48,6 +44,7 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
+    _tabController.index = tabIndex.value;
   }
 
   @override
@@ -70,17 +67,12 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // Ensures that the tab controller's index is updated with the
-    // state restorable tab index value.
-    if (_tabController.index != tabIndex.value) {
-      _tabController.index = tabIndex.value;
-    }
-
     final tabs = [
       GalleryLocalizations.of(context).colorsRed,
       GalleryLocalizations.of(context).colorsOrange,
@@ -142,10 +134,12 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
+    _tabController.index = tabIndex.value;
   }
 
   @override
   void initState() {
+    super.initState();
     _tabController = TabController(
       initialIndex: 0,
       length: 3,
@@ -158,23 +152,17 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
         tabIndex.value = _tabController.index;
       });
     });
-    super.initState();
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    tabIndex.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // Ensures that the tab controller's index is updated with the
-    // state restorable tab index value.
-    if (_tabController.index != tabIndex.value) {
-      _tabController.index = tabIndex.value;
-    }
-
     final tabs = [
       GalleryLocalizations.of(context).colorsRed,
       GalleryLocalizations.of(context).colorsOrange,

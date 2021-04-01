@@ -5,14 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 
+import 'package:gallery/demos/material/material_demo_types.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN bottomNavigationDemo
-
-enum BottomNavigationDemoType {
-  withLabels,
-  withoutLabels,
-}
 
 class BottomNavigationDemo extends StatefulWidget {
   const BottomNavigationDemo({
@@ -38,6 +34,12 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_currentIndex, 'bottom_navigation_tab_index');
+  }
+
+  @override
+  void dispose() {
+    _currentIndex.dispose();
+    super.dispose();
   }
 
   String _title(BuildContext context) {

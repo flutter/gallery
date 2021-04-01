@@ -4,13 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum ChipDemoType {
-  action,
-  choice,
-  filter,
-  input,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class ChipDemo extends StatelessWidget {
   const ChipDemo({
@@ -91,7 +85,7 @@ class _ChoiceChipDemo extends StatefulWidget {
 
 class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
     with RestorationMixin {
-  final RestorableInt _indexSelected = RestorableInt(-1);
+  final RestorableIntN _indexSelected = RestorableIntN(null);
 
   @override
   String get restorationId => 'choice_chip_demo';
@@ -99,6 +93,12 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_indexSelected, 'choice_chip');
+  }
+
+  @override
+  void dispose() {
+    _indexSelected.dispose();
+    super.dispose();
   }
 
   @override
@@ -164,6 +164,14 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
     registerForRestoration(isSelectedElevator, 'selected_elevator');
     registerForRestoration(isSelectedWasher, 'selected_washer');
     registerForRestoration(isSelectedFireplace, 'selected_fireplace');
+  }
+
+  @override
+  void dispose() {
+    isSelectedElevator.dispose();
+    isSelectedWasher.dispose();
+    isSelectedFireplace.dispose();
+    super.dispose();
   }
 
   @override

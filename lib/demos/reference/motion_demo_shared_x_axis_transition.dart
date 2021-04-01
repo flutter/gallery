@@ -175,7 +175,7 @@ class _SignInPage extends StatelessWidget {
         final maxHeight = constraints.maxHeight;
         final spacing = SizedBox(height: maxHeight / 25);
 
-        return Column(
+        return ListView(
           children: [
             SizedBox(height: maxHeight / 10),
             Image.asset(

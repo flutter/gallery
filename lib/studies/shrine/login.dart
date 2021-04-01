@@ -62,6 +62,7 @@ class LoginPage extends StatelessWidget {
               appBar: AppBar(backgroundColor: Colors.white),
               body: SafeArea(
                 child: ListView(
+                  restorationId: 'login_list_view',
                   physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(
                     horizontal: _horizontalPadding,
@@ -115,13 +116,12 @@ class _UsernameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    final _usernameController = TextEditingController();
-
     return PrimaryColorOverride(
       color: shrineBrown900,
       child: Container(
         child: TextField(
-          controller: _usernameController,
+          textInputAction: TextInputAction.next,
+          restorationId: 'username_text_field',
           cursorColor: colorScheme.onSurface,
           decoration: InputDecoration(
             labelText:
@@ -142,13 +142,11 @@ class _PasswordTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    final _passwordController = TextEditingController();
-
     return PrimaryColorOverride(
       color: shrineBrown900,
       child: Container(
         child: TextField(
-          controller: _passwordController,
+          restorationId: 'password_text_field',
           cursorColor: colorScheme.onSurface,
           obscureText: true,
           decoration: InputDecoration(
@@ -218,7 +216,7 @@ class _CancelAndNextButtons extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed(ShrineApp.homeRoute);
+                Navigator.of(context).restorablePushNamed(ShrineApp.homeRoute);
               },
             ),
           ],

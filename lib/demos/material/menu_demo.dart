@@ -5,13 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum MenuDemoType {
-  contextMenu,
-  sectionedMenu,
-  simpleMenu,
-  checklistMenu,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 enum SimpleValue {
   one,
@@ -370,6 +364,12 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
       CheckedValue.three: GalleryLocalizations.of(context).demoMenuThree,
       CheckedValue.four: GalleryLocalizations.of(context).demoMenuFour,
     }[value];
+  }
+
+  @override
+  void dispose() {
+    _checkedValues.dispose();
+    super.dispose();
   }
 
   @override

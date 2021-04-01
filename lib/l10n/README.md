@@ -44,17 +44,15 @@ flutter gen-l10n \
     --output-class=GalleryLocalizations
 ```
 
-### Generating the .xml source for the Google translation console
+## Obtaining Translations (for Flutter org members)
 
 From the root directory, run `dart tool/l10n_cli/main.dart`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 
-Note that the filename for `intl_en_US.xml` is used by the internal
+> Note that the filename for `intl_en_US.xml` is used by the internal
 translation console and changing the filename may require manually updating
 already translated messages to point to the new file. Therefore, avoid doing so
 unless necessary.
 
-## Importing translations (for Flutter org members)
-
-Once the translations are ready, use the internal tool (`push_l10n`) to push the updated `intl_<locale>.arb` files to this repo. For more information, see `/third_party/dart/flutter_gallery/README.md`.
+See `/third_party/dart/flutter_gallery/README.md` for how to import this file and export translations.

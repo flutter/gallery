@@ -35,7 +35,7 @@ class _AboutDialog extends StatelessWidget {
         textTheme.bodyText1.apply(color: colorScheme.onPrimary);
 
     final name = 'Flutter Gallery'; // Don't need to localize.
-    final legalese = '© 2019 The Flutter team'; // Don't need to localize.
+    final legalese = '© 2021 The Flutter team'; // Don't need to localize.
     final repoText = GalleryLocalizations.of(context).githubRepo(name);
     final seeSource =
         GalleryLocalizations.of(context).aboutDialogDescription(repoText);

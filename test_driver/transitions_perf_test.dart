@@ -10,19 +10,19 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 
 // To run this test for all demos:
-// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
+//    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
 // To run this test for just Crane, with scrolling:
-// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
-// To run this test for just Reply, with animations:
-// flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyReply=true
-
-// Demos for which timeline data will be collected using
-// FlutterDriver.traceAction().
-//
-// Warning: The number of tests executed with timeline collection enabled
+//    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
+// To run this test for just Crane, with animations:
+//    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyReply=true
+// Enable semantics with the --with_semantics flag
+// Note: The number of tests executed with timeline collection enabled
 // significantly impacts heap size of the running app. When run with
 // --trace-startup, as we do in this test, the VM stores trace events in an
 // endless buffer instead of a ring buffer.
+
+// Demos for which timeline data will be collected using
+// FlutterDriver.traceAction().
 //
 // These names must match the output of GalleryDemo.describe in
 // lib/data/demos.dart.
@@ -236,6 +236,9 @@ void main([List<String> args = const <String>[]]) {
       if (driver != null) {
         await driver.close();
       }
+
+      print(
+          'Timeline summaries for profiled demos have been output to the build/ directory.');
     });
 
     test('only Crane', () async {
@@ -263,13 +266,13 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions-crane', pretty: true);
+      await summary.writeTimelineToFile('transitions-crane', pretty: true);
     }, timeout: Timeout.none);
 
     test('only Reply', () async {
       if (!isTestingReplyOnly) return;
 
-      // Collect timeline data for just the Reply study.
+      // Collect timeline data for just the Crane study.
       final timeline = await driver.traceAction(
         () async {
           await runDemos(
@@ -307,7 +310,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions-reply', pretty: true);
+      await summary.writeTimelineToFile('transitions-reply', pretty: true);
     }, timeout: Timeout.none);
 
     test('all demos', () async {
@@ -325,7 +328,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions', pretty: true);
+      await summary.writeTimelineToFile('transitions', pretty: true);
 
       // Execute the remaining tests.
       final unprofiledDemos = Set<String>.from(_allDemos)

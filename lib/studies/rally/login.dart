@@ -20,9 +20,20 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+class _LoginPageState extends State<LoginPage> with RestorationMixin {
+  final RestorableTextEditingController _usernameController =
+      RestorableTextEditingController();
+  final RestorableTextEditingController _passwordController =
+      RestorableTextEditingController();
+
+  @override
+  String get restorationId => 'login_page';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_usernameController, restorationId);
+    registerForRestoration(_passwordController, restorationId);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +42,8 @@ class _LoginPageState extends State<LoginPage> {
         appBar: AppBar(automaticallyImplyLeading: false),
         body: SafeArea(
           child: _MainView(
-            usernameController: _usernameController,
-            passwordController: _passwordController,
+            usernameController: _usernameController.value,
+            passwordController: _passwordController.value,
           ),
         ),
       ),
@@ -58,7 +69,7 @@ class _MainView extends StatelessWidget {
   final TextEditingController passwordController;
 
   void _login(BuildContext context) {
-    Navigator.of(context).pushNamed(RallyApp.homeRoute);
+    Navigator.of(context).restorablePushNamed(RallyApp.homeRoute);
   }
 
   @override
@@ -110,6 +121,7 @@ class _MainView extends StatelessWidget {
           child: Align(
             alignment: isDesktop ? Alignment.center : Alignment.topCenter,
             child: ListView(
+              restorationId: 'login_list_view',
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 24),
               children: listViewChildren,
@@ -222,6 +234,7 @@ class _UsernameInput extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(maxWidth: maxWidth ?? double.infinity),
         child: TextField(
+          textInputAction: TextInputAction.next,
           controller: usernameController,
           decoration: InputDecoration(
             labelText: GalleryLocalizations.of(context).rallyLoginUsername,
@@ -377,7 +390,7 @@ class _BorderButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(RallyApp.homeRoute);
+        Navigator.of(context).restorablePushNamed(RallyApp.homeRoute);
       },
       child: Text(text),
     );

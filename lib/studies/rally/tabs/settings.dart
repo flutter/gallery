@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/studies/rally/app.dart';
+import 'package:gallery/studies/rally/routes.dart' as rally_route;
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
 
@@ -21,6 +21,7 @@ class _SettingsViewState extends State<SettingsView> {
       child: Container(
         padding: EdgeInsets.only(top: isDisplayDesktop(context) ? 24 : 0),
         child: ListView(
+          restorationId: 'settings_list_view',
           shrinkWrap: true,
           children: [
             for (String title
@@ -56,7 +57,7 @@ class _SettingsItem extends StatelessWidget {
         child: Text(title),
       ),
       onPressed: () {
-        Navigator.of(context).pushNamed(RallyApp.loginRoute);
+        Navigator.of(context).restorablePushNamed(rally_route.loginRoute);
       },
     );
   }

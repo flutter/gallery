@@ -243,9 +243,14 @@ class _DesktopNavState extends State<_DesktopNav>
           ),
           const VerticalDivider(thickness: 1, width: 1),
           Expanded(
-            child: _SharedAxisTransitionSwitcher(
-              defaultChild: _MailNavigator(
-                child: MailboxBody(key: widget.inboxKey),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1340),
+                child: _SharedAxisTransitionSwitcher(
+                  defaultChild: _MailNavigator(
+                    child: MailboxBody(key: widget.inboxKey),
+                  ),
+                ),
               ),
             ),
           ),
@@ -1285,7 +1290,7 @@ class _SharedAxisTransitionSwitcher extends StatelessWidget {
           reverse: !onSearchPage,
           transitionBuilder: (child, animation, secondaryAnimation) {
             return SharedAxisTransition(
-              fillColor: Theme.of(context).cardColor,
+              fillColor: Theme.of(context).colorScheme.background,
               animation: animation,
               secondaryAnimation: secondaryAnimation,
               transitionType: SharedAxisTransitionType.scaled,

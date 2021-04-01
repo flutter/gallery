@@ -5,14 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-enum ButtonDemoType {
-  text,
-  elevated,
-  outlined,
-  toggle,
-  floating,
-}
+import 'package:gallery/demos/material/material_demo_types.dart';
 
 class ButtonDemo extends StatelessWidget {
   const ButtonDemo({Key key, this.type}) : super(key: key);
@@ -170,6 +163,14 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
     registerForRestoration(isSelected[0], 'first_item');
     registerForRestoration(isSelected[1], 'second_item');
     registerForRestoration(isSelected[2], 'third_item');
+  }
+
+  @override
+  void dispose() {
+    isSelected.forEach((restorableBool) {
+      restorableBool.dispose();
+    });
+    super.dispose();
   }
 
   @override
