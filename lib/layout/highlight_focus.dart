@@ -82,9 +82,9 @@ class _HighlightFocusState extends State<HighlightFocus> {
                 event.logicalKey == LogicalKeyboardKey.enter ||
                 event.logicalKey == LogicalKeyboardKey.numpadEnter)) {
           widget.onPressed();
-          return true;
+          return KeyEventResult.handled;
         } else {
-          return false;
+          return KeyEventResult.ignored;
         }
       },
       child: Container(

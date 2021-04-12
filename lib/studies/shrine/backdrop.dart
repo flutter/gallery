@@ -103,8 +103,8 @@ class _BackdropTitle extends AnimatedWidget {
     final menuButtonTooltip = animation.isCompleted
         ? GalleryLocalizations.of(context).shrineTooltipOpenMenu
         : animation.isDismissed
-            ? GalleryLocalizations.of(context).shrineTooltipCloseMenu
-            : null;
+        ? GalleryLocalizations.of(context).shrineTooltipCloseMenu
+        : null;
 
     return DefaultTextStyle(
       style: Theme.of(context).primaryTextTheme.headline6,
