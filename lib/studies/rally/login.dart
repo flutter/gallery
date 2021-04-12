@@ -301,10 +301,10 @@ class _ThumbButtonState extends State<_ThumbButton> {
               if (event.logicalKey == LogicalKeyboardKey.enter ||
                   event.logicalKey == LogicalKeyboardKey.space) {
                 widget.onTap();
-                return true;
+                return KeyEventResult.handled;
               }
             }
-            return false;
+            return KeyEventResult.ignored;
           },
           onFocusChange: (hasFocus) {
             if (hasFocus) {
