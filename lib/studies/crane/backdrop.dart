@@ -78,8 +78,8 @@ class _FrontLayerState extends State<_FrontLayer> {
     final crossAxisCount = isSmallDesktop
         ? 2
         : isDesktop
-            ? 4
-            : 1;
+        ? 4
+        : 1;
 
     return FocusTraversalGroup(
       policy: ReadingOrderTraversalPolicy(),

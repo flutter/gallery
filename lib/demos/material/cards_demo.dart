@@ -409,18 +409,17 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
                 child: (destination.cardType == CardType.standard)
                     ? TravelDestinationItem(destination: destination)
                     : destination.cardType == CardType.tappable
-                        ? TappableTravelDestinationItem(
-                            destination: destination)
-                        : SelectableTravelDestinationItem(
-                            destination: destination,
-                            isSelected: _isSelected.value,
-                            onSelected: () {
-                              print('Selectable card state changed');
-                              setState(() {
-                                _isSelected.value = !_isSelected.value;
-                              });
-                            },
-                          ),
+                    ? TappableTravelDestinationItem(destination: destination)
+                    : SelectableTravelDestinationItem(
+                        destination: destination,
+                        isSelected: _isSelected.value,
+                        onSelected: () {
+                          print('Selectable card state changed');
+                          setState(() {
+                            _isSelected.value = !_isSelected.value;
+                          });
+                        },
+                      ),
               ),
           ],
         ),
