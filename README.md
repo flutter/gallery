@@ -132,3 +132,9 @@ flutter pub run grinder update-code-segments
 6. Go to [Releases](https://github.com/flutter/gallery/releases) and see the latest draft.
     * Include the release notes in the description.
     * Publish the release.
+
+## Tests
+
+The gallery has its own set of unit and integration tests. Flutter itself also uses it in tests. To enable breaking changes, the gallery version is pinned in two places:
+* `flutter analyze`: https://github.com/flutter/tests/blob/master/registry/flutter_gallery.test
+* DeviceLab tests: https://github.com/flutter/flutter/blob/master/dev/devicelab/lib/versions/gallery.dart
