@@ -116,7 +116,8 @@ class _PasswordFieldState extends State<PasswordField> with RestorationMixin {
   }
 }
 
-class TextFormFieldDemoState extends State<TextFormFieldDemo> with RestorationMixin {
+class TextFormFieldDemoState extends State<TextFormFieldDemo>
+    with RestorationMixin {
   PersonData person = PersonData();
 
   FocusNode _phoneNumber, _email, _lifeStory, _password, _retypePassword;
@@ -156,7 +157,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> with RestorationMi
     registerForRestoration(_autoValidateModeIndex, 'autovalidate_mode');
   }
 
-  final RestorableInt _autoValidateModeIndex = RestorableInt(AutovalidateMode.disabled.index);
+  final RestorableInt _autoValidateModeIndex =
+      RestorableInt(AutovalidateMode.disabled.index);
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<FormFieldState<String>> _passwordFieldKey =
@@ -281,7 +283,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> with RestorationMi
                   icon: const Icon(Icons.email),
                   hintText: GalleryLocalizations.of(context)
                       .demoTextFieldYourEmailAddress,
-                  labelText: GalleryLocalizations.of(context).demoTextFieldEmail,
+                  labelText:
+                      GalleryLocalizations.of(context).demoTextFieldEmail,
                 ),
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (value) {
@@ -311,7 +314,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> with RestorationMi
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  labelText: GalleryLocalizations.of(context).demoTextFieldSalary,
+                  labelText:
+                      GalleryLocalizations.of(context).demoTextFieldSalary,
                   suffixText: GalleryLocalizations.of(context).demoTextFieldUSD,
                 ),
                 maxLines: 1,
@@ -324,7 +328,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> with RestorationMi
                 fieldKey: _passwordFieldKey,
                 helperText:
                     GalleryLocalizations.of(context).demoTextFieldNoMoreThan,
-                labelText: GalleryLocalizations.of(context).demoTextFieldPassword,
+                labelText:
+                    GalleryLocalizations.of(context).demoTextFieldPassword,
                 onFieldSubmitted: (value) {
                   setState(() {
                     person.password = value;
@@ -351,8 +356,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo> with RestorationMi
               sizedBoxSpace,
               Center(
                 child: ElevatedButton(
-                  child:
-                      Text(GalleryLocalizations.of(context).demoTextFieldSubmit),
+                  child: Text(
+                      GalleryLocalizations.of(context).demoTextFieldSubmit),
                   onPressed: _handleSubmitted,
                 ),
               ),

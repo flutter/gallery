@@ -46,7 +46,8 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
     }
   }
 
-  static Route<DateTime> _datePickerRoute(BuildContext context, Object arguments) {
+  static Route<DateTime> _datePickerRoute(
+      BuildContext context, Object arguments) {
     return DialogRoute<DateTime>(
       context: context,
       builder: (context) {
@@ -60,7 +61,8 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
     );
   }
 
-  static Route<DateTimeRange> _dateRangePickerRoute(BuildContext context, Object arguments) {
+  static Route<DateTimeRange> _dateRangePickerRoute(
+      BuildContext context, Object arguments) {
     return DialogRoute<DateTimeRange>(
       context: context,
       builder: (context) {
@@ -85,9 +87,11 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
         );
       },
     );
-    _restorableDateRangePickerRouteFuture = RestorableRouteFuture<DateTimeRange>(
+    _restorableDateRangePickerRouteFuture =
+        RestorableRouteFuture<DateTimeRange>(
       onComplete: _selectDateRange,
-      onPresent: (navigator, arguments) => navigator.restorablePush(_dateRangePickerRoute),
+      onPresent: (navigator, arguments) =>
+          navigator.restorablePush(_dateRangePickerRoute),
     );
   }
 
@@ -99,8 +103,10 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
     registerForRestoration(_fromDate, 'from_date');
     registerForRestoration(_startDate, 'start_date');
     registerForRestoration(_endDate, 'end_date');
-    registerForRestoration(_restorableDatePickerRouteFuture, 'date_picker_route');
-    registerForRestoration(_restorableDateRangePickerRouteFuture, 'date_range_picker_route');
+    registerForRestoration(
+        _restorableDatePickerRouteFuture, 'date_picker_route');
+    registerForRestoration(
+        _restorableDateRangePickerRouteFuture, 'date_range_picker_route');
   }
 
   String get _title {
