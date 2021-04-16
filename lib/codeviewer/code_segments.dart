@@ -7003,17 +7003,20 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: 'tappable\u000a                    '),
+          text: 'tappable\u000a                        '),
       TextSpan(style: codeStyle.punctuationStyle, text: '?'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
           style: codeStyle.classStyle, text: 'TappableTravelDestinationItem'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
-      TextSpan(style: codeStyle.baseStyle, text: 'destination'),
+      TextSpan(
+          style: codeStyle.baseStyle,
+          text: '\u000a                            destination'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' destination'),
       TextSpan(style: codeStyle.punctuationStyle, text: ')'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a                    '),
+      TextSpan(
+          style: codeStyle.baseStyle, text: '\u000a                        '),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
@@ -7021,13 +7024,13 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                        destination'),
+          text: '\u000a                            destination'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' destination'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                        isSelected'),
+          text: '\u000a                            isSelected'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' _isSelected'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
@@ -7035,7 +7038,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                        onSelected'),
+          text: '\u000a                            onSelected'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '()'),
@@ -7043,7 +7046,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '{'),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                          print'),
+          text: '\u000a                              print'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.stringStyle,
@@ -7051,13 +7054,13 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ');'),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                          setState'),
+          text: '\u000a                              setState'),
       TextSpan(style: codeStyle.punctuationStyle, text: '(()'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '{'),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                            _isSelected'),
+          text: '\u000a                                _isSelected'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'value '),
       TextSpan(style: codeStyle.punctuationStyle, text: '='),
@@ -7068,13 +7071,15 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: 'value'),
       TextSpan(style: codeStyle.punctuationStyle, text: ';'),
       TextSpan(
-          style: codeStyle.baseStyle, text: '\u000a                          '),
+          style: codeStyle.baseStyle,
+          text: '\u000a                              '),
       TextSpan(style: codeStyle.punctuationStyle, text: '});'),
       TextSpan(
-          style: codeStyle.baseStyle, text: '\u000a                        '),
+          style: codeStyle.baseStyle,
+          text: '\u000a                            '),
       TextSpan(style: codeStyle.punctuationStyle, text: '},'),
       TextSpan(
-          style: codeStyle.baseStyle, text: '\u000a                      '),
+          style: codeStyle.baseStyle, text: '\u000a                          '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
