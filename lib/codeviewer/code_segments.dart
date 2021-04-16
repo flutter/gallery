@@ -33170,6 +33170,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '>'),
       TextSpan(style: codeStyle.baseStyle, text: ' _datePickerRoute'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
       TextSpan(style: codeStyle.classStyle, text: 'BuildContext'),
       TextSpan(style: codeStyle.baseStyle, text: ' context'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
@@ -33256,6 +33257,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '>'),
       TextSpan(style: codeStyle.baseStyle, text: ' _dateRangePickerRoute'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
       TextSpan(style: codeStyle.classStyle, text: 'BuildContext'),
       TextSpan(style: codeStyle.baseStyle, text: ' context'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
@@ -33396,7 +33398,7 @@ class CodeSegments {
           style: codeStyle.baseStyle,
           text: '\u000a    _restorableDateRangePickerRouteFuture '),
       TextSpan(style: codeStyle.punctuationStyle, text: '='),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a        '),
       TextSpan(style: codeStyle.classStyle, text: 'RestorableRouteFuture'),
       TextSpan(style: codeStyle.punctuationStyle, text: '<'),
       TextSpan(style: codeStyle.classStyle, text: 'DateTimeRange'),
@@ -33415,7 +33417,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ')'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.punctuationStyle, text: '=>'),
-      TextSpan(style: codeStyle.baseStyle, text: ' navigator'),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a          navigator'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'restorablePush'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
@@ -33479,7 +33481,8 @@ class CodeSegments {
           style: codeStyle.baseStyle, text: '\u000a    registerForRestoration'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
-          style: codeStyle.baseStyle, text: '_restorableDatePickerRouteFuture'),
+          style: codeStyle.baseStyle,
+          text: '\u000a        _restorableDatePickerRouteFuture'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
@@ -33490,7 +33493,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '_restorableDateRangePickerRouteFuture'),
+          text: '\u000a        _restorableDateRangePickerRouteFuture'),
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
@@ -41712,7 +41715,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: '<'),
       TextSpan(style: codeStyle.classStyle, text: 'TextFormFieldDemo'),
       TextSpan(style: codeStyle.punctuationStyle, text: '>'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a    '),
       TextSpan(style: codeStyle.keywordStyle, text: 'with'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'RestorationMixin'),
@@ -41896,7 +41899,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.classStyle, text: 'RestorableInt'),
       TextSpan(style: codeStyle.baseStyle, text: ' _autoValidateModeIndex '),
       TextSpan(style: codeStyle.punctuationStyle, text: '='),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a      '),
       TextSpan(style: codeStyle.classStyle, text: 'RestorableInt'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
       TextSpan(style: codeStyle.classStyle, text: 'AutovalidateMode'),
@@ -42701,7 +42704,8 @@ class CodeSegments {
           style: codeStyle.baseStyle,
           text: '\u000a                  labelText'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(
+          style: codeStyle.baseStyle, text: '\u000a                      '),
       TextSpan(style: codeStyle.classStyle, text: 'GalleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'of'),
@@ -42885,7 +42889,8 @@ class CodeSegments {
           style: codeStyle.baseStyle,
           text: '\u000a                  labelText'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(
+          style: codeStyle.baseStyle, text: '\u000a                      '),
       TextSpan(style: codeStyle.classStyle, text: 'GalleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'of'),
@@ -42966,7 +42971,7 @@ class CodeSegments {
       TextSpan(
           style: codeStyle.baseStyle, text: '\u000a                labelText'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
+      TextSpan(style: codeStyle.baseStyle, text: '\u000a                    '),
       TextSpan(style: codeStyle.classStyle, text: 'GalleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'of'),
@@ -43111,10 +43116,11 @@ class CodeSegments {
       TextSpan(
           style: codeStyle.baseStyle, text: '\u000a                  child'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(
-          style: codeStyle.baseStyle, text: '\u000a                      '),
+      TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'Text'),
       TextSpan(style: codeStyle.punctuationStyle, text: '('),
+      TextSpan(
+          style: codeStyle.baseStyle, text: '\u000a                      '),
       TextSpan(style: codeStyle.classStyle, text: 'GalleryLocalizations'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(style: codeStyle.baseStyle, text: 'of'),
