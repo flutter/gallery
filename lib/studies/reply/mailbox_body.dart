@@ -15,13 +15,13 @@ class MailboxBody extends StatelessWidget {
     final startPadding = isTablet
         ? 60.0
         : isDesktop
-        ? 120.0
-        : 4.0;
+            ? 120.0
+            : 4.0;
     final endPadding = isTablet
         ? 30.0
         : isDesktop
-        ? 60.0
-        : 4.0;
+            ? 60.0
+            : 4.0;
 
     return Consumer<EmailStore>(
       builder: (context, model, child) {
