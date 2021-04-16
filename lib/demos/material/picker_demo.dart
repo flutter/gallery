@@ -20,11 +20,88 @@ class PickerDemo extends StatefulWidget {
   _PickerDemoState createState() => _PickerDemoState();
 }
 
-class _PickerDemoState extends State<PickerDemo> {
-  DateTime _fromDate = DateTime.now();
+class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
+  final RestorableDateTime _fromDate = RestorableDateTime(DateTime.now());
   TimeOfDay _fromTime = TimeOfDay.fromDateTime(DateTime.now());
-  DateTimeRange _fromRange =
-      DateTimeRange(start: DateTime.now(), end: DateTime.now());
+  final RestorableDateTime _startDate = RestorableDateTime(DateTime.now());
+  final RestorableDateTime _endDate = RestorableDateTime(DateTime.now());
+
+  RestorableRouteFuture<DateTime> _restorableDatePickerRouteFuture;
+  RestorableRouteFuture<DateTimeRange> _restorableDateRangePickerRouteFuture;
+
+  void _selectDate(DateTime selectedDate) {
+    if (selectedDate != null && selectedDate != _fromDate.value) {
+      setState(() {
+        _fromDate.value = selectedDate;
+      });
+    }
+  }
+
+  void _selectDateRange(DateTimeRange newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _startDate.value = newSelectedDate.start;
+        _endDate.value = newSelectedDate.end;
+      });
+    }
+  }
+
+  static Route<DateTime> _datePickerRoute(BuildContext context, Object arguments) {
+    return DialogRoute<DateTime>(
+      context: context,
+      builder: (context) {
+        return DatePickerDialog(
+          restorationId: 'date_picker_dialog',
+          initialDate: DateTime.fromMillisecondsSinceEpoch(arguments as int),
+          firstDate: DateTime(2015, 1),
+          lastDate: DateTime(2100),
+        );
+      },
+    );
+  }
+
+  static Route<DateTimeRange> _dateRangePickerRoute(BuildContext context, Object arguments) {
+    return DialogRoute<DateTimeRange>(
+      context: context,
+      builder: (context) {
+        return DateRangePickerDialog(
+          restorationId: 'date_rage_picker_dialog',
+          firstDate: DateTime(DateTime.now().year - 5),
+          lastDate: DateTime(DateTime.now().year + 5),
+        );
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _restorableDatePickerRouteFuture = RestorableRouteFuture<DateTime>(
+      onComplete: _selectDate,
+      onPresent: (navigator, arguments) {
+        return navigator.restorablePush(
+          _datePickerRoute,
+          arguments: _fromDate.value.millisecondsSinceEpoch,
+        );
+      },
+    );
+    _restorableDateRangePickerRouteFuture = RestorableRouteFuture<DateTimeRange>(
+      onComplete: _selectDateRange,
+      onPresent: (navigator, arguments) => navigator.restorablePush(_dateRangePickerRoute),
+    );
+  }
+
+  @override
+  String get restorationId => 'picker_demo';
+
+  @override
+  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+    registerForRestoration(_fromDate, 'from_date');
+    registerForRestoration(_startDate, 'start_date');
+    registerForRestoration(_endDate, 'end_date');
+    registerForRestoration(_restorableDatePickerRouteFuture, 'date_picker_route');
+    registerForRestoration(_restorableDateRangePickerRouteFuture, 'date_range_picker_route');
+  }
 
   String get _title {
     switch (widget.type) {
@@ -42,30 +119,16 @@ class _PickerDemoState extends State<PickerDemo> {
   String get _labelText {
     switch (widget.type) {
       case PickerDemoType.date:
-        return DateFormat.yMMMd().format(_fromDate);
+        return DateFormat.yMMMd().format(_fromDate.value);
       case PickerDemoType.time:
         return _fromTime.format(context);
       case PickerDemoType.range:
-        return DateFormat.yMMMd().format(_fromRange.start) +
+        return DateFormat.yMMMd().format(_startDate.value) +
             ' - ' +
-            DateFormat.yMMMd().format(_fromRange.end);
+            DateFormat.yMMMd().format(_endDate.value);
         break;
     }
     return '';
-  }
-
-  Future<void> _showDatePicker(BuildContext context) async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _fromDate,
-      firstDate: DateTime(2015, 1),
-      lastDate: DateTime(2100),
-    );
-    if (picked != null && picked != _fromDate) {
-      setState(() {
-        _fromDate = picked;
-      });
-    }
   }
 
   Future<void> _showTimePicker(BuildContext context) async {
@@ -76,20 +139,6 @@ class _PickerDemoState extends State<PickerDemo> {
     if (picked != null && picked != _fromTime) {
       setState(() {
         _fromTime = picked;
-      });
-    }
-  }
-
-  Future<void> _showDateRangePicker(BuildContext context) async {
-    final picked = await showDateRangePicker(
-      useRootNavigator: false,
-      context: context,
-      firstDate: DateTime(DateTime.now().year - 5),
-      lastDate: DateTime(DateTime.now().year + 5),
-    );
-    if (picked != null) {
-      setState(() {
-        _fromRange = picked;
       });
     }
   }
@@ -117,13 +166,13 @@ class _PickerDemoState extends State<PickerDemo> {
                     onPressed: () {
                       switch (widget.type) {
                         case PickerDemoType.date:
-                          _showDatePicker(context);
+                          _restorableDatePickerRouteFuture.present();
                           break;
                         case PickerDemoType.time:
                           _showTimePicker(context);
                           break;
                         case PickerDemoType.range:
-                          _showDateRangePicker(context);
+                          _restorableDateRangePickerRouteFuture.present();
                           break;
                       }
                     },
