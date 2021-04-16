@@ -851,72 +851,72 @@ class _BottomAppBarActionItems extends StatelessWidget {
                   ),
                 )
               : onMailView
-              ? Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      key: const ValueKey('star_email_button'),
-                      icon: ImageIcon(
-                        const AssetImage(
-                          '$_iconAssetLocation/twotone_star.png',
-                          package: _assetsPackage,
+                  ? Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          key: const ValueKey('star_email_button'),
+                          icon: ImageIcon(
+                            const AssetImage(
+                              '$_iconAssetLocation/twotone_star.png',
+                              package: _assetsPackage,
+                            ),
+                            color: starIconColor,
+                          ),
+                          onPressed: () {
+                            final currentEmail = model.currentEmail;
+                            if (model.isCurrentEmailStarred) {
+                              model.unstarEmail(currentEmail.id);
+                            } else {
+                              model.starEmail(currentEmail.id);
+                            }
+                            if (model.selectedMailboxPage ==
+                                MailboxPageType.starred) {
+                              mobileMailNavKey.currentState.pop();
+                              model.selectedEmailId = -1;
+                            }
+                          },
+                          color: ReplyColors.white50,
                         ),
-                        color: starIconColor,
-                      ),
-                      onPressed: () {
-                        final currentEmail = model.currentEmail;
-                        if (model.isCurrentEmailStarred) {
-                          model.unstarEmail(currentEmail.id);
-                        } else {
-                          model.starEmail(currentEmail.id);
-                        }
-                        if (model.selectedMailboxPage ==
-                            MailboxPageType.starred) {
-                          mobileMailNavKey.currentState.pop();
-                          model.selectedEmailId = -1;
-                        }
-                      },
-                      color: ReplyColors.white50,
-                    ),
-                    IconButton(
-                      icon: const ImageIcon(
-                        AssetImage(
-                          '$_iconAssetLocation/twotone_delete.png',
-                          package: _assetsPackage,
-                        ),
-                      ),
-                      onPressed: () {
-                        model.deleteEmail(
-                          model.selectedEmailId,
-                        );
+                        IconButton(
+                          icon: const ImageIcon(
+                            AssetImage(
+                              '$_iconAssetLocation/twotone_delete.png',
+                              package: _assetsPackage,
+                            ),
+                          ),
+                          onPressed: () {
+                            model.deleteEmail(
+                              model.selectedEmailId,
+                            );
 
-                        mobileMailNavKey.currentState.pop();
-                        model.selectedEmailId = -1;
-                      },
-                      color: ReplyColors.white50,
+                            mobileMailNavKey.currentState.pop();
+                            model.selectedEmailId = -1;
+                          },
+                          color: ReplyColors.white50,
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.more_vert),
+                          onPressed: () {},
+                          color: ReplyColors.white50,
+                        ),
+                      ],
+                    )
+                  : Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                        key: const ValueKey('ReplySearch'),
+                        icon: const Icon(Icons.search),
+                        color: ReplyColors.white50,
+                        onPressed: () {
+                          Provider.of<EmailStore>(
+                            context,
+                            listen: false,
+                          ).onSearchPage = true;
+                        },
+                      ),
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.more_vert),
-                      onPressed: () {},
-                      color: ReplyColors.white50,
-                    ),
-                  ],
-                )
-              : Align(
-                  alignment: Alignment.centerRight,
-                  child: IconButton(
-                    key: const ValueKey('ReplySearch'),
-                    icon: const Icon(Icons.search),
-                    color: ReplyColors.white50,
-                    onPressed: () {
-                      Provider.of<EmailStore>(
-                        context,
-                        listen: false,
-                      ).onSearchPage = true;
-                    },
-                  ),
-                ),
         );
       },
     );
