@@ -9,7 +9,7 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 class Derp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SizedBox();
+    return const SizedBox();
   }
 }
 
