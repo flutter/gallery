@@ -38,7 +38,7 @@ platform :android do
     gradle(task: "clean")
     sh "flutter build appbundle"
     upload_to_play_store(
-      validate_only_true,
+      validate_only: true,
       aab: '../build/app/outputs/bundle/release/app-release.aab',
       json_key_data: ENV['PLAY_CONFIG_JSON'],
     )
