@@ -1,1 +1,3 @@
-Bug fixes, performance improvements and new features. For a detailed list of changes, go to https://github.com/flutter/gallery/releases.
+We made improvements and squashed bugs.
+
+The complete list of changes is available at https://github.com/flutter/gallery/releases.
