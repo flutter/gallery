@@ -1,0 +1,1 @@
+Bug fixes, performance improvements and new features. For a detailed list of changes, go to https://github.com/flutter/gallery/releases.
