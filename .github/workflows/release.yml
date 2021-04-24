@@ -59,7 +59,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        target: [macOS, Windows, Linux, Android]
+        #  target: [macOS, Windows, Linux, Android]
+        target: [Android]
         include:
         - os: macos-10.15 # Catalina
           target: macOS
@@ -105,6 +106,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '12.x'
+    - name: Setup Android NDK
+      if: matrix.target == 'Android'
+      uses: nttld/setup-ndk@v1.0.2
+      with:
+        - ndk-version: 22b # Keep in sync with ndkVersion in build.gradle
     - name: Enable desktop support
       if: matrix.target != 'Android'
       run: |
