@@ -84,7 +84,7 @@ Future<void> verifyCodeSegments() async {
   final expectedCodeSegmentsOutput =
       await File(codeSegmentsPath).readAsString();
 
-  if (codeSegmentsFormatted.trim() == expectedCodeSegmentsOutput.trim()) {
+  if (codeSegmentsFormatted.trim() != expectedCodeSegmentsOutput.trim()) {
     final actualCodeSegments = File('/tmp/actualCodeSegments.dart');
     await actualCodeSegments.writeAsString(codeSegmentsFormatted.trim());
     await _runProcess('cmp', [actualCodeSegments.path, codeSegmentsPath]);

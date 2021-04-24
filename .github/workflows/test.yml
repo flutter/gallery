@@ -44,27 +44,6 @@ jobs:
       # https://github.com/material-components/material-components-flutter-gallery/issues/565
       #if: startsWith(matrix.os, 'macOS')
 
-
-  integration-test:
-    name: Integration tests
-    runs-on: ubuntu-18.04
-    steps:
-    # Set up Flutter.
-    - name: Clone Flutter repository with master channel
-      uses: subosito/flutter-action@master
-      with:
-        channel: master
-    - run: flutter doctor -v
-    - run: flutter config --enable-web
-
-    # Checkout gallery code and get packages.
-    - name: Checkout gallery code
-      uses: actions/checkout@v2
-    - run: flutter pub get
-
-    - run: dart test integration_test
-
-
   golden-test:
     name: Golden tests
     runs-on: macos-10.15
