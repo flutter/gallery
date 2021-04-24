@@ -45,7 +45,7 @@ jobs:
       #if: startsWith(matrix.os, 'macOS')
 
 
-  # TODO(https://github.com/flutter/gallery/issues/463): Move benchmarks test to benchmarks_test
+  # TODO(https://github.com/flutter/gallery/issues/463): Move test/benchmarks to test_benchmark
   benchmark-test:
     name: Benchmark tests
     runs-on: ubuntu-18.04
@@ -90,3 +90,4 @@ jobs:
       with:
         name: goldens
         path: test_goldens/failures/
+        
