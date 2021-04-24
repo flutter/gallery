@@ -55,29 +55,29 @@ jobs:
 
 
   build:
-    name: Create and attach packaged builds to release draft
+    name: Create ${{ matrix.target }} build
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        target: [macos, windows, linux, android]
+        target: [macOS, Windows, Linux, Android]
         include:
         - os: macos-10.15 # Catalina
-          target: macos
+          target: macOS
           path: build/macos/Build/Products/Release
           asset_extension: .zip
           asset_content_type: application/zip
         - os: windows-2019
-          target: windows
+          target: Windows
           path: build\windows\runner\Release
           asset_extension: .zip
           asset_content_type: application/zip
         - os: ubuntu-20.04
-          target: linux
+          target: Linux
           path: build/linux/x64/release/bundle
           asset_extension: .tar.gz
           asset_content_type: application/gzip
         - os: ubuntu-20.04
-          target: android
+          target: Android
           build_target: apk
           path: build/app/outputs/flutter-apk
           asset_extension: .apk
@@ -93,17 +93,17 @@ jobs:
         channel: master
 
     - name: Install Linux dependencies
-      if: matrix.target == 'linux'
+      if: matrix.target == 'Linux'
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
     - name: Install Android dependencies
-      if: matrix.target == 'android'
+      if: matrix.target == 'Android'
       uses: actions/setup-java@v1
       with:
         java-version: '12.x'
     - name: Enable desktop support
-      if: matrix.target != 'android'
+      if: matrix.target != 'Android'
       run: |
         flutter config --enable-linux-desktop
         flutter config --enable-macos-desktop
@@ -122,26 +122,26 @@ jobs:
 
     # Package the build.
     - name: Copy VC redistributables to release directory for Windows
-      if: matrix.target == 'windows'
+      if: matrix.target == 'Windows'
       run: |
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140.dll') .
         Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\vcruntime140_1.dll') .
     - name: Rename build for Android
-      if: matrix.target == 'android'
+      if: matrix.target == 'Android'
       run: mv app-release.apk $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.apk
     - name: Compress build for Linux
-      if: matrix.target == 'linux'
+      if: matrix.target == 'Linux'
       run: tar czf $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.tar.gz *
     - name: Compress build for macOS
-      if: matrix.target == 'macos'
+      if: matrix.target == 'macOS'
       run: ditto -c -k --sequesterRsrc --keepParent Flutter\ Gallery.app $GITHUB_WORKSPACE/flutter_gallery_${{ matrix.target }}.zip
     - name: Compress build for Windows
-      if: matrix.target == 'windows'
+      if: matrix.target == 'Windows'
       run: compress-archive -Path * -DestinationPath ${env:GITHUB_WORKSPACE}\flutter_gallery_${{ matrix.target }}.zip
 
     # Upload the build.
-    - name: Add packaged build to release draft.
+    - name: Add packaged build to release draft
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
       env:
