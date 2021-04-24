@@ -85,10 +85,6 @@ Future<void> verifyCodeSegments() async {
       await File(codeSegmentsPath).readAsString();
 
   if (codeSegmentsFormatted.trim() != expectedCodeSegmentsOutput.trim()) {
-    final actualCodeSegments = File('/tmp/actualCodeSegments.dart');
-    await actualCodeSegments.writeAsString(codeSegmentsFormatted.trim());
-    await _runProcess('cmp', [actualCodeSegments.path, codeSegmentsPath]);
-    await _runProcess('diff', [actualCodeSegments.path, codeSegmentsPath]);
     stderr.writeln(
       'The contents of $codeSegmentsPath are different from that produced by '
       'codeviewer_cli. Did you forget to run `flutter pub run grinder '
