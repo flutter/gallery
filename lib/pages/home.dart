@@ -461,7 +461,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
           child: GestureDetector(
             onVerticalDragEnd: (details) {
               if (details.velocity.pixelsPerSecond.dy > 200) {
-                ToggleSplashNotification()..dispatch(context);
+                ToggleSplashNotification().dispatch(context);
               }
             },
             child: SafeArea(
