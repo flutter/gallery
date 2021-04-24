@@ -41,7 +41,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: changelog
-    - name: Create draft release
+    - name: Draft release with changelog
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -87,7 +87,7 @@ jobs:
           asset_content_type: application/vnd.android.package-archive
       # Disable fail-fast as we want results from all even if one fails.
       fail-fast: false
-    needs: create-release
+    needs: draft-release
     steps:
     # Set up Flutter.
     - name: Clone Flutter repository with master channel
@@ -154,7 +154,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ needs.create-release.outputs.upload_url }}
+        upload_url: ${{ needs.draft-release.outputs.upload_url }}
         asset_path: ./flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
         asset_name: flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
         asset_content_type: ${{ matrix.asset_content_type }}
