@@ -79,7 +79,7 @@ jobs:
           build_path: build/linux/x64/release/bundle
           asset_extension: .tar.gz
           asset_content_type: application/gzip
-        - os: macos-10.15
+        - os: ubuntu-20.04
           target: Android
           build_target: apk
           build_path: build/app/outputs/flutter-apk
@@ -120,8 +120,7 @@ jobs:
     - run: flutter pub get
 
     # Build the application.
-    - name: Build project
-      run: flutter build -v ${{ matrix.build_target }} --release
+    - run: flutter build -v ${{ matrix.build_target }} --release
 
     # Package the build.
     - name: Copy VC redistributables to release directory for Windows
