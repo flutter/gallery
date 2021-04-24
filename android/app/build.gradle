@@ -33,9 +33,6 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 29
-    // Latest stable version from https://developer.android.com/ndk/downloads
-    // Keep in sync with ndk-version in release.yml
-    ndkVersion '22.1.7171670'
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
