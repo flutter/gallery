@@ -45,7 +45,7 @@ jobs:
       if: startsWith(matrix.os, 'macOS')
 
 
-  # TODO(https://github.com/flutter/gallery/issues/463): Move test/benchmarks to test_benchmark
+  # TODO(https://github.com/flutter/gallery/issues/463): Move test/benchmarks to test_benchmarks
   benchmark-test:
     name: Benchmark tests
     runs-on: ubuntu-18.04
@@ -63,7 +63,7 @@ jobs:
       uses: actions/checkout@v2
     - run: flutter pub get
 
-    - run: flutter test test_benchmark
+    - run: flutter test test_benchmarks
 
 
   golden-test:
