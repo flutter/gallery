@@ -37,7 +37,7 @@ jobs:
       run: flutter pub run grinder verify-l10n
       # TODO: Enable verify-l10n for Windows when it behaves the same as on macOS/Ubuntu:
       # https://github.com/material-components/material-components-flutter-gallery/issues/565
-      if: !startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
     - name: Verify that code segments are up to date
       run: flutter pub run grinder verify-code-segments
       # TODO: Enable verify-code-segments for Unix and Windows when it behaves the same as on macOS:
