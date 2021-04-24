@@ -405,7 +405,6 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       );
     } else {
       section = AnimatedSize(
-        vsync: this,
         duration: const Duration(milliseconds: 200),
         alignment: Alignment.topCenter,
         curve: Curves.easeIn,

@@ -132,8 +132,7 @@ double _getPeakPoint({double begin, double end}) {
   return begin + (end - begin) * _peakVelocityProgress;
 }
 
-class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
-    with TickerProviderStateMixin {
+class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
   final GlobalKey _expandingBottomSheetKey =
       GlobalKey(debugLabel: 'Expanding bottom sheet');
 
@@ -556,7 +555,6 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet>
       key: _expandingBottomSheetKey,
       duration: const Duration(milliseconds: 225),
       curve: Curves.easeInOut,
-      vsync: this,
       alignment: AlignmentDirectional.topStart,
       child: AnimatedBuilder(
         animation: widget.hideController,

@@ -26,11 +26,11 @@ Runs all the tests
 fastlane android internal
 ```
 Submit a new internal build to Google Play
-### android prod_draft
+### android prod
 ```
-fastlane android prod_draft
+fastlane android prod
 ```
-Submit a new production build (draft) to Google Play
+Submit a new production build to Google Play
 
 ----
 
