@@ -1,0 +1,7 @@
+A gallery of widgets and behaviors, plus demos and vignettes, all built with Flutter.
+
+Flutter is Google’s UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.
+
+This app is open source. Check out the code to see how this app is built: https://github.com/flutter/gallery.
+
+Visit https://flutter.dev to learn more.
