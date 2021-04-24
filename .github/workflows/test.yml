@@ -42,7 +42,7 @@ jobs:
       run: flutter pub run grinder verify-code-segments
       # TODO: Enable verify-code-segments for Unix and Windows when it behaves the same as on macOS:
       # https://github.com/material-components/material-components-flutter-gallery/issues/565
-      #if: startsWith(matrix.os, 'macOS')
+      if: startsWith(matrix.os, 'macOS')
 
 
   # TODO(https://github.com/flutter/gallery/issues/463): Move test/benchmarks to test_benchmark
