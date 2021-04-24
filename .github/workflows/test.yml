@@ -44,6 +44,28 @@ jobs:
       # https://github.com/material-components/material-components-flutter-gallery/issues/565
       #if: startsWith(matrix.os, 'macOS')
 
+
+  # TODO(https://github.com/flutter/gallery/issues/463): Move benchmarks test to benchmarks_test
+  benchmark-test:
+    name: Benchmark tests
+    runs-on: ubuntu-18.04
+    steps:
+    # Set up Flutter.
+    - name: Clone Flutter repository with master channel
+      uses: subosito/flutter-action@master
+      with:
+        channel: master
+    - run: flutter doctor -v
+    - run: flutter config --enable-web
+
+    # Checkout gallery code and get packages.
+    - name: Checkout gallery code
+      uses: actions/checkout@v2
+    - run: flutter pub get
+
+    - run: flutter test test_benchmark
+
+
   golden-test:
     name: Golden tests
     runs-on: macos-10.15
@@ -61,10 +83,10 @@ jobs:
     - run: flutter pub get
 
     # Run the golden tests and upload failed test artifacts.
-    - run: flutter test golden_test
+    - run: flutter test test_goldens
     - name: Upload goldens if tests fail
       uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: goldens
-        path: golden_test/failures/
+        path: test_goldens/failures/

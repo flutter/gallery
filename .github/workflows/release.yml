@@ -63,16 +63,19 @@ jobs:
         include:
         - os: macos-10.15 # Catalina
           target: macOS
+          build_target: macos
           path: build/macos/Build/Products/Release
           asset_extension: .zip
           asset_content_type: application/zip
         - os: windows-2019
           target: Windows
+          build_target: windows
           path: build\windows\runner\Release
           asset_extension: .zip
           asset_content_type: application/zip
         - os: ubuntu-20.04
           target: Linux
+          build_target: linux
           path: build/linux/x64/release/bundle
           asset_extension: .tar.gz
           asset_content_type: application/gzip
@@ -118,7 +121,7 @@ jobs:
 
     # Build the application.
     - name: Build project
-      run: flutter build -v ${{ matrix.build_target || matrix.target }} --release
+      run: flutter build -v ${{ matrix.build_target }} --release
 
     # Package the build.
     - name: Copy VC redistributables to release directory for Windows

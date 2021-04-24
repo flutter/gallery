@@ -13,7 +13,7 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   reportTestException = (details, testDescription) {
     defaultReportTestException(details, testDescription);
     print(
-      '\nThe golden tests failed. Please read golden_test/README.md for how '
+      '\nThe golden tests failed. Please read test_goldens/README.md for how '
       'to update them.',
     );
   };
