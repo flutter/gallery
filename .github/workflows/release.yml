@@ -1,6 +1,5 @@
 name: Draft Github Release
 on:
-  pull_request: #TODO: remove
   push:
     # Sequence of patterns matched against refs/tags
     tags:

@@ -3,7 +3,7 @@ on:
   push:
     branches:
     - master
-  # pull_request: #TODO: enable
+  pull_request:
 
 jobs:
   unit-test:
