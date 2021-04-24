@@ -97,18 +97,18 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
       ),
       body: Center(
         child: PageTransitionSwitcher(
+          transitionBuilder: (child, animation, secondaryAnimation) {
+            return FadeThroughTransition(
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+            );
+          },
           child: _NavigationDestinationView(
             // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
             key: UniqueKey(),
             item: bottomNavigationBarItems[_currentIndex.value],
           ),
-          transitionBuilder: (child, animation, secondaryAnimation) {
-            return FadeThroughTransition(
-              child: child,
-              animation: animation,
-              secondaryAnimation: secondaryAnimation,
-            );
-          },
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -1,4 +1,4 @@
-include: package:pedantic/analysis_options.1.9.0.yaml
+include: package:pedantic/analysis_options.1.11.0.yaml
 
 analyzer:
   exclude:
@@ -8,10 +8,10 @@ analyzer:
     implicit-dynamic: false
 
 linter:
+  # In addition to the pedantic lints
   rules:
     - avoid_types_on_closure_parameters
     - avoid_void_async
-    - await_only_futures
     - camel_case_types
     - cancel_subscriptions
     - close_sinks
@@ -29,6 +29,4 @@ linter:
     - prefer_const_literals_to_create_immutables
     - test_types_in_equals
     - throw_in_finally
-    - unnecessary_brace_in_string_interps
-    - unnecessary_getters_setters
     - unnecessary_statements

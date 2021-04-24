@@ -207,7 +207,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
             ),
             body: Center(
               child: ElevatedButton(
-                child: Text(GalleryLocalizations.of(context).dialogShow),
                 onPressed: () {
                   switch (widget.type) {
                     case DialogDemoType.alert:
@@ -225,6 +224,7 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
                       break;
                   }
                 },
+                child: Text(GalleryLocalizations.of(context).dialogShow),
               ),
             ),
           ),
@@ -267,10 +267,10 @@ class _DialogButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      child: Text(text),
       onPressed: () {
         Navigator.of(context).pop(text);
       },
+      child: Text(text),
     );
   }
 }
@@ -327,15 +327,15 @@ class _FullScreenDialogDemo extends StatelessWidget {
             title: Text(GalleryLocalizations.of(context).dialogFullscreenTitle),
             actions: [
               TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: Text(
                   GalleryLocalizations.of(context).dialogFullscreenSave,
                   style: theme.textTheme.bodyText2.copyWith(
                     color: theme.colorScheme.onPrimary,
                   ),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
               ),
             ],
           ),

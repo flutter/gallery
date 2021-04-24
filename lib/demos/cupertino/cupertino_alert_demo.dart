@@ -134,24 +134,24 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
           title: Text(GalleryLocalizations.of(context).dialogDiscardTitle),
           actions: [
             CupertinoDialogAction(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoAlertDiscard,
-              ),
               isDestructiveAction: true,
               onPressed: () {
                 Navigator.of(
                   context,
                 ).pop(GalleryLocalizations.of(context).cupertinoAlertDiscard);
               },
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertDiscard,
+              ),
             ),
             CupertinoDialogAction(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoAlertCancel,
-              ),
               isDefaultAction: true,
               onPressed: () => Navigator.of(
                 context,
               ).pop(
+                GalleryLocalizations.of(context).cupertinoAlertCancel,
+              ),
+              child: Text(
                 GalleryLocalizations.of(context).cupertinoAlertCancel,
               ),
             ),
@@ -177,22 +177,22 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
           ),
           actions: [
             CupertinoDialogAction(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoAlertDontAllow,
-              ),
               onPressed: () => Navigator.of(
                 context,
               ).pop(
+                GalleryLocalizations.of(context).cupertinoAlertDontAllow,
+              ),
+              child: Text(
                 GalleryLocalizations.of(context).cupertinoAlertDontAllow,
               ),
             ),
             CupertinoDialogAction(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoAlertAllow,
-              ),
               onPressed: () => Navigator.of(
                 context,
               ).pop(
+                GalleryLocalizations.of(context).cupertinoAlertAllow,
+              ),
+              child: Text(
                 GalleryLocalizations.of(context).cupertinoAlertAllow,
               ),
             ),
@@ -248,44 +248,44 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
           ),
           actions: [
             CupertinoActionSheetAction(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoAlertCheesecake,
-              ),
               onPressed: () => Navigator.of(
                 context,
               ).pop(
                 GalleryLocalizations.of(context).cupertinoAlertCheesecake,
               ),
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertCheesecake,
+              ),
             ),
             CupertinoActionSheetAction(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoAlertTiramisu,
-              ),
               onPressed: () => Navigator.of(
                 context,
               ).pop(
                 GalleryLocalizations.of(context).cupertinoAlertTiramisu,
               ),
+              child: Text(
+                GalleryLocalizations.of(context).cupertinoAlertTiramisu,
+              ),
             ),
             CupertinoActionSheetAction(
-              child: Text(
+              onPressed: () => Navigator.of(
+                context,
+              ).pop(
                 GalleryLocalizations.of(context).cupertinoAlertApplePie,
               ),
-              onPressed: () => Navigator.of(
-                context,
-              ).pop(
+              child: Text(
                 GalleryLocalizations.of(context).cupertinoAlertApplePie,
               ),
             ),
           ],
           cancelButton: CupertinoActionSheetAction(
-            child: Text(
-              GalleryLocalizations.of(context).cupertinoAlertCancel,
-            ),
             isDefaultAction: true,
             onPressed: () => Navigator.of(
               context,
             ).pop(
+              GalleryLocalizations.of(context).cupertinoAlertCancel,
+            ),
+            child: Text(
               GalleryLocalizations.of(context).cupertinoAlertCancel,
             ),
           ),
@@ -308,9 +308,6 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
               Expanded(
                 child: Center(
                   child: CupertinoButton.filled(
-                    child: Text(
-                      GalleryLocalizations.of(context).cupertinoShowAlert,
-                    ),
                     onPressed: () {
                       switch (widget.type) {
                         case AlertDemoType.alert:
@@ -330,6 +327,9 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
                           break;
                       }
                     },
+                    child: Text(
+                      GalleryLocalizations.of(context).cupertinoShowAlert,
+                    ),
                   ),
                 ),
               ),
@@ -368,9 +368,6 @@ class CupertinoDessertDialog extends StatelessWidget {
       content: content,
       actions: [
         CupertinoDialogAction(
-          child: Text(
-            GalleryLocalizations.of(context).cupertinoAlertCheesecake,
-          ),
           onPressed: () {
             Navigator.of(
               context,
@@ -378,11 +375,11 @@ class CupertinoDessertDialog extends StatelessWidget {
               GalleryLocalizations.of(context).cupertinoAlertCheesecake,
             );
           },
+          child: Text(
+            GalleryLocalizations.of(context).cupertinoAlertCheesecake,
+          ),
         ),
         CupertinoDialogAction(
-          child: Text(
-            GalleryLocalizations.of(context).cupertinoAlertTiramisu,
-          ),
           onPressed: () {
             Navigator.of(
               context,
@@ -390,11 +387,11 @@ class CupertinoDessertDialog extends StatelessWidget {
               GalleryLocalizations.of(context).cupertinoAlertTiramisu,
             );
           },
+          child: Text(
+            GalleryLocalizations.of(context).cupertinoAlertTiramisu,
+          ),
         ),
         CupertinoDialogAction(
-          child: Text(
-            GalleryLocalizations.of(context).cupertinoAlertApplePie,
-          ),
           onPressed: () {
             Navigator.of(
               context,
@@ -402,11 +399,11 @@ class CupertinoDessertDialog extends StatelessWidget {
               GalleryLocalizations.of(context).cupertinoAlertApplePie,
             );
           },
+          child: Text(
+            GalleryLocalizations.of(context).cupertinoAlertApplePie,
+          ),
         ),
         CupertinoDialogAction(
-          child: Text(
-            GalleryLocalizations.of(context).cupertinoAlertChocolateBrownie,
-          ),
           onPressed: () {
             Navigator.of(
               context,
@@ -414,11 +411,11 @@ class CupertinoDessertDialog extends StatelessWidget {
               GalleryLocalizations.of(context).cupertinoAlertChocolateBrownie,
             );
           },
+          child: Text(
+            GalleryLocalizations.of(context).cupertinoAlertChocolateBrownie,
+          ),
         ),
         CupertinoDialogAction(
-          child: Text(
-            GalleryLocalizations.of(context).cupertinoAlertCancel,
-          ),
           isDestructiveAction: true,
           onPressed: () {
             Navigator.of(
@@ -427,6 +424,9 @@ class CupertinoDessertDialog extends StatelessWidget {
               GalleryLocalizations.of(context).cupertinoAlertCancel,
             );
           },
+          child: Text(
+            GalleryLocalizations.of(context).cupertinoAlertCancel,
+          ),
         ),
       ],
     );

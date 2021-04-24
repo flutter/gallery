@@ -400,8 +400,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
         children: [
           AnimatedPadding(
             padding: _verticalCartPaddingFor(numProducts),
-            child: const Icon(Icons.shopping_cart),
             duration: const Duration(milliseconds: 225),
+            child: const Icon(Icons.shopping_cart),
           ),
           Container(
             width: _width,
@@ -419,8 +419,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
             children: [
               AnimatedPadding(
                 padding: _horizontalCartPaddingFor(numProducts),
-                child: const Icon(Icons.shopping_cart),
                 duration: const Duration(milliseconds: 225),
+                child: const Icon(Icons.shopping_cart),
               ),
               Container(
                 // Accounts for the overflow number

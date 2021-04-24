@@ -52,8 +52,8 @@ class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
         children: [
           NavigationRail(
             leading: FloatingActionButton(
-              child: const Icon(Icons.add),
               onPressed: () {},
+              child: const Icon(Icons.add),
             ),
             selectedIndex: _selectedIndex.value,
             onDestinationSelected: (index) {

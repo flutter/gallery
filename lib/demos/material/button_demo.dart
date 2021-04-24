@@ -69,8 +69,8 @@ class _TextButtonDemo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextButton(
-            child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
+            child: Text(GalleryLocalizations.of(context).buttonText),
           ),
           const SizedBox(height: 12),
           TextButton.icon(
@@ -96,8 +96,8 @@ class _ElevatedButtonDemo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ElevatedButton(
-            child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
+            child: Text(GalleryLocalizations.of(context).buttonText),
           ),
           const SizedBox(height: 12),
           ElevatedButton.icon(
@@ -123,8 +123,8 @@ class _OutlinedButtonDemo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           OutlinedButton(
-            child: Text(GalleryLocalizations.of(context).buttonText),
             onPressed: () {},
+            child: Text(GalleryLocalizations.of(context).buttonText),
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
@@ -177,17 +177,17 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
   Widget build(BuildContext context) {
     return Center(
       child: ToggleButtons(
-        children: const [
-          Icon(Icons.ac_unit),
-          Icon(Icons.call),
-          Icon(Icons.cake),
-        ],
         onPressed: (index) {
           setState(() {
             isSelected[index].value = !isSelected[index].value;
           });
         },
         isSelected: isSelected.map((element) => element.value).toList(),
+        children: const [
+          Icon(Icons.ac_unit),
+          Icon(Icons.call),
+          Icon(Icons.cake),
+        ],
       ),
     );
   }
@@ -205,9 +205,9 @@ class _FloatingActionButtonDemo extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
-            child: const Icon(Icons.add),
             onPressed: () {},
             tooltip: GalleryLocalizations.of(context).buttonTextCreate,
+            child: const Icon(Icons.add),
           ),
           const SizedBox(height: 20),
           FloatingActionButton.extended(

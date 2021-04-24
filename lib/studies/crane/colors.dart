@@ -17,4 +17,4 @@ const craneErrorOrange = Color(0xFFFF9100);
 const craneAlpha = Color(0x00FFFFFF);
 
 const craneGrey = Color(0xFF747474);
-const craneBlack = Color(0XFF1E252D);
+const craneBlack = Color(0xFF1E252D);

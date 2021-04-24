@@ -798,8 +798,8 @@ class _CarouselState extends State<_Carousel>
     // We only want the second card to be animated.
     if (index == 1) {
       return _AnimatedCarouselCard(
-        child: carouselCard,
         controller: widget.animationController,
+        child: carouselCard,
       );
     } else {
       return carouselCard;
@@ -809,6 +809,7 @@ class _CarouselState extends State<_Carousel>
   @override
   Widget build(BuildContext context) {
     return _AnimatedCarousel(
+      controller: widget.animationController,
       child: PageView.builder(
         // Makes integration tests possible.
         key: const ValueKey('studyDemoList'),
@@ -822,7 +823,6 @@ class _CarouselState extends State<_Carousel>
         itemBuilder: (context, index) => builder(index),
         allowImplicitScrolling: true,
       ),
-      controller: widget.animationController,
     );
   }
 }
@@ -1075,12 +1075,12 @@ class _CarouselCard extends StatelessWidget {
               if (asset != null)
                 FadeInImagePlaceholder(
                   image: asset,
+                  placeholder: Container(
+                    color: assetColor,
+                  ),
                   child: Ink.image(
                     image: asset,
                     fit: BoxFit.cover,
-                  ),
-                  placeholder: Container(
-                    color: assetColor,
                   ),
                 ),
               Padding(

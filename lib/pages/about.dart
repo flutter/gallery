@@ -101,9 +101,6 @@ class _AboutDialog extends StatelessWidget {
       ),
       actions: [
         TextButton(
-          child: Text(
-            MaterialLocalizations.of(context).viewLicensesButtonLabel,
-          ),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute<void>(
               builder: (context) => Theme(
@@ -120,12 +117,15 @@ class _AboutDialog extends StatelessWidget {
               ),
             ));
           },
+          child: Text(
+            MaterialLocalizations.of(context).viewLicensesButtonLabel,
+          ),
         ),
         TextButton(
-          child: Text(MaterialLocalizations.of(context).closeButtonLabel),
           onPressed: () {
             Navigator.pop(context);
           },
+          child: Text(MaterialLocalizations.of(context).closeButtonLabel),
         ),
       ],
     );

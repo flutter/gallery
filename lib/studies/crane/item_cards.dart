@@ -95,6 +95,7 @@ class _DestinationImage extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
 
     return Semantics(
+      label: destination.assetSemanticLabel,
       child: ExcludeSemantics(
         child: FadeInImagePlaceholder(
           image: AssetImage(
@@ -113,7 +114,6 @@ class _DestinationImage extends StatelessWidget {
           }),
         ),
       ),
-      label: destination.assetSemanticLabel,
     );
   }
 }

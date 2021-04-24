@@ -94,8 +94,8 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
         child: Visibility(
           visible: _controller.status != AnimationStatus.dismissed,
           child: FloatingActionButton(
-            child: const Icon(Icons.add),
             onPressed: () {},
+            child: const Icon(Icons.add),
           ),
         ),
       ),

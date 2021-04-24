@@ -314,18 +314,18 @@ class _RallyTabState extends State<_RallyTab>
         children: [
           const SizedBox(height: 18),
           FadeTransition(
-            child: widget.icon,
             opacity: _iconFadeAnimation,
+            child: widget.icon,
           ),
           const SizedBox(height: 12),
           FadeTransition(
+            opacity: _titleFadeAnimation,
             child: SizeTransition(
-              child: Center(child: ExcludeSemantics(child: widget.titleText)),
               axis: Axis.vertical,
               axisAlignment: -1,
               sizeFactor: _titleSizeAnimation,
+              child: Center(child: ExcludeSemantics(child: widget.titleText)),
             ),
-            opacity: _titleFadeAnimation,
           ),
           const SizedBox(height: 18),
         ],
@@ -345,25 +345,25 @@ class _RallyTabState extends State<_RallyTab>
       child: Row(
         children: [
           FadeTransition(
+            opacity: _iconFadeAnimation,
             child: SizedBox(
               width: unitWidth,
               child: widget.icon,
             ),
-            opacity: _iconFadeAnimation,
           ),
           FadeTransition(
+            opacity: _titleFadeAnimation,
             child: SizeTransition(
+              axis: Axis.horizontal,
+              axisAlignment: -1,
+              sizeFactor: _titleSizeAnimation,
               child: SizedBox(
                 width: unitWidth * expandedTitleWidthMultiplier,
                 child: Center(
                   child: ExcludeSemantics(child: widget.titleText),
                 ),
               ),
-              axis: Axis.horizontal,
-              axisAlignment: -1,
-              sizeFactor: _titleSizeAnimation,
             ),
-            opacity: _titleFadeAnimation,
           ),
         ],
       ),

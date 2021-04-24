@@ -51,14 +51,14 @@ class _SettingsItem extends StatelessWidget {
         primary: Colors.white,
         padding: EdgeInsets.zero,
       ),
+      onPressed: () {
+        Navigator.of(context).restorablePushNamed(rally_route.loginRoute);
+      },
       child: Container(
         alignment: AlignmentDirectional.centerStart,
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 28),
         child: Text(title),
       ),
-      onPressed: () {
-        Navigator.of(context).restorablePushNamed(rally_route.loginRoute);
-      },
     );
   }
 }
