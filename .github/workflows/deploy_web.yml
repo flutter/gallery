@@ -4,9 +4,9 @@ on:
     # Enable manual run
     inputs:
       environment:
-        description: 'Environment to deploy to'
+        description: 'Environment to deploy to (staging OR prod)'
         required: true
-        default: 'staging' # alternatively, prod
+        default: 'staging'
   pull_request: #TODO:remove
   push:
     # Sequence of patterns matched against refs/tags
@@ -37,6 +37,6 @@ jobs:
 
     # Build and deploy.
     - run: flutter build -v web --release
-    - run: firebase deploy -P ${{ github.event.inputs.environment }}
+    - run: firebase deploy -P ${{ github.event.inputs.environment || 'staging' }}
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
