@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .pub-cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          key: ${{ runner.os }}-pub }}
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@v1.5.0
         with:
@@ -43,8 +43,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.6'
-        bundler-cache: true
-        working-directory: android
+          bundler-cache: true
+          working-directory: android
 
 #      - name: Install bundle
 #        run: |
