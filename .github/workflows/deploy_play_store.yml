@@ -46,7 +46,7 @@ jobs:
 
       - name: Install bundle
         run: |
-          bundle update --bundler
+          gem install bundler
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
         working-directory: android
