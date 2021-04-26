@@ -41,7 +41,7 @@ Map<String, List<Future<ByteData>>> loadFontsFromTestingDir() {
   final currentDir = path.dirname(Platform.script.path);
   final fontsDirectory = path.join(
     currentDir,
-    'golden_test',
+    'test_goldens',
     'testing',
     'fonts',
   );
