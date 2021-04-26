@@ -94,6 +94,12 @@ Future<void> verifyCodeSegments() async {
   }
 }
 
+Future<void> _runProcess(String executable, List<String> arguments) async {
+  final result = await Process.run(executable, arguments);
+  stdout.write(result.stdout);
+  stderr.write(result.stderr);
+}
+
 // Function to make sure we capture all of the stdout.
 // Reference: https://github.com/dart-lang/sdk/issues/31666
 Future<String> _startProcess(String executable,
