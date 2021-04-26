@@ -1,11 +1,12 @@
 name: Deploy to Play Store
 on:
-  # Enable manual run
-  inputs:
-    lane:
-      description: 'Fastlane lane to use (internal OR prod)'
-      required: true
-      default: 'internal'
+  workflow_dispatch:
+    # Enable manual run
+    inputs:
+      lane:
+        description: 'Fastlane lane to use (internal OR prod)'
+        required: true
+        default: 'internal'
   #TODO:remove
   push:
     # Sequence of patterns matched against refs/tags
