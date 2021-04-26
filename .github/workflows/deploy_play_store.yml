@@ -18,6 +18,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       # Set up Flutter.
+      - name: Cache pub dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.HOME }}/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@v1.5.0
         with:
@@ -29,9 +34,13 @@ jobs:
         with:
           node-version: '14'
 
-      - uses: actions/checkout@v2
+    # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get
 
-      - uses: actions/setup-ruby@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6'
 
@@ -39,6 +48,7 @@ jobs:
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
+        working-directory: android
 
       - name: Configure Keystore
         run: |
@@ -53,6 +63,7 @@ jobs:
           KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
           KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
           KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+        working-directory: android
 
 #      - name: Create Google Play Config file
 #        run : |
@@ -65,3 +76,4 @@ jobs:
         run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
+        working-directory: android
