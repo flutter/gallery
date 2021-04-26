@@ -7,7 +7,6 @@ on:
         description: 'Environment to deploy to (staging OR prod)'
         required: true
         default: 'staging'
-  pull_request: #TODO:remove
   push:
     # Sequence of patterns matched against refs/tags
     tags:
