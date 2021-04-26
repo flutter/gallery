@@ -1,6 +1,12 @@
 name: Deploy to web
 on:
-  workflow_dispatch: # Enable manual run
+  workflow_dispatch:
+    # Enable manual run
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'staging' # alternatively, prod
   pull_request: #TODO:remove
   push:
     # Sequence of patterns matched against refs/tags
@@ -31,6 +37,6 @@ jobs:
 
     # Build and deploy.
     - run: flutter build -v web --release
-    - run: firebase deploy -P staging
+    - run: firebase deploy -P ${{ github.event.inputs.environment }}
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
