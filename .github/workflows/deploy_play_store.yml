@@ -1,0 +1,66 @@
+name: Deploy to Play Store
+on:
+  # Enable manual run
+  inputs:
+    lane:
+      description: 'Fastlane lane to use (internal OR prod)'
+      required: true
+      default: 'internal'
+  #TODO:remove
+  push:
+    # Sequence of patterns matched against refs/tags
+#    tags:
+#    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@v1.5.0
+        with:
+          channel: master
+      - run: flutter doctor -v
+
+      - name: Install web dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install bundle
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Configure Keystore
+        run: |
+          echo "$ANDROID_KEYSTORE_FILE" > upload.keystore.b64
+          base64 -d -i upload.keystore.b64 > app/upload.keystore
+          echo "storeFile=upload.keystore" >> keystore.properties
+          echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> keystore.properties
+          echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> keystore.properties
+          echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> keystore.properties
+        env:
+          ANDROID_KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE_FILE }}
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+
+#      - name: Create Google Play Config file
+#        run : |
+#          echo "$PLAY_CONFIG_JSON" > play_config.json.b64
+#          base64 -d -i play_config.json.b64 > play_config.json
+#        env:
+#          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
+
+      - name: Distribute app (by default, to internal track) 🚀
+          run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
+        env:
+          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
