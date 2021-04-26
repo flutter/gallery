@@ -21,7 +21,7 @@ jobs:
       - name: Cache pub dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ env.HOME }}/.pub-cache
+          path: .pub-cache
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@v1.5.0
@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: '14'
 
-    # Checkout gallery code and get packages.
+      # Checkout gallery code and get packages.
       - name: Checkout gallery code
         uses: actions/checkout@v2
       - run: flutter pub get
@@ -47,6 +47,7 @@ jobs:
       - name: Install bundle
         run: |
           bundle config path vendor/bundle
+          bundle update --bundler
           bundle install --jobs 4 --retry 3
         working-directory: android
 
