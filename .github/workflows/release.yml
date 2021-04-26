@@ -1,9 +1,11 @@
 name: Draft Github Release
 on:
+  #TODO:remove
   push:
+#  push:
     # Sequence of patterns matched against refs/tags
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+#    tags:
+#      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   generate-changelog:
@@ -104,6 +106,21 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '12.x'
+    - name: Configure Android Keystore
+      if: matrix.target == 'Android'
+      run: |
+        echo "$ANDROID_KEYSTORE_FILE" > upload.keystore.b64
+        base64 -d -i upload.keystore.b64 > app/upload.keystore
+        echo "storeFile=upload.keystore" >> keystore.properties
+        echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> keystore.properties
+        echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> keystore.properties
+        echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> keystore.properties
+      env:
+        ANDROID_KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE_FILE }}
+        KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+        KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+        KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+      working-directory: android
     - name: Enable desktop support
       if: matrix.target != 'Android'
       run: |

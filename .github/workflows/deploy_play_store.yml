@@ -18,15 +18,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       # Set up Flutter.
-      - name: Cache pub dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.HOME }}.pub-cache
-          key: ${{ runner.os }}-pub }}
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@v1.5.0
         with:
           channel: master
+      - name: Cache pub dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.FLUTTER_ROOT }}/.pub-cache
+          key: ${{ runner.os }}-pub }}
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
@@ -42,7 +42,7 @@ jobs:
           bundler-cache: true
           working-directory: android
 
-      - name: Configure Keystore
+      - name: Configure Android Keystore
         run: |
           echo "$ANDROID_KEYSTORE_FILE" > upload.keystore.b64
           base64 -d -i upload.keystore.b64 > app/upload.keystore
@@ -57,8 +57,8 @@ jobs:
           KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
         working-directory: android
 
-      - name: Deploy with Fastlane (by default, to internal track) 🚀
-        run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
+      # Deploy with Fastlane (by default, to internal track) 🚀
+      - run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
         working-directory: android
