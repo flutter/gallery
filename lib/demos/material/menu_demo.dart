@@ -229,11 +229,6 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
       padding: EdgeInsets.zero,
       initialValue: _simpleValue,
       onSelected: (value) => showAndSetMenuSelection(context, value),
-      child: ListTile(
-        title: Text(
-            GalleryLocalizations.of(context).demoMenuAnItemWithASimpleMenu),
-        subtitle: Text(simpleValueToString(context, _simpleValue)),
-      ),
       itemBuilder: (context) => <PopupMenuItem<SimpleValue>>[
         PopupMenuItem<SimpleValue>(
           value: SimpleValue.one,
@@ -257,6 +252,11 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
           )),
         ),
       ],
+      child: ListTile(
+        title: Text(
+            GalleryLocalizations.of(context).demoMenuAnItemWithASimpleMenu),
+        subtitle: Text(simpleValueToString(context, _simpleValue)),
+      ),
     );
   }
 }

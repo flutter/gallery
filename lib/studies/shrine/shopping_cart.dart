@@ -112,6 +112,10 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           ),
                           primary: shrinePink100,
                         ),
+                        onPressed: () {
+                          model.clearCart();
+                          ExpandingBottomSheet.of(context).close();
+                        },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           child: Text(
@@ -122,10 +126,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                     letterSpacingOrNone(largeLetterSpacing)),
                           ),
                         ),
-                        onPressed: () {
-                          model.clearCart();
-                          ExpandingBottomSheet.of(context).close();
-                        },
                       ),
                     ),
                   ),

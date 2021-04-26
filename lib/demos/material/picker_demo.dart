@@ -166,9 +166,6 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
                   Text(_labelText),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                    child: Text(
-                      GalleryLocalizations.of(context).demoPickersShowPicker,
-                    ),
                     onPressed: () {
                       switch (widget.type) {
                         case PickerDemoType.date:
@@ -182,6 +179,9 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
                           break;
                       }
                     },
+                    child: Text(
+                      GalleryLocalizations.of(context).demoPickersShowPicker,
+                    ),
                   )
                 ],
               ),

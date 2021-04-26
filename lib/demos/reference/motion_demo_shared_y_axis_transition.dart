@@ -100,6 +100,17 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
                       Radius.circular(4),
                     ),
                   ),
+                  onTap: () {
+                    if (!_isAlphabetical) {
+                      _controller.reset();
+                      _controller.animateTo(0.5);
+                    } else {
+                      _controller.animateTo(1);
+                    }
+                    setState(() {
+                      _isAlphabetical = !_isAlphabetical;
+                    });
+                  },
                   child: Row(
                     children: [
                       Text(_isAlphabetical
@@ -112,17 +123,6 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
                       ),
                     ],
                   ),
-                  onTap: () {
-                    if (!_isAlphabetical) {
-                      _controller.reset();
-                      _controller.animateTo(0.5);
-                    } else {
-                      _controller.animateTo(1);
-                    }
-                    setState(() {
-                      _isAlphabetical = !_isAlphabetical;
-                    });
-                  },
                 ),
               ),
             ],
@@ -134,10 +134,10 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
                 reverse: _isAlphabetical,
                 transitionBuilder: (child, animation, secondaryAnimation) {
                   return SharedAxisTransition(
-                    child: child,
                     animation: animation,
                     secondaryAnimation: secondaryAnimation,
                     transitionType: SharedAxisTransitionType.vertical,
+                    child: child,
                   );
                 },
                 child: _isAlphabetical ? _alphabeticalList : _recentList,

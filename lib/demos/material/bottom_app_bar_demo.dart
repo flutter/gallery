@@ -131,8 +131,8 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
               onPressed: () {
                 print('Floating action button pressed');
               },
-              child: const Icon(Icons.add),
               tooltip: GalleryLocalizations.of(context).buttonTextCreate,
+              child: const Icon(Icons.add),
             )
           : null,
       floatingActionButtonLocation: _fabLocations[_currentFabLocation.value],

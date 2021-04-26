@@ -29,27 +29,27 @@ class CupertinoContextMenuDemo extends StatelessWidget {
               width: 100,
               height: 100,
               child: CupertinoContextMenu(
-                child: Container(
-                  child: const FlutterLogo(size: 250),
-                ),
                 actions: [
                   CupertinoContextMenuAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       galleryLocalizations.demoCupertinoContextMenuActionOne,
                     ),
+                  ),
+                  CupertinoContextMenuAction(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                  ),
-                  CupertinoContextMenuAction(
                     child: Text(
                       galleryLocalizations.demoCupertinoContextMenuActionTwo,
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
                   ),
                 ],
+                child: Container(
+                  child: const FlutterLogo(size: 250),
+                ),
               ),
             ),
           ),

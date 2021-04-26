@@ -289,6 +289,9 @@ class _NavigationRailHeader extends StatelessWidget {
                     InkWell(
                       key: const ValueKey('ReplyLogo'),
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      onTap: () {
+                        extended.value = !extended.value;
+                      },
                       child: Row(
                         children: [
                           Transform.rotate(
@@ -317,9 +320,6 @@ class _NavigationRailHeader extends StatelessWidget {
                           SizedBox(width: 18 * animation.value),
                         ],
                       ),
-                      onTap: () {
-                        extended.value = !extended.value;
-                      },
                     ),
                     if (animation.value > 0)
                       Opacity(
@@ -1181,8 +1181,8 @@ class _ReplyFabState extends State<_ReplyFab>
                 ? FloatingActionButton(
                     tooltip: tooltip,
                     key: const ValueKey('ReplyFab'),
-                    child: fabSwitcher,
                     onPressed: onPressed,
+                    child: fabSwitcher,
                   )
                 : Align(
                     alignment: AlignmentDirectional.centerStart,
@@ -1264,9 +1264,9 @@ class _FadeThroughTransitionSwitcher extends StatelessWidget {
       transitionBuilder: (child, animation, secondaryAnimation) {
         return FadeThroughTransition(
           fillColor: fillColor,
-          child: child,
           animation: animation,
           secondaryAnimation: secondaryAnimation,
+          child: child,
         );
       },
       child: child,

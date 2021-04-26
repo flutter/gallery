@@ -150,8 +150,8 @@ class MobileAsymmetricView extends StatelessWidget {
                   16,
                   _bottomPadding,
                 ),
-                children: _buildColumns(context, constraints),
                 physics: const AlwaysScrollableScrollPhysics(),
+                children: _buildColumns(context, constraints),
               );
             },
           ),
@@ -264,6 +264,7 @@ class DesktopColumns extends StatelessWidget {
 
     return ListView(
       scrollDirection: Axis.vertical,
+      physics: const AlwaysScrollableScrollPhysics(),
       children: [
         Container(height: 60),
         Row(
@@ -285,7 +286,6 @@ class DesktopColumns extends StatelessWidget {
         ),
         Container(height: 60),
       ],
-      physics: const AlwaysScrollableScrollPhysics(),
     );
   }
 }
