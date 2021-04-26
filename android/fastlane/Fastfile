@@ -23,7 +23,6 @@ platform :android do
 
   desc "Submit a new internal build to Google Play"
   lane :internal do
-    gradle(task: "clean")
     sh "flutter build appbundle"
     upload_to_play_store(
       track: 'internal',
@@ -35,7 +34,6 @@ platform :android do
 
   desc "Submit a new production build to Google Play"
   lane :prod do
-    gradle(task: "clean")
     sh "flutter build appbundle"
     upload_to_play_store(
       validate_only: true,
