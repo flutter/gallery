@@ -58,10 +58,10 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
                   secondaryAnimation,
                 ) {
                   return SharedAxisTransition(
-                    child: child,
                     animation: animation,
                     secondaryAnimation: secondaryAnimation,
                     transitionType: SharedAxisTransitionType.horizontal,
+                    child: child,
                   );
                 },
                 child: _isLoggedIn ? const _CoursePage() : const _SignInPage(),

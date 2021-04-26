@@ -185,13 +185,6 @@ class _CancelAndNextButtons extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(7)),
                 ),
               ),
-              child: Padding(
-                padding: buttonTextPadding,
-                child: Text(
-                  GalleryLocalizations.of(context).shrineCancelButtonCaption,
-                  style: TextStyle(color: colorScheme.onSurface),
-                ),
-              ),
               onPressed: () {
                 // The login screen is immediately displayed on top of
                 // the Shrine home screen using onGenerateRoute and so
@@ -199,6 +192,13 @@ class _CancelAndNextButtons extends StatelessWidget {
                 // of Shrine completely.
                 Navigator.of(context, rootNavigator: true).pop();
               },
+              child: Padding(
+                padding: buttonTextPadding,
+                child: Text(
+                  GalleryLocalizations.of(context).shrineCancelButtonCaption,
+                  style: TextStyle(color: colorScheme.onSurface),
+                ),
+              ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -207,6 +207,9 @@ class _CancelAndNextButtons extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(7)),
                 ),
               ),
+              onPressed: () {
+                Navigator.of(context).restorablePushNamed(ShrineApp.homeRoute);
+              },
               child: Padding(
                 padding: buttonTextPadding,
                 child: Text(
@@ -215,9 +218,6 @@ class _CancelAndNextButtons extends StatelessWidget {
                       letterSpacing: letterSpacingOrNone(largeLetterSpacing)),
                 ),
               ),
-              onPressed: () {
-                Navigator.of(context).restorablePushNamed(ShrineApp.homeRoute);
-              },
             ),
           ],
         ),
@@ -236,8 +236,8 @@ class PrimaryColorOverride extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      child: child,
       data: Theme.of(context).copyWith(primaryColor: color),
+      child: child,
     );
   }
 }

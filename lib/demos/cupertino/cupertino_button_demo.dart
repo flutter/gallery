@@ -24,17 +24,17 @@ class CupertinoButtonDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CupertinoButton(
+              onPressed: () {},
               child: Text(
                 GalleryLocalizations.of(context).cupertinoButton,
               ),
-              onPressed: () {},
             ),
             const SizedBox(height: 16),
             CupertinoButton.filled(
+              onPressed: () {},
               child: Text(
                 GalleryLocalizations.of(context).cupertinoButtonWithBackground,
               ),
-              onPressed: () {},
             ),
           ],
         ),

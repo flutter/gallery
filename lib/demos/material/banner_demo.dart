@@ -70,27 +70,27 @@ class _BannerDemoState extends State<BannerDemo> with RestorationMixin {
       content: Text(GalleryLocalizations.of(context).bannerDemoText),
       leading: _showLeading.value
           ? CircleAvatar(
-              child: Icon(Icons.access_alarm, color: colorScheme.onPrimary),
               backgroundColor: colorScheme.primary,
+              child: Icon(Icons.access_alarm, color: colorScheme.onPrimary),
             )
           : null,
       actions: [
         TextButton(
-          child: Text(GalleryLocalizations.of(context).signIn),
           onPressed: () {
             setState(() {
               _displayBanner.value = false;
             });
           },
+          child: Text(GalleryLocalizations.of(context).signIn),
         ),
         if (_showMultipleActions.value)
           TextButton(
-            child: Text(GalleryLocalizations.of(context).dismiss),
             onPressed: () {
               setState(() {
                 _displayBanner.value = false;
               });
             },
+            child: Text(GalleryLocalizations.of(context).dismiss),
           ),
       ],
       backgroundColor: colorScheme.background,

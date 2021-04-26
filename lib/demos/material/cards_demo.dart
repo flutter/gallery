@@ -345,20 +345,20 @@ class TravelDestinationContent extends StatelessWidget {
             alignment: MainAxisAlignment.start,
             children: [
               TextButton(
+                onPressed: () {
+                  print('pressed');
+                },
                 child: Text(GalleryLocalizations.of(context).demoMenuShare,
                     semanticsLabel: GalleryLocalizations.of(context)
                         .cardsDemoShareSemantics(destination.title)),
+              ),
+              TextButton(
                 onPressed: () {
                   print('pressed');
                 },
-              ),
-              TextButton(
                 child: Text(GalleryLocalizations.of(context).cardsDemoExplore,
                     semanticsLabel: GalleryLocalizations.of(context)
                         .cardsDemoExploreSemantics(destination.title)),
-                onPressed: () {
-                  print('pressed');
-                },
               ),
             ],
           ),

@@ -282,11 +282,11 @@ class _FinancialView extends StatelessWidget {
                 0, math.min(financialItemViews.length, 3)),
             TextButton(
               style: TextButton.styleFrom(primary: Colors.white),
+              onPressed: () {},
               child: Text(
                 GalleryLocalizations.of(context).rallySeeAll,
                 semanticsLabel: buttonSemanticsLabel,
               ),
-              onPressed: () {},
             ),
           ],
         ),
