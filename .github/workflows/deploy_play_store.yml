@@ -60,7 +60,7 @@ jobs:
 #        env:
 #          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
 
-      - name: Distribute app (by default, to internal track) 🚀
-          run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
+      - name: Deploy with Fastlane (by default, to internal track) 🚀
+        run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
