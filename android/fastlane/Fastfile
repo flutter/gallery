@@ -23,7 +23,7 @@ platform :android do
 
   desc "Submit a new internal build to Google Play"
   lane :internal do
-    sh "flutter build appbundle"
+    sh "flutter build appbundle -v"
     upload_to_play_store(
       track: 'internal',
       validate_only: true,
@@ -34,7 +34,7 @@ platform :android do
 
   desc "Submit a new production build to Google Play"
   lane :prod do
-    sh "flutter build appbundle"
+    sh "flutter build appbundle -v"
     upload_to_play_store(
       validate_only: true,
       aab: '../build/app/outputs/bundle/release/app-release.aab',
