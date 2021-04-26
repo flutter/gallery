@@ -29,8 +29,8 @@ jobs:
       uses: actions/checkout@v2
     - run: flutter pub get
 
+    # Build and deploy.
     - run: flutter build -v web --release
-
     - run: firebase deploy -P staging
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
