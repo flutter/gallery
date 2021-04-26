@@ -1,0 +1,92 @@
+name: Tests
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+
+jobs:
+  unit-test:
+    name: Unit tests on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2019, macos-10.15]
+    steps:
+    # Set up Flutter.
+    - name: Clone Flutter repository with master channel
+      uses: subosito/flutter-action@master
+      with:
+        channel: master
+    - run: flutter doctor -v
+
+    # Checkout gallery code and get packages.
+    - name: Checkout gallery code
+      uses: actions/checkout@v2
+    - run: flutter pub get
+
+    # Analyze, check formatting, and run unit tests.
+    - run: flutter analyze
+    - name: Ensure the Dart code is formatted correctly
+      run: flutter format --set-exit-if-changed --dry-run .
+    - name: Run Flutter unit tests
+      run: flutter test
+
+    # Run custom scripts defined in `tool/grind.dart`.
+    - name: Verify that localizations are up to date
+      run: flutter pub run grinder verify-l10n
+      # TODO: Enable verify-l10n for Windows when it behaves the same as on macOS/Ubuntu:
+      # https://github.com/material-components/material-components-flutter-gallery/issues/565
+      if: startsWith(matrix.os, 'macOS') || startsWith(matrix.os, 'ubuntu')
+    - name: Verify that code segments are up to date
+      run: flutter pub run grinder verify-code-segments
+      # TODO: Enable verify-code-segments for Unix and Windows when it behaves the same as on macOS:
+      # https://github.com/material-components/material-components-flutter-gallery/issues/565
+      if: startsWith(matrix.os, 'macOS')
+
+
+  # TODO(https://github.com/flutter/gallery/issues/463): Move test/benchmarks to test_benchmarks
+  benchmark-test:
+    name: Benchmark tests
+    runs-on: ubuntu-18.04
+    steps:
+    # Set up Flutter.
+    - name: Clone Flutter repository with master channel
+      uses: subosito/flutter-action@master
+      with:
+        channel: master
+    - run: flutter doctor -v
+    - run: flutter config --enable-web
+
+    # Checkout gallery code and get packages.
+    - name: Checkout gallery code
+      uses: actions/checkout@v2
+    - run: flutter pub get
+
+    - run: flutter test test_benchmarks
+
+
+  golden-test:
+    name: Golden tests
+    runs-on: macos-10.15
+    steps:
+    # Set up Flutter.
+    - name: Clone Flutter repository with master channel
+      uses: subosito/flutter-action@master
+      with:
+        channel: master
+    - run: flutter doctor -v
+
+    # Checkout gallery code and get packages.
+    - name: Checkout gallery code
+      uses: actions/checkout@v2
+    - run: flutter pub get
+
+    # Run the golden tests and upload failed test artifacts.
+    - run: flutter test test_goldens
+    - name: Upload goldens if tests fail
+      uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: goldens
+        path: test_goldens/failures/

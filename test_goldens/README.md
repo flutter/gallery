@@ -10,7 +10,7 @@ is unintended, you will need to change your code to prevent the UI change. If
 it was intended, you will then need to update the goldens by running the
 following command on your macOS machine:
 ```bash
-flutter test --update-goldens golden_test
+flutter test --update-goldens test_goldens
 ```
 
 Due to slight [differences](

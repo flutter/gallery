@@ -31,7 +31,7 @@
 .pub-cache/
 .pub/
 /build/
-golden_test/failures/
+test_goldens/failures/
 
 # Android related
 **/android/**/gradle-wrapper.jar
