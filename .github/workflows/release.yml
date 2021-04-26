@@ -1,11 +1,9 @@
 name: Draft Github Release
 on:
-  #TODO:remove
   push:
-#  push:
     # Sequence of patterns matched against refs/tags
-#    tags:
-#      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   generate-changelog:
@@ -120,7 +118,7 @@ jobs:
     - run: flutter create .
     - run: flutter pub get
 
-    - name: Configure Android Keystore
+    - name: Configure Keystore for Android
       if: matrix.target == 'Android'
       run: |
         echo "$ANDROID_KEYSTORE_FILE" > upload.keystore.b64

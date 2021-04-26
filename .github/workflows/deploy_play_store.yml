@@ -7,11 +7,9 @@ on:
         description: 'Fastlane lane to use (internal OR prod)'
         required: true
         default: 'internal'
-  #TODO:remove
-  push:
     # Sequence of patterns matched against refs/tags
-#    tags:
-#    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build-and-deploy:
@@ -42,7 +40,7 @@ jobs:
           bundler-cache: true
           working-directory: android
 
-      - name: Configure Android Keystore
+      - name: Configure Keystore
         run: |
           echo "$ANDROID_KEYSTORE_FILE" > upload.keystore.b64
           base64 -d -i upload.keystore.b64 > app/upload.keystore
