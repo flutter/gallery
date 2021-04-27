@@ -103,6 +103,8 @@ more details.
 </details>
 
 ## Creating a new release (for Flutter org members)
+Release creation is based upon a set of [workflows](https://github.com/flutter/gallery/actions/workflows) 
+that get triggered by new version tags, and can also be run manually.
 
 1. Create a PR to bump the version number up in `pubspec.yaml`. Use [semantic versioning](https://semver.org/) to determine
    which number to increment. The version number after the `+`should also be incremented. For example `1.2.3+010203`
