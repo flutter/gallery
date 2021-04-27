@@ -58,8 +58,12 @@ Additionally, the UI adapts between mobile and desktop layouts regardless of the
 platform it runs on. This is determined based on window size as outlined in
 [adaptive.dart](lib/layout/adaptive.dart).
 
-## To include a new splash animation
 
+## Development
+
+<details>
+  <summary>Including a new splash animation</summary>
+  
 1. Convert your animation to a `.gif` file.
    Ideally, use a background color of `0xFF030303` to ensure the animation
    blends into the background of the app.
@@ -73,65 +77,56 @@ platform it runs on. This is determined based on window size as outlined in
    [splash.dart](lib/pages/splash.dart) to include the number of the
    new `.gif` as well as its estimated duration. The duration is used to
    determine how long to display the splash animation at launch.
+</details>
 
-## Generating localizations
-
-If this is the first time building the Flutter gallery, the localized
+<details>
+  <summary>Generating localizations</summary>
+   
+If this is the first time building the Flutter Gallery, the localized
 code will not be present in the project directory. However, after running
 the application for the first time, a synthetic package will be generated
 containing the app's localizations through importing
 `package:flutter_gen/gen_l10n/`.
 
 See separate [README](lib/l10n/README.md) for more details.
+</details>
 
-## Generating highlighted code segments
-
-To generate highlighted code segments, make sure that you
-have [grinder](https://pub.dev/packages/grinder) installed by running
+<details>
+  <summary>Generating highlighted code segments</summary>
+   
 ```bash
 flutter pub get
-```
-
-To generate code segments (see separate [README](tool/codeviewer_cli/README.md) for
-more details):
-```bash
 flutter pub run grinder update-code-segments
 ```
+See separate [README](tool/codeviewer_cli/README.md) for
+more details.
+</details>
 
 ## Creating a new release (for Flutter org members)
+Release creation is based upon a set of [workflows](https://github.com/flutter/gallery/actions/workflows) 
+that get triggered by new version tags, and can also be run manually.
 
 1. Create a PR to bump the version number up in `pubspec.yaml`. Use [semantic versioning](https://semver.org/) to determine
    which number to increment. The version number after the `+`should also be incremented. For example `1.2.3+010203`
    with a patch should become `1.2.4+010204`.
 
-2. Create a tag on master branch after the version bump PR is merged. This will start a
-   Github Actions job that will draft a [release]((https://github.com/flutter/gallery/releases)) with desktop applications
-   and apk included.
-   ```bash
-   git pull upstream master
-   git tag v1.2.3
-   git push upstream v1.2.3
-   ```
+2. After the version bump PR is merged, push a new version tag to master. 
+```bash
+git pull upstream master
+git tag v1.2.4  # note the v
+git push upstream v1.2.4
+```
 
-3. Publish the firebase hosted web release.
-    * Log in to the account that has write access to `gallery-flutter-dev` with `firebase login`
-    * `flutter build web`
-    * `firebase deploy -P prod` to deploy to production (equivalent to `firebase deploy`).
-    * `firebase deploy -P staging` to deploy to staging. Check with the team to see if the staging
-       instance is currently used for a special purpose.
-       
-4. Write some release notes about what changes have been done since the
-    last release.
+   This will trigger Github Actions [workflows](https://github.com/flutter/gallery/actions/workflows) that will:
+   * Draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
+   * Deploy the gallery to the Firebase hosted [site](https://gallery.flutter.dev)
+   * Deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
-5. Publish the Android release
-    * Ensure you have the correct signing certificates.
-    * Create the app bundle with `flutter build appbundle`.
-    * Include the release notes in "What's new".
-    * Upload to the Play store console and publish.
+3. Once satisfied, you can
+    * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases).
+    * Promote the Play Store beta to production by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml).
 
-6. Go to [Releases](https://github.com/flutter/gallery/releases) and see the latest draft.
-    * Include the release notes in the description.
-    * Publish the release.
+More information about manually running workflows is available at go/flutter-gallery-manual-deployment.
 
 ## Tests
 
