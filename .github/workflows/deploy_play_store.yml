@@ -21,11 +21,6 @@ jobs:
         uses: subosito/flutter-action@v1.5.0
         with:
           channel: master
-      - name: Cache pub dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.FLUTTER_ROOT }}/.pub-cache
-          key: ${{ runner.os }}-pub }}
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
@@ -56,7 +51,7 @@ jobs:
           KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
         working-directory: android
 
-      # Deploy with Fastlane (by default, to internal track) 🚀
+      # Build and deploy with Fastlane (by default, to internal track) 🚀
       - run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
