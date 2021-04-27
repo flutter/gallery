@@ -1,6 +1,5 @@
 name: Deploy to Play Store
 on:
-  pull_request:
   workflow_dispatch:
     # Enable manual run
     inputs:
