@@ -110,10 +110,10 @@ that get triggered by new version tags, and can also be run manually.
    which number to increment. The version number after the `+`should also be incremented. For example `1.2.3+010203`
    with a patch should become `1.2.4+010204`.
 
-2. After the version bump PR is merged, push a new version tag on master branch. 
+2. After the version bump PR is merged, push a new version tag to master. 
 ```bash
 git pull upstream master
-git tag v1.2.4
+git tag v1.2.4  # note the v
 git push upstream v1.2.4
 ```
 
