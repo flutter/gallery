@@ -116,9 +116,9 @@ git push upstream v1.2.4
 ```
 
    This will trigger Github Actions [workflows](https://github.com/flutter/gallery/actions/workflows) that will:
-   * draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
-   * deploy the gallery to the Firebase hosted [site](https://gallery.flutter.dev)
-   * deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
+   * Draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
+   * Deploy the gallery to the Firebase hosted [site](https://gallery.flutter.dev)
+   * Deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
 3. Once satisfied, you can
     * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases).
