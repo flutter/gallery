@@ -118,6 +118,21 @@ jobs:
     - run: flutter create .
     - run: flutter pub get
 
+    - name: Configure Keystore for Android
+      if: matrix.target == 'Android'
+      run: |
+        echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > app/upload-keystore.jks
+        echo "storeFile=upload-keystore.jks" >> key.properties
+        echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> key.properties
+        echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> key.properties
+        echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> key.properties
+      env:
+        PLAY_STORE_UPLOAD_KEY: ${{ secrets.PLAY_STORE_UPLOAD_KEY }}
+        KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+        KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+        KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+      working-directory: android
+
     # Build the application.
     - run: flutter build -v ${{ matrix.build_target }} --release
 
