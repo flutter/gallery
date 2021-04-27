@@ -111,12 +111,12 @@ more details.
 2. After the version bump PR is merged, push a new version tag on master branch. 
 ```bash
 git pull upstream master
-git tag v1.2.3
-git push upstream v1.2.3
+git tag v1.2.4
+git push upstream v1.2.4
 ```
 
    This will trigger Github Actions [workflows](https://github.com/flutter/gallery/actions/workflows) that will:
-   * draft a [release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
+   * draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
    * deploy the gallery to the Firebase hosted [site](https://gallery.flutter.dev)
    * deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
