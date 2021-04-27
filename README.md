@@ -121,8 +121,8 @@ git push upstream v1.2.3
    * deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
 3. Once satisfied, you can
-Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases).
-Promote the Play Store beta to production using [GitHub Actions](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml)  
+    * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases).
+    * Promote the Play Store beta to production by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml).
 
 More information about manually running workflows is available at go/flutter-gallery-manual-deployment.
 
