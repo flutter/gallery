@@ -1,5 +1,6 @@
 name: Deploy to Play Store
 on:
+  pull_request:
   workflow_dispatch:
     # Enable manual run
     inputs:
@@ -37,14 +38,13 @@ jobs:
 
       - name: Configure Keystore
         run: |
-          echo "$ANDROID_KEYSTORE_FILE" > upload-keystore.jks.b64
-          base64 -d -i upload-keystore.jks.b64 > app/upload-keystore.jks
+          echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > app/upload-keystore.jks
           echo "storeFile=upload-keystore.jks" >> key.properties
           echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> key.properties
           echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> key.properties
           echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> key.properties
         env:
-          ANDROID_KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE_FILE }}
+          PLAY_STORE_UPLOAD_KEY: ${{ secrets.PLAY_STORE_UPLOAD_KEY }}
           KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
           KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
           KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
@@ -53,5 +53,5 @@ jobs:
       # Build and deploy with Fastlane (by default, to internal track) 🚀
       - run: bundle exec fastlane ${{ github.event.inputs.lane || 'internal' }}
         env:
-          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
+          PLAY_STORE_CONFIG_JSON: ${{ secrets.PLAY_STORE_CONFIG_JSON }}
         working-directory: android

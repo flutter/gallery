@@ -27,7 +27,7 @@ platform :android do
     upload_to_play_store(
       track: 'internal',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
-      json_key_data: ENV['PLAY_CONFIG_JSON'],
+      json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
       )
   end
 
@@ -36,7 +36,7 @@ platform :android do
     upload_to_play_store(
       track: 'internal',
       track_promote_to: 'production',
-      json_key_data: ENV['PLAY_CONFIG_JSON'],
+      json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
       )
   end
 
@@ -46,7 +46,7 @@ platform :android do
     upload_to_play_store(
       track: 'production',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
-      json_key_data: ENV['PLAY_CONFIG_JSON'],
+      json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
     )
   end
 end
