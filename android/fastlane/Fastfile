@@ -21,20 +21,20 @@ platform :android do
     gradle(task: "test")
   end
 
-  desc "Submit a new internal build to Google Play"
-  lane :internal do
+  desc "Submit a new beta build to Google Play"
+  lane :beta do
     sh "flutter build appbundle -v"
     upload_to_play_store(
-      track: 'internal',
+      track: 'beta',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
       json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
       )
   end
 
-  desc "Promote internal track to prod"
+  desc "Promote beta track to prod"
   lane :promote_to_production do
     upload_to_play_store(
-      track: 'internal',
+      track: 'beta',
       track_promote_to: 'production',
       json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
       )
