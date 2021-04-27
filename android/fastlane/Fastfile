@@ -26,17 +26,25 @@ platform :android do
     sh "flutter build appbundle -v"
     upload_to_play_store(
       track: 'internal',
-      validate_only: true,
       aab: '../build/app/outputs/bundle/release/app-release.aab',
       json_key_data: ENV['PLAY_CONFIG_JSON'],
       )
   end
 
+  desc "Promote internal track to prod"
+  lane :promote_to_production do
+    upload_to_play_store(
+      track: 'internal',
+      track_promote_to: 'production',
+      json_key_data: ENV['PLAY_CONFIG_JSON'],
+      )
+  end
+
   desc "Submit a new production build to Google Play"
-  lane :prod do
+  lane :production do
     sh "flutter build appbundle -v"
     upload_to_play_store(
-      validate_only: true,
+      track: 'production',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
       json_key_data: ENV['PLAY_CONFIG_JSON'],
     )

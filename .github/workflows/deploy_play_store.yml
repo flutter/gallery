@@ -5,7 +5,7 @@ on:
     # Enable manual run
     inputs:
       lane:
-        description: 'Fastlane lane to use (internal OR prod)'
+        description: 'Fastlane lane to use (internal OR promote_to_production OR production)'
         required: true
         default: 'internal'
     # Sequence of patterns matched against refs/tags
