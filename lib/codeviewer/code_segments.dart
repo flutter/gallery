@@ -18458,7 +18458,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' theme'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
-      TextSpan(style: codeStyle.baseStyle, text: 'accentTextTheme'),
+      TextSpan(style: codeStyle.baseStyle, text: 'textTheme'),
       TextSpan(style: codeStyle.punctuationStyle, text: '.'),
       TextSpan(
           style: codeStyle.baseStyle,
