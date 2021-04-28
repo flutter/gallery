@@ -104,7 +104,7 @@ more details.
 
 ## Creating a new release (for Flutter org members)
 Release creation is based upon a set of [workflows](https://github.com/flutter/gallery/actions/) 
-that get triggered by new version tags, and can also be run manually.
+that get triggered by new version tags, and can also be [run manually](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow-on-github).
 
 1. Create a PR to bump the version number up in `pubspec.yaml`. Use [semantic versioning](https://semver.org/) to determine
    which number to increment. The version number after the `+`should also be incremented. For example `1.2.3+010203`
@@ -119,11 +119,12 @@ git push upstream v1.2.4
 
    This will trigger Github Actions [workflows](https://github.com/flutter/gallery/actions/) that will:
    * Draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
-   * Deploy the gallery to the Firebase hosted [site](https://gallery.flutter.dev)
+   * Deploy the gallery to the Firebase hosted [staging site](https://gallery-staging-flutter-dev.web.app/)
    * Deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
 3. Once satisfied, you can
     * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases).
+    * Deploy the gallery to the Firebase hosted [production site](https://gallery.flutter.dev) by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_web.yml).
     * Promote the Play Store beta to production by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml).
 
 More information about manually running workflows is available at go/flutter-gallery-manual-deployment.
