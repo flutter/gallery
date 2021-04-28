@@ -22,7 +22,6 @@ ThemeData _buildCraneTheme() {
       primary: cranePurple800,
       secondary: craneRed700,
     ),
-    accentColor: cranePurple700,
     primaryColor: cranePurple800,
     buttonColor: craneRed700,
     hintColor: craneWhite60,
@@ -31,15 +30,11 @@ ThemeData _buildCraneTheme() {
     cardColor: cranePrimaryWhite,
     errorColor: craneErrorOrange,
     highlightColor: Colors.transparent,
-    buttonTheme: const ButtonThemeData(
-      textTheme: ButtonTextTheme.accent,
-    ),
     textTheme: _buildCraneTextTheme(base.textTheme),
     textSelectionTheme: const TextSelectionThemeData(
       selectionColor: cranePurple700,
     ),
     primaryTextTheme: _buildCraneTextTheme(base.primaryTextTheme),
-    accentTextTheme: _buildCraneTextTheme(base.accentTextTheme),
     iconTheme: _customIconTheme(base.iconTheme, craneWhite60),
     primaryIconTheme: _customIconTheme(base.iconTheme, cranePrimaryWhite),
   );

@@ -147,7 +147,6 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
 ThemeData _buildReplyLightTheme(BuildContext context) {
   final base = ThemeData.light();
   return base.copyWith(
-    accentColor: ReplyColors.orange500,
     bottomAppBarColor: ReplyColors.blue700,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.blue700,
@@ -195,7 +194,6 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
 ThemeData _buildReplyDarkTheme(BuildContext context) {
   final base = ThemeData.dark();
   return base.copyWith(
-    accentColor: ReplyColors.orange300,
     bottomAppBarColor: ReplyColors.darkBottomAppBarBackground,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.darkDrawerBackground,
