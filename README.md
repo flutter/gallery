@@ -114,14 +114,13 @@ git pull upstream master
 git tag v1.2.4  # note the v
 git push upstream v1.2.4
 ```
-
    This will trigger a set of GitHub Actions [workflows](https://github.com/flutter/gallery/actions/) that will:
-   * Draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with packaged builds and automatically generated release notes
+   * Draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with automatically generated release notes and packaged builds (.apk, macOS, Windows, and Linux)
    * Deploy the gallery to the Firebase hosted [staging site](https://gallery-staging-flutter-dev.web.app/)
    * Deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
-3. Production: Once satisfied, you can
-    * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases).
+3. Production: Once satisfied,
+    * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases) (`Edit draft` -> `Publish release`).
     * Deploy the gallery to the Firebase hosted [production site](https://gallery.flutter.dev) by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_web.yml) using GitHub's UI.
     * Promote the Play Store beta to production by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml) using GitHub's UI.
 
