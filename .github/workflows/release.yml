@@ -1,5 +1,7 @@
 name: Draft Github Release
 on:
+  workflow_dispatch:
+    # Enable manual run
   push:
     # Sequence of patterns matched against refs/tags
     tags:
