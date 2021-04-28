@@ -23,7 +23,6 @@ ThemeData _buildShrineTheme() {
   return base.copyWith(
     appBarTheme: const AppBarTheme(brightness: Brightness.light, elevation: 0),
     colorScheme: _shrineColorScheme,
-    accentColor: shrineBrown900,
     primaryColor: shrinePink100,
     buttonColor: shrinePink100,
     scaffoldBackgroundColor: shrineBackgroundWhite,
@@ -41,7 +40,6 @@ ThemeData _buildShrineTheme() {
       selectionColor: shrinePink100,
     ),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
-    accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
     iconTheme: _customIconTheme(base.iconTheme),
   );
 }
