@@ -20,11 +20,11 @@ import 'package:gallery/pages/splash.dart';
 import 'package:gallery/studies/crane/colors.dart';
 import 'package:gallery/studies/crane/routes.dart' as crane_routes;
 import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
-import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/rally/colors.dart';
+import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/reply/routes.dart' as reply_routes;
-import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/shrine/colors.dart';
+import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 const _horizontalPadding = 32.0;

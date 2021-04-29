@@ -3,10 +3,9 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/crane/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final ThemeData craneTheme = _buildCraneTheme();
 

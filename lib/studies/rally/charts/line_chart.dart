@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:intl/intl.dart' as intl;
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 
 import 'package:gallery/data/gallery_options.dart';
-import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
 import 'package:gallery/studies/rally/formatters.dart';
+import 'package:intl/intl.dart' as intl;
 
 class RallyLineChart extends StatelessWidget {
   const RallyLineChart({this.events = const <DetailedEventData>[]})

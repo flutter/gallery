@@ -4,9 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:intl/intl.dart';
-import 'package:scoped_model/scoped_model.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/shrine/colors.dart';
@@ -14,6 +11,8 @@ import 'package:gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/theme.dart';
+import 'package:intl/intl.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 const _startColumnWidth = 60.0;
 const _ordinalSortKeyName = 'shopping_cart';

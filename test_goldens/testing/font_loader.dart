@@ -8,9 +8,9 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 
-import 'package:path/path.dart' as path;
 import 'package:google_fonts/src/google_fonts_family_with_variant.dart';
 import 'package:google_fonts/src/google_fonts_variant.dart';
+import 'package:path/path.dart' as path;
 
 /// Load fonts to make sure they show up in golden tests.
 Future<void> loadFonts() async {
