@@ -6,6 +6,9 @@ import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
+    show GalleryLocalizationsEn;
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
@@ -14,25 +17,22 @@ import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/demos/cupertino/cupertino_demos.dart'
     deferred as cupertino_demos;
 import 'package:gallery/demos/cupertino/demo_types.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 import 'package:gallery/demos/material/material_demos.dart'
     deferred as material_demos;
-import 'package:gallery/demos/material/material_demo_types.dart';
+import 'package:gallery/demos/reference/colors_demo.dart'
+    deferred as colors_demo;
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart'
     deferred as motion_demo_container;
-import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
+import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_x_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dart';
-import 'package:gallery/demos/reference/colors_demo.dart'
-    deferred as colors_demo;
 import 'package:gallery/demos/reference/transformations_demo.dart'
     deferred as transformations_demo;
 import 'package:gallery/demos/reference/typography_demo.dart'
     deferred as typography;
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
-    show GalleryLocalizationsEn;
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 const _docsAnimationsUrl =

@@ -10,11 +10,11 @@ import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
-import 'package:gallery/studies/shrine/supplemental/balanced_layout.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
+import 'package:gallery/studies/shrine/supplemental/balanced_layout.dart';
 import 'package:gallery/studies/shrine/supplemental/desktop_product_columns.dart';
-import 'package:gallery/studies/shrine/supplemental/product_columns.dart';
 import 'package:gallery/studies/shrine/supplemental/product_card.dart';
+import 'package:gallery/studies/shrine/supplemental/product_columns.dart';
 
 const _topPadding = 34.0;
 const _bottomPadding = 44.0;

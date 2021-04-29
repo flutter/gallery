@@ -5,8 +5,8 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/data/gallery_options.dart';
 
 // Common constants between SlowMotionSetting and SettingsListItem.
 final settingItemBorderRadius = BorderRadius.circular(10);
