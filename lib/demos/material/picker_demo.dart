@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
@@ -72,17 +70,17 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
     );
   }
 
-  static Route<DateTime> _timePickerRoute(
+  static Route<TimeOfDay> _timePickerRoute(
     BuildContext context,
     Object arguments,
   ) {
-    final args = arguments as List<int>;
+    final args = arguments as List<Object>;
     final initialTime = TimeOfDay(
-      hour: args[0],
-      minute: args[1],
+      hour: args[0] as int,
+      minute: args[1] as int,
     );
 
-    return DialogRoute<DateTime>(
+    return DialogRoute<TimeOfDay>(
       context: context,
       builder: (context) {
         return TimePickerDialog(
@@ -141,6 +139,7 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   @override
   void restoreState(RestorationBucket oldBucket, bool initialRestore) {
     registerForRestoration(_fromDate, 'from_date');
+    registerForRestoration(_fromTime, 'from_time');
     registerForRestoration(_startDate, 'start_date');
     registerForRestoration(_endDate, 'end_date');
     registerForRestoration(
