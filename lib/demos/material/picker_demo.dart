@@ -56,7 +56,9 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   static Route<DateTime> _datePickerRoute(
-      BuildContext context, Object arguments) {
+    BuildContext context,
+    Object arguments,
+  ) {
     return DialogRoute<DateTime>(
       context: context,
       builder: (context) {
@@ -92,7 +94,9 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   static Route<DateTimeRange> _dateRangePickerRoute(
-      BuildContext context, Object arguments) {
+    BuildContext context,
+    Object arguments,
+  ) {
     return DialogRoute<DateTimeRange>(
       context: context,
       builder: (context) {
