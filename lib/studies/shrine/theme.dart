@@ -24,7 +24,6 @@ ThemeData _buildShrineTheme() {
     appBarTheme: const AppBarTheme(brightness: Brightness.light, elevation: 0),
     colorScheme: _shrineColorScheme,
     primaryColor: shrinePink100,
-    buttonColor: shrinePink100,
     scaffoldBackgroundColor: shrineBackgroundWhite,
     cardColor: shrineBackgroundWhite,
     errorColor: shrineErrorRed,
