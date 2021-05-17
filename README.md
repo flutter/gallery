@@ -104,11 +104,11 @@ more details.
 
 ## Creating a new release (for Flutter org members)
 
-1. Version bump: Create a PR to bump the `pubspec.yaml` version number. Use [semantic versioning](https://semver.org/) to determine
+1. **Version bump**: Create a PR to bump the `pubspec.yaml` version number. Use [semantic versioning](https://semver.org/) to determine
    which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
    with a patch should become `1.2.4+010204`.
 
-2. Staging: After the version bump PR is merged, push a new version tag to master. 
+2. **Staging**: After the version bump PR is merged, push a new version tag to master.
 ```bash
 git pull upstream master
 git tag v1.2.4  # note the v
@@ -119,12 +119,12 @@ git push upstream v1.2.4
    * Deploy the gallery to the Firebase hosted [staging site](https://gallery-staging-flutter-dev.web.app/)
    * Deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
 
-3. Production: Once satisfied,
+3. **Production**: Once satisfied,
     * Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases) (`Edit draft` -> `Publish release`).
-    * Deploy the gallery to the Firebase hosted [production site](https://gallery.flutter.dev) by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_web.yml) using GitHub's UI.
-    * Promote the Play Store beta to production by running this [workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml) using GitHub's UI.
+    * Deploy the gallery to the Firebase hosted [production site](https://gallery.flutter.dev) by running [this workflow](https://github.com/flutter/gallery/actions/workflows/deploy_web.yml) with `prod` using GitHub's UI.
+    * Promote the Play Store beta to production by running [this workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml) with `promote_to_production` using GitHub's UI.
 
-More information about running workflows is available at http://go/flutter-gallery-manual-deployment.
+More information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
 
 ## Tests
 
