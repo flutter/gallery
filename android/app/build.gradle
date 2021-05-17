@@ -66,7 +66,10 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            // Uncomment to run flutter run --release locally
+            signingConfig signingConfigs.debug
+
+            // signingConfig signingConfigs.release
         }
     }
 }
@@ -77,5 +80,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.google.android.play:core:1.8.0"
+    implementation "com.google.android.play:core:1.10.0"
 }

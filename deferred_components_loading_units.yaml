@@ -312,8 +312,8 @@ loading-units:
       - package:gallery/studies/shrine/model/products_repository.dart
       - package:gallery/studies/shrine/supplemental/balanced_layout.dart
       - package:gallery/studies/shrine/supplemental/desktop_product_columns.dart
-      - package:gallery/studies/shrine/supplemental/product_columns.dart
       - package:gallery/studies/shrine/supplemental/product_card.dart
+      - package:gallery/studies/shrine/supplemental/product_columns.dart
       - package:gallery/studies/shrine/supplemental/cut_corners_border.dart
   - id: 81
     libraries:
@@ -359,10 +359,10 @@ loading-units:
       - package:gallery/demos/material/tooltip_demo.dart
   - id: 83
     libraries:
-      - package:gallery/demos/reference/motion_demo_container_transition.dart
+      - package:gallery/demos/reference/colors_demo.dart
   - id: 84
     libraries:
-      - package:gallery/demos/reference/colors_demo.dart
+      - package:gallery/demos/reference/motion_demo_container_transition.dart
   - id: 85
     libraries:
       - package:gallery/demos/reference/transformations_demo.dart

@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "gallery-flutter-dev",
+    "default": "gallery-staging-flutter-dev",
     "prod": "gallery-flutter-dev",
     "staging": "gallery-staging-flutter-dev"
   }
