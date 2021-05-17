@@ -67,9 +67,9 @@ android {
     buildTypes {
         release {
             // Uncomment to run flutter run --release locally
-            signingConfig signingConfigs.debug
+            // signingConfig signingConfigs.debug
 
-            // signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
 }
