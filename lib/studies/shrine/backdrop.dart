@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
-import 'package:meta/meta.dart';
 
 const Cubic _accelerateCurve = Cubic(0.548, 0, 0.757, 0.464);
 const Cubic _decelerateCurve = Cubic(0.23, 0.94, 0.41, 1);
