@@ -15528,6 +15528,8 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' children'),
       TextSpan(style: codeStyle.punctuationStyle, text: '['),
       TextSpan(style: codeStyle.baseStyle, text: 'currentSegment'),
+      TextSpan(style: codeStyle.punctuationStyle, text: '.'),
+      TextSpan(style: codeStyle.baseStyle, text: 'value'),
       TextSpan(style: codeStyle.punctuationStyle, text: '],'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a              '),
       TextSpan(style: codeStyle.punctuationStyle, text: '),'),
