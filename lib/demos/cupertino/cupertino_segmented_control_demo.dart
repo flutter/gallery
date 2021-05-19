@@ -84,7 +84,7 @@ class _CupertinoSegmentedControlDemoState
                 padding: const EdgeInsets.all(16),
                 height: 300,
                 alignment: Alignment.center,
-                child: children[currentSegment],
+                child: children[currentSegment.value],
               ),
             ],
           ),
