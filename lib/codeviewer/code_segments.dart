@@ -4752,13 +4752,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(
           style: codeStyle.stringStyle,
-          text: '\u0027package:flutter/foundation.dart\u0027'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ';'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.keywordStyle, text: 'import'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(
-          style: codeStyle.stringStyle,
           text: '\u0027package:flutter/material.dart\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ';'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
@@ -15101,13 +15094,6 @@ class CodeSegments {
           style: codeStyle.stringStyle,
           text: '\u0027package:flutter/cupertino.dart\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ';'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.keywordStyle, text: 'import'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(
-          style: codeStyle.stringStyle,
-          text: '\u0027package:flutter/material.dart\u0027'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ';'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a'),
       TextSpan(style: codeStyle.keywordStyle, text: 'import'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
@@ -18815,13 +18801,6 @@ class CodeSegments {
       TextSpan(
           style: codeStyle.stringStyle,
           text: '\u0027package:flutter/material.dart\u0027'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ';'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
-      TextSpan(style: codeStyle.keywordStyle, text: 'import'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(
-          style: codeStyle.stringStyle,
-          text: '\u0027package:flutter/rendering.dart\u0027'),
       TextSpan(style: codeStyle.punctuationStyle, text: ';'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
       TextSpan(style: codeStyle.keywordStyle, text: 'import'),
@@ -29158,13 +29137,6 @@ class CodeSegments {
       TextSpan(
           style: codeStyle.commentStyle, text: '// found in the LICENSE file.'),
       TextSpan(style: codeStyle.baseStyle, text: '\u000a\u000a'),
-      TextSpan(style: codeStyle.keywordStyle, text: 'import'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(
-          style: codeStyle.stringStyle,
-          text: '\u0027package:flutter/cupertino.dart\u0027'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ';'),
-      TextSpan(style: codeStyle.baseStyle, text: '\u000a'),
       TextSpan(style: codeStyle.keywordStyle, text: 'import'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(

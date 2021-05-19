@@ -13,7 +13,6 @@ import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/shopping_cart.dart';
-import 'package:meta/meta.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 // These curves define the emphasized easing curve.

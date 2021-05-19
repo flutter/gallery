@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:math';
-import 'package:flutter/animation.dart' show Curves;
 import 'package:flutter/material.dart';
 
 // Color gradients.
