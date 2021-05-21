@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
@@ -84,7 +83,7 @@ class _CupertinoSegmentedControlDemoState
                 padding: const EdgeInsets.all(16),
                 height: 300,
                 alignment: Alignment.center,
-                child: children[currentSegment],
+                child: children[currentSegment.value],
               ),
             ],
           ),

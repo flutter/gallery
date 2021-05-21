@@ -2,10 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -18,7 +15,6 @@ import 'package:gallery/studies/crane/header_form.dart';
 import 'package:gallery/studies/crane/item_cards.dart';
 import 'package:gallery/studies/crane/model/data.dart';
 import 'package:gallery/studies/crane/model/destination.dart';
-import 'package:meta/meta.dart';
 
 class _FrontLayer extends StatefulWidget {
   const _FrontLayer({
