@@ -30,7 +30,7 @@ subprojects {
 
     dependencyLocking {
         ignoredDependencies.add('io.flutter:*')
-        lockFile = file("${rootProject.projectDir}/global-${project.name}.lockfile")
+        lockFile = file("${rootProject.projectDir}/project-${project.name}.lockfile")
         lockAllConfigurations()
     }
 }
