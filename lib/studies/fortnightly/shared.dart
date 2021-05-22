@@ -28,7 +28,7 @@ class ArticleData {
 }
 
 class HorizontalArticlePreview extends StatelessWidget {
-  HorizontalArticlePreview({this.data, this.minutes});
+  const HorizontalArticlePreview({this.data, this.minutes});
 
   final ArticleData data;
   final int minutes;
@@ -79,7 +79,7 @@ class HorizontalArticlePreview extends StatelessWidget {
 }
 
 class VerticalArticlePreview extends StatelessWidget {
-  VerticalArticlePreview({
+  const VerticalArticlePreview({
     this.data,
     this.width,
     this.headlineTextStyle,
@@ -290,7 +290,7 @@ class HashtagBar extends StatelessWidget {
 }
 
 class NavigationMenu extends StatelessWidget {
-  NavigationMenu({this.isCloseable = false});
+  const NavigationMenu({this.isCloseable = false});
 
   final bool isCloseable;
 
@@ -333,7 +333,7 @@ class NavigationMenu extends StatelessWidget {
 }
 
 class MenuItem extends StatelessWidget {
-  MenuItem(this.title, {this.header = false});
+  const MenuItem(this.title, {this.header = false});
 
   final String title;
   final bool header;
@@ -365,7 +365,7 @@ class MenuItem extends StatelessWidget {
 }
 
 class StockItem extends StatelessWidget {
-  StockItem({this.ticker, this.price, this.percent});
+  const StockItem({this.ticker, this.price, this.percent});
 
   final String ticker;
   final String price;
@@ -447,31 +447,31 @@ List<Widget> buildStockItems(BuildContext context) {
       ),
     ),
     articleDivider,
-    StockItem(
+    const StockItem(
       ticker: 'DIJA',
       price: '7,031.21',
       percent: -0.48,
     ),
     articleDivider,
-    StockItem(
+    const StockItem(
       ticker: 'SP',
       price: '1,967.84',
       percent: -0.23,
     ),
     articleDivider,
-    StockItem(
+    const StockItem(
       ticker: 'Nasdaq',
       price: '6,211.46',
       percent: 0.52,
     ),
     articleDivider,
-    StockItem(
+    const StockItem(
       ticker: 'Nikkei',
       price: '5,891',
       percent: 1.16,
     ),
     articleDivider,
-    StockItem(
+    const StockItem(
       ticker: 'DJ Total',
       price: '89.02',
       percent: 0.80,
@@ -481,7 +481,7 @@ List<Widget> buildStockItems(BuildContext context) {
 }
 
 class VideoPreview extends StatelessWidget {
-  VideoPreview({this.data, this.time});
+  const VideoPreview({this.data, this.time});
 
   final ArticleData data;
   final String time;

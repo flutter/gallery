@@ -46,7 +46,7 @@ class _OverviewViewState extends State<OverviewView> {
               const SizedBox(width: 24),
               Flexible(
                 flex: 3,
-                child: Container(
+                child: SizedBox(
                   width: 400,
                   child: Semantics(
                     sortKey: const OrdinalSortKey(2, name: sortKeyName),
@@ -106,7 +106,7 @@ class _OverviewGrid extends StatelessWidget {
       return Wrap(
         runSpacing: spacing,
         children: [
-          Container(
+          SizedBox(
             width: boxWidth,
             child: _FinancialView(
               title: GalleryLocalizations.of(context).rallyAccounts,
@@ -119,7 +119,7 @@ class _OverviewGrid extends StatelessWidget {
             ),
           ),
           if (hasMultipleColumns) SizedBox(width: spacing),
-          Container(
+          SizedBox(
             width: boxWidth,
             child: _FinancialView(
               title: GalleryLocalizations.of(context).rallyBills,

@@ -50,7 +50,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
+      drawer: const Drawer(
         child: SafeArea(
           child: NavigationMenu(isCloseable: true),
         ),
@@ -150,7 +150,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: menuWidth,
-                    child: NavigationMenu(),
+                    child: const NavigationMenu(),
                   ),
                   spacer,
                   Flexible(

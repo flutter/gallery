@@ -43,95 +43,92 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     return Scaffold(
       backgroundColor: shrinePink50,
       body: SafeArea(
-        child: Container(
-          child: ScopedModelDescendant<AppStateModel>(
-            builder: (context, child, model) {
-              return Stack(
-                children: [
-                  ListView(
-                    children: [
-                      Semantics(
-                        sortKey:
-                            const OrdinalSortKey(0, name: _ordinalSortKeyName),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: _startColumnWidth,
-                              child: IconButton(
-                                icon: const Icon(Icons.keyboard_arrow_down),
-                                onPressed: () =>
-                                    ExpandingBottomSheet.of(context).close(),
-                                tooltip: GalleryLocalizations.of(context)
-                                    .shrineTooltipCloseCart,
-                              ),
-                            ),
-                            Text(
-                              GalleryLocalizations.of(context)
-                                  .shrineCartPageCaption,
-                              style: localTheme.textTheme.subtitle1
-                                  .copyWith(fontWeight: FontWeight.w600),
-                            ),
-                            const SizedBox(width: 16),
-                            Text(
-                              GalleryLocalizations.of(context)
-                                  .shrineCartItemCount(
-                                model.totalCartQuantity,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Semantics(
-                        sortKey:
-                            const OrdinalSortKey(1, name: _ordinalSortKeyName),
-                        child: Column(
-                          children: _createShoppingCartRows(model),
-                        ),
-                      ),
-                      Semantics(
-                        sortKey:
-                            const OrdinalSortKey(2, name: _ordinalSortKeyName),
-                        child: ShoppingCartSummary(model: model),
-                      ),
-                      const SizedBox(height: 100),
-                    ],
-                  ),
-                  PositionedDirectional(
-                    bottom: 16,
-                    start: 16,
-                    end: 16,
-                    child: Semantics(
+        child: ScopedModelDescendant<AppStateModel>(
+          builder: (context, child, model) {
+            return Stack(
+              children: [
+                ListView(
+                  children: [
+                    Semantics(
                       sortKey:
-                          const OrdinalSortKey(3, name: _ordinalSortKeyName),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const BeveledRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(7)),
+                          const OrdinalSortKey(0, name: _ordinalSortKeyName),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: _startColumnWidth,
+                            child: IconButton(
+                              icon: const Icon(Icons.keyboard_arrow_down),
+                              onPressed: () =>
+                                  ExpandingBottomSheet.of(context).close(),
+                              tooltip: GalleryLocalizations.of(context)
+                                  .shrineTooltipCloseCart,
+                            ),
                           ),
-                          primary: shrinePink100,
-                        ),
-                        onPressed: () {
-                          model.clearCart();
-                          ExpandingBottomSheet.of(context).close();
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          child: Text(
+                          Text(
                             GalleryLocalizations.of(context)
-                                .shrineCartClearButtonCaption,
-                            style: TextStyle(
-                                letterSpacing:
-                                    letterSpacingOrNone(largeLetterSpacing)),
+                                .shrineCartPageCaption,
+                            style: localTheme.textTheme.subtitle1
+                                .copyWith(fontWeight: FontWeight.w600),
                           ),
+                          const SizedBox(width: 16),
+                          Text(
+                            GalleryLocalizations.of(context)
+                                .shrineCartItemCount(
+                              model.totalCartQuantity,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Semantics(
+                      sortKey:
+                          const OrdinalSortKey(1, name: _ordinalSortKeyName),
+                      child: Column(
+                        children: _createShoppingCartRows(model),
+                      ),
+                    ),
+                    Semantics(
+                      sortKey:
+                          const OrdinalSortKey(2, name: _ordinalSortKeyName),
+                      child: ShoppingCartSummary(model: model),
+                    ),
+                    const SizedBox(height: 100),
+                  ],
+                ),
+                PositionedDirectional(
+                  bottom: 16,
+                  start: 16,
+                  end: 16,
+                  child: Semantics(
+                    sortKey: const OrdinalSortKey(3, name: _ordinalSortKeyName),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const BeveledRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                        ),
+                        primary: shrinePink100,
+                      ),
+                      onPressed: () {
+                        model.clearCart();
+                        ExpandingBottomSheet.of(context).close();
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Text(
+                          GalleryLocalizations.of(context)
+                              .shrineCartClearButtonCaption,
+                          style: TextStyle(
+                              letterSpacing:
+                                  letterSpacingOrNone(largeLetterSpacing)),
                         ),
                       ),
                     ),
                   ),
-                ],
-              );
-            },
-          ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

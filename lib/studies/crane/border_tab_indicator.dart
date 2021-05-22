@@ -5,7 +5,8 @@
 import 'package:flutter/material.dart';
 
 class BorderTabIndicator extends Decoration {
-  BorderTabIndicator({this.indicatorHeight, this.textScaleFactor}) : super();
+  const BorderTabIndicator({this.indicatorHeight, this.textScaleFactor})
+      : super();
 
   final double indicatorHeight;
   final double textScaleFactor;

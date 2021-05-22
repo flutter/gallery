@@ -132,7 +132,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
 }
 
 class _NavigationDestinationView extends StatelessWidget {
-  _NavigationDestinationView({Key key, this.item}) : super(key: key);
+  const _NavigationDestinationView({Key key, this.item}) : super(key: key);
 
   final BottomNavigationBarItem item;
 

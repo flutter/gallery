@@ -656,8 +656,8 @@ class _DessertDataSource extends DataTableSource {
         DataCell(Text('${dessert.carbs}')),
         DataCell(Text(dessert.protein.toStringAsFixed(1))),
         DataCell(Text('${dessert.sodium}')),
-        DataCell(Text('${format.format(dessert.calcium / 100)}')),
-        DataCell(Text('${format.format(dessert.iron / 100)}')),
+        DataCell(Text(format.format(dessert.calcium / 100))),
+        DataCell(Text(format.format(dessert.iron / 100))),
       ],
     );
   }

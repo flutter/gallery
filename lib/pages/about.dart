@@ -55,7 +55,7 @@ class _AboutDialog extends StatelessWidget {
             FutureBuilder(
               future: getVersionNumber(),
               builder: (context, snapshot) => Text(
-                snapshot.hasData ? '$name ${snapshot.data}' : '$name',
+                snapshot.hasData ? '$name ${snapshot.data}' : name,
                 style: textTheme.headline4.apply(color: colorScheme.onPrimary),
               ),
             ),

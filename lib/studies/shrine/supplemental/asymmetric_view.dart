@@ -26,7 +26,7 @@ class MobileAsymmetricView extends StatelessWidget {
 
   final List<Product> products;
 
-  List<Container> _buildColumns(
+  List<SizedBox> _buildColumns(
     BuildContext context,
     BoxConstraints constraints,
   ) {
@@ -65,7 +65,7 @@ class MobileAsymmetricView extends StatelessWidget {
       // helpers for creating the index of the product list that will correspond
       // to the index of the list of columns.
 
-      return List<Container>.generate(_listItemCount(products.length), (index) {
+      return List<SizedBox>.generate(_listItemCount(products.length), (index) {
         var width = _cardToScreenWidthRatio * MediaQuery.of(context).size.width;
         Widget column;
         if (index % 2 == 0) {
@@ -85,7 +85,7 @@ class MobileAsymmetricView extends StatelessWidget {
             reverse: true,
           );
         }
-        return Container(
+        return SizedBox(
           width: width,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -98,7 +98,7 @@ class MobileAsymmetricView extends StatelessWidget {
 
       return [
         for (final product in products)
-          Container(
+          SizedBox(
             width: _cardToScreenWidthRatio * MediaQuery.of(context).size.width,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -221,7 +221,7 @@ class DesktopAsymmetricView extends StatelessWidget {
 }
 
 class DesktopColumns extends StatelessWidget {
-  DesktopColumns({
+  const DesktopColumns({
     @required this.columnCount,
     @required this.products,
     @required this.largeImageWidth,

@@ -923,7 +923,7 @@ class _BottomAppBarActionItems extends StatelessWidget {
 }
 
 class _BottomDrawerDestinations extends StatelessWidget {
-  _BottomDrawerDestinations({
+  const _BottomDrawerDestinations({
     @required this.destinations,
     @required this.drawerController,
     @required this.dropArrowController,
@@ -1122,6 +1122,30 @@ class _ReplyFabState extends State<_ReplyFab>
   static final fabKey = UniqueKey();
   static const double _mobileFabDimension = 56;
 
+  void onPressed() {
+    var onSearchPage = Provider.of<EmailStore>(
+      context,
+      listen: false,
+    ).onSearchPage;
+    // Navigator does not have an easy way to access the current
+    // route when using a GlobalKey to keep track of NavigatorState.
+    // We can use [Navigator.popUntil] in order to access the current
+    // route, and check if it is a ComposePage. If it is not a
+    // ComposePage and we are not on the SearchPage, then we can push
+    // a ComposePage onto our navigator. We return true at the end
+    // so nothing is popped.
+    desktopMailNavKey.currentState.popUntil(
+      (route) {
+        var currentRoute = route.settings.name;
+        if (currentRoute != ReplyApp.composeRoute && !onSearchPage) {
+          desktopMailNavKey.currentState
+              .restorablePushNamed(ReplyApp.composeRoute);
+        }
+        return true;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -1145,29 +1169,6 @@ class _ReplyFabState extends State<_ReplyFab>
                 ),
         );
         final tooltip = onMailView ? 'Reply' : 'Compose';
-        final onPressed = () {
-          var onSearchPage = Provider.of<EmailStore>(
-            context,
-            listen: false,
-          ).onSearchPage;
-          // Navigator does not have an easy way to access the current
-          // route when using a GlobalKey to keep track of NavigatorState.
-          // We can use [Navigator.popUntil] in order to access the current
-          // route, and check if it is a ComposePage. If it is not a
-          // ComposePage and we are not on the SearchPage, then we can push
-          // a ComposePage onto our navigator. We return true at the end
-          // so nothing is popped.
-          desktopMailNavKey.currentState.popUntil(
-            (route) {
-              var currentRoute = route.settings.name;
-              if (currentRoute != ReplyApp.composeRoute && !onSearchPage) {
-                desktopMailNavKey.currentState
-                    .restorablePushNamed(ReplyApp.composeRoute);
-              }
-              return true;
-            },
-          );
-        };
 
         if (isDesktop) {
           final animation = NavigationRail.extendedAnimation(context);

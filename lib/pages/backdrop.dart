@@ -237,7 +237,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
 }
 
 class _SettingsIcon extends AnimatedWidget {
-  _SettingsIcon(
+  const _SettingsIcon(
       {this.animationController,
       this.toggleSettings,
       this.isSettingsOpenNotifier})

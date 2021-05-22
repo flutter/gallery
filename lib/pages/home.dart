@@ -175,7 +175,7 @@ class HomePage extends StatelessWidget {
               ),
               child: _GalleryHeader(),
             ),
-            Container(
+            SizedBox(
               height: carouselHeight,
               child: _DesktopCarousel(children: carouselCards),
             ),
@@ -661,7 +661,7 @@ class _AnimatedCarousel extends StatelessWidget {
                 child: child,
               );
             },
-            child: Container(
+            child: SizedBox(
               height: _carouselHeight(.4, context),
               width: constraints.maxWidth,
               child: child,

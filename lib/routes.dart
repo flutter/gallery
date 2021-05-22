@@ -68,7 +68,7 @@ class RouteConfiguration {
       (context, match) => StudyWrapper(
         study: DeferredWidget(crane.loadLibrary,
             () => crane.CraneApp(), // ignore: prefer_const_constructors
-            placeholder: DeferredLoadingPlaceholder(name: 'Crane')),
+            placeholder: const DeferredLoadingPlaceholder(name: 'Crane')),
       ),
     ),
     Path(

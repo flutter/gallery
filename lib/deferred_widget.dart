@@ -78,7 +78,7 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 /// Displays a progress indicator and text description explaining that
 /// the widget is a deferred component and is currently being installed.
 class DeferredLoadingPlaceholder extends StatelessWidget {
-  DeferredLoadingPlaceholder({String name = 'This widget'}) : name = name;
+  const DeferredLoadingPlaceholder({this.name = 'This widget'});
 
   final String name;
 

@@ -79,7 +79,7 @@ class HeaderForm extends StatelessWidget {
 class _HeaderTextField extends StatelessWidget {
   final HeaderFormField field;
 
-  _HeaderTextField({this.field});
+  const _HeaderTextField({this.field});
 
   @override
   Widget build(BuildContext context) {

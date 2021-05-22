@@ -107,7 +107,7 @@ Widget _buildProductCard({
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 23),
-                  Container(
+                  SizedBox(
                     width: imageWidth,
                     child: Text(
                       product == null ? '' : product.name(context),

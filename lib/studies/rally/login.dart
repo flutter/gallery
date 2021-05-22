@@ -274,7 +274,7 @@ class _PasswordInput extends StatelessWidget {
 }
 
 class _ThumbButton extends StatefulWidget {
-  _ThumbButton({
+  const _ThumbButton({
     @required this.onTap,
   });
 

@@ -25,7 +25,7 @@ enum _ExpandableSetting {
 }
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage({this.animationController});
+  const SettingsPage({this.animationController});
 
   final AnimationController animationController;
 
@@ -364,7 +364,7 @@ class _SettingsLink extends StatelessWidget {
   final IconData icon;
   final GestureTapCallback onTap;
 
-  _SettingsLink({this.title, this.icon, this.onTap});
+  const _SettingsLink({this.title, this.icon, this.onTap});
 
   @override
   Widget build(BuildContext context) {

@@ -401,7 +401,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
             duration: const Duration(milliseconds: 225),
             child: const Icon(Icons.shopping_cart),
           ),
-          Container(
+          SizedBox(
             width: _width,
             height: min(numProducts, _maxThumbnailCount) *
                 _paddedThumbnailHeight(context),
@@ -483,7 +483,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
         ? _getDesktopGapAnimation(116)
         : const AlwaysStoppedAnimation(0);
 
-    final Widget child = Container(
+    final Widget child = SizedBox(
       width: _widthAnimation.value,
       height: _heightAnimation.value,
       child: Material(
@@ -710,11 +710,9 @@ class ExtraProductsNumber extends StatelessWidget {
     // Maximum of 99 so padding doesn't get messy.
     final displayedOverflowProducts =
         numOverflowProducts <= 99 ? numOverflowProducts : 99;
-    return Container(
-      child: Text(
-        '+$displayedOverflowProducts',
-        style: Theme.of(context).primaryTextTheme.button,
-      ),
+    return Text(
+      '+$displayedOverflowProducts',
+      style: Theme.of(context).primaryTextTheme.button,
     );
   }
 

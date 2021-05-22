@@ -11,7 +11,7 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 // BEGIN dialogDemo
 
 class DialogDemo extends StatefulWidget {
-  DialogDemo({Key key, @required this.type}) : super(key: key);
+  const DialogDemo({Key key, @required this.type}) : super(key: key);
 
   final DialogDemoType type;
 

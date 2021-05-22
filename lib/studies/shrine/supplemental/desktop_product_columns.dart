@@ -44,7 +44,7 @@ class DesktopProductCardColumn extends StatelessWidget {
       final currentColumnWidgetCount =
           max(2 * currentColumnProductCount - 1, 0);
 
-      return Container(
+      return SizedBox(
         width: largeImageWidth,
         child: Column(
           crossAxisAlignment:

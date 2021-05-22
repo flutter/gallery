@@ -18,7 +18,7 @@ import 'package:gallery/feature_discovery/overlay.dart';
 class FeatureDiscoveryController extends StatefulWidget {
   final Widget child;
 
-  FeatureDiscoveryController(this.child);
+  const FeatureDiscoveryController(this.child);
 
   static _FeatureDiscoveryControllerState of(BuildContext context) {
     final matchResult =
