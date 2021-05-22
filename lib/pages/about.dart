@@ -33,8 +33,8 @@ class _AboutDialog extends StatelessWidget {
     final bodyTextStyle =
         textTheme.bodyText1.apply(color: colorScheme.onPrimary);
 
-    final name = 'Flutter Gallery'; // Don't need to localize.
-    final legalese = '© 2021 The Flutter team'; // Don't need to localize.
+    const name = 'Flutter Gallery'; // Don't need to localize.
+    const legalese = '© 2021 The Flutter team'; // Don't need to localize.
     final repoText = GalleryLocalizations.of(context).githubRepo(name);
     final seeSource =
         GalleryLocalizations.of(context).aboutDialogDescription(repoText);
@@ -74,7 +74,7 @@ class _AboutDialog extends StatelessWidget {
                     text: repoText,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        final url = 'https://github.com/flutter/gallery/';
+                        const url = 'https://github.com/flutter/gallery/';
                         if (await canLaunch(url)) {
                           await launch(
                             url,
@@ -109,7 +109,7 @@ class _AboutDialog extends StatelessWidget {
                   ).black,
                   scaffoldBackgroundColor: Colors.white,
                 ),
-                child: LicensePage(
+                child: const LicensePage(
                   applicationName: name,
                   applicationLegalese: legalese,
                 ),

@@ -97,7 +97,7 @@ class _OverviewGrid extends StatelessWidget {
 
       // Only display multiple columns when the constraints allow it and we
       // have a regular text scale factor.
-      final minWidthForTwoColumns = 600;
+      const minWidthForTwoColumns = 600;
       final hasMultipleColumns = isDisplayDesktop(context) &&
           constraints.maxWidth > minWidthForTwoColumns &&
           textScaleFactor <= 2;

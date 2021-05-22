@@ -325,7 +325,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         appBar.preferredSize.height;
     final maxSectionHeight = isDesktop ? contentHeight : contentHeight - 64;
     final horizontalPadding = isDesktop ? mediaQuery.size.width * 0.12 : 0.0;
-    final maxSectionWidth = 420.0;
+    const maxSectionWidth = 420.0;
 
     Widget section;
     switch (currentDemoState) {

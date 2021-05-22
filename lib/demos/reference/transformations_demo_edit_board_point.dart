@@ -7,7 +7,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 import 'transformations_demo_board.dart';
 import 'transformations_demo_color_picker.dart';
 
-final backgroundColor = const Color(0xFF272727);
+const backgroundColor = Color(0xFF272727);
 
 // The panel for editing a board point.
 @immutable

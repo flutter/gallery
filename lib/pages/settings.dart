@@ -325,7 +325,7 @@ class SettingsFeedback extends StatelessWidget {
       title: GalleryLocalizations.of(context).settingsFeedback,
       icon: Icons.feedback,
       onTap: () async {
-        final url = 'https://github.com/flutter/flutter/issues/new/choose/';
+        const url = 'https://github.com/flutter/flutter/issues/new/choose/';
         if (await canLaunch(url)) {
           await launch(
             url,
@@ -432,7 +432,7 @@ class _AnimateSettingsListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dividingPadding = 4.0;
+    const dividingPadding = 4.0;
     final topPaddingTween = Tween<double>(
       begin: 0,
       end: children.length * dividingPadding,

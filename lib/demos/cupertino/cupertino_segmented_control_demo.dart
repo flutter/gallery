@@ -37,7 +37,7 @@ class _CupertinoSegmentedControlDemoState
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
-    final segmentedControlMaxWidth = 500.0;
+    const segmentedControlMaxWidth = 500.0;
     final children = <int, Widget>{
       0: Text(localizations.colorsIndigo),
       1: Text(localizations.colorsTeal),

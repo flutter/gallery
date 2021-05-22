@@ -204,7 +204,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
 
   Animation<double> _getDesktopGapAnimation(double gapHeight) {
     final _collapsedGapHeight = gapHeight;
-    final _expandedGapHeight = 0.0;
+    const _expandedGapHeight = 0.0;
 
     if (_controller.status == AnimationStatus.forward) {
       // Opening animation

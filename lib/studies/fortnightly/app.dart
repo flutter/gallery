@@ -98,8 +98,8 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final menuWidth = 200.0;
-    final spacer = const SizedBox(width: 20);
+    const menuWidth = 200.0;
+    const spacer = SizedBox(width: 20);
     final headerHeight = 40 * reducedTextScale(context);
 
     return Scaffold(
@@ -148,9 +148,9 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
             Flexible(
               child: Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: menuWidth,
-                    child: const NavigationMenu(),
+                    child: NavigationMenu(),
                   ),
                   spacer,
                   Flexible(

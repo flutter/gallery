@@ -128,9 +128,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
       ),
       floatingActionButton: _showFab.value
           ? FloatingActionButton(
-              onPressed: () {
-                print('Floating action button pressed');
-              },
+              onPressed: () {},
               tooltip: GalleryLocalizations.of(context).buttonTextCreate,
               child: const Icon(Icons.add),
             )
@@ -169,25 +167,19 @@ class _DemoBottomAppBar extends StatelessWidget {
             IconButton(
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               icon: const Icon(Icons.menu),
-              onPressed: () {
-                print('Menu button pressed');
-              },
+              onPressed: () {},
             ),
             if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
               tooltip: GalleryLocalizations.of(context).starterAppTooltipSearch,
               icon: const Icon(Icons.search),
-              onPressed: () {
-                print('Search button pressed');
-              },
+              onPressed: () {},
             ),
             IconButton(
               tooltip:
                   GalleryLocalizations.of(context).starterAppTooltipFavorite,
               icon: const Icon(Icons.favorite),
-              onPressed: () {
-                print('Favorite button pressed');
-              },
+              onPressed: () {},
             ),
           ],
         ),

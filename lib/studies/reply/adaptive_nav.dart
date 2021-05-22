@@ -1150,7 +1150,7 @@ class _ReplyFabState extends State<_ReplyFab>
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final theme = Theme.of(context);
-    final circleFabBorder = const CircleBorder();
+    const circleFabBorder = CircleBorder();
 
     return Selector<EmailStore, bool>(
       selector: (context, emailStore) => emailStore.onMailView,

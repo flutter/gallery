@@ -754,7 +754,7 @@ class _CarouselState extends State<_Carousel>
       // The viewPortFraction is calculated as the width of the device minus the
       // padding.
       final width = MediaQuery.of(context).size.width;
-      final padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
+      const padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
       _controller = PageController(
         initialPage: _currentPage.value,
         viewportFraction: (width - padding) / width,
@@ -992,8 +992,8 @@ class _DesktopPageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final buttonSize = 58.0;
-    final padding = _horizontalDesktopPadding - buttonSize / 2;
+    const buttonSize = 58.0;
+    const padding = _horizontalDesktopPadding - buttonSize / 2;
     return ExcludeSemantics(
       child: Align(
         alignment: isEnd

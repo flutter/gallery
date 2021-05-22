@@ -128,7 +128,7 @@ class RallyLineChartPainter extends CustomPainter {
 
       // We divide the graph and the amounts into [numGroups] groups, with
       // [numItemsPerGroup] amounts per group.
-      final numGroups = 10;
+      const numGroups = 10;
       final numItemsPerGroup = amounts.length ~/ numGroups;
 
       // For each group we calculate the median value.

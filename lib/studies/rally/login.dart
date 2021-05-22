@@ -140,7 +140,7 @@ class _TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = const SizedBox(width: 30);
+    const spacing = SizedBox(width: 30);
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),

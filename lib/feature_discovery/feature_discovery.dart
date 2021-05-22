@@ -104,10 +104,10 @@ class FeatureDiscovery extends StatefulWidget {
   final Color color;
 
   @visibleForTesting
-  static final overlayKey = const Key('overlay key');
+  static const overlayKey = Key('overlay key');
 
   @visibleForTesting
-  static final gestureDetectorKey = const Key('gesture detector key');
+  static const gestureDetectorKey = Key('gesture detector key');
 
   const FeatureDiscovery({
     Key key,

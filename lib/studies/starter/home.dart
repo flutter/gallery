@@ -155,7 +155,7 @@ class ListDrawer extends StatefulWidget {
 }
 
 class _ListDrawerState extends State<ListDrawer> {
-  static final numItems = 9;
+  static const numItems = 9;
 
   int selectedItem = 0;
 
