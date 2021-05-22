@@ -35,6 +35,8 @@ const _desktopCardsPerPage = 4;
 class ToggleSplashNotification extends Notification {}
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var carouselHeight = _carouselHeight(.7, context);
@@ -223,7 +225,7 @@ class HomePage extends StatelessWidget {
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.end,
-                      children: [
+                      children: const [
                         SettingsAbout(),
                         SettingsFeedback(),
                         SettingsAttribution(),
@@ -281,7 +283,7 @@ class _CategoriesHeader extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
-  const Header({this.color, this.text});
+  const Header({Key key, this.color, this.text}) : super(key: key);
 
   final Color color;
   final String text;

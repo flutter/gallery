@@ -1,4 +1,5 @@
-include: package:pedantic/analysis_options.1.11.0.yaml
+include: package:flutter_lints/flutter.yaml
+# include: package:pedantic/analysis_options.1.11.0.yaml
 
 analyzer:
   exclude:

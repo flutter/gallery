@@ -9,7 +9,7 @@ import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
 class EatForm extends BackLayerItem {
-  const EatForm() : super(index: 2);
+  const EatForm({Key key}) : super(key: key, index: 2);
 
   @override
   _EatFormState createState() => _EatFormState();

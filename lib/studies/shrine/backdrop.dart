@@ -181,16 +181,13 @@ class _BackdropTitle extends AnimatedWidget {
 /// front or back layer is showing.
 class Backdrop extends StatefulWidget {
   const Backdrop({
+    Key key,
     @required this.frontLayer,
     @required this.backLayer,
     @required this.frontTitle,
     @required this.backTitle,
     @required this.controller,
-  })  : assert(frontLayer != null),
-        assert(backLayer != null),
-        assert(frontTitle != null),
-        assert(backTitle != null),
-        assert(controller != null);
+  }) : super(key: key);
 
   final Widget frontLayer;
   final Widget backLayer;
@@ -369,9 +366,10 @@ class _BackdropState extends State<Backdrop>
 
 class DesktopBackdrop extends StatelessWidget {
   const DesktopBackdrop({
+    Key key,
     @required this.frontLayer,
     @required this.backLayer,
-  });
+  }) : super(key: key);
 
   final Widget frontLayer;
   final Widget backLayer;

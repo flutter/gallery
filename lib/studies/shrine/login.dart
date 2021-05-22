@@ -26,7 +26,7 @@ double desktopLoginScreenMainAreaWidth({BuildContext context}) {
 }
 
 class LoginPage extends StatelessWidget {
-  const LoginPage();
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

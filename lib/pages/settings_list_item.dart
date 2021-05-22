@@ -20,6 +20,8 @@ class DisplayOption {
 }
 
 class SlowMotionSetting extends StatelessWidget {
+  const SlowMotionSetting({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;

@@ -18,7 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 /// The home route is the main page with tabs for sub pages.
 /// The login route is the initial route.
 class RallyApp extends StatelessWidget {
-  const RallyApp();
+  const RallyApp({Key key}) : super(key: key);
 
   static const String loginRoute = routes.loginRoute;
   static const String homeRoute = routes.homeRoute;

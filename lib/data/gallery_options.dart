@@ -166,7 +166,7 @@ class GalleryOptions {
 
 // Applies text GalleryOptions to a widget
 class ApplyTextOptions extends StatelessWidget {
-  const ApplyTextOptions({@required this.child});
+  const ApplyTextOptions({Key key, @required this.child}) : super(key: key);
 
   final Widget child;
 

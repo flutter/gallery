@@ -15,7 +15,7 @@ import 'package:gallery/studies/fortnightly/shared.dart';
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  const FortnightlyApp();
+  const FortnightlyApp({Key key}) : super(key: key);
 
   static const String defaultRoute = routes.defaultRoute;
 
@@ -80,7 +80,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         child: ListView(
           restorationId: 'list_view',
           children: [
-            HashtagBar(),
+            const HashtagBar(),
             for (final item in buildArticlePreviewItems(context))
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -125,7 +125,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     ),
                   ),
                   spacer,
-                  Flexible(
+                  const Flexible(
                     flex: 2,
                     child: HashtagBar(),
                   ),

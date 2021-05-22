@@ -9,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoSegmentedControlDemo
 
 class CupertinoSegmentedControlDemo extends StatefulWidget {
-  const CupertinoSegmentedControlDemo();
+  const CupertinoSegmentedControlDemo({Key key}) : super(key: key);
 
   @override
   _CupertinoSegmentedControlDemoState createState() =>

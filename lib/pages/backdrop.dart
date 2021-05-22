@@ -19,9 +19,10 @@ const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
   const Backdrop({
+    Key key,
     this.settingsPage,
     this.homePage,
-  });
+  }) : super(key: key);
 
   final Widget settingsPage;
   final Widget homePage;
@@ -55,7 +56,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
         SettingsPage(
           animationController: _settingsPanelController,
         );
-    _homePage = widget.homePage ?? HomePage();
+    _homePage = widget.homePage ?? const HomePage();
   }
 
   @override

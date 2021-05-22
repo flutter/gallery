@@ -367,7 +367,7 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
-  const CardsDemo();
+  const CardsDemo({Key key}) : super(key: key);
 
   @override
   _CardsDemoState createState() => _CardsDemoState();

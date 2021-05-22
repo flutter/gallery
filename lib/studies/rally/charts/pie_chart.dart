@@ -65,8 +65,13 @@ List<RallyPieChartSegment> buildSegmentsFromBudgetItems(
 /// An animated circular pie chart to represent pieces of a whole, which can
 /// have empty space.
 class RallyPieChart extends StatefulWidget {
-  const RallyPieChart(
-      {this.heroLabel, this.heroAmount, this.wholeAmount, this.segments});
+  const RallyPieChart({
+    Key key,
+    this.heroLabel,
+    this.heroAmount,
+    this.wholeAmount,
+    this.segments,
+  }) : super(key: key);
 
   final String heroLabel;
   final double heroAmount;

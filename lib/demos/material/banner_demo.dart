@@ -14,7 +14,7 @@ enum BannerDemoAction {
 }
 
 class BannerDemo extends StatefulWidget {
-  const BannerDemo();
+  const BannerDemo({Key key}) : super(key: key);
 
   @override
   _BannerDemoState createState() => _BannerDemoState();

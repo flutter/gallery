@@ -237,7 +237,7 @@ class PaletteTabView extends StatelessWidget {
 }
 
 class ColorsDemo extends StatelessWidget {
-  const ColorsDemo();
+  const ColorsDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -18,6 +18,8 @@ import 'package:gallery/studies/rally/formatters.dart';
 
 /// A page that shows a status overview.
 class OverviewView extends StatefulWidget {
+  const OverviewView({Key key}) : super(key: key);
+
   @override
   _OverviewViewState createState() => _OverviewViewState();
 }

@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN tooltipDemo
 
 class TooltipDemo extends StatelessWidget {
-  const TooltipDemo();
+  const TooltipDemo({Key key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
