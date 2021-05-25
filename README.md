@@ -51,6 +51,7 @@ example, to run the app on Windows:
 cd gallery/
 flutter config --enable-windows-desktop
 flutter create .
+flutter pub get
 flutter run -d windows
 ```
 
@@ -104,7 +105,8 @@ more details.
 
 ## Creating a new release (for Flutter org members)
 
-1. **Version bump**: Create a PR to bump the `pubspec.yaml` version number. Use [semantic versioning](https://semver.org/) to determine
+1. **Version bump**: Bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR. 
+   Use [semantic versioning](https://semver.org/) to determine
    which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
    with a patch should become `1.2.4+010204`.
 
