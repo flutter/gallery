@@ -14,7 +14,7 @@ import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage();
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -140,7 +140,7 @@ class _TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = const SizedBox(width: 30);
+    const spacing = SizedBox(width: 30);
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
@@ -274,7 +274,7 @@ class _PasswordInput extends StatelessWidget {
 }
 
 class _ThumbButton extends StatefulWidget {
-  _ThumbButton({
+  const _ThumbButton({
     @required this.onTap,
   });
 

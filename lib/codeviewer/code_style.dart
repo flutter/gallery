@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 class CodeStyle extends InheritedWidget {
   const CodeStyle({
+    Key key,
     this.baseStyle,
     this.numberStyle,
     this.commentStyle,
@@ -15,7 +16,7 @@ class CodeStyle extends InheritedWidget {
     this.classStyle,
     this.constantStyle,
     @required Widget child,
-  }) : super(child: child);
+  }) : super(key: key, child: child);
 
   final TextStyle baseStyle;
   final TextStyle numberStyle;

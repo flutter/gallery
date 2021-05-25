@@ -36,6 +36,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   args: ^2.1.0
+  flutter_lints: ^1.0.2
   grinder: ^0.9.0
   path: ^1.8.0
   pedantic: ^1.11.0

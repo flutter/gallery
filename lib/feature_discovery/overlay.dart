@@ -38,21 +38,15 @@ class Background extends StatelessWidget {
   static const horizontalShift = 20.0;
   static const padding = 40.0;
 
-  Background({
+  const Background({
+    Key key,
     @required this.animations,
     @required this.center,
     @required this.color,
     @required this.deviceSize,
     @required this.status,
     @required this.textDirection,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(color != null);
-    assert(deviceSize != null);
-    assert(status != null);
-    assert(textDirection != null);
-  }
+  }) : super(key: key);
 
   /// Compute the center position of the background.
   ///
@@ -187,7 +181,8 @@ class Content extends StatelessWidget {
   /// [TextTheme] to use for drawing the [title] and the [description].
   final TextTheme textTheme;
 
-  Content({
+  const Content({
+    Key key,
     @required this.animations,
     @required this.center,
     @required this.description,
@@ -195,15 +190,7 @@ class Content extends StatelessWidget {
     @required this.status,
     @required this.title,
     @required this.textTheme,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(description != null);
-    assert(deviceSize != null);
-    assert(status != null);
-    assert(title != null);
-    assert(textTheme != null);
-  }
+  }) : super(key: key);
 
   double get opacity => animations.contentOpacity(status).value;
 
@@ -260,15 +247,12 @@ class Ripple extends StatelessWidget {
   /// Status of the parent overlay.
   final FeatureDiscoveryStatus status;
 
-  Ripple({
+  const Ripple({
+    Key key,
     @required this.animations,
     @required this.center,
     @required this.status,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(status != null);
-  }
+  }) : super(key: key);
 
   double get radius => animations.rippleRadius(status).value;
   double get opacity => animations.rippleOpacity(status).value;
@@ -313,19 +297,14 @@ class TapTarget extends StatelessWidget {
   /// Child widget that will be promoted by the overlay.
   final Icon child;
 
-  TapTarget({
+  const TapTarget({
+    Key key,
     @required this.animations,
     @required this.center,
     @required this.status,
     @required this.onTap,
     @required this.child,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(status != null);
-    assert(onTap != null);
-    assert(child != null);
-  }
+  }) : super(key: key);
 
   double get radius => animations.tapTargetRadius(status).value;
   double get opacity => animations.tapTargetOpacity(status).value;

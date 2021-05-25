@@ -132,7 +132,7 @@ class _GridTitleText extends StatelessWidget {
 }
 
 class _GridDemoPhotoItem extends StatelessWidget {
-  _GridDemoPhotoItem({
+  const _GridDemoPhotoItem({
     Key key,
     @required this.photo,
     @required this.tileStyle,

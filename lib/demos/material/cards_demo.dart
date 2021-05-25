@@ -145,9 +145,7 @@ class TappableTravelDestinationItem extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 shape: shape,
                 child: InkWell(
-                  onTap: () {
-                    print('Card was tapped');
-                  },
+                  onTap: () {},
                   // Generally, material cards use onSurface with 12% opacity for the pressed state.
                   splashColor:
                       Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
@@ -344,17 +342,13 @@ class TravelDestinationContent extends StatelessWidget {
             alignment: MainAxisAlignment.start,
             children: [
               TextButton(
-                onPressed: () {
-                  print('pressed');
-                },
+                onPressed: () {},
                 child: Text(GalleryLocalizations.of(context).demoMenuShare,
                     semanticsLabel: GalleryLocalizations.of(context)
                         .cardsDemoShareSemantics(destination.title)),
               ),
               TextButton(
-                onPressed: () {
-                  print('pressed');
-                },
+                onPressed: () {},
                 child: Text(GalleryLocalizations.of(context).cardsDemoExplore,
                     semanticsLabel: GalleryLocalizations.of(context)
                         .cardsDemoExploreSemantics(destination.title)),
@@ -367,7 +361,7 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
-  const CardsDemo();
+  const CardsDemo({Key key}) : super(key: key);
 
   @override
   _CardsDemoState createState() => _CardsDemoState();
@@ -414,7 +408,6 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
                             destination: destination,
                             isSelected: _isSelected.value,
                             onSelected: () {
-                              print('Selectable card state changed');
                               setState(() {
                                 _isSelected.value = !_isSelected.value;
                               });

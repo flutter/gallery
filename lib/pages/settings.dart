@@ -25,7 +25,7 @@ enum _ExpandableSetting {
 }
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage({this.animationController});
+  const SettingsPage({Key key, this.animationController}) : super(key: key);
 
   final AnimationController animationController;
 
@@ -249,7 +249,7 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.theme),
         isExpanded: _expandedSettingId == _ExpandableSetting.theme,
       ),
-      SlowMotionSetting(),
+      const SlowMotionSetting(),
     ];
 
     return Material(
@@ -287,11 +287,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(height: 16),
                 Divider(thickness: 2, height: 0, color: colorScheme.background),
                 const SizedBox(height: 12),
-                SettingsAbout(),
-                SettingsFeedback(),
+                const SettingsAbout(),
+                const SettingsFeedback(),
                 const SizedBox(height: 12),
                 Divider(thickness: 2, height: 0, color: colorScheme.background),
-                SettingsAttribution(),
+                const SettingsAttribution(),
               ],
             ],
           ),
@@ -302,6 +302,8 @@ class _SettingsPageState extends State<SettingsPage> {
 }
 
 class SettingsAbout extends StatelessWidget {
+  const SettingsAbout({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return _SettingsLink(
@@ -315,13 +317,15 @@ class SettingsAbout extends StatelessWidget {
 }
 
 class SettingsFeedback extends StatelessWidget {
+  const SettingsFeedback({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return _SettingsLink(
       title: GalleryLocalizations.of(context).settingsFeedback,
       icon: Icons.feedback,
       onTap: () async {
-        final url = 'https://github.com/flutter/flutter/issues/new/choose/';
+        const url = 'https://github.com/flutter/flutter/issues/new/choose/';
         if (await canLaunch(url)) {
           await launch(
             url,
@@ -334,6 +338,8 @@ class SettingsFeedback extends StatelessWidget {
 }
 
 class SettingsAttribution extends StatelessWidget {
+  const SettingsAttribution({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
@@ -364,7 +370,7 @@ class _SettingsLink extends StatelessWidget {
   final IconData icon;
   final GestureTapCallback onTap;
 
-  _SettingsLink({this.title, this.icon, this.onTap});
+  const _SettingsLink({this.title, this.icon, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -426,7 +432,7 @@ class _AnimateSettingsListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dividingPadding = 4.0;
+    const dividingPadding = 4.0;
     final topPaddingTween = Tween<double>(
       begin: 0,
       end: children.length * dividingPadding,

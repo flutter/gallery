@@ -456,7 +456,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoAlertTitleDialogTitle,
           description: localizations.demoAlertDialogDescription,
           documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
-          buildRoute: (context) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
               () => material_demos.DialogDemo(type: DialogDemoType.alertTitle)),
           code: CodeSegments.dialogDemo,
         ),
@@ -464,7 +466,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoSimpleDialogTitle,
           description: localizations.demoSimpleDialogDescription,
           documentationUrl: '$_docsBaseUrl/material/SimpleDialog-class.html',
-          buildRoute: (context) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
               () => material_demos.DialogDemo(type: DialogDemoType.simple)),
           code: CodeSegments.dialogDemo,
         ),
@@ -473,7 +477,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoFullscreenDialogDescription,
           documentationUrl:
               '$_docsBaseUrl/widgets/PageRoute/fullscreenDialog.html',
-          buildRoute: (context) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
               () => material_demos.DialogDemo(type: DialogDemoType.fullscreen)),
           code: CodeSegments.dialogDemo,
         ),

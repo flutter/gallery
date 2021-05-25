@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:gallery/pages/settings_icon/metrics.dart';
 
 class SettingsIcon extends StatelessWidget {
-  const SettingsIcon(this.time);
+  const SettingsIcon(this.time, {Key key}) : super(key: key);
 
   final double time;
 

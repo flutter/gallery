@@ -20,6 +20,8 @@ class DisplayOption {
 }
 
 class SlowMotionSetting extends StatelessWidget {
+  const SlowMotionSetting({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -74,7 +76,7 @@ class SlowMotionSetting extends StatelessWidget {
 }
 
 class SettingsListItem<T> extends StatefulWidget {
-  SettingsListItem({
+  const SettingsListItem({
     Key key,
     @required this.optionsMap,
     @required this.title,

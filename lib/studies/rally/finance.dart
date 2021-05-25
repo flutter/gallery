@@ -20,12 +20,14 @@ import 'package:gallery/studies/rally/formatters.dart';
 
 class FinancialEntityView extends StatelessWidget {
   const FinancialEntityView({
+    Key key,
     this.heroLabel,
     this.heroAmount,
     this.wholeAmount,
     this.segments,
     this.financialEntityCards,
-  }) : assert(segments.length == financialEntityCards.length);
+  })  : assert(segments.length == financialEntityCards.length),
+        super(key: key);
 
   /// The amounts to assign each item.
   final List<RallyPieChartSegment> segments;
@@ -79,6 +81,7 @@ class FinancialEntityView extends StatelessWidget {
 /// A reusable widget to show balance information of a single entity as a card.
 class FinancialEntityCategoryView extends StatelessWidget {
   const FinancialEntityCategoryView({
+    Key key,
     @required this.indicatorColor,
     @required this.indicatorFraction,
     @required this.title,
@@ -86,7 +89,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
     @required this.semanticsLabel,
     @required this.amount,
     @required this.suffix,
-  });
+  }) : super(key: key);
 
   final Color indicatorColor;
   final double indicatorFraction;
@@ -317,6 +320,8 @@ List<FinancialEntityCategoryView> buildBudgetDataListViews(
 }
 
 class FinancialEntityCategoryDetailsPage extends StatelessWidget {
+  FinancialEntityCategoryDetailsPage({Key key}) : super(key: key);
+
   final List<DetailedEventData> items =
       DummyDataService.getDetailedEventItems();
 

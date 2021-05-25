@@ -35,6 +35,8 @@ const _desktopCardsPerPage = 4;
 class ToggleSplashNotification extends Notification {}
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var carouselHeight = _carouselHeight(.7, context);
@@ -175,7 +177,7 @@ class HomePage extends StatelessWidget {
               ),
               child: _GalleryHeader(),
             ),
-            Container(
+            SizedBox(
               height: carouselHeight,
               child: _DesktopCarousel(children: carouselCards),
             ),
@@ -223,7 +225,7 @@ class HomePage extends StatelessWidget {
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.end,
-                      children: [
+                      children: const [
                         SettingsAbout(),
                         SettingsFeedback(),
                         SettingsAttribution(),
@@ -281,7 +283,7 @@ class _CategoriesHeader extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
-  const Header({this.color, this.text});
+  const Header({Key key, this.color, this.text}) : super(key: key);
 
   final Color color;
   final String text;
@@ -661,7 +663,7 @@ class _AnimatedCarousel extends StatelessWidget {
                 child: child,
               );
             },
-            child: Container(
+            child: SizedBox(
               height: _carouselHeight(.4, context),
               width: constraints.maxWidth,
               child: child,
@@ -752,7 +754,7 @@ class _CarouselState extends State<_Carousel>
       // The viewPortFraction is calculated as the width of the device minus the
       // padding.
       final width = MediaQuery.of(context).size.width;
-      final padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
+      const padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
       _controller = PageController(
         initialPage: _currentPage.value,
         viewportFraction: (width - padding) / width,
@@ -990,8 +992,8 @@ class _DesktopPageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final buttonSize = 58.0;
-    final padding = _horizontalDesktopPadding - buttonSize / 2;
+    const buttonSize = 58.0;
+    const padding = _horizontalDesktopPadding - buttonSize / 2;
     return ExcludeSemantics(
       child: Align(
         alignment: isEnd

@@ -18,5 +18,5 @@ class LayoutCache extends InheritedWidget {
   final Map<String, List<List<int>>> layouts;
 
   @override
-  bool updateShouldNotify(LayoutCache old) => true;
+  bool updateShouldNotify(LayoutCache oldWidget) => true;
 }

@@ -3,7 +3,7 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class ComposePage extends StatelessWidget {
-  const ComposePage();
+  const ComposePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ComposePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Container(
+        child: SizedBox(
           height: double.infinity,
           child: Material(
             color: Theme.of(context).cardColor,
@@ -143,7 +143,8 @@ class _SubjectRowState extends State<_SubjectRow> {
 }
 
 class _SenderAddressRow extends StatefulWidget {
-  _SenderAddressRow({@required this.senderEmail}) : assert(senderEmail != null);
+  const _SenderAddressRow({@required this.senderEmail})
+      : assert(senderEmail != null);
 
   final String senderEmail;
 
@@ -245,7 +246,7 @@ class _RecipientsRow extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   avatar: CircleAvatar(
                     backgroundImage: AssetImage(
-                      '$avatar',
+                      avatar,
                       package: 'flutter_gallery_assets',
                     ),
                   ),

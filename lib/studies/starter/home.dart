@@ -10,7 +10,7 @@ import 'package:gallery/layout/adaptive.dart';
 const appBarDesktopHeight = 128.0;
 
 class HomePage extends StatelessWidget {
-  const HomePage();
+  const HomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
     if (isDesktop) {
       return Row(
         children: [
-          ListDrawer(),
+          const ListDrawer(),
           const VerticalDivider(width: 1),
           Expanded(
             child: Scaffold(
@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
       return Scaffold(
         appBar: const AdaptiveAppBar(),
         body: body,
-        drawer: ListDrawer(),
+        drawer: const ListDrawer(),
         floatingActionButton: FloatingActionButton(
           heroTag: 'Add',
           onPressed: () {},
@@ -148,12 +148,14 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class ListDrawer extends StatefulWidget {
+  const ListDrawer({Key key}) : super(key: key);
+
   @override
   _ListDrawerState createState() => _ListDrawerState();
 }
 
 class _ListDrawerState extends State<ListDrawer> {
-  static final numItems = 9;
+  static const numItems = 9;
 
   int selectedItem = 0;
 

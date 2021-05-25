@@ -167,9 +167,9 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
 
   @override
   void dispose() {
-    isSelected.forEach((restorableBool) {
+    for (final restorableBool in isSelected) {
       restorableBool.dispose();
-    });
+    }
     super.dispose();
   }
 

@@ -9,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoContextMenuDemo
 
 class CupertinoContextMenuDemo extends StatelessWidget {
-  const CupertinoContextMenuDemo();
+  const CupertinoContextMenuDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CupertinoContextMenuDemo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Container(
+            child: SizedBox(
               width: 100,
               height: 100,
               child: CupertinoContextMenu(
@@ -47,9 +47,7 @@ class CupertinoContextMenuDemo extends StatelessWidget {
                     ),
                   ),
                 ],
-                child: Container(
-                  child: const FlutterLogo(size: 250),
-                ),
+                child: const FlutterLogo(size: 250),
               ),
             ),
           ),

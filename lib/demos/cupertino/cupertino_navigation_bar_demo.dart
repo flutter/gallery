@@ -9,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoNavigationBarDemo
 
 class CupertinoNavigationBarDemo extends StatelessWidget {
-  const CupertinoNavigationBarDemo();
+  const CupertinoNavigationBarDemo({Key key}) : super(key: key);
 
   static const String homeRoute = '/home';
   static const String secondPageRoute = '/home/item';

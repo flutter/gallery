@@ -74,11 +74,11 @@ class BottomSheetDemo extends StatelessWidget {
 class _BottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 70,
             child: Center(
               child: Text(
