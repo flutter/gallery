@@ -18,7 +18,7 @@ class MailViewPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Container(
+        child: SizedBox(
           height: double.infinity,
           child: Material(
             color: Theme.of(context).cardColor,

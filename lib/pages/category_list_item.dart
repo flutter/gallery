@@ -190,7 +190,7 @@ class _CategoryHeader extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: borderRadius),
         color: colorScheme.onBackground,
         clipBehavior: Clip.antiAlias,
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: InkWell(
             // Makes integration tests possible.

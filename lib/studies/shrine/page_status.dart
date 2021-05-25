@@ -24,9 +24,9 @@ class PageStatus extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(PageStatus old) =>
-      old.cartController != cartController ||
-      old.menuController != menuController;
+  bool updateShouldNotify(PageStatus oldWidget) =>
+      oldWidget.cartController != cartController ||
+      oldWidget.menuController != menuController;
 }
 
 bool productPageIsVisible(BuildContext context) {

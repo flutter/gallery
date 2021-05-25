@@ -223,7 +223,7 @@ class _RecipeTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
+        SizedBox(
           height: 70,
           width: 100,
           child: ClipRRect(

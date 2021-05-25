@@ -50,7 +50,7 @@ example, to run the app on Windows:
 ```bash
 cd gallery/
 flutter config --enable-windows-desktop
-flutter create .
+flutter pub get
 flutter run -d windows
 ```
 
@@ -63,7 +63,7 @@ platform it runs on. This is determined based on window size as outlined in
 
 <details>
   <summary>Including a new splash animation</summary>
-  
+
 1. Convert your animation to a `.gif` file.
    Ideally, use a background color of `0xFF030303` to ensure the animation
    blends into the background of the app.
@@ -81,7 +81,7 @@ platform it runs on. This is determined based on window size as outlined in
 
 <details>
   <summary>Generating localizations</summary>
-   
+
 If this is the first time building the Flutter Gallery, the localized
 code will not be present in the project directory. However, after running
 the application for the first time, a synthetic package will be generated
@@ -93,7 +93,7 @@ See separate [README](lib/l10n/README.md) for more details.
 
 <details>
   <summary>Generating highlighted code segments</summary>
-   
+
 ```bash
 flutter pub get
 flutter pub run grinder update-code-segments
@@ -104,7 +104,8 @@ more details.
 
 ## Creating a new release (for Flutter org members)
 
-1. **Version bump**: Create a PR to bump the `pubspec.yaml` version number. Use [semantic versioning](https://semver.org/) to determine
+1. **Version bump**: Bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
+   Use [semantic versioning](https://semver.org/) to determine
    which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
    with a patch should become `1.2.4+010204`.
 

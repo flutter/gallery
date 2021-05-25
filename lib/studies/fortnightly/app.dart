@@ -15,7 +15,7 @@ import 'package:gallery/studies/fortnightly/shared.dart';
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  const FortnightlyApp();
+  const FortnightlyApp({Key key}) : super(key: key);
 
   static const String defaultRoute = routes.defaultRoute;
 
@@ -50,7 +50,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
+      drawer: const Drawer(
         child: SafeArea(
           child: NavigationMenu(isCloseable: true),
         ),
@@ -80,7 +80,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         child: ListView(
           restorationId: 'list_view',
           children: [
-            HashtagBar(),
+            const HashtagBar(),
             for (final item in buildArticlePreviewItems(context))
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -98,8 +98,8 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final menuWidth = 200.0;
-    final spacer = const SizedBox(width: 20);
+    const menuWidth = 200.0;
+    const spacer = SizedBox(width: 20);
     final headerHeight = 40 * reducedTextScale(context);
 
     return Scaffold(
@@ -125,7 +125,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     ),
                   ),
                   spacer,
-                  Flexible(
+                  const Flexible(
                     flex: 2,
                     child: HashtagBar(),
                   ),
@@ -148,7 +148,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
             Flexible(
               child: Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: menuWidth,
                     child: NavigationMenu(),
                   ),

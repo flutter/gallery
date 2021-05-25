@@ -18,6 +18,8 @@ import 'package:gallery/studies/rally/formatters.dart';
 
 /// A page that shows a status overview.
 class OverviewView extends StatefulWidget {
+  const OverviewView({Key key}) : super(key: key);
+
   @override
   _OverviewViewState createState() => _OverviewViewState();
 }
@@ -46,7 +48,7 @@ class _OverviewViewState extends State<OverviewView> {
               const SizedBox(width: 24),
               Flexible(
                 flex: 3,
-                child: Container(
+                child: SizedBox(
                   width: 400,
                   child: Semantics(
                     sortKey: const OrdinalSortKey(2, name: sortKeyName),
@@ -95,7 +97,7 @@ class _OverviewGrid extends StatelessWidget {
 
       // Only display multiple columns when the constraints allow it and we
       // have a regular text scale factor.
-      final minWidthForTwoColumns = 600;
+      const minWidthForTwoColumns = 600;
       final hasMultipleColumns = isDisplayDesktop(context) &&
           constraints.maxWidth > minWidthForTwoColumns &&
           textScaleFactor <= 2;
@@ -106,7 +108,7 @@ class _OverviewGrid extends StatelessWidget {
       return Wrap(
         runSpacing: spacing,
         children: [
-          Container(
+          SizedBox(
             width: boxWidth,
             child: _FinancialView(
               title: GalleryLocalizations.of(context).rallyAccounts,
@@ -119,7 +121,7 @@ class _OverviewGrid extends StatelessWidget {
             ),
           ),
           if (hasMultipleColumns) SizedBox(width: spacing),
-          Container(
+          SizedBox(
             width: boxWidth,
             child: _FinancialView(
               title: GalleryLocalizations.of(context).rallyBills,

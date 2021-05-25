@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -83,13 +85,13 @@ class GalleryAutomator {
   Future<void> automateDemoGestures() async {
     await warmUp();
 
-    print('==== List of demos to be run ====');
+    stdout.writeln('==== List of demos to be run ====');
     for (final demo in demoNames) {
       if (shouldRunPredicate(demo)) {
-        print(demo);
+        stdout.writeln(demo);
       }
     }
-    print('==== End of list of demos to be run ====');
+    stdout.writeln('==== End of list of demos to be run ====');
 
     var finishedStudyDemos = false;
 
@@ -117,7 +119,7 @@ class GalleryAutomator {
       // satisfying `runCriterion`, because we need to scroll
       // through every `Scrollable` to find the `demoButton`.
       if (shouldRunPredicate(demo)) {
-        print('Running demo "$demo"');
+        stdout.writeln('Running demo "$demo"');
 
         for (var i = 0; i < 2; ++i) {
           await controller.tap(find.byKey(ValueKey(demo)));
@@ -135,7 +137,7 @@ class GalleryAutomator {
       }
     }
 
-    print('All demos finished.');
+    stdout.writeln('All demos finished.');
 
     // At the end of the test, mark as finished.
     finished = true;
@@ -145,7 +147,7 @@ class GalleryAutomator {
   Future<void> automateScrolls() async {
     await warmUp();
 
-    print('Running scrolling test.');
+    stdout.writeln('Running scrolling test.');
 
     final selectedDemos = firstDemosOfCategories(demoNames);
 
@@ -178,13 +180,13 @@ class GalleryAutomator {
       }
     }
 
-    print('Scrolling test finished.');
+    stdout.writeln('Scrolling test finished.');
     finished = true;
   }
 
   /// Warm up the animation.
   Future<void> warmUp() async {
-    print('Warming up.');
+    stdout.writeln('Warming up.');
 
     await pumpDeferredLibraries();
 
@@ -227,7 +229,7 @@ class GalleryAutomator {
     // When warm-up finishes, inform the recorder.
     stopWarmingUpCallback();
 
-    print('Warm-up finished.');
+    stdout.writeln('Warm-up finished.');
   }
 
   /// A function to find the category of a demo.
