@@ -129,19 +129,17 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
           ),
           const SizedBox(height: 10),
           Expanded(
-            child: Container(
-              child: PageTransitionSwitcher(
-                reverse: _isAlphabetical,
-                transitionBuilder: (child, animation, secondaryAnimation) {
-                  return SharedAxisTransition(
-                    animation: animation,
-                    secondaryAnimation: secondaryAnimation,
-                    transitionType: SharedAxisTransitionType.vertical,
-                    child: child,
-                  );
-                },
-                child: _isAlphabetical ? _alphabeticalList : _recentList,
-              ),
+            child: PageTransitionSwitcher(
+              reverse: _isAlphabetical,
+              transitionBuilder: (child, animation, secondaryAnimation) {
+                return SharedAxisTransition(
+                  animation: animation,
+                  secondaryAnimation: secondaryAnimation,
+                  transitionType: SharedAxisTransitionType.vertical,
+                  child: child,
+                );
+              },
+              child: _isAlphabetical ? _alphabeticalList : _recentList,
             ),
           ),
         ],

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
@@ -12,7 +13,7 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   final defaultReportTestException = reportTestException;
   reportTestException = (details, testDescription) {
     defaultReportTestException(details, testDescription);
-    print(
+    stdout.writeln(
       '\nThe golden tests failed. Please read test_goldens/README.md for how '
       'to update them.',
     );

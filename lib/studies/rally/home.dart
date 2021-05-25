@@ -18,7 +18,7 @@ const int turnsToRotateRight = 1;
 const int turnsToRotateLeft = 3;
 
 class HomePage extends StatefulWidget {
-  const HomePage();
+  const HomePage({Key key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage>
   }
 
   List<Widget> _buildTabViews() {
-    return [
+    return const [
       OverviewView(),
       AccountsView(),
       BillsView(),

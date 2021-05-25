@@ -26,7 +26,7 @@ double desktopLoginScreenMainAreaWidth({BuildContext context}) {
 }
 
 class LoginPage extends StatelessWidget {
-  const LoginPage();
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
               builder: (context, constraints) => Scaffold(
                 body: SafeArea(
                   child: Center(
-                    child: Container(
+                    child: SizedBox(
                       width: desktopLoginScreenMainAreaWidth(context: context),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -91,9 +91,9 @@ class _ShrineLogo extends StatelessWidget {
     return ExcludeSemantics(
       child: Column(
         children: [
-          FadeInImagePlaceholder(
-            image: const AssetImage('packages/shrine_images/diamond.png'),
-            placeholder: Container(
+          const FadeInImagePlaceholder(
+            image: AssetImage('packages/shrine_images/diamond.png'),
+            placeholder: SizedBox(
               width: 34,
               height: 34,
             ),
@@ -118,17 +118,14 @@ class _UsernameTextField extends StatelessWidget {
 
     return PrimaryColorOverride(
       color: shrineBrown900,
-      child: Container(
-        child: TextField(
-          textInputAction: TextInputAction.next,
-          restorationId: 'username_text_field',
-          cursorColor: colorScheme.onSurface,
-          decoration: InputDecoration(
-            labelText:
-                GalleryLocalizations.of(context).shrineLoginUsernameLabel,
-            labelStyle: TextStyle(
-                letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
-          ),
+      child: TextField(
+        textInputAction: TextInputAction.next,
+        restorationId: 'username_text_field',
+        cursorColor: colorScheme.onSurface,
+        decoration: InputDecoration(
+          labelText: GalleryLocalizations.of(context).shrineLoginUsernameLabel,
+          labelStyle: TextStyle(
+              letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
         ),
       ),
     );
@@ -144,17 +141,14 @@ class _PasswordTextField extends StatelessWidget {
 
     return PrimaryColorOverride(
       color: shrineBrown900,
-      child: Container(
-        child: TextField(
-          restorationId: 'password_text_field',
-          cursorColor: colorScheme.onSurface,
-          obscureText: true,
-          decoration: InputDecoration(
-            labelText:
-                GalleryLocalizations.of(context).shrineLoginPasswordLabel,
-            labelStyle: TextStyle(
-                letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
-          ),
+      child: TextField(
+        restorationId: 'password_text_field',
+        cursorColor: colorScheme.onSurface,
+        obscureText: true,
+        decoration: InputDecoration(
+          labelText: GalleryLocalizations.of(context).shrineLoginPasswordLabel,
+          labelStyle: TextStyle(
+              letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
         ),
       ),
     );

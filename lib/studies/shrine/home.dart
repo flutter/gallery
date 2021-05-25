@@ -14,7 +14,7 @@ import 'package:scoped_model/scoped_model.dart';
 const _ordinalSortKeyName = 'home';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage();
+  const ProductPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

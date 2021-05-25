@@ -11,7 +11,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN textFieldDemo
 
 class TextFieldDemo extends StatelessWidget {
-  const TextFieldDemo();
+  const TextFieldDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +41,7 @@ class PersonData {
 
 class PasswordField extends StatefulWidget {
   const PasswordField({
+    Key key,
     this.restorationId,
     this.fieldKey,
     this.hintText,
@@ -51,7 +52,7 @@ class PasswordField extends StatefulWidget {
     this.onFieldSubmitted,
     this.focusNode,
     this.textInputAction,
-  });
+  }) : super(key: key);
 
   final String restorationId;
   final Key fieldKey;

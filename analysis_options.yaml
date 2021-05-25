@@ -1,8 +1,8 @@
 include: package:pedantic/analysis_options.1.11.0.yaml
+# To see flutter_lints, uncomment this line instead
+# include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  exclude:
-    - lib/l10n/messages_*.dart
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false

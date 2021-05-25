@@ -140,7 +140,7 @@ packages:
       name: file
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.0"
+    version: "6.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -155,6 +155,13 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_gallery_assets
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  flutter_lints:
+    dependency: "direct dev"
+    description:
+      name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
@@ -255,6 +262,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
+  lints:
+    dependency: transitive
+    description:
+      name: lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:

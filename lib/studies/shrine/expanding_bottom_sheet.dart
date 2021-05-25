@@ -204,7 +204,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
 
   Animation<double> _getDesktopGapAnimation(double gapHeight) {
     final _collapsedGapHeight = gapHeight;
-    final _expandedGapHeight = 0.0;
+    const _expandedGapHeight = 0.0;
 
     if (_controller.status == AnimationStatus.forward) {
       // Opening animation
@@ -401,13 +401,13 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
             duration: const Duration(milliseconds: 225),
             child: const Icon(Icons.shopping_cart),
           ),
-          Container(
+          SizedBox(
             width: _width,
             height: min(numProducts, _maxThumbnailCount) *
                 _paddedThumbnailHeight(context),
-            child: ProductThumbnailRow(),
+            child: const ProductThumbnailRow(),
           ),
-          ExtraProductsNumber(),
+          const ExtraProductsNumber(),
         ],
       );
     } else {
@@ -427,9 +427,9 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
                     (numProducts > 0 ? _thumbnailGap : 0),
                 height: _height - _bottomSafeArea,
                 padding: const EdgeInsets.symmetric(vertical: 8),
-                child: ProductThumbnailRow(),
+                child: const ProductThumbnailRow(),
               ),
-              ExtraProductsNumber(),
+              const ExtraProductsNumber(),
             ],
           ),
         ],
@@ -447,7 +447,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
   Widget _buildShoppingCartPage() {
     return Opacity(
       opacity: _cartOpacityAnimation.value,
-      child: ShoppingCartPage(),
+      child: const ShoppingCartPage(),
     );
   }
 
@@ -483,7 +483,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
         ? _getDesktopGapAnimation(116)
         : const AlwaysStoppedAnimation(0);
 
-    final Widget child = Container(
+    final Widget child = SizedBox(
       width: _widthAnimation.value,
       height: _heightAnimation.value,
       child: Material(
@@ -569,6 +569,8 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
 }
 
 class ProductThumbnailRow extends StatefulWidget {
+  const ProductThumbnailRow({Key key}) : super(key: key);
+
   @override
   _ProductThumbnailRowState createState() => _ProductThumbnailRowState();
 }
@@ -684,6 +686,8 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
 }
 
 class ExtraProductsNumber extends StatelessWidget {
+  const ExtraProductsNumber({Key key}) : super(key: key);
+
   // Calculates the number to be displayed at the end of the row if there are
   // more than three products in the cart. This calculates overflow products,
   // including their duplicates (but not duplicates of products shown as
@@ -710,11 +714,9 @@ class ExtraProductsNumber extends StatelessWidget {
     // Maximum of 99 so padding doesn't get messy.
     final displayedOverflowProducts =
         numOverflowProducts <= 99 ? numOverflowProducts : 99;
-    return Container(
-      child: Text(
-        '+$displayedOverflowProducts',
-        style: Theme.of(context).primaryTextTheme.button,
-      ),
+    return Text(
+      '+$displayedOverflowProducts',
+      style: Theme.of(context).primaryTextTheme.button,
     );
   }
 
@@ -727,7 +729,9 @@ class ExtraProductsNumber extends StatelessWidget {
 }
 
 class ProductThumbnail extends StatelessWidget {
-  const ProductThumbnail(this.animation, this.opacityAnimation, this.product);
+  const ProductThumbnail(this.animation, this.opacityAnimation, this.product,
+      {Key key})
+      : super(key: key);
 
   final Animation<double> animation;
   final Animation<double> opacityAnimation;

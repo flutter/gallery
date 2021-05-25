@@ -1,4 +1,5 @@
 import 'dart:convert' show JsonEncoder;
+import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:web_benchmarks/server.dart';
@@ -22,7 +23,7 @@ final valueList = <String>[
 /// Tests that the Gallery web benchmarks are run and reported correctly.
 Future<void> main() async {
   test('Can run a web benchmark', () async {
-    print('Starting web benchmark tests ...');
+    stdout.writeln('Starting web benchmark tests ...');
 
     // TODO: re-enable this test (https://github.com/flutter/gallery/issues/463)
     return;
@@ -33,7 +34,7 @@ Future<void> main() async {
       useCanvasKit: false,
     );
 
-    print('Web benchmark tests finished.');
+    stdout.writeln('Web benchmark tests finished.');
 
     expect(taskResult.scores.keys, hasLength(benchmarkList.length));
 

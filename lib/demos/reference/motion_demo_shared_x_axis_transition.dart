@@ -9,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN sharedXAxisTransitionDemo
 
 class SharedXAxisTransitionDemo extends StatefulWidget {
-  const SharedXAxisTransitionDemo();
+  const SharedXAxisTransitionDemo({Key key}) : super(key: key);
   @override
   _SharedXAxisTransitionDemoState createState() =>
       _SharedXAxisTransitionDemoState();

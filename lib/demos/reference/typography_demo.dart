@@ -44,7 +44,7 @@ class _TextStyleItem extends StatelessWidget {
 }
 
 class TypographyDemo extends StatelessWidget {
-  const TypographyDemo();
+  const TypographyDemo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

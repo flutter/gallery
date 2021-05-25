@@ -27,7 +27,7 @@ class SplashPageAnimation extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(SplashPageAnimation old) => true;
+  bool updateShouldNotify(SplashPageAnimation oldWidget) => true;
 }
 
 class SplashPage extends StatefulWidget {
@@ -168,7 +168,7 @@ class _SplashPageState extends State<SplashPage>
 }
 
 class _SplashBackLayer extends StatelessWidget {
-  _SplashBackLayer({
+  const _SplashBackLayer({
     Key key,
     @required this.isSplashCollapsed,
     this.effect,
