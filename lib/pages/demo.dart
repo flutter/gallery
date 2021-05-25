@@ -761,7 +761,7 @@ class _DemoSectionCode extends StatelessWidget {
 }
 
 class CodeDisplayPage extends StatelessWidget {
-  const CodeDisplayPage(this.code, {Key key}): super(key: key);
+  const CodeDisplayPage(this.code, {Key key}) : super(key: key);
 
   final CodeDisplayer code;
 
