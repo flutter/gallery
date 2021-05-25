@@ -106,7 +106,8 @@ class _AboutDialog extends StatelessWidget {
                 data: Theme.of(context).copyWith(
                   textTheme: Typography.material2018(
                     platform: Theme.of(context).platform,
-                  ).englishLike,
+                  ).black,
+                  cardColor: Colors.white,
                 ),
                 child: const LicensePage(
                   applicationName: name,
