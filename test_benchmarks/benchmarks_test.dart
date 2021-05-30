@@ -30,7 +30,7 @@ Future<void> main() async {
     // ignore: dead_code
     final taskResult = await serveWebBenchmark(
       benchmarkAppDirectory: projectRootDirectory(),
-      entryPoint: 'test/benchmarks/client.dart',
+      entryPoint: 'test_benchmarks/benchmarks/client.dart',
       useCanvasKit: false,
     );
 
