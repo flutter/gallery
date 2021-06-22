@@ -23,7 +23,7 @@ platform :android do
 
   desc "Submit a new beta build to Google Play"
   lane :beta do
-    sh "flutter build appbundle -v --no-deferred-components"
+    sh "flutter build appbundle -v"
     upload_to_play_store(
       track: 'beta',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
@@ -43,7 +43,7 @@ platform :android do
 
   desc "Submit a new production build to Google Play"
   lane :production do
-    sh "flutter build appbundle -v --no-deferred-components"
+    sh "flutter build appbundle -v"
     upload_to_play_store(
       track: 'production',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
