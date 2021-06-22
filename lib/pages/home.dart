@@ -1126,9 +1126,11 @@ class StudyWrapper extends StatefulWidget {
     Key key,
     this.study,
     this.alignment = AlignmentDirectional.bottomStart,
+    this.hasBottomNavBar = false,
   }) : super(key: key);
 
   final Widget study;
+  final bool hasBottomNavBar;
   final AlignmentDirectional alignment;
 
   @override
@@ -1154,7 +1156,11 @@ class _StudyWrapperState extends State<StudyWrapper> {
             child: Align(
               alignment: widget.alignment,
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: widget.hasBottomNavBar
+                        ? kBottomNavigationBarHeight + 16.0
+                        : 16.0),
                 child: Semantics(
                   sortKey: const OrdinalSortKey(0),
                   label: GalleryLocalizations.of(context).backToGallery,
