@@ -83,7 +83,8 @@ class RouteConfiguration {
     Path(
         r'^' + reply_routes.homeRoute,
         // ignore: prefer_const_constructors
-        (context, match) => StudyWrapper(study: reply.ReplyApp())),
+        (context, match) =>
+            const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true)),
     Path(
       r'^' + starter_app_routes.defaultRoute,
       (context, match) => const StudyWrapper(
