@@ -169,7 +169,7 @@ class _CancelAndNextButtons extends StatelessWidget {
         : EdgeInsets.zero;
 
     return Padding(
-      padding: isDesktop ? EdgeInsets.zero : EdgeInsets.all(8),
+      padding: isDesktop ? EdgeInsets.zero : const EdgeInsets.all(8),
       child: OverflowBar(
         spacing: isDesktop ? 0 : 8,
         alignment: MainAxisAlignment.end,

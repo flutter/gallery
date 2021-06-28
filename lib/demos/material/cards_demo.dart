@@ -340,7 +340,7 @@ class TravelDestinationContent extends StatelessWidget {
           // share, explore buttons
           Padding(
             padding: EdgeInsets.all(8),
-            child: OverflowBar(
+            child: const OverflowBar(
               alignment: MainAxisAlignment.start,
               spacing: 8,
               children: [
