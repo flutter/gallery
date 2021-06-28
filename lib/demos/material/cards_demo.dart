@@ -339,8 +339,8 @@ class TravelDestinationContent extends StatelessWidget {
         if (destination.cardType == CardType.standard)
           // share, explore buttons
           Padding(
-            padding: EdgeInsets.all(8),
-            child: const OverflowBar(
+            padding: const EdgeInsets.all(8),
+            child: OverflowBar(
               alignment: MainAxisAlignment.start,
               spacing: 8,
               children: [
