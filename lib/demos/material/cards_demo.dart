@@ -338,22 +338,26 @@ class TravelDestinationContent extends StatelessWidget {
         ),
         if (destination.cardType == CardType.standard)
           // share, explore buttons
-          ButtonBar(
-            alignment: MainAxisAlignment.start,
-            children: [
-              TextButton(
-                onPressed: () {},
-                child: Text(GalleryLocalizations.of(context).demoMenuShare,
-                    semanticsLabel: GalleryLocalizations.of(context)
-                        .cardsDemoShareSemantics(destination.title)),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(GalleryLocalizations.of(context).cardsDemoExplore,
-                    semanticsLabel: GalleryLocalizations.of(context)
-                        .cardsDemoExploreSemantics(destination.title)),
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: OverflowBar(
+              alignment: MainAxisAlignment.start,
+              spacing: 8,
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: Text(GalleryLocalizations.of(context).demoMenuShare,
+                      semanticsLabel: GalleryLocalizations.of(context)
+                          .cardsDemoShareSemantics(destination.title)),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(GalleryLocalizations.of(context).cardsDemoExplore,
+                      semanticsLabel: GalleryLocalizations.of(context)
+                          .cardsDemoExploreSemantics(destination.title)),
+                ),
+              ],
+            ),
           ),
       ],
     );

@@ -168,54 +168,54 @@ class _CancelAndNextButtons extends StatelessWidget {
         ? const EdgeInsets.symmetric(horizontal: 24, vertical: 16)
         : EdgeInsets.zero;
 
-    return Wrap(
-      children: [
-        ButtonBar(
-          buttonPadding: isDesktop ? EdgeInsets.zero : null,
-          children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                shape: const BeveledRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(7)),
-                ),
-              ),
-              onPressed: () {
-                // The login screen is immediately displayed on top of
-                // the Shrine home screen using onGenerateRoute and so
-                // rootNavigator must be set to true in order to get out
-                // of Shrine completely.
-                Navigator.of(context, rootNavigator: true).pop();
-              },
-              child: Padding(
-                padding: buttonTextPadding,
-                child: Text(
-                  GalleryLocalizations.of(context).shrineCancelButtonCaption,
-                  style: TextStyle(color: colorScheme.onSurface),
-                ),
+    return Padding(
+      padding: isDesktop ? EdgeInsets.zero : EdgeInsets.all(8),
+      child: OverflowBar(
+        spacing: isDesktop ? 0 : 8,
+        alignment: MainAxisAlignment.end,
+        children: [
+          TextButton(
+            style: TextButton.styleFrom(
+              shape: const BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(7)),
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                elevation: 8,
-                shape: const BeveledRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(7)),
-                ),
-              ),
-              onPressed: () {
-                Navigator.of(context).restorablePushNamed(ShrineApp.homeRoute);
-              },
-              child: Padding(
-                padding: buttonTextPadding,
-                child: Text(
-                  GalleryLocalizations.of(context).shrineNextButtonCaption,
-                  style: TextStyle(
-                      letterSpacing: letterSpacingOrNone(largeLetterSpacing)),
-                ),
+            onPressed: () {
+              // The login screen is immediately displayed on top of
+              // the Shrine home screen using onGenerateRoute and so
+              // rootNavigator must be set to true in order to get out
+              // of Shrine completely.
+              Navigator.of(context, rootNavigator: true).pop();
+            },
+            child: Padding(
+              padding: buttonTextPadding,
+              child: Text(
+                GalleryLocalizations.of(context).shrineCancelButtonCaption,
+                style: TextStyle(color: colorScheme.onSurface),
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              elevation: 8,
+              shape: const BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(7)),
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).restorablePushNamed(ShrineApp.homeRoute);
+            },
+            child: Padding(
+              padding: buttonTextPadding,
+              child: Text(
+                GalleryLocalizations.of(context).shrineNextButtonCaption,
+                style: TextStyle(
+                    letterSpacing: letterSpacingOrNone(largeLetterSpacing)),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
