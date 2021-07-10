@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/supplemental/cut_corners_border.dart';
@@ -21,7 +22,10 @@ IconThemeData _customIconTheme(IconThemeData original) {
 ThemeData _buildShrineTheme() {
   final base = ThemeData.light();
   return base.copyWith(
-    appBarTheme: const AppBarTheme(brightness: Brightness.light, elevation: 0),
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
+      elevation: 0,
+    ),
     colorScheme: _shrineColorScheme,
     primaryColor: shrinePink100,
     scaffoldBackgroundColor: shrineBackgroundWhite,

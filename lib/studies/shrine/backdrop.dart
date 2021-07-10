@@ -5,6 +5,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
@@ -327,7 +328,7 @@ class _BackdropState extends State<Backdrop>
   Widget build(BuildContext context) {
     final appBar = AppBar(
       automaticallyImplyLeading: false,
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
       elevation: 0,
       titleSpacing: 0,
       title: _BackdropTitle(

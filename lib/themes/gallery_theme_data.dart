@@ -23,11 +23,9 @@ class GalleryThemeData {
       // Matches manifest.json colors and background color.
       primaryColor: const Color(0xFF030303),
       appBarTheme: AppBarTheme(
-        textTheme: _textTheme.apply(bodyColor: colorScheme.onPrimary),
-        color: colorScheme.background,
+        backgroundColor: colorScheme.background,
         elevation: 0,
         iconTheme: IconThemeData(color: colorScheme.primary),
-        brightness: colorScheme.brightness,
       ),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       canvasColor: colorScheme.background,
