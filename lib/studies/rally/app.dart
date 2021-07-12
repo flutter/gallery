@@ -4,6 +4,7 @@
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/letter_spacing.dart';
@@ -57,7 +58,10 @@ class RallyApp extends StatelessWidget {
   ThemeData _buildRallyTheme() {
     final base = ThemeData.dark();
     return ThemeData(
-      appBarTheme: const AppBarTheme(brightness: Brightness.dark, elevation: 0),
+      appBarTheme: const AppBarTheme(
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+        elevation: 0,
+      ),
       scaffoldBackgroundColor: RallyColors.primaryBackground,
       primaryColor: RallyColors.primaryBackground,
       focusColor: RallyColors.focusColor,
