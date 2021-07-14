@@ -224,7 +224,6 @@ class _BackdropState extends State<Backdrop>
             appBar: AppBar(
               automaticallyImplyLeading: false,
               systemOverlayStyle: SystemUiOverlayStyle.light,
-              brightness: Brightness.dark,
               elevation: 0,
               titleSpacing: 0,
               flexibleSpace: CraneAppBar(
