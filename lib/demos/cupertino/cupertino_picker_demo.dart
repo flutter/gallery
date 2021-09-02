@@ -44,122 +44,134 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   }
 
   Widget _buildDatePicker(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _showDemoPicker(
-          context: context,
-          child: _BottomPicker(
-            child: CupertinoDatePicker(
-              backgroundColor:
-                  CupertinoColors.systemBackground.resolveFrom(context),
-              mode: CupertinoDatePickerMode.date,
-              initialDateTime: date,
-              onDateTimeChanged: (newDateTime) {
-                setState(() => date = newDateTime);
-              },
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          _showDemoPicker(
+            context: context,
+            child: _BottomPicker(
+              child: CupertinoDatePicker(
+                backgroundColor:
+                    CupertinoColors.systemBackground.resolveFrom(context),
+                mode: CupertinoDatePickerMode.date,
+                initialDateTime: date,
+                onDateTimeChanged: (newDateTime) {
+                  setState(() => date = newDateTime);
+                },
+              ),
             ),
+          );
+        },
+        child: _Menu(children: [
+          Text(GalleryLocalizations.of(context).demoCupertinoPickerDate),
+          Text(
+            DateFormat.yMMMMd().format(date),
+            style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
-        );
-      },
-      child: _Menu(children: [
-        Text(GalleryLocalizations.of(context).demoCupertinoPickerDate),
-        Text(
-          DateFormat.yMMMMd().format(date),
-          style: const TextStyle(color: CupertinoColors.inactiveGray),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 
   Widget _buildTimePicker(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _showDemoPicker(
-          context: context,
-          child: _BottomPicker(
-            child: CupertinoDatePicker(
-              backgroundColor:
-                  CupertinoColors.systemBackground.resolveFrom(context),
-              mode: CupertinoDatePickerMode.time,
-              initialDateTime: time,
-              onDateTimeChanged: (newDateTime) {
-                setState(() => time = newDateTime);
-              },
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          _showDemoPicker(
+            context: context,
+            child: _BottomPicker(
+              child: CupertinoDatePicker(
+                backgroundColor:
+                    CupertinoColors.systemBackground.resolveFrom(context),
+                mode: CupertinoDatePickerMode.time,
+                initialDateTime: time,
+                onDateTimeChanged: (newDateTime) {
+                  setState(() => time = newDateTime);
+                },
+              ),
             ),
-          ),
-        );
-      },
-      child: _Menu(
-        children: [
-          Text(GalleryLocalizations.of(context).demoCupertinoPickerTime),
-          Text(
-            DateFormat.jm().format(time),
-            style: const TextStyle(color: CupertinoColors.inactiveGray),
-          ),
-        ],
+          );
+        },
+        child: _Menu(
+          children: [
+            Text(GalleryLocalizations.of(context).demoCupertinoPickerTime),
+            Text(
+              DateFormat.jm().format(time),
+              style: const TextStyle(color: CupertinoColors.inactiveGray),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildDateAndTimePicker(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _showDemoPicker(
-          context: context,
-          child: _BottomPicker(
-            child: CupertinoDatePicker(
-              backgroundColor:
-                  CupertinoColors.systemBackground.resolveFrom(context),
-              mode: CupertinoDatePickerMode.dateAndTime,
-              initialDateTime: dateTime,
-              onDateTimeChanged: (newDateTime) {
-                setState(() => dateTime = newDateTime);
-              },
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          _showDemoPicker(
+            context: context,
+            child: _BottomPicker(
+              child: CupertinoDatePicker(
+                backgroundColor:
+                    CupertinoColors.systemBackground.resolveFrom(context),
+                mode: CupertinoDatePickerMode.dateAndTime,
+                initialDateTime: dateTime,
+                onDateTimeChanged: (newDateTime) {
+                  setState(() => dateTime = newDateTime);
+                },
+              ),
             ),
-          ),
-        );
-      },
-      child: _Menu(
-        children: [
-          Text(GalleryLocalizations.of(context).demoCupertinoPickerDateTime),
-          Flexible(
-            child: Text(
-              DateFormat.yMMMd().add_jm().format(dateTime),
-              style: const TextStyle(color: CupertinoColors.inactiveGray),
+          );
+        },
+        child: _Menu(
+          children: [
+            Text(GalleryLocalizations.of(context).demoCupertinoPickerDateTime),
+            Flexible(
+              child: Text(
+                DateFormat.yMMMd().add_jm().format(dateTime),
+                style: const TextStyle(color: CupertinoColors.inactiveGray),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildCountdownTimerPicker(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _showDemoPicker(
-          context: context,
-          child: _BottomPicker(
-            child: CupertinoTimerPicker(
-              backgroundColor:
-                  CupertinoColors.systemBackground.resolveFrom(context),
-              initialTimerDuration: timer,
-              onTimerDurationChanged: (newTimer) {
-                setState(() => timer = newTimer);
-              },
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          _showDemoPicker(
+            context: context,
+            child: _BottomPicker(
+              child: CupertinoTimerPicker(
+                backgroundColor:
+                    CupertinoColors.systemBackground.resolveFrom(context),
+                initialTimerDuration: timer,
+                onTimerDurationChanged: (newTimer) {
+                  setState(() => timer = newTimer);
+                },
+              ),
             ),
-          ),
-        );
-      },
-      child: _Menu(
-        children: [
-          Text(GalleryLocalizations.of(context).demoCupertinoPickerTimer),
-          Text(
-            '${timer.inHours}:'
-            '${(timer.inMinutes % 60).toString().padLeft(2, '0')}:'
-            '${(timer.inSeconds % 60).toString().padLeft(2, '0')}',
-            style: const TextStyle(color: CupertinoColors.inactiveGray),
-          ),
-        ],
+          );
+        },
+        child: _Menu(
+          children: [
+            Text(GalleryLocalizations.of(context).demoCupertinoPickerTimer),
+            Text(
+              '${timer.inHours}:'
+              '${(timer.inMinutes % 60).toString().padLeft(2, '0')}:'
+              '${(timer.inSeconds % 60).toString().padLeft(2, '0')}',
+              style: const TextStyle(color: CupertinoColors.inactiveGray),
+            ),
+          ],
+        ),
       ),
     );
   }

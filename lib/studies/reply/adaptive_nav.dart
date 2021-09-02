@@ -631,21 +631,24 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            _drawerController.reverse();
-            _dropArrowController.reverse();
-          },
-          child: Visibility(
-            maintainAnimation: true,
-            maintainState: true,
-            visible: _bottomDrawerVisible,
-            child: FadeTransition(
-              opacity: _drawerCurve,
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                color: Theme.of(context).bottomSheetTheme.modalBackgroundColor,
+        MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              _drawerController.reverse();
+              _dropArrowController.reverse();
+            },
+            child: Visibility(
+              maintainAnimation: true,
+              maintainState: true,
+              visible: _bottomDrawerVisible,
+              child: FadeTransition(
+                opacity: _drawerCurve,
+                child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  color: Theme.of(context).bottomSheetTheme.modalBackgroundColor,
+                ),
               ),
             ),
           ),
@@ -967,6 +970,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
             );
           },
           child: ListTile(
+            mouseCursor: SystemMouseCursors.click,
             leading: ImageIcon(
               AssetImage(
                 destination.icon,
@@ -1029,6 +1033,7 @@ class _BottomDrawerFolderSection extends StatelessWidget {
           InkWell(
             onTap: () {},
             child: ListTile(
+              mouseCursor: SystemMouseCursors.click,
               leading: ImageIcon(
                 AssetImage(
                   folders[folder],

@@ -95,14 +95,14 @@ class _PasswordFieldState extends State<PasswordField> with RestorationMixin {
         hintText: widget.hintText,
         labelText: widget.labelText,
         helperText: widget.helperText,
-        suffixIcon: GestureDetector(
-          dragStartBehavior: DragStartBehavior.down,
-          onTap: () {
+        suffixIcon: IconButton(
+          onPressed: () {
             setState(() {
               _obscureText.value = !_obscureText.value;
             });
           },
-          child: Icon(
+          hoverColor: Colors.transparent,
+          icon: Icon(
             _obscureText.value ? Icons.visibility : Icons.visibility_off,
             semanticLabel: _obscureText.value
                 ? GalleryLocalizations.of(context)

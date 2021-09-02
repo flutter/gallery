@@ -411,20 +411,24 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         child: section,
       );
 
+      final isDemoNormal = currentDemoState == _DemoState.normal;
       // Add a tap gesture to collapse the currently opened section.
       demoContent = Semantics(
         label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        child: GestureDetector(
-          onTap: () {
-            if (currentDemoState != _DemoState.normal) {
-              setStateAndUpdate(() {
-                _demoStateIndex.value = _DemoState.normal.index;
-              });
-            }
-          },
-          child: Semantics(
-            excludeSemantics: currentDemoState != _DemoState.normal,
-            child: demoContent,
+        child: MouseRegion(
+          cursor: isDemoNormal ? MouseCursor.defer : SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              if (!isDemoNormal) {
+                setStateAndUpdate(() {
+                  _demoStateIndex.value = _DemoState.normal.index;
+                });
+              }
+            },
+            child: Semantics(
+              excludeSemantics: !isDemoNormal,
+              child: demoContent,
+            ),
           ),
         ),
       );

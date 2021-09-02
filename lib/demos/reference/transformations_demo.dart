@@ -130,24 +130,27 @@ class _TransformationsDemoState extends State<TransformationsDemo>
             }
 
             return ClipRect(
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTapUp: _onTapUp,
-                child: InteractiveViewer(
-                  key: _targetKey,
-                  scaleEnabled: !kIsWeb,
-                  transformationController: _transformationController,
-                  boundaryMargin: EdgeInsets.symmetric(
-                    horizontal: viewportSize.width,
-                    vertical: viewportSize.height,
-                  ),
-                  minScale: 0.01,
-                  onInteractionStart: _onScaleStart,
-                  child: SizedBox.expand(
-                    child: CustomPaint(
-                      size: _board.size,
-                      painter: _BoardPainter(
-                        board: _board,
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTapUp: _onTapUp,
+                  child: InteractiveViewer(
+                    key: _targetKey,
+                    scaleEnabled: !kIsWeb,
+                    transformationController: _transformationController,
+                    boundaryMargin: EdgeInsets.symmetric(
+                      horizontal: viewportSize.width,
+                      vertical: viewportSize.height,
+                    ),
+                    minScale: 0.01,
+                    onInteractionStart: _onScaleStart,
+                    child: SizedBox.expand(
+                      child: CustomPaint(
+                        size: _board.size,
+                        painter: _BoardPainter(
+                          board: _board,
+                        ),
                       ),
                     ),
                   ),
