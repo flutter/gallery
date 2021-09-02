@@ -66,7 +66,7 @@ class _MailViewHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Text(
+              child: SelectableText(
                 email.subject,
                 style: textTheme.headline4.copyWith(height: 1.1),
               ),
@@ -94,9 +94,9 @@ class _MailViewHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('${email.sender} - ${email.time}'),
+                SelectableText('${email.sender} - ${email.time}'),
                 const SizedBox(height: 4),
-                Text(
+                SelectableText(
                   'To ${email.recipients},',
                   style: textTheme.caption.copyWith(
                     color: Theme.of(context)
@@ -125,7 +125,7 @@ class _MailViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return SelectableText(
       message,
       style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 16),
     );

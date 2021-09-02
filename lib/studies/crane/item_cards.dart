@@ -37,12 +37,12 @@ class DestinationCard extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 10),
-                    child: Text(
+                    child: SelectableText(
                       destination.destination,
                       style: textTheme.subtitle1,
                     ),
                   ),
-                  Text(
+                  SelectableText(
                     destination.subtitle(context),
                     semanticsLabel: destination.subtitleSemantics(context),
                     style: textTheme.subtitle2,
@@ -64,9 +64,9 @@ class DestinationCard extends StatelessWidget {
                     child: _DestinationImage(destination: destination),
                   ),
                 ),
-                title:
-                    Text(destination.destination, style: textTheme.subtitle1),
-                subtitle: Text(
+                title: SelectableText(destination.destination,
+                    style: textTheme.subtitle1),
+                subtitle: SelectableText(
                   destination.subtitle(context),
                   semanticsLabel: destination.subtitleSemantics(context),
                   style: textTheme.subtitle2,

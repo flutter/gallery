@@ -59,7 +59,6 @@ class LoginPage extends StatelessWidget {
               ),
             )
           : Scaffold(
-              appBar: AppBar(backgroundColor: Colors.white),
               body: SafeArea(
                 child: ListView(
                   restorationId: 'login_list_view',

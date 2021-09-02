@@ -672,7 +672,7 @@ class _DemoSectionInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              SelectableText(
                 title,
                 style: textTheme.headline4.apply(
                   color: colorScheme.onSurface,
@@ -681,7 +681,7 @@ class _DemoSectionInfo extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              Text(
+              SelectableText(
                 description,
                 style: textTheme.bodyText2.apply(color: colorScheme.onSurface),
               ),
@@ -827,10 +827,7 @@ class CodeDisplayPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: RichText(
-                textDirection: TextDirection.ltr,
-                text: _richTextCode,
-              ),
+              child: SelectableText.rich(_richTextCode),
             ),
           ),
         ),

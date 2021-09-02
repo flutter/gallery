@@ -167,11 +167,11 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      SelectableText(
                         GalleryLocalizations.of(context).shrineCartTotalCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.totalCost),
                           style: largeAmountStyle,
                           textAlign: TextAlign.end,
@@ -184,12 +184,12 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      Text(
+                      SelectableText(
                         GalleryLocalizations.of(context)
                             .shrineCartSubtotalCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.subtotalCost),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -202,12 +202,12 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      Text(
+                      SelectableText(
                         GalleryLocalizations.of(context)
                             .shrineCartShippingCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.shippingCost),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -220,11 +220,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      Text(
+                      SelectableText(
                         GalleryLocalizations.of(context).shrineCartTaxCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.tax),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -312,12 +312,12 @@ class ShoppingCartRow extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: Text(
+                                      child: SelectableText(
                                         GalleryLocalizations.of(context)
                                             .shrineProductQuantity(quantity),
                                       ),
                                     ),
-                                    Text(
+                                    SelectableText(
                                       GalleryLocalizations.of(context)
                                           .shrineProductPrice(
                                         formatter.format(product.price),
@@ -326,7 +326,7 @@ class ShoppingCartRow extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Text(
+                              SelectableText(
                                 product.name(context),
                                 style: localTheme.textTheme.subtitle1
                                     .copyWith(fontWeight: FontWeight.w600),

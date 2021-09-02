@@ -508,10 +508,13 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
             enabled: true,
             label: GalleryLocalizations.of(context)
                 .shrineScreenReaderCart(totalCartQuantity),
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: open,
-              child: child,
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: open,
+                child: child,
+              ),
             ),
           )
         : child;
@@ -741,6 +744,8 @@ class ProductThumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
+    print(opacityAnimation);
+    print(animation);
     return FadeTransition(
       opacity: opacityAnimation,
       child: ScaleTransition(
