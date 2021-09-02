@@ -744,8 +744,6 @@ class ProductThumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    print(opacityAnimation);
-    print(animation);
     return FadeTransition(
       opacity: opacityAnimation,
       child: ScaleTransition(

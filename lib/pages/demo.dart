@@ -831,7 +831,10 @@ class CodeDisplayPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: SelectableText.rich(_richTextCode),
+              child: SelectableText.rich(
+                _richTextCode,
+                textDirection: TextDirection.ltr,
+              ),
             ),
           ),
         ),
