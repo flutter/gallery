@@ -155,7 +155,7 @@ class _ShrineAppState extends State<ShrineApp>
           // By default on desktop, scrollbars are applied by the
           // ScrollBehavior. This overrides that. All vertical scrollables in
           // the gallery need to be audited before enabling this feature,
-          // see https://github.com/flutter/gallery/issues/523
+          // see https://github.com/flutter/gallery/issues/541
           scrollBehavior:
               const MaterialScrollBehavior().copyWith(scrollbars: false),
           restorationScopeId: 'shrineApp',
