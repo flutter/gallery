@@ -2,6 +2,7 @@ name: Draft Github Release
 on:
   workflow_dispatch:
     # Enable manual run
+  pull_request: # TODO: remove
   push:
     # Sequence of patterns matched against refs/tags
     tags:
