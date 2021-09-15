@@ -110,7 +110,8 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
-          : SelectableText(GalleryLocalizations.of(context).starterAppGenericTitle),
+          : SelectableText(
+              GalleryLocalizations.of(context).starterAppGenericTitle),
       bottom: isDesktop
           ? PreferredSize(
               preferredSize: const Size.fromHeight(26),

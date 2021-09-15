@@ -647,7 +647,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  color: Theme.of(context).bottomSheetTheme.modalBackgroundColor,
+                  color:
+                      Theme.of(context).bottomSheetTheme.modalBackgroundColor,
                 ),
               ),
             ),
