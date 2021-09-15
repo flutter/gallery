@@ -1,12 +1,11 @@
 name: Draft Github Release
 on:
+  # Enable manual run
   workflow_dispatch:
-    # Enable manual run
-  pull_request: # TODO: remove
+  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'v*'
 
 jobs:
   generate-changelog:
