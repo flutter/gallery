@@ -59,7 +59,7 @@ platform it runs on. This is determined based on window size as outlined in
 [adaptive.dart](lib/layout/adaptive.dart).
 
 
-## Development
+## Development & Releasing
 
 <details>
   <summary>Including a new splash animation</summary>
@@ -102,7 +102,11 @@ See separate [README](tool/codeviewer_cli/README.md) for
 more details.
 </details>
 
-## Creating a new release (for Flutter org members)
+---
+
+<details>
+  <summary>Creating a new release (for Flutter org members)</summary>
+
 1. **Staging**: Bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
    Use [semantic versioning](https://semver.org/) to determine
    which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
@@ -119,6 +123,7 @@ more details.
     * Promote the Play Store beta to production by running [this workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml) with `promote_to_production` using GitHub's UI.
 
 More information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
+</details>
 
 ## Tests
 
