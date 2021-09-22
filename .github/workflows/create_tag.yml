@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v2
     - uses: jacopocarlini/action-autotag@33f2200be533497d3b7a98a952a12a833f0d288f
       with:
-        GITHUB_TOKEN: "${{ secrets.FLUTTERGITHUBBOT_TOKEN }}"
+        GITHUB_TOKEN: "abc"
         tag_prefix: "abc" # TODO: fix
