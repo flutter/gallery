@@ -119,17 +119,20 @@ class _SplashPageState extends State<SplashPage>
             final animation = _getPanelAnimation(context, constraints);
             var frontLayer = widget.child;
             if (_isSplashVisible) {
-              frontLayer = GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () {
-                  _controller.reverse();
-                },
-                onVerticalDragEnd: (details) {
-                  if (details.velocity.pixelsPerSecond.dy < -200) {
+              frontLayer = MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
                     _controller.reverse();
-                  }
-                },
-                child: IgnorePointer(child: frontLayer),
+                  },
+                  onVerticalDragEnd: (details) {
+                    if (details.velocity.pixelsPerSecond.dy < -200) {
+                      _controller.reverse();
+                    }
+                  },
+                  child: IgnorePointer(child: frontLayer),
+                ),
               );
             }
 
@@ -194,9 +197,12 @@ class _SplashBackLayer extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50),
               child: Align(
                 alignment: Alignment.topCenter,
-                child: GestureDetector(
-                  onTap: onTap,
-                  child: flutterLogo,
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: onTap,
+                    child: flutterLogo,
+                  ),
                 ),
               ),
             )

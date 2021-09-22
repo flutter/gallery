@@ -70,22 +70,26 @@ class CategoryMenuPage extends StatelessWidget {
         selected: model.selectedCategory == category,
         button: true,
         enabled: true,
-        child: GestureDetector(
-          onTap: () {
-            model.setCategory(category);
-            if (onCategoryTap != null) {
-              onCategoryTap();
-            }
-          },
-          child: model.selectedCategory == category
-              ? CustomPaint(
-                  painter: TriangleCategoryIndicator(
-                    indicatorWidth,
-                    indicatorHeight,
-                  ),
-                  child: _buttonText(categoryString, selectedCategoryTextStyle),
-                )
-              : _buttonText(categoryString, unselectedCategoryTextStyle),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              model.setCategory(category);
+              if (onCategoryTap != null) {
+                onCategoryTap();
+              }
+            },
+            child: model.selectedCategory == category
+                ? CustomPaint(
+                    painter: TriangleCategoryIndicator(
+                      indicatorWidth,
+                      indicatorHeight,
+                    ),
+                    child:
+                        _buttonText(categoryString, selectedCategoryTextStyle),
+                  )
+                : _buttonText(categoryString, unselectedCategoryTextStyle),
+          ),
         ),
       ),
     );
@@ -131,15 +135,18 @@ class CategoryMenuPage extends StatelessWidget {
                   Semantics(
                     button: true,
                     enabled: true,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .restorablePushNamed(ShrineApp.loginRoute);
-                      },
-                      child: _buttonText(
-                        GalleryLocalizations.of(context)
-                            .shrineLogoutButtonCaption,
-                        logoutTextStyle,
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .restorablePushNamed(ShrineApp.loginRoute);
+                        },
+                        child: _buttonText(
+                          GalleryLocalizations.of(context)
+                              .shrineLogoutButtonCaption,
+                          logoutTextStyle,
+                        ),
                       ),
                     ),
                   ),
@@ -178,18 +185,21 @@ class CategoryMenuPage extends StatelessWidget {
                     Semantics(
                       button: true,
                       enabled: true,
-                      child: GestureDetector(
-                        onTap: () {
-                          if (onCategoryTap != null) {
-                            onCategoryTap();
-                          }
-                          Navigator.of(context)
-                              .restorablePushNamed(ShrineApp.loginRoute);
-                        },
-                        child: _buttonText(
-                          GalleryLocalizations.of(context)
-                              .shrineLogoutButtonCaption,
-                          logoutTextStyle,
+                      child: MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (onCategoryTap != null) {
+                              onCategoryTap();
+                            }
+                            Navigator.of(context)
+                                .restorablePushNamed(ShrineApp.loginRoute);
+                          },
+                          child: _buttonText(
+                            GalleryLocalizations.of(context)
+                                .shrineLogoutButtonCaption,
+                            logoutTextStyle,
+                          ),
                         ),
                       ),
                     ),

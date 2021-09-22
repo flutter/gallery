@@ -411,20 +411,24 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         child: section,
       );
 
+      final isDemoNormal = currentDemoState == _DemoState.normal;
       // Add a tap gesture to collapse the currently opened section.
       demoContent = Semantics(
         label: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        child: GestureDetector(
-          onTap: () {
-            if (currentDemoState != _DemoState.normal) {
-              setStateAndUpdate(() {
-                _demoStateIndex.value = _DemoState.normal.index;
-              });
-            }
-          },
-          child: Semantics(
-            excludeSemantics: currentDemoState != _DemoState.normal,
-            child: demoContent,
+        child: MouseRegion(
+          cursor: isDemoNormal ? MouseCursor.defer : SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              if (!isDemoNormal) {
+                setStateAndUpdate(() {
+                  _demoStateIndex.value = _DemoState.normal.index;
+                });
+              }
+            },
+            child: Semantics(
+              excludeSemantics: !isDemoNormal,
+              child: demoContent,
+            ),
           ),
         ),
       );
@@ -672,7 +676,7 @@ class _DemoSectionInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              SelectableText(
                 title,
                 style: textTheme.headline4.apply(
                   color: colorScheme.onSurface,
@@ -681,7 +685,7 @@ class _DemoSectionInfo extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              Text(
+              SelectableText(
                 description,
                 style: textTheme.bodyText2.apply(color: colorScheme.onSurface),
               ),
@@ -827,9 +831,9 @@ class CodeDisplayPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: RichText(
+              child: SelectableText.rich(
+                _richTextCode,
                 textDirection: TextDirection.ltr,
-                text: _richTextCode,
               ),
             ),
           ),

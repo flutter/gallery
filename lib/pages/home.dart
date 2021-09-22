@@ -295,7 +295,7 @@ class Header extends StatelessWidget {
         top: isDisplayDesktop(context) ? 63 : 15,
         bottom: isDisplayDesktop(context) ? 21 : 11,
       ),
-      child: Text(
+      child: SelectableText(
         text,
         style: Theme.of(context).textTheme.headline4.apply(
               color: color,
@@ -564,13 +564,11 @@ class _DesktopCategoryHeader extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 8),
               child: Semantics(
                 header: true,
-                child: Text(
+                child: SelectableText(
                   category.displayTitle(GalleryLocalizations.of(context)),
                   style: Theme.of(context).textTheme.headline5.apply(
                         color: colorScheme.onSurface,
                       ),
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),

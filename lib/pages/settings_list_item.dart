@@ -46,7 +46,7 @@ class SlowMotionSetting extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      SelectableText(
                         GalleryLocalizations.of(context).settingsSlowMotion,
                         style: textTheme.subtitle1.apply(
                           color: colorScheme.onSurface,
