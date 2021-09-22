@@ -21,7 +21,7 @@ jobs:
       - name: Generate changelog since last published release
         uses: charmixer/auto-changelog-action@5c6320ae4dedc8743e4439a3c56294c294553fb9
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.FLUTTERGITHUBBOT_TOKEN }}
           future_release: ${{ github.ref }}
           since_tag: ${{ steps.get_latest_release.outputs.release }}
       - name: Upload changelog
@@ -46,7 +46,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.FLUTTERGITHUBBOT_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: Flutter Gallery ${{ github.ref }}
@@ -167,7 +167,7 @@ jobs:
       id: upload_release_asset
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.FLUTTERGITHUBBOT_TOKEN }}
       with:
         upload_url: ${{ needs.draft-release.outputs.upload_url }}
         asset_path: ./flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
