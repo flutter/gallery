@@ -12,8 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: jacopocarlini/action-autotag@33f2200be533497d3b7a98a952a12a833f0d288f
-      with:
-        GITHUB_TOKEN: "${{ secrets.FLUTTERGITHUBBOT_TOKEN }}"
-        tag_prefix: "v"
+      - uses: actions/checkout@v2
+      - uses: jacopocarlini/action-autotag@33f2200be533497d3b7a98a952a12a833f0d288f
+        with:
+          GITHUB_TOKEN: "${{ secrets.FLUTTERGITHUBBOT_TOKEN }}"
+          ACTIONS_SETUP_DEBUG: true
+          tag_prefix: "v"
