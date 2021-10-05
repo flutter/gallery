@@ -35,7 +35,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.2"
+    version: "3.1.5"
   args:
     dependency: "direct dev"
     description:
@@ -574,7 +574,7 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.17.11"
+    version: "1.17.12"
   test_api:
     dependency: transitive
     description:
@@ -588,7 +588,7 @@ packages:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1"
+    version: "0.4.2"
   typed_data:
     dependency: transitive
     description:
@@ -644,7 +644,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   vm_service:
     dependency: transitive
     description:
@@ -709,5 +709,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.13.0 <3.0.0"
-  flutter: ">=2.2.0"
+  dart: ">=2.14.0 <3.0.0"
+  flutter: ">=2.6.0-0"
