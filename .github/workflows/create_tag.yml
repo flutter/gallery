@@ -9,8 +9,11 @@ on:
 #    - master
 
 jobs:
-  build:
+  tag:
     runs-on: ubuntu-latest
+    permissions:
+      # Needs to push a tag back to the repo.
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: jacopocarlini/action-autotag@33f2200be533497d3b7a98a952a12a833f0d288f
