@@ -25,19 +25,19 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            SelectableText(
               GalleryLocalizations.of(context).starterAppGenericHeadline,
               style: textTheme.headline3.copyWith(
                 color: colorScheme.onSecondary,
               ),
             ),
             const SizedBox(height: 10),
-            Text(
+            SelectableText(
               GalleryLocalizations.of(context).starterAppGenericSubtitle,
               style: textTheme.subtitle1,
             ),
             const SizedBox(height: 48),
-            Text(
+            SelectableText(
               GalleryLocalizations.of(context).starterAppGenericBody,
               style: textTheme.bodyText1,
             ),
@@ -110,14 +110,15 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
-          : Text(GalleryLocalizations.of(context).starterAppGenericTitle),
+          : SelectableText(
+              GalleryLocalizations.of(context).starterAppGenericTitle),
       bottom: isDesktop
           ? PreferredSize(
               preferredSize: const Size.fromHeight(26),
               child: Container(
                 alignment: AlignmentDirectional.centerStart,
                 margin: const EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
-                child: Text(
+                child: SelectableText(
                   GalleryLocalizations.of(context).starterAppGenericTitle,
                   style: themeData.textTheme.headline6.copyWith(
                     color: themeData.colorScheme.onPrimary,
@@ -167,11 +168,11 @@ class _ListDrawerState extends State<ListDrawer> {
         child: ListView(
           children: [
             ListTile(
-              title: Text(
+              title: SelectableText(
                 GalleryLocalizations.of(context).starterAppTitle,
                 style: textTheme.headline6,
               ),
-              subtitle: Text(
+              subtitle: SelectableText(
                 GalleryLocalizations.of(context).starterAppGenericSubtitle,
                 style: textTheme.bodyText2,
               ),

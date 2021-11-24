@@ -39,7 +39,6 @@ class _LoginPageState extends State<LoginPage> with RestorationMixin {
   Widget build(BuildContext context) {
     return ApplyTextOptions(
       child: Scaffold(
-        appBar: AppBar(automaticallyImplyLeading: false),
         body: SafeArea(
           child: _MainView(
             usernameController: _usernameController.value,
@@ -293,42 +292,45 @@ class _ThumbButtonState extends State<_ThumbButton> {
       button: true,
       enabled: true,
       label: GalleryLocalizations.of(context).rallyLoginLabelLogin,
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: Focus(
-          onKey: (node, event) {
-            if (event is RawKeyDownEvent) {
-              if (event.logicalKey == LogicalKeyboardKey.enter ||
-                  event.logicalKey == LogicalKeyboardKey.space) {
-                widget.onTap();
-                return KeyEventResult.handled;
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: widget.onTap,
+          child: Focus(
+            onKey: (node, event) {
+              if (event is RawKeyDownEvent) {
+                if (event.logicalKey == LogicalKeyboardKey.enter ||
+                    event.logicalKey == LogicalKeyboardKey.space) {
+                  widget.onTap();
+                  return KeyEventResult.handled;
+                }
               }
-            }
-            return KeyEventResult.ignored;
-          },
-          onFocusChange: (hasFocus) {
-            if (hasFocus) {
-              setState(() {
-                borderDecoration = BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.5),
-                    width: 2,
-                  ),
-                );
-              });
-            } else {
-              setState(() {
-                borderDecoration = null;
-              });
-            }
-          },
-          child: Container(
-            decoration: borderDecoration,
-            height: 120,
-            child: ExcludeSemantics(
-              child: Image.asset(
-                'thumb.png',
-                package: 'rally_assets',
+              return KeyEventResult.ignored;
+            },
+            onFocusChange: (hasFocus) {
+              if (hasFocus) {
+                setState(() {
+                  borderDecoration = BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.5),
+                      width: 2,
+                    ),
+                  );
+                });
+              } else {
+                setState(() {
+                  borderDecoration = null;
+                });
+              }
+            },
+            child: Container(
+              decoration: borderDecoration,
+              height: 120,
+              child: ExcludeSemantics(
+                child: Image.asset(
+                  'thumb.png',
+                  package: 'rally_assets',
+                ),
               ),
             ),
           ),

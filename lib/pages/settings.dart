@@ -352,7 +352,7 @@ class SettingsAttribution extends StatelessWidget {
           top: verticalPadding,
           bottom: verticalPadding,
         ),
-        child: Text(
+        child: SelectableText(
           GalleryLocalizations.of(context).settingsAttribution,
           style: Theme.of(context).textTheme.bodyText1.copyWith(
                 fontSize: 12,

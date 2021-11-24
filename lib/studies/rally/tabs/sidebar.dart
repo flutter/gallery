@@ -69,7 +69,7 @@ class SidebarItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 8),
-        Text(
+        SelectableText(
           title,
           style: textTheme.bodyText2.copyWith(
             fontSize: 16,
@@ -77,7 +77,7 @@ class SidebarItem extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(
+        SelectableText(
           value,
           style: textTheme.bodyText1.copyWith(fontSize: 20),
         ),

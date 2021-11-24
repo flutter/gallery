@@ -87,11 +87,14 @@ Widget _buildProductCard({
       return Semantics(
         hint:
             GalleryLocalizations.of(context).shrineScreenReaderProductAddToCart,
-        child: GestureDetector(
-          onTap: () {
-            model.addProductToCart(product.id);
-          },
-          child: child,
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              model.addProductToCart(product.id);
+            },
+            child: child,
+          ),
         ),
       );
     },

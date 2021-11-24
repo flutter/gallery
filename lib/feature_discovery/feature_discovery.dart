@@ -150,13 +150,16 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
       type: MaterialType.transparency,
       child: Stack(
         children: [
-          GestureDetector(
-            key: FeatureDiscovery.gestureDetectorKey,
-            onTap: dismiss,
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.transparent,
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              key: FeatureDiscovery.gestureDetectorKey,
+              onTap: dismiss,
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.transparent,
+              ),
             ),
           ),
           Background(

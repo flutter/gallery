@@ -74,7 +74,8 @@ Future<void> verifyCodeSegments() async {
   final codeSegmentsUnformatted =
       Dart.run(codeviewerPath, arguments: ['--dry-run'], quiet: true);
   final codeSegmentsFormatted = await _startProcess(
-    path.normalize(path.join(dartVM.path, '../dartfmt')),
+    dartVM.path,
+    arguments: ['format'],
     input: codeSegmentsUnformatted,
   );
 

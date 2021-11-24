@@ -27,11 +27,14 @@ class Scrim extends StatelessWidget {
           final tapToRevert = (controller.status == AnimationStatus.completed);
 
           if (tapToRevert) {
-            return GestureDetector(
-              onTap: () {
-                controller.reverse();
-              },
-              child: scrimRectangle,
+            return MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () {
+                  controller.reverse();
+                },
+                child: scrimRectangle,
+              ),
             );
           } else if (ignorePointer) {
             return IgnorePointer(child: scrimRectangle);
