@@ -44,7 +44,6 @@ class DestinationCard extends StatelessWidget {
                   ),
                   SelectableText(
                     destination.subtitle(context),
-                    semanticsLabel: destination.subtitleSemantics(context),
                     style: textTheme.subtitle2,
                   ),
                 ],
@@ -68,7 +67,6 @@ class DestinationCard extends StatelessWidget {
                     style: textTheme.subtitle1),
                 subtitle: SelectableText(
                   destination.subtitle(context),
-                  semanticsLabel: destination.subtitleSemantics(context),
                   style: textTheme.subtitle2,
                 ),
               ),
