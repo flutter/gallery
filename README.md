@@ -111,9 +111,9 @@ more details.
 
 2. **Staging**: After the version bump PR is merged, push a new version tag to master.
 ```bash
-git pull upstream master
-git tag v1.2.4  # note the v
-git push upstream v1.2.4
+git pull origin master
+git tag v2.9.4  # note the v
+git push origin v2.9.4
 ```
    This will trigger a set of GitHub Actions [workflows](https://github.com/flutter/gallery/actions/) that will:
    * Draft a [GitHub release]((https://github.com/flutter/gallery/releases)) with automatically generated release notes and packaged builds (.apk, macOS, Windows, and Linux)
