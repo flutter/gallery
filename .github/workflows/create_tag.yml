@@ -16,7 +16,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
-      - uses: jacopocarlini/action-autotag@33f2200be533497d3b7a98a952a12a833f0d288f
+      - uses: guidezpl/action-autotag@master
         with:
           GITHUB_TOKEN: "${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}"
           tag_prefix: "v"
