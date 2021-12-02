@@ -253,7 +253,7 @@ class _SettingsPageState extends State<SettingsPage> {
     ];
 
     return Material(
-      color: colorScheme.secondaryVariant,
+      color: colorScheme.secondaryContainer,
       child: Padding(
         padding: isDesktop
             ? EdgeInsets.zero
