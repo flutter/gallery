@@ -174,9 +174,9 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
     ),
     colorScheme: const ColorScheme.light(
       primary: ReplyColors.blue700,
-      primaryVariant: ReplyColors.blue800,
+      primaryContainer: ReplyColors.blue800,
       secondary: ReplyColors.orange500,
-      secondaryVariant: ReplyColors.orange400,
+      secondaryContainer: ReplyColors.orange400,
       surface: ReplyColors.white50,
       error: ReplyColors.red400,
       onPrimary: ReplyColors.white50,
@@ -221,9 +221,9 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
     ),
     colorScheme: const ColorScheme.dark(
       primary: ReplyColors.blue200,
-      primaryVariant: ReplyColors.blue300,
+      primaryContainer: ReplyColors.blue300,
       secondary: ReplyColors.orange300,
-      secondaryVariant: ReplyColors.orange300,
+      secondaryContainer: ReplyColors.orange300,
       surface: ReplyColors.black800,
       error: ReplyColors.red200,
       onPrimary: ReplyColors.black900,
