@@ -60,6 +60,7 @@ class RallyApp extends StatelessWidget {
     return ThemeData(
       appBarTheme: const AppBarTheme(
         systemOverlayStyle: SystemUiOverlayStyle.light,
+        backgroundColor: RallyColors.primaryBackground,
         elevation: 0,
       ),
       scaffoldBackgroundColor: RallyColors.primaryBackground,
