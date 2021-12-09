@@ -343,7 +343,7 @@
   "@rallyLoginButtonLogin": {
     "description": "Text for login button."
   },
-  "rallyAlertsMessageHeadsUpShopping": "Heads up, you’ve used up {percent} of your Shopping budget for this month.",
+  "rallyAlertsMessageHeadsUpShopping": "Heads up, you've used up {percent} of your Shopping budget for this month.",
   "@rallyAlertsMessageHeadsUpShopping": {
     "description": "Alert message shown when for example, user has used more than 90% of their shopping budget.",
     "placeholders": {
@@ -352,7 +352,7 @@
       }
     }
   },
-  "rallyAlertsMessageSpentOnRestaurants": "You’ve spent {amount} on Restaurants this week.",
+  "rallyAlertsMessageSpentOnRestaurants": "You've spent {amount} on Restaurants this week.",
   "@rallyAlertsMessageSpentOnRestaurants": {
     "description": "Alert message shown when for example, user has spent $120 on Restaurants this week.",
     "placeholders": {
@@ -361,7 +361,7 @@
        }
     }
   },
-  "rallyAlertsMessageATMFees": "You’ve spent {amount} in ATM fees this month",
+  "rallyAlertsMessageATMFees": "You've spent {amount} in ATM fees this month",
   "@rallyAlertsMessageATMFees": {
     "description": "Alert message shown when for example, the user has spent $24 in ATM fees this month.",
     "placeholders": {
@@ -601,7 +601,7 @@
   "@demoAppBarSubtitle": {
     "description": "Subtitle for the material App bar component demo."
   },
-  "demoAppBarDescription": "The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions",
+  "demoAppBarDescription": "The App bar provides content and actions related to the current screen. It's used for branding, screen titles, navigation, and actions",
   "@demoAppBarDescription": {
     "description": "Description for the material App bar component demo."
   },
@@ -781,7 +781,7 @@
   "@demoDataTableSubtitle": {
     "description": "Subtitle for the material data table component demo."
   },
-  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.",
+  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way that's easy to scan, so that users can look for patterns and insights.",
   "@demoDataTableDescription": {
     "description": "Description for the material data table component demo."
   },
@@ -1916,7 +1916,7 @@
   "@demoSnackbarsSubtitle": {
     "description": "Subtitle for snackbars demo."
   },
-  "demoSnackbarsDescription": "Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.",
+  "demoSnackbarsDescription": "Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn't interrupt the user experience, and they don't require user input to disappear.",
   "@demoSnackbarsDescription": {
     "description": "Description for snackbars demo."
   },
@@ -1934,7 +1934,7 @@
   },
   "demoSnackbarsAction": "You pressed the snackbar action.",
   "@demoSnackbarsAction": {
-    "description": "Text that appears when you press on a snackbars’ action."
+    "description": "Text that appears when you press on a snackbars' action."
   },
   "demoSelectionControlsTitle": "Selection controls",
   "@demoSelectionControlsTitle": {
@@ -1964,7 +1964,7 @@
   "@demoSelectionControlsSwitchTitle": {
     "description": "Title for the switches (selection controls) demo."
   },
-  "demoSelectionControlsSwitchDescription": "On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.",
+  "demoSelectionControlsSwitchDescription": "On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it's in, should be made clear from the corresponding inline label.",
   "@demoSelectionControlsSwitchDescription": {
     "description": "Description for the switches (selection controls) demo."
   },

@@ -13,5 +13,5 @@ void main(List<String> arguments) {
       help: 'Write the output to stdout.',
     );
   final argResults = parser.parse(arguments);
-  l10n_cli.englishArbsToXmls(isDryRun: argResults['dry-run'] as bool);
+  l10n_cli.arbToXml(isDryRun: argResults['dry-run'] as bool);
 }
