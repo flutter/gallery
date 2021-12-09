@@ -10,7 +10,7 @@ String _standardizeLineEndings(String str) => str.replaceAll('\r\n', '\n');
 
 void main() {
   test('verify intl_en_US.xml is up to date', () async {
-    final currentXml = getDefaultXml();
+    final currentXml = readEnglishXml();
     final newXml = await generateXmlFromArb();
 
     expect(_standardizeLineEndings(currentXml), _standardizeLineEndings(newXml),

@@ -42,7 +42,7 @@ String _escapeXml(String xml) {
       .replaceAll('<', '&lt;');
 }
 
-String getDefaultXml() => File(_englishXmlPath).readAsStringSync();
+String readEnglishXml() => File(_englishXmlPath).readAsStringSync();
 
 /// Updates an intl_*.xml file from an intl_*.arb file. Defaults to English (US).
 Future<void> arbToXml({
