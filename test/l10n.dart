@@ -9,10 +9,9 @@ import '../tool/l10n_cli/l10n_cli.dart';
 String _standardizeLineEndings(String str) => str.replaceAll('\r\n', '\n');
 
 void main() {
-  /// Verifies that intl_en_US.xml is updated.
   test('verify intl_en_US.xml is up to date', () async {
-    final currentXml = getDefaultXml().replaceAll('\r\n', '\n');
-    final newXml = (await generateXmlFromArb()).replaceAll('\r\n', '\n');
+    final currentXml = getDefaultXml();
+    final newXml = await generateXmlFromArb();
 
     expect(_standardizeLineEndings(currentXml), _standardizeLineEndings(newXml),
         reason: 'intl_en_US.xml is not up to date. '
