@@ -29,6 +29,7 @@ dependencies:
   shrine_images: ^2.0.1
   url_launcher: ^6.0.3
   vector_math: ^2.1.0
+  shared_preferences: ^2.0.9
 
 dev_dependencies:
   flutter_test:
