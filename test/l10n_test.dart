@@ -5,15 +5,14 @@
 import 'package:test/test.dart';
 
 import '../tool/l10n_cli/l10n_cli.dart';
-
-String _standardizeLineEndings(String str) => str.replaceAll('\r\n', '\n');
+import 'utils.dart';
 
 void main() {
   test('verify intl_en_US.xml is up to date', () async {
     final currentXml = readEnglishXml();
     final newXml = await generateXmlFromArb();
 
-    expect(_standardizeLineEndings(currentXml), _standardizeLineEndings(newXml),
+    expect(standardizeLineEndings(currentXml), standardizeLineEndings(newXml),
         reason: 'intl_en_US.xml is not up to date. '
             'Did you forget to run `flutter pub run grinder l10n`?');
   });
