@@ -5,27 +5,18 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:path/path.dart' as path;
 
 import 'segment_generator.dart';
 
-void main(List<String> arguments) {
+Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
     ..addOption(
       'target',
       help: 'The file path for the output target file.',
-      defaultsTo: path.join(
-          Directory.current.path, 'lib', 'codeviewer', 'code_segments.dart'),
-    )
-    ..addFlag(
-      'dry-run',
-      help: 'Write the output to stdout.',
+      defaultsTo: codeSegmentsPath,
     );
   final argResults = parser.parse(arguments);
 
-  writeSegments(
-    sourceDirectoryPath: path.join(Directory.current.path, 'lib', 'demos'),
-    targetFilePath: argResults['target'] as String,
-    isDryRun: argResults['dry-run'] as bool,
-  );
+  final codeSegments = await getCodeSegments();
+  File(argResults['target'] as String).writeAsStringSync(codeSegments);
 }

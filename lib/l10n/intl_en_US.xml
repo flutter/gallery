@@ -332,15 +332,15 @@
   <string
     name="rallyAlertsMessageHeadsUpShopping"
     description="Alert message shown when for example, user has used more than 90% of their shopping budget."
-    >Heads up, you’ve used up {percent} of your Shopping budget for this month.</string>
+    >Heads up, you&apos;ve used up {percent} of your Shopping budget for this month.</string>
   <string
     name="rallyAlertsMessageSpentOnRestaurants"
     description="Alert message shown when for example, user has spent $120 on Restaurants this week."
-    >You’ve spent {amount} on Restaurants this week.</string>
+    >You&apos;ve spent {amount} on Restaurants this week.</string>
   <string
     name="rallyAlertsMessageATMFees"
     description="Alert message shown when for example, the user has spent $24 in ATM fees this month."
-    >You’ve spent {amount} in ATM fees this month</string>
+    >You&apos;ve spent {amount} in ATM fees this month</string>
   <string
     name="rallyAlertsMessageCheckingAccount"
     description="Alert message shown when for example, the checking account is 1% higher than last month."
@@ -524,7 +524,7 @@
   <string
     name="demoAppBarDescription"
     description="Description for the material App bar component demo."
-    >The App bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions</string>
+    >The App bar provides content and actions related to the current screen. It&apos;s used for branding, screen titles, navigation, and actions</string>
   <string
     name="demoBottomAppBarTitle"
     description="Title for the material bottom app bar component demo."
@@ -704,7 +704,7 @@
   <string
     name="demoDataTableDescription"
     description="Description for the material data table component demo."
-    >Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.</string>
+    >Data tables display information in a grid-like format of rows and columns. They organize information in a way that&apos;s easy to scan, so that users can look for patterns and insights.</string>
   <string
     name="dataTableHeader"
     description="Header for the data table component demo about nutrition."
@@ -1804,7 +1804,7 @@
   <string
     name="demoSnackbarsDescription"
     description="Description for snackbars demo."
-    >Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.</string>
+    >Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn&apos;t interrupt the user experience, and they don&apos;t require user input to disappear.</string>
   <string
     name="demoSnackbarsButtonLabel"
     description="Label for button to show a snackbar."
@@ -1819,7 +1819,7 @@
     >ACTION</string>
   <string
     name="demoSnackbarsAction"
-    description="Text that appears when you press on a snackbars’ action."
+    description="Text that appears when you press on a snackbars&apos; action."
     >You pressed the snackbar action.</string>
   <string
     name="demoSelectionControlsTitle"
@@ -1852,7 +1852,7 @@
   <string
     name="demoSelectionControlsSwitchDescription"
     description="Description for the switches (selection controls) demo."
-    >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.</string>
+    >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it&apos;s in, should be made clear from the corresponding inline label.</string>
   <string
     name="demoBottomTextFieldsTitle"
     description="Title for text fields demo."
