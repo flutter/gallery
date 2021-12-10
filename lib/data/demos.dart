@@ -4,7 +4,6 @@
 
 import 'dart:collection';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
@@ -46,8 +45,6 @@ enum GalleryDemoCategory {
 }
 
 extension GalleryDemoExtension on GalleryDemoCategory {
-  String get name => describeEnum(this);
-
   String displayTitle(GalleryLocalizations localizations) {
     switch (this) {
       case GalleryDemoCategory.material:
