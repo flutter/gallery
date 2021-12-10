@@ -137,7 +137,6 @@ class _TransformationsDemoState extends State<TransformationsDemo>
                   onTapUp: _onTapUp,
                   child: InteractiveViewer(
                     key: _targetKey,
-                    scaleEnabled: !kIsWeb,
                     transformationController: _transformationController,
                     boundaryMargin: EdgeInsets.symmetric(
                       horizontal: viewportSize.width,
