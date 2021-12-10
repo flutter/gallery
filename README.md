@@ -86,6 +86,11 @@ the application for the first time, a synthetic package will be generated
 containing the app's localizations through importing
 `package:flutter_gen/gen_l10n/`.
 
+```bash
+flutter pub get
+flutter pub run grinder l10n
+```
+
 See separate [README](lib/l10n/README.md) for more details.
 
 </details>

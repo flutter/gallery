@@ -46,13 +46,13 @@ flutter gen-l10n \
 
 ## Obtaining Translations (for Flutter org members)
 
-From the root directory, run `dart tool/l10n_cli/main.dart`, which
+From the root directory, run `flutter pub run grinder l10n`, which
 will generate `intl_en_US.xml`. This will be used by the internal translation
 console to generate messages in the different locales.
 
 > Note that the filename for `intl_en_US.xml` is used by the internal
-translation console and changing the filename may require manually updating
-already translated messages to point to the new file. Therefore, avoid doing so
-unless necessary.
+> translation console and changing the filename may require manually updating
+> already translated messages to point to the new file. Therefore, avoid doing so
+> unless necessary.
 
 See `/third_party/dart/flutter_gallery/README.md` for how to import this file and export translations.
