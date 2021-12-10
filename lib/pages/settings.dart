@@ -83,7 +83,6 @@ class _SettingsPageState extends State<SettingsPage> {
   /// native name can't be determined, it is omitted. If the locale can't be
   /// determined, the locale code is used.
   DisplayOption _getLocaleDisplayOption(BuildContext context, Locale locale) {
-    // TODO: gsw, fil, and es_419 aren't in flutter_localized_countries' dataset
     final localeCode = locale.toString();
     final localeName = LocaleNames.of(context).nameOf(localeCode);
     if (localeName != null) {
@@ -93,6 +92,8 @@ class _SettingsPageState extends State<SettingsPage> {
           ? DisplayOption(localeNativeName, subtitle: localeName)
           : DisplayOption(localeName);
     } else {
+      // gsw, fil, and es_419 aren't in flutter_localized_countries' dataset
+      // so we handle them separately
       switch (localeCode) {
         case 'gsw':
           return DisplayOption('Schwiizertüütsch', subtitle: 'Swiss German');

@@ -109,10 +109,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
         label: semanticsLabel,
       ),
       excludeSemantics: true,
-      // TODO(shihaohong): State restoration of
-      // FinancialEntityCategoryDetailsPage on mobile is blocked because
-      // OpenContainer does not support restorablePush.
-      // See https://github.com/flutter/flutter/issues/69924.
+      // TODO(x): State restoration of FinancialEntityCategoryDetailsPage on mobile is blocked because OpenContainer does not support restorablePush, https://github.com/flutter/gallery/issues/570.
       child: OpenContainer(
         transitionDuration: const Duration(milliseconds: 350),
         transitionType: ContainerTransitionType.fade,
