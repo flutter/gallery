@@ -44928,14 +44928,6 @@ class CodeSegments {
       TextSpan(style: codeStyle.punctuationStyle, text: ','),
       TextSpan(
           style: codeStyle.baseStyle,
-          text: '\u000a                    scaleEnabled'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ':'),
-      TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.punctuationStyle, text: '!'),
-      TextSpan(style: codeStyle.constantStyle, text: 'kIsWeb'),
-      TextSpan(style: codeStyle.punctuationStyle, text: ','),
-      TextSpan(
-          style: codeStyle.baseStyle,
           text: '\u000a                    transformationController'),
       TextSpan(style: codeStyle.punctuationStyle, text: ':'),
       TextSpan(style: codeStyle.baseStyle, text: ' _transformationController'),
