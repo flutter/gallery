@@ -33,9 +33,9 @@ class StarterApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         colorScheme: const ColorScheme(
           primary: _primaryColor,
-          primaryContainer: Color(0xFF3700B3),
+          primaryVariant: Color(0xFF3700B3),
           secondary: Color(0xFF03DAC6),
-          secondaryContainer: Color(0xFF018786),
+          secondaryVariant: Color(0xFF018786),
           background: Colors.white,
           surface: Colors.white,
           onBackground: Colors.black,
