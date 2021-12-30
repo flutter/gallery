@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
@@ -137,7 +136,6 @@ class _TransformationsDemoState extends State<TransformationsDemo>
                   onTapUp: _onTapUp,
                   child: InteractiveViewer(
                     key: _targetKey,
-                    scaleEnabled: !kIsWeb,
                     transformationController: _transformationController,
                     boundaryMargin: EdgeInsets.symmetric(
                       horizontal: viewportSize.width,
