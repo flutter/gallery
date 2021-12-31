@@ -2,5 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @dart=2.9
+
 // Replace Windows line endings with Unix line endings
 String standardizeLineEndings(String str) => str.replaceAll('\r\n', '\n');

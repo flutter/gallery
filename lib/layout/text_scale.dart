@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 
 import 'package:gallery/data/gallery_options.dart';
 
-double _textScaleFactor(BuildContext context) {
-  return GalleryOptions.of(context).textScaleFactor(context);
+double? _textScaleFactor(BuildContext context) {
+  return GalleryOptions.of(context)!.textScaleFactor(context);
 }
 
 // When text is larger, this factor becomes larger, but at half the rate.
@@ -22,7 +22,7 @@ double _textScaleFactor(BuildContext context) {
 // | Huge         |               3.0 |                       2.0 |
 
 double reducedTextScale(BuildContext context) {
-  final textScaleFactor = _textScaleFactor(context);
+  final textScaleFactor = _textScaleFactor(context)!;
   return textScaleFactor >= 1 ? (1 + textScaleFactor) / 2 : 1;
 }
 
@@ -37,6 +37,6 @@ double reducedTextScale(BuildContext context) {
 // | Huge         |               3.0 |                       3.0 |
 
 double cappedTextScale(BuildContext context) {
-  final textScaleFactor = _textScaleFactor(context);
+  final textScaleFactor = _textScaleFactor(context)!;
   return max(textScaleFactor, 1);
 }
