@@ -21,7 +21,7 @@ class FadeInImagePlaceholder extends StatelessWidget {
     this.width,
     this.height,
     this.fit,
-  })  : super(key: key);
+  }) : super(key: key);
 
   /// The target image that we are loading into memory.
   final ImageProvider image;
