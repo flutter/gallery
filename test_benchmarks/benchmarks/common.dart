@@ -1,3 +1,5 @@
+// @dart=2.9
+
 const String galleryBenchmarkPrefix = 'gallery_v2';
 
 const String galleryStudiesPerf = '${galleryBenchmarkPrefix}_studies_perf';

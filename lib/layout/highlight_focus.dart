@@ -10,9 +10,9 @@ import 'package:flutter/services.dart';
 /// Wrap your widget as [child] of a [HighlightFocus] widget.
 class HighlightFocus extends StatefulWidget {
   const HighlightFocus({
-    Key key,
-    @required this.onPressed,
-    @required this.child,
+    Key? key,
+    required this.onPressed,
+    required this.child,
     this.highlightColor,
     this.borderColor,
     this.hasFocus = true,
@@ -30,23 +30,23 @@ class HighlightFocus extends StatefulWidget {
   /// is focused.
   /// Use [Colors.transparent] if you do not want one.
   /// Use an opacity less than 1 to make the underlying widget visible.
-  final Color highlightColor;
+  final Color? highlightColor;
 
   /// [borderColor] is the color of the border when the widget is focused.
-  final Color borderColor;
+  final Color? borderColor;
 
   /// [hasFocus] is true when focusing on the widget is allowed.
   /// Set to false if you want the child to skip focus.
   final bool hasFocus;
 
-  final String debugLabel;
+  final String? debugLabel;
 
   @override
   _HighlightFocusState createState() => _HighlightFocusState();
 }
 
 class _HighlightFocusState extends State<HighlightFocus> {
-  bool isFocused;
+  late bool isFocused;
 
   @override
   void initState() {
