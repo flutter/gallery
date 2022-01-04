@@ -23,7 +23,7 @@ jobs:
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
         uses: actions/checkout@v2
-      - run: flutter pub get
+      - run: flutter pub get -v
 
       # Analyze, check formatting, and run unit tests.
       - run: flutter analyze
@@ -47,7 +47,7 @@ jobs:
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
         uses: actions/checkout@v2
-      - run: flutter pub get
+      - run: flutter pub get -v
 
       - run: flutter test test_benchmarks
 
@@ -65,7 +65,7 @@ jobs:
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
         uses: actions/checkout@v2
-      - run: flutter pub get
+      - run: flutter pub get -v
 
       # Run the golden tests and upload failed test artifacts.
       - run: flutter test test_goldens
