@@ -207,7 +207,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                     elevation: 7,
                     clipBehavior: Clip.antiAlias,
                     borderRadius: BorderRadius.circular(40),
-                    color: Theme.of(context).colorScheme.secondaryContainer,
+                    color: Theme.of(context).colorScheme.secondaryVariant,
                     child: Container(
                       constraints: const BoxConstraints(
                         maxHeight: 560,
@@ -280,7 +280,7 @@ class _SettingsIcon extends AnimatedWidget {
             color:
                 isSettingsOpenNotifier.value & !animationController.isAnimating
                     ? Colors.transparent
-                    : Theme.of(context).colorScheme.secondaryContainer,
+                    : Theme.of(context).colorScheme.secondaryVariant,
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               onTap: () {

@@ -29,7 +29,7 @@ class EditBoardPoint extends StatelessWidget {
     final boardPointColors = <Color>{
       Colors.white,
       GalleryThemeData.darkColorScheme.primary,
-      GalleryThemeData.darkColorScheme.primaryContainer,
+      GalleryThemeData.darkColorScheme.primaryVariant,
       GalleryThemeData.darkColorScheme.secondary,
       backgroundColor,
     };
