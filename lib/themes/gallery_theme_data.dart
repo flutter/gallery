@@ -47,9 +47,9 @@ class GalleryThemeData {
 
   static const ColorScheme lightColorScheme = ColorScheme(
     primary: Color(0xFFB93C5D),
-    primaryContainer: Color(0xFF117378),
+    primaryVariant: Color(0xFF117378),
     secondary: Color(0xFFEFF3F3),
-    secondaryContainer: Color(0xFFFAFBFB),
+    secondaryVariant: Color(0xFFFAFBFB),
     background: Color(0xFFE6EBEB),
     surface: Color(0xFFFAFBFB),
     onBackground: Colors.white,
@@ -63,9 +63,9 @@ class GalleryThemeData {
 
   static const ColorScheme darkColorScheme = ColorScheme(
     primary: Color(0xFFFF8383),
-    primaryContainer: Color(0xFF1CDEC9),
+    primaryVariant: Color(0xFF1CDEC9),
     secondary: Color(0xFF4D1F7C),
-    secondaryContainer: Color(0xFF451B6F),
+    secondaryVariant: Color(0xFF451B6F),
     background: Color(0xFF241E30),
     surface: Color(0xFF1F1929),
     onBackground: Color(0x0DFFFFFF), // White with 0.05 opacity

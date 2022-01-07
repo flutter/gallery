@@ -34,9 +34,9 @@ class MaterialDemoThemeData {
 
   static const _colorScheme = ColorScheme(
     primary: Color(0xFF6200EE),
-    primaryContainer: Color(0xFF6200EE),
+    primaryVariant: Color(0xFF6200EE),
     secondary: Color(0xFFFF5722),
-    secondaryContainer: Color(0xFFFF5722),
+    secondaryVariant: Color(0xFFFF5722),
     background: Colors.white,
     surface: Color(0xFFF2F2F2),
     onBackground: Colors.black,

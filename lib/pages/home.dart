@@ -268,7 +268,7 @@ class _GalleryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Header(
-      color: Theme.of(context).colorScheme.primaryContainer,
+      color: Theme.of(context).colorScheme.primaryVariant,
       text: GalleryLocalizations.of(context).homeHeaderGallery,
     );
   }

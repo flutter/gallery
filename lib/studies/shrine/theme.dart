@@ -93,9 +93,9 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
 
 const ColorScheme _shrineColorScheme = ColorScheme(
   primary: shrinePink100,
-  primaryContainer: shrineBrown900,
+  primaryVariant: shrineBrown900,
   secondary: shrinePink50,
-  secondaryContainer: shrineBrown900,
+  secondaryVariant: shrineBrown900,
   surface: shrineSurfaceWhite,
   background: shrineBackgroundWhite,
   error: shrineErrorRed,
