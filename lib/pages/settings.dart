@@ -424,14 +424,10 @@ class _AnimateSettingsListItems extends StatelessWidget {
     Key key,
     this.animation,
     this.children,
-    this.topPadding,
-    this.bottomPadding,
   }) : super(key: key);
 
   final Animation<double> animation;
   final List<Widget> children;
-  final double topPadding;
-  final double bottomPadding;
 
   @override
   Widget build(BuildContext context) {
