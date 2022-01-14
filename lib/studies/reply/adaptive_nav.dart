@@ -143,7 +143,6 @@ class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
     Key key,
     this.inboxKey,
-    this.currentInbox,
     this.extended,
     this.destinations,
     this.folders,
@@ -152,7 +151,6 @@ class _DesktopNav extends StatefulWidget {
 
   final bool extended;
   final UniqueKey inboxKey;
-  final String currentInbox;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int, MailboxPageType) onItemTapped;
