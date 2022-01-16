@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -20,7 +18,7 @@ import 'package:gallery/feature_discovery/overlay.dart';
 class FeatureDiscoveryController extends StatefulWidget {
   final Widget child;
 
-  const FeatureDiscoveryController(this.child, {Key key}) : super(key: key);
+  const FeatureDiscoveryController(this.child, {Key? key}) : super(key: key);
 
   static _FeatureDiscoveryControllerState of(BuildContext context) {
     final matchResult =
@@ -97,13 +95,13 @@ class FeatureDiscovery extends StatefulWidget {
   final bool showOverlay;
 
   /// Callback invoked when the user dismisses an overlay.
-  final void Function() onDismiss;
+  final void Function()? onDismiss;
 
   /// Callback invoked when the user taps on the tap target of an overlay.
-  final void Function() onTap;
+  final void Function()? onTap;
 
   /// Color with which to fill the outer circle.
-  final Color color;
+  final Color? color;
 
   @visibleForTesting
   static const overlayKey = Key('overlay key');
@@ -112,11 +110,11 @@ class FeatureDiscovery extends StatefulWidget {
   static const gestureDetectorKey = Key('gesture detector key');
 
   const FeatureDiscovery({
-    Key key,
-    @required this.title,
-    @required this.description,
-    @required this.child,
-    @required this.showOverlay,
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.child,
+    required this.showOverlay,
     this.onDismiss,
     this.onTap,
     this.color,
@@ -131,13 +129,13 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
   bool showOverlay = false;
   FeatureDiscoveryStatus status = FeatureDiscoveryStatus.closed;
 
-  AnimationController openController;
-  AnimationController rippleController;
-  AnimationController tapController;
-  AnimationController dismissController;
+  late AnimationController openController;
+  late AnimationController rippleController;
+  late AnimationController tapController;
+  late AnimationController dismissController;
 
-  Animations animations;
-  OverlayEntry overlay;
+  late Animations animations;
+  OverlayEntry? overlay;
 
   Widget buildOverlay(BuildContext ctx, Offset center) {
     debugCheckHasMediaQuery(ctx);
@@ -223,9 +221,9 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (ctx, _) {
       if (overlay != null) {
-        SchedulerBinding.instance.addPostFrameCallback((_) {
+        SchedulerBinding.instance?.addPostFrameCallback((_) {
           // [OverlayEntry] needs to be explicitly rebuilt when necessary.
-          overlay.markNeedsBuild();
+          overlay!.markNeedsBuild();
         });
       } else {
         if (showOverlay && !FeatureDiscoveryController.of(ctx).isLocked) {
@@ -239,13 +237,13 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
           // complete.
           FeatureDiscoveryController.of(ctx).lock();
 
-          SchedulerBinding.instance.addPostFrameCallback((_) {
+          SchedulerBinding.instance?.addPostFrameCallback((_) {
             setState(() {
               overlay = entry;
               status = FeatureDiscoveryStatus.closed;
               openController.forward(from: 0.0);
             });
-            Overlay.of(context).insert(entry);
+            Overlay.of(context)?.insert(entry);
           });
         }
       }
@@ -339,11 +337,6 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
   }
 
   void initAnimations() {
-    assert(openController != null);
-    assert(rippleController != null);
-    assert(tapController != null);
-    assert(dismissController != null);
-
     animations = Animations(
       openController,
       tapController,
@@ -376,10 +369,10 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
   @override
   void dispose() {
     overlay?.remove();
-    openController?.dispose();
-    rippleController?.dispose();
-    tapController?.dispose();
-    dismissController?.dispose();
+    openController.dispose();
+    rippleController.dispose();
+    tapController.dispose();
+    dismissController.dispose();
     super.dispose();
   }
 }

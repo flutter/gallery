@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -45,8 +43,8 @@ const _curve = Curves.easeInOutCubic;
 
 double _progress(
   double time, {
-  @required double begin,
-  @required double end,
+  required double begin,
+  required double end,
 }) =>
     _curve.transform(((time - begin) / (end - begin)).clamp(0, 1).toDouble());
 

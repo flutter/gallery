@@ -2,14 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:gallery/pages/settings_icon/metrics.dart';
 
 class SettingsIcon extends StatelessWidget {
-  const SettingsIcon(this.time, {Key key}) : super(key: key);
+  const SettingsIcon(this.time, {Key? key}) : super(key: key);
 
   final double time;
 
@@ -22,14 +20,14 @@ class SettingsIcon extends StatelessWidget {
 }
 
 class _SettingsIconPainter extends CustomPainter {
-  _SettingsIconPainter({@required this.time, @required this.context});
+  _SettingsIconPainter({required this.time, required this.context});
 
   final double time;
   final BuildContext context;
 
-  Offset _center;
-  double _scaling;
-  Canvas _canvas;
+  late Offset _center;
+  late double _scaling;
+  late Canvas _canvas;
 
   /// Computes [_center] and [_scaling], parameters used to convert offsets
   /// and lengths in relative units into logical pixels.
@@ -94,11 +92,11 @@ class _SettingsIconPainter extends CustomPainter {
 
   /// Paints a stadium-shaped stick.
   void _paintStick({
-    @required Offset center,
-    @required double length,
-    @required double width,
+    required Offset center,
+    required double length,
+    required double width,
     double angle = 0,
-    @required Paint paint,
+    required Paint paint,
   }) {
     // Convert to pixels.
     center = _transform(center);
