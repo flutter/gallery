@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 
@@ -17,7 +15,7 @@ typedef DeferredWidgetBuilder = Widget Function();
 ///
 class DeferredWidget extends StatefulWidget {
   DeferredWidget(this.libraryLoader, this.createWidget,
-      {Key key, Widget placeholder})
+      {Key? key, Widget? placeholder})
       : placeholder = placeholder ?? Container(),
         super(key: key);
 
@@ -33,7 +31,7 @@ class DeferredWidget extends StatefulWidget {
         _loadedModules.add(loader);
       });
     }
-    return _moduleLoaders[loader];
+    return _moduleLoaders[loader]!;
   }
 
   @override
@@ -42,8 +40,9 @@ class DeferredWidget extends StatefulWidget {
 
 class _DeferredWidgetState extends State<DeferredWidget> {
   _DeferredWidgetState();
-  Widget _loadedChild;
-  DeferredWidgetBuilder _loadedCreator;
+
+  Widget? _loadedChild;
+  DeferredWidgetBuilder? _loadedCreator;
 
   @override
   void initState() {
@@ -61,7 +60,7 @@ class _DeferredWidgetState extends State<DeferredWidget> {
   void _onLibraryLoaded() {
     setState(() {
       _loadedCreator = widget.createWidget;
-      _loadedChild = _loadedCreator();
+      _loadedChild = _loadedCreator!();
     });
   }
 
@@ -71,7 +70,7 @@ class _DeferredWidgetState extends State<DeferredWidget> {
     /// treat as const Widget.
     if (_loadedCreator != widget.createWidget && _loadedCreator != null) {
       _loadedCreator = widget.createWidget;
-      _loadedChild = _loadedCreator();
+      _loadedChild = _loadedCreator!();
     }
     return _loadedChild ?? widget.placeholder;
   }
@@ -81,7 +80,7 @@ class _DeferredWidgetState extends State<DeferredWidget> {
 /// the widget is a deferred component and is currently being installed.
 class DeferredLoadingPlaceholder extends StatelessWidget {
   const DeferredLoadingPlaceholder({
-    Key key,
+    Key? key,
     this.name = 'This widget',
   }) : super(key: key);
 
@@ -95,7 +94,7 @@ class DeferredLoadingPlaceholder extends StatelessWidget {
             color: Colors.grey[700],
             border: Border.all(
               width: 20,
-              color: Colors.grey[700],
+              color: Colors.grey[700]!,
             ),
             borderRadius: const BorderRadius.all(Radius.circular(10))),
         width: 250,
