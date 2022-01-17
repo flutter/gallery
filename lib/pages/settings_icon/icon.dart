@@ -187,6 +187,5 @@ class _SettingsIconPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) =>
-      oldDelegate is! _SettingsIconPainter ||
-      (oldDelegate as _SettingsIconPainter).time != time;
+      oldDelegate is! _SettingsIconPainter || (oldDelegate).time != time;
 }
