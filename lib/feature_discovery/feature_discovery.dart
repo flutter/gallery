@@ -221,7 +221,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (ctx, _) {
       if (overlay != null) {
-        SchedulerBinding.instance?.addPostFrameCallback((_) {
+        SchedulerBinding.instance.addPostFrameCallback((_) {
           // [OverlayEntry] needs to be explicitly rebuilt when necessary.
           overlay!.markNeedsBuild();
         });
@@ -237,7 +237,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
           // complete.
           FeatureDiscoveryController.of(ctx).lock();
 
-          SchedulerBinding.instance?.addPostFrameCallback((_) {
+          SchedulerBinding.instance.addPostFrameCallback((_) {
             setState(() {
               overlay = entry;
               status = FeatureDiscoveryStatus.closed;
