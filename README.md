@@ -35,7 +35,7 @@ Flutter Gallery has been built to support multiple platforms.
 This includes:
 
 - Android
-- iOS
+- iOS (locally)
 - web
 - macOS
 - Linux
