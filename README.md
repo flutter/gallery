@@ -32,25 +32,23 @@ flutter upgrade
 ## Supported Platforms
 
 Flutter Gallery has been built to support multiple platforms.
-This includes:
+These include:
 
-- Android
+- Android ([Google Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery), [.apk][latest release])
 - iOS (locally)
-- web
-- macOS
-- Linux
-- Windows
+- web ([gallery.flutter.dev](https://gallery.flutter.dev/))
+- macOS ([.zip][latest release])
+- Linux ([.tar.gz][latest release])
+- Windows ([.zip][latest release])
 
-An APK, macOS, Linux, and Windows builds are available for [download](https://github.com/flutter/gallery/releases). You can find it on the web at [gallery.flutter.dev](https://gallery.flutter.dev/) and on the [Google Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery).
-
-You can build from source yourself for any of these platforms, though, please note desktop support must [be enabled](https://github.com/flutter/flutter/wiki/Desktop-shells#tooling). For
-example, to run the app on Windows:
+One can run the gallery locally for any of these platforms. For desktop platforms, 
+please see the [Flutter docs](https://docs.flutter.dev/desktop) for the latest
+requirements.
 
 ```bash
 cd gallery/
-flutter config --enable-windows-desktop
 flutter pub get
-flutter run -d windows
+flutter run
 ```
 
 Additionally, the UI adapts between mobile and desktop layouts regardless of the
@@ -144,3 +142,6 @@ The gallery has its own set of unit and integration tests. Flutter itself also u
 
 - `flutter analyze`: https://github.com/flutter/tests/blob/master/registry/flutter_gallery.test
 - DeviceLab tests: https://github.com/flutter/flutter/blob/master/dev/devicelab/lib/versions/gallery.dart
+
+
+[latest release]: https://github.com/flutter/gallery/releases/latest
