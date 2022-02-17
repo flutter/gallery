@@ -4,7 +4,7 @@
 
 // @dart=2.9
 
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -87,13 +87,13 @@ class GalleryAutomator {
   Future<void> automateDemoGestures() async {
     await warmUp();
 
-    stdout.writeln('==== List of demos to be run ====');
+    print('==== List of demos to be run ====');
     for (final demo in demoNames) {
       if (shouldRunPredicate(demo)) {
-        stdout.writeln(demo);
+        print(demo);
       }
     }
-    stdout.writeln('==== End of list of demos to be run ====');
+    print('==== End of list of demos to be run ====');
 
     var finishedStudyDemos = false;
 
@@ -121,7 +121,7 @@ class GalleryAutomator {
       // satisfying `runCriterion`, because we need to scroll
       // through every `Scrollable` to find the `demoButton`.
       if (shouldRunPredicate(demo)) {
-        stdout.writeln('Running demo "$demo"');
+        print('Running demo "$demo"');
 
         for (var i = 0; i < 2; ++i) {
           await controller.tap(find.byKey(ValueKey(demo)));
@@ -139,7 +139,7 @@ class GalleryAutomator {
       }
     }
 
-    stdout.writeln('All demos finished.');
+    print('All demos finished.');
 
     // At the end of the test, mark as finished.
     finished = true;
@@ -149,7 +149,7 @@ class GalleryAutomator {
   Future<void> automateScrolls() async {
     await warmUp();
 
-    stdout.writeln('Running scrolling test.');
+    print('Running scrolling test.');
 
     final selectedDemos = firstDemosOfCategories(demoNames);
 
@@ -182,13 +182,13 @@ class GalleryAutomator {
       }
     }
 
-    stdout.writeln('Scrolling test finished.');
+    print('Scrolling test finished.');
     finished = true;
   }
 
   /// Warm up the animation.
   Future<void> warmUp() async {
-    stdout.writeln('Warming up.');
+    print('Warming up.');
 
     await pumpDeferredLibraries();
 
@@ -231,7 +231,7 @@ class GalleryAutomator {
     // When warm-up finishes, inform the recorder.
     stopWarmingUpCallback();
 
-    stdout.writeln('Warm-up finished.');
+    print('Warm-up finished.');
   }
 
   /// A function to find the category of a demo.

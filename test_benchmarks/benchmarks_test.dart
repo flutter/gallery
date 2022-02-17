@@ -28,7 +28,7 @@ Future<void> main() async {
     stdout.writeln('Starting web benchmark tests ...');
 
     // TODO(pennzht): Re-enable this test, https://github.com/flutter/gallery/issues/463.
-    return;
+    // return;
     // ignore: dead_code
     final taskResult = await serveWebBenchmark(
       benchmarkAppDirectory: projectRootDirectory(),
