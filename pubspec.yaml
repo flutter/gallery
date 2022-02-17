@@ -42,11 +42,7 @@ dev_dependencies:
   path: ^1.8.0
   string_scanner: ^1.1.0
   test: ^1.16.8
-  web_benchmarks: ^0.0.5
-
-dependency_overrides:
-  web_benchmarks:
-    path: ../packages/packages/web_benchmarks
+  web_benchmarks: ^0.0.7
 
 flutter:
   deferred-components:
