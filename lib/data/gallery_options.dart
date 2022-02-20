@@ -44,11 +44,11 @@ class GalleryOptions {
     this.timeDilation,
     this.platform,
     this.isTestMode = false,
-  })  : _textScaleFactor = textScaleFactor,
+  })  : _textScaleFactor = textScaleFactor ?? 1.0,
         _locale = locale;
 
   final ThemeMode? themeMode;
-  final double? _textScaleFactor;
+  final double _textScaleFactor;
   final CustomTextDirection? customTextDirection;
   final Locale? _locale;
   final double? timeDilation;
@@ -64,7 +64,7 @@ class GalleryOptions {
           ? systemTextScaleFactorOption
           : MediaQuery.of(context).textScaleFactor;
     } else {
-      return _textScaleFactor!;
+      return _textScaleFactor;
     }
   }
 
@@ -201,7 +201,7 @@ class _ModelBindingScope extends InheritedWidget {
     Key? key,
     required this.modelBindingState,
     required Widget child,
-  })  : super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   final _ModelBindingState modelBindingState;
 
@@ -214,7 +214,7 @@ class ModelBinding extends StatefulWidget {
     Key? key,
     this.initialModel = const GalleryOptions(),
     required this.child,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final GalleryOptions initialModel;
   final Widget child;
