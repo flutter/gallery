@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @dart=2.9
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -51,7 +53,7 @@ _FileReadStatus _updatedStatus(_FileReadStatus oldStatus, String line) {
     lineStatus = _FileReadStatus.finished;
   }
 
-  late _FileReadStatus newStatus;
+  _FileReadStatus newStatus;
   switch (oldStatus) {
     case _FileReadStatus.comments:
       newStatus =
@@ -146,7 +148,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
         // Simple line.
 
         for (final name in activeSubsegments) {
-          subsegments[name]!.writeln(line);
+          subsegments[name].writeln(line);
         }
       }
     }
@@ -157,7 +159,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
   }
 
   var segments = <String, List<TaggedString>>{};
-  var segmentPrologues = <String, String?>{};
+  var segmentPrologues = <String, String>{};
 
   // Sometimes a code segment is made up of subsegments. They are marked by
   // names with a "#" symbol in it, such as "bottomSheetDemoModal#1" and
@@ -179,7 +181,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
     if (!segments.containsKey(name)) {
       segments[name] = [];
     }
-    segments[name]!.add(
+    segments[name].add(
       TaggedString(
         text: value.toString(),
         order: order,
@@ -198,10 +200,10 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
   for (final name in segments.keys) {
     final buffer = StringBuffer();
 
-    buffer.write(segmentPrologues[name]!.trim());
+    buffer.write(segmentPrologues[name].trim());
     buffer.write('\n\n');
 
-    for (final ts in segments[name]!) {
+    for (final ts in segments[name]) {
       buffer.write(ts.text.trim());
       buffer.write('\n\n');
     }
@@ -217,7 +219,7 @@ Map<String, String> _createSegments(String sourceDirectoryPath) {
 /// The [order] of each subsegment is tagged with the code in order to be
 /// sorted in the desired order.
 class TaggedString {
-  TaggedString({required this.text, required this.order});
+  TaggedString({this.text, this.order});
 
   final String text;
   final double order;
@@ -234,7 +236,7 @@ void _combineSegments(Map<String, String> segments, StringBuffer output) {
     output.writeln('    final codeStyle = CodeStyle.of(context);');
     output.writeln('    return TextSpan(children: [');
 
-    final codeSpans = DartSyntaxPrehighlighter().format(code!);
+    final codeSpans = DartSyntaxPrehighlighter().format(code);
 
     for (final span in codeSpans) {
       output.write('    ');
@@ -282,7 +284,7 @@ class PreformatterException implements Exception {
 // Function to make sure we capture all of the stdout.
 // Reference: https://github.com/dart-lang/sdk/issues/31666
 Future<String> _startProcess(String executable,
-    {List<String> arguments = const [], required String input}) async {
+    {List<String> arguments = const [], String input}) async {
   final output = <int>[];
   final completer = Completer<int>();
   final process = await Process.start(executable, arguments, runInShell: true);

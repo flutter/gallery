@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @dart=2.9
+
 import 'dart:async';
 import 'dart:io';
 
@@ -11,7 +13,7 @@ import 'package:path/path.dart' as path;
 void main(List<String> args) => grind(args);
 
 @Task('Get packages')
-Future<void> pubGet({String? directory}) async {
+Future<void> pubGet({String directory}) async {
   await _runProcess(
     'flutter',
     ['pub', 'get', if (directory != null) directory],
