@@ -27,8 +27,8 @@ class CodeStyle extends InheritedWidget {
   final TextStyle? classStyle;
   final TextStyle? constantStyle;
 
-  static CodeStyle? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<CodeStyle>();
+  static CodeStyle of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<CodeStyle>()!;
   }
 
   @override
