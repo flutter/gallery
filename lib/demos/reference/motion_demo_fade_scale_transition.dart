@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -11,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN fadeScaleTransitionDemo
 
 class FadeScaleTransitionDemo extends StatefulWidget {
-  const FadeScaleTransitionDemo({Key key}) : super(key: key);
+  const FadeScaleTransitionDemo({Key? key}) : super(key: key);
 
   @override
   _FadeScaleTransitionDemoState createState() =>
@@ -20,7 +18,7 @@ class FadeScaleTransitionDemo extends StatefulWidget {
 
 class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -54,8 +52,6 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
       case AnimationStatus.dismissed:
         return false;
     }
-    assert(false);
-    return null;
   }
 
   Widget _showExampleAlertDialog() {
@@ -67,7 +63,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -79,7 +75,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
               '(${localizations.demoFadeScaleDemoInstructions})',
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2
+                  .subtitle2!
                   .copyWith(color: Colors.white),
             ),
           ],
@@ -145,7 +141,7 @@ class _FadeScaleTransitionDemoState extends State<FadeScaleTransitionDemo>
 class _ExampleAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     return AlertDialog(
       content: Text(localizations.demoFadeScaleAlertDialogHeader),

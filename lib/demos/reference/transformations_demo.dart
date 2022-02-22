@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
@@ -13,7 +11,7 @@ import 'transformations_demo_edit_board_point.dart';
 // BEGIN transformationsDemo#1
 
 class TransformationsDemo extends StatefulWidget {
-  const TransformationsDemo({Key key}) : super(key: key);
+  const TransformationsDemo({Key? key}) : super(key: key);
 
   @override
   _TransformationsDemoState createState() => _TransformationsDemoState();
@@ -37,13 +35,13 @@ class _TransformationsDemoState extends State<TransformationsDemo>
 
   final TransformationController _transformationController =
       TransformationController();
-  Animation<Matrix4> _animationReset;
-  AnimationController _controllerReset;
-  Matrix4 _homeMatrix;
+  Animation<Matrix4>? _animationReset;
+  late AnimationController _controllerReset;
+  Matrix4? _homeMatrix;
 
   // Handle reset to home transform animation.
   void _onAnimateReset() {
-    _transformationController.value = _animationReset.value;
+    _transformationController.value = _animationReset!.value;
     if (!_controllerReset.isAnimating) {
       _animationReset?.removeListener(_onAnimateReset);
       _animationReset = null;
@@ -59,7 +57,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
       end: _homeMatrix,
     ).animate(_controllerReset);
     _controllerReset.duration = const Duration(milliseconds: 400);
-    _animationReset.addListener(_onAnimateReset);
+    _animationReset!.addListener(_onAnimateReset);
     _controllerReset.forward();
   }
 
@@ -80,7 +78,8 @@ class _TransformationsDemoState extends State<TransformationsDemo>
   }
 
   void _onTapUp(TapUpDetails details) {
-    final renderBox = _targetKey.currentContext.findRenderObject() as RenderBox;
+    final renderBox =
+        _targetKey.currentContext!.findRenderObject() as RenderBox;
     final offset =
         details.globalPosition - renderBox.localToGlobal(Offset.zero);
     final scenePoint = _transformationController.toScene(offset);
@@ -107,7 +106,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title:
-            Text(GalleryLocalizations.of(context).demo2dTransformationsTitle),
+            Text(GalleryLocalizations.of(context)!.demo2dTransformationsTitle),
       ),
       body: Container(
         color: backgroundColor,
@@ -127,7 +126,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
                   viewportSize.width / 2 - _board.size.width / 2,
                   viewportSize.height / 2 - _board.size.height / 2,
                 );
-              _transformationController.value = _homeMatrix;
+              _transformationController.value = _homeMatrix!;
             }
 
             return ClipRect(
@@ -191,11 +190,11 @@ class _TransformationsDemoState extends State<TransformationsDemo>
                 height: 150,
                 padding: const EdgeInsets.all(12),
                 child: EditBoardPoint(
-                  boardPoint: _board.selected,
+                  boardPoint: _board.selected!,
                   onColorSelection: (color) {
                     setState(() {
                       _board = _board.copyWithBoardPointColor(
-                          _board.selected, color);
+                          _board.selected!, color);
                       Navigator.pop(context);
                     });
                   },
@@ -220,15 +219,15 @@ class _TransformationsDemoState extends State<TransformationsDemo>
 // when its `paint` method is called.
 class _BoardPainter extends CustomPainter {
   const _BoardPainter({
-    this.board,
+    required this.board,
   });
 
   final Board board;
 
   @override
   void paint(Canvas canvas, Size size) {
-    void drawBoardPoint(BoardPoint boardPoint) {
-      final color = boardPoint.color.withOpacity(
+    void drawBoardPoint(BoardPoint? boardPoint) {
+      final color = boardPoint!.color.withOpacity(
         board.selected == boardPoint ? 0.7 : 1,
       );
       final vertices = board.getVerticesForBoardPoint(boardPoint, color);
