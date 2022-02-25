@@ -746,10 +746,10 @@ packages:
   web_benchmarks:
     dependency: "direct dev"
     description:
-      name: web_benchmarks
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.5"
+      path: "../packages/packages/web_benchmarks"
+      relative: true
+    source: path
+    version: "0.0.7"
   web_socket_channel:
     dependency: transitive
     description:
