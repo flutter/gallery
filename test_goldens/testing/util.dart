@@ -34,6 +34,7 @@ Future<void> setUpBinding(
   tester.binding.window.physicalSizeTestValue = size;
   tester.binding.window.devicePixelRatioTestValue = 1.0;
   tester.binding.window.platformDispatcher.textScaleFactorTestValue = 1.0;
-  tester.binding.window.platformDispatcher.platformBrightnessTestValue = brightness;
+  tester.binding.window.platformDispatcher.platformBrightnessTestValue =
+      brightness;
   addTearDown(tester.binding.window.clearAllTestValues);
 }
