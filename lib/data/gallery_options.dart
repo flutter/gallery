@@ -92,7 +92,7 @@ class GalleryOptions {
   /// In other words, if the theme is dark, returns light; if the theme is
   /// light, returns dark.
   SystemUiOverlayStyle resolvedSystemUiOverlayStyle() {
-    Brightness brightness;
+    Brightness? brightness;
     switch (themeMode) {
       case ThemeMode.light:
         brightness = Brightness.light;
@@ -101,7 +101,7 @@ class GalleryOptions {
         brightness = Brightness.dark;
         break;
       default:
-        brightness = WidgetsBinding.instance.window.platformBrightness;
+        brightness = WidgetsBinding.instance?.window.platformBrightness;
     }
 
     final overlayStyle = brightness == Brightness.dark
