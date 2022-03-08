@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN sharedYAxisTransitionDemo
 
 class SharedYAxisTransitionDemo extends StatefulWidget {
-  const SharedYAxisTransitionDemo({Key key}) : super(key: key);
+  const SharedYAxisTransitionDemo({Key? key}) : super(key: key);
 
   @override
   _SharedYAxisTransitionDemoState createState() =>
@@ -18,7 +16,7 @@ class SharedYAxisTransitionDemo extends StatefulWidget {
 class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
     with SingleTickerProviderStateMixin {
   bool _isAlphabetical = false;
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -66,7 +64,7 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -78,7 +76,7 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
               '(${localizations.demoSharedYAxisDemoInstructions})',
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2
+                  .subtitle2!
                   .copyWith(color: Colors.white),
             ),
           ],
@@ -157,7 +155,7 @@ class _AlbumTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final randomNumberGenerator = Random();
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Column(
       children: [
