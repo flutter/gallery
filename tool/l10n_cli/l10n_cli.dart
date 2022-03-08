@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -82,7 +80,7 @@ Future<String> generateXmlFromArb([String arbPath = _englishArbPath]) async {
     final resourceId = key.substring(1);
     final name = _escapeXml(resourceId);
     final metaInfo = bundle[key] as Map<String, dynamic>;
-    assert(metaInfo != null && metaInfo['description'] != null);
+    assert(metaInfo['description'] != null);
     var description = _escapeXml(metaInfo['description'] as String);
 
     if (metaInfo.containsKey('plural')) {
