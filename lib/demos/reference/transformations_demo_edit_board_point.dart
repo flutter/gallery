@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 import 'transformations_demo_board.dart';
@@ -15,14 +13,13 @@ const backgroundColor = Color(0xFF272727);
 @immutable
 class EditBoardPoint extends StatelessWidget {
   const EditBoardPoint({
-    Key key,
-    @required this.boardPoint,
+    Key? key,
+    required this.boardPoint,
     this.onColorSelection,
-  })  : assert(boardPoint != null),
-        super(key: key);
+  }) : super(key: key);
 
   final BoardPoint boardPoint;
-  final ValueChanged<Color> onColorSelection;
+  final ValueChanged<Color>? onColorSelection;
 
   @override
   Widget build(BuildContext context) {
