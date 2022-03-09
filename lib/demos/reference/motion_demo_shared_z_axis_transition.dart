@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -7,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN sharedZAxisTransitionDemo
 
 class SharedZAxisTransitionDemo extends StatelessWidget {
-  const SharedZAxisTransitionDemo({Key key}) : super(key: key);
+  const SharedZAxisTransitionDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
   Route _createHomeRoute() {
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) {
-        final localizations = GalleryLocalizations.of(context);
+        final localizations = GalleryLocalizations.of(context)!;
 
         return Scaffold(
           appBar: AppBar(
@@ -33,7 +31,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
                   '(${localizations.demoSharedZAxisDemoInstructions})',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2
+                      .subtitle2!
                       .copyWith(color: Colors.white),
                 ),
               ],
@@ -84,7 +82,7 @@ class _SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     final settingsList = <_SettingsInfo>[
       _SettingsInfo(
@@ -150,7 +148,7 @@ class _RecipePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     final savedRecipes = <_RecipeInfo>[
       _RecipeInfo(
