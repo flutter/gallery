@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -10,11 +10,11 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoTextFieldDemo
 
 class CupertinoTextFieldDemo extends StatelessWidget {
-  const CupertinoTextFieldDemo({Key key}) : super(key: key);
+  const CupertinoTextFieldDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,

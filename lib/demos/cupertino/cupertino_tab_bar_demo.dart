@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/cupertino.dart';
 
@@ -18,21 +18,21 @@ class _TabInfo {
 }
 
 class CupertinoTabBarDemo extends StatelessWidget {
-  const CupertinoTabBarDemo({Key key}) : super(key: key);
+  const CupertinoTabBarDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _tabInfo = [
       _TabInfo(
-        GalleryLocalizations.of(context).cupertinoTabBarHomeTab,
+        GalleryLocalizations.of(context)!.cupertinoTabBarHomeTab,
         CupertinoIcons.home,
       ),
       _TabInfo(
-        GalleryLocalizations.of(context).cupertinoTabBarChatTab,
+        GalleryLocalizations.of(context)!.cupertinoTabBarChatTab,
         CupertinoIcons.conversation_bubble,
       ),
       _TabInfo(
-        GalleryLocalizations.of(context).cupertinoTabBarProfileTab,
+        GalleryLocalizations.of(context)!.cupertinoTabBarProfileTab,
         CupertinoIcons.profile_circled,
       ),
     ];
@@ -67,9 +67,9 @@ class CupertinoTabBarDemo extends StatelessWidget {
 
 class _CupertinoDemoTab extends StatelessWidget {
   const _CupertinoDemoTab({
-    Key key,
-    @required this.title,
-    @required this.icon,
+    Key? key,
+    required this.title,
+    required this.icon,
   }) : super(key: key);
 
   final String title;

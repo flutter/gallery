@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN navRailDemo
 
 class NavRailDemo extends StatefulWidget {
-  const NavRailDemo({Key key}) : super(key: key);
+  const NavRailDemo({Key? key}) : super(key: key);
 
   @override
   _NavRailDemoState createState() => _NavRailDemoState();
@@ -23,7 +23,7 @@ class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
   String get restorationId => 'nav_rail_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_selectedIndex, 'selected_index');
   }
 
@@ -35,7 +35,7 @@ class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final localization = GalleryLocalizations.of(context);
+    final localization = GalleryLocalizations.of(context)!;
     final destinationFirst = localization.demoNavigationRailFirst;
     final destinationSecond = localization.demoNavigationRailSecond;
     final destinationThird = localization.demoNavigationRailThird;

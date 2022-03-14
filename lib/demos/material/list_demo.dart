@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 
@@ -12,16 +12,16 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 // BEGIN listDemo
 
 class ListDemo extends StatelessWidget {
-  const ListDemo({Key key, this.type}) : super(key: key);
+  const ListDemo({Key? key, this.type}) : super(key: key);
 
-  final ListDemoType type;
+  final ListDemoType? type;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context).demoListsTitle),
+        title: Text(GalleryLocalizations.of(context)!.demoListsTitle),
       ),
       body: Scrollbar(
         child: ListView(
@@ -34,10 +34,10 @@ class ListDemo extends StatelessWidget {
                   child: CircleAvatar(child: Text('$index')),
                 ),
                 title: Text(
-                  GalleryLocalizations.of(context).demoBottomSheetItem(index),
+                  GalleryLocalizations.of(context)!.demoBottomSheetItem(index),
                 ),
                 subtitle: type == ListDemoType.twoLine
-                    ? Text(GalleryLocalizations.of(context).demoListsSecondary)
+                    ? Text(GalleryLocalizations.of(context)!.demoListsSecondary)
                     : null,
               ),
           ],

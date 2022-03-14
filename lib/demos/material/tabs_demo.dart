@@ -2,20 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
 class TabsDemo extends StatelessWidget {
-  const TabsDemo({Key key, this.type}) : super(key: key);
+  const TabsDemo({Key? key, this.type}) : super(key: key);
 
-  final TabsDemoType type;
+  final TabsDemoType? type;
 
   @override
   Widget build(BuildContext context) {
-    Widget tabs;
+    late Widget tabs;
     switch (type) {
       case TabsDemoType.scrollable:
         tabs = _TabsScrollableDemo();
@@ -36,7 +36,7 @@ class _TabsScrollableDemo extends StatefulWidget {
 
 class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
     with SingleTickerProviderStateMixin, RestorationMixin {
-  TabController _tabController;
+  TabController? _tabController;
 
   final RestorableInt tabIndex = RestorableInt(0);
 
@@ -44,9 +44,9 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   String get restorationId => 'tab_scrollable_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
-    _tabController.index = tabIndex.value;
+    _tabController!.index = tabIndex.value;
   }
 
   @override
@@ -56,11 +56,11 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
       length: 12,
       vsync: this,
     );
-    _tabController.addListener(() {
+    _tabController!.addListener(() {
       // When the tab controller's value is updated, make sure to update the
       // tab index value, which is state restorable.
       setState(() {
-        tabIndex.value = _tabController.index;
+        tabIndex.value = _tabController!.index;
       });
     });
     super.initState();
@@ -68,7 +68,7 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController!.dispose();
     tabIndex.dispose();
     super.dispose();
   }
@@ -76,24 +76,24 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      GalleryLocalizations.of(context).colorsRed,
-      GalleryLocalizations.of(context).colorsOrange,
-      GalleryLocalizations.of(context).colorsGreen,
-      GalleryLocalizations.of(context).colorsBlue,
-      GalleryLocalizations.of(context).colorsIndigo,
-      GalleryLocalizations.of(context).colorsPurple,
-      GalleryLocalizations.of(context).colorsRed,
-      GalleryLocalizations.of(context).colorsOrange,
-      GalleryLocalizations.of(context).colorsGreen,
-      GalleryLocalizations.of(context).colorsBlue,
-      GalleryLocalizations.of(context).colorsIndigo,
-      GalleryLocalizations.of(context).colorsPurple,
+      GalleryLocalizations.of(context)!.colorsRed,
+      GalleryLocalizations.of(context)!.colorsOrange,
+      GalleryLocalizations.of(context)!.colorsGreen,
+      GalleryLocalizations.of(context)!.colorsBlue,
+      GalleryLocalizations.of(context)!.colorsIndigo,
+      GalleryLocalizations.of(context)!.colorsPurple,
+      GalleryLocalizations.of(context)!.colorsRed,
+      GalleryLocalizations.of(context)!.colorsOrange,
+      GalleryLocalizations.of(context)!.colorsGreen,
+      GalleryLocalizations.of(context)!.colorsBlue,
+      GalleryLocalizations.of(context)!.colorsIndigo,
+      GalleryLocalizations.of(context)!.colorsPurple,
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context).demoTabsScrollingTitle),
+        title: Text(GalleryLocalizations.of(context)!.demoTabsScrollingTitle),
         bottom: TabBar(
           controller: _tabController,
           isScrollable: true,
@@ -126,7 +126,7 @@ class _TabsNonScrollableDemo extends StatefulWidget {
 
 class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
     with SingleTickerProviderStateMixin, RestorationMixin {
-  TabController _tabController;
+  TabController? _tabController;
 
   final RestorableInt tabIndex = RestorableInt(0);
 
@@ -134,9 +134,9 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
   String get restorationId => 'tab_non_scrollable_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
-    _tabController.index = tabIndex.value;
+    _tabController!.index = tabIndex.value;
   }
 
   @override
@@ -147,18 +147,18 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
       length: 3,
       vsync: this,
     );
-    _tabController.addListener(() {
+    _tabController!.addListener(() {
       // When the tab controller's value is updated, make sure to update the
       // tab index value, which is state restorable.
       setState(() {
-        tabIndex.value = _tabController.index;
+        tabIndex.value = _tabController!.index;
       });
     });
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController!.dispose();
     tabIndex.dispose();
     super.dispose();
   }
@@ -166,16 +166,16 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      GalleryLocalizations.of(context).colorsRed,
-      GalleryLocalizations.of(context).colorsOrange,
-      GalleryLocalizations.of(context).colorsGreen,
+      GalleryLocalizations.of(context)!.colorsRed,
+      GalleryLocalizations.of(context)!.colorsOrange,
+      GalleryLocalizations.of(context)!.colorsGreen,
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          GalleryLocalizations.of(context).demoTabsNonScrollingTitle,
+          GalleryLocalizations.of(context)!.demoTabsNonScrollingTitle,
         ),
         bottom: TabBar(
           controller: _tabController,
