@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -11,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoSegmentedControlDemo
 
 class CupertinoSegmentedControlDemo extends StatefulWidget {
-  const CupertinoSegmentedControlDemo({Key key}) : super(key: key);
+  const CupertinoSegmentedControlDemo({Key? key}) : super(key: key);
 
   @override
   _CupertinoSegmentedControlDemoState createState() =>
@@ -26,19 +24,21 @@ class _CupertinoSegmentedControlDemoState
   String get restorationId => 'cupertino_segmented_control';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(currentSegment, 'current_segment');
   }
 
-  void onValueChanged(int newValue) {
+  void onValueChanged(int? newValue) {
     setState(() {
-      currentSegment.value = newValue;
+      if (newValue != null) {
+        currentSegment.value = newValue;
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
     const segmentedControlMaxWidth = 500.0;
     final children = <int, Widget>{
       0: Text(localizations.colorsIndigo),

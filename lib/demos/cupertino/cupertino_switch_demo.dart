@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -41,8 +39,8 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
       child: Center(
         child: Semantics(
           container: true,
-          label:
-              GalleryLocalizations.of(context)!.demoSelectionControlsSwitchTitle,
+          label: GalleryLocalizations.of(context)!
+              .demoSelectionControlsSwitchTitle,
           child: CupertinoSwitch(
             value: _switchValue.value,
             onChanged: (value) {

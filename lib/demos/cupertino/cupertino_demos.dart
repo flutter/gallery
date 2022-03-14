@@ -1,5 +1,3 @@
-// @dart=2.9
-
 export 'package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_alert_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_button_demo.dart';

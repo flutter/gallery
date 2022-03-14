@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -36,7 +34,8 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text(GalleryLocalizations.of(context)!.demoCupertinoSliderTitle),
+        middle:
+            Text(GalleryLocalizations.of(context)!.demoCupertinoSliderTitle),
       ),
       child: DefaultTextStyle(
         style: CupertinoTheme.of(context).textTheme.textStyle,

@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -30,7 +28,6 @@ class CupertinoNavigationBarDemo extends StatelessWidget {
               settings: settings,
               builder: (context) => _FirstPage(),
             );
-            break;
           case CupertinoNavigationBarDemo.secondPageRoute:
             final arguments = settings.arguments as Map<dynamic, dynamic>;
             final title = arguments['pageTitle'] as String?;
@@ -39,7 +36,6 @@ class CupertinoNavigationBarDemo extends StatelessWidget {
               settings: settings,
               builder: (context) => _SecondPage(),
             );
-            break;
         }
         return null;
       },

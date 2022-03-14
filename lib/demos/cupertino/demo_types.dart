@@ -1,5 +1,3 @@
-
-
 enum AlertDemoType {
   alert,
   alertTitle,

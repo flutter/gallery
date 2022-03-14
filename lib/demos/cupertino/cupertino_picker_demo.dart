@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:intl/intl.dart';
@@ -183,7 +181,8 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text(GalleryLocalizations.of(context)!.demoCupertinoPickerTitle),
+        middle:
+            Text(GalleryLocalizations.of(context)!.demoCupertinoPickerTitle),
       ),
       child: DefaultTextStyle(
         style: CupertinoTheme.of(context).textTheme.textStyle,
@@ -205,8 +204,7 @@ class _BottomPicker extends StatelessWidget {
   const _BottomPicker({
     Key? key,
     required this.child,
-  })  : assert(child != null),
-        super(key: key);
+  }) : super(key: key);
 
   final Widget child;
 
@@ -241,8 +239,7 @@ class _Menu extends StatelessWidget {
   const _Menu({
     Key? key,
     required this.children,
-  })  : assert(children != null),
-        super(key: key);
+  }) : super(key: key);
 
   final List<Widget> children;
 
