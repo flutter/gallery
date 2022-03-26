@@ -164,7 +164,7 @@ class SelectableTravelDestinationItem extends StatelessWidget {
     required this.isSelected,
     required this.onSelected,
     this.shape,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final TravelDestination destination;
   final ShapeBorder? shape;
