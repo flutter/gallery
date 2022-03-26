@@ -2,16 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
 class DividerDemo extends StatelessWidget {
-  const DividerDemo({Key? key, this.type}) : super(key: key);
+  const DividerDemo({Key? key, required this.type}) : super(key: key);
 
-  final DividerDemoType? type;
+  final DividerDemoType type;
 
   String _title(BuildContext context) {
     switch (type) {
@@ -20,12 +18,11 @@ class DividerDemo extends StatelessWidget {
       case DividerDemoType.vertical:
         return GalleryLocalizations.of(context)!.demoVerticalDividerTitle;
     }
-    return '';
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget? dividers;
+    late Widget dividers;
     switch (type) {
       case DividerDemoType.horizontal:
         dividers = _HorizontalDividerDemo();

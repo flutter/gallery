@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -12,14 +10,14 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN textFieldDemo
 
 class TextFieldDemo extends StatelessWidget {
-  const TextFieldDemo({Key key}) : super(key: key);
+  const TextFieldDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context).demoTextFieldTitle),
+        title: Text(GalleryLocalizations.of(context)!.demoTextFieldTitle),
       ),
       body: const TextFormFieldDemo(),
     );
@@ -27,22 +25,22 @@ class TextFieldDemo extends StatelessWidget {
 }
 
 class TextFormFieldDemo extends StatefulWidget {
-  const TextFormFieldDemo({Key key}) : super(key: key);
+  const TextFormFieldDemo({Key? key}) : super(key: key);
 
   @override
   TextFormFieldDemoState createState() => TextFormFieldDemoState();
 }
 
 class PersonData {
-  String name = '';
-  String phoneNumber = '';
-  String email = '';
+  String? name = '';
+  String? phoneNumber = '';
+  String? email = '';
   String password = '';
 }
 
 class PasswordField extends StatefulWidget {
   const PasswordField({
-    Key key,
+    Key? key,
     this.restorationId,
     this.fieldKey,
     this.hintText,
@@ -55,16 +53,16 @@ class PasswordField extends StatefulWidget {
     this.textInputAction,
   }) : super(key: key);
 
-  final String restorationId;
-  final Key fieldKey;
-  final String hintText;
-  final String labelText;
-  final String helperText;
-  final FormFieldSetter<String> onSaved;
-  final FormFieldValidator<String> validator;
-  final ValueChanged<String> onFieldSubmitted;
-  final FocusNode focusNode;
-  final TextInputAction textInputAction;
+  final String? restorationId;
+  final Key? fieldKey;
+  final String? hintText;
+  final String? labelText;
+  final String? helperText;
+  final FormFieldSetter<String>? onSaved;
+  final FormFieldValidator<String>? validator;
+  final ValueChanged<String>? onFieldSubmitted;
+  final FocusNode? focusNode;
+  final TextInputAction? textInputAction;
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
@@ -74,10 +72,10 @@ class _PasswordFieldState extends State<PasswordField> with RestorationMixin {
   final RestorableBool _obscureText = RestorableBool(true);
 
   @override
-  String get restorationId => widget.restorationId;
+  String? get restorationId => widget.restorationId;
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_obscureText, 'obscure_text');
   }
 
@@ -106,9 +104,9 @@ class _PasswordFieldState extends State<PasswordField> with RestorationMixin {
           icon: Icon(
             _obscureText.value ? Icons.visibility : Icons.visibility_off,
             semanticLabel: _obscureText.value
-                ? GalleryLocalizations.of(context)
+                ? GalleryLocalizations.of(context)!
                     .demoTextFieldShowPasswordLabel
-                : GalleryLocalizations.of(context)
+                : GalleryLocalizations.of(context)!
                     .demoTextFieldHidePasswordLabel,
           ),
         ),
@@ -121,7 +119,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
     with RestorationMixin {
   PersonData person = PersonData();
 
-  FocusNode _phoneNumber, _email, _lifeStory, _password, _retypePassword;
+  late FocusNode _phoneNumber, _email, _lifeStory, _password, _retypePassword;
 
   @override
   void initState() {
@@ -154,7 +152,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
   String get restorationId => 'text_field_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_autoValidateModeIndex, 'autovalidate_mode');
   }
 
@@ -168,47 +166,47 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
       _UsNumberTextInputFormatter();
 
   void _handleSubmitted() {
-    final form = _formKey.currentState;
+    final form = _formKey.currentState!;
     if (!form.validate()) {
       _autoValidateModeIndex.value =
           AutovalidateMode.always.index; // Start validating on every change.
       showInSnackBar(
-        GalleryLocalizations.of(context).demoTextFieldFormErrors,
+        GalleryLocalizations.of(context)!.demoTextFieldFormErrors,
       );
     } else {
       form.save();
-      showInSnackBar(GalleryLocalizations.of(context)
-          .demoTextFieldNameHasPhoneNumber(person.name, person.phoneNumber));
+      showInSnackBar(GalleryLocalizations.of(context)!
+          .demoTextFieldNameHasPhoneNumber(person.name!, person.phoneNumber!));
     }
   }
 
-  String _validateName(String value) {
-    if (value.isEmpty) {
-      return GalleryLocalizations.of(context).demoTextFieldNameRequired;
+  String? _validateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return GalleryLocalizations.of(context)!.demoTextFieldNameRequired;
     }
     final nameExp = RegExp(r'^[A-Za-z ]+$');
     if (!nameExp.hasMatch(value)) {
-      return GalleryLocalizations.of(context)
+      return GalleryLocalizations.of(context)!
           .demoTextFieldOnlyAlphabeticalChars;
     }
     return null;
   }
 
-  String _validatePhoneNumber(String value) {
+  String? _validatePhoneNumber(String? value) {
     final phoneExp = RegExp(r'^\(\d\d\d\) \d\d\d\-\d\d\d\d$');
-    if (!phoneExp.hasMatch(value)) {
-      return GalleryLocalizations.of(context).demoTextFieldEnterUSPhoneNumber;
+    if (!phoneExp.hasMatch(value!)) {
+      return GalleryLocalizations.of(context)!.demoTextFieldEnterUSPhoneNumber;
     }
     return null;
   }
 
-  String _validatePassword(String value) {
-    final passwordField = _passwordFieldKey.currentState;
-    if (passwordField.value == null || passwordField.value.isEmpty) {
-      return GalleryLocalizations.of(context).demoTextFieldEnterPassword;
+  String? _validatePassword(String? value) {
+    final passwordField = _passwordFieldKey.currentState!;
+    if (passwordField.value == null || passwordField.value!.isEmpty) {
+      return GalleryLocalizations.of(context)!.demoTextFieldEnterPassword;
     }
     if (passwordField.value != value) {
-      return GalleryLocalizations.of(context).demoTextFieldPasswordsDoNotMatch;
+      return GalleryLocalizations.of(context)!.demoTextFieldPasswordsDoNotMatch;
     }
     return null;
   }
@@ -234,10 +232,10 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.person),
-                  hintText: GalleryLocalizations.of(context)
+                  hintText: GalleryLocalizations.of(context)!
                       .demoTextFieldWhatDoPeopleCallYou,
                   labelText:
-                      GalleryLocalizations.of(context).demoTextFieldNameField,
+                      GalleryLocalizations.of(context)!.demoTextFieldNameField,
                 ),
                 onSaved: (value) {
                   person.name = value;
@@ -253,10 +251,10 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.phone),
-                  hintText: GalleryLocalizations.of(context)
+                  hintText: GalleryLocalizations.of(context)!
                       .demoTextFieldWhereCanWeReachYou,
-                  labelText:
-                      GalleryLocalizations.of(context).demoTextFieldPhoneNumber,
+                  labelText: GalleryLocalizations.of(context)!
+                      .demoTextFieldPhoneNumber,
                   prefixText: '+1 ',
                 ),
                 keyboardType: TextInputType.phone,
@@ -282,10 +280,10 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.email),
-                  hintText: GalleryLocalizations.of(context)
+                  hintText: GalleryLocalizations.of(context)!
                       .demoTextFieldYourEmailAddress,
                   labelText:
-                      GalleryLocalizations.of(context).demoTextFieldEmail,
+                      GalleryLocalizations.of(context)!.demoTextFieldEmail,
                 ),
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (value) {
@@ -299,12 +297,12 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _lifeStory,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: GalleryLocalizations.of(context)
+                  hintText: GalleryLocalizations.of(context)!
                       .demoTextFieldTellUsAboutYourself,
-                  helperText:
-                      GalleryLocalizations.of(context).demoTextFieldKeepItShort,
+                  helperText: GalleryLocalizations.of(context)!
+                      .demoTextFieldKeepItShort,
                   labelText:
-                      GalleryLocalizations.of(context).demoTextFieldLifeStory,
+                      GalleryLocalizations.of(context)!.demoTextFieldLifeStory,
                 ),
                 maxLines: 3,
               ),
@@ -316,8 +314,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   labelText:
-                      GalleryLocalizations.of(context).demoTextFieldSalary,
-                  suffixText: GalleryLocalizations.of(context).demoTextFieldUSD,
+                      GalleryLocalizations.of(context)!.demoTextFieldSalary,
+                  suffixText:
+                      GalleryLocalizations.of(context)!.demoTextFieldUSD,
                 ),
                 maxLines: 1,
               ),
@@ -328,9 +327,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _password,
                 fieldKey: _passwordFieldKey,
                 helperText:
-                    GalleryLocalizations.of(context).demoTextFieldNoMoreThan,
+                    GalleryLocalizations.of(context)!.demoTextFieldNoMoreThan,
                 labelText:
-                    GalleryLocalizations.of(context).demoTextFieldPassword,
+                    GalleryLocalizations.of(context)!.demoTextFieldPassword,
                 onFieldSubmitted: (value) {
                   setState(() {
                     person.password = value;
@@ -344,7 +343,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _retypePassword,
                 decoration: InputDecoration(
                   filled: true,
-                  labelText: GalleryLocalizations.of(context)
+                  labelText: GalleryLocalizations.of(context)!
                       .demoTextFieldRetypePassword,
                 ),
                 maxLength: 8,
@@ -359,12 +358,12 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 child: ElevatedButton(
                   onPressed: _handleSubmitted,
                   child: Text(
-                      GalleryLocalizations.of(context).demoTextFieldSubmit),
+                      GalleryLocalizations.of(context)!.demoTextFieldSubmit),
                 ),
               ),
               sizedBoxSpace,
               Text(
-                GalleryLocalizations.of(context).demoTextFieldRequiredField,
+                GalleryLocalizations.of(context)!.demoTextFieldRequiredField,
                 style: Theme.of(context).textTheme.caption,
               ),
               sizedBoxSpace,

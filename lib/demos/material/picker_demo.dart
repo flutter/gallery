@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
@@ -12,9 +10,9 @@ import 'package:intl/intl.dart';
 // BEGIN pickerDemo
 
 class PickerDemo extends StatefulWidget {
-  const PickerDemo({Key? key, this.type}) : super(key: key);
+  const PickerDemo({Key? key, required this.type}) : super(key: key);
 
-  final PickerDemoType? type;
+  final PickerDemoType type;
 
   @override
   _PickerDemoState createState() => _PickerDemoState();
@@ -29,11 +27,12 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   final RestorableDateTime _endDate = RestorableDateTime(DateTime.now());
 
   late RestorableRouteFuture<DateTime> _restorableDatePickerRouteFuture;
-  late RestorableRouteFuture<DateTimeRange> _restorableDateRangePickerRouteFuture;
+  late RestorableRouteFuture<DateTimeRange>
+      _restorableDateRangePickerRouteFuture;
   late RestorableRouteFuture<TimeOfDay> _restorableTimePickerRouteFuture;
 
   void _selectDate(DateTime selectedDate) {
-    if (selectedDate != null && selectedDate != _fromDate.value) {
+    if (selectedDate != _fromDate.value) {
       setState(() {
         _fromDate.value = selectedDate;
       });
@@ -41,16 +40,14 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   void _selectDateRange(DateTimeRange newSelectedDate) {
-    if (newSelectedDate != null) {
-      setState(() {
-        _startDate.value = newSelectedDate.start;
-        _endDate.value = newSelectedDate.end;
-      });
-    }
+    setState(() {
+      _startDate.value = newSelectedDate.start;
+      _endDate.value = newSelectedDate.end;
+    });
   }
 
   void _selectTime(TimeOfDay selectedTime) {
-    if (selectedTime != null && selectedTime != _fromTime.value) {
+    if (selectedTime != _fromTime.value) {
       setState(() {
         _fromTime.value = selectedTime;
       });
@@ -170,9 +167,9 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
         return GalleryLocalizations.of(context)!.demoTimePickerTitle;
       case PickerDemoType.range:
         return GalleryLocalizations.of(context)!.demoDateRangePickerTitle;
-        break;
+      default:
+        return '';
     }
-    return '';
   }
 
   String get _labelText {
@@ -185,9 +182,7 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
         return DateFormat.yMMMd().format(_startDate.value) +
             ' - ' +
             DateFormat.yMMMd().format(_endDate.value);
-        break;
     }
-    return '';
   }
 
   @override

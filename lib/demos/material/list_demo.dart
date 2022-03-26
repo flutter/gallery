@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -12,9 +10,9 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 // BEGIN listDemo
 
 class ListDemo extends StatelessWidget {
-  const ListDemo({Key? key, this.type}) : super(key: key);
+  const ListDemo({Key? key, required this.type}) : super(key: key);
 
-  final ListDemoType? type;
+  final ListDemoType type;
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
@@ -11,9 +9,9 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 // BEGIN progressIndicatorsDemo
 
 class ProgressIndicatorDemo extends StatefulWidget {
-  const ProgressIndicatorDemo({Key? key, this.type}) : super(key: key);
+  const ProgressIndicatorDemo({Key? key, required this.type}) : super(key: key);
 
-  final ProgressIndicatorDemoType? type;
+  final ProgressIndicatorDemoType type;
 
   @override
   _ProgressIndicatorDemoState createState() => _ProgressIndicatorDemoState();
@@ -61,7 +59,6 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
         return GalleryLocalizations.of(context)!
             .demoLinearProgressIndicatorTitle;
     }
-    return '';
   }
 
   Widget _buildIndicators(BuildContext context, Widget? child) {

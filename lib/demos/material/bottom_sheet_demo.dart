@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -24,18 +22,15 @@ class BottomSheetDemo extends StatelessWidget {
       case BottomSheetDemoType.modal:
         return GalleryLocalizations.of(context)!.demoBottomSheetModalTitle;
     }
-    return '';
   }
 
   Widget _bottomSheetDemo(BuildContext context) {
     switch (type) {
       case BottomSheetDemoType.persistent:
         return _PersistentBottomSheetDemo();
-        break;
       case BottomSheetDemoType.modal:
       default:
         return _ModalBottomSheetDemo();
-        break;
     }
   }
 
@@ -128,7 +123,8 @@ class _ModalBottomSheetDemo extends StatelessWidget {
         onPressed: () {
           _showModalBottomSheet(context);
         },
-        child: Text(GalleryLocalizations.of(context)!.demoBottomSheetButtonText),
+        child:
+            Text(GalleryLocalizations.of(context)!.demoBottomSheetButtonText),
       ),
     );
   }
@@ -183,7 +179,8 @@ class _PersistentBottomSheetDemoState
     return Center(
       child: ElevatedButton(
         onPressed: _showBottomSheetCallback,
-        child: Text(GalleryLocalizations.of(context)!.demoBottomSheetButtonText),
+        child:
+            Text(GalleryLocalizations.of(context)!.demoBottomSheetButtonText),
       ),
     );
   }

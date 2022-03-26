@@ -1,5 +1,3 @@
-
-
 enum BottomNavigationDemoType {
   withLabels,
   withoutLabels,

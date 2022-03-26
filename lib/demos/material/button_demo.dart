@@ -2,37 +2,34 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
 class ButtonDemo extends StatelessWidget {
-  const ButtonDemo({Key key, this.type}) : super(key: key);
+  const ButtonDemo({Key? key, required this.type}) : super(key: key);
 
   final ButtonDemoType type;
 
   String _title(BuildContext context) {
     switch (type) {
       case ButtonDemoType.text:
-        return GalleryLocalizations.of(context).demoTextButtonTitle;
+        return GalleryLocalizations.of(context)!.demoTextButtonTitle;
       case ButtonDemoType.elevated:
-        return GalleryLocalizations.of(context).demoElevatedButtonTitle;
+        return GalleryLocalizations.of(context)!.demoElevatedButtonTitle;
       case ButtonDemoType.outlined:
-        return GalleryLocalizations.of(context).demoOutlinedButtonTitle;
+        return GalleryLocalizations.of(context)!.demoOutlinedButtonTitle;
       case ButtonDemoType.toggle:
-        return GalleryLocalizations.of(context).demoToggleButtonTitle;
+        return GalleryLocalizations.of(context)!.demoToggleButtonTitle;
       case ButtonDemoType.floating:
-        return GalleryLocalizations.of(context).demoFloatingButtonTitle;
+        return GalleryLocalizations.of(context)!.demoFloatingButtonTitle;
     }
-    return '';
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget buttons;
+    Widget? buttons;
     switch (type) {
       case ButtonDemoType.text:
         buttons = _TextButtonDemo();
@@ -72,12 +69,12 @@ class _TextButtonDemo extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {},
-            child: Text(GalleryLocalizations.of(context).buttonText),
+            child: Text(GalleryLocalizations.of(context)!.buttonText),
           ),
           const SizedBox(height: 12),
           TextButton.icon(
             icon: const Icon(Icons.add, size: 18),
-            label: Text(GalleryLocalizations.of(context).buttonText),
+            label: Text(GalleryLocalizations.of(context)!.buttonText),
             onPressed: () {},
           ),
         ],
@@ -99,12 +96,12 @@ class _ElevatedButtonDemo extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: Text(GalleryLocalizations.of(context).buttonText),
+            child: Text(GalleryLocalizations.of(context)!.buttonText),
           ),
           const SizedBox(height: 12),
           ElevatedButton.icon(
             icon: const Icon(Icons.add, size: 18),
-            label: Text(GalleryLocalizations.of(context).buttonText),
+            label: Text(GalleryLocalizations.of(context)!.buttonText),
             onPressed: () {},
           ),
         ],
@@ -126,12 +123,12 @@ class _OutlinedButtonDemo extends StatelessWidget {
         children: [
           OutlinedButton(
             onPressed: () {},
-            child: Text(GalleryLocalizations.of(context).buttonText),
+            child: Text(GalleryLocalizations.of(context)!.buttonText),
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
             icon: const Icon(Icons.add, size: 18),
-            label: Text(GalleryLocalizations.of(context).buttonText),
+            label: Text(GalleryLocalizations.of(context)!.buttonText),
             onPressed: () {},
           ),
         ],
@@ -161,7 +158,7 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
   String get restorationId => 'toggle_button_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(isSelected[0], 'first_item');
     registerForRestoration(isSelected[1], 'second_item');
     registerForRestoration(isSelected[2], 'third_item');
@@ -208,13 +205,13 @@ class _FloatingActionButtonDemo extends StatelessWidget {
         children: [
           FloatingActionButton(
             onPressed: () {},
-            tooltip: GalleryLocalizations.of(context).buttonTextCreate,
+            tooltip: GalleryLocalizations.of(context)!.buttonTextCreate,
             child: const Icon(Icons.add),
           ),
           const SizedBox(height: 20),
           FloatingActionButton.extended(
             icon: const Icon(Icons.add),
-            label: Text(GalleryLocalizations.of(context).buttonTextCreate),
+            label: Text(GalleryLocalizations.of(context)!.buttonTextCreate),
             onPressed: () {},
           ),
         ],
