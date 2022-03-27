@@ -214,6 +214,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
   @override
   Widget build(BuildContext context) {
     const sizedBoxSpace = SizedBox(height: 24);
+    final _localizations = GalleryLocalizations.of(context)!;
 
     return Form(
       key: _formKey,
@@ -232,10 +233,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.person),
-                  hintText: GalleryLocalizations.of(context)!
-                      .demoTextFieldWhatDoPeopleCallYou,
-                  labelText:
-                      GalleryLocalizations.of(context)!.demoTextFieldNameField,
+                  hintText: _localizations.demoTextFieldWhatDoPeopleCallYou,
+                  labelText: _localizations.demoTextFieldNameField,
                 ),
                 onSaved: (value) {
                   person.name = value;
@@ -251,10 +250,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.phone),
-                  hintText: GalleryLocalizations.of(context)!
-                      .demoTextFieldWhereCanWeReachYou,
-                  labelText: GalleryLocalizations.of(context)!
-                      .demoTextFieldPhoneNumber,
+                  hintText: _localizations.demoTextFieldWhereCanWeReachYou,
+                  labelText: _localizations.demoTextFieldPhoneNumber,
                   prefixText: '+1 ',
                 ),
                 keyboardType: TextInputType.phone,
@@ -280,10 +277,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.email),
-                  hintText: GalleryLocalizations.of(context)!
-                      .demoTextFieldYourEmailAddress,
-                  labelText:
-                      GalleryLocalizations.of(context)!.demoTextFieldEmail,
+                  hintText: _localizations.demoTextFieldYourEmailAddress,
+                  labelText: _localizations.demoTextFieldEmail,
                 ),
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (value) {
@@ -297,12 +292,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _lifeStory,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: GalleryLocalizations.of(context)!
-                      .demoTextFieldTellUsAboutYourself,
-                  helperText: GalleryLocalizations.of(context)!
-                      .demoTextFieldKeepItShort,
-                  labelText:
-                      GalleryLocalizations.of(context)!.demoTextFieldLifeStory,
+                  hintText: _localizations.demoTextFieldTellUsAboutYourself,
+                  helperText: _localizations.demoTextFieldKeepItShort,
+                  labelText: _localizations.demoTextFieldLifeStory,
                 ),
                 maxLines: 3,
               ),
@@ -313,10 +305,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  labelText:
-                      GalleryLocalizations.of(context)!.demoTextFieldSalary,
-                  suffixText:
-                      GalleryLocalizations.of(context)!.demoTextFieldUSD,
+                  labelText: _localizations.demoTextFieldSalary,
+                  suffixText: _localizations.demoTextFieldUSD,
                 ),
                 maxLines: 1,
               ),
@@ -326,10 +316,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 textInputAction: TextInputAction.next,
                 focusNode: _password,
                 fieldKey: _passwordFieldKey,
-                helperText:
-                    GalleryLocalizations.of(context)!.demoTextFieldNoMoreThan,
-                labelText:
-                    GalleryLocalizations.of(context)!.demoTextFieldPassword,
+                helperText: _localizations.demoTextFieldNoMoreThan,
+                labelText: _localizations.demoTextFieldPassword,
                 onFieldSubmitted: (value) {
                   setState(() {
                     person.password = value;
@@ -343,8 +331,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _retypePassword,
                 decoration: InputDecoration(
                   filled: true,
-                  labelText: GalleryLocalizations.of(context)!
-                      .demoTextFieldRetypePassword,
+                  labelText: _localizations.demoTextFieldRetypePassword,
                 ),
                 maxLength: 8,
                 obscureText: true,
@@ -357,13 +344,12 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
               Center(
                 child: ElevatedButton(
                   onPressed: _handleSubmitted,
-                  child: Text(
-                      GalleryLocalizations.of(context)!.demoTextFieldSubmit),
+                  child: Text(_localizations.demoTextFieldSubmit),
                 ),
               ),
               sizedBoxSpace,
               Text(
-                GalleryLocalizations.of(context)!.demoTextFieldRequiredField,
+                _localizations.demoTextFieldRequiredField,
                 style: Theme.of(context).textTheme.caption,
               ),
               sizedBoxSpace,

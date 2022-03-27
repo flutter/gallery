@@ -35,43 +35,38 @@ class TravelDestination {
   final CardType cardType;
 }
 
-List<TravelDestination> destinations(BuildContext context) => [
-      TravelDestination(
-        assetName: 'places/india_thanjavur_market.png',
-        assetPackage: _kGalleryAssetsPackage,
-        title:
-            GalleryLocalizations.of(context)!.cardsDemoTravelDestinationTitle1,
-        description: GalleryLocalizations.of(context)!
-            .cardsDemoTravelDestinationDescription1,
-        city: GalleryLocalizations.of(context)!.cardsDemoTravelDestinationCity1,
-        location: GalleryLocalizations.of(context)!
-            .cardsDemoTravelDestinationLocation1,
-      ),
-      TravelDestination(
-        assetName: 'places/india_chettinad_silk_maker.png',
-        assetPackage: _kGalleryAssetsPackage,
-        title:
-            GalleryLocalizations.of(context)!.cardsDemoTravelDestinationTitle2,
-        description: GalleryLocalizations.of(context)!
-            .cardsDemoTravelDestinationDescription2,
-        city: GalleryLocalizations.of(context)!.cardsDemoTravelDestinationCity2,
-        location: GalleryLocalizations.of(context)!
-            .cardsDemoTravelDestinationLocation2,
-        cardType: CardType.tappable,
-      ),
-      TravelDestination(
-        assetName: 'places/india_tanjore_thanjavur_temple.png',
-        assetPackage: _kGalleryAssetsPackage,
-        title:
-            GalleryLocalizations.of(context)!.cardsDemoTravelDestinationTitle3,
-        description: GalleryLocalizations.of(context)!
-            .cardsDemoTravelDestinationDescription3,
-        city: GalleryLocalizations.of(context)!.cardsDemoTravelDestinationCity1,
-        location: GalleryLocalizations.of(context)!
-            .cardsDemoTravelDestinationLocation1,
-        cardType: CardType.selectable,
-      ),
-    ];
+List<TravelDestination> destinations(BuildContext context) {
+  final _localizations = GalleryLocalizations.of(context)!;
+
+  return [
+    TravelDestination(
+      assetName: 'places/india_thanjavur_market.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: _localizations.cardsDemoTravelDestinationTitle1,
+      description: _localizations.cardsDemoTravelDestinationDescription1,
+      city: _localizations.cardsDemoTravelDestinationCity1,
+      location: _localizations.cardsDemoTravelDestinationLocation1,
+    ),
+    TravelDestination(
+      assetName: 'places/india_chettinad_silk_maker.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: _localizations.cardsDemoTravelDestinationTitle2,
+      description: _localizations.cardsDemoTravelDestinationDescription2,
+      city: _localizations.cardsDemoTravelDestinationCity2,
+      location: _localizations.cardsDemoTravelDestinationLocation2,
+      cardType: CardType.tappable,
+    ),
+    TravelDestination(
+      assetName: 'places/india_tanjore_thanjavur_temple.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: _localizations.cardsDemoTravelDestinationTitle3,
+      description: _localizations.cardsDemoTravelDestinationDescription3,
+      city: _localizations.cardsDemoTravelDestinationCity1,
+      location: _localizations.cardsDemoTravelDestinationLocation1,
+      cardType: CardType.selectable,
+    ),
+  ];
+}
 
 class TravelDestinationItem extends StatelessWidget {
   const TravelDestinationItem({Key? key, required this.destination, this.shape})
@@ -266,6 +261,7 @@ class TravelDestinationContent extends StatelessWidget {
     final theme = Theme.of(context);
     final titleStyle = theme.textTheme.headline5!.copyWith(color: Colors.white);
     final descriptionStyle = theme.textTheme.subtitle1!;
+    final _localizations = GalleryLocalizations.of(context)!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -339,15 +335,14 @@ class TravelDestinationContent extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {},
-                  child: Text(GalleryLocalizations.of(context)!.demoMenuShare,
-                      semanticsLabel: GalleryLocalizations.of(context)!
+                  child: Text(_localizations.demoMenuShare,
+                      semanticsLabel: _localizations
                           .cardsDemoShareSemantics(destination.title)),
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text(
-                      GalleryLocalizations.of(context)!.cardsDemoExplore,
-                      semanticsLabel: GalleryLocalizations.of(context)!
+                  child: Text(_localizations.cardsDemoExplore,
+                      semanticsLabel: _localizations
                           .cardsDemoExploreSemantics(destination.title)),
                 ),
               ],

@@ -29,18 +29,18 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
         middle: Text(
-          GalleryLocalizations.of(context)!.demoSelectionControlsSwitchTitle,
+          _localizations.demoSelectionControlsSwitchTitle,
         ),
       ),
       child: Center(
         child: Semantics(
           container: true,
-          label: GalleryLocalizations.of(context)!
-              .demoSelectionControlsSwitchTitle,
+          label: _localizations.demoSelectionControlsSwitchTitle,
           child: CupertinoSwitch(
             value: _switchValue.value,
             onChanged: (value) {

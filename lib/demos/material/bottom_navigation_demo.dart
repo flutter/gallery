@@ -42,13 +42,12 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   }
 
   String _title(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     switch (widget.type) {
       case BottomNavigationDemoType.withLabels:
-        return GalleryLocalizations.of(context)!
-            .demoBottomNavigationPersistentLabels;
+        return _localizations.demoBottomNavigationPersistentLabels;
       case BottomNavigationDemoType.withoutLabels:
-        return GalleryLocalizations.of(context)!
-            .demoBottomNavigationSelectedLabel;
+        return _localizations.demoBottomNavigationSelectedLabel;
     }
   }
 
@@ -56,27 +55,28 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final _localizations = GalleryLocalizations.of(context)!;
 
     var bottomNavigationBarItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: const Icon(Icons.add_comment),
-        label: GalleryLocalizations.of(context)!.bottomNavigationCommentsTab,
+        label: _localizations.bottomNavigationCommentsTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.calendar_today),
-        label: GalleryLocalizations.of(context)!.bottomNavigationCalendarTab,
+        label: _localizations.bottomNavigationCalendarTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.account_circle),
-        label: GalleryLocalizations.of(context)!.bottomNavigationAccountTab,
+        label: _localizations.bottomNavigationAccountTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.alarm_on),
-        label: GalleryLocalizations.of(context)!.bottomNavigationAlarmTab,
+        label: _localizations.bottomNavigationAlarmTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.camera_enhance),
-        label: GalleryLocalizations.of(context)!.bottomNavigationCameraTab,
+        label: _localizations.bottomNavigationCameraTab,
       ),
     ];
 

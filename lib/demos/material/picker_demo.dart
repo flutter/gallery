@@ -160,13 +160,14 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   String get _title {
+    final _localizations = GalleryLocalizations.of(context)!;
     switch (widget.type) {
       case PickerDemoType.date:
-        return GalleryLocalizations.of(context)!.demoDatePickerTitle;
+        return _localizations.demoDatePickerTitle;
       case PickerDemoType.time:
-        return GalleryLocalizations.of(context)!.demoTimePickerTitle;
+        return _localizations.demoTimePickerTitle;
       case PickerDemoType.range:
-        return GalleryLocalizations.of(context)!.demoDateRangePickerTitle;
+        return _localizations.demoDateRangePickerTitle;
       default:
         return '';
     }

@@ -67,33 +67,34 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context)!.demoBottomAppBarTitle),
+        title: Text(_localizations.demoBottomAppBarTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 88),
         children: [
           SwitchListTile(
             title: Text(
-              GalleryLocalizations.of(context)!.demoFloatingButtonTitle,
+              _localizations.demoFloatingButtonTitle,
             ),
             value: _showFab.value,
             onChanged: _onShowFabChanged,
           ),
           SwitchListTile(
-            title: Text(GalleryLocalizations.of(context)!.bottomAppBarNotch),
+            title: Text(_localizations.bottomAppBarNotch),
             value: _showNotch.value,
             onChanged: _onShowNotchChanged,
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(GalleryLocalizations.of(context)!.bottomAppBarPosition),
+            child: Text(_localizations.bottomAppBarPosition),
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context)!.bottomAppBarPositionDockedEnd,
+              _localizations.bottomAppBarPositionDockedEnd,
             ),
             value: 0,
             groupValue: _currentFabLocation.value,
@@ -101,8 +102,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context)!
-                  .bottomAppBarPositionDockedCenter,
+              _localizations.bottomAppBarPositionDockedCenter,
             ),
             value: 1,
             groupValue: _currentFabLocation.value,
@@ -110,7 +110,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context)!.bottomAppBarPositionFloatingEnd,
+              _localizations.bottomAppBarPositionFloatingEnd,
             ),
             value: 2,
             groupValue: _currentFabLocation.value,
@@ -118,8 +118,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context)!
-                  .bottomAppBarPositionFloatingCenter,
+              _localizations.bottomAppBarPositionFloatingCenter,
             ),
             value: 3,
             groupValue: _currentFabLocation.value,
@@ -130,7 +129,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
       floatingActionButton: _showFab.value
           ? FloatingActionButton(
               onPressed: () {},
-              tooltip: GalleryLocalizations.of(context)!.buttonTextCreate,
+              tooltip: _localizations.buttonTextCreate,
               child: const Icon(Icons.add),
             )
           : null,
@@ -159,6 +158,7 @@ class _DemoBottomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return BottomAppBar(
       shape: shape,
       child: IconTheme(
@@ -172,14 +172,12 @@ class _DemoBottomAppBar extends StatelessWidget {
             ),
             if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
-              tooltip:
-                  GalleryLocalizations.of(context)!.starterAppTooltipSearch,
+              tooltip: _localizations.starterAppTooltipSearch,
               icon: const Icon(Icons.search),
               onPressed: () {},
             ),
             IconButton(
-              tooltip:
-                  GalleryLocalizations.of(context)!.starterAppTooltipFavorite,
+              tooltip: _localizations.starterAppTooltipFavorite,
               icon: const Icon(Icons.favorite),
               onPressed: () {},
             ),

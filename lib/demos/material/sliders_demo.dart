@@ -14,13 +14,14 @@ class SlidersDemo extends StatelessWidget {
   final SlidersDemoType type;
 
   String _title(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     switch (type) {
       case SlidersDemoType.sliders:
-        return GalleryLocalizations.of(context)!.demoSlidersTitle;
+        return _localizations.demoSlidersTitle;
       case SlidersDemoType.rangeSliders:
-        return GalleryLocalizations.of(context)!.demoRangeSlidersTitle;
+        return _localizations.demoRangeSlidersTitle;
       case SlidersDemoType.customSliders:
-        return GalleryLocalizations.of(context)!.demoCustomSlidersTitle;
+        return _localizations.demoCustomSlidersTitle;
     }
   }
 
@@ -75,6 +76,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
@@ -84,8 +86,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
             mainAxisSize: MainAxisSize.min,
             children: [
               Semantics(
-                label: GalleryLocalizations.of(context)!
-                    .demoSlidersEditableNumericalValue,
+                label: _localizations.demoSlidersEditableNumericalValue,
                 child: SizedBox(
                   width: 64,
                   height: 48,
@@ -118,7 +119,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                   });
                 },
               ),
-              Text(GalleryLocalizations.of(context)!
+              Text(_localizations
                   .demoSlidersContinuousWithEditableNumericalValue),
             ],
           ),
@@ -138,7 +139,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                   });
                 },
               ),
-              Text(GalleryLocalizations.of(context)!.demoSlidersDiscrete),
+              Text(_localizations.demoSlidersDiscrete),
             ],
           ),
         ],
@@ -504,6 +505,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
       _continuousEndCustomValue.value,
     );
     final theme = Theme.of(context);
+    final _localizations = GalleryLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
@@ -545,8 +547,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
                   },
                 ),
               ),
-              Text(GalleryLocalizations.of(context)!
-                  .demoSlidersDiscreteSliderWithCustomTheme),
+              Text(_localizations.demoSlidersDiscreteSliderWithCustomTheme),
             ],
           ),
           const SizedBox(height: 80),
@@ -577,7 +578,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
                   },
                 ),
               ),
-              Text(GalleryLocalizations.of(context)!
+              Text(_localizations
                   .demoSlidersContinuousRangeSliderWithCustomTheme),
             ],
           ),

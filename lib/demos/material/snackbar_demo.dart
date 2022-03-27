@@ -12,33 +12,31 @@ class SnackbarsDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context)!.demoSnackbarsTitle),
+        title: Text(_localizations.demoSnackbarsTitle),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content:
-                  Text(GalleryLocalizations.of(context)!.demoSnackbarsText),
+              content: Text(_localizations.demoSnackbarsText),
               action: SnackBarAction(
-                label: GalleryLocalizations.of(context)!
-                    .demoSnackbarsActionButtonLabel,
+                label: _localizations.demoSnackbarsActionButtonLabel,
                 onPressed: () {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
-                    GalleryLocalizations.of(context)!.demoSnackbarsAction,
+                    _localizations.demoSnackbarsAction,
                   )));
                 },
               ),
             ));
           },
-          child:
-              Text(GalleryLocalizations.of(context)!.demoSnackbarsButtonLabel),
+          child: Text(_localizations.demoSnackbarsButtonLabel),
         ),
       ),
     );

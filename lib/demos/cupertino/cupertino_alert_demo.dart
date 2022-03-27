@@ -104,19 +104,18 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
   }
 
   String _title(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     switch (widget.type) {
       case AlertDemoType.alert:
-        return GalleryLocalizations.of(context)!.demoCupertinoAlertTitle;
+        return _localizations.demoCupertinoAlertTitle;
       case AlertDemoType.alertTitle:
-        return GalleryLocalizations.of(context)!
-            .demoCupertinoAlertWithTitleTitle;
+        return _localizations.demoCupertinoAlertWithTitleTitle;
       case AlertDemoType.alertButtons:
-        return GalleryLocalizations.of(context)!.demoCupertinoAlertButtonsTitle;
+        return _localizations.demoCupertinoAlertButtonsTitle;
       case AlertDemoType.alertButtonsOnly:
-        return GalleryLocalizations.of(context)!
-            .demoCupertinoAlertButtonsOnlyTitle;
+        return _localizations.demoCupertinoAlertButtonsOnlyTitle;
       case AlertDemoType.actionSheet:
-        return GalleryLocalizations.of(context)!.demoCupertinoActionSheetTitle;
+        return _localizations.demoCupertinoActionSheetTitle;
     }
   }
 
@@ -124,21 +123,22 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     BuildContext context,
     Object? arguments,
   ) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => ApplyTextOptions(
         child: CupertinoAlertDialog(
-          title: Text(GalleryLocalizations.of(context)!.dialogDiscardTitle),
+          title: Text(_localizations.dialogDiscardTitle),
           actions: [
             CupertinoDialogAction(
               isDestructiveAction: true,
               onPressed: () {
                 Navigator.of(
                   context,
-                ).pop(GalleryLocalizations.of(context)!.cupertinoAlertDiscard);
+                ).pop(_localizations.cupertinoAlertDiscard);
               },
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertDiscard,
+                _localizations.cupertinoAlertDiscard,
               ),
             ),
             CupertinoDialogAction(
@@ -146,10 +146,10 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
               onPressed: () => Navigator.of(
                 context,
               ).pop(
-                GalleryLocalizations.of(context)!.cupertinoAlertCancel,
+                _localizations.cupertinoAlertCancel,
               ),
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertCancel,
+                _localizations.cupertinoAlertCancel,
               ),
             ),
           ],
@@ -162,35 +162,36 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     BuildContext context,
     Object? arguments,
   ) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => ApplyTextOptions(
         child: CupertinoAlertDialog(
           title: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertLocationTitle,
+            _localizations.cupertinoAlertLocationTitle,
           ),
           content: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertLocationDescription,
+            _localizations.cupertinoAlertLocationDescription,
           ),
           actions: [
             CupertinoDialogAction(
               onPressed: () => Navigator.of(
                 context,
               ).pop(
-                GalleryLocalizations.of(context)!.cupertinoAlertDontAllow,
+                _localizations.cupertinoAlertDontAllow,
               ),
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertDontAllow,
+                _localizations.cupertinoAlertDontAllow,
               ),
             ),
             CupertinoDialogAction(
               onPressed: () => Navigator.of(
                 context,
               ).pop(
-                GalleryLocalizations.of(context)!.cupertinoAlertAllow,
+                _localizations.cupertinoAlertAllow,
               ),
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertAllow,
+                _localizations.cupertinoAlertAllow,
               ),
             ),
           ],
@@ -203,15 +204,16 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     BuildContext context,
     Object? arguments,
   ) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => ApplyTextOptions(
         child: CupertinoDessertDialog(
           title: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertFavoriteDessert,
+            _localizations.cupertinoAlertFavoriteDessert,
           ),
           content: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertDessertDescription,
+            _localizations.cupertinoAlertDessertDescription,
           ),
         ),
       ),
@@ -234,44 +236,45 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     BuildContext context,
     Object? arguments,
   ) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoModalPopupRoute<String>(
       builder: (context) => ApplyTextOptions(
         child: CupertinoActionSheet(
           title: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertFavoriteDessert,
+            _localizations.cupertinoAlertFavoriteDessert,
           ),
           message: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertDessertDescription,
+            _localizations.cupertinoAlertDessertDescription,
           ),
           actions: [
             CupertinoActionSheetAction(
               onPressed: () => Navigator.of(
                 context,
               ).pop(
-                GalleryLocalizations.of(context)!.cupertinoAlertCheesecake,
+                _localizations.cupertinoAlertCheesecake,
               ),
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertCheesecake,
+                _localizations.cupertinoAlertCheesecake,
               ),
             ),
             CupertinoActionSheetAction(
               onPressed: () => Navigator.of(
                 context,
               ).pop(
-                GalleryLocalizations.of(context)!.cupertinoAlertTiramisu,
+                _localizations.cupertinoAlertTiramisu,
               ),
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertTiramisu,
+                _localizations.cupertinoAlertTiramisu,
               ),
             ),
             CupertinoActionSheetAction(
               onPressed: () => Navigator.of(
                 context,
               ).pop(
-                GalleryLocalizations.of(context)!.cupertinoAlertApplePie,
+                _localizations.cupertinoAlertApplePie,
               ),
               child: Text(
-                GalleryLocalizations.of(context)!.cupertinoAlertApplePie,
+                _localizations.cupertinoAlertApplePie,
               ),
             ),
           ],
@@ -280,10 +283,10 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
             onPressed: () => Navigator.of(
               context,
             ).pop(
-              GalleryLocalizations.of(context)!.cupertinoAlertCancel,
+              _localizations.cupertinoAlertCancel,
             ),
             child: Text(
-              GalleryLocalizations.of(context)!.cupertinoAlertCancel,
+              _localizations.cupertinoAlertCancel,
             ),
           ),
         ),
@@ -360,6 +363,7 @@ class CupertinoDessertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoAlertDialog(
       title: title,
       content: content,
@@ -369,11 +373,11 @@ class CupertinoDessertDialog extends StatelessWidget {
             Navigator.of(
               context,
             ).pop(
-              GalleryLocalizations.of(context)!.cupertinoAlertCheesecake,
+              _localizations.cupertinoAlertCheesecake,
             );
           },
           child: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertCheesecake,
+            _localizations.cupertinoAlertCheesecake,
           ),
         ),
         CupertinoDialogAction(
@@ -381,11 +385,11 @@ class CupertinoDessertDialog extends StatelessWidget {
             Navigator.of(
               context,
             ).pop(
-              GalleryLocalizations.of(context)!.cupertinoAlertTiramisu,
+              _localizations.cupertinoAlertTiramisu,
             );
           },
           child: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertTiramisu,
+            _localizations.cupertinoAlertTiramisu,
           ),
         ),
         CupertinoDialogAction(
@@ -393,11 +397,11 @@ class CupertinoDessertDialog extends StatelessWidget {
             Navigator.of(
               context,
             ).pop(
-              GalleryLocalizations.of(context)!.cupertinoAlertApplePie,
+              _localizations.cupertinoAlertApplePie,
             );
           },
           child: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertApplePie,
+            _localizations.cupertinoAlertApplePie,
           ),
         ),
         CupertinoDialogAction(
@@ -405,11 +409,11 @@ class CupertinoDessertDialog extends StatelessWidget {
             Navigator.of(
               context,
             ).pop(
-              GalleryLocalizations.of(context)!.cupertinoAlertChocolateBrownie,
+              _localizations.cupertinoAlertChocolateBrownie,
             );
           },
           child: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertChocolateBrownie,
+            _localizations.cupertinoAlertChocolateBrownie,
           ),
         ),
         CupertinoDialogAction(
@@ -418,11 +422,11 @@ class CupertinoDessertDialog extends StatelessWidget {
             Navigator.of(
               context,
             ).pop(
-              GalleryLocalizations.of(context)!.cupertinoAlertCancel,
+              _localizations.cupertinoAlertCancel,
             );
           },
           child: Text(
-            GalleryLocalizations.of(context)!.cupertinoAlertCancel,
+            _localizations.cupertinoAlertCancel,
           ),
         ),
       ],

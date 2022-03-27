@@ -73,25 +73,26 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     final tabs = [
-      GalleryLocalizations.of(context)!.colorsRed,
-      GalleryLocalizations.of(context)!.colorsOrange,
-      GalleryLocalizations.of(context)!.colorsGreen,
-      GalleryLocalizations.of(context)!.colorsBlue,
-      GalleryLocalizations.of(context)!.colorsIndigo,
-      GalleryLocalizations.of(context)!.colorsPurple,
-      GalleryLocalizations.of(context)!.colorsRed,
-      GalleryLocalizations.of(context)!.colorsOrange,
-      GalleryLocalizations.of(context)!.colorsGreen,
-      GalleryLocalizations.of(context)!.colorsBlue,
-      GalleryLocalizations.of(context)!.colorsIndigo,
-      GalleryLocalizations.of(context)!.colorsPurple,
+      _localizations.colorsRed,
+      _localizations.colorsOrange,
+      _localizations.colorsGreen,
+      _localizations.colorsBlue,
+      _localizations.colorsIndigo,
+      _localizations.colorsPurple,
+      _localizations.colorsRed,
+      _localizations.colorsOrange,
+      _localizations.colorsGreen,
+      _localizations.colorsBlue,
+      _localizations.colorsIndigo,
+      _localizations.colorsPurple,
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context)!.demoTabsScrollingTitle),
+        title: Text(_localizations.demoTabsScrollingTitle),
         bottom: TabBar(
           controller: _tabController,
           isScrollable: true,
@@ -163,17 +164,18 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     final tabs = [
-      GalleryLocalizations.of(context)!.colorsRed,
-      GalleryLocalizations.of(context)!.colorsOrange,
-      GalleryLocalizations.of(context)!.colorsGreen,
+      _localizations.colorsRed,
+      _localizations.colorsOrange,
+      _localizations.colorsGreen,
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          GalleryLocalizations.of(context)!.demoTabsNonScrollingTitle,
+          _localizations.demoTabsNonScrollingTitle,
         ),
         bottom: TabBar(
           controller: _tabController,
