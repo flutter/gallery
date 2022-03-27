@@ -33,7 +33,7 @@ class MobileAsymmetricView extends StatelessWidget {
     BuildContext context,
     BoxConstraints constraints,
   ) {
-    if (products == null || products.isEmpty) {
+    if (products.isEmpty) {
       return const [];
     }
 

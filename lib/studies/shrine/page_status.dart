@@ -12,9 +12,7 @@ class PageStatus extends InheritedWidget {
     required this.cartController,
     required this.menuController,
     required Widget child,
-  })  : assert(cartController != null),
-        assert(menuController != null),
-        super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   final AnimationController cartController;
   final AnimationController menuController;

@@ -13,8 +13,7 @@ class TwoProductCardColumn extends StatelessWidget {
     required this.bottom,
     this.top,
     required this.imageAspectRatio,
-  })  : assert(bottom != null),
-        super(key: key);
+  }) : super(key: key);
 
   static const double spacerHeight = 44;
   static const double horizontalPadding = 28;

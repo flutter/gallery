@@ -16,7 +16,7 @@ class MobileProductCard extends StatelessWidget {
     Key? key,
     this.imageAspectRatio = 33 / 49,
     required this.product,
-  })  : assert(imageAspectRatio == null || imageAspectRatio > 0),
+  })  : assert(imageAspectRatio > 0),
         super(key: key);
 
   final double imageAspectRatio;
@@ -127,7 +127,7 @@ Widget _buildProductCard({
                   SizedBox(
                     width: imageWidth,
                     child: Text(
-                      product == null ? '' : product.name(context),
+                      product.name(context),
                       style: theme.textTheme.button,
                       softWrap: true,
                       textAlign: TextAlign.center,
@@ -135,7 +135,7 @@ Widget _buildProductCard({
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    product == null ? '' : formatter.format(product.price),
+                    formatter.format(product.price),
                     style: theme.textTheme.caption,
                   ),
                 ],
