@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ import 'package:google_fonts/google_fonts.dart';
 /// The home route is the main page with tabs for sub pages.
 /// The login route is the initial route.
 class RallyApp extends StatelessWidget {
-  const RallyApp({Key key}) : super(key: key);
+  const RallyApp({Key? key}) : super(key: key);
 
   static const String loginRoute = routes.loginRoute;
   static const String homeRoute = routes.homeRoute;

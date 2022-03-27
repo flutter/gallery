@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'dart:math' as math;
 
@@ -22,12 +22,12 @@ import 'package:gallery/studies/rally/formatters.dart';
 
 class FinancialEntityView extends StatelessWidget {
   const FinancialEntityView({
-    Key key,
-    this.heroLabel,
-    this.heroAmount,
-    this.wholeAmount,
-    this.segments,
-    this.financialEntityCards,
+    Key? key,
+    required this.heroLabel,
+    required this.heroAmount,
+    required this.wholeAmount,
+    required this.segments,
+    required this.financialEntityCards,
   })  : assert(segments.length == financialEntityCards.length),
         super(key: key);
 
@@ -83,14 +83,14 @@ class FinancialEntityView extends StatelessWidget {
 /// A reusable widget to show balance information of a single entity as a card.
 class FinancialEntityCategoryView extends StatelessWidget {
   const FinancialEntityCategoryView({
-    Key key,
-    @required this.indicatorColor,
-    @required this.indicatorFraction,
-    @required this.title,
-    @required this.subtitle,
-    @required this.semanticsLabel,
-    @required this.amount,
-    @required this.suffix,
+    Key? key,
+    required this.indicatorColor,
+    required this.indicatorFraction,
+    required this.title,
+    required this.subtitle,
+    required this.semanticsLabel,
+    required this.amount,
+    required this.suffix,
   }) : super(key: key);
 
   final Color indicatorColor;
@@ -151,19 +151,19 @@ class FinancialEntityCategoryView extends StatelessWidget {
                               children: [
                                 Text(
                                   title,
-                                  style: textTheme.bodyText2
+                                  style: textTheme.bodyText2!
                                       .copyWith(fontSize: 16),
                                 ),
                                 Text(
                                   subtitle,
-                                  style: textTheme.bodyText2
+                                  style: textTheme.bodyText2!
                                       .copyWith(color: RallyColors.gray60),
                                 ),
                               ],
                             ),
                             Text(
                               amount,
-                              style: textTheme.bodyText1.copyWith(
+                              style: textTheme.bodyText1!.copyWith(
                                 fontSize: 20,
                                 color: RallyColors.gray,
                               ),
@@ -224,7 +224,7 @@ FinancialEntityCategoryView buildFinancialEntityFromAccountData(
     suffix: const Icon(Icons.chevron_right, color: Colors.grey),
     title: model.name,
     subtitle: '• • • • • • $shortAccountNumber',
-    semanticsLabel: GalleryLocalizations.of(context).rallyAccountAmount(
+    semanticsLabel: GalleryLocalizations.of(context)!.rallyAccountAmount(
       model.name,
       shortAccountNumber,
       amount,
@@ -245,7 +245,7 @@ FinancialEntityCategoryView buildFinancialEntityFromBillData(
     suffix: const Icon(Icons.chevron_right, color: Colors.grey),
     title: model.name,
     subtitle: model.dueDate,
-    semanticsLabel: GalleryLocalizations.of(context).rallyBillAmount(
+    semanticsLabel: GalleryLocalizations.of(context)!.rallyBillAmount(
       model.name,
       model.dueDate,
       amount,
@@ -268,15 +268,15 @@ FinancialEntityCategoryView buildFinancialEntityFromBudgetData(
 
   return FinancialEntityCategoryView(
     suffix: Text(
-      GalleryLocalizations.of(context).rallyFinanceLeft,
+      GalleryLocalizations.of(context)!.rallyFinanceLeft,
       style: Theme.of(context)
           .textTheme
-          .bodyText2
+          .bodyText2!
           .copyWith(color: RallyColors.gray60, fontSize: 10),
     ),
     title: model.name,
     subtitle: amountUsed + ' / ' + primaryAmount,
-    semanticsLabel: GalleryLocalizations.of(context).rallyBudgetAmount(
+    semanticsLabel: GalleryLocalizations.of(context)!.rallyBudgetAmount(
       model.name,
       model.amountUsed,
       model.primaryAmount,
@@ -319,7 +319,7 @@ List<FinancialEntityCategoryView> buildBudgetDataListViews(
 }
 
 class FinancialEntityCategoryDetailsPage extends StatelessWidget {
-  FinancialEntityCategoryDetailsPage({Key key}) : super(key: key);
+  FinancialEntityCategoryDetailsPage({Key? key}) : super(key: key);
 
   final List<DetailedEventData> items =
       DummyDataService.getDetailedEventItems();
@@ -334,8 +334,8 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            GalleryLocalizations.of(context).rallyAccountDataChecking,
-            style: Theme.of(context).textTheme.bodyText2.copyWith(fontSize: 18),
+            GalleryLocalizations.of(context)!.rallyAccountDataChecking,
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
           ),
         ),
         body: Column(
@@ -370,9 +370,9 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
 
 class _DetailedEventCard extends StatelessWidget {
   const _DetailedEventCard({
-    @required this.title,
-    @required this.date,
-    @required this.amount,
+    required this.title,
+    required this.date,
+    required this.amount,
   });
 
   final String title;
@@ -438,7 +438,7 @@ class _DetailedEventCard extends StatelessWidget {
 }
 
 class _EventAmount extends StatelessWidget {
-  const _EventAmount({Key key, @required this.amount}) : super(key: key);
+  const _EventAmount({Key? key, required this.amount}) : super(key: key);
 
   final double amount;
 
@@ -447,7 +447,7 @@ class _EventAmount extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Text(
       usdWithSignFormat(context).format(amount),
-      style: textTheme.bodyText1.copyWith(
+      style: textTheme.bodyText1!.copyWith(
         fontSize: 20,
         color: RallyColors.gray,
       ),
@@ -456,7 +456,7 @@ class _EventAmount extends StatelessWidget {
 }
 
 class _EventDate extends StatelessWidget {
-  const _EventDate({Key key, @required this.date}) : super(key: key);
+  const _EventDate({Key? key, required this.date}) : super(key: key);
 
   final DateTime date;
 
@@ -466,13 +466,13 @@ class _EventDate extends StatelessWidget {
     return Text(
       shortDateFormat(context).format(date),
       semanticsLabel: longDateFormat(context).format(date),
-      style: textTheme.bodyText2.copyWith(color: RallyColors.gray60),
+      style: textTheme.bodyText2!.copyWith(color: RallyColors.gray60),
     );
   }
 }
 
 class _EventTitle extends StatelessWidget {
-  const _EventTitle({Key key, @required this.title}) : super(key: key);
+  const _EventTitle({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -481,7 +481,7 @@ class _EventTitle extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Text(
       title,
-      style: textTheme.bodyText2.copyWith(fontSize: 16),
+      style: textTheme.bodyText2!.copyWith(fontSize: 16),
     );
   }
 }

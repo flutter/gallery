@@ -2,15 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 
 class VerticalFractionBar extends StatelessWidget {
-  const VerticalFractionBar({Key key, this.color, this.fraction})
-      : super(key: key);
+  const VerticalFractionBar({
+    Key? key,
+    this.color,
+    required this.fraction,
+  }) : super(key: key);
 
-  final Color color;
+  final Color? color;
   final double fraction;
 
   @override
