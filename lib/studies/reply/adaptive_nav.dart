@@ -1256,7 +1256,7 @@ class _FadeThroughTransitionSwitcher extends StatelessWidget {
     Key? key,
     required this.fillColor,
     required this.child,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final Widget child;
   final Color fillColor;

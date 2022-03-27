@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -95,8 +93,8 @@ Widget _buildProductCard({
   return ScopedModelDescendant<AppStateModel>(
     builder: (context, child, model) {
       return Semantics(
-        hint:
-            GalleryLocalizations.of(context)!.shrineScreenReaderProductAddToCart,
+        hint: GalleryLocalizations.of(context)!
+            .shrineScreenReaderProductAddToCart,
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(

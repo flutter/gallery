@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
 import 'dart:math' as math;
 
 import 'package:animations/animations.dart';
@@ -335,7 +333,8 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
           centerTitle: true,
           title: Text(
             GalleryLocalizations.of(context)!.rallyAccountDataChecking,
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
+            style:
+                Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
           ),
         ),
         body: Column(
