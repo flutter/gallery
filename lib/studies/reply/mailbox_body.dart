@@ -1,4 +1,4 @@
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -8,7 +8,7 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class MailboxBody extends StatelessWidget {
-  const MailboxBody({Key key}) : super(key: key);
+  const MailboxBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class MailboxBody extends StatelessWidget {
         final destinationString = destination
             .toString()
             .substring(destination.toString().indexOf('.') + 1);
-        List<Email> emails;
+        late List<Email> emails;
 
         switch (destination) {
           case MailboxPageType.inbox:

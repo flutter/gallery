@@ -1,47 +1,45 @@
-// @dart=2.9
-
 class Email {
   Email({
-    this.id,
-    this.sender,
+    required this.id,
+    required this.sender,
     this.time,
-    this.subject,
-    this.message,
-    this.avatar,
+    this.subject = '',
+    this.message = '',
+    required this.avatar,
     this.recipients,
-    this.containsPictures,
+    this.containsPictures = false,
   });
 
   final int id;
-  final String sender;
-  final String time;
+  final String? sender;
+  final String? time;
   final String subject;
   final String message;
   final String avatar;
-  final String recipients;
+  final String? recipients;
   final bool containsPictures;
 }
 
 class InboxEmail extends Email {
   InboxEmail({
-    int id,
-    String sender,
-    String time,
-    String subject,
-    String message,
-    String avatar,
-    String recipients,
-    bool containsPictures,
+    required int id,
+    required String sender,
+    String? time,
+    String? subject,
+    String? message,
+    required String avatar,
+    String? recipients,
+    bool? containsPictures,
     this.inboxType = InboxType.normal,
   }) : super(
           id: id,
           sender: sender,
           time: time,
-          subject: subject,
-          message: message,
+          subject: subject ?? '',
+          message: message ?? '',
           avatar: avatar,
           recipients: recipients,
-          containsPictures: containsPictures,
+          containsPictures: containsPictures ?? false,
         );
 
   InboxType inboxType;
