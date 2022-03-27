@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 
@@ -11,17 +11,18 @@ import 'package:gallery/studies/shrine/supplemental/product_card.dart';
 
 class TwoProductCardColumn extends StatelessWidget {
   const TwoProductCardColumn({
-    Key key,
-    @required this.bottom,
+    Key? key,
+    required this.bottom,
     this.top,
-    @required this.imageAspectRatio,
+    required this.imageAspectRatio,
   })  : assert(bottom != null),
         super(key: key);
 
   static const double spacerHeight = 44;
   static const double horizontalPadding = 28;
 
-  final Product bottom, top;
+  final Product bottom;
+  final Product? top;
   final double imageAspectRatio;
 
   @override
@@ -35,7 +36,7 @@ class TwoProductCardColumn extends StatelessWidget {
             child: top != null
                 ? MobileProductCard(
                     imageAspectRatio: imageAspectRatio,
-                    product: top,
+                    product: top!,
                   )
                 : const SizedBox(
                     height: spacerHeight,
@@ -57,9 +58,9 @@ class TwoProductCardColumn extends StatelessWidget {
 
 class OneProductCardColumn extends StatelessWidget {
   const OneProductCardColumn({
-    Key key,
-    this.product,
-    @required this.reverse,
+    Key? key,
+    required this.product,
+    required this.reverse,
   }) : super(key: key);
 
   final Product product;

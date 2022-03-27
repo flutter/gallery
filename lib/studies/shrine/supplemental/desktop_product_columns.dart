@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'dart:math';
 
@@ -22,13 +22,13 @@ const columnTopSpace = 84.0;
 
 class DesktopProductCardColumn extends StatelessWidget {
   const DesktopProductCardColumn({
-    Key key,
-    @required this.alignToEnd,
-    @required this.startLarge,
-    @required this.lowerStart,
-    @required this.products,
-    @required this.largeImageWidth,
-    @required this.smallImageWidth,
+    Key? key,
+    required this.alignToEnd,
+    required this.startLarge,
+    required this.lowerStart,
+    required this.products,
+    required this.largeImageWidth,
+    required this.smallImageWidth,
   }) : super(key: key);
 
   final List<Product> products;

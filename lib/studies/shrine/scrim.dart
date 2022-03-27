@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
+
 
 import 'package:flutter/material.dart';
 
 class Scrim extends StatelessWidget {
-  const Scrim({Key key, this.controller}) : super(key: key);
+  const Scrim({Key? key, required this.controller}) : super(key: key);
 
   final AnimationController controller;
 
