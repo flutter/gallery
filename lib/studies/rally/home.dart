@@ -175,11 +175,12 @@ class _HomePageState extends State<HomePage>
       {required BuildContext context,
       required ThemeData theme,
       bool isVertical = false}) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return [
       _RallyTab(
         theme: theme,
         iconData: Icons.pie_chart,
-        title: GalleryLocalizations.of(context)!.rallyTitleOverview,
+        title: _localizations.rallyTitleOverview,
         tabIndex: 0,
         tabController: _tabController,
         isVertical: isVertical,
@@ -187,7 +188,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.attach_money,
-        title: GalleryLocalizations.of(context)!.rallyTitleAccounts,
+        title: _localizations.rallyTitleAccounts,
         tabIndex: 1,
         tabController: _tabController,
         isVertical: isVertical,
@@ -195,7 +196,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.money_off,
-        title: GalleryLocalizations.of(context)!.rallyTitleBills,
+        title: _localizations.rallyTitleBills,
         tabIndex: 2,
         tabController: _tabController,
         isVertical: isVertical,
@@ -203,7 +204,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.table_chart,
-        title: GalleryLocalizations.of(context)!.rallyTitleBudgets,
+        title: _localizations.rallyTitleBudgets,
         tabIndex: 3,
         tabController: _tabController,
         isVertical: isVertical,
@@ -211,7 +212,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.settings,
-        title: GalleryLocalizations.of(context)!.rallyTitleSettings,
+        title: _localizations.rallyTitleSettings,
         tabIndex: 4,
         tabController: _tabController,
         isVertical: isVertical,

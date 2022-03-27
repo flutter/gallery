@@ -140,6 +140,7 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const spacing = SizedBox(width: 30);
+    final _localizations = GalleryLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
@@ -167,7 +168,7 @@ class _TopBar extends StatelessWidget {
               ),
               spacing,
               Text(
-                GalleryLocalizations.of(context)!.rallyLoginLoginToRally,
+                _localizations.rallyLoginLoginToRally,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       fontSize: 35 / reducedTextScale(context),
                       fontWeight: FontWeight.w600,
@@ -179,12 +180,12 @@ class _TopBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                GalleryLocalizations.of(context)!.rallyLoginNoAccount,
+                _localizations.rallyLoginNoAccount,
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               spacing,
               _BorderButton(
-                text: GalleryLocalizations.of(context)!.rallyLoginSignUp,
+                text: _localizations.rallyLoginSignUp,
               ),
             ],
           ),
