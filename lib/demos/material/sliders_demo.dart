@@ -320,7 +320,7 @@ class _CustomRangeThumbShape extends RangeSliderThumbShape {
     );
 
     final size = _thumbSize * sizeTween.evaluate(enableAnimation);
-    late Path thumbPath;
+    Path thumbPath;
     switch (textDirection!) {
       case TextDirection.rtl:
         switch (thumb!) {

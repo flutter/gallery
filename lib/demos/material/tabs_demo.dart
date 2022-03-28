@@ -125,7 +125,7 @@ class _TabsNonScrollableDemo extends StatefulWidget {
 
 class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
     with SingleTickerProviderStateMixin, RestorationMixin {
-  TabController? _tabController;
+  late TabController _tabController;
 
   final RestorableInt tabIndex = RestorableInt(0);
 
@@ -135,7 +135,7 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
-    _tabController!.index = tabIndex.value;
+    _tabController.index = tabIndex.value;
   }
 
   @override
@@ -146,18 +146,18 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
       length: 3,
       vsync: this,
     );
-    _tabController!.addListener(() {
+    _tabController.addListener(() {
       // When the tab controller's value is updated, make sure to update the
       // tab index value, which is state restorable.
       setState(() {
-        tabIndex.value = _tabController!.index;
+        tabIndex.value = _tabController.index;
       });
     });
   }
 
   @override
   void dispose() {
-    _tabController!.dispose();
+    _tabController.dispose();
     tabIndex.dispose();
     super.dispose();
   }
