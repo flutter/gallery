@@ -1,22 +1,22 @@
 class Email {
   Email({
     required this.id,
-    required this.sender,
-    this.time,
+    required this.avatar,
+    this.sender = '',
+    this.time = '',
     this.subject = '',
     this.message = '',
-    required this.avatar,
-    this.recipients,
+    this.recipients = '',
     this.containsPictures = false,
   });
 
   final int id;
-  final String? sender;
-  final String? time;
+  final String sender;
+  final String time;
   final String subject;
   final String message;
   final String avatar;
-  final String? recipients;
+  final String recipients;
   final bool containsPictures;
 }
 
@@ -34,11 +34,11 @@ class InboxEmail extends Email {
   }) : super(
           id: id,
           sender: sender,
-          time: time,
+          time: time ?? '',
           subject: subject ?? '',
           message: message ?? '',
           avatar: avatar,
-          recipients: recipients,
+          recipients: recipients ?? '',
           containsPictures: containsPictures ?? false,
         );
 

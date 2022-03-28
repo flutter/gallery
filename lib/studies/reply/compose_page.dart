@@ -42,7 +42,7 @@ class ComposePage extends StatelessWidget {
                   ),
                   const _SectionDivider(),
                   _RecipientsRow(
-                    recipients: _recipient!,
+                    recipients: _recipient,
                     avatar: _recipientAvatar,
                   ),
                   const _SectionDivider(),
