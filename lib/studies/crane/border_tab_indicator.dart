@@ -5,15 +5,17 @@
 import 'package:flutter/material.dart';
 
 class BorderTabIndicator extends Decoration {
-  const BorderTabIndicator({this.indicatorHeight, this.textScaleFactor})
-      : super();
+  const BorderTabIndicator({
+    required this.indicatorHeight,
+    required this.textScaleFactor,
+  }) : super();
 
-  final double? indicatorHeight;
-  final double? textScaleFactor;
+  final double indicatorHeight;
+  final double textScaleFactor;
 
   @override
   _BorderPainter createBoxPainter([VoidCallback? onChanged]) {
-    return _BorderPainter(this, indicatorHeight!, textScaleFactor, onChanged);
+    return _BorderPainter(this, indicatorHeight, textScaleFactor, onChanged);
   }
 }
 
@@ -28,12 +30,12 @@ class _BorderPainter extends BoxPainter {
 
   final BorderTabIndicator decoration;
   final double indicatorHeight;
-  final double? textScaleFactor;
+  final double textScaleFactor;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     assert(configuration.size != null);
-    final horizontalInset = 16 - 4 * textScaleFactor!;
+    final horizontalInset = 16 - 4 * textScaleFactor;
     final rect = Offset(offset.dx + horizontalInset,
             (configuration.size!.height / 2) - indicatorHeight / 2 - 1) &
         Size(configuration.size!.width - 2 * horizontalInset, indicatorHeight);

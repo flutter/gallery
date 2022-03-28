@@ -21,15 +21,15 @@ class _FrontLayer extends StatefulWidget {
   const _FrontLayer({
     Key? key,
     required this.title,
-    this.index,
+    required this.index,
     required this.mobileTopOffset,
-    this.restorationId,
+    required this.restorationId,
   }) : super(key: key);
 
   final String title;
-  final int? index;
+  final int index;
   final double mobileTopOffset;
-  final String? restorationId;
+  final String restorationId;
 
   @override
   _FrontLayerState createState() => _FrontLayerState();
@@ -71,7 +71,6 @@ class _FrontLayerState extends State<_FrontLayer> {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isSmallDesktop = isDisplaySmallDesktop(context);
-
     final crossAxisCount = isSmallDesktop
         ? 2
         : isDesktop
@@ -182,13 +181,15 @@ class _BackdropState extends State<Backdrop>
     });
 
     // Offsets to create a horizontal gap between front layers.
-    _flyLayerHorizontalOffset = _tabController.animation!.drive(
+    final _tabControllerAnimation = _tabController.animation!;
+
+    _flyLayerHorizontalOffset = _tabControllerAnimation.drive(
         Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-0.05, 0)));
 
-    _sleepLayerHorizontalOffset = _tabController.animation!.drive(
+    _sleepLayerHorizontalOffset = _tabControllerAnimation.drive(
         Tween<Offset>(begin: const Offset(0.05, 0), end: const Offset(0, 0)));
 
-    _eatLayerHorizontalOffset = _tabController.animation!.drive(Tween<Offset>(
+    _eatLayerHorizontalOffset = _tabControllerAnimation.drive(Tween<Offset>(
         begin: const Offset(0.10, 0), end: const Offset(0.05, 0)));
   }
 
