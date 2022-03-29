@@ -31,12 +31,12 @@ class _AboutDialog extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final bodyTextStyle =
         textTheme.bodyText1!.apply(color: colorScheme.onPrimary);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     const name = 'Flutter Gallery'; // Don't need to localize.
     const legalese = '© 2021 The Flutter team'; // Don't need to localize.
-    final repoText = _localizations.githubRepo(name);
-    final seeSource = _localizations.aboutDialogDescription(repoText);
+    final repoText = localizations.githubRepo(name);
+    final seeSource = localizations.aboutDialogDescription(repoText);
     final repoLinkIndex = seeSource.indexOf(repoText);
     final repoLinkIndexEnd = repoLinkIndex + repoText.length;
     final seeSourceFirst = seeSource.substring(0, repoLinkIndex);

@@ -241,7 +241,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     final selectedIconColor = colorScheme.primary;
     final appBarPadding = isDesktop ? 20.0 : 0.0;
     final currentDemoState = _DemoState.values[_demoStateIndex.value];
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     final appBar = AppBar(
       backgroundColor: Colors.transparent,
@@ -260,8 +260,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         if (_hasOptions)
           IconButton(
             icon: FeatureDiscovery(
-              title: _localizations.demoOptionsFeatureTitle,
-              description: _localizations.demoOptionsFeatureDescription,
+              title: localizations.demoOptionsFeatureTitle,
+              description: localizations.demoOptionsFeatureDescription,
               showOverlay: _showFeatureHighlightForPlatform(context),
               color: colorScheme.primary,
               onDismiss: () {
@@ -282,12 +282,12 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
                     : iconColor,
               ),
             ),
-            tooltip: _localizations.demoOptionsTooltip,
+            tooltip: localizations.demoOptionsTooltip,
             onPressed: () => _handleTap(_DemoState.options),
           ),
         IconButton(
           icon: const Icon(Icons.info),
-          tooltip: _localizations.demoInfoTooltip,
+          tooltip: localizations.demoInfoTooltip,
           color: currentDemoState == _DemoState.info
               ? selectedIconColor
               : iconColor,
@@ -295,7 +295,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         ),
         IconButton(
           icon: const Icon(Icons.code),
-          tooltip: _localizations.demoCodeTooltip,
+          tooltip: localizations.demoCodeTooltip,
           color: currentDemoState == _DemoState.code
               ? selectedIconColor
               : iconColor,
@@ -303,14 +303,14 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         ),
         IconButton(
           icon: const Icon(Icons.library_books),
-          tooltip: _localizations.demoDocumentationTooltip,
+          tooltip: localizations.demoDocumentationTooltip,
           color: iconColor,
           onPressed: () => _showDocumentation(context),
         ),
         if (isDesktop)
           IconButton(
             icon: const Icon(Icons.fullscreen),
-            tooltip: _localizations.demoFullscreenTooltip,
+            tooltip: localizations.demoFullscreenTooltip,
             color: currentDemoState == _DemoState.fullscreen
                 ? selectedIconColor
                 : iconColor,

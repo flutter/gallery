@@ -144,30 +144,30 @@ class _SettingsPageState extends State<SettingsPage> {
     final colorScheme = Theme.of(context).colorScheme;
     final options = GalleryOptions.of(context);
     final isDesktop = isDisplayDesktop(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     final settingsListItems = [
       SettingsListItem<double>(
-        title: _localizations.settingsTextScaling,
+        title: localizations.settingsTextScaling,
         selectedOption: options.textScaleFactor(
           context,
           useSentinel: true,
         ),
         optionsMap: LinkedHashMap.of({
           systemTextScaleFactorOption: DisplayOption(
-            _localizations.settingsSystemDefault,
+            localizations.settingsSystemDefault,
           ),
           0.8: DisplayOption(
-            _localizations.settingsTextScalingSmall,
+            localizations.settingsTextScalingSmall,
           ),
           1.0: DisplayOption(
-            _localizations.settingsTextScalingNormal,
+            localizations.settingsTextScalingNormal,
           ),
           2.0: DisplayOption(
-            _localizations.settingsTextScalingLarge,
+            localizations.settingsTextScalingLarge,
           ),
           3.0: DisplayOption(
-            _localizations.settingsTextScalingHuge,
+            localizations.settingsTextScalingHuge,
           ),
         }),
         onOptionChanged: (newTextScale) => GalleryOptions.update(
@@ -178,17 +178,17 @@ class _SettingsPageState extends State<SettingsPage> {
         isExpanded: _expandedSettingId == _ExpandableSetting.textScale,
       ),
       SettingsListItem<CustomTextDirection?>(
-        title: _localizations.settingsTextDirection,
+        title: localizations.settingsTextDirection,
         selectedOption: options.customTextDirection,
         optionsMap: LinkedHashMap.of({
           CustomTextDirection.localeBased: DisplayOption(
-            _localizations.settingsTextDirectionLocaleBased,
+            localizations.settingsTextDirectionLocaleBased,
           ),
           CustomTextDirection.ltr: DisplayOption(
-            _localizations.settingsTextDirectionLTR,
+            localizations.settingsTextDirectionLTR,
           ),
           CustomTextDirection.rtl: DisplayOption(
-            _localizations.settingsTextDirectionRTL,
+            localizations.settingsTextDirectionRTL,
           ),
         }),
         onOptionChanged: (newTextDirection) => GalleryOptions.update(
@@ -199,7 +199,7 @@ class _SettingsPageState extends State<SettingsPage> {
         isExpanded: _expandedSettingId == _ExpandableSetting.textDirection,
       ),
       SettingsListItem<Locale?>(
-        title: _localizations.settingsLocale,
+        title: localizations.settingsLocale,
         selectedOption: options.locale == deviceLocale
             ? systemLocaleOption
             : options.locale,
@@ -217,7 +217,7 @@ class _SettingsPageState extends State<SettingsPage> {
         isExpanded: _expandedSettingId == _ExpandableSetting.locale,
       ),
       SettingsListItem<TargetPlatform?>(
-        title: _localizations.settingsPlatformMechanics,
+        title: localizations.settingsPlatformMechanics,
         selectedOption: options.platform,
         optionsMap: LinkedHashMap.of({
           TargetPlatform.android: DisplayOption('Android'),
@@ -234,17 +234,17 @@ class _SettingsPageState extends State<SettingsPage> {
         isExpanded: _expandedSettingId == _ExpandableSetting.platform,
       ),
       SettingsListItem<ThemeMode?>(
-        title: _localizations.settingsTheme,
+        title: localizations.settingsTheme,
         selectedOption: options.themeMode,
         optionsMap: LinkedHashMap.of({
           ThemeMode.system: DisplayOption(
-            _localizations.settingsSystemDefault,
+            localizations.settingsSystemDefault,
           ),
           ThemeMode.dark: DisplayOption(
-            _localizations.settingsDarkTheme,
+            localizations.settingsDarkTheme,
           ),
           ThemeMode.light: DisplayOption(
-            _localizations.settingsLightTheme,
+            localizations.settingsLightTheme,
           ),
         }),
         onOptionChanged: (newThemeMode) => GalleryOptions.update(
@@ -278,7 +278,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: ExcludeSemantics(
                   child: Header(
                     color: Theme.of(context).colorScheme.onSurface,
-                    text: _localizations.settingsTitle,
+                    text: localizations.settingsTitle,
                   ),
                 ),
               ),
