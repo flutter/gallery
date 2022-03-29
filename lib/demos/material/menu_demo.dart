@@ -26,7 +26,7 @@ class MenuDemo extends StatefulWidget {
   final MenuDemoType type;
 
   @override
-  _MenuDemoState createState() => _MenuDemoState();
+  State<MenuDemo> createState() => _MenuDemoState();
 }
 
 class _MenuDemoState extends State<MenuDemo> {
@@ -85,31 +85,31 @@ class _ContextMenuDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return ListTile(
-      title: Text(_localizations.demoMenuAnItemWithAContextMenuButton),
+      title: Text(localizations.demoMenuAnItemWithAContextMenuButton),
       trailing: PopupMenuButton<String>(
         padding: EdgeInsets.zero,
         onSelected: (value) => showInSnackBar(
-          _localizations.demoMenuSelected(value),
+          localizations.demoMenuSelected(value),
         ),
         itemBuilder: (context) => <PopupMenuItem<String>>[
           PopupMenuItem<String>(
-            value: _localizations.demoMenuContextMenuItemOne,
+            value: localizations.demoMenuContextMenuItemOne,
             child: Text(
-              _localizations.demoMenuContextMenuItemOne,
+              localizations.demoMenuContextMenuItemOne,
             ),
           ),
           PopupMenuItem<String>(
             enabled: false,
             child: Text(
-              _localizations.demoMenuADisabledMenuItem,
+              localizations.demoMenuADisabledMenuItem,
             ),
           ),
           PopupMenuItem<String>(
-            value: _localizations.demoMenuContextMenuItemThree,
+            value: localizations.demoMenuContextMenuItemThree,
             child: Text(
-              _localizations.demoMenuContextMenuItemThree,
+              localizations.demoMenuContextMenuItemThree,
             ),
           ),
         ],
@@ -133,48 +133,48 @@ class _SectionedMenuDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return ListTile(
-      title: Text(_localizations.demoMenuAnItemWithASectionedMenu),
+      title: Text(localizations.demoMenuAnItemWithASectionedMenu),
       trailing: PopupMenuButton<String>(
         padding: EdgeInsets.zero,
         onSelected: (value) =>
-            showInSnackBar(_localizations.demoMenuSelected(value)),
+            showInSnackBar(localizations.demoMenuSelected(value)),
         itemBuilder: (context) => <PopupMenuEntry<String>>[
           PopupMenuItem<String>(
-            value: _localizations.demoMenuPreview,
+            value: localizations.demoMenuPreview,
             child: ListTile(
               leading: const Icon(Icons.visibility),
               title: Text(
-                _localizations.demoMenuPreview,
+                localizations.demoMenuPreview,
               ),
             ),
           ),
           PopupMenuItem<String>(
-            value: _localizations.demoMenuShare,
+            value: localizations.demoMenuShare,
             child: ListTile(
               leading: const Icon(Icons.person_add),
               title: Text(
-                _localizations.demoMenuShare,
+                localizations.demoMenuShare,
               ),
             ),
           ),
           PopupMenuItem<String>(
-            value: _localizations.demoMenuGetLink,
+            value: localizations.demoMenuGetLink,
             child: ListTile(
               leading: const Icon(Icons.link),
               title: Text(
-                _localizations.demoMenuGetLink,
+                localizations.demoMenuGetLink,
               ),
             ),
           ),
           const PopupMenuDivider(),
           PopupMenuItem<String>(
-            value: _localizations.demoMenuRemove,
+            value: localizations.demoMenuRemove,
             child: ListTile(
               leading: const Icon(Icons.delete),
               title: Text(
-                _localizations.demoMenuRemove,
+                localizations.demoMenuRemove,
               ),
             ),
           ),
@@ -217,11 +217,11 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
   }
 
   String simpleValueToString(BuildContext context, SimpleValue value) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return {
-      SimpleValue.one: _localizations.demoMenuItemValueOne,
-      SimpleValue.two: _localizations.demoMenuItemValueTwo,
-      SimpleValue.three: _localizations.demoMenuItemValueThree,
+      SimpleValue.one: localizations.demoMenuItemValueOne,
+      SimpleValue.two: localizations.demoMenuItemValueTwo,
+      SimpleValue.three: localizations.demoMenuItemValueThree,
     }[value]!;
   }
 
@@ -303,13 +303,13 @@ class _RestorableCheckedValues extends RestorableProperty<Set<CheckedValue>> {
   bool isChecked(CheckedValue value) => _checked.contains(value);
 
   Iterable<String> checkedValuesToString(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return _checked.map((value) {
       return {
-        CheckedValue.one: _localizations.demoMenuOne,
-        CheckedValue.two: _localizations.demoMenuTwo,
-        CheckedValue.three: _localizations.demoMenuThree,
-        CheckedValue.four: _localizations.demoMenuFour,
+        CheckedValue.one: localizations.demoMenuOne,
+        CheckedValue.two: localizations.demoMenuTwo,
+        CheckedValue.three: localizations.demoMenuThree,
+        CheckedValue.four: localizations.demoMenuFour,
       }[value]!;
     });
   }
@@ -367,12 +367,12 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
   }
 
   String checkedValueToString(BuildContext context, CheckedValue value) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return {
-      CheckedValue.one: _localizations.demoMenuOne,
-      CheckedValue.two: _localizations.demoMenuTwo,
-      CheckedValue.three: _localizations.demoMenuThree,
-      CheckedValue.four: _localizations.demoMenuFour,
+      CheckedValue.one: localizations.demoMenuOne,
+      CheckedValue.two: localizations.demoMenuTwo,
+      CheckedValue.three: localizations.demoMenuThree,
+      CheckedValue.four: localizations.demoMenuFour,
     }[value]!;
   }
 

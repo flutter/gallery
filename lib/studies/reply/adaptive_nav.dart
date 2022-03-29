@@ -31,7 +31,7 @@ class AdaptiveNav extends StatefulWidget {
   const AdaptiveNav({Key? key}) : super(key: key);
 
   @override
-  _AdaptiveNavState createState() => _AdaptiveNavState();
+  State<AdaptiveNav> createState() => _AdaptiveNavState();
 }
 
 class _AdaptiveNavState extends State<AdaptiveNav> {
@@ -47,7 +47,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     final isDesktop = isDisplayDesktop(context);
     final isTablet = isDisplaySmallDesktop(context);
     final localizations = GalleryLocalizations.of(context)!;
-    final _navigationDestinations = <_Destination>[
+    final navigationDestinations = <_Destination>[
       _Destination(
         type: MailboxPageType.inbox,
         textLabel: localizations.replyInboxLabel,
@@ -80,7 +80,7 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       ),
     ];
 
-    final _folders = <String, String>{
+    final folders = <String, String>{
       'Receipts': _folderIconAssetLocation,
       'Pine Elementary': _folderIconAssetLocation,
       'Taxes': _folderIconAssetLocation,
@@ -93,15 +93,15 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       return _DesktopNav(
         inboxKey: _inboxKey,
         extended: !isTablet,
-        destinations: _navigationDestinations,
-        folders: _folders,
+        destinations: navigationDestinations,
+        folders: folders,
         onItemTapped: _onDestinationSelected,
       );
     } else {
       return _MobileNav(
         inboxKey: _inboxKey,
-        destinations: _navigationDestinations,
-        folders: _folders,
+        destinations: navigationDestinations,
+        folders: folders,
         onItemTapped: _onDestinationSelected,
       );
     }

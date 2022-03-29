@@ -42,7 +42,7 @@ class HighlightFocus extends StatefulWidget {
   final String? debugLabel;
 
   @override
-  _HighlightFocusState createState() => _HighlightFocusState();
+  State<HighlightFocus> createState() => _HighlightFocusState();
 }
 
 class _HighlightFocusState extends State<HighlightFocus> {
@@ -56,15 +56,15 @@ class _HighlightFocusState extends State<HighlightFocus> {
 
   @override
   Widget build(BuildContext context) {
-    final _highlightColor = widget.highlightColor ??
+    final highlightColor = widget.highlightColor ??
         Theme.of(context).colorScheme.primary.withOpacity(0.5);
-    final _borderColor =
+    final borderColor =
         widget.borderColor ?? Theme.of(context).colorScheme.onPrimary;
 
-    final _highlightedDecoration = BoxDecoration(
-      color: _highlightColor,
+    final highlightedDecoration = BoxDecoration(
+      color: highlightColor,
       border: Border.all(
-        color: _borderColor,
+        color: borderColor,
         width: 2,
       ),
     );
@@ -89,7 +89,7 @@ class _HighlightFocusState extends State<HighlightFocus> {
         }
       },
       child: Container(
-        foregroundDecoration: isFocused ? _highlightedDecoration : null,
+        foregroundDecoration: isFocused ? highlightedDecoration : null,
         child: widget.child,
       ),
     );

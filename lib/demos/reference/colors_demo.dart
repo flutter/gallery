@@ -27,114 +27,114 @@ class _Palette {
 }
 
 List<_Palette> _allPalettes(BuildContext context) {
-  final _localizations = GalleryLocalizations.of(context)!;
+  final localizations = GalleryLocalizations.of(context)!;
   return [
     _Palette(
-      name: _localizations.colorsRed,
+      name: localizations.colorsRed,
       primary: Colors.red,
       accent: Colors.redAccent,
       threshold: 300,
     ),
     _Palette(
-      name: _localizations.colorsPink,
+      name: localizations.colorsPink,
       primary: Colors.pink,
       accent: Colors.pinkAccent,
       threshold: 200,
     ),
     _Palette(
-      name: _localizations.colorsPurple,
+      name: localizations.colorsPurple,
       primary: Colors.purple,
       accent: Colors.purpleAccent,
       threshold: 200,
     ),
     _Palette(
-      name: _localizations.colorsDeepPurple,
+      name: localizations.colorsDeepPurple,
       primary: Colors.deepPurple,
       accent: Colors.deepPurpleAccent,
       threshold: 200,
     ),
     _Palette(
-      name: _localizations.colorsIndigo,
+      name: localizations.colorsIndigo,
       primary: Colors.indigo,
       accent: Colors.indigoAccent,
       threshold: 200,
     ),
     _Palette(
-      name: _localizations.colorsBlue,
+      name: localizations.colorsBlue,
       primary: Colors.blue,
       accent: Colors.blueAccent,
       threshold: 400,
     ),
     _Palette(
-      name: _localizations.colorsLightBlue,
+      name: localizations.colorsLightBlue,
       primary: Colors.lightBlue,
       accent: Colors.lightBlueAccent,
       threshold: 500,
     ),
     _Palette(
-      name: _localizations.colorsCyan,
+      name: localizations.colorsCyan,
       primary: Colors.cyan,
       accent: Colors.cyanAccent,
       threshold: 600,
     ),
     _Palette(
-      name: _localizations.colorsTeal,
+      name: localizations.colorsTeal,
       primary: Colors.teal,
       accent: Colors.tealAccent,
       threshold: 400,
     ),
     _Palette(
-      name: _localizations.colorsGreen,
+      name: localizations.colorsGreen,
       primary: Colors.green,
       accent: Colors.greenAccent,
       threshold: 500,
     ),
     _Palette(
-      name: _localizations.colorsLightGreen,
+      name: localizations.colorsLightGreen,
       primary: Colors.lightGreen,
       accent: Colors.lightGreenAccent,
       threshold: 600,
     ),
     _Palette(
-      name: _localizations.colorsLime,
+      name: localizations.colorsLime,
       primary: Colors.lime,
       accent: Colors.limeAccent,
       threshold: 800,
     ),
     _Palette(
-      name: _localizations.colorsYellow,
+      name: localizations.colorsYellow,
       primary: Colors.yellow,
       accent: Colors.yellowAccent,
     ),
     _Palette(
-      name: _localizations.colorsAmber,
+      name: localizations.colorsAmber,
       primary: Colors.amber,
       accent: Colors.amberAccent,
     ),
     _Palette(
-      name: _localizations.colorsOrange,
+      name: localizations.colorsOrange,
       primary: Colors.orange,
       accent: Colors.orangeAccent,
       threshold: 700,
     ),
     _Palette(
-      name: _localizations.colorsDeepOrange,
+      name: localizations.colorsDeepOrange,
       primary: Colors.deepOrange,
       accent: Colors.deepOrangeAccent,
       threshold: 400,
     ),
     _Palette(
-      name: _localizations.colorsBrown,
+      name: localizations.colorsBrown,
       primary: Colors.brown,
       threshold: 200,
     ),
     _Palette(
-      name: _localizations.colorsGrey,
+      name: localizations.colorsGrey,
       primary: Colors.grey,
       threshold: 500,
     ),
     _Palette(
-      name: _localizations.colorsBlueGrey,
+      name: localizations.colorsBlueGrey,
       primary: Colors.blueGrey,
       threshold: 500,
     ),
@@ -177,8 +177,8 @@ class _ColorItem extends StatelessWidget {
   }
 }
 
-class PaletteTabView extends StatelessWidget {
-  const PaletteTabView({
+class _PaletteTabView extends StatelessWidget {
+  const _PaletteTabView({
     Key? key,
     required this.colors,
   }) : super(key: key);
@@ -253,7 +253,7 @@ class ColorsDemo extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            for (final palette in palettes) PaletteTabView(colors: palette),
+            for (final palette in palettes) _PaletteTabView(colors: palette),
           ],
         ),
       ),

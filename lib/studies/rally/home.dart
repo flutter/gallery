@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage>
@@ -175,12 +175,12 @@ class _HomePageState extends State<HomePage>
       {required BuildContext context,
       required ThemeData theme,
       bool isVertical = false}) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return [
       _RallyTab(
         theme: theme,
         iconData: Icons.pie_chart,
-        title: _localizations.rallyTitleOverview,
+        title: localizations.rallyTitleOverview,
         tabIndex: 0,
         tabController: _tabController,
         isVertical: isVertical,
@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.attach_money,
-        title: _localizations.rallyTitleAccounts,
+        title: localizations.rallyTitleAccounts,
         tabIndex: 1,
         tabController: _tabController,
         isVertical: isVertical,
@@ -196,7 +196,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.money_off,
-        title: _localizations.rallyTitleBills,
+        title: localizations.rallyTitleBills,
         tabIndex: 2,
         tabController: _tabController,
         isVertical: isVertical,
@@ -204,7 +204,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.table_chart,
-        title: _localizations.rallyTitleBudgets,
+        title: localizations.rallyTitleBudgets,
         tabIndex: 3,
         tabController: _tabController,
         isVertical: isVertical,
@@ -212,7 +212,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.settings,
-        title: _localizations.rallyTitleSettings,
+        title: localizations.rallyTitleSettings,
         tabIndex: 4,
         tabController: _tabController,
         isVertical: isVertical,

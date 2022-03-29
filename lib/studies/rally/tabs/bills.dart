@@ -15,7 +15,7 @@ class BillsView extends StatefulWidget {
   const BillsView({Key? key}) : super(key: key);
 
   @override
-  _BillsViewState createState() => _BillsViewState();
+  State<BillsView> createState() => _BillsViewState();
 }
 
 class _BillsViewState extends State<BillsView>

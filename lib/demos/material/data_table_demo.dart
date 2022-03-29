@@ -13,7 +13,7 @@ class DataTableDemo extends StatefulWidget {
   const DataTableDemo({Key? key}) : super(key: key);
 
   @override
-  _DataTableDemoState createState() => _DataTableDemoState();
+  State<DataTableDemo> createState() => _DataTableDemoState();
 }
 
 class _RestorableDessertSelections extends RestorableProperty<Set<int>> {

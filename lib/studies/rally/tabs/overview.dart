@@ -21,7 +21,7 @@ class OverviewView extends StatefulWidget {
   const OverviewView({Key? key}) : super(key: key);
 
   @override
-  _OverviewViewState createState() => _OverviewViewState();
+  State<OverviewView> createState() => _OverviewViewState();
 }
 
 class _OverviewViewState extends State<OverviewView> {
@@ -90,7 +90,7 @@ class _OverviewGrid extends StatelessWidget {
     final accountDataList = DummyDataService.getAccountDataList(context);
     final billDataList = DummyDataService.getBillDataList(context);
     final budgetDataList = DummyDataService.getBudgetDataList(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return LayoutBuilder(builder: (context, constraints) {
       final textScaleFactor =
@@ -112,11 +112,11 @@ class _OverviewGrid extends StatelessWidget {
           SizedBox(
             width: boxWidth,
             child: _FinancialView(
-              title: _localizations.rallyAccounts,
+              title: localizations.rallyAccounts,
               total: sumAccountDataPrimaryAmount(accountDataList),
               financialItemViews:
                   buildAccountDataListViews(accountDataList, context),
-              buttonSemanticsLabel: _localizations.rallySeeAllAccounts,
+              buttonSemanticsLabel: localizations.rallySeeAllAccounts,
               order: 1,
             ),
           ),
@@ -124,19 +124,19 @@ class _OverviewGrid extends StatelessWidget {
           SizedBox(
             width: boxWidth,
             child: _FinancialView(
-              title: _localizations.rallyBills,
+              title: localizations.rallyBills,
               total: sumBillDataPrimaryAmount(billDataList),
               financialItemViews: buildBillDataListViews(billDataList, context),
-              buttonSemanticsLabel: _localizations.rallySeeAllBills,
+              buttonSemanticsLabel: localizations.rallySeeAllBills,
               order: 2,
             ),
           ),
           _FinancialView(
-            title: _localizations.rallyBudgets,
+            title: localizations.rallyBudgets,
             total: sumBudgetDataPrimaryAmount(budgetDataList),
             financialItemViews:
                 buildBudgetDataListViews(budgetDataList, context),
-            buttonSemanticsLabel: _localizations.rallySeeAllBudgets,
+            buttonSemanticsLabel: localizations.rallySeeAllBudgets,
             order: 3,
           ),
         ],
@@ -153,7 +153,7 @@ class _AlertsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Container(
       padding: const EdgeInsetsDirectional.only(start: 16, top: 4, bottom: 4),
@@ -169,12 +169,12 @@ class _AlertsView extends StatelessWidget {
                 alignment: WrapAlignment.spaceBetween,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Text(_localizations.rallyAlerts),
+                  Text(localizations.rallyAlerts),
                   if (!isDesktop)
                     TextButton(
                       style: TextButton.styleFrom(primary: Colors.white),
                       onPressed: () {},
-                      child: Text(_localizations.rallySeeAll),
+                      child: Text(localizations.rallySeeAll),
                     ),
                 ],
               ),

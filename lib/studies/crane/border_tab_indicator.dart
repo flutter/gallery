@@ -14,13 +14,13 @@ class BorderTabIndicator extends Decoration {
   final double textScaleFactor;
 
   @override
-  _BorderPainter createBoxPainter([VoidCallback? onChanged]) {
-    return _BorderPainter(this, indicatorHeight, textScaleFactor, onChanged);
+  BorderPainter createBoxPainter([VoidCallback? onChanged]) {
+    return BorderPainter(this, indicatorHeight, textScaleFactor, onChanged);
   }
 }
 
-class _BorderPainter extends BoxPainter {
-  _BorderPainter(
+class BorderPainter extends BoxPainter {
+  BorderPainter(
     this.decoration,
     this.indicatorHeight,
     this.textScaleFactor,

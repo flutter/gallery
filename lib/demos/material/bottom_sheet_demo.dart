@@ -16,12 +16,12 @@ class BottomSheetDemo extends StatelessWidget {
   final BottomSheetDemoType type;
 
   String _title(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (type) {
       case BottomSheetDemoType.persistent:
-        return _localizations.demoBottomSheetPersistentTitle;
+        return localizations.demoBottomSheetPersistentTitle;
       case BottomSheetDemoType.modal:
-        return _localizations.demoBottomSheetModalTitle;
+        return localizations.demoBottomSheetModalTitle;
     }
   }
 
@@ -72,7 +72,7 @@ class BottomSheetDemo extends StatelessWidget {
 class _BottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return SizedBox(
       height: 300,
       child: Column(
@@ -81,7 +81,7 @@ class _BottomSheetContent extends StatelessWidget {
             height: 70,
             child: Center(
               child: Text(
-                _localizations.demoBottomSheetHeader,
+                localizations.demoBottomSheetHeader,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -92,7 +92,7 @@ class _BottomSheetContent extends StatelessWidget {
               itemCount: 21,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(_localizations.demoBottomSheetItem(index)),
+                  title: Text(localizations.demoBottomSheetItem(index)),
                 );
               },
             ),

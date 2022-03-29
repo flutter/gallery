@@ -45,7 +45,7 @@ class OpenContainerTransformDemo extends StatefulWidget {
   const OpenContainerTransformDemo({Key? key}) : super(key: key);
 
   @override
-  _OpenContainerTransformDemoState createState() =>
+  State<OpenContainerTransformDemo> createState() =>
       _OpenContainerTransformDemoState();
 }
 
@@ -273,8 +273,7 @@ class _OpenContainerTransformDemoState
                         ),
                         onTap: openContainer,
                         title: Text(
-                          localizations.demoMotionListTileTitle +
-                              ' ${index + 1}',
+                          '${localizations.demoMotionListTileTitle} ${index + 1}',
                         ),
                         subtitle: Text(
                           localizations.demoMotionPlaceholderSubtitle,

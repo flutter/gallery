@@ -13,18 +13,18 @@ class ButtonDemo extends StatelessWidget {
   final ButtonDemoType type;
 
   String _title(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (type) {
       case ButtonDemoType.text:
-        return _localizations.demoTextButtonTitle;
+        return localizations.demoTextButtonTitle;
       case ButtonDemoType.elevated:
-        return _localizations.demoElevatedButtonTitle;
+        return localizations.demoElevatedButtonTitle;
       case ButtonDemoType.outlined:
-        return _localizations.demoOutlinedButtonTitle;
+        return localizations.demoOutlinedButtonTitle;
       case ButtonDemoType.toggle:
-        return _localizations.demoToggleButtonTitle;
+        return localizations.demoToggleButtonTitle;
       case ButtonDemoType.floating:
-        return _localizations.demoFloatingButtonTitle;
+        return localizations.demoFloatingButtonTitle;
     }
   }
 
@@ -64,19 +64,19 @@ class ButtonDemo extends StatelessWidget {
 class _TextButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextButton(
             onPressed: () {},
-            child: Text(_localizations.buttonText),
+            child: Text(localizations.buttonText),
           ),
           const SizedBox(height: 12),
           TextButton.icon(
             icon: const Icon(Icons.add, size: 18),
-            label: Text(_localizations.buttonText),
+            label: Text(localizations.buttonText),
             onPressed: () {},
           ),
         ],
@@ -92,19 +92,19 @@ class _TextButtonDemo extends StatelessWidget {
 class _ElevatedButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: Text(_localizations.buttonText),
+            child: Text(localizations.buttonText),
           ),
           const SizedBox(height: 12),
           ElevatedButton.icon(
             icon: const Icon(Icons.add, size: 18),
-            label: Text(_localizations.buttonText),
+            label: Text(localizations.buttonText),
             onPressed: () {},
           ),
         ],
@@ -120,19 +120,19 @@ class _ElevatedButtonDemo extends StatelessWidget {
 class _OutlinedButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           OutlinedButton(
             onPressed: () {},
-            child: Text(_localizations.buttonText),
+            child: Text(localizations.buttonText),
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
             icon: const Icon(Icons.add, size: 18),
-            label: Text(_localizations.buttonText),
+            label: Text(localizations.buttonText),
             onPressed: () {},
           ),
         ],
@@ -203,20 +203,20 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
 class _FloatingActionButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(
             onPressed: () {},
-            tooltip: _localizations.buttonTextCreate,
+            tooltip: localizations.buttonTextCreate,
             child: const Icon(Icons.add),
           ),
           const SizedBox(height: 20),
           FloatingActionButton.extended(
             icon: const Icon(Icons.add),
-            label: Text(_localizations.buttonTextCreate),
+            label: Text(localizations.buttonTextCreate),
             onPressed: () {},
           ),
         ],

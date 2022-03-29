@@ -32,7 +32,7 @@ class SettingsPage extends StatefulWidget {
   final AnimationController animationController;
 
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {

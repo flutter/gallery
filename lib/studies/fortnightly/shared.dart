@@ -149,7 +149,7 @@ class VerticalArticlePreview extends StatelessWidget {
 }
 
 List<Widget> buildArticlePreviewItems(BuildContext context) {
-  final _localizations = GalleryLocalizations.of(context)!;
+  final localizations = GalleryLocalizations.of(context)!;
   Widget articleDivider = Container(
     margin: const EdgeInsets.symmetric(vertical: 16),
     color: Colors.black.withOpacity(0.07),
@@ -167,8 +167,8 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_healthcare.jpg',
         imageAspectRatio: 391 / 248,
-        category: _localizations.fortnightlyMenuWorld.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineHealthcare,
+        category: localizations.fortnightlyMenuWorld.toUpperCase(),
+        title: localizations.fortnightlyHeadlineHealthcare,
       ),
       headlineTextStyle: textTheme.headline5!.copyWith(fontSize: 20),
     ),
@@ -177,8 +177,8 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_war.png',
         imageAspectRatio: 1,
-        category: _localizations.fortnightlyMenuPolitics.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineWar,
+        category: localizations.fortnightlyMenuPolitics.toUpperCase(),
+        title: localizations.fortnightlyHeadlineWar,
       ),
     ),
     articleDivider,
@@ -186,13 +186,13 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_gas.png',
         imageAspectRatio: 1,
-        category: _localizations.fortnightlyMenuTech.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineGasoline,
+        category: localizations.fortnightlyMenuTech.toUpperCase(),
+        title: localizations.fortnightlyHeadlineGasoline,
       ),
     ),
     sectionDivider,
     SelectableText(
-      _localizations.fortnightlyLatestUpdates,
+      localizations.fortnightlyLatestUpdates,
       style: textTheme.headline6,
     ),
     articleDivider,
@@ -200,8 +200,8 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_army.png',
         imageAspectRatio: 1,
-        category: _localizations.fortnightlyMenuPolitics.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineArmy,
+        category: localizations.fortnightlyMenuPolitics.toUpperCase(),
+        title: localizations.fortnightlyHeadlineArmy,
       ),
       minutes: 2,
     ),
@@ -210,8 +210,8 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_stocks.png',
         imageAspectRatio: 77 / 64,
-        category: _localizations.fortnightlyMenuWorld.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineStocks,
+        category: localizations.fortnightlyMenuWorld.toUpperCase(),
+        title: localizations.fortnightlyHeadlineStocks,
       ),
       minutes: 5,
     ),
@@ -220,8 +220,8 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_fabrics.png',
         imageAspectRatio: 76 / 64,
-        category: _localizations.fortnightlyMenuTech.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineFabrics,
+        category: localizations.fortnightlyMenuTech.toUpperCase(),
+        title: localizations.fortnightlyHeadlineFabrics,
       ),
       minutes: 4,
     ),
@@ -242,7 +242,7 @@ class HashtagBar extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final height = 32 * reducedTextScale(context);
 
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return SizedBox(
       height: height,
@@ -253,35 +253,35 @@ class HashtagBar extends StatelessWidget {
           const SizedBox(width: 16),
           Center(
             child: SelectableText(
-              '#${_localizations.fortnightlyTrendingTechDesign}',
+              '#${localizations.fortnightlyTrendingTechDesign}',
               style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: SelectableText(
-              '#${_localizations.fortnightlyTrendingReform}',
+              '#${localizations.fortnightlyTrendingReform}',
               style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: SelectableText(
-              '#${_localizations.fortnightlyTrendingHealthcareRevolution}',
+              '#${localizations.fortnightlyTrendingHealthcareRevolution}',
               style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: SelectableText(
-              '#${_localizations.fortnightlyTrendingGreenArmy}',
+              '#${localizations.fortnightlyTrendingGreenArmy}',
               style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
             child: SelectableText(
-              '#${_localizations.fortnightlyTrendingStocks}',
+              '#${localizations.fortnightlyTrendingStocks}',
               style: textTheme.subtitle2,
             ),
           ),
@@ -299,7 +299,7 @@ class NavigationMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return ListView(
       children: [
         if (isCloseable)
@@ -319,18 +319,18 @@ class NavigationMenu extends StatelessWidget {
           ),
         const SizedBox(height: 32),
         MenuItem(
-          _localizations.fortnightlyMenuFrontPage,
+          localizations.fortnightlyMenuFrontPage,
           header: true,
         ),
-        MenuItem(_localizations.fortnightlyMenuWorld),
-        MenuItem(_localizations.fortnightlyMenuUS),
-        MenuItem(_localizations.fortnightlyMenuPolitics),
-        MenuItem(_localizations.fortnightlyMenuBusiness),
-        MenuItem(_localizations.fortnightlyMenuTech),
-        MenuItem(_localizations.fortnightlyMenuScience),
-        MenuItem(_localizations.fortnightlyMenuSports),
-        MenuItem(_localizations.fortnightlyMenuTravel),
-        MenuItem(_localizations.fortnightlyMenuCulture),
+        MenuItem(localizations.fortnightlyMenuWorld),
+        MenuItem(localizations.fortnightlyMenuUS),
+        MenuItem(localizations.fortnightlyMenuPolitics),
+        MenuItem(localizations.fortnightlyMenuBusiness),
+        MenuItem(localizations.fortnightlyMenuTech),
+        MenuItem(localizations.fortnightlyMenuScience),
+        MenuItem(localizations.fortnightlyMenuSports),
+        MenuItem(localizations.fortnightlyMenuTravel),
+        MenuItem(localizations.fortnightlyMenuCulture),
       ],
     );
   }
@@ -543,14 +543,14 @@ class VideoPreview extends StatelessWidget {
 }
 
 List<Widget> buildVideoPreviewItems(BuildContext context) {
-  final _localizations = GalleryLocalizations.of(context)!;
+  final localizations = GalleryLocalizations.of(context)!;
   return <Widget>[
     VideoPreview(
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_feminists.jpg',
         imageAspectRatio: 148 / 88,
-        category: _localizations.fortnightlyMenuPolitics.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineFeminists,
+        category: localizations.fortnightlyMenuPolitics.toUpperCase(),
+        title: localizations.fortnightlyHeadlineFeminists,
       ),
       time: '2:31',
     ),
@@ -559,8 +559,8 @@ List<Widget> buildVideoPreviewItems(BuildContext context) {
       data: ArticleData(
         imageUrl: 'fortnightly/fortnightly_bees.jpg',
         imageAspectRatio: 148 / 88,
-        category: _localizations.fortnightlyMenuUS.toUpperCase(),
-        title: _localizations.fortnightlyHeadlineBees,
+        category: localizations.fortnightlyMenuUS.toUpperCase(),
+        title: localizations.fortnightlyHeadlineBees,
       ),
       time: '1:37',
     ),

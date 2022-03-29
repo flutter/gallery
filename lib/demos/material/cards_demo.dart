@@ -36,33 +36,33 @@ class TravelDestination {
 }
 
 List<TravelDestination> destinations(BuildContext context) {
-  final _localizations = GalleryLocalizations.of(context)!;
+  final localizations = GalleryLocalizations.of(context)!;
 
   return [
     TravelDestination(
       assetName: 'places/india_thanjavur_market.png',
       assetPackage: _kGalleryAssetsPackage,
-      title: _localizations.cardsDemoTravelDestinationTitle1,
-      description: _localizations.cardsDemoTravelDestinationDescription1,
-      city: _localizations.cardsDemoTravelDestinationCity1,
-      location: _localizations.cardsDemoTravelDestinationLocation1,
+      title: localizations.cardsDemoTravelDestinationTitle1,
+      description: localizations.cardsDemoTravelDestinationDescription1,
+      city: localizations.cardsDemoTravelDestinationCity1,
+      location: localizations.cardsDemoTravelDestinationLocation1,
     ),
     TravelDestination(
       assetName: 'places/india_chettinad_silk_maker.png',
       assetPackage: _kGalleryAssetsPackage,
-      title: _localizations.cardsDemoTravelDestinationTitle2,
-      description: _localizations.cardsDemoTravelDestinationDescription2,
-      city: _localizations.cardsDemoTravelDestinationCity2,
-      location: _localizations.cardsDemoTravelDestinationLocation2,
+      title: localizations.cardsDemoTravelDestinationTitle2,
+      description: localizations.cardsDemoTravelDestinationDescription2,
+      city: localizations.cardsDemoTravelDestinationCity2,
+      location: localizations.cardsDemoTravelDestinationLocation2,
       cardType: CardType.tappable,
     ),
     TravelDestination(
       assetName: 'places/india_tanjore_thanjavur_temple.png',
       assetPackage: _kGalleryAssetsPackage,
-      title: _localizations.cardsDemoTravelDestinationTitle3,
-      description: _localizations.cardsDemoTravelDestinationDescription3,
-      city: _localizations.cardsDemoTravelDestinationCity1,
-      location: _localizations.cardsDemoTravelDestinationLocation1,
+      title: localizations.cardsDemoTravelDestinationTitle3,
+      description: localizations.cardsDemoTravelDestinationDescription3,
+      city: localizations.cardsDemoTravelDestinationCity1,
+      location: localizations.cardsDemoTravelDestinationLocation1,
       cardType: CardType.selectable,
     ),
   ];
@@ -261,7 +261,7 @@ class TravelDestinationContent extends StatelessWidget {
     final theme = Theme.of(context);
     final titleStyle = theme.textTheme.headline5!.copyWith(color: Colors.white);
     final descriptionStyle = theme.textTheme.subtitle1!;
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -335,14 +335,14 @@ class TravelDestinationContent extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {},
-                  child: Text(_localizations.demoMenuShare,
-                      semanticsLabel: _localizations
+                  child: Text(localizations.demoMenuShare,
+                      semanticsLabel: localizations
                           .cardsDemoShareSemantics(destination.title)),
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text(_localizations.cardsDemoExplore,
-                      semanticsLabel: _localizations
+                  child: Text(localizations.cardsDemoExplore,
+                      semanticsLabel: localizations
                           .cardsDemoExploreSemantics(destination.title)),
                 ),
               ],
@@ -357,7 +357,7 @@ class CardsDemo extends StatefulWidget {
   const CardsDemo({Key? key}) : super(key: key);
 
   @override
-  _CardsDemoState createState() => _CardsDemoState();
+  State<CardsDemo> createState() => _CardsDemoState();
 }
 
 class _CardsDemoState extends State<CardsDemo> with RestorationMixin {

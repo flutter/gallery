@@ -20,18 +20,18 @@ class CupertinoTabBarDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
-    final _tabInfo = [
+    final localizations = GalleryLocalizations.of(context)!;
+    final tabInfo = [
       _TabInfo(
-        _localizations.cupertinoTabBarHomeTab,
+        localizations.cupertinoTabBarHomeTab,
         CupertinoIcons.home,
       ),
       _TabInfo(
-        _localizations.cupertinoTabBarChatTab,
+        localizations.cupertinoTabBarChatTab,
         CupertinoIcons.conversation_bubble,
       ),
       _TabInfo(
-        _localizations.cupertinoTabBarProfileTab,
+        localizations.cupertinoTabBarProfileTab,
         CupertinoIcons.profile_circled,
       ),
     ];
@@ -42,7 +42,7 @@ class CupertinoTabBarDemo extends StatelessWidget {
         restorationId: 'cupertino_tab_scaffold',
         tabBar: CupertinoTabBar(
           items: [
-            for (final tabInfo in _tabInfo)
+            for (final tabInfo in tabInfo)
               BottomNavigationBarItem(
                 label: tabInfo.title,
                 icon: Icon(tabInfo.icon),
@@ -53,10 +53,10 @@ class CupertinoTabBarDemo extends StatelessWidget {
           return CupertinoTabView(
             restorationScopeId: 'cupertino_tab_view_$index',
             builder: (context) => _CupertinoDemoTab(
-              title: _tabInfo[index].title,
-              icon: _tabInfo[index].icon,
+              title: tabInfo[index].title,
+              icon: tabInfo[index].icon,
             ),
-            defaultTitle: _tabInfo[index].title,
+            defaultTitle: tabInfo[index].title,
           );
         },
       ),

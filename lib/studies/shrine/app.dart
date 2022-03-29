@@ -27,7 +27,7 @@ class ShrineApp extends StatefulWidget {
   static const String homeRoute = routes.homeRoute;
 
   @override
-  _ShrineAppState createState() => _ShrineAppState();
+  State<ShrineApp> createState() => _ShrineAppState();
 }
 
 class _ShrineAppState extends State<ShrineApp>

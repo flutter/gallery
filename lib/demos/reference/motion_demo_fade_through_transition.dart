@@ -12,7 +12,7 @@ class FadeThroughTransitionDemo extends StatefulWidget {
   const FadeThroughTransitionDemo({Key? key}) : super(key: key);
 
   @override
-  _FadeThroughTransitionDemoState createState() =>
+  State<FadeThroughTransitionDemo> createState() =>
       _FadeThroughTransitionDemoState();
 }
 
@@ -188,7 +188,7 @@ class _SearchPage extends StatelessWidget {
             package: 'flutter_gallery_assets',
             width: 40,
           ),
-          title: Text(localizations!.demoMotionListTileTitle + ' ${index + 1}'),
+          title: Text('${localizations!.demoMotionListTileTitle} ${index + 1}'),
           subtitle: Text(localizations.demoMotionPlaceholderSubtitle),
         );
       },

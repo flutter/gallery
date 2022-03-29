@@ -20,7 +20,7 @@ class FeatureDiscoveryController extends StatefulWidget {
 
   const FeatureDiscoveryController(this.child, {Key? key}) : super(key: key);
 
-  static _FeatureDiscoveryControllerState of(BuildContext context) {
+  static _FeatureDiscoveryControllerState _of(BuildContext context) {
     final matchResult =
         context.findAncestorStateOfType<_FeatureDiscoveryControllerState>();
     if (matchResult != null) {
@@ -34,7 +34,7 @@ class FeatureDiscoveryController extends StatefulWidget {
   }
 
   @override
-  _FeatureDiscoveryControllerState createState() =>
+  State<FeatureDiscoveryController> createState() =>
       _FeatureDiscoveryControllerState();
 }
 
@@ -121,7 +121,7 @@ class FeatureDiscovery extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FeatureDiscoveryState createState() => _FeatureDiscoveryState();
+  State<FeatureDiscovery> createState() => _FeatureDiscoveryState();
 }
 
 class _FeatureDiscoveryState extends State<FeatureDiscovery>
@@ -226,7 +226,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
           overlay!.markNeedsBuild();
         });
       } else {
-        if (showOverlay && !FeatureDiscoveryController.of(ctx).isLocked) {
+        if (showOverlay && !FeatureDiscoveryController._of(ctx).isLocked) {
           final entry = OverlayEntry(
             builder: (_) => buildOverlay(ctx, getOverlayCenter(ctx)),
           );
@@ -235,7 +235,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
           // another [FeatureDiscovery] widget from trying to show its
           // overlay while the post frame callback and set state are not
           // complete.
-          FeatureDiscoveryController.of(ctx).lock();
+          FeatureDiscoveryController._of(ctx).lock();
 
           SchedulerBinding.instance.addPostFrameCallback((_) {
             setState(() {
@@ -349,7 +349,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
   ///
   /// This is called upon [tapController] and [dismissController] end.
   void cleanUponOverlayClose() {
-    FeatureDiscoveryController.of(context).unlock();
+    FeatureDiscoveryController._of(context).unlock();
     setState(() {
       status = FeatureDiscoveryStatus.closed;
       showOverlay = false;

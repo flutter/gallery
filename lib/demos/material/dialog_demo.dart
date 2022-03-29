@@ -16,7 +16,7 @@ class DialogDemo extends StatefulWidget {
   final DialogDemoType type;
 
   @override
-  _DialogDemoState createState() => _DialogDemoState();
+  State<DialogDemo> createState() => _DialogDemoState();
 }
 
 class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
@@ -80,16 +80,16 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
   }
 
   String _title(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (widget.type) {
       case DialogDemoType.alert:
-        return _localizations.demoAlertDialogTitle;
+        return localizations.demoAlertDialogTitle;
       case DialogDemoType.alertTitle:
-        return _localizations.demoAlertTitleDialogTitle;
+        return localizations.demoAlertTitleDialogTitle;
       case DialogDemoType.simple:
-        return _localizations.demoSimpleDialogTitle;
+        return localizations.demoSimpleDialogTitle;
       case DialogDemoType.fullscreen:
-        return _localizations.demoFullscreenDialogTitle;
+        return localizations.demoFullscreenDialogTitle;
     }
   }
 
@@ -104,16 +104,16 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     return DialogRoute<String>(
       context: context,
       builder: (context) {
-        final _localizations = GalleryLocalizations.of(context)!;
+        final localizations = GalleryLocalizations.of(context)!;
         return ApplyTextOptions(
             child: AlertDialog(
           content: Text(
-            _localizations.dialogDiscardTitle,
+            localizations.dialogDiscardTitle,
             style: dialogTextStyle,
           ),
           actions: [
-            _DialogButton(text: _localizations.dialogCancel),
-            _DialogButton(text: _localizations.dialogDiscard),
+            _DialogButton(text: localizations.dialogCancel),
+            _DialogButton(text: localizations.dialogDiscard),
           ],
         ));
       },
@@ -131,17 +131,17 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     return DialogRoute<String>(
       context: context,
       builder: (context) {
-        final _localizations = GalleryLocalizations.of(context)!;
+        final localizations = GalleryLocalizations.of(context)!;
         return ApplyTextOptions(
           child: AlertDialog(
-            title: Text(_localizations.dialogLocationTitle),
+            title: Text(localizations.dialogLocationTitle),
             content: Text(
-              _localizations.dialogLocationDescription,
+              localizations.dialogLocationDescription,
               style: dialogTextStyle,
             ),
             actions: [
-              _DialogButton(text: _localizations.dialogDisagree),
-              _DialogButton(text: _localizations.dialogAgree),
+              _DialogButton(text: localizations.dialogDisagree),
+              _DialogButton(text: localizations.dialogAgree),
             ],
           ),
         );
@@ -316,7 +316,7 @@ class _FullScreenDialogDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     // Remove the MediaQuery padding because the demo is rendered inside of a
     // different page that already accounts for this padding.
@@ -327,14 +327,14 @@ class _FullScreenDialogDemo extends StatelessWidget {
       child: ApplyTextOptions(
         child: Scaffold(
           appBar: AppBar(
-            title: Text(_localizations.dialogFullscreenTitle),
+            title: Text(localizations.dialogFullscreenTitle),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 child: Text(
-                  _localizations.dialogFullscreenSave,
+                  localizations.dialogFullscreenSave,
                   style: theme.textTheme.bodyText2!.copyWith(
                     color: theme.colorScheme.onPrimary,
                   ),
@@ -344,7 +344,7 @@ class _FullScreenDialogDemo extends StatelessWidget {
           ),
           body: Center(
             child: Text(
-              _localizations.dialogFullscreenDescription,
+              localizations.dialogFullscreenDescription,
             ),
           ),
         ),

@@ -20,7 +20,7 @@ class BottomNavigationDemo extends StatefulWidget {
   final BottomNavigationDemoType type;
 
   @override
-  _BottomNavigationDemoState createState() => _BottomNavigationDemoState();
+  State<BottomNavigationDemo> createState() => _BottomNavigationDemoState();
 }
 
 class _BottomNavigationDemoState extends State<BottomNavigationDemo>
@@ -42,12 +42,12 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   }
 
   String _title(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (widget.type) {
       case BottomNavigationDemoType.withLabels:
-        return _localizations.demoBottomNavigationPersistentLabels;
+        return localizations.demoBottomNavigationPersistentLabels;
       case BottomNavigationDemoType.withoutLabels:
-        return _localizations.demoBottomNavigationSelectedLabel;
+        return localizations.demoBottomNavigationSelectedLabel;
     }
   }
 
@@ -55,28 +55,28 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     var bottomNavigationBarItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: const Icon(Icons.add_comment),
-        label: _localizations.bottomNavigationCommentsTab,
+        label: localizations.bottomNavigationCommentsTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.calendar_today),
-        label: _localizations.bottomNavigationCalendarTab,
+        label: localizations.bottomNavigationCalendarTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.account_circle),
-        label: _localizations.bottomNavigationAccountTab,
+        label: localizations.bottomNavigationAccountTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.alarm_on),
-        label: _localizations.bottomNavigationAlarmTab,
+        label: localizations.bottomNavigationAlarmTab,
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.camera_enhance),
-        label: _localizations.bottomNavigationCameraTab,
+        label: localizations.bottomNavigationCameraTab,
       ),
     ];
 

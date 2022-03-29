@@ -14,14 +14,14 @@ class SlidersDemo extends StatelessWidget {
   final SlidersDemoType type;
 
   String _title(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (type) {
       case SlidersDemoType.sliders:
-        return _localizations.demoSlidersTitle;
+        return localizations.demoSlidersTitle;
       case SlidersDemoType.rangeSliders:
-        return _localizations.demoRangeSlidersTitle;
+        return localizations.demoRangeSlidersTitle;
       case SlidersDemoType.customSliders:
-        return _localizations.demoCustomSlidersTitle;
+        return localizations.demoCustomSlidersTitle;
     }
   }
 
@@ -76,7 +76,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
@@ -86,7 +86,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
             mainAxisSize: MainAxisSize.min,
             children: [
               Semantics(
-                label: _localizations.demoSlidersEditableNumericalValue,
+                label: localizations.demoSlidersEditableNumericalValue,
                 child: SizedBox(
                   width: 64,
                   height: 48,
@@ -119,7 +119,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                   });
                 },
               ),
-              Text(_localizations
+              Text(localizations
                   .demoSlidersContinuousWithEditableNumericalValue),
             ],
           ),
@@ -139,7 +139,7 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                   });
                 },
               ),
-              Text(_localizations.demoSlidersDiscrete),
+              Text(localizations.demoSlidersDiscrete),
             ],
           ),
         ],
@@ -185,11 +185,11 @@ class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final _continuousValues = RangeValues(
+    final continuousValues = RangeValues(
       _continuousStartValue.value,
       _continuousEndValue.value,
     );
-    final _discreteValues = RangeValues(
+    final discreteValues = RangeValues(
       _discreteStartValue.value,
       _discreteEndValue.value,
     );
@@ -203,7 +203,7 @@ class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
             mainAxisSize: MainAxisSize.min,
             children: [
               RangeSlider(
-                values: _continuousValues,
+                values: continuousValues,
                 min: 0,
                 max: 100,
                 onChanged: (values) {
@@ -221,13 +221,13 @@ class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
             mainAxisSize: MainAxisSize.min,
             children: [
               RangeSlider(
-                values: _discreteValues,
+                values: discreteValues,
                 min: 0,
                 max: 200,
                 divisions: 5,
                 labels: RangeLabels(
-                  _discreteValues.start.round().toString(),
-                  _discreteValues.end.round().toString(),
+                  discreteValues.start.round().toString(),
+                  discreteValues.end.round().toString(),
                 ),
                 onChanged: (values) {
                   setState(() {
@@ -502,7 +502,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
       _continuousEndCustomValue.value,
     );
     final theme = Theme.of(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(
@@ -544,7 +544,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
                   },
                 ),
               ),
-              Text(_localizations.demoSlidersDiscreteSliderWithCustomTheme),
+              Text(localizations.demoSlidersDiscreteSliderWithCustomTheme),
             ],
           ),
           const SizedBox(height: 80),
@@ -575,7 +575,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
                   },
                 ),
               ),
-              Text(_localizations
+              Text(localizations
                   .demoSlidersContinuousRangeSliderWithCustomTheme),
             ],
           ),

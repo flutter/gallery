@@ -12,7 +12,7 @@ class EatForm extends BackLayerItem {
   const EatForm({Key? key}) : super(key: key, index: 2);
 
   @override
-  _EatFormState createState() => _EatFormState();
+  State<EatForm> createState() => _EatFormState();
 }
 
 class _EatFormState extends State<EatForm> with RestorationMixin {
@@ -43,31 +43,31 @@ class _EatFormState extends State<EatForm> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return HeaderForm(
       fields: <HeaderFormField>[
         HeaderFormField(
           index: 0,
           iconData: Icons.person,
-          title: _localizations.craneFormDiners,
+          title: localizations.craneFormDiners,
           textController: dinerController.value,
         ),
         HeaderFormField(
           index: 1,
           iconData: Icons.date_range,
-          title: _localizations.craneFormDate,
+          title: localizations.craneFormDate,
           textController: dateController.value,
         ),
         HeaderFormField(
           index: 2,
           iconData: Icons.access_time,
-          title: _localizations.craneFormTime,
+          title: localizations.craneFormTime,
           textController: timeController.value,
         ),
         HeaderFormField(
           index: 3,
           iconData: Icons.restaurant_menu,
-          title: _localizations.craneFormLocation,
+          title: localizations.craneFormLocation,
           textController: locationController.value,
         ),
       ],

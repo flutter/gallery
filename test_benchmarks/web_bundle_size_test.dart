@@ -28,7 +28,7 @@ void main() {
       ]);
       await _runProcess('gzip', ['-k', js]);
       final bundleSize = await _measureSize(js);
-      final gzipBundleSize = await _measureSize(js + '.gz');
+      final gzipBundleSize = await _measureSize('$js.gz');
 
       if (bundleSize > bundleSizeBenchmark) {
         fail(

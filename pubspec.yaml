@@ -4,7 +4,7 @@ repository: https://github.com/flutter/gallery
 version: 2.9.3+020903
 
 environment:
-  flutter: ^2.6.0-0 # Kept relatively close to master channel version
+  flutter: ^2.13.0-0 # Kept relatively close to master channel version
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
@@ -37,7 +37,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   args: ^2.1.0
-  flutter_lints: ^1.0.2
+  flutter_lints: ^2.0.0
   grinder: ^0.9.0
   path: ^1.8.0
   string_scanner: ^1.1.0

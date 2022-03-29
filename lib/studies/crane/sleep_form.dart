@@ -12,7 +12,7 @@ class SleepForm extends BackLayerItem {
   const SleepForm({Key? key}) : super(key: key, index: 1);
 
   @override
-  _SleepFormState createState() => _SleepFormState();
+  State<SleepForm> createState() => _SleepFormState();
 }
 
 class _SleepFormState extends State<SleepForm> with RestorationMixin {
@@ -40,26 +40,26 @@ class _SleepFormState extends State<SleepForm> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return HeaderForm(
       fields: <HeaderFormField>[
         HeaderFormField(
           index: 0,
           iconData: Icons.person,
-          title: _localizations.craneFormTravelers,
+          title: localizations.craneFormTravelers,
           textController: travelerController.value,
         ),
         HeaderFormField(
           index: 1,
           iconData: Icons.date_range,
-          title: _localizations.craneFormDates,
+          title: localizations.craneFormDates,
           textController: dateController.value,
         ),
         HeaderFormField(
           index: 2,
           iconData: Icons.hotel,
-          title: _localizations.craneFormLocation,
+          title: localizations.craneFormLocation,
           textController: locationController.value,
         ),
       ],

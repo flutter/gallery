@@ -14,7 +14,7 @@ class ProgressIndicatorDemo extends StatefulWidget {
   final ProgressIndicatorDemoType type;
 
   @override
-  _ProgressIndicatorDemoState createState() => _ProgressIndicatorDemoState();
+  State<ProgressIndicatorDemo> createState() => _ProgressIndicatorDemoState();
 }
 
 class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>

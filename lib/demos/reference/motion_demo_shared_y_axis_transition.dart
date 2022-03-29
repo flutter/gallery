@@ -9,7 +9,7 @@ class SharedYAxisTransitionDemo extends StatefulWidget {
   const SharedYAxisTransitionDemo({Key? key}) : super(key: key);
 
   @override
-  _SharedYAxisTransitionDemoState createState() =>
+  State<SharedYAxisTransitionDemo> createState() =>
       _SharedYAxisTransitionDemoState();
 }
 

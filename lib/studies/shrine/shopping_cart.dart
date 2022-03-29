@@ -21,7 +21,7 @@ class ShoppingCartPage extends StatefulWidget {
   const ShoppingCartPage({Key? key}) : super(key: key);
 
   @override
-  _ShoppingCartPageState createState() => _ShoppingCartPageState();
+  State<ShoppingCartPage> createState() => _ShoppingCartPageState();
 }
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
@@ -47,8 +47,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
       body: SafeArea(
         child: ScopedModelDescendant<AppStateModel>(
           builder: (context, child, model) {
-            final _localizations = GalleryLocalizations.of(context)!;
-            final _expandingBottomSheet = ExpandingBottomSheet.of(context);
+            final localizations = GalleryLocalizations.of(context)!;
+            final expandingBottomSheet = ExpandingBottomSheet.of(context);
             return Stack(
               children: [
                 ListView(
@@ -62,18 +62,18 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                             width: _startColumnWidth,
                             child: IconButton(
                               icon: const Icon(Icons.keyboard_arrow_down),
-                              onPressed: () => _expandingBottomSheet!.close(),
-                              tooltip: _localizations.shrineTooltipCloseCart,
+                              onPressed: () => expandingBottomSheet!.close(),
+                              tooltip: localizations.shrineTooltipCloseCart,
                             ),
                           ),
                           Text(
-                            _localizations.shrineCartPageCaption,
+                            localizations.shrineCartPageCaption,
                             style: localTheme.textTheme.subtitle1!
                                 .copyWith(fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 16),
                           Text(
-                            _localizations.shrineCartItemCount(
+                            localizations.shrineCartItemCount(
                               model.totalCartQuantity,
                             ),
                           ),
@@ -111,12 +111,12 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                       onPressed: () {
                         model.clearCart();
-                        _expandingBottomSheet!.close();
+                        expandingBottomSheet!.close();
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         child: Text(
-                          _localizations.shrineCartClearButtonCaption,
+                          localizations.shrineCartClearButtonCaption,
                           style: TextStyle(
                               letterSpacing:
                                   letterSpacingOrNone(largeLetterSpacing)),
@@ -154,7 +154,7 @@ class ShoppingCartSummary extends StatelessWidget {
       decimalDigits: 2,
       locale: Localizations.localeOf(context).toString(),
     );
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Row(
       children: [
@@ -169,7 +169,7 @@ class ShoppingCartSummary extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SelectableText(
-                        _localizations.shrineCartTotalCaption,
+                        localizations.shrineCartTotalCaption,
                       ),
                       Expanded(
                         child: SelectableText(
@@ -186,7 +186,7 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     children: [
                       SelectableText(
-                        _localizations.shrineCartSubtotalCaption,
+                        localizations.shrineCartSubtotalCaption,
                       ),
                       Expanded(
                         child: SelectableText(
@@ -203,7 +203,7 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     children: [
                       SelectableText(
-                        _localizations.shrineCartShippingCaption,
+                        localizations.shrineCartShippingCaption,
                       ),
                       Expanded(
                         child: SelectableText(
@@ -220,7 +220,7 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     children: [
                       SelectableText(
-                        _localizations.shrineCartTaxCaption,
+                        localizations.shrineCartTaxCaption,
                       ),
                       Expanded(
                         child: SelectableText(
@@ -261,7 +261,7 @@ class ShoppingCartRow extends StatelessWidget {
     );
     final localTheme = Theme.of(context);
 
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
@@ -271,7 +271,7 @@ class ShoppingCartRow extends StatelessWidget {
         children: [
           Semantics(
             container: true,
-            label: _localizations
+            label: localizations
                 .shrineScreenReaderRemoveProductButton(product.name(context)),
             button: true,
             enabled: true,
@@ -281,7 +281,7 @@ class ShoppingCartRow extends StatelessWidget {
                 child: IconButton(
                   icon: const Icon(Icons.remove_circle_outline),
                   onPressed: onPressed,
-                  tooltip: _localizations.shrineTooltipRemoveItem,
+                  tooltip: localizations.shrineTooltipRemoveItem,
                 ),
               ),
             ),
@@ -313,12 +313,12 @@ class ShoppingCartRow extends StatelessWidget {
                                   children: [
                                     Expanded(
                                       child: SelectableText(
-                                        _localizations
+                                        localizations
                                             .shrineProductQuantity(quantity!),
                                       ),
                                     ),
                                     SelectableText(
-                                      _localizations.shrineProductPrice(
+                                      localizations.shrineProductPrice(
                                         formatter.format(product.price),
                                       ),
                                     ),

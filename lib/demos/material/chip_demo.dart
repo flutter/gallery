@@ -15,16 +15,16 @@ class ChipDemo extends StatelessWidget {
   final ChipDemoType type;
 
   String _title(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (type) {
       case ChipDemoType.action:
-        return _localizations.demoActionChipTitle;
+        return localizations.demoActionChipTitle;
       case ChipDemoType.choice:
-        return _localizations.demoChoiceChipTitle;
+        return localizations.demoChoiceChipTitle;
       case ChipDemoType.filter:
-        return _localizations.demoFilterChipTitle;
+        return localizations.demoFilterChipTitle;
       case ChipDemoType.input:
-        return _localizations.demoInputChipTitle;
+        return localizations.demoInputChipTitle;
     }
   }
 
@@ -103,12 +103,12 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Center(
       child: Wrap(
         children: [
           ChoiceChip(
-            label: Text(_localizations.chipSmall),
+            label: Text(localizations.chipSmall),
             selected: _indexSelected.value == 0,
             onSelected: (value) {
               setState(() {
@@ -118,7 +118,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
           ),
           const SizedBox(width: 8),
           ChoiceChip(
-            label: Text(_localizations.chipMedium),
+            label: Text(localizations.chipMedium),
             selected: _indexSelected.value == 1,
             onSelected: (value) {
               setState(() {
@@ -128,7 +128,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
           ),
           const SizedBox(width: 8),
           ChoiceChip(
-            label: Text(_localizations.chipLarge),
+            label: Text(localizations.chipLarge),
             selected: _indexSelected.value == 2,
             onSelected: (value) {
               setState(() {
@@ -177,10 +177,10 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     final chips = [
       FilterChip(
-        label: Text(_localizations.chipElevator),
+        label: Text(localizations.chipElevator),
         selected: isSelectedElevator.value,
         onSelected: (value) {
           setState(() {
@@ -189,7 +189,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
         },
       ),
       FilterChip(
-        label: Text(_localizations.chipWasher),
+        label: Text(localizations.chipWasher),
         selected: isSelectedWasher.value,
         onSelected: (value) {
           setState(() {
@@ -198,7 +198,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
         },
       ),
       FilterChip(
-        label: Text(_localizations.chipFireplace),
+        label: Text(localizations.chipFireplace),
         selected: isSelectedFireplace.value,
         onSelected: (value) {
           setState(() {
