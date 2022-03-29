@@ -91,7 +91,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "1.16.0"
   convert:
     dependency: transitive
     description:
@@ -126,7 +126,7 @@ packages:
       name: fake_async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.0"
   ffi:
     dependency: transitive
     description:
@@ -735,7 +735,7 @@ packages:
       name: vm_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.1.0"
+    version: "8.2.2"
   watcher:
     dependency: transitive
     description:
@@ -746,9 +746,9 @@ packages:
   web_benchmarks:
     dependency: "direct dev"
     description:
-      path: "../packages/packages/web_benchmarks"
-      relative: true
-    source: path
+      name: web_benchmarks
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.7"
   web_socket_channel:
     dependency: transitive
@@ -794,4 +794,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.16.0-100.0.dev <3.0.0"
-  flutter: ">=2.6.0-0"
+  flutter: ">=2.10.0"

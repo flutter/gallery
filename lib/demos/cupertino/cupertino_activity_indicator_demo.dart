@@ -2,15 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoActivityIndicatorDemo
 
 class CupertinoProgressIndicatorDemo extends StatelessWidget {
-  const CupertinoProgressIndicatorDemo({Key key}) : super(key: key);
+  const CupertinoProgressIndicatorDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class CupertinoProgressIndicatorDemo extends StatelessWidget {
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
         middle: Text(
-          GalleryLocalizations.of(context).demoCupertinoActivityIndicatorTitle,
+          GalleryLocalizations.of(context)!.demoCupertinoActivityIndicatorTitle,
         ),
       ),
       child: const Center(

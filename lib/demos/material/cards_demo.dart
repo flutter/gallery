@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
@@ -19,19 +17,14 @@ enum CardType {
 
 class TravelDestination {
   const TravelDestination({
-    @required this.assetName,
-    @required this.assetPackage,
-    @required this.title,
-    @required this.description,
-    @required this.city,
-    @required this.location,
+    required this.assetName,
+    required this.assetPackage,
+    required this.title,
+    required this.description,
+    required this.city,
+    required this.location,
     this.cardType = CardType.standard,
-  })  : assert(assetName != null),
-        assert(assetPackage != null),
-        assert(title != null),
-        assert(description != null),
-        assert(city != null),
-        assert(location != null);
+  });
 
   final String assetName;
   final String assetPackage;
@@ -42,53 +35,47 @@ class TravelDestination {
   final CardType cardType;
 }
 
-List<TravelDestination> destinations(BuildContext context) => [
-      TravelDestination(
-        assetName: 'places/india_thanjavur_market.png',
-        assetPackage: _kGalleryAssetsPackage,
-        title:
-            GalleryLocalizations.of(context).cardsDemoTravelDestinationTitle1,
-        description: GalleryLocalizations.of(context)
-            .cardsDemoTravelDestinationDescription1,
-        city: GalleryLocalizations.of(context).cardsDemoTravelDestinationCity1,
-        location: GalleryLocalizations.of(context)
-            .cardsDemoTravelDestinationLocation1,
-      ),
-      TravelDestination(
-        assetName: 'places/india_chettinad_silk_maker.png',
-        assetPackage: _kGalleryAssetsPackage,
-        title:
-            GalleryLocalizations.of(context).cardsDemoTravelDestinationTitle2,
-        description: GalleryLocalizations.of(context)
-            .cardsDemoTravelDestinationDescription2,
-        city: GalleryLocalizations.of(context).cardsDemoTravelDestinationCity2,
-        location: GalleryLocalizations.of(context)
-            .cardsDemoTravelDestinationLocation2,
-        cardType: CardType.tappable,
-      ),
-      TravelDestination(
-        assetName: 'places/india_tanjore_thanjavur_temple.png',
-        assetPackage: _kGalleryAssetsPackage,
-        title:
-            GalleryLocalizations.of(context).cardsDemoTravelDestinationTitle3,
-        description: GalleryLocalizations.of(context)
-            .cardsDemoTravelDestinationDescription3,
-        city: GalleryLocalizations.of(context).cardsDemoTravelDestinationCity1,
-        location: GalleryLocalizations.of(context)
-            .cardsDemoTravelDestinationLocation1,
-        cardType: CardType.selectable,
-      ),
-    ];
+List<TravelDestination> destinations(BuildContext context) {
+  final _localizations = GalleryLocalizations.of(context)!;
+
+  return [
+    TravelDestination(
+      assetName: 'places/india_thanjavur_market.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: _localizations.cardsDemoTravelDestinationTitle1,
+      description: _localizations.cardsDemoTravelDestinationDescription1,
+      city: _localizations.cardsDemoTravelDestinationCity1,
+      location: _localizations.cardsDemoTravelDestinationLocation1,
+    ),
+    TravelDestination(
+      assetName: 'places/india_chettinad_silk_maker.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: _localizations.cardsDemoTravelDestinationTitle2,
+      description: _localizations.cardsDemoTravelDestinationDescription2,
+      city: _localizations.cardsDemoTravelDestinationCity2,
+      location: _localizations.cardsDemoTravelDestinationLocation2,
+      cardType: CardType.tappable,
+    ),
+    TravelDestination(
+      assetName: 'places/india_tanjore_thanjavur_temple.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: _localizations.cardsDemoTravelDestinationTitle3,
+      description: _localizations.cardsDemoTravelDestinationDescription3,
+      city: _localizations.cardsDemoTravelDestinationCity1,
+      location: _localizations.cardsDemoTravelDestinationLocation1,
+      cardType: CardType.selectable,
+    ),
+  ];
+}
 
 class TravelDestinationItem extends StatelessWidget {
-  const TravelDestinationItem({Key key, @required this.destination, this.shape})
-      : assert(destination != null),
-        super(key: key);
+  const TravelDestinationItem({Key? key, required this.destination, this.shape})
+      : super(key: key);
 
   // This height will allow for all the Card's content to fit comfortably within the card.
   static const height = 360.0;
   final TravelDestination destination;
-  final ShapeBorder shape;
+  final ShapeBorder? shape;
 
   @override
   Widget build(BuildContext context) {
@@ -100,8 +87,8 @@ class TravelDestinationItem extends StatelessWidget {
         child: Column(
           children: [
             SectionTitle(
-                title:
-                    GalleryLocalizations.of(context).settingsTextScalingNormal),
+                title: GalleryLocalizations.of(context)!
+                    .settingsTextScalingNormal),
             SizedBox(
               height: height,
               child: Card(
@@ -119,15 +106,16 @@ class TravelDestinationItem extends StatelessWidget {
 }
 
 class TappableTravelDestinationItem extends StatelessWidget {
-  const TappableTravelDestinationItem(
-      {Key key, @required this.destination, this.shape})
-      : assert(destination != null),
-        super(key: key);
+  const TappableTravelDestinationItem({
+    Key? key,
+    required this.destination,
+    this.shape,
+  }) : super(key: key);
 
   // This height will allow for all the Card's content to fit comfortably within the card.
   static const height = 298.0;
   final TravelDestination destination;
-  final ShapeBorder shape;
+  final ShapeBorder? shape;
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +127,7 @@ class TappableTravelDestinationItem extends StatelessWidget {
         child: Column(
           children: [
             SectionTitle(
-                title: GalleryLocalizations.of(context).cardsDemoTappable),
+                title: GalleryLocalizations.of(context)!.cardsDemoTappable),
             SizedBox(
               height: height,
               child: Card(
@@ -166,16 +154,15 @@ class TappableTravelDestinationItem extends StatelessWidget {
 
 class SelectableTravelDestinationItem extends StatelessWidget {
   const SelectableTravelDestinationItem({
-    Key key,
-    @required this.destination,
-    @required this.isSelected,
-    @required this.onSelected,
+    Key? key,
+    required this.destination,
+    required this.isSelected,
+    required this.onSelected,
     this.shape,
-  })  : assert(destination != null),
-        super(key: key);
+  }) : super(key: key);
 
   final TravelDestination destination;
-  final ShapeBorder shape;
+  final ShapeBorder? shape;
   final bool isSelected;
   final VoidCallback onSelected;
 
@@ -194,7 +181,7 @@ class SelectableTravelDestinationItem extends StatelessWidget {
         child: Column(
           children: [
             SectionTitle(
-                title: GalleryLocalizations.of(context).cardsDemoSelectable),
+                title: GalleryLocalizations.of(context)!.cardsDemoSelectable),
             SizedBox(
               height: height,
               child: Card(
@@ -245,8 +232,8 @@ class SelectableTravelDestinationItem extends StatelessWidget {
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
-    Key key,
-    this.title,
+    Key? key,
+    required this.title,
   }) : super(key: key);
 
   final String title;
@@ -264,17 +251,17 @@ class SectionTitle extends StatelessWidget {
 }
 
 class TravelDestinationContent extends StatelessWidget {
-  const TravelDestinationContent({Key key, @required this.destination})
-      : assert(destination != null),
-        super(key: key);
+  const TravelDestinationContent({Key? key, required this.destination})
+      : super(key: key);
 
   final TravelDestination destination;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final titleStyle = theme.textTheme.headline5.copyWith(color: Colors.white);
-    final descriptionStyle = theme.textTheme.subtitle1;
+    final titleStyle = theme.textTheme.headline5!.copyWith(color: Colors.white);
+    final descriptionStyle = theme.textTheme.subtitle1!;
+    final _localizations = GalleryLocalizations.of(context)!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -348,14 +335,14 @@ class TravelDestinationContent extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {},
-                  child: Text(GalleryLocalizations.of(context).demoMenuShare,
-                      semanticsLabel: GalleryLocalizations.of(context)
+                  child: Text(_localizations.demoMenuShare,
+                      semanticsLabel: _localizations
                           .cardsDemoShareSemantics(destination.title)),
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text(GalleryLocalizations.of(context).cardsDemoExplore,
-                      semanticsLabel: GalleryLocalizations.of(context)
+                  child: Text(_localizations.cardsDemoExplore,
+                      semanticsLabel: _localizations
                           .cardsDemoExploreSemantics(destination.title)),
                 ),
               ],
@@ -367,7 +354,7 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
-  const CardsDemo({Key key}) : super(key: key);
+  const CardsDemo({Key? key}) : super(key: key);
 
   @override
   _CardsDemoState createState() => _CardsDemoState();
@@ -380,7 +367,7 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
   String get restorationId => 'cards_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_isSelected, 'is_selected');
   }
 
@@ -395,7 +382,7 @@ class _CardsDemoState extends State<CardsDemo> with RestorationMixin {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context).demoCardTitle),
+        title: Text(GalleryLocalizations.of(context)!.demoCardTitle),
       ),
       body: Scrollbar(
         child: ListView(

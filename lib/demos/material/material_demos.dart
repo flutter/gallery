@@ -1,5 +1,3 @@
-// @dart=2.9
-
 export 'package:gallery/demos/material/app_bar_demo.dart';
 export 'package:gallery/demos/material/banner_demo.dart';
 export 'package:gallery/demos/material/bottom_app_bar_demo.dart';

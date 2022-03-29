@@ -2,15 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN bottomAppBarDemo
 
 class BottomAppBarDemo extends StatefulWidget {
-  const BottomAppBarDemo({Key key}) : super(key: key);
+  const BottomAppBarDemo({Key? key}) : super(key: key);
 
   @override
   State createState() => _BottomAppBarDemoState();
@@ -26,7 +24,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
   String get restorationId => 'bottom_app_bar_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_showFab, 'show_fab');
     registerForRestoration(_showNotch, 'show_notch');
     registerForRestoration(_currentFabLocation, 'fab_location');
@@ -61,41 +59,42 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
     });
   }
 
-  void _onFabLocationChanged(int value) {
+  void _onFabLocationChanged(int? value) {
     setState(() {
-      _currentFabLocation.value = value;
+      _currentFabLocation.value = value!;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(GalleryLocalizations.of(context).demoBottomAppBarTitle),
+        title: Text(_localizations.demoBottomAppBarTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 88),
         children: [
           SwitchListTile(
             title: Text(
-              GalleryLocalizations.of(context).demoFloatingButtonTitle,
+              _localizations.demoFloatingButtonTitle,
             ),
             value: _showFab.value,
             onChanged: _onShowFabChanged,
           ),
           SwitchListTile(
-            title: Text(GalleryLocalizations.of(context).bottomAppBarNotch),
+            title: Text(_localizations.bottomAppBarNotch),
             value: _showNotch.value,
             onChanged: _onShowNotchChanged,
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(GalleryLocalizations.of(context).bottomAppBarPosition),
+            child: Text(_localizations.bottomAppBarPosition),
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context).bottomAppBarPositionDockedEnd,
+              _localizations.bottomAppBarPositionDockedEnd,
             ),
             value: 0,
             groupValue: _currentFabLocation.value,
@@ -103,7 +102,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context).bottomAppBarPositionDockedCenter,
+              _localizations.bottomAppBarPositionDockedCenter,
             ),
             value: 1,
             groupValue: _currentFabLocation.value,
@@ -111,7 +110,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context).bottomAppBarPositionFloatingEnd,
+              _localizations.bottomAppBarPositionFloatingEnd,
             ),
             value: 2,
             groupValue: _currentFabLocation.value,
@@ -119,8 +118,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              GalleryLocalizations.of(context)
-                  .bottomAppBarPositionFloatingCenter,
+              _localizations.bottomAppBarPositionFloatingCenter,
             ),
             value: 3,
             groupValue: _currentFabLocation.value,
@@ -131,7 +129,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
       floatingActionButton: _showFab.value
           ? FloatingActionButton(
               onPressed: () {},
-              tooltip: GalleryLocalizations.of(context).buttonTextCreate,
+              tooltip: _localizations.buttonTextCreate,
               child: const Icon(Icons.add),
             )
           : null,
@@ -146,12 +144,12 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
 
 class _DemoBottomAppBar extends StatelessWidget {
   const _DemoBottomAppBar({
-    this.fabLocation,
+    required this.fabLocation,
     this.shape,
   });
 
   final FloatingActionButtonLocation fabLocation;
-  final NotchedShape shape;
+  final NotchedShape? shape;
 
   static final centerLocations = <FloatingActionButtonLocation>[
     FloatingActionButtonLocation.centerDocked,
@@ -160,6 +158,7 @@ class _DemoBottomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return BottomAppBar(
       shape: shape,
       child: IconTheme(
@@ -173,13 +172,12 @@ class _DemoBottomAppBar extends StatelessWidget {
             ),
             if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
-              tooltip: GalleryLocalizations.of(context).starterAppTooltipSearch,
+              tooltip: _localizations.starterAppTooltipSearch,
               icon: const Icon(Icons.search),
               onPressed: () {},
             ),
             IconButton(
-              tooltip:
-                  GalleryLocalizations.of(context).starterAppTooltipFavorite,
+              tooltip: _localizations.starterAppTooltipFavorite,
               icon: const Icon(Icons.favorite),
               onPressed: () {},
             ),

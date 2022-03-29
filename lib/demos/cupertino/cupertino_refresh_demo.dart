@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:math' show Random;
 
 import 'package:flutter/cupertino.dart';
@@ -13,7 +11,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoRefreshDemo
 
 class CupertinoRefreshControlDemo extends StatefulWidget {
-  const CupertinoRefreshControlDemo({Key key}) : super(key: key);
+  const CupertinoRefreshControlDemo({Key? key}) : super(key: key);
 
   @override
   _CupertinoRefreshControlDemoState createState() =>
@@ -46,7 +44,7 @@ class _CupertinoRefreshControlDemoState
           CupertinoSliverNavigationBar(
             automaticallyImplyLeading: false,
             largeTitle: Text(
-              GalleryLocalizations.of(context).demoCupertinoPullToRefreshTitle,
+              GalleryLocalizations.of(context)!.demoCupertinoPullToRefreshTitle,
             ),
           ),
           CupertinoSliverRefreshControl(
@@ -62,7 +60,7 @@ class _CupertinoRefreshControlDemoState
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                final title = GalleryLocalizations.of(context)
+                final title = GalleryLocalizations.of(context)!
                     .starterAppDrawerItem(randomList[index]);
                 return ListTile(title: Text(title));
               },

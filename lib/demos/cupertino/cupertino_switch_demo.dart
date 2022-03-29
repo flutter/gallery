@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -11,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoSwitchDemo
 
 class CupertinoSwitchDemo extends StatefulWidget {
-  const CupertinoSwitchDemo({Key key}) : super(key: key);
+  const CupertinoSwitchDemo({Key? key}) : super(key: key);
 
   @override
   _CupertinoSwitchDemoState createState() => _CupertinoSwitchDemoState();
@@ -25,24 +23,24 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
   String get restorationId => 'cupertino_switch_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_switchValue, 'switch_value');
   }
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
         middle: Text(
-          GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+          _localizations.demoSelectionControlsSwitchTitle,
         ),
       ),
       child: Center(
         child: Semantics(
           container: true,
-          label:
-              GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+          label: _localizations.demoSelectionControlsSwitchTitle,
           child: CupertinoSwitch(
             value: _switchValue.value,
             onChanged: (value) {

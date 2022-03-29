@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -11,15 +9,15 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoButtonDemo
 
 class CupertinoButtonDemo extends StatelessWidget {
-  const CupertinoButtonDemo({Key key}) : super(key: key);
+  const CupertinoButtonDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle:
-            Text(GalleryLocalizations.of(context).demoCupertinoButtonsTitle),
+        middle: Text(_localizations.demoCupertinoButtonsTitle),
       ),
       child: Center(
         child: Column(
@@ -28,14 +26,14 @@ class CupertinoButtonDemo extends StatelessWidget {
             CupertinoButton(
               onPressed: () {},
               child: Text(
-                GalleryLocalizations.of(context).cupertinoButton,
+                _localizations.cupertinoButton,
               ),
             ),
             const SizedBox(height: 16),
             CupertinoButton.filled(
               onPressed: () {},
               child: Text(
-                GalleryLocalizations.of(context).cupertinoButtonWithBackground,
+                _localizations.cupertinoButtonWithBackground,
               ),
             ),
           ],
