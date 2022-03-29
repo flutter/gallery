@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gallery/layout/letter_spacing.dart';
@@ -52,34 +50,34 @@ ThemeData _buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return GoogleFonts.rubikTextTheme(base
       .copyWith(
-        headline5: base.headline5.copyWith(
+        headline5: base.headline5!.copyWith(
           fontWeight: FontWeight.w500,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        headline6: base.headline6.copyWith(
+        headline6: base.headline6!.copyWith(
           fontSize: 18,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        caption: base.caption.copyWith(
+        caption: base.caption!.copyWith(
           fontWeight: FontWeight.w400,
           fontSize: 14,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        bodyText1: base.bodyText1.copyWith(
+        bodyText1: base.bodyText1!.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 16,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        bodyText2: base.bodyText2.copyWith(
+        bodyText2: base.bodyText2!.copyWith(
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        subtitle1: base.subtitle1.copyWith(
+        subtitle1: base.subtitle1!.copyWith(
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        headline4: base.headline4.copyWith(
+        headline4: base.headline4!.copyWith(
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        button: base.button.copyWith(
+        button: base.button!.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),

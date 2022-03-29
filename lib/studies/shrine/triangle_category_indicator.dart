@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'package:gallery/studies/shrine/colors.dart';
@@ -23,8 +21,7 @@ class TriangleCategoryIndicator extends CustomPainter {
   const TriangleCategoryIndicator(
     this.triangleWidth,
     this.triangleHeight,
-  )   : assert(triangleWidth != null),
-        assert(triangleHeight != null);
+  );
 
   final double triangleWidth;
   final double triangleHeight;

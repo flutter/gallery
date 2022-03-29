@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 
@@ -15,7 +13,7 @@ class ProductsRepository {
         id: 0,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductVagabondSack,
+            GalleryLocalizations.of(context)!.shrineProductVagabondSack,
         price: 120,
         assetAspectRatio: 329 / 246,
       ),
@@ -24,7 +22,7 @@ class ProductsRepository {
         id: 1,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductStellaSunglasses,
+            GalleryLocalizations.of(context)!.shrineProductStellaSunglasses,
         price: 58,
         assetAspectRatio: 329 / 247,
       ),
@@ -33,7 +31,7 @@ class ProductsRepository {
         id: 2,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductWhitneyBelt,
+            GalleryLocalizations.of(context)!.shrineProductWhitneyBelt,
         price: 35,
         assetAspectRatio: 329 / 228,
       ),
@@ -42,7 +40,7 @@ class ProductsRepository {
         id: 3,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductGardenStrand,
+            GalleryLocalizations.of(context)!.shrineProductGardenStrand,
         price: 98,
         assetAspectRatio: 329 / 246,
       ),
@@ -51,7 +49,7 @@ class ProductsRepository {
         id: 4,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductStrutEarrings,
+            GalleryLocalizations.of(context)!.shrineProductStrutEarrings,
         price: 34,
         assetAspectRatio: 329 / 246,
       ),
@@ -60,7 +58,7 @@ class ProductsRepository {
         id: 5,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductVarsitySocks,
+            GalleryLocalizations.of(context)!.shrineProductVarsitySocks,
         price: 12,
         assetAspectRatio: 329 / 246,
       ),
@@ -69,7 +67,7 @@ class ProductsRepository {
         id: 6,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductWeaveKeyring,
+            GalleryLocalizations.of(context)!.shrineProductWeaveKeyring,
         price: 16,
         assetAspectRatio: 329 / 246,
       ),
@@ -78,7 +76,7 @@ class ProductsRepository {
         id: 7,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductGatsbyHat,
+            GalleryLocalizations.of(context)!.shrineProductGatsbyHat,
         price: 40,
         assetAspectRatio: 329 / 246,
       ),
@@ -87,7 +85,7 @@ class ProductsRepository {
         id: 8,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductShrugBag,
+            GalleryLocalizations.of(context)!.shrineProductShrugBag,
         price: 198,
         assetAspectRatio: 329 / 246,
       ),
@@ -96,7 +94,7 @@ class ProductsRepository {
         id: 9,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductGiltDeskTrio,
+            GalleryLocalizations.of(context)!.shrineProductGiltDeskTrio,
         price: 58,
         assetAspectRatio: 329 / 246,
       ),
@@ -105,7 +103,7 @@ class ProductsRepository {
         id: 10,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductCopperWireRack,
+            GalleryLocalizations.of(context)!.shrineProductCopperWireRack,
         price: 18,
         assetAspectRatio: 329 / 246,
       ),
@@ -114,7 +112,7 @@ class ProductsRepository {
         id: 11,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductSootheCeramicSet,
+            GalleryLocalizations.of(context)!.shrineProductSootheCeramicSet,
         price: 28,
         assetAspectRatio: 329 / 247,
       ),
@@ -123,7 +121,7 @@ class ProductsRepository {
         id: 12,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductHurrahsTeaSet,
+            GalleryLocalizations.of(context)!.shrineProductHurrahsTeaSet,
         price: 34,
         assetAspectRatio: 329 / 213,
       ),
@@ -132,7 +130,7 @@ class ProductsRepository {
         id: 13,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductBlueStoneMug,
+            GalleryLocalizations.of(context)!.shrineProductBlueStoneMug,
         price: 18,
         assetAspectRatio: 329 / 246,
       ),
@@ -141,7 +139,7 @@ class ProductsRepository {
         id: 14,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductRainwaterTray,
+            GalleryLocalizations.of(context)!.shrineProductRainwaterTray,
         price: 27,
         assetAspectRatio: 329 / 246,
       ),
@@ -150,7 +148,7 @@ class ProductsRepository {
         id: 15,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductChambrayNapkins,
+            GalleryLocalizations.of(context)!.shrineProductChambrayNapkins,
         price: 16,
         assetAspectRatio: 329 / 246,
       ),
@@ -159,7 +157,7 @@ class ProductsRepository {
         id: 16,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductSucculentPlanters,
+            GalleryLocalizations.of(context)!.shrineProductSucculentPlanters,
         price: 16,
         assetAspectRatio: 329 / 246,
       ),
@@ -168,7 +166,7 @@ class ProductsRepository {
         id: 17,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductQuartetTable,
+            GalleryLocalizations.of(context)!.shrineProductQuartetTable,
         price: 175,
         assetAspectRatio: 329 / 246,
       ),
@@ -177,7 +175,7 @@ class ProductsRepository {
         id: 18,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductKitchenQuattro,
+            GalleryLocalizations.of(context)!.shrineProductKitchenQuattro,
         price: 129,
         assetAspectRatio: 329 / 246,
       ),
@@ -186,7 +184,7 @@ class ProductsRepository {
         id: 19,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductClaySweater,
+            GalleryLocalizations.of(context)!.shrineProductClaySweater,
         price: 48,
         assetAspectRatio: 329 / 219,
       ),
@@ -195,7 +193,7 @@ class ProductsRepository {
         id: 20,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductSeaTunic,
+            GalleryLocalizations.of(context)!.shrineProductSeaTunic,
         price: 45,
         assetAspectRatio: 329 / 221,
       ),
@@ -204,7 +202,7 @@ class ProductsRepository {
         id: 21,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductPlasterTunic,
+            GalleryLocalizations.of(context)!.shrineProductPlasterTunic,
         price: 38,
         assetAspectRatio: 220 / 329,
       ),
@@ -213,7 +211,7 @@ class ProductsRepository {
         id: 22,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductWhitePinstripeShirt,
+            GalleryLocalizations.of(context)!.shrineProductWhitePinstripeShirt,
         price: 70,
         assetAspectRatio: 219 / 329,
       ),
@@ -222,7 +220,7 @@ class ProductsRepository {
         id: 23,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductChambrayShirt,
+            GalleryLocalizations.of(context)!.shrineProductChambrayShirt,
         price: 70,
         assetAspectRatio: 329 / 221,
       ),
@@ -231,7 +229,7 @@ class ProductsRepository {
         id: 24,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductSeabreezeSweater,
+            GalleryLocalizations.of(context)!.shrineProductSeabreezeSweater,
         price: 60,
         assetAspectRatio: 220 / 329,
       ),
@@ -240,7 +238,7 @@ class ProductsRepository {
         id: 25,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductGentryJacket,
+            GalleryLocalizations.of(context)!.shrineProductGentryJacket,
         price: 178,
         assetAspectRatio: 329 / 219,
       ),
@@ -249,7 +247,7 @@ class ProductsRepository {
         id: 26,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductNavyTrousers,
+            GalleryLocalizations.of(context)!.shrineProductNavyTrousers,
         price: 74,
         assetAspectRatio: 220 / 329,
       ),
@@ -258,7 +256,7 @@ class ProductsRepository {
         id: 27,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductWalterHenleyWhite,
+            GalleryLocalizations.of(context)!.shrineProductWalterHenleyWhite,
         price: 38,
         assetAspectRatio: 219 / 329,
       ),
@@ -267,7 +265,7 @@ class ProductsRepository {
         id: 28,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductSurfAndPerfShirt,
+            GalleryLocalizations.of(context)!.shrineProductSurfAndPerfShirt,
         price: 48,
         assetAspectRatio: 329 / 219,
       ),
@@ -276,7 +274,7 @@ class ProductsRepository {
         id: 29,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductGingerScarf,
+            GalleryLocalizations.of(context)!.shrineProductGingerScarf,
         price: 98,
         assetAspectRatio: 219 / 329,
       ),
@@ -285,7 +283,7 @@ class ProductsRepository {
         id: 30,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductRamonaCrossover,
+            GalleryLocalizations.of(context)!.shrineProductRamonaCrossover,
         price: 68,
         assetAspectRatio: 220 / 329,
       ),
@@ -294,7 +292,7 @@ class ProductsRepository {
         id: 31,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductChambrayShirt,
+            GalleryLocalizations.of(context)!.shrineProductChambrayShirt,
         price: 38,
         assetAspectRatio: 329 / 223,
       ),
@@ -303,7 +301,7 @@ class ProductsRepository {
         id: 32,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductClassicWhiteCollar,
+            GalleryLocalizations.of(context)!.shrineProductClassicWhiteCollar,
         price: 58,
         assetAspectRatio: 221 / 329,
       ),
@@ -312,7 +310,7 @@ class ProductsRepository {
         id: 33,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductCeriseScallopTee,
+            GalleryLocalizations.of(context)!.shrineProductCeriseScallopTee,
         price: 42,
         assetAspectRatio: 329 / 219,
       ),
@@ -321,7 +319,7 @@ class ProductsRepository {
         id: 34,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductShoulderRollsTee,
+            GalleryLocalizations.of(context)!.shrineProductShoulderRollsTee,
         price: 27,
         assetAspectRatio: 220 / 329,
       ),
@@ -330,7 +328,7 @@ class ProductsRepository {
         id: 35,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductGreySlouchTank,
+            GalleryLocalizations.of(context)!.shrineProductGreySlouchTank,
         price: 24,
         assetAspectRatio: 222 / 329,
       ),
@@ -339,7 +337,7 @@ class ProductsRepository {
         id: 36,
         isFeatured: false,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductSunshirtDress,
+            GalleryLocalizations.of(context)!.shrineProductSunshirtDress,
         price: 58,
         assetAspectRatio: 219 / 329,
       ),
@@ -348,7 +346,7 @@ class ProductsRepository {
         id: 37,
         isFeatured: true,
         name: (context) =>
-            GalleryLocalizations.of(context).shrineProductFineLinesTee,
+            GalleryLocalizations.of(context)!.shrineProductFineLinesTee,
         price: 58,
         assetAspectRatio: 219 / 329,
       ),

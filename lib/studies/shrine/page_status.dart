@@ -2,26 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
 
 class PageStatus extends InheritedWidget {
   const PageStatus({
-    Key key,
-    @required this.cartController,
-    @required this.menuController,
-    @required Widget child,
-  })  : assert(cartController != null),
-        assert(menuController != null),
-        super(key: key, child: child);
+    Key? key,
+    required this.cartController,
+    required this.menuController,
+    required Widget child,
+  }) : super(key: key, child: child);
 
   final AnimationController cartController;
   final AnimationController menuController;
 
-  static PageStatus of(BuildContext context) {
+  static PageStatus? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<PageStatus>();
   }
 
@@ -46,9 +42,9 @@ bool cartPageIsVisible(BuildContext context) {
 }
 
 AnimationController _cartControllerOf(BuildContext context) {
-  return PageStatus.of(context).cartController;
+  return PageStatus.of(context)!.cartController;
 }
 
 AnimationController _menuControllerOf(BuildContext context) {
-  return PageStatus.of(context).menuController;
+  return PageStatus.of(context)!.menuController;
 }

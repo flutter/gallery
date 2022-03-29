@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -24,7 +22,10 @@ const _bottomPadding = 44.0;
 const _cardToScreenWidthRatio = 0.59;
 
 class MobileAsymmetricView extends StatelessWidget {
-  const MobileAsymmetricView({Key key, this.products}) : super(key: key);
+  const MobileAsymmetricView({
+    Key? key,
+    required this.products,
+  }) : super(key: key);
 
   final List<Product> products;
 
@@ -32,7 +33,7 @@ class MobileAsymmetricView extends StatelessWidget {
     BuildContext context,
     BoxConstraints constraints,
   ) {
-    if (products == null || products.isEmpty) {
+    if (products.isEmpty) {
       return const [];
     }
 
@@ -136,9 +137,9 @@ class MobileAsymmetricView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: PageStatus.of(context).cartController,
+      animation: PageStatus.of(context)!.cartController,
       builder: (context, child) => AnimatedBuilder(
-        animation: PageStatus.of(context).menuController,
+        animation: PageStatus.of(context)!.menuController,
         builder: (context, child) => ExcludeSemantics(
           excluding: !productPageIsVisible(context),
           child: LayoutBuilder(
@@ -164,7 +165,10 @@ class MobileAsymmetricView extends StatelessWidget {
 }
 
 class DesktopAsymmetricView extends StatelessWidget {
-  const DesktopAsymmetricView({Key key, this.products}) : super(key: key);
+  const DesktopAsymmetricView({
+    Key? key,
+    required this.products,
+  }) : super(key: key);
 
   final List<Product> products;
 
@@ -206,7 +210,7 @@ class DesktopAsymmetricView extends StatelessWidget {
     final columnCount = min(idealColumnCount, max(products.length, 1));
 
     return AnimatedBuilder(
-      animation: PageStatus.of(context).cartController,
+      animation: PageStatus.of(context)!.cartController,
       builder: (context, child) => ExcludeSemantics(
         excluding: !productPageIsVisible(context),
         child: DesktopColumns(
@@ -224,11 +228,11 @@ class DesktopAsymmetricView extends StatelessWidget {
 
 class DesktopColumns extends StatelessWidget {
   const DesktopColumns({
-    Key key,
-    @required this.columnCount,
-    @required this.products,
-    @required this.largeImageWidth,
-    @required this.smallImageWidth,
+    Key? key,
+    required this.columnCount,
+    required this.products,
+    required this.largeImageWidth,
+    required this.smallImageWidth,
   }) : super(key: key);
 
   final int columnCount;
