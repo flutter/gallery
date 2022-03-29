@@ -1134,7 +1134,7 @@ class StudyWrapper extends StatefulWidget {
   final AlignmentDirectional alignment;
 
   @override
-  _StudyWrapperState createState() => _StudyWrapperState();
+  State<StudyWrapper> createState() => _StudyWrapperState();
 }
 
 class _StudyWrapperState extends State<StudyWrapper> {

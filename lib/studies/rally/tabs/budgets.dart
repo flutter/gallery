@@ -14,7 +14,7 @@ class BudgetsView extends StatefulWidget {
   const BudgetsView({Key? key}) : super(key: key);
 
   @override
-  _BudgetsViewState createState() => _BudgetsViewState();
+  State<BudgetsView> createState() => _BudgetsViewState();
 }
 
 class _BudgetsViewState extends State<BudgetsView>

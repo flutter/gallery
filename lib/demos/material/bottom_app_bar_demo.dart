@@ -67,34 +67,34 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(_localizations.demoBottomAppBarTitle),
+        title: Text(localizations.demoBottomAppBarTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 88),
         children: [
           SwitchListTile(
             title: Text(
-              _localizations.demoFloatingButtonTitle,
+              localizations.demoFloatingButtonTitle,
             ),
             value: _showFab.value,
             onChanged: _onShowFabChanged,
           ),
           SwitchListTile(
-            title: Text(_localizations.bottomAppBarNotch),
+            title: Text(localizations.bottomAppBarNotch),
             value: _showNotch.value,
             onChanged: _onShowNotchChanged,
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(_localizations.bottomAppBarPosition),
+            child: Text(localizations.bottomAppBarPosition),
           ),
           RadioListTile<int>(
             title: Text(
-              _localizations.bottomAppBarPositionDockedEnd,
+              localizations.bottomAppBarPositionDockedEnd,
             ),
             value: 0,
             groupValue: _currentFabLocation.value,
@@ -102,7 +102,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              _localizations.bottomAppBarPositionDockedCenter,
+              localizations.bottomAppBarPositionDockedCenter,
             ),
             value: 1,
             groupValue: _currentFabLocation.value,
@@ -110,7 +110,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              _localizations.bottomAppBarPositionFloatingEnd,
+              localizations.bottomAppBarPositionFloatingEnd,
             ),
             value: 2,
             groupValue: _currentFabLocation.value,
@@ -118,7 +118,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
           ),
           RadioListTile<int>(
             title: Text(
-              _localizations.bottomAppBarPositionFloatingCenter,
+              localizations.bottomAppBarPositionFloatingCenter,
             ),
             value: 3,
             groupValue: _currentFabLocation.value,
@@ -129,7 +129,7 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
       floatingActionButton: _showFab.value
           ? FloatingActionButton(
               onPressed: () {},
-              tooltip: _localizations.buttonTextCreate,
+              tooltip: localizations.buttonTextCreate,
               child: const Icon(Icons.add),
             )
           : null,
@@ -158,7 +158,7 @@ class _DemoBottomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return BottomAppBar(
       shape: shape,
       child: IconTheme(
@@ -172,12 +172,12 @@ class _DemoBottomAppBar extends StatelessWidget {
             ),
             if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
-              tooltip: _localizations.starterAppTooltipSearch,
+              tooltip: localizations.starterAppTooltipSearch,
               icon: const Icon(Icons.search),
               onPressed: () {},
             ),
             IconButton(
-              tooltip: _localizations.starterAppTooltipFavorite,
+              tooltip: localizations.starterAppTooltipFavorite,
               icon: const Icon(Icons.favorite),
               onPressed: () {},
             ),

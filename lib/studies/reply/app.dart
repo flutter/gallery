@@ -37,7 +37,7 @@ class ReplyApp extends StatefulWidget {
   }
 
   @override
-  _ReplyAppState createState() => _ReplyAppState();
+  State<ReplyApp> createState() => _ReplyAppState();
 }
 
 class _ReplyAppState extends State<ReplyApp> with RestorationMixin {

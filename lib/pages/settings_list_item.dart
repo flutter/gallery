@@ -96,7 +96,7 @@ class SettingsListItem<T> extends StatefulWidget {
   final bool isExpanded;
 
   @override
-  _SettingsListItemState createState() => _SettingsListItemState<T>();
+  State<SettingsListItem<T>> createState() => _SettingsListItemState<T>();
 }
 
 class _SettingsListItemState<T> extends State<SettingsListItem<T>>

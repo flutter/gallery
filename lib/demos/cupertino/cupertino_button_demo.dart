@@ -13,11 +13,11 @@ class CupertinoButtonDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text(_localizations.demoCupertinoButtonsTitle),
+        middle: Text(localizations.demoCupertinoButtonsTitle),
       ),
       child: Center(
         child: Column(
@@ -26,14 +26,14 @@ class CupertinoButtonDemo extends StatelessWidget {
             CupertinoButton(
               onPressed: () {},
               child: Text(
-                _localizations.cupertinoButton,
+                localizations.cupertinoButton,
               ),
             ),
             const SizedBox(height: 16),
             CupertinoButton.filled(
               onPressed: () {},
               child: Text(
-                _localizations.cupertinoButtonWithBackground,
+                localizations.cupertinoButtonWithBackground,
               ),
             ),
           ],

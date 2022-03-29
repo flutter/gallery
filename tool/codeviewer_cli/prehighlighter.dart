@@ -111,7 +111,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       return formattedText;
     } else {
       // Parsing failed, return with only basic formatting
-      return [CodeSpan(type: _HighlightType.base, text: src)];
+      return [CodeSpan(type: HighlightType.base, text: src)];
     }
   }
 
@@ -125,7 +125,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Block comments
       if (_scanner.scan(RegExp(r'/\*(.|\n)*\*/'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.comment,
+          HighlightType.comment,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -146,7 +146,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
         }
 
         _spans.add(_HighlightSpan(
-          _HighlightType.comment,
+          HighlightType.comment,
           startComment,
           endComment,
         ));
@@ -161,7 +161,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Raw r"String"
       if (_scanner.scan(RegExp(r'r".*"'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.string,
+          HighlightType.string,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -171,7 +171,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Raw r'String'
       if (_scanner.scan(RegExp(r"r'.*'"))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.string,
+          HighlightType.string,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -181,7 +181,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Multiline """String"""
       if (_scanner.scan(RegExp(r'"""(?:[^"\\]|\\(.|\n))*"""'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.string,
+          HighlightType.string,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -191,7 +191,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Multiline '''String'''
       if (_scanner.scan(RegExp(r"'''(?:[^'\\]|\\(.|\n))*'''"))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.string,
+          HighlightType.string,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -201,7 +201,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // "String"
       if (_scanner.scan(RegExp(r'"(?:[^"\\]|\\.)*"'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.string,
+          HighlightType.string,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -211,7 +211,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // 'String'
       if (_scanner.scan(RegExp(r"'(?:[^'\\]|\\.)*'"))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.string,
+          HighlightType.string,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -221,7 +221,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Double
       if (_scanner.scan(RegExp(r'\d+\.\d+'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.number,
+          HighlightType.number,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -230,7 +230,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
 
       // Integer
       if (_scanner.scan(RegExp(r'\d+'))) {
-        _spans.add(_HighlightSpan(_HighlightType.number,
+        _spans.add(_HighlightSpan(HighlightType.number,
             _scanner.lastMatch!.start, _scanner.lastMatch!.end));
         continue;
       }
@@ -238,7 +238,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Punctuation
       if (_scanner.scan(RegExp(r'[\[\]{}().!=<>&\|\?\+\-\*/%\^~;:,]'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.punctuation,
+          HighlightType.punctuation,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -248,7 +248,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
       // Meta data
       if (_scanner.scan(RegExp(r'@\w+'))) {
         _spans.add(_HighlightSpan(
-          _HighlightType.keyword,
+          HighlightType.keyword,
           _scanner.lastMatch!.start,
           _scanner.lastMatch!.end,
         ));
@@ -257,7 +257,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
 
       // Words
       if (_scanner.scan(RegExp(r'\w+'))) {
-        _HighlightType? type;
+        HighlightType? type;
 
         var word = _scanner.lastMatch![0]!;
         if (word.startsWith('_')) {
@@ -265,15 +265,15 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
         }
 
         if (_keywords.contains(word)) {
-          type = _HighlightType.keyword;
+          type = HighlightType.keyword;
         } else if (_builtInTypes.contains(word)) {
-          type = _HighlightType.keyword;
+          type = HighlightType.keyword;
         } else if (_firstLetterIsUpperCase(word)) {
-          type = _HighlightType.klass;
+          type = HighlightType.klass;
         } else if (word.length >= 2 &&
             word.startsWith('k') &&
             _firstLetterIsUpperCase(word.substring(1))) {
-          type = _HighlightType.constant;
+          type = HighlightType.constant;
         }
 
         if (type != null) {
@@ -320,7 +320,7 @@ class DartSyntaxPrehighlighter extends SyntaxPrehighlighter {
   }
 }
 
-enum _HighlightType {
+enum HighlightType {
   number,
   comment,
   keyword,
@@ -334,7 +334,7 @@ enum _HighlightType {
 class _HighlightSpan {
   _HighlightSpan(this.type, this.start, this.end);
 
-  final _HighlightType type;
+  final HighlightType type;
   final int start;
   final int end;
 
@@ -345,11 +345,11 @@ class _HighlightSpan {
 
 class CodeSpan {
   CodeSpan({
-    this.type = _HighlightType.base,
+    this.type = HighlightType.base,
     required this.text,
   });
 
-  final _HighlightType type;
+  final HighlightType type;
   final String text;
 
   @override
@@ -361,23 +361,23 @@ class CodeSpan {
   }
 }
 
-String _styleNameOf(_HighlightType type) {
+String _styleNameOf(HighlightType type) {
   switch (type) {
-    case _HighlightType.number:
+    case HighlightType.number:
       return 'numberStyle';
-    case _HighlightType.comment:
+    case HighlightType.comment:
       return 'commentStyle';
-    case _HighlightType.keyword:
+    case HighlightType.keyword:
       return 'keywordStyle';
-    case _HighlightType.string:
+    case HighlightType.string:
       return 'stringStyle';
-    case _HighlightType.punctuation:
+    case HighlightType.punctuation:
       return 'punctuationStyle';
-    case _HighlightType.klass:
+    case HighlightType.klass:
       return 'classStyle';
-    case _HighlightType.constant:
+    case HighlightType.constant:
       return 'constantStyle';
-    case _HighlightType.base:
+    case HighlightType.base:
       return 'baseStyle';
   }
 }

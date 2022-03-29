@@ -57,12 +57,11 @@ class ExpandingBottomSheet extends StatefulWidget {
   final AnimationController expandingController;
 
   @override
-  _ExpandingBottomSheetState createState() => _ExpandingBottomSheetState();
+  ExpandingBottomSheetState createState() => ExpandingBottomSheetState();
 
-  static _ExpandingBottomSheetState? of(BuildContext context,
+  static ExpandingBottomSheetState? of(BuildContext context,
       {bool isNullOk = false}) {
-    final result =
-        context.findAncestorStateOfType<_ExpandingBottomSheetState>();
+    final result = context.findAncestorStateOfType<ExpandingBottomSheetState>();
     if (isNullOk || result != null) {
       return result;
     }
@@ -126,7 +125,7 @@ double _getPeakPoint({required double begin, required double end}) {
   return begin + (end - begin) * _peakVelocityProgress;
 }
 
-class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
+class ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
   final GlobalKey _expandingBottomSheetKey =
       GlobalKey(debugLabel: 'Expanding bottom sheet');
 
@@ -199,25 +198,25 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
   }
 
   Animation<double> _getDesktopGapAnimation(double gapHeight) {
-    final _collapsedGapHeight = gapHeight;
-    const _expandedGapHeight = 0.0;
+    final collapsedGapHeight = gapHeight;
+    const expandedGapHeight = 0.0;
 
     if (_controller.status == AnimationStatus.forward) {
       // Opening animation
 
       return _getEmphasizedEasingAnimation(
-        begin: _collapsedGapHeight,
-        peak: _collapsedGapHeight +
-            (_expandedGapHeight - _collapsedGapHeight) * _peakVelocityProgress,
-        end: _expandedGapHeight,
+        begin: collapsedGapHeight,
+        peak: collapsedGapHeight +
+            (expandedGapHeight - collapsedGapHeight) * _peakVelocityProgress,
+        end: expandedGapHeight,
         isForward: true,
         parent: _controller.view,
       );
     } else {
       // Closing animation
       return Tween<double>(
-        begin: _collapsedGapHeight,
-        end: _expandedGapHeight,
+        begin: collapsedGapHeight,
+        end: expandedGapHeight,
       ).animate(
         CurvedAnimation(
           parent: _controller.view,
@@ -571,7 +570,7 @@ class ProductThumbnailRow extends StatefulWidget {
   const ProductThumbnailRow({Key? key}) : super(key: key);
 
   @override
-  _ProductThumbnailRowState createState() => _ProductThumbnailRowState();
+  State<ProductThumbnailRow> createState() => _ProductThumbnailRowState();
 }
 
 class _ProductThumbnailRowState extends State<ProductThumbnailRow> {

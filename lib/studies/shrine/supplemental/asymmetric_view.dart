@@ -242,7 +242,7 @@ class DesktopColumns extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget _gap = Container(width: 24);
+    final Widget gap = Container(width: 24);
 
     final productCardLists = balancedLayout(
       context: context,
@@ -284,7 +284,7 @@ class DesktopColumns extends StatelessWidget {
                 if (generalizedColumnIndex % 2 == 0) {
                   return productCardColumns[generalizedColumnIndex ~/ 2];
                 } else {
-                  return _gap;
+                  return gap;
                 }
               },
             ),

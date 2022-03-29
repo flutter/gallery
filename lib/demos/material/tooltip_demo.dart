@@ -12,11 +12,11 @@ class TooltipDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(_localizations.demoTooltipTitle),
+        title: Text(localizations.demoTooltipTitle),
       ),
       body: Center(
         child: Padding(
@@ -25,12 +25,12 @@ class TooltipDemo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                _localizations.demoTooltipInstructions,
+                localizations.demoTooltipInstructions,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
               Tooltip(
-                message: _localizations.starterAppTooltipSearch,
+                message: localizations.starterAppTooltipSearch,
                 child: IconButton(
                   color: Theme.of(context).colorScheme.primary,
                   onPressed: () {},

@@ -14,7 +14,7 @@ class CupertinoRefreshControlDemo extends StatefulWidget {
   const CupertinoRefreshControlDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoRefreshControlDemoState createState() =>
+  State<CupertinoRefreshControlDemo> createState() =>
       _CupertinoRefreshControlDemoState();
 }
 

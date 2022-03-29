@@ -12,7 +12,7 @@ class CupertinoPickerDemo extends StatefulWidget {
   const CupertinoPickerDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoPickerDemoState createState() => _CupertinoPickerDemoState();
+  State<CupertinoPickerDemo> createState() => _CupertinoPickerDemoState();
 }
 
 class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {

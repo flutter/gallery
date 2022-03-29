@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     final isDesktop = isDisplayDesktop(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     final body = SafeArea(
       child: Padding(
         padding: isDesktop
@@ -27,19 +27,19 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SelectableText(
-              _localizations.starterAppGenericHeadline,
+              localizations.starterAppGenericHeadline,
               style: textTheme.headline3!.copyWith(
                 color: colorScheme.onSecondary,
               ),
             ),
             const SizedBox(height: 10),
             SelectableText(
-              _localizations.starterAppGenericSubtitle,
+              localizations.starterAppGenericSubtitle,
               style: textTheme.subtitle1,
             ),
             const SizedBox(height: 48),
             SelectableText(
-              _localizations.starterAppGenericBody,
+              localizations.starterAppGenericBody,
               style: textTheme.bodyText1,
             ),
           ],
@@ -62,11 +62,11 @@ class HomePage extends StatelessWidget {
                 heroTag: 'Extended Add',
                 onPressed: () {},
                 label: Text(
-                  _localizations.starterAppGenericButton,
+                  localizations.starterAppGenericButton,
                   style: TextStyle(color: colorScheme.onSecondary),
                 ),
                 icon: Icon(Icons.add, color: colorScheme.onSecondary),
-                tooltip: _localizations.starterAppTooltipAdd,
+                tooltip: localizations.starterAppTooltipAdd,
               ),
             ),
           ),
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           heroTag: 'Add',
           onPressed: () {},
-          tooltip: _localizations.starterAppTooltipAdd,
+          tooltip: localizations.starterAppTooltipAdd,
           child: Icon(
             Icons.add,
             color: Theme.of(context).colorScheme.onSecondary,
@@ -107,12 +107,12 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return AppBar(
       automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
-          : SelectableText(_localizations.starterAppGenericTitle),
+          : SelectableText(localizations.starterAppGenericTitle),
       bottom: isDesktop
           ? PreferredSize(
               preferredSize: const Size.fromHeight(26),
@@ -120,7 +120,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
                 alignment: AlignmentDirectional.centerStart,
                 margin: const EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
                 child: SelectableText(
-                  _localizations.starterAppGenericTitle,
+                  localizations.starterAppGenericTitle,
                   style: themeData.textTheme.headline6!.copyWith(
                     color: themeData.colorScheme.onPrimary,
                   ),
@@ -131,17 +131,17 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(Icons.share),
-          tooltip: _localizations.starterAppTooltipShare,
+          tooltip: localizations.starterAppTooltipShare,
           onPressed: () {},
         ),
         IconButton(
           icon: const Icon(Icons.favorite),
-          tooltip: _localizations.starterAppTooltipFavorite,
+          tooltip: localizations.starterAppTooltipFavorite,
           onPressed: () {},
         ),
         IconButton(
           icon: const Icon(Icons.search),
-          tooltip: _localizations.starterAppTooltipSearch,
+          tooltip: localizations.starterAppTooltipSearch,
           onPressed: () {},
         ),
       ],
@@ -153,7 +153,7 @@ class ListDrawer extends StatefulWidget {
   const ListDrawer({Key? key}) : super(key: key);
 
   @override
-  _ListDrawerState createState() => _ListDrawerState();
+  State<ListDrawer> createState() => _ListDrawerState();
 }
 
 class _ListDrawerState extends State<ListDrawer> {
@@ -164,18 +164,18 @@ class _ListDrawerState extends State<ListDrawer> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Drawer(
       child: SafeArea(
         child: ListView(
           children: [
             ListTile(
               title: SelectableText(
-                _localizations.starterAppTitle,
+                localizations.starterAppTitle,
                 style: textTheme.headline6,
               ),
               subtitle: SelectableText(
-                _localizations.starterAppGenericSubtitle,
+                localizations.starterAppGenericSubtitle,
                 style: textTheme.bodyText2,
               ),
             ),
@@ -186,7 +186,7 @@ class _ListDrawerState extends State<ListDrawer> {
                 selected: i == selectedItem,
                 leading: const Icon(Icons.favorite),
                 title: Text(
-                  _localizations.starterAppDrawerItem(i + 1),
+                  localizations.starterAppDrawerItem(i + 1),
                 ),
                 onTap: () {
                   setState(() {

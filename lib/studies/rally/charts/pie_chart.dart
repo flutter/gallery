@@ -82,7 +82,7 @@ class RallyPieChart extends StatefulWidget {
   final List<RallyPieChartSegment> segments;
 
   @override
-  _RallyPieChartState createState() => _RallyPieChartState();
+  State<RallyPieChart> createState() => _RallyPieChartState();
 }
 
 class _RallyPieChartState extends State<RallyPieChart>

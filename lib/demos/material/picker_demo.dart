@@ -15,7 +15,7 @@ class PickerDemo extends StatefulWidget {
   final PickerDemoType type;
 
   @override
-  _PickerDemoState createState() => _PickerDemoState();
+  State<PickerDemo> createState() => _PickerDemoState();
 }
 
 class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
@@ -160,14 +160,14 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   String get _title {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     switch (widget.type) {
       case PickerDemoType.date:
-        return _localizations.demoDatePickerTitle;
+        return localizations.demoDatePickerTitle;
       case PickerDemoType.time:
-        return _localizations.demoTimePickerTitle;
+        return localizations.demoTimePickerTitle;
       case PickerDemoType.range:
-        return _localizations.demoDateRangePickerTitle;
+        return localizations.demoDateRangePickerTitle;
       default:
         return '';
     }
@@ -180,9 +180,7 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
       case PickerDemoType.time:
         return _fromTime.value.format(context);
       case PickerDemoType.range:
-        return DateFormat.yMMMd().format(_startDate.value) +
-            ' - ' +
-            DateFormat.yMMMd().format(_endDate.value);
+        return '${DateFormat.yMMMd().format(_startDate.value)} - ${DateFormat.yMMMd().format(_endDate.value)}';
     }
   }
 

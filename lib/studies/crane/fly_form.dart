@@ -12,7 +12,7 @@ class FlyForm extends BackLayerItem {
   const FlyForm({Key? key}) : super(key: key, index: 0);
 
   @override
-  _FlyFormState createState() => _FlyFormState();
+  State<FlyForm> createState() => _FlyFormState();
 }
 
 class _FlyFormState extends State<FlyForm> with RestorationMixin {
@@ -43,31 +43,31 @@ class _FlyFormState extends State<FlyForm> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return HeaderForm(
       fields: <HeaderFormField>[
         HeaderFormField(
           index: 0,
           iconData: Icons.person,
-          title: _localizations.craneFormTravelers,
+          title: localizations.craneFormTravelers,
           textController: travelerController.value,
         ),
         HeaderFormField(
           index: 1,
           iconData: Icons.place,
-          title: _localizations.craneFormOrigin,
+          title: localizations.craneFormOrigin,
           textController: countryDestinationController.value,
         ),
         HeaderFormField(
           index: 2,
           iconData: Icons.airplanemode_active,
-          title: _localizations.craneFormDestination,
+          title: localizations.craneFormDestination,
           textController: destinationController.value,
         ),
         HeaderFormField(
           index: 3,
           iconData: Icons.date_range,
-          title: _localizations.craneFormDates,
+          title: localizations.craneFormDates,
           textController: dateController.value,
         ),
       ],

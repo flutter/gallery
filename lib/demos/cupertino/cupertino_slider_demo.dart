@@ -12,7 +12,7 @@ class CupertinoSliderDemo extends StatefulWidget {
   const CupertinoSliderDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoSliderDemoState createState() => _CupertinoSliderDemoState();
+  State<CupertinoSliderDemo> createState() => _CupertinoSliderDemoState();
 }
 
 class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
@@ -31,11 +31,11 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text(_localizations.demoCupertinoSliderTitle),
+        middle: Text(localizations.demoCupertinoSliderTitle),
       ),
       child: DefaultTextStyle(
         style: CupertinoTheme.of(context).textTheme.textStyle,
@@ -61,7 +61,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
                   ),
                   MergeSemantics(
                     child: Text(
-                      _localizations.demoCupertinoSliderContinuous(
+                      localizations.demoCupertinoSliderContinuous(
                         _value.value.toStringAsFixed(1),
                       ),
                     ),
@@ -87,7 +87,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
                   ),
                   MergeSemantics(
                     child: Text(
-                      _localizations.demoCupertinoSliderDiscrete(
+                      localizations.demoCupertinoSliderDiscrete(
                         _discreteValue.value.toStringAsFixed(1),
                       ),
                     ),

@@ -32,7 +32,7 @@ class CategoryListItem extends StatefulWidget {
   final CategoryHeaderTapCallback onTap;
 
   @override
-  _CategoryListItemState createState() => _CategoryListItemState();
+  State<CategoryListItem> createState() => _CategoryListItemState();
 }
 
 class _CategoryListItemState extends State<CategoryListItem>

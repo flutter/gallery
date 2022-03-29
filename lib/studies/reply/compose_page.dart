@@ -7,18 +7,18 @@ class ComposePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _senderEmail = 'flutterfan@gmail.com';
-    String _subject = '';
-    String? _recipient = 'Recipient';
-    String _recipientAvatar = 'reply/avatars/avatar_0.jpg';
+    var senderEmail = 'flutterfan@gmail.com';
+    String subject = '';
+    String? recipient = 'Recipient';
+    String recipientAvatar = 'reply/avatars/avatar_0.jpg';
 
     final emailStore = Provider.of<EmailStore>(context);
 
     if (emailStore.selectedEmailId >= 0) {
       final currentEmail = emailStore.currentEmail;
-      _subject = currentEmail.subject;
-      _recipient = currentEmail.sender;
-      _recipientAvatar = currentEmail.avatar;
+      subject = currentEmail.subject;
+      recipient = currentEmail.sender;
+      recipientAvatar = currentEmail.avatar;
     }
 
     return Scaffold(
@@ -34,16 +34,16 @@ class ComposePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _SubjectRow(
-                    subject: _subject,
+                    subject: subject,
                   ),
                   const _SectionDivider(),
                   _SenderAddressRow(
-                    senderEmail: _senderEmail,
+                    senderEmail: senderEmail,
                   ),
                   const _SectionDivider(),
                   _RecipientsRow(
-                    recipients: _recipient,
-                    avatar: _recipientAvatar,
+                    recipients: recipient,
+                    avatar: recipientAvatar,
                   ),
                   const _SectionDivider(),
                   Padding(

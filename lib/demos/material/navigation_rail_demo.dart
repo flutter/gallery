@@ -11,7 +11,7 @@ class NavRailDemo extends StatefulWidget {
   const NavRailDemo({Key? key}) : super(key: key);
 
   @override
-  _NavRailDemoState createState() => _NavRailDemoState();
+  State<NavRailDemo> createState() => _NavRailDemoState();
 }
 
 class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {

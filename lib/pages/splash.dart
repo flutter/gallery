@@ -41,7 +41,7 @@ class SplashPage extends StatefulWidget {
   final Widget child;
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage>

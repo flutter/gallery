@@ -45,7 +45,7 @@ class DemoPage extends StatefulWidget {
   final String slug;
 
   @override
-  _DemoPageState createState() => _DemoPageState();
+  State<DemoPage> createState() => _DemoPageState();
 }
 
 class _DemoPageState extends State<DemoPage> {
@@ -86,7 +86,7 @@ class GalleryDemoPage extends StatefulWidget {
   final GalleryDemo demo;
 
   @override
-  _GalleryDemoPageState createState() => _GalleryDemoPageState();
+  State<GalleryDemoPage> createState() => _GalleryDemoPageState();
 }
 
 class _GalleryDemoPageState extends State<GalleryDemoPage>
@@ -782,8 +782,8 @@ class CodeDisplayPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    final _richTextCode = code(context);
-    final _plainTextCode = _richTextCode.toPlainText();
+    final richTextCode = code(context);
+    final plainTextCode = richTextCode.toPlainText();
 
     void _showSnackBarOnCopySuccess(dynamic result) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -823,7 +823,7 @@ class CodeDisplayPage extends StatelessWidget {
               ),
             ),
             onPressed: () async {
-              await Clipboard.setData(ClipboardData(text: _plainTextCode))
+              await Clipboard.setData(ClipboardData(text: plainTextCode))
                   .then(_showSnackBarOnCopySuccess)
                   .catchError(_showSnackBarOnCopyFailure);
             },
@@ -841,7 +841,7 @@ class CodeDisplayPage extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: SelectableText.rich(
-                _richTextCode,
+                richTextCode,
                 textDirection: TextDirection.ltr,
               ),
             ),

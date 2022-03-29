@@ -273,7 +273,7 @@ FinancialEntityCategoryView buildFinancialEntityFromBudgetData(
           .copyWith(color: RallyColors.gray60, fontSize: 10),
     ),
     title: model.name,
-    subtitle: amountUsed + ' / ' + primaryAmount,
+    subtitle: '$amountUsed / $primaryAmount',
     semanticsLabel: GalleryLocalizations.of(context)!.rallyBudgetAmount(
       model.name,
       model.amountUsed,

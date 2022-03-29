@@ -34,7 +34,7 @@ class _TaggedHeightData {
 /// Converts a set of [_TaggedHeightData] elements to a list,
 /// and add an empty element.
 /// Used for iteration.
-List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
+List<_TaggedHeightData> _toListAndAddEmpty(Set<_TaggedHeightData> set) {
   final result = List<_TaggedHeightData>.from(set);
   result.add(const _TaggedHeightData(index: _emptyElement, height: 0));
   return result;
@@ -98,8 +98,8 @@ void _iterateUntilBalanced(
         final bestHeight = (columnHeights[source] + columnHeights[target]) / 2;
         final scoreLimit = (columnHeights[source] - bestHeight).abs();
 
-        final sourceObjects = toListAndAddEmpty(columnObjects[source]);
-        final targetObjects = toListAndAddEmpty(columnObjects[target]);
+        final sourceObjects = _toListAndAddEmpty(columnObjects[source]);
+        final targetObjects = _toListAndAddEmpty(columnObjects[target]);
 
         _TaggedHeightData? bestA, bestB;
         double? bestScore;

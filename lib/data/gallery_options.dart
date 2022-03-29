@@ -223,7 +223,7 @@ class ModelBinding extends StatefulWidget {
   final Widget child;
 
   @override
-  _ModelBindingState createState() => _ModelBindingState();
+  State<ModelBinding> createState() => _ModelBindingState();
 }
 
 class _ModelBindingState extends State<ModelBinding> {

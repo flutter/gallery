@@ -65,7 +65,7 @@ class PasswordField extends StatefulWidget {
   final TextInputAction? textInputAction;
 
   @override
-  _PasswordFieldState createState() => _PasswordFieldState();
+  State<PasswordField> createState() => _PasswordFieldState();
 }
 
 class _PasswordFieldState extends State<PasswordField> with RestorationMixin {
@@ -214,7 +214,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
   @override
   Widget build(BuildContext context) {
     const sizedBoxSpace = SizedBox(height: 24);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Form(
       key: _formKey,
@@ -233,8 +233,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.person),
-                  hintText: _localizations.demoTextFieldWhatDoPeopleCallYou,
-                  labelText: _localizations.demoTextFieldNameField,
+                  hintText: localizations.demoTextFieldWhatDoPeopleCallYou,
+                  labelText: localizations.demoTextFieldNameField,
                 ),
                 onSaved: (value) {
                   person.name = value;
@@ -250,8 +250,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.phone),
-                  hintText: _localizations.demoTextFieldWhereCanWeReachYou,
-                  labelText: _localizations.demoTextFieldPhoneNumber,
+                  hintText: localizations.demoTextFieldWhereCanWeReachYou,
+                  labelText: localizations.demoTextFieldPhoneNumber,
                   prefixText: '+1 ',
                 ),
                 keyboardType: TextInputType.phone,
@@ -277,8 +277,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 decoration: InputDecoration(
                   filled: true,
                   icon: const Icon(Icons.email),
-                  hintText: _localizations.demoTextFieldYourEmailAddress,
-                  labelText: _localizations.demoTextFieldEmail,
+                  hintText: localizations.demoTextFieldYourEmailAddress,
+                  labelText: localizations.demoTextFieldEmail,
                 ),
                 keyboardType: TextInputType.emailAddress,
                 onSaved: (value) {
@@ -292,9 +292,9 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _lifeStory,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: _localizations.demoTextFieldTellUsAboutYourself,
-                  helperText: _localizations.demoTextFieldKeepItShort,
-                  labelText: _localizations.demoTextFieldLifeStory,
+                  hintText: localizations.demoTextFieldTellUsAboutYourself,
+                  helperText: localizations.demoTextFieldKeepItShort,
+                  labelText: localizations.demoTextFieldLifeStory,
                 ),
                 maxLines: 3,
               ),
@@ -305,8 +305,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  labelText: _localizations.demoTextFieldSalary,
-                  suffixText: _localizations.demoTextFieldUSD,
+                  labelText: localizations.demoTextFieldSalary,
+                  suffixText: localizations.demoTextFieldUSD,
                 ),
                 maxLines: 1,
               ),
@@ -316,8 +316,8 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 textInputAction: TextInputAction.next,
                 focusNode: _password,
                 fieldKey: _passwordFieldKey,
-                helperText: _localizations.demoTextFieldNoMoreThan,
-                labelText: _localizations.demoTextFieldPassword,
+                helperText: localizations.demoTextFieldNoMoreThan,
+                labelText: localizations.demoTextFieldPassword,
                 onFieldSubmitted: (value) {
                   setState(() {
                     person.password = value;
@@ -331,7 +331,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
                 focusNode: _retypePassword,
                 decoration: InputDecoration(
                   filled: true,
-                  labelText: _localizations.demoTextFieldRetypePassword,
+                  labelText: localizations.demoTextFieldRetypePassword,
                 ),
                 maxLength: 8,
                 obscureText: true,
@@ -344,12 +344,12 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
               Center(
                 child: ElevatedButton(
                   onPressed: _handleSubmitted,
-                  child: Text(_localizations.demoTextFieldSubmit),
+                  child: Text(localizations.demoTextFieldSubmit),
                 ),
               ),
               sizedBoxSpace,
               Text(
-                _localizations.demoTextFieldRequiredField,
+                localizations.demoTextFieldRequiredField,
                 style: Theme.of(context).textTheme.caption,
               ),
               sizedBoxSpace,
@@ -377,15 +377,15 @@ class _UsNumberTextInputFormatter extends TextInputFormatter {
       if (newValue.selection.end >= 1) selectionIndex++;
     }
     if (newTextLength >= 4) {
-      newText.write(newValue.text.substring(0, usedSubstringIndex = 3) + ') ');
+      newText.write('${newValue.text.substring(0, usedSubstringIndex = 3)}) ');
       if (newValue.selection.end >= 3) selectionIndex += 2;
     }
     if (newTextLength >= 7) {
-      newText.write(newValue.text.substring(3, usedSubstringIndex = 6) + '-');
+      newText.write('${newValue.text.substring(3, usedSubstringIndex = 6)}-');
       if (newValue.selection.end >= 6) selectionIndex++;
     }
     if (newTextLength >= 11) {
-      newText.write(newValue.text.substring(6, usedSubstringIndex = 10) + ' ');
+      newText.write('${newValue.text.substring(6, usedSubstringIndex = 10)} ');
       if (newValue.selection.end >= 10) selectionIndex++;
     }
     // Dump the rest.

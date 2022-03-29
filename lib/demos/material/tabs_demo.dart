@@ -73,26 +73,26 @@ class __TabsScrollableDemoState extends State<_TabsScrollableDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     final tabs = [
-      _localizations.colorsRed,
-      _localizations.colorsOrange,
-      _localizations.colorsGreen,
-      _localizations.colorsBlue,
-      _localizations.colorsIndigo,
-      _localizations.colorsPurple,
-      _localizations.colorsRed,
-      _localizations.colorsOrange,
-      _localizations.colorsGreen,
-      _localizations.colorsBlue,
-      _localizations.colorsIndigo,
-      _localizations.colorsPurple,
+      localizations.colorsRed,
+      localizations.colorsOrange,
+      localizations.colorsGreen,
+      localizations.colorsBlue,
+      localizations.colorsIndigo,
+      localizations.colorsPurple,
+      localizations.colorsRed,
+      localizations.colorsOrange,
+      localizations.colorsGreen,
+      localizations.colorsBlue,
+      localizations.colorsIndigo,
+      localizations.colorsPurple,
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(_localizations.demoTabsScrollingTitle),
+        title: Text(localizations.demoTabsScrollingTitle),
         bottom: TabBar(
           controller: _tabController,
           isScrollable: true,
@@ -164,18 +164,18 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     final tabs = [
-      _localizations.colorsRed,
-      _localizations.colorsOrange,
-      _localizations.colorsGreen,
+      localizations.colorsRed,
+      localizations.colorsOrange,
+      localizations.colorsGreen,
     ];
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          _localizations.demoTabsNonScrollingTitle,
+          localizations.demoTabsNonScrollingTitle,
         ),
         bottom: TabBar(
           controller: _tabController,

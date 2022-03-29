@@ -12,7 +12,7 @@ class CupertinoSegmentedControlDemo extends StatefulWidget {
   const CupertinoSegmentedControlDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoSegmentedControlDemoState createState() =>
+  State<CupertinoSegmentedControlDemo> createState() =>
       _CupertinoSegmentedControlDemoState();
 }
 

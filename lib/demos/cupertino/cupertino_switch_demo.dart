@@ -12,7 +12,7 @@ class CupertinoSwitchDemo extends StatefulWidget {
   const CupertinoSwitchDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoSwitchDemoState createState() => _CupertinoSwitchDemoState();
+  State<CupertinoSwitchDemo> createState() => _CupertinoSwitchDemoState();
 }
 
 class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
@@ -29,18 +29,18 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
 
   @override
   Widget build(BuildContext context) {
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
         middle: Text(
-          _localizations.demoSelectionControlsSwitchTitle,
+          localizations.demoSelectionControlsSwitchTitle,
         ),
       ),
       child: Center(
         child: Semantics(
           container: true,
-          label: _localizations.demoSelectionControlsSwitchTitle,
+          label: localizations.demoSelectionControlsSwitchTitle,
           child: CupertinoSwitch(
             value: _switchValue.value,
             onChanged: (value) {

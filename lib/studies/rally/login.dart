@@ -17,7 +17,7 @@ class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> with RestorationMixin {
@@ -140,7 +140,7 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const spacing = SizedBox(width: 30);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 8),
@@ -168,7 +168,7 @@ class _TopBar extends StatelessWidget {
               ),
               spacing,
               Text(
-                _localizations.rallyLoginLoginToRally,
+                localizations.rallyLoginLoginToRally,
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       fontSize: 35 / reducedTextScale(context),
                       fontWeight: FontWeight.w600,
@@ -180,12 +180,12 @@ class _TopBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                _localizations.rallyLoginNoAccount,
+                localizations.rallyLoginNoAccount,
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               spacing,
               _BorderButton(
-                text: _localizations.rallyLoginSignUp,
+                text: localizations.rallyLoginSignUp,
               ),
             ],
           ),

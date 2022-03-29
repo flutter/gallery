@@ -144,7 +144,7 @@ class Backdrop extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _BackdropState createState() => _BackdropState();
+  State<Backdrop> createState() => _BackdropState();
 }
 
 class _BackdropState extends State<Backdrop>
@@ -181,15 +181,15 @@ class _BackdropState extends State<Backdrop>
     });
 
     // Offsets to create a horizontal gap between front layers.
-    final _tabControllerAnimation = _tabController.animation!;
+    final tabControllerAnimation = _tabController.animation!;
 
-    _flyLayerHorizontalOffset = _tabControllerAnimation.drive(
+    _flyLayerHorizontalOffset = tabControllerAnimation.drive(
         Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-0.05, 0)));
 
-    _sleepLayerHorizontalOffset = _tabControllerAnimation.drive(
+    _sleepLayerHorizontalOffset = tabControllerAnimation.drive(
         Tween<Offset>(begin: const Offset(0.05, 0), end: const Offset(0, 0)));
 
-    _eatLayerHorizontalOffset = _tabControllerAnimation.drive(Tween<Offset>(
+    _eatLayerHorizontalOffset = tabControllerAnimation.drive(Tween<Offset>(
         begin: const Offset(0.10, 0), end: const Offset(0.05, 0)));
   }
 
@@ -209,7 +209,7 @@ class _BackdropState extends State<Backdrop>
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
     return Material(
       color: cranePurple800,
       child: Padding(
@@ -260,7 +260,7 @@ class _BackdropState extends State<Backdrop>
                           SlideTransition(
                             position: _flyLayerHorizontalOffset,
                             child: _FrontLayer(
-                              title: _localizations.craneFlySubhead,
+                              title: localizations.craneFlySubhead,
                               index: 0,
                               mobileTopOffset: _sleepLayerTopOffset,
                               restorationId: 'fly-subhead',
@@ -269,7 +269,7 @@ class _BackdropState extends State<Backdrop>
                           SlideTransition(
                             position: _sleepLayerHorizontalOffset,
                             child: _FrontLayer(
-                              title: _localizations.craneSleepSubhead,
+                              title: localizations.craneSleepSubhead,
                               index: 1,
                               mobileTopOffset: 0,
                               restorationId: 'sleep-subhead',
@@ -278,7 +278,7 @@ class _BackdropState extends State<Backdrop>
                           SlideTransition(
                             position: _eatLayerHorizontalOffset,
                             child: _FrontLayer(
-                              title: _localizations.craneEatSubhead,
+                              title: localizations.craneEatSubhead,
                               index: 2,
                               mobileTopOffset: _sleepLayerTopOffset,
                               restorationId: 'eat-subhead',
@@ -309,7 +309,7 @@ class CraneAppBar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CraneAppBarState createState() => _CraneAppBarState();
+  State<CraneAppBar> createState() => _CraneAppBarState();
 }
 
 class _CraneAppBarState extends State<CraneAppBar> {
@@ -318,7 +318,7 @@ class _CraneAppBarState extends State<CraneAppBar> {
     final isDesktop = isDisplayDesktop(context);
     final isSmallDesktop = isDisplaySmallDesktop(context);
     final textScaleFactor = GalleryOptions.of(context).textScaleFactor(context);
-    final _localizations = GalleryLocalizations.of(context)!;
+    final localizations = GalleryLocalizations.of(context)!;
 
     return SafeArea(
       child: Padding(
@@ -370,9 +370,9 @@ class _CraneAppBarState extends State<CraneAppBar> {
                       duration: const Duration(milliseconds: 300),
                     ),
                     tabs: [
-                      Tab(text: _localizations.craneFly),
-                      Tab(text: _localizations.craneSleep),
-                      Tab(text: _localizations.craneEat),
+                      Tab(text: localizations.craneFly),
+                      Tab(text: localizations.craneSleep),
+                      Tab(text: localizations.craneEat),
                     ],
                   ),
                 ),
