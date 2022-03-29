@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
@@ -15,9 +13,11 @@ import 'package:gallery/studies/crane/model/destination.dart';
 const mobileThumbnailSize = 60.0;
 
 class DestinationCard extends StatelessWidget {
-  const DestinationCard({Key key, @required this.destination})
-      : assert(destination != null),
-        super(key: key);
+  const DestinationCard({
+    Key? key,
+    required this.destination,
+  }) : super(key: key);
+
   final Destination destination;
 
   @override
@@ -88,8 +88,11 @@ class DestinationCard extends StatelessWidget {
 }
 
 class _DestinationImage extends StatelessWidget {
-  const _DestinationImage({@required this.destination})
-      : assert(destination != null);
+  const _DestinationImage({
+    Key? key,
+    required this.destination,
+  }) : super(key: key);
+
   final Destination destination;
 
   @override

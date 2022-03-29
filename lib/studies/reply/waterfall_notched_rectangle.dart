@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -27,7 +25,7 @@ class WaterfallNotchedRectangle extends NotchedShape {
   /// The notch is curve that smoothly connects the host's top edge and
   /// the guest circle.
   @override
-  Path getOuterPath(Rect host, Rect guest) {
+  Path getOuterPath(Rect host, Rect? guest) {
     if (guest == null || !host.overlaps(guest)) return Path()..addRect(host);
 
     // The guest's shape is a circle bounded by the guest rectangle.
@@ -56,7 +54,7 @@ class WaterfallNotchedRectangle extends NotchedShape {
     final p2yA = math.sqrt(r * r - p2xA * p2xA);
     final p2yB = math.sqrt(r * r - p2xB * p2xB);
 
-    final p = List<Offset>.filled(6, null, growable: false);
+    final p = List<Offset?>.filled(6, null, growable: false);
 
     // p0, p1, and p2 are the control points for segment A.
     p[0] = Offset(a - s1, b);
@@ -66,25 +64,25 @@ class WaterfallNotchedRectangle extends NotchedShape {
 
     // p3, p4, and p5 are the control points for segment B, which is a mirror
     // of segment A around the y axis.
-    p[3] = Offset(-1.0 * p[2].dx, p[2].dy);
-    p[4] = Offset(-1.0 * p[1].dx, p[1].dy);
-    p[5] = Offset(-1.0 * p[0].dx, p[0].dy);
+    p[3] = Offset(-1.0 * p[2]!.dx, p[2]!.dy);
+    p[4] = Offset(-1.0 * p[1]!.dx, p[1]!.dy);
+    p[5] = Offset(-1.0 * p[0]!.dx, p[0]!.dy);
 
     // translate all points back to the absolute coordinate system.
     for (var i = 0; i < p.length; i += 1) {
-      p[i] = p[i] + guest.center;
+      p[i] = p[i]! + guest.center;
     }
 
     return Path()
       ..moveTo(host.left, host.top)
-      ..lineTo(p[0].dx, p[0].dy)
-      ..quadraticBezierTo(p[1].dx, p[1].dy, p[2].dx, p[2].dy)
+      ..lineTo(p[0]!.dx, p[0]!.dy)
+      ..quadraticBezierTo(p[1]!.dx, p[1]!.dy, p[2]!.dx, p[2]!.dy)
       ..arcToPoint(
-        p[3],
+        p[3]!,
         radius: Radius.circular(notchRadius),
         clockwise: false,
       )
-      ..quadraticBezierTo(p[4].dx, p[4].dy, p[5].dx, p[5].dy)
+      ..quadraticBezierTo(p[4]!.dx, p[4]!.dy, p[5]!.dx, p[5]!.dy)
       ..lineTo(host.right, host.top)
       ..lineTo(host.right, host.bottom)
       ..lineTo(host.left, host.bottom)

@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -18,18 +16,18 @@ import 'package:gallery/studies/shrine/triangle_category_indicator.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 double desktopCategoryMenuPageWidth({
-  BuildContext context,
+  required BuildContext context,
 }) {
   return 232 * reducedTextScale(context);
 }
 
 class CategoryMenuPage extends StatelessWidget {
   const CategoryMenuPage({
-    Key key,
+    Key? key,
     this.onCategoryTap,
   }) : super(key: key);
 
-  final VoidCallback onCategoryTap;
+  final VoidCallback? onCategoryTap;
 
   Widget _buttonText(String caption, TextStyle style) {
     return Padding(
@@ -42,7 +40,7 @@ class CategoryMenuPage extends StatelessWidget {
     );
   }
 
-  Widget _divider({BuildContext context}) {
+  Widget _divider({required BuildContext context}) {
     return Container(
       width: 56 * GalleryOptions.of(context).textScaleFactor(context),
       height: 1,
@@ -57,7 +55,7 @@ class CategoryMenuPage extends StatelessWidget {
 
     final selectedCategoryTextStyle = Theme.of(context)
         .textTheme
-        .bodyText1
+        .bodyText1!
         .copyWith(fontSize: isDesktop ? 17 : 19);
 
     final unselectedCategoryTextStyle = selectedCategoryTextStyle.copyWith(
@@ -78,7 +76,7 @@ class CategoryMenuPage extends StatelessWidget {
             onTap: () {
               model.setCategory(category);
               if (onCategoryTap != null) {
-                onCategoryTap();
+                onCategoryTap!();
               }
             },
             child: model.selectedCategory == category
@@ -101,14 +99,14 @@ class CategoryMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    final logoutTextStyle = Theme.of(context).textTheme.bodyText1.copyWith(
+    final logoutTextStyle = Theme.of(context).textTheme.bodyText1!.copyWith(
           fontSize: isDesktop ? 17 : 19,
           color: shrineBrown900.withOpacity(0.6),
         );
 
     if (isDesktop) {
       return AnimatedBuilder(
-        animation: PageStatus.of(context).cartController,
+        animation: PageStatus.of(context)!.cartController,
         builder: (context, child) => ExcludeSemantics(
           excluding: !menuPageIsVisible(context),
           child: Material(
@@ -145,7 +143,7 @@ class CategoryMenuPage extends StatelessWidget {
                               .restorablePushNamed(ShrineApp.loginRoute);
                         },
                         child: _buttonText(
-                          GalleryLocalizations.of(context)
+                          GalleryLocalizations.of(context)!
                               .shrineLogoutButtonCaption,
                           logoutTextStyle,
                         ),
@@ -156,7 +154,7 @@ class CategoryMenuPage extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.search),
                     tooltip:
-                        GalleryLocalizations.of(context).shrineTooltipSearch,
+                        GalleryLocalizations.of(context)!.shrineTooltipSearch,
                     onPressed: () {},
                   ),
                   const SizedBox(height: 72),
@@ -168,9 +166,9 @@ class CategoryMenuPage extends StatelessWidget {
       );
     } else {
       return AnimatedBuilder(
-        animation: PageStatus.of(context).cartController,
+        animation: PageStatus.of(context)!.cartController,
         builder: (context, child) => AnimatedBuilder(
-          animation: PageStatus.of(context).menuController,
+          animation: PageStatus.of(context)!.menuController,
           builder: (context, child) => ExcludeSemantics(
             excluding: !menuPageIsVisible(context),
             child: Center(
@@ -192,13 +190,13 @@ class CategoryMenuPage extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             if (onCategoryTap != null) {
-                              onCategoryTap();
+                              onCategoryTap!();
                             }
                             Navigator.of(context)
                                 .restorablePushNamed(ShrineApp.loginRoute);
                           },
                           child: _buttonText(
-                            GalleryLocalizations.of(context)
+                            GalleryLocalizations.of(context)!
                                 .shrineLogoutButtonCaption,
                             logoutTextStyle,
                           ),

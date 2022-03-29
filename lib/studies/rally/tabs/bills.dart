@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -14,7 +12,7 @@ import 'package:gallery/studies/rally/tabs/sidebar.dart';
 
 /// A page that shows a summary of bills.
 class BillsView extends StatefulWidget {
-  const BillsView({Key key}) : super(key: key);
+  const BillsView({Key? key}) : super(key: key);
 
   @override
   _BillsViewState createState() => _BillsViewState();
@@ -36,7 +34,7 @@ class _BillsViewState extends State<BillsView>
     return TabWithSidebar(
       restorationId: 'bills_view',
       mainView: FinancialEntityView(
-        heroLabel: GalleryLocalizations.of(context).rallyBillsDue,
+        heroLabel: GalleryLocalizations.of(context)!.rallyBillsDue,
         heroAmount: dueTotal,
         segments: buildSegmentsFromBillItems(items),
         wholeAmount: dueTotal,

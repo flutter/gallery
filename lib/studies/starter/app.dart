@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/data/gallery_options.dart';
@@ -13,7 +11,7 @@ import 'package:gallery/studies/starter/routes.dart' as routes;
 const _primaryColor = Color(0xFF6200EE);
 
 class StarterApp extends StatelessWidget {
-  const StarterApp({Key key}) : super(key: key);
+  const StarterApp({Key? key}) : super(key: key);
 
   static const String defaultRoute = routes.defaultRoute;
 
@@ -21,7 +19,7 @@ class StarterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       restorationScopeId: 'starter_app',
-      title: GalleryLocalizations.of(context).starterAppTitle,
+      title: GalleryLocalizations.of(context)!.starterAppTitle,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: GalleryLocalizations.localizationsDelegates,
       supportedLocales: GalleryLocalizations.supportedLocales,
