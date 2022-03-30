@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
@@ -16,13 +14,13 @@ const settingItemHeaderMargin = EdgeInsetsDirectional.fromSTEB(32, 0, 32, 8);
 
 class DisplayOption {
   final String title;
-  final String subtitle;
+  final String? subtitle;
 
   DisplayOption(this.title, {this.subtitle});
 }
 
 class SlowMotionSetting extends StatelessWidget {
-  const SlowMotionSetting({Key key}) : super(key: key);
+  const SlowMotionSetting({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +47,8 @@ class SlowMotionSetting extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SelectableText(
-                        GalleryLocalizations.of(context).settingsSlowMotion,
-                        style: textTheme.subtitle1.apply(
+                        GalleryLocalizations.of(context)!.settingsSlowMotion,
+                        style: textTheme.subtitle1!.apply(
                           color: colorScheme.onSurface,
                         ),
                       ),
@@ -79,13 +77,13 @@ class SlowMotionSetting extends StatelessWidget {
 
 class SettingsListItem<T> extends StatefulWidget {
   const SettingsListItem({
-    Key key,
-    @required this.optionsMap,
-    @required this.title,
-    @required this.selectedOption,
-    @required this.onOptionChanged,
-    @required this.onTapSetting,
-    @required this.isExpanded,
+    Key? key,
+    required this.optionsMap,
+    required this.title,
+    required this.selectedOption,
+    required this.onOptionChanged,
+    required this.onTapSetting,
+    required this.isExpanded,
   }) : super(key: key);
 
   final LinkedHashMap<T, DisplayOption> optionsMap;
@@ -96,26 +94,26 @@ class SettingsListItem<T> extends StatefulWidget {
   final bool isExpanded;
 
   @override
-  State<SettingsListItem<T>> createState() => _SettingsListItemState<T>();
+  State<SettingsListItem<T?>> createState() => _SettingsListItemState<T?>();
 }
 
-class _SettingsListItemState<T> extends State<SettingsListItem<T>>
+class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
     with SingleTickerProviderStateMixin {
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);
   static const _expandDuration = Duration(milliseconds: 150);
-  AnimationController _controller;
-  Animation<double> _childrenHeightFactor;
-  Animation<double> _headerChevronRotation;
-  Animation<double> _headerSubtitleHeight;
-  Animation<EdgeInsetsGeometry> _headerMargin;
-  Animation<EdgeInsetsGeometry> _headerPadding;
-  Animation<EdgeInsetsGeometry> _childrenPadding;
-  Animation<BorderRadius> _headerBorderRadius;
+  late AnimationController _controller;
+  late Animation<double> _childrenHeightFactor;
+  late Animation<double> _headerChevronRotation;
+  late Animation<double> _headerSubtitleHeight;
+  late Animation<EdgeInsetsGeometry> _headerMargin;
+  late Animation<EdgeInsetsGeometry> _headerPadding;
+  late Animation<EdgeInsetsGeometry> _childrenPadding;
+  late Animation<BorderRadius> _headerBorderRadius;
 
   // For ease of use. Correspond to the keys and values of `widget.optionsMap`.
-  Iterable<T> _options;
-  Iterable<DisplayOption> _displayOptions;
+  late Iterable<T?> _options;
+  late Iterable<DisplayOption> _displayOptions;
 
   @override
   void initState() {
@@ -141,7 +139,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     _headerBorderRadius = BorderRadiusTween(
       begin: settingItemBorderRadius,
       end: BorderRadius.zero,
-    ).animate(_controller);
+    ).animate(_controller) as Animation<BorderRadius>;
 
     if (widget.isExpanded) {
       _controller.value = 1.0;
@@ -169,7 +167,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
     }
   }
 
-  Widget _buildHeaderWithChildren(BuildContext context, Widget child) {
+  Widget _buildHeaderWithChildren(BuildContext context, Widget? child) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -220,21 +218,21 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
           itemCount: widget.isExpanded ? _options.length : 0,
           itemBuilder: (context, index) {
             final displayOption = _displayOptions.elementAt(index);
-            return RadioListTile<T>(
+            return RadioListTile<T?>(
               value: _options.elementAt(index),
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     displayOption.title,
-                    style: theme.textTheme.bodyText1.copyWith(
+                    style: theme.textTheme.bodyText1!.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                   if (displayOption.subtitle != null)
                     Text(
-                      displayOption.subtitle,
-                      style: theme.textTheme.bodyText1.copyWith(
+                      displayOption.subtitle!,
+                      style: theme.textTheme.bodyText1!.copyWith(
                         fontSize: 12,
                         color: Theme.of(context)
                             .colorScheme
@@ -258,25 +256,25 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T>>
 
 class _CategoryHeader extends StatelessWidget {
   const _CategoryHeader({
-    Key key,
+    Key? key,
     this.margin,
-    this.padding,
-    this.borderRadius,
-    this.subtitleHeight,
-    this.chevronRotation,
-    this.title,
-    this.subtitle,
+    required this.padding,
+    required this.borderRadius,
+    required this.subtitleHeight,
+    required this.chevronRotation,
+    required this.title,
+    required this.subtitle,
     this.onTap,
   }) : super(key: key);
 
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry padding;
   final BorderRadiusGeometry borderRadius;
   final String title;
   final String subtitle;
   final Animation<double> subtitleHeight;
   final Animation<double> chevronRotation;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -302,7 +300,7 @@ class _CategoryHeader extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: textTheme.subtitle1.apply(
+                        style: textTheme.subtitle1!.apply(
                           color: colorScheme.onSurface,
                         ),
                       ),
@@ -312,7 +310,7 @@ class _CategoryHeader extends StatelessWidget {
                           subtitle,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: textTheme.overline.apply(
+                          style: textTheme.overline!.apply(
                             color: colorScheme.primary,
                           ),
                         ),
