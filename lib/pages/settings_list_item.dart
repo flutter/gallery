@@ -109,7 +109,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
   late Animation<EdgeInsetsGeometry> _headerMargin;
   late Animation<EdgeInsetsGeometry> _headerPadding;
   late Animation<EdgeInsetsGeometry> _childrenPadding;
-  late Animation<BorderRadius> _headerBorderRadius;
+  late Animation<BorderRadius?> _headerBorderRadius;
 
   // For ease of use. Correspond to the keys and values of `widget.optionsMap`.
   late Iterable<T?> _options;
@@ -139,7 +139,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
     _headerBorderRadius = BorderRadiusTween(
       begin: settingItemBorderRadius,
       end: BorderRadius.zero,
-    ).animate(_controller) as Animation<BorderRadius>;
+    ).animate(_controller);
 
     if (widget.isExpanded) {
       _controller.value = 1.0;
@@ -174,7 +174,7 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
         _CategoryHeader(
           margin: _headerMargin.value,
           padding: _headerPadding.value,
-          borderRadius: _headerBorderRadius.value,
+          borderRadius: _headerBorderRadius.value!,
           subtitleHeight: _headerSubtitleHeight,
           chevronRotation: _headerChevronRotation,
           title: widget.title,
