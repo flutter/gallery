@@ -44,7 +44,7 @@ class _CategoryListItemState extends State<CategoryListItem>
   late Animation<EdgeInsetsGeometry> _headerMargin;
   late Animation<EdgeInsetsGeometry> _headerImagePadding;
   late Animation<EdgeInsetsGeometry> _childrenPadding;
-  late Animation<BorderRadius> _headerBorderRadius;
+  late Animation<BorderRadius?> _headerBorderRadius;
 
   @override
   void initState() {
@@ -76,7 +76,7 @@ class _CategoryListItemState extends State<CategoryListItem>
     _headerBorderRadius = BorderRadiusTween(
       begin: BorderRadius.circular(10),
       end: BorderRadius.zero,
-    ).animate(_controller) as Animation<BorderRadius>;
+    ).animate(_controller);
 
     if (widget.initiallyExpanded) {
       _controller.value = 1.0;
@@ -121,7 +121,7 @@ class _CategoryListItemState extends State<CategoryListItem>
         _CategoryHeader(
           margin: _headerMargin.value,
           imagePadding: _headerImagePadding.value,
-          borderRadius: _headerBorderRadius.value,
+          borderRadius: _headerBorderRadius.value!,
           height: _headerHeight.value,
           chevronOpacity: _headerChevronOpacity.value,
           imageString: widget.imageString,
