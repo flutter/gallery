@@ -147,7 +147,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final localizations = GalleryLocalizations.of(context)!;
 
     final settingsListItems = [
-      SettingsListItem<double>(
+      SettingsListItem<double?>(
         title: localizations.settingsTextScaling,
         selectedOption: options.textScaleFactor(
           context,
