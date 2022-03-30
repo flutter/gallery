@@ -71,7 +71,7 @@ class GalleryApp extends StatelessWidget {
             supportedLocales: GalleryLocalizations.supportedLocales,
             locale: GalleryOptions.of(context).locale,
             localeListResolutionCallback: (locales, supportedLocales) {
-              deviceLocale = locales!.first;
+              deviceLocale = locales?.first;
               return basicLocaleListResolution(locales, supportedLocales);
             },
             onGenerateRoute: RouteConfiguration.onGenerateRoute,
