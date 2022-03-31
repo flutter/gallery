@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         target: [apk, ios, macos, web]
+        fail-fast: false
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
