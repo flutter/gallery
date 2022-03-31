@@ -10,9 +10,9 @@ jobs:
     name: Build ${{ matrix.target }}
     runs-on: macos-latest
     strategy:
+      fail-fast: false
       matrix:
         target: [apk, ios, macos, web]
-        fail-fast: false
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
