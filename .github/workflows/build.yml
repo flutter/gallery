@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["apk debug", "ios --no-codesign", macos, web]
+        target: ["apk --debug", "ios --no-codesign", macos, web]
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
