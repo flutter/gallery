@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
@@ -26,13 +24,13 @@ void main() {
 
 class GalleryApp extends StatelessWidget {
   const GalleryApp({
-    Key key,
+    Key? key,
     this.initialRoute,
     this.isTestMode = false,
   }) : super(key: key);
 
   final bool isTestMode;
-  final String initialRoute;
+  final String? initialRoute;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +71,7 @@ class GalleryApp extends StatelessWidget {
             supportedLocales: GalleryLocalizations.supportedLocales,
             locale: GalleryOptions.of(context).locale,
             localeListResolutionCallback: (locales, supportedLocales) {
-              deviceLocale = locales.first;
+              deviceLocale = locales?.first;
               return basicLocaleListResolution(locales, supportedLocales);
             },
             onGenerateRoute: RouteConfiguration.onGenerateRoute,
@@ -86,7 +84,7 @@ class GalleryApp extends StatelessWidget {
 
 class RootPage extends StatelessWidget {
   const RootPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

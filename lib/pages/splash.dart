@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -16,15 +14,14 @@ const homePeekMobile = 60.0;
 
 class SplashPageAnimation extends InheritedWidget {
   const SplashPageAnimation({
-    Key key,
-    @required this.isFinished,
-    @required Widget child,
-  })  : assert(child != null),
-        super(key: key, child: child);
+    Key? key,
+    required this.isFinished,
+    required Widget child,
+  }) : super(key: key, child: child);
 
   final bool isFinished;
 
-  static SplashPageAnimation of(BuildContext context) {
+  static SplashPageAnimation? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType();
   }
 
@@ -34,8 +31,8 @@ class SplashPageAnimation extends InheritedWidget {
 
 class SplashPage extends StatefulWidget {
   const SplashPage({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
   }) : super(key: key);
 
   final Widget child;
@@ -46,8 +43,8 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  int _effect;
+  late AnimationController _controller;
+  late int _effect;
   final _random = Random();
 
   // A map of the effect index to its duration. This duration is used to
@@ -174,15 +171,15 @@ class _SplashPageState extends State<SplashPage>
 
 class _SplashBackLayer extends StatelessWidget {
   const _SplashBackLayer({
-    Key key,
-    @required this.isSplashCollapsed,
-    this.effect,
+    Key? key,
+    required this.isSplashCollapsed,
+    required this.effect,
     this.onTap,
   }) : super(key: key);
 
   final bool isSplashCollapsed;
   final int effect;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +189,7 @@ class _SplashBackLayer extends StatelessWidget {
       package: 'flutter_gallery_assets',
     );
 
-    Widget child;
+    Widget? child;
     if (isSplashCollapsed) {
       child = isDisplayDesktop(context)
           ? Padding(

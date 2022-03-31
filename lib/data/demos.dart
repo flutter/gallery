@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +45,7 @@ enum GalleryDemoCategory {
 }
 
 extension GalleryDemoExtension on GalleryDemoCategory {
-  String displayTitle(GalleryLocalizations localizations) {
+  String? displayTitle(GalleryLocalizations localizations) {
     switch (this) {
       case GalleryDemoCategory.material:
         return 'MATERIAL';
@@ -63,28 +61,25 @@ extension GalleryDemoExtension on GalleryDemoCategory {
 
 class GalleryDemo {
   const GalleryDemo({
-    @required this.title,
-    @required this.category,
-    @required this.subtitle,
+    required this.title,
+    required this.category,
+    required this.subtitle,
     // This parameter is required for studies.
     this.studyId,
     // Parameters below are required for non-study demos.
     this.slug,
     this.icon,
-    this.configurations,
-  })  : assert(title != null),
-        assert(category != null),
-        assert(subtitle != null),
-        assert(category == GalleryDemoCategory.study ||
-            (slug != null && icon != null && configurations != null)),
+    this.configurations = const [],
+  })  : assert(category == GalleryDemoCategory.study ||
+            (slug != null && icon != null)),
         assert(slug != null || studyId != null);
 
   final String title;
   final GalleryDemoCategory category;
   final String subtitle;
-  final String studyId;
-  final String slug;
-  final IconData icon;
+  final String? studyId;
+  final String? slug;
+  final IconData? icon;
   final List<GalleryDemoConfiguration> configurations;
 
   String get describe => '${slug ?? studyId}@${category.name}';
@@ -92,11 +87,11 @@ class GalleryDemo {
 
 class GalleryDemoConfiguration {
   const GalleryDemoConfiguration({
-    this.title,
-    this.description,
-    this.documentationUrl,
-    this.buildRoute,
-    this.code,
+    required this.title,
+    required this.description,
+    required this.documentationUrl,
+    required this.buildRoute,
+    required this.code,
   });
 
   final String title;
@@ -1359,11 +1354,11 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   ];
 }
 
-Map<String, GalleryDemo> slugToDemo(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
-  return LinkedHashMap<String, GalleryDemo>.fromIterable(
+Map<String?, GalleryDemo> slugToDemo(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context)!;
+  return LinkedHashMap<String?, GalleryDemo>.fromIterable(
     allGalleryDemos(localizations),
-    key: (dynamic demo) => demo.slug as String,
+    key: (dynamic demo) => demo.slug as String?,
   );
 }
 

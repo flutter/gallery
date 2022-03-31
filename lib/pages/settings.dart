@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:collection';
 
 import 'package:collection/collection.dart';
@@ -27,7 +25,10 @@ enum _ExpandableSetting {
 }
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key key, this.animationController}) : super(key: key);
+  const SettingsPage({
+    Key? key,
+    required this.animationController,
+  }) : super(key: key);
 
   final AnimationController animationController;
 
@@ -36,8 +37,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  _ExpandableSetting _expandedSettingId;
-  Animation<double> _staggerSettingsItemsAnimation;
+  _ExpandableSetting? _expandedSettingId;
+  late Animation<double> _staggerSettingsItemsAnimation;
 
   void onTapSetting(_ExpandableSetting settingId) {
     setState(() {
@@ -84,9 +85,9 @@ class _SettingsPageState extends State<SettingsPage> {
   /// title and its name in the currently selected locale for a subtitle. If the
   /// native name can't be determined, it is omitted. If the locale can't be
   /// determined, the locale code is used.
-  DisplayOption _getLocaleDisplayOption(BuildContext context, Locale locale) {
+  DisplayOption _getLocaleDisplayOption(BuildContext context, Locale? locale) {
     final localeCode = locale.toString();
-    final localeName = LocaleNames.of(context).nameOf(localeCode);
+    final localeName = LocaleNames.of(context)!.nameOf(localeCode);
     if (localeName != null) {
       final localeNativeName =
           LocaleNamesLocalizationsDelegate.nativeLocaleNames[localeCode];
@@ -117,7 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
   LinkedHashMap<Locale, DisplayOption> _getLocaleOptions() {
     var localeOptions = LinkedHashMap.of({
       systemLocaleOption: DisplayOption(
-        GalleryLocalizations.of(context).settingsSystemDefault +
+        GalleryLocalizations.of(context)!.settingsSystemDefault +
             (deviceLocale != null
                 ? ' - ${_getLocaleDisplayOption(context, deviceLocale).title}'
                 : ''),
@@ -130,7 +131,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final displayLocales = Map<Locale, DisplayOption>.fromIterable(
       supportedLocales,
       value: (dynamic locale) =>
-          _getLocaleDisplayOption(context, locale as Locale),
+          _getLocaleDisplayOption(context, locale as Locale?),
     ).entries.toList()
       ..sort((l1, l2) => compareAsciiUpperCase(l1.value.title, l2.value.title));
 
@@ -143,29 +144,30 @@ class _SettingsPageState extends State<SettingsPage> {
     final colorScheme = Theme.of(context).colorScheme;
     final options = GalleryOptions.of(context);
     final isDesktop = isDisplayDesktop(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     final settingsListItems = [
-      SettingsListItem<double>(
-        title: GalleryLocalizations.of(context).settingsTextScaling,
+      SettingsListItem<double?>(
+        title: localizations.settingsTextScaling,
         selectedOption: options.textScaleFactor(
           context,
           useSentinel: true,
         ),
         optionsMap: LinkedHashMap.of({
           systemTextScaleFactorOption: DisplayOption(
-            GalleryLocalizations.of(context).settingsSystemDefault,
+            localizations.settingsSystemDefault,
           ),
           0.8: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextScalingSmall,
+            localizations.settingsTextScalingSmall,
           ),
           1.0: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextScalingNormal,
+            localizations.settingsTextScalingNormal,
           ),
           2.0: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextScalingLarge,
+            localizations.settingsTextScalingLarge,
           ),
           3.0: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextScalingHuge,
+            localizations.settingsTextScalingHuge,
           ),
         }),
         onOptionChanged: (newTextScale) => GalleryOptions.update(
@@ -175,18 +177,18 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.textScale),
         isExpanded: _expandedSettingId == _ExpandableSetting.textScale,
       ),
-      SettingsListItem<CustomTextDirection>(
-        title: GalleryLocalizations.of(context).settingsTextDirection,
+      SettingsListItem<CustomTextDirection?>(
+        title: localizations.settingsTextDirection,
         selectedOption: options.customTextDirection,
         optionsMap: LinkedHashMap.of({
           CustomTextDirection.localeBased: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextDirectionLocaleBased,
+            localizations.settingsTextDirectionLocaleBased,
           ),
           CustomTextDirection.ltr: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextDirectionLTR,
+            localizations.settingsTextDirectionLTR,
           ),
           CustomTextDirection.rtl: DisplayOption(
-            GalleryLocalizations.of(context).settingsTextDirectionRTL,
+            localizations.settingsTextDirectionRTL,
           ),
         }),
         onOptionChanged: (newTextDirection) => GalleryOptions.update(
@@ -196,8 +198,8 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.textDirection),
         isExpanded: _expandedSettingId == _ExpandableSetting.textDirection,
       ),
-      SettingsListItem<Locale>(
-        title: GalleryLocalizations.of(context).settingsLocale,
+      SettingsListItem<Locale?>(
+        title: localizations.settingsLocale,
         selectedOption: options.locale == deviceLocale
             ? systemLocaleOption
             : options.locale,
@@ -214,8 +216,8 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.locale),
         isExpanded: _expandedSettingId == _ExpandableSetting.locale,
       ),
-      SettingsListItem<TargetPlatform>(
-        title: GalleryLocalizations.of(context).settingsPlatformMechanics,
+      SettingsListItem<TargetPlatform?>(
+        title: localizations.settingsPlatformMechanics,
         selectedOption: options.platform,
         optionsMap: LinkedHashMap.of({
           TargetPlatform.android: DisplayOption('Android'),
@@ -231,18 +233,18 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.platform),
         isExpanded: _expandedSettingId == _ExpandableSetting.platform,
       ),
-      SettingsListItem<ThemeMode>(
-        title: GalleryLocalizations.of(context).settingsTheme,
+      SettingsListItem<ThemeMode?>(
+        title: localizations.settingsTheme,
         selectedOption: options.themeMode,
         optionsMap: LinkedHashMap.of({
           ThemeMode.system: DisplayOption(
-            GalleryLocalizations.of(context).settingsSystemDefault,
+            localizations.settingsSystemDefault,
           ),
           ThemeMode.dark: DisplayOption(
-            GalleryLocalizations.of(context).settingsDarkTheme,
+            localizations.settingsDarkTheme,
           ),
           ThemeMode.light: DisplayOption(
-            GalleryLocalizations.of(context).settingsLightTheme,
+            localizations.settingsLightTheme,
           ),
         }),
         onOptionChanged: (newThemeMode) => GalleryOptions.update(
@@ -276,7 +278,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: ExcludeSemantics(
                   child: Header(
                     color: Theme.of(context).colorScheme.onSurface,
-                    text: GalleryLocalizations.of(context).settingsTitle,
+                    text: localizations.settingsTitle,
                   ),
                 ),
               ),
@@ -305,12 +307,12 @@ class _SettingsPageState extends State<SettingsPage> {
 }
 
 class SettingsAbout extends StatelessWidget {
-  const SettingsAbout({Key key}) : super(key: key);
+  const SettingsAbout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return _SettingsLink(
-      title: GalleryLocalizations.of(context).settingsAbout,
+      title: GalleryLocalizations.of(context)!.settingsAbout,
       icon: Icons.info_outline,
       onTap: () {
         about.showAboutDialog(context: context);
@@ -320,12 +322,12 @@ class SettingsAbout extends StatelessWidget {
 }
 
 class SettingsFeedback extends StatelessWidget {
-  const SettingsFeedback({Key key}) : super(key: key);
+  const SettingsFeedback({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return _SettingsLink(
-      title: GalleryLocalizations.of(context).settingsFeedback,
+      title: GalleryLocalizations.of(context)!.settingsFeedback,
       icon: Icons.feedback,
       onTap: () async {
         const url = 'https://github.com/flutter/gallery/issues/new/choose/';
@@ -341,7 +343,7 @@ class SettingsFeedback extends StatelessWidget {
 }
 
 class SettingsAttribution extends StatelessWidget {
-  const SettingsAttribution({Key key}) : super(key: key);
+  const SettingsAttribution({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -356,8 +358,8 @@ class SettingsAttribution extends StatelessWidget {
           bottom: verticalPadding,
         ),
         child: SelectableText(
-          GalleryLocalizations.of(context).settingsAttribution,
-          style: Theme.of(context).textTheme.bodyText1.copyWith(
+          GalleryLocalizations.of(context)!.settingsAttribution,
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
                 fontSize: 12,
                 color: Theme.of(context).colorScheme.onSecondary,
               ),
@@ -370,10 +372,14 @@ class SettingsAttribution extends StatelessWidget {
 
 class _SettingsLink extends StatelessWidget {
   final String title;
-  final IconData icon;
-  final GestureTapCallback onTap;
+  final IconData? icon;
+  final GestureTapCallback? onTap;
 
-  const _SettingsLink({this.title, this.icon, this.onTap});
+  const _SettingsLink({
+    required this.title,
+    this.icon,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -404,7 +410,7 @@ class _SettingsLink extends StatelessWidget {
                 ),
                 child: Text(
                   title,
-                  style: textTheme.subtitle2.apply(
+                  style: textTheme.subtitle2!.apply(
                     color: colorScheme.onSecondary,
                   ),
                   textAlign: isDesktop ? TextAlign.end : TextAlign.start,
@@ -421,9 +427,9 @@ class _SettingsLink extends StatelessWidget {
 /// Animate the settings list items to stagger in from above.
 class _AnimateSettingsListItems extends StatelessWidget {
   const _AnimateSettingsListItems({
-    Key key,
-    this.animation,
-    this.children,
+    Key? key,
+    required this.animation,
+    required this.children,
   }) : super(key: key);
 
   final Animation<double> animation;
