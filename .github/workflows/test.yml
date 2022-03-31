@@ -92,7 +92,7 @@ jobs:
         uses: actions/checkout@v2
       - run: flutter pub get -v
 
-      - run: flutter build apk
+      - run: flutter build apk --debug
       - run: flutter build ios
       - run: flutter build macos
       - run: flutter build web
