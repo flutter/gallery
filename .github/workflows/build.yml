@@ -12,13 +12,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [apk, ios, macos, web]
+        target: ["apk debug", "ios --no-codesign", macos, web]
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: master
+      - run: flutter config --enable-macos-desktop
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
@@ -26,4 +27,4 @@ jobs:
         uses: actions/checkout@v2
       - run: flutter pub get -v
 
-      - run: flutter build ${{ matrix.target }} --debug
+      - run: flutter build ${{ matrix.target }}
