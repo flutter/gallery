@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build ${{ matrix.target }}
-    runs-on: macos-10.15
+    runs-on: macos-latest
     strategy:
       matrix:
         target: [apk, ios, macos, web]
