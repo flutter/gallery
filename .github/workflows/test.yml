@@ -75,24 +75,3 @@ jobs:
         with:
           name: goldens
           path: test_goldens/failures/
-
-  builds:
-    name: Builds
-    runs-on: macos-10.15
-    steps:
-      # Set up Flutter.
-      - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
-        with:
-          channel: master
-      - run: flutter doctor -v
-
-      # Checkout gallery code and get packages.
-      - name: Checkout gallery code
-        uses: actions/checkout@v2
-      - run: flutter pub get -v
-
-      - run: flutter build apk --debug
-      - run: flutter build ios
-      - run: flutter build macos
-      - run: flutter build web
