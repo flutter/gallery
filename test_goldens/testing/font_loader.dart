@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'dart:convert';
 import 'dart:io';
 
@@ -20,15 +18,17 @@ Future<void> loadFonts() async {
     ..addAll(loadFontsFromTestingDir()));
 }
 
-Future<Map<String, List<Future<ByteData>>>> loadFontsFromManifest() async {
-  final fontManifest = await rootBundle.loadStructuredData<Iterable<dynamic>>(
+Future<Map<String?, List<Future<ByteData>>>> loadFontsFromManifest() async {
+  final List<dynamic> fontManifest =
+      await (rootBundle.loadStructuredData<List<dynamic>>(
     'FontManifest.json',
-    (data) async => json.decode(data) as Iterable<dynamic>,
-  );
-  final fontFamilyToData = <String, List<Future<ByteData>>>{};
+    (data) async => json.decode(data) as List<dynamic>,
+  ));
+
+  final fontFamilyToData = <String?, List<Future<ByteData>>>{};
   for (final fontData in fontManifest) {
-    final fontFamily = fontData['family'] as String;
-    final fonts = fontData['fonts'] as Iterable<dynamic>;
+    final fontFamily = fontData['family'] as String?;
+    final fonts = fontData['fonts'] as List<dynamic>;
     for (final font in fonts) {
       (fontFamilyToData[fontFamily] ??= [])
           .add(rootBundle.load(font['asset'] as String));
@@ -77,10 +77,11 @@ Map<String, List<Future<ByteData>>> loadGoogleFonts() {
   return fontFamilyToData;
 }
 
-Future<void> _load(Map<String, List<Future<ByteData>>> fontFamilyToData) async {
+Future<void> _load(
+    Map<String?, List<Future<ByteData>>> fontFamilyToData) async {
   final waitList = <Future<void>>[];
   for (final entry in fontFamilyToData.entries) {
-    final loader = FontLoader(entry.key);
+    final loader = FontLoader(entry.key!);
     for (final data in entry.value) {
       loader.addFont(data);
     }
