@@ -43,8 +43,10 @@
 
   <div id="loading">
     <style>
-      html, body {
-        width: 100%; height: 100%; overflow: hidden;
+      body {
+        inset: 0; overflow: hidden;
+        margin: 0; padding: 0;
+        position: fixed;
       }
       #loading {
         align-items: center;
@@ -83,13 +85,13 @@
         return engineInitializer.initializeEngine();
       }).then(function(appRunner) {
         loading.classList.add('init_done');
-        return new Promise(function(resolve, _) {
-          window.setTimeout(function() {
-            resolve(appRunner.runApp());
-          }, 300);
-        });
+        return appRunner.runApp();
       }).then(function(app) {
-        loading.remove();
+        // Wait a few milliseconds so users can see the "zoooom" animation
+        // before getting rid of the "loading" div.
+        window.setTimeout(function() {
+          loading.remove();
+        }, 200);
       });
     });
   </script>
