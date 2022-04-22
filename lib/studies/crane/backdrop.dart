@@ -55,14 +55,17 @@ class _FrontLayerState extends State<_FrontLayer> {
   }
 
   Widget _header() {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 20,
-        bottom: 22,
-      ),
-      child: SelectableText(
-        widget.title,
-        style: Theme.of(context).textTheme.subtitle2,
+    return Align(
+      alignment: AlignmentDirectional.centerStart,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 20,
+          bottom: 22,
+        ),
+        child: SelectableText(
+          widget.title,
+          style: Theme.of(context).textTheme.subtitle2,
+        ),
       ),
     );
   }
@@ -71,11 +74,7 @@ class _FrontLayerState extends State<_FrontLayer> {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final isSmallDesktop = isDisplaySmallDesktop(context);
-    final crossAxisCount = isSmallDesktop
-        ? 2
-        : isDesktop
-            ? 4
-            : 1;
+    final crossAxisCount = isDesktop ? 4 : 1;
 
     return FocusTraversalGroup(
       policy: ReadingOrderTraversalPolicy(),
@@ -94,28 +93,29 @@ class _FrontLayerState extends State<_FrontLayer> {
               ),
             ),
           ),
-          child: StaggeredGridView.countBuilder(
-            key: ValueKey('CraneListView-${widget.index}'),
-            restorationId: widget.restorationId,
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: 16.0,
+          child: Padding(
             padding: isDesktop
                 ? EdgeInsets.symmetric(
                         horizontal:
                             isSmallDesktop ? appPaddingSmall : appPaddingLarge)
                     .add(bottomPadding)
                 : const EdgeInsets.symmetric(horizontal: 20).add(bottomPadding),
-            itemBuilder: (context, index) {
-              if (index == 0) {
-                return _header();
-              } else {
-                return DestinationCard(destination: destinations![index]);
-              }
-            },
-            staggeredTileBuilder: (index) => index == 0
-                ? StaggeredTile.fit(crossAxisCount)
-                : const StaggeredTile.fit(1),
-            itemCount: destinations!.length,
+            child: Column(
+              children: [
+                _header(),
+                Expanded(
+                  child: MasonryGridView.count(
+                    key: ValueKey('CraneListView-${widget.index}'),
+                    restorationId: widget.restorationId,
+                    crossAxisCount: crossAxisCount,
+                    crossAxisSpacing: 16.0,
+                    itemBuilder: (context, index) =>
+                        DestinationCard(destination: destinations![index]),
+                    itemCount: destinations!.length,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
