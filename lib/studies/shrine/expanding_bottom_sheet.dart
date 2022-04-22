@@ -675,14 +675,10 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: ScopedModel.of<AppStateModel>(context),
-      builder: (BuildContext context, Widget? child){
-        print('product thumbnail row rebuilt at ${DateTime.now()}');
+    return ScopedModelDescendant<AppStateModel>(
+      builder: (context, child, model) {
         _updateLists();
-        return ScopedModelDescendant<AppStateModel>(
-         builder: (context, child, model) => _buildAnimatedList(context),
-        );
+        return _buildAnimatedList(context);
       },
     );
   }
