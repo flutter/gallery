@@ -387,6 +387,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
     final isDesktop = isDisplayDesktop(context);
 
     Widget thumbnails;
+    print('build thumbnails');
 
     if (isDesktop) {
       thumbnails = Column(
@@ -440,6 +441,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
   }
 
   Widget _buildShoppingCartPage() {
+    print('building shopping cart page');
     return Opacity(
       opacity: _cartOpacityAnimation.value,
       child: const ShoppingCartPage(),
@@ -477,6 +479,9 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
     _gapAnimation = isDesktop
         ? _getDesktopGapAnimation(116)
         : const AlwaysStoppedAnimation(0);
+    print('build cart');
+    print('thumbnail opacity anim: ${_thumbnailOpacityAnimation.value}');
+    print('cart is visible: $_cartIsVisible');
 
     final Widget child = SizedBox(
       width: _widthAnimation.value,
@@ -634,6 +639,9 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
     final internalSet = Set<int>.from(_internalList);
     final listSet = Set<int>.from(_list.list);
 
+    print('internal set -> $internalSet');
+    print('list set -> $listSet');
+
     final difference = internalSet.difference(listSet);
     if (difference.isEmpty) {
       return;
@@ -675,9 +683,15 @@ class _ProductThumbnailRowState extends State<ProductThumbnailRow> {
 
   @override
   Widget build(BuildContext context) {
-    _updateLists();
-    return ScopedModelDescendant<AppStateModel>(
-      builder: (context, child, model) => _buildAnimatedList(context),
+    return AnimatedBuilder(
+      animation: ScopedModel.of<AppStateModel>(context),
+      builder: (BuildContext context, Widget? child){
+        print('product thumbnail row rebuilt at ${DateTime.now()}');
+        _updateLists();
+        return ScopedModelDescendant<AppStateModel>(
+         builder: (context, child, model) => _buildAnimatedList(context),
+        );
+      },
     );
   }
 }
