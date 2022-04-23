@@ -14,6 +14,8 @@ jobs:
       matrix:
         target: ["apk --debug", "ios --no-codesign", macos, web]
     steps:
+      - run: uname -a
+
       # Install Rosetta for macOS.
       - name: Install Rosetta
         run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
