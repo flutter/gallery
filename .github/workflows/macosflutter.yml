@@ -17,8 +17,8 @@ jobs:
 
       # Set up Flutter.
       - run: git clone https://github.com/flutter/flutter.git
-      - run: export PATH="`pwd`/flutter/bin:$PATH"
-      - run: echo $PATH
+      - run: echo "`pwd`/flutter/bin:$PATH" >> $GITHUB_PATH
+      - run: cat $GITHUB_PATH
 
       - run: flutter config --enable-macos-desktop
       - run: flutter doctor -v
