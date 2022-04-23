@@ -17,9 +17,9 @@ jobs:
       - run: uname -p
 
       # Install Rosetta for macOS.
-      - name: Install Rosetta for macOS.
-        if: runner.os == 'macOS'
-        run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+      # - name: Install Rosetta for macOS.
+      #   if: runner.os == 'macOS'
+      #   run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
@@ -67,11 +67,10 @@ jobs:
     steps:
       - run: uname -a
       - run: uname -p
-      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
 
       # Install Rosetta for macOS.
-      - name: Install Rosetta for macOS.
-        run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+      # - name: Install Rosetta for macOS.
+      #   run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
@@ -79,6 +78,8 @@ jobs:
         with:
           channel: master
       - run: flutter doctor -v
+
+      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code

@@ -18,8 +18,8 @@ jobs:
       - run: uname -p
 
       # Install Rosetta for macOS.
-      - name: Install Rosetta
-        run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+      # - name: Install Rosetta
+      #   run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
