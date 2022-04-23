@@ -20,6 +20,9 @@ jobs:
       - run: echo "`pwd`/flutter/bin:$PATH" >> $GITHUB_PATH
       - run: cat $GITHUB_PATH
 
+      - run: flutter channel master
+      - run: flutter upgrade
+
       - run: flutter config --enable-macos-desktop
       - run: flutter doctor -v
       - run: dart --version
