@@ -13,6 +13,11 @@ jobs:
       matrix:
         os: [ubuntu-18.04, windows-2019, macos-10.15]
     steps:
+      # Install Rosetta for macOS.
+      - name: Install Rosetta for macOS.
+        if: runner.os == 'macOS'
+        run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
@@ -55,6 +60,10 @@ jobs:
     name: Golden tests
     runs-on: macos-10.15
     steps:
+      # Install Rosetta for macOS.
+      - name: Install Rosetta for macOS.
+        run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
         uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
