@@ -22,15 +22,24 @@ jobs:
       #   run: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
       # Set up Flutter.
-      - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
-        with:
-          channel: master
+      - run: git clone https://github.com/flutter/flutter.git
+      - run: echo "`pwd`/flutter/bin:$PATH" >> $GITHUB_PATH
+      - run: cat $GITHUB_PATH
+
+      - run: flutter channel master
+      - run: flutter upgrade
+
+
+      # Set up Flutter.
+      # - name: Clone Flutter repository with master channel
+      #   uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
+      #   with:
+      #     channel: master
       - run: flutter config --enable-macos-desktop
       - run: flutter doctor -v
 
-      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
-        if: always()
+      # - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
+      #   if: always()
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
