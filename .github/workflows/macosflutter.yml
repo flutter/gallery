@@ -22,6 +22,7 @@ jobs:
 
       - run: flutter config --enable-macos-desktop
       - run: flutter doctor -v
+      - run: dart --version
 
       - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
         if: always()
