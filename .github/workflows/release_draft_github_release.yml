@@ -90,7 +90,6 @@ jobs:
     steps:
       - run: uname -a
       - run: uname -p
-      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
 
       # Install Rosetta for macOS.
       - name: Install Rosetta for macOS.
@@ -102,6 +101,8 @@ jobs:
         uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         with:
           channel: master
+
+      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
 
       - name: Install Linux dependencies
         if: matrix.target == 'Linux'

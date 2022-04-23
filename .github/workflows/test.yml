@@ -15,7 +15,6 @@ jobs:
     steps:
       - run: uname -a
       - run: uname -p
-      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
 
       # Install Rosetta for macOS.
       - name: Install Rosetta for macOS.
@@ -28,6 +27,8 @@ jobs:
         with:
           channel: master
       - run: flutter doctor -v
+
+      - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
