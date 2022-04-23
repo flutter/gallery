@@ -63,6 +63,7 @@ jobs:
     runs-on: macos-10.15
     steps:
       - run: uname -a
+      - run: uname -p
 
       # Install Rosetta for macOS.
       - name: Install Rosetta for macOS.

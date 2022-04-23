@@ -88,6 +88,9 @@ jobs:
       fail-fast: false
     needs: draft-release
     steps:
+      - run: uname -a
+      - run: uname -p
+
       # Install Rosetta for macOS.
       - name: Install Rosetta for macOS.
         if: runner.os == 'macOS'

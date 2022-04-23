@@ -15,6 +15,7 @@ jobs:
         target: ["apk --debug", "ios --no-codesign", macos, web]
     steps:
       - run: uname -a
+      - run: uname -p
 
       # Install Rosetta for macOS.
       - name: Install Rosetta
