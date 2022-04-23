@@ -103,6 +103,7 @@ jobs:
           channel: master
 
       - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
+        if: always()
 
       - name: Install Linux dependencies
         if: matrix.target == 'Linux'

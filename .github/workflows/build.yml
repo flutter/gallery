@@ -30,6 +30,7 @@ jobs:
       - run: flutter doctor -v
 
       - run: file /Users/runner/hostedtoolcache/flutter/master/x64/bin/cache/dart-sdk/bin/dart
+        if: always()
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
