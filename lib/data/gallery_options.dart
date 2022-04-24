@@ -143,7 +143,7 @@ class GalleryOptions {
       isTestMode == other.isTestMode;
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
         themeMode,
         _textScaleFactor,
         customTextDirection,
