@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       lane:
-        description: 'Fastlane lane to use (beta OR promote_to_production OR production)'
+        description: "Fastlane lane to use (beta OR promote_to_production OR production)"
         required: true
-        default: 'beta'
+        default: "beta"
   # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
   push:
     tags:
-    - 'v*'
+      - "v*"
 
 jobs:
   fastlane-deploy:
@@ -18,7 +18,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
         with:
           channel: master
       - run: flutter doctor -v
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Fastlane
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6'
+          ruby-version: "2.6"
           bundler-cache: true
           working-directory: android
 
