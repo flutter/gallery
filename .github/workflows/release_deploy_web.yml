@@ -4,38 +4,38 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy to (staging OR prod)'
+        description: "Environment to deploy to (staging OR prod)"
         required: true
-        default: 'staging'
+        default: "staging"
   # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
   push:
     tags:
-    - 'v*'
+      - "v*"
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-18.04
     steps:
-    # Set up Flutter.
-    - name: Clone Flutter repository with master channel
-      uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
-      with:
-        channel: master
-    - run: flutter doctor -v
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
+        with:
+          channel: master
+      - run: flutter doctor -v
 
-    - name: Install web dependencies
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - run: npm install -g firebase-tools
+      - name: Install web dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm install -g firebase-tools
 
-    # Checkout gallery code and get packages.
-    - name: Checkout gallery code
-      uses: actions/checkout@v2
-    - run: flutter pub get
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get
 
-    # Build and deploy (by default, to staging).
-    - run: flutter build -v web --release
-    - run: firebase deploy -P ${{ github.event.inputs.environment || 'staging' }}
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      # Build and deploy (by default, to staging).
+      - run: flutter build -v web --release
+      - run: firebase deploy --only hosting:${{ github.event.inputs.environment || 'staging' }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
