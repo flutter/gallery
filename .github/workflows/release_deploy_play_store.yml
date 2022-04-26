@@ -7,10 +7,10 @@ on:
         description: "Fastlane lane to use (beta OR promote_to_production OR production)"
         required: true
         default: "beta"
-  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  push:
-    tags:
-      - "v*"
+  # # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
+  # push:
+  #   tags:
+  #     - "v*"
 
 jobs:
   fastlane-deploy:

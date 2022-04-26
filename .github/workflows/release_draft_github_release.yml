@@ -6,11 +6,11 @@ on:
     environment:
       description: "Tag to create (e.g. v2.9.2). Must match pubspec."
       required: true
-      default: "v."
-  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  push:
-    tags:
-      - "v*"
+      default: "v.2.9.3"
+  # # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
+  # push:
+  #   tags:
+  #     - "v*"
 
 jobs:
   draft-release:

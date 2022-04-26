@@ -7,10 +7,10 @@ on:
         description: "Environment to deploy to (staging OR prod)"
         required: true
         default: "staging"
-  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  push:
-    tags:
-      - "v*"
+  # # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
+  # push:
+  #   tags:
+  #     - "v*"
 
 jobs:
   build-and-deploy:
