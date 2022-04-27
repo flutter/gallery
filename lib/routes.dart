@@ -5,6 +5,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/deferred_widget.dart';
+import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
 import 'package:gallery/pages/home.dart';
@@ -175,7 +176,7 @@ class TwoPanePageRoute<T> extends OverlayRoute<T> {
   @override
   Iterable<OverlayEntry> createOverlayEntries() sync* {
     yield OverlayEntry(builder: (context) {
-      final hinge = MediaQuery.of(context).displayFeatures.firstWhere((element) => element.bounds.height > MediaQuery.of(context).size.height, orElse: () => null)?.bounds;
+      final hinge = MediaQuery.of(context).hinge?.bounds;
       if (hinge == null) {
         return builder.call(context);
       } else {

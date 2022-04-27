@@ -4,6 +4,7 @@
 
 import 'dart:math';
 
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/layout/adaptive.dart';
@@ -149,8 +150,8 @@ class _SplashPageState extends State<SplashPage>
 
             if (isDisplayFoldable(context)) {
               return TwoPane(
-                pane1: frontLayer,
-                pane2: GestureDetector(
+                startPane: frontLayer,
+                endPane: GestureDetector(
                   onTap: () {
                     if (_isSplashVisible) {
                       _controller.reverse();

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:ui';
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
@@ -16,9 +17,9 @@ enum TwoPaneDemoType {
 
 class TwoPaneDemo extends StatefulWidget {
   const TwoPaneDemo({
-    Key key,
-    @required this.restorationId,
-    @required this.type,
+    Key? key,
+    required this.restorationId,
+    required this.type,
   }) : super(key: key);
 
   final String restorationId;
@@ -35,7 +36,7 @@ class _TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
   String get restorationId => widget.restorationId;
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_currentIndex, 'two_pane_selected_item');
   }
 
@@ -45,30 +46,18 @@ class _TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
     super.dispose();
   }
 
-  String _title(BuildContext context) {
-    switch (widget.type) {
-      case TwoPaneDemoType.dualScreen:
-        return GalleryLocalizations.of(context).demoTwoPaneDualScreenLabel;
-      case TwoPaneDemoType.singleScreen:
-        return GalleryLocalizations.of(context).demoTwoPaneSingleScreenLabel;
-      case TwoPaneDemoType.tablet:
-        return GalleryLocalizations.of(context).demoTwoPaneTabletLabel;
-    }
-    return '';
-  }
-
   @override
   Widget build(BuildContext context) {
     var panePriority = TwoPanePriority.both;
     if (widget.type == TwoPaneDemoType.singleScreen) {
-      panePriority = _currentIndex.value == -1 ? TwoPanePriority.pane1 : TwoPanePriority.pane2;
+      panePriority = _currentIndex.value == -1 ? TwoPanePriority.start : TwoPanePriority.end;
     }
     return SimulateScreen(
       type: widget.type,
       child: TwoPane(
         paneProportion: 0.3,
         panePriority: panePriority,
-        pane1: ListPane(
+        startPane: ListPane(
           selectedIndex: _currentIndex.value,
           onSelect: (index) {
             setState(() {
@@ -76,7 +65,7 @@ class _TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
             });
           },
         ),
-        pane2: DetailsPane(
+        endPane: DetailsPane(
           selectedIndex: _currentIndex.value,
           onClose: widget.type == TwoPaneDemoType.singleScreen
               ? () {
@@ -96,9 +85,9 @@ class ListPane extends StatelessWidget {
   final int selectedIndex;
 
   const ListPane({
-    Key key,
-    this.onSelect,
-    this.selectedIndex,
+    Key? key,
+    required this.onSelect,
+    required this.selectedIndex,
   }) : super(key: key);
 
   @override
@@ -123,7 +112,7 @@ class ListPane extends StatelessWidget {
                   child: CircleAvatar(child: Text('$index')),
                 ),
                 title: Text(
-                  GalleryLocalizations.of(context).demoBottomSheetItem(index),
+                  GalleryLocalizations.of(context)!.demoBottomSheetItem(index),
                 ),
               ),
           ],
@@ -134,12 +123,12 @@ class ListPane extends StatelessWidget {
 }
 
 class DetailsPane extends StatelessWidget {
-  final VoidCallback onClose;
+  final VoidCallback? onClose;
   final int selectedIndex;
 
   const DetailsPane({
-    Key key,
-    this.selectedIndex,
+    Key? key,
+    required this.selectedIndex,
     this.onClose,
   }) : super(key: key);
 
@@ -165,9 +154,9 @@ class DetailsPane extends StatelessWidget {
 
 class SimulateScreen extends StatelessWidget {
   const SimulateScreen({
-    Key key,
-    @required this.type,
-    @required this.child,
+    Key? key,
+    required this.type,
+    required this.child,
   }) : super(key: key);
 
   final TwoPaneDemoType type;

@@ -4,6 +4,7 @@
 
 import 'dart:io' show Platform;
 
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -412,8 +413,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       body = Padding(
         padding: const EdgeInsets.only(top: 12.0),
         child: TwoPane(
-          pane1: demoContent,
-          pane2: section,
+          startPane: demoContent,
+          endPane: section,
         ),
       );
     } else {

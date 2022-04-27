@@ -102,7 +102,7 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
         .copyWith(color: theme.textTheme.caption!.color);
 
     return DialogRoute<String>(
-      screen: 1,
+      anchorPoint: Offset.infinite,
       context: context,
       builder: (context) {
         final localizations = GalleryLocalizations.of(context)!;

@@ -120,6 +120,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  dual_screen:
+    dependency: "direct main"
+    description:
+      name: dual_screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2+2"
   fake_async:
     dependency: transitive
     description:
