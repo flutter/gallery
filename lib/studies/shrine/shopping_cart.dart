@@ -4,9 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:intl/intl.dart';
-import 'package:scoped_model/scoped_model.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/shrine/colors.dart';
@@ -14,13 +11,17 @@ import 'package:gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/theme.dart';
+import 'package:intl/intl.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 const _startColumnWidth = 60.0;
 const _ordinalSortKeyName = 'shopping_cart';
 
 class ShoppingCartPage extends StatefulWidget {
+  const ShoppingCartPage({Key? key}) : super(key: key);
+
   @override
-  _ShoppingCartPageState createState() => _ShoppingCartPageState();
+  State<ShoppingCartPage> createState() => _ShoppingCartPageState();
 }
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
@@ -44,95 +45,89 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     return Scaffold(
       backgroundColor: shrinePink50,
       body: SafeArea(
-        child: Container(
-          child: ScopedModelDescendant<AppStateModel>(
-            builder: (context, child, model) {
-              return Stack(
-                children: [
-                  ListView(
-                    children: [
-                      Semantics(
-                        sortKey:
-                            const OrdinalSortKey(0, name: _ordinalSortKeyName),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: _startColumnWidth,
-                              child: IconButton(
-                                icon: const Icon(Icons.keyboard_arrow_down),
-                                onPressed: () =>
-                                    ExpandingBottomSheet.of(context).close(),
-                                tooltip: GalleryLocalizations.of(context)
-                                    .shrineTooltipCloseCart,
-                              ),
-                            ),
-                            Text(
-                              GalleryLocalizations.of(context)
-                                  .shrineCartPageCaption,
-                              style: localTheme.textTheme.subtitle1
-                                  .copyWith(fontWeight: FontWeight.w600),
-                            ),
-                            const SizedBox(width: 16),
-                            Text(
-                              GalleryLocalizations.of(context)
-                                  .shrineCartItemCount(
-                                model.totalCartQuantity,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Semantics(
-                        sortKey:
-                            const OrdinalSortKey(1, name: _ordinalSortKeyName),
-                        child: Column(
-                          children: _createShoppingCartRows(model),
-                        ),
-                      ),
-                      Semantics(
-                        sortKey:
-                            const OrdinalSortKey(2, name: _ordinalSortKeyName),
-                        child: ShoppingCartSummary(model: model),
-                      ),
-                      const SizedBox(height: 100),
-                    ],
-                  ),
-                  PositionedDirectional(
-                    bottom: 16,
-                    start: 16,
-                    end: 16,
-                    child: Semantics(
+        child: ScopedModelDescendant<AppStateModel>(
+          builder: (context, child, model) {
+            final localizations = GalleryLocalizations.of(context)!;
+            final expandingBottomSheet = ExpandingBottomSheet.of(context);
+            return Stack(
+              children: [
+                ListView(
+                  children: [
+                    Semantics(
                       sortKey:
-                          const OrdinalSortKey(3, name: _ordinalSortKeyName),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          shape: const BeveledRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(7)),
+                          const OrdinalSortKey(0, name: _ordinalSortKeyName),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: _startColumnWidth,
+                            child: IconButton(
+                              icon: const Icon(Icons.keyboard_arrow_down),
+                              onPressed: () => expandingBottomSheet!.close(),
+                              tooltip: localizations.shrineTooltipCloseCart,
+                            ),
                           ),
-                          primary: shrinePink100,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          child: Text(
-                            GalleryLocalizations.of(context)
-                                .shrineCartClearButtonCaption,
-                            style: TextStyle(
-                                letterSpacing:
-                                    letterSpacingOrNone(largeLetterSpacing)),
+                          Text(
+                            localizations.shrineCartPageCaption,
+                            style: localTheme.textTheme.subtitle1!
+                                .copyWith(fontWeight: FontWeight.w600),
                           ),
+                          const SizedBox(width: 16),
+                          Text(
+                            localizations.shrineCartItemCount(
+                              model.totalCartQuantity,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Semantics(
+                      sortKey:
+                          const OrdinalSortKey(1, name: _ordinalSortKeyName),
+                      child: Column(
+                        children: _createShoppingCartRows(model),
+                      ),
+                    ),
+                    Semantics(
+                      sortKey:
+                          const OrdinalSortKey(2, name: _ordinalSortKeyName),
+                      child: ShoppingCartSummary(model: model),
+                    ),
+                    const SizedBox(height: 100),
+                  ],
+                ),
+                PositionedDirectional(
+                  bottom: 16,
+                  start: 16,
+                  end: 16,
+                  child: Semantics(
+                    sortKey: const OrdinalSortKey(3, name: _ordinalSortKeyName),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const BeveledRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(7)),
                         ),
-                        onPressed: () {
-                          model.clearCart();
-                          ExpandingBottomSheet.of(context).close();
-                        },
+                        primary: shrinePink100,
+                      ),
+                      onPressed: () {
+                        model.clearCart();
+                        expandingBottomSheet!.close();
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Text(
+                          localizations.shrineCartClearButtonCaption,
+                          style: TextStyle(
+                              letterSpacing:
+                                  letterSpacingOrNone(largeLetterSpacing)),
+                        ),
                       ),
                     ),
                   ),
-                ],
-              );
-            },
-          ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -140,22 +135,26 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
 }
 
 class ShoppingCartSummary extends StatelessWidget {
-  const ShoppingCartSummary({this.model});
+  const ShoppingCartSummary({
+    Key? key,
+    required this.model,
+  }) : super(key: key);
 
   final AppStateModel model;
 
   @override
   Widget build(BuildContext context) {
     final smallAmountStyle =
-        Theme.of(context).textTheme.bodyText2.copyWith(color: shrineBrown600);
+        Theme.of(context).textTheme.bodyText2!.copyWith(color: shrineBrown600);
     final largeAmountStyle = Theme.of(context)
         .textTheme
-        .headline4
+        .headline4!
         .copyWith(letterSpacing: letterSpacingOrNone(mediumLetterSpacing));
     final formatter = NumberFormat.simpleCurrency(
       decimalDigits: 2,
       locale: Localizations.localeOf(context).toString(),
     );
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Row(
       children: [
@@ -169,11 +168,11 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        GalleryLocalizations.of(context).shrineCartTotalCaption,
+                      SelectableText(
+                        localizations.shrineCartTotalCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.totalCost),
                           style: largeAmountStyle,
                           textAlign: TextAlign.end,
@@ -186,12 +185,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      Text(
-                        GalleryLocalizations.of(context)
-                            .shrineCartSubtotalCaption,
+                      SelectableText(
+                        localizations.shrineCartSubtotalCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.subtotalCost),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -204,12 +202,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      Text(
-                        GalleryLocalizations.of(context)
-                            .shrineCartShippingCaption,
+                      SelectableText(
+                        localizations.shrineCartShippingCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.shippingCost),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -222,11 +219,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      Text(
-                        GalleryLocalizations.of(context).shrineCartTaxCaption,
+                      SelectableText(
+                        localizations.shrineCartTaxCaption,
                       ),
                       Expanded(
-                        child: Text(
+                        child: SelectableText(
                           formatter.format(model.tax),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -246,14 +243,15 @@ class ShoppingCartSummary extends StatelessWidget {
 
 class ShoppingCartRow extends StatelessWidget {
   const ShoppingCartRow({
-    @required this.product,
-    @required this.quantity,
+    Key? key,
+    required this.product,
+    required this.quantity,
     this.onPressed,
-  });
+  }) : super(key: key);
 
   final Product product;
-  final int quantity;
-  final VoidCallback onPressed;
+  final int? quantity;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -263,6 +261,8 @@ class ShoppingCartRow extends StatelessWidget {
     );
     final localTheme = Theme.of(context);
 
+    final localizations = GalleryLocalizations.of(context)!;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
@@ -271,7 +271,7 @@ class ShoppingCartRow extends StatelessWidget {
         children: [
           Semantics(
             container: true,
-            label: GalleryLocalizations.of(context)
+            label: localizations
                 .shrineScreenReaderRemoveProductButton(product.name(context)),
             button: true,
             enabled: true,
@@ -281,8 +281,7 @@ class ShoppingCartRow extends StatelessWidget {
                 child: IconButton(
                   icon: const Icon(Icons.remove_circle_outline),
                   onPressed: onPressed,
-                  tooltip:
-                      GalleryLocalizations.of(context).shrineTooltipRemoveItem,
+                  tooltip: localizations.shrineTooltipRemoveItem,
                 ),
               ),
             ),
@@ -313,23 +312,22 @@ class ShoppingCartRow extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: Text(
-                                        GalleryLocalizations.of(context)
-                                            .shrineProductQuantity(quantity),
+                                      child: SelectableText(
+                                        localizations
+                                            .shrineProductQuantity(quantity!),
                                       ),
                                     ),
-                                    Text(
-                                      GalleryLocalizations.of(context)
-                                          .shrineProductPrice(
+                                    SelectableText(
+                                      localizations.shrineProductPrice(
                                         formatter.format(product.price),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Text(
+                              SelectableText(
                                 product.name(context),
-                                style: localTheme.textTheme.subtitle1
+                                style: localTheme.textTheme.subtitle1!
                                     .copyWith(fontWeight: FontWeight.w600),
                               ),
                             ],

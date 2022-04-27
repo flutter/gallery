@@ -20,8 +20,8 @@ const _deviationImprovementThreshold = 10;
 /// Height of a product image, paired with the product's id.
 class _TaggedHeightData {
   const _TaggedHeightData({
-    @required this.index,
-    @required this.height,
+    required this.index,
+    required this.height,
   });
 
   /// The id of the corresponding product.
@@ -34,7 +34,7 @@ class _TaggedHeightData {
 /// Converts a set of [_TaggedHeightData] elements to a list,
 /// and add an empty element.
 /// Used for iteration.
-List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
+List<_TaggedHeightData> _toListAndAddEmpty(Set<_TaggedHeightData> set) {
   final result = List<_TaggedHeightData>.from(set);
   result.add(const _TaggedHeightData(index: _emptyElement, height: 0));
   return result;
@@ -42,10 +42,10 @@ List<_TaggedHeightData> toListAndAddEmpty(Set<_TaggedHeightData> set) {
 
 /// Encode parameters for caching.
 String _encodeParameters({
-  @required int columnCount,
-  @required List<Product> products,
-  @required double largeImageWidth,
-  @required double smallImageWidth,
+  required int columnCount,
+  required List<Product> products,
+  required double largeImageWidth,
+  required double smallImageWidth,
 }) {
   final productString =
       [for (final product in products) product.id.toString()].join(',');
@@ -54,8 +54,8 @@ String _encodeParameters({
 
 /// Given a layout, replace integers by their corresponding products.
 List<List<Product>> _generateLayout({
-  @required List<Product> products,
-  @required List<List<int>> layout,
+  required List<Product> products,
+  required List<List<int>> layout,
 }) {
   return [
     for (final column in layout)
@@ -98,11 +98,11 @@ void _iterateUntilBalanced(
         final bestHeight = (columnHeights[source] + columnHeights[target]) / 2;
         final scoreLimit = (columnHeights[source] - bestHeight).abs();
 
-        final sourceObjects = toListAndAddEmpty(columnObjects[source]);
-        final targetObjects = toListAndAddEmpty(columnObjects[target]);
+        final sourceObjects = _toListAndAddEmpty(columnObjects[source]);
+        final targetObjects = _toListAndAddEmpty(columnObjects[target]);
 
-        _TaggedHeightData bestA, bestB;
-        double bestScore;
+        _TaggedHeightData? bestA, bestB;
+        double? bestScore;
 
         for (final a in sourceObjects) {
           for (final b in targetObjects) {
@@ -130,15 +130,15 @@ void _iterateUntilBalanced(
           failedMoves = 0;
 
           // Switch A and B.
-          if (bestA.index != _emptyElement) {
+          if (bestA != null && bestA.index != _emptyElement) {
             columnObjects[source].remove(bestA);
             columnObjects[target].add(bestA);
           }
-          if (bestB.index != _emptyElement) {
+          if (bestB != null && bestB.index != _emptyElement) {
             columnObjects[target].remove(bestB);
             columnObjects[source].add(bestB);
           }
-          columnHeights[source] += bestB.height - bestA.height;
+          columnHeights[source] += bestB!.height - bestA!.height;
           columnHeights[target] += bestA.height - bestB.height;
         }
 
@@ -159,9 +159,9 @@ void _iterateUntilBalanced(
 /// represented as a list of lists of integers, each integer being an ID
 /// for a product.
 List<List<int>> _balancedDistribution({
-  int columnCount,
-  List<double> data,
-  List<double> biases,
+  required int columnCount,
+  required List<double> data,
+  required List<double> biases,
 }) {
   assert(biases.length == columnCount);
 
@@ -190,11 +190,11 @@ List<List<int>> _balancedDistribution({
 /// and the smaller images have width [smallImageWidth].
 /// The current [context] is also given to allow caching.
 List<List<Product>> balancedLayout({
-  BuildContext context,
-  int columnCount,
-  List<Product> products,
-  double largeImageWidth,
-  double smallImageWidth,
+  required BuildContext context,
+  required int columnCount,
+  required List<Product> products,
+  required double largeImageWidth,
+  required double smallImageWidth,
 }) {
   final encodedParameters = _encodeParameters(
     columnCount: columnCount,
@@ -207,7 +207,7 @@ List<List<Product>> balancedLayout({
   if (LayoutCache.of(context).containsKey(encodedParameters)) {
     return _generateLayout(
       products: products,
-      layout: LayoutCache.of(context)[encodedParameters],
+      layout: LayoutCache.of(context)[encodedParameters]!,
     );
   }
 

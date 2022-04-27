@@ -1,7 +1,6 @@
 // Copyright 2020 The Flutter team. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// An image that shows a [placeholder] widget while the target [image] is
@@ -13,18 +12,16 @@ import 'package:flutter/material.dart';
 /// the image with another widget, for example an [Ink.image].
 class FadeInImagePlaceholder extends StatelessWidget {
   const FadeInImagePlaceholder({
-    Key key,
-    @required this.image,
-    @required this.placeholder,
+    Key? key,
+    required this.image,
+    required this.placeholder,
     this.child,
     this.duration = const Duration(milliseconds: 500),
     this.excludeFromSemantics = false,
     this.width,
     this.height,
     this.fit,
-  })  : assert(placeholder != null),
-        assert(image != null),
-        super(key: key);
+  }) : super(key: key);
 
   /// The target image that we are loading into memory.
   final ImageProvider image;
@@ -36,7 +33,7 @@ class FadeInImagePlaceholder extends StatelessWidget {
   /// loaded.
   ///
   /// Defaults to display the [image].
-  final Widget child;
+  final Widget? child;
 
   /// The duration for how long the fade out of the placeholder and
   /// fade in of [child] should take.
@@ -46,13 +43,13 @@ class FadeInImagePlaceholder extends StatelessWidget {
   final bool excludeFromSemantics;
 
   /// See [Image.width].
-  final double width;
+  final double? width;
 
   /// See [Image.height].
-  final double height;
+  final double? height;
 
   /// See [Image.fit].
-  final BoxFit fit;
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {

@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:gallery/data/demos.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/data/demos.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/demo.dart';
 
@@ -12,25 +12,24 @@ typedef CategoryHeaderTapCallback = Function(bool shouldOpenList);
 
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
-    Key key,
+    Key? key,
     this.restorationId,
-    this.category,
-    this.imageString,
+    required this.category,
+    required this.imageString,
     this.demos = const [],
     this.initiallyExpanded = false,
     this.onTap,
-  })  : assert(initiallyExpanded != null),
-        super(key: key);
+  }) : super(key: key);
 
   final GalleryDemoCategory category;
-  final String restorationId;
+  final String? restorationId;
   final String imageString;
   final List<GalleryDemo> demos;
   final bool initiallyExpanded;
-  final CategoryHeaderTapCallback onTap;
+  final CategoryHeaderTapCallback? onTap;
 
   @override
-  _CategoryListItemState createState() => _CategoryListItemState();
+  State<CategoryListItem> createState() => _CategoryListItemState();
 }
 
 class _CategoryListItemState extends State<CategoryListItem>
@@ -38,14 +37,14 @@ class _CategoryListItemState extends State<CategoryListItem>
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);
   static const _expandDuration = Duration(milliseconds: 200);
-  AnimationController _controller;
-  Animation<double> _childrenHeightFactor;
-  Animation<double> _headerChevronOpacity;
-  Animation<double> _headerHeight;
-  Animation<EdgeInsetsGeometry> _headerMargin;
-  Animation<EdgeInsetsGeometry> _headerImagePadding;
-  Animation<EdgeInsetsGeometry> _childrenPadding;
-  Animation<BorderRadius> _headerBorderRadius;
+  late AnimationController _controller;
+  late Animation<double> _childrenHeightFactor;
+  late Animation<double> _headerChevronOpacity;
+  late Animation<double> _headerHeight;
+  late Animation<EdgeInsetsGeometry> _headerMargin;
+  late Animation<EdgeInsetsGeometry> _headerImagePadding;
+  late Animation<EdgeInsetsGeometry> _childrenPadding;
+  late Animation<BorderRadius?> _headerBorderRadius;
 
   @override
   void initState() {
@@ -99,32 +98,30 @@ class _CategoryListItemState extends State<CategoryListItem>
       case AnimationStatus.reverse:
         return true;
     }
-    assert(false);
-    return null;
   }
 
   void _handleTap() {
     if (_shouldOpenList()) {
       _controller.forward();
       if (widget.onTap != null) {
-        widget.onTap(true);
+        widget.onTap!(true);
       }
     } else {
       _controller.reverse();
       if (widget.onTap != null) {
-        widget.onTap(false);
+        widget.onTap!(false);
       }
     }
   }
 
-  Widget _buildHeaderWithChildren(BuildContext context, Widget child) {
+  Widget _buildHeaderWithChildren(BuildContext context, Widget? child) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         _CategoryHeader(
           margin: _headerMargin.value,
           imagePadding: _headerImagePadding.value,
-          borderRadius: _headerBorderRadius.value,
+          borderRadius: _headerBorderRadius.value!,
           height: _headerHeight.value,
           chevronOpacity: _headerChevronOpacity.value,
           imageString: widget.imageString,
@@ -161,25 +158,25 @@ class _CategoryListItemState extends State<CategoryListItem>
 
 class _CategoryHeader extends StatelessWidget {
   const _CategoryHeader({
-    Key key,
+    Key? key,
     this.margin,
-    this.imagePadding,
-    this.borderRadius,
+    required this.imagePadding,
+    required this.borderRadius,
     this.height,
-    this.chevronOpacity,
-    this.imageString,
-    this.category,
+    required this.chevronOpacity,
+    required this.imageString,
+    required this.category,
     this.onTap,
   }) : super(key: key);
 
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry imagePadding;
-  final double height;
+  final double? height;
   final BorderRadiusGeometry borderRadius;
   final String imageString;
   final GalleryDemoCategory category;
   final double chevronOpacity;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +187,7 @@ class _CategoryHeader extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: borderRadius),
         color: colorScheme.onBackground,
         clipBehavior: Clip.antiAlias,
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: InkWell(
             // Makes integration tests possible.
@@ -217,9 +214,9 @@ class _CategoryHeader extends StatelessWidget {
                         padding: const EdgeInsetsDirectional.only(start: 8),
                         child: Text(
                           category.displayTitle(
-                            GalleryLocalizations.of(context),
-                          ),
-                          style: Theme.of(context).textTheme.headline5.apply(
+                            GalleryLocalizations.of(context)!,
+                          )!,
+                          style: Theme.of(context).textTheme.headline5!.apply(
                                 color: colorScheme.onSurface,
                               ),
                         ),
@@ -253,9 +250,9 @@ class _CategoryHeader extends StatelessWidget {
 
 class _ExpandedCategoryDemos extends StatelessWidget {
   const _ExpandedCategoryDemos({
-    Key key,
-    this.category,
-    this.demos,
+    Key? key,
+    required this.category,
+    required this.demos,
   }) : super(key: key);
 
   final GalleryDemoCategory category;
@@ -278,7 +275,7 @@ class _ExpandedCategoryDemos extends StatelessWidget {
 }
 
 class CategoryDemoItem extends StatelessWidget {
-  const CategoryDemoItem({Key key, this.demo}) : super(key: key);
+  const CategoryDemoItem({Key? key, required this.demo}) : super(key: key);
 
   final GalleryDemo demo;
 
@@ -317,12 +314,12 @@ class CategoryDemoItem extends StatelessWidget {
                     children: [
                       Text(
                         demo.title,
-                        style: textTheme.subtitle1
+                        style: textTheme.subtitle1!
                             .apply(color: colorScheme.onSurface),
                       ),
                       Text(
                         demo.subtitle,
-                        style: textTheme.overline.apply(
+                        style: textTheme.overline!.apply(
                           color: colorScheme.onSurface.withOpacity(0.5),
                         ),
                       ),

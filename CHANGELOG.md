@@ -1,1 +1,1 @@
-For updates see https://github.com/flutter/gallery/releases
+See https://github.com/flutter/gallery/releases.

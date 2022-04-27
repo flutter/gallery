@@ -12,12 +12,14 @@ Icon?
 **/Pods/
 **/.symlinks/
 profile
+dgph
 xcuserdata
 **/.generated/
 Flutter/App.framework
 Flutter/Flutter.framework
 Flutter/Flutter.podspec
 Flutter/Generated.xcconfig
+Flutter/ephemeral/
 Flutter/app.flx
 Flutter/app.zip
 Flutter/flutter_assets/
@@ -31,5 +33,3 @@ XCBuildData
 !default.mode2v3
 !default.pbxuser
 !default.perspectivev3
-
-build/XCBuildData

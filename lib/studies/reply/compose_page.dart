@@ -3,28 +3,28 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class ComposePage extends StatelessWidget {
-  const ComposePage();
+  const ComposePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var _senderEmail = 'flutterfan@gmail.com';
-    var _subject = '';
-    var _recipient = 'Recipient';
-    var _recipientAvatar = 'reply/avatars/avatar_0.jpg';
+    var senderEmail = 'flutterfan@gmail.com';
+    String subject = '';
+    String? recipient = 'Recipient';
+    String recipientAvatar = 'reply/avatars/avatar_0.jpg';
 
     final emailStore = Provider.of<EmailStore>(context);
 
     if (emailStore.selectedEmailId >= 0) {
       final currentEmail = emailStore.currentEmail;
-      _subject = currentEmail.subject;
-      _recipient = currentEmail.sender;
-      _recipientAvatar = currentEmail.avatar;
+      subject = currentEmail.subject;
+      recipient = currentEmail.sender;
+      recipientAvatar = currentEmail.avatar;
     }
 
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Container(
+        child: SizedBox(
           height: double.infinity,
           child: Material(
             color: Theme.of(context).cardColor,
@@ -34,16 +34,16 @@ class ComposePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _SubjectRow(
-                    subject: _subject,
+                    subject: subject,
                   ),
                   const _SectionDivider(),
                   _SenderAddressRow(
-                    senderEmail: _senderEmail,
+                    senderEmail: senderEmail,
                   ),
                   const _SectionDivider(),
                   _RecipientsRow(
-                    recipients: _recipient,
-                    avatar: _recipientAvatar,
+                    recipients: recipient,
+                    avatar: recipientAvatar,
                   ),
                   const _SectionDivider(),
                   Padding(
@@ -69,15 +69,19 @@ class ComposePage extends StatelessWidget {
 }
 
 class _SubjectRow extends StatefulWidget {
-  const _SubjectRow({@required this.subject}) : assert(subject != null);
+  const _SubjectRow({
+    Key? key,
+    required this.subject,
+  }) : super(key: key);
 
   final String subject;
+
   @override
   _SubjectRowState createState() => _SubjectRowState();
 }
 
 class _SubjectRowState extends State<_SubjectRow> {
-  TextEditingController _subjectController;
+  TextEditingController? _subjectController;
 
   @override
   void initState() {
@@ -87,7 +91,7 @@ class _SubjectRowState extends State<_SubjectRow> {
 
   @override
   void dispose() {
-    _subjectController.dispose();
+    _subjectController!.dispose();
     super.dispose();
   }
 
@@ -117,7 +121,7 @@ class _SubjectRowState extends State<_SubjectRow> {
               style: theme.textTheme.headline6,
               decoration: InputDecoration.collapsed(
                 hintText: 'Subject',
-                hintStyle: theme.textTheme.headline6.copyWith(
+                hintStyle: theme.textTheme.headline6!.copyWith(
                   color: theme.colorScheme.primary.withOpacity(0.5),
                 ),
               ),
@@ -143,7 +147,10 @@ class _SubjectRowState extends State<_SubjectRow> {
 }
 
 class _SenderAddressRow extends StatefulWidget {
-  _SenderAddressRow({@required this.senderEmail}) : assert(senderEmail != null);
+  const _SenderAddressRow({
+    Key? key,
+    required this.senderEmail,
+  }) : super(key: key);
 
   final String senderEmail;
 
@@ -152,7 +159,7 @@ class _SenderAddressRow extends StatefulWidget {
 }
 
 class __SenderAddressRowState extends State<_SenderAddressRow> {
-  String senderEmail;
+  late String senderEmail;
 
   @override
   void initState() {
@@ -221,10 +228,10 @@ class __SenderAddressRowState extends State<_SenderAddressRow> {
 
 class _RecipientsRow extends StatelessWidget {
   const _RecipientsRow({
-    @required this.recipients,
-    @required this.avatar,
-  })  : assert(recipients != null),
-        assert(avatar != null);
+    Key? key,
+    required this.recipients,
+    required this.avatar,
+  }) : super(key: key);
 
   final String recipients;
   final String avatar;
@@ -245,7 +252,7 @@ class _RecipientsRow extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   avatar: CircleAvatar(
                     backgroundImage: AssetImage(
-                      '$avatar',
+                      avatar,
                       package: 'flutter_gallery_assets',
                     ),
                   ),

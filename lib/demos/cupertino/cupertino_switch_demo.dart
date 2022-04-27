@@ -9,10 +9,10 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoSwitchDemo
 
 class CupertinoSwitchDemo extends StatefulWidget {
-  const CupertinoSwitchDemo();
+  const CupertinoSwitchDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoSwitchDemoState createState() => _CupertinoSwitchDemoState();
+  State<CupertinoSwitchDemo> createState() => _CupertinoSwitchDemoState();
 }
 
 class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
@@ -23,24 +23,24 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
   String get restorationId => 'cupertino_switch_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_switchValue, 'switch_value');
   }
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
         middle: Text(
-          GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+          localizations.demoSelectionControlsSwitchTitle,
         ),
       ),
       child: Center(
         child: Semantics(
           container: true,
-          label:
-              GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+          label: localizations.demoSelectionControlsSwitchTitle,
           child: CupertinoSwitch(
             value: _switchValue.value,
             onChanged: (value) {

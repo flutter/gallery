@@ -2,16 +2,16 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN sharedXAxisTransitionDemo
 
 class SharedXAxisTransitionDemo extends StatefulWidget {
-  const SharedXAxisTransitionDemo();
+  const SharedXAxisTransitionDemo({Key? key}) : super(key: key);
   @override
-  _SharedXAxisTransitionDemoState createState() =>
+  State<SharedXAxisTransitionDemo> createState() =>
       _SharedXAxisTransitionDemoState();
 }
 
@@ -26,7 +26,7 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -39,7 +39,7 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
               '(${localizations.demoSharedXAxisDemoInstructions})',
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2
+                  .subtitle2!
                   .copyWith(color: Colors.white),
             ),
           ],
@@ -58,10 +58,10 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
                   secondaryAnimation,
                 ) {
                   return SharedAxisTransition(
-                    child: child,
                     animation: animation,
                     secondaryAnimation: secondaryAnimation,
                     transitionType: SharedAxisTransitionType.horizontal,
+                    child: child,
                   );
                 },
                 child: _isLoggedIn ? const _CoursePage() : const _SignInPage(),
@@ -95,7 +95,7 @@ class _CoursePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
 
     return ListView(
       children: [
@@ -134,7 +134,7 @@ class _CourseSwitch extends StatefulWidget {
     this.course,
   });
 
-  final String course;
+  final String? course;
 
   @override
   _CourseSwitchState createState() => _CourseSwitchState();
@@ -147,11 +147,11 @@ class _CourseSwitchState extends State<_CourseSwitch> {
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context);
     final subtitle = _isCourseBundled
-        ? localizations.demoSharedXAxisBundledCourseSubtitle
-        : localizations.demoSharedXAxisIndividualCourseSubtitle;
+        ? localizations!.demoSharedXAxisBundledCourseSubtitle
+        : localizations!.demoSharedXAxisIndividualCourseSubtitle;
 
     return SwitchListTile(
-      title: Text(widget.course),
+      title: Text(widget.course!),
       subtitle: Text(subtitle),
       value: _isCourseBundled,
       onChanged: (newValue) {
@@ -185,7 +185,7 @@ class _SignInPage extends StatelessWidget {
             ),
             spacing,
             Text(
-              localizations.demoSharedXAxisSignInWelcomeText,
+              localizations!.demoSharedXAxisSignInWelcomeText,
               style: Theme.of(context).textTheme.headline5,
             ),
             spacing,

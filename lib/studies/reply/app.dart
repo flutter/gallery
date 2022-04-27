@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 final rootNavKey = GlobalKey<NavigatorState>();
 
 class ReplyApp extends StatefulWidget {
-  const ReplyApp();
+  const ReplyApp({Key? key}) : super(key: key);
 
   static const String homeRoute = routes.homeRoute;
   static const String composeRoute = routes.composeRoute;
@@ -37,7 +37,7 @@ class ReplyApp extends StatefulWidget {
   }
 
   @override
-  _ReplyAppState createState() => _ReplyAppState();
+  State<ReplyApp> createState() => _ReplyAppState();
 }
 
 class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
@@ -47,7 +47,7 @@ class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
   String get restorationId => 'replyState';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_appState, 'state');
   }
 
@@ -90,10 +90,8 @@ class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
                 builder: (context) => const AdaptiveNav(),
                 settings: settings,
               );
-              break;
             case ReplyApp.composeRoute:
               return ReplyApp.createComposeRoute(settings);
-              break;
           }
           return null;
         },
@@ -109,7 +107,7 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
   }
 
   @override
-  EmailStore fromPrimitives(Object data) {
+  EmailStore fromPrimitives(Object? data) {
     final appState = EmailStore();
     final appData = Map<String, dynamic>.from(data as Map);
     appState.selectedEmailId = appData['selectedEmailId'] as int;
@@ -147,7 +145,6 @@ class _RestorableEmailState extends RestorableListenable<EmailStore> {
 ThemeData _buildReplyLightTheme(BuildContext context) {
   final base = ThemeData.light();
   return base.copyWith(
-    accentColor: ReplyColors.orange500,
     bottomAppBarColor: ReplyColors.blue700,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.blue700,
@@ -157,12 +154,12 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
       backgroundColor: ReplyColors.blue700,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange500),
       selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5.copyWith(
+          GoogleFonts.workSansTextTheme().headline5!.copyWith(
                 color: ReplyColors.orange500,
               ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.blue200),
       unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5.copyWith(
+          GoogleFonts.workSansTextTheme().headline5!.copyWith(
                 color: ReplyColors.blue200,
               ),
     ),
@@ -175,9 +172,9 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
     ),
     colorScheme: const ColorScheme.light(
       primary: ReplyColors.blue700,
-      primaryVariant: ReplyColors.blue800,
+      primaryContainer: ReplyColors.blue800,
       secondary: ReplyColors.orange500,
-      secondaryVariant: ReplyColors.orange400,
+      secondaryContainer: ReplyColors.orange400,
       surface: ReplyColors.white50,
       error: ReplyColors.red400,
       onPrimary: ReplyColors.white50,
@@ -195,7 +192,6 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
 ThemeData _buildReplyDarkTheme(BuildContext context) {
   final base = ThemeData.dark();
   return base.copyWith(
-    accentColor: ReplyColors.orange300,
     bottomAppBarColor: ReplyColors.darkBottomAppBarBackground,
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: ReplyColors.darkDrawerBackground,
@@ -205,12 +201,12 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
       backgroundColor: ReplyColors.darkBottomAppBarBackground,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange300),
       selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5.copyWith(
+          GoogleFonts.workSansTextTheme().headline5!.copyWith(
                 color: ReplyColors.orange300,
               ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.greyLabel),
       unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5.copyWith(
+          GoogleFonts.workSansTextTheme().headline5!.copyWith(
                 color: ReplyColors.greyLabel,
               ),
     ),
@@ -223,9 +219,9 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
     ),
     colorScheme: const ColorScheme.dark(
       primary: ReplyColors.blue200,
-      primaryVariant: ReplyColors.blue300,
+      primaryContainer: ReplyColors.blue300,
       secondary: ReplyColors.orange300,
-      secondaryVariant: ReplyColors.orange300,
+      secondaryContainer: ReplyColors.orange300,
       surface: ReplyColors.black800,
       error: ReplyColors.red200,
       onPrimary: ReplyColors.black900,
@@ -252,7 +248,7 @@ ChipThemeData _buildChipTheme(
     secondarySelectedColor: chipBackground,
     padding: const EdgeInsets.all(4),
     shape: const StadiumBorder(),
-    labelStyle: GoogleFonts.workSansTextTheme().bodyText2.copyWith(
+    labelStyle: GoogleFonts.workSansTextTheme().bodyText2!.copyWith(
           color: brightness == Brightness.dark
               ? ReplyColors.white50
               : ReplyColors.black900,

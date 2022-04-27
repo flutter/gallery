@@ -1,0 +1,77 @@
+name: Tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  unit-test:
+    name: Unit tests on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, windows-2019, macos-10.15]
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        with:
+          channel: master
+      - run: flutter doctor -v
+
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get -v
+
+      # Analyze, check formatting, and run unit tests.
+      - run: flutter analyze
+      - name: Ensure the Dart code is formatted correctly
+        run: flutter format --set-exit-if-changed --dry-run .
+      - name: Run Flutter unit tests
+        run: flutter test
+
+  benchmark-test:
+    name: Benchmark tests
+    runs-on: ubuntu-18.04
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        with:
+          channel: master
+      - run: flutter doctor -v
+      - run: flutter config --enable-web
+
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get -v
+
+      - run: flutter test test_benchmarks
+
+  golden-test:
+    name: Golden tests
+    runs-on: macos-10.15
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        with:
+          channel: master
+      - run: flutter doctor -v
+
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get -v
+
+      # Run the golden tests and upload failed test artifacts.
+      - run: flutter test test_goldens
+      - name: Upload goldens if tests fail
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: goldens
+          path: test_goldens/failures/

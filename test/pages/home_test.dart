@@ -11,13 +11,13 @@ import 'package:gallery/pages/backdrop.dart';
 void main() {
   testWidgets('Home page hides settings semantics when closed', (tester) async {
     await tester.pumpWidget(
-      MaterialApp(
-        localizationsDelegates: const [GalleryLocalizations.delegate],
+      const MaterialApp(
+        localizationsDelegates: [GalleryLocalizations.delegate],
         home: ModelBinding(
-          initialModel: const GalleryOptions(
+          initialModel: GalleryOptions(
             textScaleFactor: 1.0,
           ),
-          child: const Backdrop(
+          child: Backdrop(
             settingsPage: Text('Front'),
             homePage: Text('Back'),
           ),

@@ -14,38 +14,37 @@ const homePeekMobile = 60.0;
 
 class SplashPageAnimation extends InheritedWidget {
   const SplashPageAnimation({
-    Key key,
-    @required this.isFinished,
-    @required Widget child,
-  })  : assert(child != null),
-        super(key: key, child: child);
+    Key? key,
+    required this.isFinished,
+    required Widget child,
+  }) : super(key: key, child: child);
 
   final bool isFinished;
 
-  static SplashPageAnimation of(BuildContext context) {
+  static SplashPageAnimation? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType();
   }
 
   @override
-  bool updateShouldNotify(SplashPageAnimation old) => true;
+  bool updateShouldNotify(SplashPageAnimation oldWidget) => true;
 }
 
 class SplashPage extends StatefulWidget {
   const SplashPage({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
   }) : super(key: key);
 
   final Widget child;
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  int _effect;
+  late AnimationController _controller;
+  late int _effect;
   final _random = Random();
 
   // A map of the effect index to its duration. This duration is used to
@@ -118,23 +117,23 @@ class _SplashPageState extends State<SplashPage>
           builder: (context, constraints) {
             final animation = _getPanelAnimation(context, constraints);
             var frontLayer = widget.child;
-            frontLayer = GestureDetector(
-              behavior: _isSplashVisible
-                  ? HitTestBehavior.opaque
-                  : HitTestBehavior.deferToChild,
-              onTap: () {
-                _controller.reverse();
-              },
-              onVerticalDragEnd: (details) {
-                if (details.velocity.pixelsPerSecond.dy < -200) {
-                  _controller.reverse();
-                }
-              },
-              child: IgnorePointer(
-                child: frontLayer,
-                ignoring: _isSplashVisible,
-              ),
-            );
+            if (_isSplashVisible) {
+              frontLayer = MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    _controller.reverse();
+                  },
+                  onVerticalDragEnd: (details) {
+                    if (details.velocity.pixelsPerSecond.dy < -200) {
+                      _controller.reverse();
+                    }
+                  },
+                  child: IgnorePointer(child: frontLayer),
+                ),
+              );
+            }
 
             if (isDisplayDesktop(context)) {
               frontLayer = Padding(
@@ -190,16 +189,16 @@ class _SplashPageState extends State<SplashPage>
 }
 
 class _SplashBackLayer extends StatelessWidget {
-  _SplashBackLayer({
-    Key key,
-    @required this.isSplashCollapsed,
-    this.effect,
+  const _SplashBackLayer({
+    Key? key,
+    required this.isSplashCollapsed,
+    required this.effect,
     this.onTap,
   }) : super(key: key);
 
   final bool isSplashCollapsed;
   final int effect;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -209,16 +208,19 @@ class _SplashBackLayer extends StatelessWidget {
       package: 'flutter_gallery_assets',
     );
 
-    Widget child;
+    Widget? child;
     if (isSplashCollapsed) {
       if (isDisplayDesktop(context)) {
         child = Padding(
           padding: const EdgeInsets.only(top: 50),
           child: Align(
             alignment: Alignment.topCenter,
-            child: GestureDetector(
-              onTap: onTap,
-              child: flutterLogo,
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: onTap,
+                child: flutterLogo,
+              ),
             ),
           ),
         );

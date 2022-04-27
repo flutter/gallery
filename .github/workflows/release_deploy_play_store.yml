@@ -1,0 +1,58 @@
+name: Deploy to Play Store
+on:
+  # Enable manual run
+  workflow_dispatch:
+    inputs:
+      lane:
+        description: "Fastlane lane to use (beta OR promote_to_production OR production)"
+        required: true
+        default: "beta"
+  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  fastlane-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        with:
+          channel: master
+      - run: flutter doctor -v
+
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get
+
+      # Setup Ruby, Bundler, and Gemfile dependencies
+      - name: Setup Fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.6"
+          bundler-cache: true
+          working-directory: android
+
+      - name: Configure Keystore
+        run: |
+          echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > app/upload-keystore.jks
+          echo "storeFile=upload-keystore.jks" >> key.properties
+          echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> key.properties
+          echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> key.properties
+          echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> key.properties
+        env:
+          PLAY_STORE_UPLOAD_KEY: ${{ secrets.PLAY_STORE_UPLOAD_KEY }}
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+        working-directory: android
+
+      # Build and deploy with Fastlane (by default, to beta track) 🚀.
+      # Naturally, promote_to_production only deploys.
+      - run: bundle exec fastlane ${{ github.event.inputs.lane || 'beta' }}
+        env:
+          PLAY_STORE_CONFIG_JSON: ${{ secrets.PLAY_STORE_CONFIG_JSON }}
+        working-directory: android

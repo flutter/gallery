@@ -15,16 +15,11 @@ class MaterialDemoThemeData {
     bottomAppBarTheme: BottomAppBarTheme(
       color: _colorScheme.primary,
     ),
-    buttonTheme: const ButtonThemeData(
-      textTheme: ButtonTextTheme.primary,
-      colorScheme: _colorScheme,
-    ),
     canvasColor: _colorScheme.background,
     toggleableActiveColor: _colorScheme.primary,
     highlightColor: Colors.transparent,
     indicatorColor: _colorScheme.onPrimary,
     primaryColor: _colorScheme.primary,
-    accentColor: _colorScheme.primary,
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: _colorScheme.background,
     snackBarTheme: const SnackBarThemeData(
@@ -37,9 +32,9 @@ class MaterialDemoThemeData {
 
   static const _colorScheme = ColorScheme(
     primary: Color(0xFF6200EE),
-    primaryVariant: Color(0xFF6200EE),
+    primaryContainer: Color(0xFF6200EE),
     secondary: Color(0xFFFF5722),
-    secondaryVariant: Color(0xFFFF5722),
+    secondaryContainer: Color(0xFFFF5722),
     background: Colors.white,
     surface: Color(0xFFF2F2F2),
     onBackground: Colors.black,

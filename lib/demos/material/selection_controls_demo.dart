@@ -8,27 +8,27 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
 class SelectionControlsDemo extends StatelessWidget {
-  const SelectionControlsDemo({Key key, @required this.type}) : super(key: key);
+  const SelectionControlsDemo({Key? key, required this.type}) : super(key: key);
 
   final SelectionControlsDemoType type;
 
   String _title(BuildContext context) {
     switch (type) {
       case SelectionControlsDemoType.checkbox:
-        return GalleryLocalizations.of(context)
+        return GalleryLocalizations.of(context)!
             .demoSelectionControlsCheckboxTitle;
       case SelectionControlsDemoType.radio:
-        return GalleryLocalizations.of(context).demoSelectionControlsRadioTitle;
+        return GalleryLocalizations.of(context)!
+            .demoSelectionControlsRadioTitle;
       case SelectionControlsDemoType.switches:
-        return GalleryLocalizations.of(context)
+        return GalleryLocalizations.of(context)!
             .demoSelectionControlsSwitchTitle;
     }
-    return '';
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget controls;
+    Widget? controls;
     switch (type) {
       case SelectionControlsDemoType.checkbox:
         controls = _CheckboxDemo();
@@ -67,7 +67,7 @@ class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
   String get restorationId => 'checkbox_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(checkboxValueA, 'checkbox_a');
     registerForRestoration(checkboxValueB, 'checkbox_b');
     registerForRestoration(checkboxValueC, 'checkbox_c');
@@ -134,13 +134,13 @@ class _RadioDemoState extends State<_RadioDemo> with RestorationMixin {
   String get restorationId => 'radio_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(radioValue, 'radio_value');
   }
 
-  void handleRadioValueChanged(int value) {
+  void handleRadioValueChanged(int? value) {
     setState(() {
-      radioValue.value = value;
+      radioValue.value = value!;
     });
   }
 
@@ -184,7 +184,7 @@ class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
   String get restorationId => 'switch_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(switchValue, 'switch_value');
   }
 
@@ -200,7 +200,7 @@ class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
       child: Semantics(
         container: true,
         label:
-            GalleryLocalizations.of(context).demoSelectionControlsSwitchTitle,
+            GalleryLocalizations.of(context)!.demoSelectionControlsSwitchTitle,
         child: Switch(
           value: switchValue.value,
           onChanged: (value) {

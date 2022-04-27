@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'dart:math';
-import 'package:flutter/animation.dart' show Curves;
 import 'package:flutter/material.dart';
 
 // Color gradients.
@@ -44,8 +43,8 @@ const _curve = Curves.easeInOutCubic;
 
 double _progress(
   double time, {
-  @required double begin,
-  @required double end,
+  required double begin,
+  required double end,
 }) =>
     _curve.transform(((time - begin) / (end - begin)).clamp(0, 1).toDouble());
 

@@ -5,9 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
 import 'package:gallery/pages/settings.dart';
@@ -19,24 +19,25 @@ const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
   const Backdrop({
+    Key? key,
     this.settingsPage,
     this.homePage,
-  });
+  }) : super(key: key);
 
-  final Widget settingsPage;
-  final Widget homePage;
+  final Widget? settingsPage;
+  final Widget? homePage;
 
   @override
-  _BackdropState createState() => _BackdropState();
+  State<Backdrop> createState() => _BackdropState();
 }
 
 class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
-  AnimationController _settingsPanelController;
-  AnimationController _iconController;
-  FocusNode _settingsPageFocusNode;
-  ValueNotifier<bool> _isSettingsOpenNotifier;
-  Widget _settingsPage;
-  Widget _homePage;
+  late AnimationController _settingsPanelController;
+  late AnimationController _iconController;
+  late FocusNode _settingsPageFocusNode;
+  late ValueNotifier<bool> _isSettingsOpenNotifier;
+  late Widget _settingsPage;
+  late Widget _homePage;
 
   @override
   void initState() {
@@ -55,7 +56,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
         SettingsPage(
           animationController: _settingsPanelController,
         );
-    _homePage = widget.homePage ?? HomePage();
+    _homePage = widget.homePage ?? const HomePage();
   }
 
   @override
@@ -204,7 +205,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                     elevation: 7,
                     clipBehavior: Clip.antiAlias,
                     borderRadius: BorderRadius.circular(40),
-                    color: Theme.of(context).colorScheme.secondaryVariant,
+                    color: Theme.of(context).colorScheme.secondaryContainer,
                     child: Container(
                       constraints: const BoxConstraints(
                         maxHeight: 560,
@@ -237,11 +238,11 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
 }
 
 class _SettingsIcon extends AnimatedWidget {
-  _SettingsIcon(
-      {this.animationController,
-      this.toggleSettings,
-      this.isSettingsOpenNotifier})
-      : super(listenable: animationController);
+  const _SettingsIcon({
+    required this.animationController,
+    required this.toggleSettings,
+    required this.isSettingsOpenNotifier,
+  }) : super(listenable: animationController);
 
   final AnimationController animationController;
   final VoidCallback toggleSettings;
@@ -249,8 +250,8 @@ class _SettingsIcon extends AnimatedWidget {
 
   String _settingsSemanticLabel(bool isOpen, BuildContext context) {
     return isOpen
-        ? GalleryLocalizations.of(context).settingsButtonCloseLabel
-        : GalleryLocalizations.of(context).settingsButtonLabel;
+        ? GalleryLocalizations.of(context)!.settingsButtonCloseLabel
+        : GalleryLocalizations.of(context)!.settingsButtonLabel;
   }
 
   @override
@@ -277,14 +278,14 @@ class _SettingsIcon extends AnimatedWidget {
             color:
                 isSettingsOpenNotifier.value & !animationController.isAnimating
                     ? Colors.transparent
-                    : Theme.of(context).colorScheme.secondaryVariant,
+                    : Theme.of(context).colorScheme.secondaryContainer,
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               onTap: () {
                 toggleSettings();
                 SemanticsService.announce(
                   _settingsSemanticLabel(isSettingsOpenNotifier.value, context),
-                  GalleryOptions.of(context).resolvedTextDirection(),
+                  GalleryOptions.of(context).resolvedTextDirection()!,
                 );
               },
               child: Padding(

@@ -14,7 +14,7 @@ import 'package:scoped_model/scoped_model.dart';
 const _ordinalSortKeyName = 'home';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage();
+  const ProductPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +34,12 @@ class HomePage extends StatelessWidget {
     this.expandingBottomSheet,
     this.scrim,
     this.backdrop,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final ExpandingBottomSheet expandingBottomSheet;
-  final Widget scrim;
-  final Widget backdrop;
+  final ExpandingBottomSheet? expandingBottomSheet;
+  final Widget? scrim;
+  final Widget? backdrop;
 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +53,19 @@ class HomePage extends StatelessWidget {
         children: [
           Semantics(
             container: true,
-            child: backdrop,
             sortKey: const OrdinalSortKey(1, name: _ordinalSortKeyName),
+            child: backdrop,
           ),
           ExcludeSemantics(child: scrim),
           Align(
-            child: Semantics(
-              container: true,
-              child: expandingBottomSheet,
-              sortKey: const OrdinalSortKey(0, name: _ordinalSortKeyName),
-            ),
             alignment: isDesktop
                 ? AlignmentDirectional.topEnd
                 : AlignmentDirectional.bottomEnd,
+            child: Semantics(
+              container: true,
+              sortKey: const OrdinalSortKey(0, name: _ordinalSortKeyName),
+              child: expandingBottomSheet,
+            ),
           ),
         ],
       ),

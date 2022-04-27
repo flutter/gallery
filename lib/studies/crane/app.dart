@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/studies/crane/backdrop.dart';
 import 'package:gallery/studies/crane/eat_form.dart';
 import 'package:gallery/studies/crane/fly_form.dart';
@@ -13,7 +13,7 @@ import 'package:gallery/studies/crane/sleep_form.dart';
 import 'package:gallery/studies/crane/theme.dart';
 
 class CraneApp extends StatelessWidget {
-  const CraneApp();
+  const CraneApp({Key? key}) : super(key: key);
 
   static const String defaultRoute = routes.defaultRoute;
 

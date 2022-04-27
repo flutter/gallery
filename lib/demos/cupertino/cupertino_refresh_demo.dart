@@ -11,10 +11,10 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoRefreshDemo
 
 class CupertinoRefreshControlDemo extends StatefulWidget {
-  const CupertinoRefreshControlDemo();
+  const CupertinoRefreshControlDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoRefreshControlDemoState createState() =>
+  State<CupertinoRefreshControlDemo> createState() =>
       _CupertinoRefreshControlDemoState();
 }
 
@@ -44,7 +44,7 @@ class _CupertinoRefreshControlDemoState
           CupertinoSliverNavigationBar(
             automaticallyImplyLeading: false,
             largeTitle: Text(
-              GalleryLocalizations.of(context).demoCupertinoPullToRefreshTitle,
+              GalleryLocalizations.of(context)!.demoCupertinoPullToRefreshTitle,
             ),
           ),
           CupertinoSliverRefreshControl(
@@ -60,7 +60,7 @@ class _CupertinoRefreshControlDemoState
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                final title = GalleryLocalizations.of(context)
+                final title = GalleryLocalizations.of(context)!
                     .starterAppDrawerItem(randomList[index]);
                 return ListTile(title: Text(title));
               },

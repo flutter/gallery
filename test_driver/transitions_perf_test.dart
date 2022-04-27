@@ -2,9 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:async';
 import 'dart:convert' show json;
-import 'dart:io' show sleep;
+import 'dart:io' show sleep, stdout;
 
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
@@ -13,7 +12,7 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 //    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
 // To run this test for just Crane, with scrolling:
 //    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
-// To run this test for just Crane, with animations:
+// To run this test for just Reply, with animations:
 //    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyReply=true
 // Enable semantics with the --with_semantics flag
 // Note: The number of tests executed with timeline collection enabled
@@ -87,7 +86,7 @@ void handleOverscrollAnimation() {
 /// Scroll to the top of the app, given the current demo. Works with both mobile
 /// and desktop layouts.
 Future scrollToTop(SerializableFinder demoItem, FlutterDriver driver) async {
-  print('scrolling to top');
+  stdout.writeln('scrolling to top');
 
   // Scroll to the Categories header.
   await driver.scroll(
@@ -129,17 +128,17 @@ Future<bool> isPresent(SerializableFinder finder, FlutterDriver driver,
 Future<void> runDemos(
   List<String> demos,
   FlutterDriver driver, {
-  Future<void> Function() additionalActions,
+  Future<void> Function()? additionalActions,
   bool scrollToTopWhenDone = true,
 }) async {
-  String currentDemoCategory;
-  SerializableFinder demoList;
-  SerializableFinder demoItem;
+  String? currentDemoCategory;
+  late SerializableFinder demoList;
+  SerializableFinder? demoItem;
 
   for (final demo in demos) {
     if (_skippedDemos.contains(demo)) continue;
 
-    print('> $demo');
+    stdout.writeln('> $demo');
 
     final demoCategory = demo.substring(demo.indexOf('@') + 1);
     if (demoCategory != currentDemoCategory) {
@@ -153,7 +152,7 @@ Future<void> runDemos(
 
       // Scroll to the category list.
       if (demoCategory != 'study') {
-        print('scrolling to $currentDemoCategory category');
+        stdout.writeln('scrolling to $currentDemoCategory category');
         await driver.scrollUntilVisible(
           homeList,
           demoList,
@@ -166,7 +165,7 @@ Future<void> runDemos(
     // Scroll to demo and open it twice.
     demoItem = find.byValueKey(demo);
 
-    print('scrolling to demo');
+    stdout.writeln('scrolling to demo');
     await driver.scrollUntilVisible(
       demoList,
       demoItem,
@@ -179,7 +178,7 @@ Future<void> runDemos(
     // We launch each demo twice to be able to measure and compare first and
     // subsequent builds.
     for (var i = 0; i < 2; i += 1) {
-      print('tapping demo');
+      stdout.writeln('tapping demo');
       await driver.tap(demoItem); // Launch the demo
 
       sleep(const Duration(milliseconds: 500));
@@ -194,18 +193,18 @@ Future<void> runDemos(
         await driver.tap(backButton);
       }
     }
-    print('< Success');
+    stdout.writeln('< Success');
   }
 
-  if (scrollToTopWhenDone) await scrollToTop(demoItem, driver);
+  if (scrollToTopWhenDone) await scrollToTop(demoItem!, driver);
 }
 
 void main([List<String> args = const <String>[]]) {
   group('Flutter Gallery transitions', () {
-    FlutterDriver driver;
+    late FlutterDriver driver;
 
-    bool isTestingCraneOnly;
-    bool isTestingReplyOnly;
+    late bool isTestingCraneOnly;
+    late bool isTestingReplyOnly;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -225,7 +224,7 @@ void main([List<String> args = const <String>[]]) {
           await driver.requestData('isTestingReplyOnly') == 'true';
 
       if (args.contains('--with_semantics')) {
-        print('Enabeling semantics...');
+        stdout.writeln('Enabeling semantics...');
         await driver.setSemantics(true);
       }
 
@@ -233,11 +232,9 @@ void main([List<String> args = const <String>[]]) {
     });
 
     tearDownAll(() async {
-      if (driver != null) {
-        await driver.close();
-      }
+      await driver.close();
 
-      print(
+      stdout.writeln(
           'Timeline summaries for profiled demos have been output to the build/ directory.');
     });
 
@@ -266,7 +263,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions-crane', pretty: true);
+      await summary.writeTimelineToFile('transitions-crane', pretty: true);
     }, timeout: Timeout.none);
 
     test('only Reply', () async {
@@ -310,7 +307,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions-reply', pretty: true);
+      await summary.writeTimelineToFile('transitions-reply', pretty: true);
     }, timeout: Timeout.none);
 
     test('all demos', () async {
@@ -328,7 +325,7 @@ void main([List<String> args = const <String>[]]) {
       );
 
       final summary = TimelineSummary.summarize(timeline);
-      await summary.writeSummaryToFile('transitions', pretty: true);
+      await summary.writeTimelineToFile('transitions', pretty: true);
 
       // Execute the remaining tests.
       final unprofiledDemos = Set<String>.from(_allDemos)

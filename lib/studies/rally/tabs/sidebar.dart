@@ -8,15 +8,15 @@ import 'package:gallery/studies/rally/colors.dart';
 
 class TabWithSidebar extends StatelessWidget {
   const TabWithSidebar({
-    Key key,
+    Key? key,
     this.restorationId,
-    @required this.mainView,
-    @required this.sidebarItems,
+    required this.mainView,
+    required this.sidebarItems,
   }) : super(key: key);
 
   final Widget mainView;
   final List<Widget> sidebarItems;
-  final String restorationId;
+  final String? restorationId;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,11 @@ class TabWithSidebar extends StatelessWidget {
 }
 
 class SidebarItem extends StatelessWidget {
-  const SidebarItem({Key key, this.value, this.title}) : super(key: key);
+  const SidebarItem({
+    Key? key,
+    required this.value,
+    required this.title,
+  }) : super(key: key);
 
   final String value;
   final String title;
@@ -69,17 +73,17 @@ class SidebarItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 8),
-        Text(
+        SelectableText(
           title,
-          style: textTheme.bodyText2.copyWith(
+          style: textTheme.bodyText2!.copyWith(
             fontSize: 16,
             color: RallyColors.gray60,
           ),
         ),
         const SizedBox(height: 8),
-        Text(
+        SelectableText(
           value,
-          style: textTheme.bodyText1.copyWith(fontSize: 20),
+          style: textTheme.bodyText1!.copyWith(fontSize: 20),
         ),
         const SizedBox(height: 8),
         Container(

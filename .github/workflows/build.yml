@@ -1,0 +1,30 @@
+name: Builds
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    name: Build ${{ matrix.target }}
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ["apk --debug", "ios --no-codesign", macos, web]
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        with:
+          channel: master
+      - run: flutter config --enable-macos-desktop
+      - run: flutter doctor -v
+
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get -v
+
+      - run: flutter build ${{ matrix.target }}

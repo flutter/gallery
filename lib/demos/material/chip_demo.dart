@@ -8,29 +8,29 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 
 class ChipDemo extends StatelessWidget {
   const ChipDemo({
-    Key key,
-    this.type,
+    Key? key,
+    required this.type,
   }) : super(key: key);
 
   final ChipDemoType type;
 
   String _title(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     switch (type) {
       case ChipDemoType.action:
-        return GalleryLocalizations.of(context).demoActionChipTitle;
+        return localizations.demoActionChipTitle;
       case ChipDemoType.choice:
-        return GalleryLocalizations.of(context).demoChoiceChipTitle;
+        return localizations.demoChoiceChipTitle;
       case ChipDemoType.filter:
-        return GalleryLocalizations.of(context).demoFilterChipTitle;
+        return localizations.demoFilterChipTitle;
       case ChipDemoType.input:
-        return GalleryLocalizations.of(context).demoInputChipTitle;
+        return localizations.demoInputChipTitle;
     }
-    return '';
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget buttons;
+    Widget? buttons;
     switch (type) {
       case ChipDemoType.action:
         buttons = _ActionChipDemo();
@@ -68,7 +68,7 @@ class _ActionChipDemo extends StatelessWidget {
           Icons.brightness_5,
           color: Colors.black54,
         ),
-        label: Text(GalleryLocalizations.of(context).chipTurnOnLights),
+        label: Text(GalleryLocalizations.of(context)!.chipTurnOnLights),
       ),
     );
   }
@@ -91,7 +91,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
   String get restorationId => 'choice_chip_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_indexSelected, 'choice_chip');
   }
 
@@ -103,11 +103,12 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     return Center(
       child: Wrap(
         children: [
           ChoiceChip(
-            label: Text(GalleryLocalizations.of(context).chipSmall),
+            label: Text(localizations.chipSmall),
             selected: _indexSelected.value == 0,
             onSelected: (value) {
               setState(() {
@@ -117,7 +118,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
           ),
           const SizedBox(width: 8),
           ChoiceChip(
-            label: Text(GalleryLocalizations.of(context).chipMedium),
+            label: Text(localizations.chipMedium),
             selected: _indexSelected.value == 1,
             onSelected: (value) {
               setState(() {
@@ -127,7 +128,7 @@ class _ChoiceChipDemoState extends State<_ChoiceChipDemo>
           ),
           const SizedBox(width: 8),
           ChoiceChip(
-            label: Text(GalleryLocalizations.of(context).chipLarge),
+            label: Text(localizations.chipLarge),
             selected: _indexSelected.value == 2,
             onSelected: (value) {
               setState(() {
@@ -160,7 +161,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
   String get restorationId => 'filter_chip_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(isSelectedElevator, 'selected_elevator');
     registerForRestoration(isSelectedWasher, 'selected_washer');
     registerForRestoration(isSelectedFireplace, 'selected_fireplace');
@@ -176,9 +177,10 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     final chips = [
       FilterChip(
-        label: Text(GalleryLocalizations.of(context).chipElevator),
+        label: Text(localizations.chipElevator),
         selected: isSelectedElevator.value,
         onSelected: (value) {
           setState(() {
@@ -187,7 +189,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
         },
       ),
       FilterChip(
-        label: Text(GalleryLocalizations.of(context).chipWasher),
+        label: Text(localizations.chipWasher),
         selected: isSelectedWasher.value,
         onSelected: (value) {
           setState(() {
@@ -196,7 +198,7 @@ class _FilterChipDemoState extends State<_FilterChipDemo>
         },
       ),
       FilterChip(
-        label: Text(GalleryLocalizations.of(context).chipFireplace),
+        label: Text(localizations.chipFireplace),
         selected: isSelectedFireplace.value,
         onSelected: (value) {
           setState(() {
@@ -237,7 +239,7 @@ class _InputChipDemo extends StatelessWidget {
           color: Colors.black54,
         ),
         deleteIconColor: Colors.black54,
-        label: Text(GalleryLocalizations.of(context).chipBiking),
+        label: Text(GalleryLocalizations.of(context)!.chipBiking),
       ),
     );
   }

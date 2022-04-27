@@ -21,8 +21,7 @@ class TriangleCategoryIndicator extends CustomPainter {
   const TriangleCategoryIndicator(
     this.triangleWidth,
     this.triangleHeight,
-  )   : assert(triangleWidth != null),
-        assert(triangleHeight != null);
+  );
 
   final double triangleWidth;
   final double triangleHeight;

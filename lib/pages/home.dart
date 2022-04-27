@@ -7,7 +7,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
@@ -20,11 +19,11 @@ import 'package:gallery/pages/splash.dart';
 import 'package:gallery/studies/crane/colors.dart';
 import 'package:gallery/studies/crane/routes.dart' as crane_routes;
 import 'package:gallery/studies/fortnightly/routes.dart' as fortnightly_routes;
-import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/rally/colors.dart';
+import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/reply/routes.dart' as reply_routes;
-import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/shrine/colors.dart';
+import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
 const _horizontalPadding = 32.0;
@@ -36,11 +35,13 @@ const _desktopCardsPerPage = 4;
 class ToggleSplashNotification extends Notification {}
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
     final studyDemos = studies(localizations);
     final carouselCards = <Widget>[
       _CarouselCard(
@@ -176,7 +177,7 @@ class HomePage extends StatelessWidget {
               ),
               child: _GalleryHeader(),
             ),
-            Container(
+            SizedBox(
               height: carouselHeight,
               child: _DesktopCarousel(children: carouselCards),
             ),
@@ -224,7 +225,7 @@ class HomePage extends StatelessWidget {
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.end,
-                      children: [
+                      children: const [
                         SettingsAbout(),
                         SettingsFeedback(),
                         SettingsAttribution(),
@@ -242,7 +243,7 @@ class HomePage extends StatelessWidget {
         body: _AnimatedHomePage(
           restorationId: 'animated_page',
           isSplashPageAnimationFinished:
-              SplashPageAnimation.of(context)?.isFinished ?? true,
+              SplashPageAnimation.of(context)!.isFinished,
           carouselCards: carouselCards,
         ),
       );
@@ -265,8 +266,8 @@ class _GalleryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Header(
-      color: Theme.of(context).colorScheme.primaryVariant,
-      text: GalleryLocalizations.of(context).homeHeaderGallery,
+      color: Theme.of(context).colorScheme.primaryContainer,
+      text: GalleryLocalizations.of(context)!.homeHeaderGallery,
     );
   }
 }
@@ -276,13 +277,14 @@ class _CategoriesHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Header(
       color: Theme.of(context).colorScheme.primary,
-      text: GalleryLocalizations.of(context).homeHeaderCategories,
+      text: GalleryLocalizations.of(context)!.homeHeaderCategories,
     );
   }
 }
 
 class Header extends StatelessWidget {
-  const Header({this.color, this.text});
+  const Header({Key? key, required this.color, required this.text})
+      : super(key: key);
 
   final Color color;
   final String text;
@@ -294,9 +296,9 @@ class Header extends StatelessWidget {
         top: isDisplayDesktop(context) ? 63 : 15,
         bottom: isDisplayDesktop(context) ? 21 : 11,
       ),
-      child: Text(
+      child: SelectableText(
         text,
-        style: Theme.of(context).textTheme.headline4.apply(
+        style: Theme.of(context).textTheme.headline4!.apply(
               color: color,
               fontSizeDelta:
                   isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -308,10 +310,10 @@ class Header extends StatelessWidget {
 
 class _AnimatedHomePage extends StatefulWidget {
   const _AnimatedHomePage({
-    Key key,
-    @required this.restorationId,
-    @required this.carouselCards,
-    @required this.isSplashPageAnimationFinished,
+    Key? key,
+    required this.restorationId,
+    required this.carouselCards,
+    required this.isSplashPageAnimationFinished,
   }) : super(key: key);
 
   final String restorationId;
@@ -324,8 +326,8 @@ class _AnimatedHomePage extends StatefulWidget {
 
 class _AnimatedHomePageState extends State<_AnimatedHomePage>
     with RestorationMixin, SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Timer _launchTimer;
+  late AnimationController _animationController;
+  Timer? _launchTimer;
   final RestorableBool _isMaterialListExpanded = RestorableBool(false);
   final RestorableBool _isCupertinoListExpanded = RestorableBool(false);
   final RestorableBool _isOtherListExpanded = RestorableBool(false);
@@ -334,7 +336,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
   String get restorationId => widget.restorationId;
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_isMaterialListExpanded, 'material_list');
     registerForRestoration(_isCupertinoListExpanded, 'cupertino_list');
     registerForRestoration(_isOtherListExpanded, 'other_list');
@@ -379,7 +381,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
+    final localizations = GalleryLocalizations.of(context)!;
     final isTestMode = GalleryOptions.of(context).isTestMode;
     return Stack(
       children: [
@@ -461,7 +463,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
           child: GestureDetector(
             onVerticalDragEnd: (details) {
               if (details.velocity.pixelsPerSecond.dy > 200) {
-                ToggleSplashNotification()..dispatch(context);
+                ToggleSplashNotification().dispatch(context);
               }
             },
             child: SafeArea(
@@ -480,9 +482,9 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
 
 class _DesktopCategoryItem extends StatelessWidget {
   const _DesktopCategoryItem({
-    this.category,
-    this.asset,
-    this.demos,
+    required this.category,
+    required this.asset,
+    required this.demos,
   });
 
   final GalleryDemoCategory category;
@@ -530,9 +532,10 @@ class _DesktopCategoryItem extends StatelessWidget {
 
 class _DesktopCategoryHeader extends StatelessWidget {
   const _DesktopCategoryHeader({
-    this.category,
-    this.asset,
+    required this.category,
+    required this.asset,
   });
+
   final GalleryDemoCategory category;
   final ImageProvider asset;
 
@@ -563,13 +566,11 @@ class _DesktopCategoryHeader extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 8),
               child: Semantics(
                 header: true,
-                child: Text(
-                  category.displayTitle(GalleryLocalizations.of(context)),
-                  style: Theme.of(context).textTheme.headline5.apply(
+                child: SelectableText(
+                  category.displayTitle(GalleryLocalizations.of(context)!)!,
+                  style: Theme.of(context).textTheme.headline5!.apply(
                         color: colorScheme.onSurface,
                       ),
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),
@@ -585,10 +586,10 @@ class _DesktopCategoryHeader extends StatelessWidget {
 /// which is defined in [_AnimatedHomePageState].
 class _AnimatedCategoryItem extends StatelessWidget {
   _AnimatedCategoryItem({
-    Key key,
-    double startDelayFraction,
-    @required this.controller,
-    @required this.child,
+    Key? key,
+    required double startDelayFraction,
+    required this.controller,
+    required this.child,
   })  : topPaddingAnimation = Tween(
           begin: 60.0,
           end: 0.0,
@@ -626,9 +627,9 @@ class _AnimatedCategoryItem extends StatelessWidget {
 /// Animates the carousel to come in from the right.
 class _AnimatedCarousel extends StatelessWidget {
   _AnimatedCarousel({
-    Key key,
-    @required this.child,
-    @required this.controller,
+    Key? key,
+    required this.child,
+    required this.controller,
   })  : startPositionAnimation = Tween(
           begin: 1.0,
           end: 0.0,
@@ -659,10 +660,10 @@ class _AnimatedCarousel extends StatelessWidget {
             builder: (context, child) {
               return PositionedDirectional(
                 start: constraints.maxWidth * startPositionAnimation.value,
-                child: child,
+                child: child!,
               );
             },
-            child: Container(
+            child: SizedBox(
               height: _carouselHeight(.4, context),
               width: constraints.maxWidth,
               child: child,
@@ -677,9 +678,9 @@ class _AnimatedCarousel extends StatelessWidget {
 /// Animates a carousel card to come in from the right.
 class _AnimatedCarouselCard extends StatelessWidget {
   _AnimatedCarouselCard({
-    Key key,
-    @required this.child,
-    @required this.controller,
+    Key? key,
+    required this.child,
+    required this.controller,
   })  : startPaddingAnimation = Tween(
           begin: _horizontalPadding,
           end: 0.0,
@@ -718,14 +719,14 @@ class _AnimatedCarouselCard extends StatelessWidget {
 
 class _Carousel extends StatefulWidget {
   const _Carousel({
-    Key key,
-    this.animationController,
+    Key? key,
+    required this.animationController,
     this.restorationId,
-    this.children,
+    required this.children,
   }) : super(key: key);
 
   final AnimationController animationController;
-  final String restorationId;
+  final String? restorationId;
   final List<Widget> children;
 
   @override
@@ -734,15 +735,15 @@ class _Carousel extends StatefulWidget {
 
 class _CarouselState extends State<_Carousel>
     with RestorationMixin, SingleTickerProviderStateMixin {
-  PageController _controller;
+  PageController? _controller;
 
   final RestorableInt _currentPage = RestorableInt(0);
 
   @override
-  String get restorationId => widget.restorationId;
+  String? get restorationId => widget.restorationId;
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_currentPage, 'carousel_page');
   }
 
@@ -753,7 +754,7 @@ class _CarouselState extends State<_Carousel>
       // The viewPortFraction is calculated as the width of the device minus the
       // padding.
       final width = MediaQuery.of(context).size.width;
-      final padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
+      const padding = (_horizontalPadding * 2) - (_carouselItemMargin * 2);
       _controller = PageController(
         initialPage: _currentPage.value,
         viewportFraction: (width - padding) / width,
@@ -763,18 +764,18 @@ class _CarouselState extends State<_Carousel>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     _currentPage.dispose();
     super.dispose();
   }
 
   Widget builder(int index) {
     final carouselCard = AnimatedBuilder(
-      animation: _controller,
+      animation: _controller!,
       builder: (context, child) {
         double value;
-        if (_controller.position.haveDimensions) {
-          value = _controller.page - index;
+        if (_controller!.position.haveDimensions) {
+          value = _controller!.page! - index;
         } else {
           // If haveDimensions is false, use _currentPage to calculate value.
           value = (_currentPage.value - index).toDouble();
@@ -798,8 +799,8 @@ class _CarouselState extends State<_Carousel>
     // We only want the second card to be animated.
     if (index == 1) {
       return _AnimatedCarouselCard(
-        child: carouselCard,
         controller: widget.animationController,
+        child: carouselCard,
       );
     } else {
       return carouselCard;
@@ -809,6 +810,7 @@ class _CarouselState extends State<_Carousel>
   @override
   Widget build(BuildContext context) {
     return _AnimatedCarousel(
+      controller: widget.animationController,
       child: PageView.builder(
         // Makes integration tests possible.
         key: const ValueKey('studyDemoList'),
@@ -822,7 +824,6 @@ class _CarouselState extends State<_Carousel>
         itemBuilder: (context, index) => builder(index),
         allowImplicitScrolling: true,
       ),
-      controller: widget.animationController,
     );
   }
 }
@@ -833,7 +834,7 @@ class _CarouselState extends State<_Carousel>
 /// snapping behavior. A [PageView] was considered but does not allow for
 /// multiple pages visible without centering the first page.
 class _DesktopCarousel extends StatefulWidget {
-  const _DesktopCarousel({Key key, this.children}) : super(key: key);
+  const _DesktopCarousel({Key? key, required this.children}) : super(key: key);
 
   final List<Widget> children;
 
@@ -843,7 +844,7 @@ class _DesktopCarousel extends StatefulWidget {
 
 class _DesktopCarouselState extends State<_DesktopCarousel> {
   static const cardPadding = 15.0;
-  ScrollController _controller;
+  late ScrollController _controller;
 
   @override
   void initState() {
@@ -927,10 +928,10 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
 
 /// Scrolling physics that snaps to the new item in the [_DesktopCarousel].
 class _SnappingScrollPhysics extends ScrollPhysics {
-  const _SnappingScrollPhysics({ScrollPhysics parent}) : super(parent: parent);
+  const _SnappingScrollPhysics({ScrollPhysics? parent}) : super(parent: parent);
 
   @override
-  _SnappingScrollPhysics applyTo(ScrollPhysics ancestor) {
+  _SnappingScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return _SnappingScrollPhysics(parent: buildParent(ancestor));
   }
 
@@ -953,7 +954,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
   }
 
   @override
-  Simulation createBallisticSimulation(
+  Simulation? createBallisticSimulation(
     ScrollMetrics position,
     double velocity,
   ) {
@@ -981,18 +982,18 @@ class _SnappingScrollPhysics extends ScrollPhysics {
 
 class _DesktopPageButton extends StatelessWidget {
   const _DesktopPageButton({
-    Key key,
+    Key? key,
     this.isEnd = false,
     this.onTap,
   }) : super(key: key);
 
   final bool isEnd;
-  final GestureTapCallback onTap;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final buttonSize = 58.0;
-    final padding = _horizontalDesktopPadding - buttonSize / 2;
+    const buttonSize = 58.0;
+    const padding = _horizontalDesktopPadding - buttonSize / 2;
     return ExcludeSemantics(
       child: Align(
         alignment: isEnd
@@ -1030,22 +1031,22 @@ class _DesktopPageButton extends StatelessWidget {
 
 class _CarouselCard extends StatelessWidget {
   const _CarouselCard({
-    Key key,
-    this.demo,
+    Key? key,
+    required this.demo,
     this.asset,
     this.assetDark,
     this.assetColor,
     this.assetDarkColor,
     this.textColor,
-    this.studyRoute,
+    required this.studyRoute,
   }) : super(key: key);
 
-  final GalleryDemo demo;
-  final ImageProvider asset;
-  final ImageProvider assetDark;
-  final Color assetColor;
-  final Color assetDarkColor;
-  final Color textColor;
+  final GalleryDemo? demo;
+  final ImageProvider? asset;
+  final ImageProvider? assetDark;
+  final Color? assetColor;
+  final Color? assetDarkColor;
+  final Color? textColor;
   final String studyRoute;
 
   @override
@@ -1058,7 +1059,7 @@ class _CarouselCard extends StatelessWidget {
 
     return Container(
       // Makes integration tests possible.
-      key: ValueKey(demo.describe),
+      key: ValueKey(demo!.describe),
       margin:
           EdgeInsets.all(isDisplayDesktop(context) ? 0 : _carouselItemMargin),
       child: Material(
@@ -1077,12 +1078,12 @@ class _CarouselCard extends StatelessWidget {
               if (asset != null)
                 FadeInImagePlaceholder(
                   image: asset,
+                  placeholder: Container(
+                    color: assetColor,
+                  ),
                   child: Ink.image(
                     image: asset,
                     fit: BoxFit.cover,
-                  ),
-                  placeholder: Container(
-                    color: assetColor,
                   ),
                 ),
               Padding(
@@ -1092,14 +1093,14 @@ class _CarouselCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      demo.title,
-                      style: textTheme.caption.apply(color: textColor),
+                      demo!.title,
+                      style: textTheme.caption!.apply(color: textColor),
                       maxLines: 3,
                       overflow: TextOverflow.visible,
                     ),
                     Text(
-                      demo.subtitle,
-                      style: textTheme.overline.apply(color: textColor),
+                      demo!.subtitle,
+                      style: textTheme.overline!.apply(color: textColor),
                       maxLines: 5,
                       overflow: TextOverflow.visible,
                     ),
@@ -1124,16 +1125,18 @@ double _carouselHeight(double scaleFactor, BuildContext context) => math.max(
 /// exit them at any time.
 class StudyWrapper extends StatefulWidget {
   const StudyWrapper({
-    Key key,
-    this.study,
+    Key? key,
+    required this.study,
     this.alignment = AlignmentDirectional.bottomStart,
+    this.hasBottomNavBar = false,
   }) : super(key: key);
 
   final Widget study;
+  final bool hasBottomNavBar;
   final AlignmentDirectional alignment;
 
   @override
-  _StudyWrapperState createState() => _StudyWrapperState();
+  State<StudyWrapper> createState() => _StudyWrapperState();
 }
 
 class _StudyWrapperState extends State<StudyWrapper> {
@@ -1156,10 +1159,14 @@ class _StudyWrapperState extends State<StudyWrapper> {
               child: Align(
                 alignment: widget.alignment,
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: widget.hasBottomNavBar
+                          ? kBottomNavigationBarHeight + 16.0
+                          : 16.0),
                   child: Semantics(
                     sortKey: const OrdinalSortKey(0),
-                    label: GalleryLocalizations.of(context).backToGallery,
+                    label: GalleryLocalizations.of(context)!.backToGallery,
                     button: true,
                     enabled: true,
                     excludeSemantics: true,
@@ -1176,8 +1183,8 @@ class _StudyWrapperState extends State<StudyWrapper> {
                       ),
                       label: Text(
                         MaterialLocalizations.of(context).backButtonTooltip,
-                        style: textTheme.button
-                            .apply(color: colorScheme.onPrimary),
+                        style:
+                            textTheme.button!.apply(color: colorScheme.onPrimary),
                       ),
                     ),
                   ),

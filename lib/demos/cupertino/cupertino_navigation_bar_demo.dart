@@ -9,7 +9,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoNavigationBarDemo
 
 class CupertinoNavigationBarDemo extends StatelessWidget {
-  const CupertinoNavigationBarDemo();
+  const CupertinoNavigationBarDemo({Key? key}) : super(key: key);
 
   static const String homeRoute = '/home';
   static const String secondPageRoute = '/home/item';
@@ -23,21 +23,19 @@ class CupertinoNavigationBarDemo extends StatelessWidget {
         switch (settings.name) {
           case CupertinoNavigationBarDemo.homeRoute:
             return _NoAnimationCupertinoPageRoute<void>(
-              title: GalleryLocalizations.of(context)
+              title: GalleryLocalizations.of(context)!
                   .demoCupertinoNavigationBarTitle,
               settings: settings,
               builder: (context) => _FirstPage(),
             );
-            break;
           case CupertinoNavigationBarDemo.secondPageRoute:
             final arguments = settings.arguments as Map<dynamic, dynamic>;
-            final title = arguments['pageTitle'] as String;
+            final title = arguments['pageTitle'] as String?;
             return CupertinoPageRoute<void>(
               title: title,
               settings: settings,
               builder: (context) => _SecondPage(),
             );
-            break;
         }
         return null;
       },
@@ -60,7 +58,7 @@ class _FirstPage extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final title = GalleryLocalizations.of(context)
+                  final title = GalleryLocalizations.of(context)!
                       .starterAppDrawerItem(index + 1);
                   return ListTile(
                     onTap: () {
@@ -95,9 +93,9 @@ class _SecondPage extends StatelessWidget {
 /// A CupertinoPageRoute without any transition animations.
 class _NoAnimationCupertinoPageRoute<T> extends CupertinoPageRoute<T> {
   _NoAnimationCupertinoPageRoute({
-    @required WidgetBuilder builder,
-    RouteSettings settings,
-    String title,
+    required WidgetBuilder builder,
+    RouteSettings? settings,
+    String? title,
   }) : super(
           builder: builder,
           settings: settings,

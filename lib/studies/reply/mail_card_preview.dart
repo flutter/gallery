@@ -13,16 +13,14 @@ const _iconAssetLocation = 'reply/icons';
 
 class MailPreviewCard extends StatelessWidget {
   const MailPreviewCard({
-    Key key,
-    @required this.id,
-    @required this.email,
-    @required this.onDelete,
-    @required this.onStar,
-    @required this.isStarred,
-    @required this.onStarredMailbox,
-  })  : assert(id != null),
-        assert(email != null),
-        super(key: key);
+    Key? key,
+    required this.id,
+    required this.email,
+    required this.onDelete,
+    required this.onStar,
+    required this.isStarred,
+    required this.onStarredMailbox,
+  }) : super(key: key);
 
   final int id;
   final Email email;
@@ -35,9 +33,7 @@ class MailPreviewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    // TODO(shihaohong): State restoration of mail view page is
-    // blocked because OpenContainer does not support restorablePush.
-    // See https://github.com/flutter/flutter/issues/69924.
+    // TODO(x): State restoration of mail view page is blocked because OpenContainer does not support restorablePush, https://github.com/flutter/gallery/issues/570.
     return OpenContainer(
       openBuilder: (context, closedContainer) {
         return MailViewPage(id: id, email: email);
@@ -120,16 +116,13 @@ class MailPreviewCard extends StatelessWidget {
 
 class _DismissibleContainer extends StatelessWidget {
   const _DismissibleContainer({
-    @required this.icon,
-    @required this.backgroundColor,
-    @required this.iconColor,
-    @required this.alignment,
-    @required this.padding,
-  })  : assert(icon != null),
-        assert(backgroundColor != null),
-        assert(iconColor != null),
-        assert(alignment != null),
-        assert(padding != null);
+    Key? key,
+    required this.icon,
+    required this.backgroundColor,
+    required this.iconColor,
+    required this.alignment,
+    required this.padding,
+  }) : super(key: key);
 
   final String icon;
   final Color backgroundColor;
@@ -162,20 +155,19 @@ class _DismissibleContainer extends StatelessWidget {
 
 class _MailPreview extends StatelessWidget {
   const _MailPreview({
-    @required this.id,
-    @required this.email,
-    @required this.onTap,
+    Key? key,
+    required this.id,
+    required this.email,
+    required this.onTap,
     this.onStar,
     this.onDelete,
-  })  : assert(id != null),
-        assert(email != null),
-        assert(onTap != null);
+  }) : super(key: key);
 
   final int id;
   final Email email;
   final VoidCallback onTap;
-  final VoidCallback onStar;
-  final VoidCallback onDelete;
+  final VoidCallback? onStar;
+  final VoidCallback? onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -289,16 +281,17 @@ class _PicturePreview extends StatelessWidget {
 
 class _MailPreviewActionBar extends StatelessWidget {
   const _MailPreviewActionBar({
-    @required this.avatar,
-    this.isStarred,
+    Key? key,
+    required this.avatar,
+    required this.isStarred,
     this.onStar,
     this.onDelete,
-  }) : assert(avatar != null);
+  }) : super(key: key);
 
   final String avatar;
   final bool isStarred;
-  final VoidCallback onStar;
-  final VoidCallback onDelete;
+  final VoidCallback? onStar;
+  final VoidCallback? onDelete;
 
   @override
   Widget build(BuildContext context) {

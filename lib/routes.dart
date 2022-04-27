@@ -1,3 +1,7 @@
+// Copyright 2019 The Flutter team. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/deferred_widget.dart';
@@ -17,7 +21,7 @@ import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/app.dart' as starter_app;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 
-typedef PathWidgetBuilder = Widget Function(BuildContext, String);
+typedef PathWidgetBuilder = Widget Function(BuildContext, String?);
 
 class Path {
   const Path(this.pattern, this.builder, this.openInSecondScreen);
@@ -72,7 +76,8 @@ class RouteConfiguration {
       r'^' + crane_routes.defaultRoute,
       (context, match) => StudyWrapper(
         study: DeferredWidget(crane.loadLibrary,
-            () => crane.CraneApp()), // ignore: prefer_const_constructors
+            () => crane.CraneApp(), // ignore: prefer_const_constructors
+            placeholder: const DeferredLoadingPlaceholder(name: 'Crane')),
       ),
       true,
     ),
@@ -89,8 +94,9 @@ class RouteConfiguration {
     Path(
         r'^' + reply_routes.homeRoute,
         // ignore: prefer_const_constructors
-        (context, match) => StudyWrapper(study: reply.ReplyApp()),
-      true,
+        (context, match) =>
+            const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true),
+        true,
     ),
     Path(
       r'^' + starter_app_routes.defaultRoute,
@@ -110,11 +116,11 @@ class RouteConfiguration {
   /// route. Set it on the [MaterialApp.onGenerateRoute] or
   /// [WidgetsApp.onGenerateRoute] to make use of the [paths] for route
   /// matching.
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     for (final path in paths) {
       final regExpPattern = RegExp(path.pattern);
-      if (regExpPattern.hasMatch(settings.name)) {
-        final firstMatch = regExpPattern.firstMatch(settings.name);
+      if (regExpPattern.hasMatch(settings.name!)) {
+        final firstMatch = regExpPattern.firstMatch(settings.name!)!;
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
         if (kIsWeb) {
           return NoAnimationMaterialPageRoute<void>(
@@ -143,8 +149,8 @@ class RouteConfiguration {
 
 class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
   NoAnimationMaterialPageRoute({
-    @required WidgetBuilder builder,
-    RouteSettings settings,
+    required WidgetBuilder builder,
+    RouteSettings? settings,
   }) : super(builder: builder, settings: settings);
 
   @override
@@ -160,8 +166,8 @@ class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
 
 class TwoPanePageRoute<T> extends OverlayRoute<T> {
   TwoPanePageRoute({
-    this.builder,
-    RouteSettings settings,
+    required this.builder,
+    RouteSettings? settings,
   }) : super(settings: settings);
 
   final WidgetBuilder builder;

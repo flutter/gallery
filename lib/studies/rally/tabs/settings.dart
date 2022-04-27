@@ -5,13 +5,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:gallery/layout/adaptive.dart';
-import 'package:gallery/studies/rally/routes.dart' as rally_route;
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
+import 'package:gallery/studies/rally/routes.dart' as rally_route;
 
 class SettingsView extends StatefulWidget {
+  const SettingsView({Key? key}) : super(key: key);
+
   @override
-  _SettingsViewState createState() => _SettingsViewState();
+  State<SettingsView> createState() => _SettingsViewState();
 }
 
 class _SettingsViewState extends State<SettingsView> {
@@ -51,14 +53,14 @@ class _SettingsItem extends StatelessWidget {
         primary: Colors.white,
         padding: EdgeInsets.zero,
       ),
+      onPressed: () {
+        Navigator.of(context).restorablePushNamed(rally_route.loginRoute);
+      },
       child: Container(
         alignment: AlignmentDirectional.centerStart,
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 28),
         child: Text(title),
       ),
-      onPressed: () {
-        Navigator.of(context).restorablePushNamed(rally_route.loginRoute);
-      },
     );
   }
 }

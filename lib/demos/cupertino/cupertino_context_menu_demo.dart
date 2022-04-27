@@ -9,11 +9,11 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoContextMenuDemo
 
 class CupertinoContextMenuDemo extends StatelessWidget {
-  const CupertinoContextMenuDemo();
+  const CupertinoContextMenuDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final galleryLocalizations = GalleryLocalizations.of(context);
+    final galleryLocalizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
@@ -25,31 +25,29 @@ class CupertinoContextMenuDemo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Container(
+            child: SizedBox(
               width: 100,
               height: 100,
               child: CupertinoContextMenu(
-                child: Container(
-                  child: const FlutterLogo(size: 250),
-                ),
                 actions: [
                   CupertinoContextMenuAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Text(
                       galleryLocalizations.demoCupertinoContextMenuActionOne,
                     ),
+                  ),
+                  CupertinoContextMenuAction(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                  ),
-                  CupertinoContextMenuAction(
                     child: Text(
                       galleryLocalizations.demoCupertinoContextMenuActionTwo,
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
                   ),
                 ],
+                child: const FlutterLogo(size: 250),
               ),
             ),
           ),

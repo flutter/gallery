@@ -4,8 +4,10 @@
 
 import 'dart:collection';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' show describeEnum;
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
+    show GalleryLocalizationsEn;
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
@@ -14,27 +16,24 @@ import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/demos/cupertino/cupertino_demos.dart'
     deferred as cupertino_demos;
 import 'package:gallery/demos/cupertino/demo_types.dart';
+import 'package:gallery/demos/material/material_demo_types.dart';
 import 'package:gallery/demos/material/material_demos.dart'
     deferred as material_demos;
-import 'package:gallery/demos/material/material_demo_types.dart';
+import 'package:gallery/demos/reference/colors_demo.dart'
+    deferred as colors_demo;
 import 'package:gallery/demos/reference/motion_demo_container_transition.dart'
     deferred as motion_demo_container;
-import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_fade_scale_transition.dart';
+import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_x_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dart';
 import 'package:gallery/demos/reference/two_pane_demo.dart'
     deferred as twopane_demo;
-import 'package:gallery/demos/reference/colors_demo.dart'
-    deferred as colors_demo;
 import 'package:gallery/demos/reference/transformations_demo.dart'
     deferred as transformations_demo;
 import 'package:gallery/demos/reference/typography_demo.dart'
     deferred as typography;
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
-    show GalleryLocalizationsEn;
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 const _docsAnimationsUrl =
@@ -48,9 +47,7 @@ enum GalleryDemoCategory {
 }
 
 extension GalleryDemoExtension on GalleryDemoCategory {
-  String get name => describeEnum(this);
-
-  String displayTitle(GalleryLocalizations localizations) {
+  String? displayTitle(GalleryLocalizations localizations) {
     switch (this) {
       case GalleryDemoCategory.material:
         return 'MATERIAL';
@@ -66,28 +63,25 @@ extension GalleryDemoExtension on GalleryDemoCategory {
 
 class GalleryDemo {
   const GalleryDemo({
-    @required this.title,
-    @required this.category,
-    @required this.subtitle,
+    required this.title,
+    required this.category,
+    required this.subtitle,
     // This parameter is required for studies.
     this.studyId,
     // Parameters below are required for non-study demos.
     this.slug,
     this.icon,
-    this.configurations,
-  })  : assert(title != null),
-        assert(category != null),
-        assert(subtitle != null),
-        assert(category == GalleryDemoCategory.study ||
-            (slug != null && icon != null && configurations != null)),
+    this.configurations = const [],
+  })  : assert(category == GalleryDemoCategory.study ||
+            (slug != null && icon != null)),
         assert(slug != null || studyId != null);
 
   final String title;
   final GalleryDemoCategory category;
   final String subtitle;
-  final String studyId;
-  final String slug;
-  final IconData icon;
+  final String? studyId;
+  final String? slug;
+  final IconData? icon;
   final List<GalleryDemoConfiguration> configurations;
 
   String get describe => '${slug ?? studyId}@${category.name}';
@@ -95,11 +89,11 @@ class GalleryDemo {
 
 class GalleryDemoConfiguration {
   const GalleryDemoConfiguration({
-    this.title,
-    this.description,
-    this.documentationUrl,
-    this.buildRoute,
-    this.code,
+    required this.title,
+    required this.description,
+    required this.documentationUrl,
+    required this.buildRoute,
+    required this.code,
   });
 
   final String title;
@@ -458,7 +452,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoAlertTitleDialogTitle,
           description: localizations.demoAlertDialogDescription,
           documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
-          buildRoute: (context) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
               () => material_demos.DialogDemo(type: DialogDemoType.alertTitle)),
           code: CodeSegments.dialogDemo,
         ),
@@ -466,7 +462,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           title: localizations.demoSimpleDialogTitle,
           description: localizations.demoSimpleDialogDescription,
           documentationUrl: '$_docsBaseUrl/material/SimpleDialog-class.html',
-          buildRoute: (context) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
               () => material_demos.DialogDemo(type: DialogDemoType.simple)),
           code: CodeSegments.dialogDemo,
         ),
@@ -475,7 +473,9 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
           description: localizations.demoFullscreenDialogDescription,
           documentationUrl:
               '$_docsBaseUrl/widgets/PageRoute/fullscreenDialog.html',
-          buildRoute: (context) => DeferredWidget(materialDemosLibrary,
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
               () => material_demos.DialogDemo(type: DialogDemoType.fullscreen)),
           code: CodeSegments.dialogDemo,
         ),
@@ -1407,11 +1407,11 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   ];
 }
 
-Map<String, GalleryDemo> slugToDemo(BuildContext context) {
-  final localizations = GalleryLocalizations.of(context);
-  return LinkedHashMap<String, GalleryDemo>.fromIterable(
+Map<String?, GalleryDemo> slugToDemo(BuildContext context) {
+  final localizations = GalleryLocalizations.of(context)!;
+  return LinkedHashMap<String?, GalleryDemo>.fromIterable(
     allGalleryDemos(localizations),
-    key: (dynamic demo) => demo.slug as String,
+    key: (dynamic demo) => demo.slug as String?,
   );
 }
 

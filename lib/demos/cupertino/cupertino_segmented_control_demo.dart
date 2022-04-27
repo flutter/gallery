@@ -3,17 +3,16 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoSegmentedControlDemo
 
 class CupertinoSegmentedControlDemo extends StatefulWidget {
-  const CupertinoSegmentedControlDemo();
+  const CupertinoSegmentedControlDemo({Key? key}) : super(key: key);
 
   @override
-  _CupertinoSegmentedControlDemoState createState() =>
+  State<CupertinoSegmentedControlDemo> createState() =>
       _CupertinoSegmentedControlDemoState();
 }
 
@@ -25,20 +24,20 @@ class _CupertinoSegmentedControlDemoState
   String get restorationId => 'cupertino_segmented_control';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(currentSegment, 'current_segment');
   }
 
-  void onValueChanged(int newValue) {
+  void onValueChanged(int? newValue) {
     setState(() {
-      currentSegment.value = newValue;
+      currentSegment.value = newValue!;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final localizations = GalleryLocalizations.of(context);
-    final segmentedControlMaxWidth = 500.0;
+    final localizations = GalleryLocalizations.of(context)!;
+    const segmentedControlMaxWidth = 500.0;
     final children = <int, Widget>{
       0: Text(localizations.colorsIndigo),
       1: Text(localizations.colorsTeal),
@@ -84,7 +83,7 @@ class _CupertinoSegmentedControlDemoState
                 padding: const EdgeInsets.all(16),
                 height: 300,
                 alignment: Alignment.center,
-                child: children[currentSegment],
+                child: children[currentSegment.value],
               ),
             ],
           ),

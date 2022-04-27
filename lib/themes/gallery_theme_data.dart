@@ -23,17 +23,14 @@ class GalleryThemeData {
       // Matches manifest.json colors and background color.
       primaryColor: const Color(0xFF030303),
       appBarTheme: AppBarTheme(
-        textTheme: _textTheme.apply(bodyColor: colorScheme.onPrimary),
-        color: colorScheme.background,
+        backgroundColor: colorScheme.background,
         elevation: 0,
         iconTheme: IconThemeData(color: colorScheme.primary),
-        brightness: colorScheme.brightness,
       ),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       canvasColor: colorScheme.background,
       scaffoldBackgroundColor: colorScheme.background,
       highlightColor: Colors.transparent,
-      accentColor: colorScheme.primary,
       focusColor: focusColor,
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
@@ -41,16 +38,16 @@ class GalleryThemeData {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: _textTheme.subtitle1.apply(color: _darkFillColor),
+        contentTextStyle: _textTheme.subtitle1!.apply(color: _darkFillColor),
       ),
     );
   }
 
   static const ColorScheme lightColorScheme = ColorScheme(
     primary: Color(0xFFB93C5D),
-    primaryVariant: Color(0xFF117378),
+    primaryContainer: Color(0xFF117378),
     secondary: Color(0xFFEFF3F3),
-    secondaryVariant: Color(0xFFFAFBFB),
+    secondaryContainer: Color(0xFFFAFBFB),
     background: Color(0xFFE6EBEB),
     surface: Color(0xFFFAFBFB),
     onBackground: Colors.white,
@@ -64,9 +61,9 @@ class GalleryThemeData {
 
   static const ColorScheme darkColorScheme = ColorScheme(
     primary: Color(0xFFFF8383),
-    primaryVariant: Color(0xFF1CDEC9),
+    primaryContainer: Color(0xFF1CDEC9),
     secondary: Color(0xFF4D1F7C),
-    secondaryVariant: Color(0xFF451B6F),
+    secondaryContainer: Color(0xFF451B6F),
     background: Color(0xFF241E30),
     surface: Color(0xFF1F1929),
     onBackground: Color(0x0DFFFFFF), // White with 0.05 opacity

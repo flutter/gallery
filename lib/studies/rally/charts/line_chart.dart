@@ -2,20 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:intl/intl.dart' as intl;
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 
 import 'package:gallery/data/gallery_options.dart';
-import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/layout/adaptive.dart';
+import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/rally/colors.dart';
 import 'package:gallery/studies/rally/data.dart';
 import 'package:gallery/studies/rally/formatters.dart';
+import 'package:intl/intl.dart' as intl;
 
 class RallyLineChart extends StatelessWidget {
-  const RallyLineChart({this.events = const <DetailedEventData>[]})
-      : assert(events != null);
+  const RallyLineChart({
+    Key? key,
+    this.events = const <DetailedEventData>[],
+  }) : super(key: key);
 
   final List<DetailedEventData> events;
 
@@ -26,7 +28,7 @@ class RallyLineChart extends StatelessWidget {
         dateFormat: dateFormatMonthYear(context),
         numberFormat: usdWithSignFormat(context),
         events: events,
-        labelStyle: Theme.of(context).textTheme.bodyText2,
+        labelStyle: Theme.of(context).textTheme.bodyText2!,
         textDirection: GalleryOptions.of(context).resolvedTextDirection(),
         textScaleFactor: reducedTextScale(context),
         padding: isDisplayDesktop(context)
@@ -39,20 +41,20 @@ class RallyLineChart extends StatelessWidget {
 
 class RallyLineChartPainter extends CustomPainter {
   RallyLineChartPainter({
-    @required this.dateFormat,
-    @required this.numberFormat,
-    @required this.events,
-    @required this.labelStyle,
-    @required this.textDirection,
-    @required this.textScaleFactor,
-    @required this.padding,
+    required this.dateFormat,
+    required this.numberFormat,
+    required this.events,
+    required this.labelStyle,
+    required this.textDirection,
+    required this.textScaleFactor,
+    required this.padding,
   });
 
   // The style for the labels.
   final TextStyle labelStyle;
 
   // The text direction for the text.
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
   // The text scale factor for the text.
   final double textScaleFactor;
@@ -128,7 +130,7 @@ class RallyLineChartPainter extends CustomPainter {
 
       // We divide the graph and the amounts into [numGroups] groups, with
       // [numItemsPerGroup] amounts per group.
-      final numGroups = 10;
+      const numGroups = 10;
       final numItemsPerGroup = amounts.length ~/ numGroups;
 
       // For each group we calculate the median value.
@@ -243,12 +245,12 @@ class RallyLineChartPainter extends CustomPainter {
   void _drawXAxisLabels(Canvas canvas, Rect rect) {
     final selectedLabelStyle = labelStyle.copyWith(
       fontWeight: FontWeight.w700,
-      fontSize: labelStyle.fontSize * textScaleFactor,
+      fontSize: labelStyle.fontSize! * textScaleFactor,
     );
     final unselectedLabelStyle = labelStyle.copyWith(
       fontWeight: FontWeight.w700,
       color: RallyColors.gray25,
-      fontSize: labelStyle.fontSize * textScaleFactor,
+      fontSize: labelStyle.fontSize! * textScaleFactor,
     );
 
     // We use toUpperCase to format the dates. This function uses the language

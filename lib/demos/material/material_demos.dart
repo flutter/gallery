@@ -1,3 +1,4 @@
+export 'package:gallery/demos/material/app_bar_demo.dart';
 export 'package:gallery/demos/material/banner_demo.dart';
 export 'package:gallery/demos/material/bottom_app_bar_demo.dart';
 export 'package:gallery/demos/material/bottom_navigation_demo.dart';
@@ -21,4 +22,3 @@ export 'package:gallery/demos/material/snackbar_demo.dart';
 export 'package:gallery/demos/material/tabs_demo.dart';
 export 'package:gallery/demos/material/text_field_demo.dart';
 export 'package:gallery/demos/material/tooltip_demo.dart';
-export 'package:gallery/demos/material/app_bar_demo.dart';

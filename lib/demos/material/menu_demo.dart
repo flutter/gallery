@@ -21,12 +21,12 @@ enum CheckedValue {
 }
 
 class MenuDemo extends StatefulWidget {
-  const MenuDemo({Key key, this.type}) : super(key: key);
+  const MenuDemo({Key? key, required this.type}) : super(key: key);
 
   final MenuDemoType type;
 
   @override
-  _MenuDemoState createState() => _MenuDemoState();
+  State<MenuDemo> createState() => _MenuDemoState();
 }
 
 class _MenuDemoState extends State<MenuDemo> {
@@ -57,7 +57,7 @@ class _MenuDemoState extends State<MenuDemo> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(GalleryLocalizations.of(context).demoMenuTitle),
+        title: Text(GalleryLocalizations.of(context)!.demoMenuTitle),
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -76,38 +76,40 @@ class _MenuDemoState extends State<MenuDemo> {
 // a simple menu with one disabled item. Typically the contents
 // of this "contextual menu" would reflect the app's state.
 class _ContextMenuDemo extends StatelessWidget {
-  const _ContextMenuDemo({Key key, this.showInSnackBar}) : super(key: key);
+  const _ContextMenuDemo({
+    Key? key,
+    required this.showInSnackBar,
+  }) : super(key: key);
 
   final void Function(String value) showInSnackBar;
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     return ListTile(
-      title: Text(GalleryLocalizations.of(context)
-          .demoMenuAnItemWithAContextMenuButton),
+      title: Text(localizations.demoMenuAnItemWithAContextMenuButton),
       trailing: PopupMenuButton<String>(
         padding: EdgeInsets.zero,
         onSelected: (value) => showInSnackBar(
-          GalleryLocalizations.of(context).demoMenuSelected(value),
+          localizations.demoMenuSelected(value),
         ),
         itemBuilder: (context) => <PopupMenuItem<String>>[
           PopupMenuItem<String>(
-            value: GalleryLocalizations.of(context).demoMenuContextMenuItemOne,
+            value: localizations.demoMenuContextMenuItemOne,
             child: Text(
-              GalleryLocalizations.of(context).demoMenuContextMenuItemOne,
+              localizations.demoMenuContextMenuItemOne,
             ),
           ),
           PopupMenuItem<String>(
             enabled: false,
             child: Text(
-              GalleryLocalizations.of(context).demoMenuADisabledMenuItem,
+              localizations.demoMenuADisabledMenuItem,
             ),
           ),
           PopupMenuItem<String>(
-            value:
-                GalleryLocalizations.of(context).demoMenuContextMenuItemThree,
+            value: localizations.demoMenuContextMenuItemThree,
             child: Text(
-              GalleryLocalizations.of(context).demoMenuContextMenuItemThree,
+              localizations.demoMenuContextMenuItemThree,
             ),
           ),
         ],
@@ -124,54 +126,55 @@ class _ContextMenuDemo extends StatelessWidget {
 // a menu whose items have text labels and icons and a divider
 // That separates the first three items from the last one.
 class _SectionedMenuDemo extends StatelessWidget {
-  const _SectionedMenuDemo({Key key, this.showInSnackBar}) : super(key: key);
+  const _SectionedMenuDemo({Key? key, required this.showInSnackBar})
+      : super(key: key);
 
   final void Function(String value) showInSnackBar;
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     return ListTile(
-      title: Text(
-          GalleryLocalizations.of(context).demoMenuAnItemWithASectionedMenu),
+      title: Text(localizations.demoMenuAnItemWithASectionedMenu),
       trailing: PopupMenuButton<String>(
         padding: EdgeInsets.zero,
-        onSelected: (value) => showInSnackBar(
-            GalleryLocalizations.of(context).demoMenuSelected(value)),
+        onSelected: (value) =>
+            showInSnackBar(localizations.demoMenuSelected(value)),
         itemBuilder: (context) => <PopupMenuEntry<String>>[
           PopupMenuItem<String>(
-            value: GalleryLocalizations.of(context).demoMenuPreview,
+            value: localizations.demoMenuPreview,
             child: ListTile(
               leading: const Icon(Icons.visibility),
               title: Text(
-                GalleryLocalizations.of(context).demoMenuPreview,
+                localizations.demoMenuPreview,
               ),
             ),
           ),
           PopupMenuItem<String>(
-            value: GalleryLocalizations.of(context).demoMenuShare,
+            value: localizations.demoMenuShare,
             child: ListTile(
               leading: const Icon(Icons.person_add),
               title: Text(
-                GalleryLocalizations.of(context).demoMenuShare,
+                localizations.demoMenuShare,
               ),
             ),
           ),
           PopupMenuItem<String>(
-            value: GalleryLocalizations.of(context).demoMenuGetLink,
+            value: localizations.demoMenuGetLink,
             child: ListTile(
               leading: const Icon(Icons.link),
               title: Text(
-                GalleryLocalizations.of(context).demoMenuGetLink,
+                localizations.demoMenuGetLink,
               ),
             ),
           ),
           const PopupMenuDivider(),
           PopupMenuItem<String>(
-            value: GalleryLocalizations.of(context).demoMenuRemove,
+            value: localizations.demoMenuRemove,
             child: ListTile(
               leading: const Icon(Icons.delete),
               title: Text(
-                GalleryLocalizations.of(context).demoMenuRemove,
+                localizations.demoMenuRemove,
               ),
             ),
           ),
@@ -189,7 +192,10 @@ class _SectionedMenuDemo extends StatelessWidget {
 // a menu whose current value is highlighted and aligned over the
 // list item's center line.
 class _SimpleMenuDemo extends StatefulWidget {
-  const _SimpleMenuDemo({Key key, this.showInSnackBar}) : super(key: key);
+  const _SimpleMenuDemo({
+    Key? key,
+    required this.showInSnackBar,
+  }) : super(key: key);
 
   final void Function(String value) showInSnackBar;
 
@@ -198,24 +204,26 @@ class _SimpleMenuDemo extends StatefulWidget {
 }
 
 class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
-  SimpleValue _simpleValue;
+  late SimpleValue _simpleValue;
 
   void showAndSetMenuSelection(BuildContext context, SimpleValue value) {
     setState(() {
       _simpleValue = value;
     });
     widget.showInSnackBar(
-      GalleryLocalizations.of(context)
+      GalleryLocalizations.of(context)!
           .demoMenuSelected(simpleValueToString(context, value)),
     );
   }
 
-  String simpleValueToString(BuildContext context, SimpleValue value) => {
-        SimpleValue.one: GalleryLocalizations.of(context).demoMenuItemValueOne,
-        SimpleValue.two: GalleryLocalizations.of(context).demoMenuItemValueTwo,
-        SimpleValue.three:
-            GalleryLocalizations.of(context).demoMenuItemValueThree,
-      }[value];
+  String simpleValueToString(BuildContext context, SimpleValue value) {
+    final localizations = GalleryLocalizations.of(context)!;
+    return {
+      SimpleValue.one: localizations.demoMenuItemValueOne,
+      SimpleValue.two: localizations.demoMenuItemValueTwo,
+      SimpleValue.three: localizations.demoMenuItemValueThree,
+    }[value]!;
+  }
 
   @override
   void initState() {
@@ -229,11 +237,6 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
       padding: EdgeInsets.zero,
       initialValue: _simpleValue,
       onSelected: (value) => showAndSetMenuSelection(context, value),
-      child: ListTile(
-        title: Text(
-            GalleryLocalizations.of(context).demoMenuAnItemWithASimpleMenu),
-        subtitle: Text(simpleValueToString(context, _simpleValue)),
-      ),
       itemBuilder: (context) => <PopupMenuItem<SimpleValue>>[
         PopupMenuItem<SimpleValue>(
           value: SimpleValue.one,
@@ -257,6 +260,11 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
           )),
         ),
       ],
+      child: ListTile(
+        title: Text(
+            GalleryLocalizations.of(context)!.demoMenuAnItemWithASimpleMenu),
+        subtitle: Text(simpleValueToString(context, _simpleValue)),
+      ),
     );
   }
 }
@@ -269,8 +277,8 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
 // whose items have checked icons that reflect this app's state.
 class _ChecklistMenuDemo extends StatefulWidget {
   const _ChecklistMenuDemo({
-    Key key,
-    this.showInSnackBar,
+    Key? key,
+    required this.showInSnackBar,
   }) : super(key: key);
 
   final void Function(String value) showInSnackBar;
@@ -295,13 +303,14 @@ class _RestorableCheckedValues extends RestorableProperty<Set<CheckedValue>> {
   bool isChecked(CheckedValue value) => _checked.contains(value);
 
   Iterable<String> checkedValuesToString(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     return _checked.map((value) {
       return {
-        CheckedValue.one: GalleryLocalizations.of(context).demoMenuOne,
-        CheckedValue.two: GalleryLocalizations.of(context).demoMenuTwo,
-        CheckedValue.three: GalleryLocalizations.of(context).demoMenuThree,
-        CheckedValue.four: GalleryLocalizations.of(context).demoMenuFour,
-      }[value];
+        CheckedValue.one: localizations.demoMenuOne,
+        CheckedValue.two: localizations.demoMenuTwo,
+        CheckedValue.three: localizations.demoMenuThree,
+        CheckedValue.four: localizations.demoMenuFour,
+      }[value]!;
     });
   }
 
@@ -318,7 +327,7 @@ class _RestorableCheckedValues extends RestorableProperty<Set<CheckedValue>> {
   Object toPrimitives() => _checked.map((value) => value.index).toList();
 
   @override
-  Set<CheckedValue> fromPrimitives(Object data) {
+  Set<CheckedValue> fromPrimitives(Object? data) {
     final checkedValues = data as List<dynamic>;
     return Set.from(checkedValues.map<CheckedValue>((dynamic id) {
       return CheckedValue.values[id as int];
@@ -335,7 +344,7 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
   String get restorationId => 'checklist_menu_demo';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_checkedValues, 'checked_values');
   }
 
@@ -351,19 +360,20 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
     }
 
     widget.showInSnackBar(
-      GalleryLocalizations.of(context).demoMenuChecked(
+      GalleryLocalizations.of(context)!.demoMenuChecked(
         _checkedValues.checkedValuesToString(context),
       ),
     );
   }
 
   String checkedValueToString(BuildContext context, CheckedValue value) {
+    final localizations = GalleryLocalizations.of(context)!;
     return {
-      CheckedValue.one: GalleryLocalizations.of(context).demoMenuOne,
-      CheckedValue.two: GalleryLocalizations.of(context).demoMenuTwo,
-      CheckedValue.three: GalleryLocalizations.of(context).demoMenuThree,
-      CheckedValue.four: GalleryLocalizations.of(context).demoMenuFour,
-    }[value];
+      CheckedValue.one: localizations.demoMenuOne,
+      CheckedValue.two: localizations.demoMenuTwo,
+      CheckedValue.three: localizations.demoMenuThree,
+      CheckedValue.four: localizations.demoMenuFour,
+    }[value]!;
   }
 
   @override
@@ -376,7 +386,7 @@ class _ChecklistMenuDemoState extends State<_ChecklistMenuDemo>
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        GalleryLocalizations.of(context).demoMenuAnItemWithAChecklistMenu,
+        GalleryLocalizations.of(context)!.demoMenuAnItemWithAChecklistMenu,
       ),
       trailing: PopupMenuButton<CheckedValue>(
         padding: EdgeInsets.zero,

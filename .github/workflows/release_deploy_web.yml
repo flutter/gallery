@@ -1,0 +1,41 @@
+name: Deploy to web
+on:
+  # Enable manual run
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy to (staging OR prod)"
+        required: true
+        default: "staging"
+  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      # Set up Flutter.
+      - name: Clone Flutter repository with master channel
+        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        with:
+          channel: master
+      - run: flutter doctor -v
+
+      - name: Install web dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm install -g firebase-tools
+
+      # Checkout gallery code and get packages.
+      - name: Checkout gallery code
+        uses: actions/checkout@v2
+      - run: flutter pub get
+
+      # Build and deploy (by default, to staging).
+      - run: flutter build -v web --release
+      - run: firebase deploy --only hosting:${{ github.event.inputs.environment || 'staging' }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

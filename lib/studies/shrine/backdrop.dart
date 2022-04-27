@@ -5,11 +5,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:gallery/studies/shrine/page_status.dart';
-import 'package:meta/meta.dart';
-
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/studies/shrine/category_menu_page.dart';
+import 'package:gallery/studies/shrine/page_status.dart';
 
 const Cubic _accelerateCurve = Cubic(0.548, 0, 0.757, 0.464);
 const Cubic _decelerateCurve = Cubic(0.23, 0.94, 0.41, 1);
@@ -18,12 +17,12 @@ const _peakVelocityProgress = 0.379146;
 
 class _FrontLayer extends StatelessWidget {
   const _FrontLayer({
-    Key key,
+    Key? key,
     this.onTap,
-    this.child,
+    required this.child,
   }) : super(key: key);
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget child;
 
   @override
@@ -46,12 +45,15 @@ class _FrontLayer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           onTap != null
-              ? GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  excludeFromSemantics:
-                      true, // Because there is already a "Close Menu" button on screen.
-                  onTap: onTap,
-                  child: pageTopArea,
+              ? MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    excludeFromSemantics:
+                        true, // Because there is already a "Close Menu" button on screen.
+                    onTap: onTap,
+                    child: pageTopArea,
+                  ),
                 )
               : pageTopArea,
           Expanded(
@@ -65,16 +67,14 @@ class _FrontLayer extends StatelessWidget {
 
 class _BackdropTitle extends AnimatedWidget {
   const _BackdropTitle({
-    Key key,
-    Animation<double> listenable,
+    Key? key,
+    required Animation<double> listenable,
     this.onPress,
-    @required this.frontTitle,
-    @required this.backTitle,
-  })  : assert(frontTitle != null),
-        assert(backTitle != null),
-        super(key: key, listenable: listenable);
+    required this.frontTitle,
+    required this.backTitle,
+  }) : super(key: key, listenable: listenable);
 
-  final void Function() onPress;
+  final void Function()? onPress;
   final Widget frontTitle;
   final Widget backTitle;
 
@@ -88,8 +88,8 @@ class _BackdropTitle extends AnimatedWidget {
     final textDirectionScalar =
         Directionality.of(context) == TextDirection.ltr ? 1 : -1;
 
-    final slantedMenuIcon =
-        const ImageIcon(AssetImage('packages/shrine_images/slanted_menu.png'));
+    const slantedMenuIcon =
+        ImageIcon(AssetImage('packages/shrine_images/slanted_menu.png'));
 
     final directionalSlantedMenuIcon =
         Directionality.of(context) == TextDirection.ltr
@@ -101,13 +101,13 @@ class _BackdropTitle extends AnimatedWidget {
               );
 
     final menuButtonTooltip = animation.isCompleted
-        ? GalleryLocalizations.of(context).shrineTooltipOpenMenu
+        ? GalleryLocalizations.of(context)!.shrineTooltipOpenMenu
         : animation.isDismissed
-            ? GalleryLocalizations.of(context).shrineTooltipCloseMenu
+            ? GalleryLocalizations.of(context)!.shrineTooltipCloseMenu
             : null;
 
     return DefaultTextStyle(
-      style: Theme.of(context).primaryTextTheme.headline6,
+      style: Theme.of(context).primaryTextTheme.headline6!,
       softWrap: false,
       overflow: TextOverflow.ellipsis,
       child: Row(children: [
@@ -183,16 +183,13 @@ class _BackdropTitle extends AnimatedWidget {
 /// front or back layer is showing.
 class Backdrop extends StatefulWidget {
   const Backdrop({
-    @required this.frontLayer,
-    @required this.backLayer,
-    @required this.frontTitle,
-    @required this.backTitle,
-    @required this.controller,
-  })  : assert(frontLayer != null),
-        assert(backLayer != null),
-        assert(frontTitle != null),
-        assert(backTitle != null),
-        assert(controller != null);
+    Key? key,
+    required this.frontLayer,
+    required this.backLayer,
+    required this.frontTitle,
+    required this.backTitle,
+    required this.controller,
+  }) : super(key: key);
 
   final Widget frontLayer;
   final Widget backLayer;
@@ -201,14 +198,14 @@ class Backdrop extends StatefulWidget {
   final AnimationController controller;
 
   @override
-  _BackdropState createState() => _BackdropState();
+  State<Backdrop> createState() => _BackdropState();
 }
 
 class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin {
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
-  AnimationController _controller;
-  Animation<RelativeRect> _layerAnimation;
+  late AnimationController _controller;
+  late Animation<RelativeRect> _layerAnimation;
 
   @override
   void initState() {
@@ -311,9 +308,9 @@ class _BackdropState extends State<Backdrop>
           child: ExcludeSemantics(
             excluding: !_frontLayerVisible,
             child: AnimatedBuilder(
-              animation: PageStatus.of(context).cartController,
+              animation: PageStatus.of(context)!.cartController,
               builder: (context, child) => AnimatedBuilder(
-                animation: PageStatus.of(context).menuController,
+                animation: PageStatus.of(context)!.menuController,
                 builder: (context, child) => _FrontLayer(
                   onTap: menuPageIsVisible(context)
                       ? _toggleBackdropLayerVisibility
@@ -332,7 +329,7 @@ class _BackdropState extends State<Backdrop>
   Widget build(BuildContext context) {
     final appBar = AppBar(
       automaticallyImplyLeading: false,
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
       elevation: 0,
       titleSpacing: 0,
       title: _BackdropTitle(
@@ -344,18 +341,18 @@ class _BackdropState extends State<Backdrop>
       actions: [
         IconButton(
           icon: const Icon(Icons.search),
-          tooltip: GalleryLocalizations.of(context).shrineTooltipSearch,
+          tooltip: GalleryLocalizations.of(context)!.shrineTooltipSearch,
           onPressed: () {},
         ),
         IconButton(
           icon: const Icon(Icons.tune),
-          tooltip: GalleryLocalizations.of(context).shrineTooltipSettings,
+          tooltip: GalleryLocalizations.of(context)!.shrineTooltipSettings,
           onPressed: () {},
         ),
       ],
     );
     return AnimatedBuilder(
-      animation: PageStatus.of(context).cartController,
+      animation: PageStatus.of(context)!.cartController,
       builder: (context, child) => ExcludeSemantics(
         excluding: cartPageIsVisible(context),
         child: Scaffold(
@@ -371,9 +368,10 @@ class _BackdropState extends State<Backdrop>
 
 class DesktopBackdrop extends StatelessWidget {
   const DesktopBackdrop({
-    @required this.frontLayer,
-    @required this.backLayer,
-  });
+    Key? key,
+    required this.frontLayer,
+    required this.backLayer,
+  }) : super(key: key);
 
   final Widget frontLayer;
   final Widget backLayer;

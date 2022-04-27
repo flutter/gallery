@@ -12,7 +12,7 @@ import 'package:gallery/main.dart' show GalleryApp;
 
 // See transitions_perf_test.dart for how to run this test.
 
-Future<String> _handleMessages(String message) async {
+Future<String> _handleMessages(String? message) async {
   switch (message) {
     case 'demoDescriptions':
       final demoDescriptions = allGalleryDemoDescriptions();

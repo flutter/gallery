@@ -1,0 +1,374 @@
+# ==============================================================================
+# The contents of this file are automatically generated and it is not
+# recommended to modify this file manually.
+# ==============================================================================
+#
+# In order to prevent unexpected splitting of deferred apps, this file records
+# the last generated set of loading units. It only possible to obtain the final
+# configuration of loading units after compilation is complete. This means
+# improperly setup deferred imports can only be detected after compilation.
+#
+# This file allows the build tool to detect any changes in the generated
+# loading units. During the next build attempt, loading units in this file are
+# compared against the newly generated loading units to check for any new or
+# removed loading units. In the case where loading units do not match, the build
+# will fail and ask the developer to verify that the `deferred-components`
+# configuration in `pubspec.yaml` is correct. Developers should make any
+# necessary changes to integrate new and changed loading units or remove no
+# longer existing loading units from the configuration. The build command should
+# then be re-run to continue the build process.
+#
+# Sometimes, changes to the generated loading units may be unintentional. If
+# the list of loading units in this file is not what is expected, the app's
+# deferred imports should be reviewed. Third party plugins and packages may
+# also introduce deferred imports that result in unexpected loading units.
+loading-units:
+  - id: 2
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_af.dart
+  - id: 3
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_am.dart
+  - id: 4
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ar.dart
+  - id: 5
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_as.dart
+  - id: 6
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_az.dart
+  - id: 7
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_be.dart
+  - id: 8
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_bg.dart
+  - id: 9
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_bn.dart
+  - id: 10
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_bs.dart
+  - id: 11
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ca.dart
+  - id: 12
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_cs.dart
+  - id: 13
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_da.dart
+  - id: 14
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_de.dart
+  - id: 15
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_el.dart
+  - id: 16
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_es.dart
+  - id: 17
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_et.dart
+  - id: 18
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_eu.dart
+  - id: 19
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_fa.dart
+  - id: 20
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_fi.dart
+  - id: 21
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_fil.dart
+  - id: 22
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_fr.dart
+  - id: 23
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_gl.dart
+  - id: 24
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_gsw.dart
+  - id: 25
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_gu.dart
+  - id: 26
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_he.dart
+  - id: 27
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_hi.dart
+  - id: 28
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_hr.dart
+  - id: 29
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_hu.dart
+  - id: 30
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_hy.dart
+  - id: 31
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_id.dart
+  - id: 32
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_is.dart
+  - id: 33
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_it.dart
+  - id: 34
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ja.dart
+  - id: 35
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ka.dart
+  - id: 36
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_kk.dart
+  - id: 37
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_km.dart
+  - id: 38
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_kn.dart
+  - id: 39
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ko.dart
+  - id: 40
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ky.dart
+  - id: 41
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_lo.dart
+  - id: 42
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_lt.dart
+  - id: 43
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_lv.dart
+  - id: 44
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_mk.dart
+  - id: 45
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ml.dart
+  - id: 46
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_mn.dart
+  - id: 47
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_mr.dart
+  - id: 48
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ms.dart
+  - id: 49
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_my.dart
+  - id: 50
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_nb.dart
+  - id: 51
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ne.dart
+  - id: 52
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_nl.dart
+  - id: 53
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_or.dart
+  - id: 54
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_pa.dart
+  - id: 55
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_pl.dart
+  - id: 56
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_pt.dart
+  - id: 57
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ro.dart
+  - id: 58
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ru.dart
+  - id: 59
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_si.dart
+  - id: 60
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_sk.dart
+  - id: 61
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_sl.dart
+  - id: 62
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_sq.dart
+  - id: 63
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_sr.dart
+  - id: 64
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_sv.dart
+  - id: 65
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_sw.dart
+  - id: 66
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ta.dart
+  - id: 67
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_te.dart
+  - id: 68
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_th.dart
+  - id: 69
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_tl.dart
+  - id: 70
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_tr.dart
+  - id: 71
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_uk.dart
+  - id: 72
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_ur.dart
+  - id: 73
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_uz.dart
+  - id: 74
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_vi.dart
+  - id: 75
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_zh.dart
+  - id: 76
+    libraries:
+      - package:flutter_gen/gen_l10n/gallery_localizations_zu.dart
+  - id: 77
+    libraries:
+      - package:flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart
+      - package:flutter_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart
+      - package:flutter_staggered_grid_view/src/rendering/tile_container_render_object_mixin.dart
+      - package:flutter_staggered_grid_view/src/widgets/sliver.dart
+      - package:flutter_staggered_grid_view/src/widgets/staggered_grid_view.dart
+      - package:flutter_staggered_grid_view/src/widgets/staggered_tile.dart
+      - package:gallery/layout/highlight_focus.dart
+      - package:gallery/studies/crane/app.dart
+      - package:gallery/studies/crane/backdrop.dart
+      - package:gallery/studies/crane/eat_form.dart
+      - package:gallery/studies/crane/fly_form.dart
+      - package:gallery/studies/crane/sleep_form.dart
+      - package:gallery/studies/crane/theme.dart
+      - package:gallery/studies/crane/backlayer.dart
+      - package:gallery/studies/crane/border_tab_indicator.dart
+      - package:gallery/studies/crane/header_form.dart
+      - package:gallery/studies/crane/item_cards.dart
+      - package:gallery/studies/crane/model/data.dart
+      - package:gallery/studies/crane/model/destination.dart
+      - package:gallery/studies/crane/model/formatters.dart
+  - id: 78
+    libraries:
+      - package:gallery/studies/fortnightly/app.dart
+      - package:gallery/studies/fortnightly/shared.dart
+  - id: 79
+    libraries:
+      - package:gallery/studies/rally/app.dart
+      - package:gallery/studies/rally/home.dart
+      - package:gallery/studies/rally/login.dart
+      - package:gallery/studies/rally/charts/line_chart.dart
+      - package:gallery/studies/rally/data.dart
+      - package:gallery/studies/rally/formatters.dart
+      - package:gallery/studies/rally/charts/pie_chart.dart
+      - package:gallery/studies/rally/charts/vertical_fraction_bar.dart
+      - package:gallery/studies/rally/finance.dart
+      - package:gallery/studies/rally/tabs/accounts.dart
+      - package:gallery/studies/rally/tabs/bills.dart
+      - package:gallery/studies/rally/tabs/budgets.dart
+      - package:gallery/studies/rally/tabs/overview.dart
+      - package:gallery/studies/rally/tabs/settings.dart
+      - package:gallery/studies/rally/tabs/sidebar.dart
+  - id: 80
+    libraries:
+      - package:gallery/studies/shrine/app.dart
+      - package:gallery/studies/shrine/backdrop.dart
+      - package:gallery/studies/shrine/category_menu_page.dart
+      - package:gallery/studies/shrine/expanding_bottom_sheet.dart
+      - package:gallery/studies/shrine/home.dart
+      - package:gallery/studies/shrine/login.dart
+      - package:gallery/studies/shrine/model/app_state_model.dart
+      - package:gallery/studies/shrine/model/product.dart
+      - package:gallery/studies/shrine/page_status.dart
+      - package:gallery/studies/shrine/scrim.dart
+      - package:gallery/studies/shrine/supplemental/layout_cache.dart
+      - package:gallery/studies/shrine/theme.dart
+      - package:scoped_model/scoped_model.dart
+      - package:gallery/studies/shrine/triangle_category_indicator.dart
+      - package:gallery/studies/shrine/shopping_cart.dart
+      - package:gallery/studies/shrine/supplemental/asymmetric_view.dart
+      - package:gallery/studies/shrine/model/products_repository.dart
+      - package:gallery/studies/shrine/supplemental/balanced_layout.dart
+      - package:gallery/studies/shrine/supplemental/desktop_product_columns.dart
+      - package:gallery/studies/shrine/supplemental/product_card.dart
+      - package:gallery/studies/shrine/supplemental/product_columns.dart
+      - package:gallery/studies/shrine/supplemental/cut_corners_border.dart
+  - id: 81
+    libraries:
+      - package:gallery/demos/cupertino/cupertino_demos.dart
+      - package:gallery/demos/cupertino/cupertino_activity_indicator_demo.dart
+      - package:gallery/demos/cupertino/cupertino_alert_demo.dart
+      - package:gallery/demos/cupertino/cupertino_button_demo.dart
+      - package:gallery/demos/cupertino/cupertino_context_menu_demo.dart
+      - package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart
+      - package:gallery/demos/cupertino/cupertino_picker_demo.dart
+      - package:gallery/demos/cupertino/cupertino_refresh_demo.dart
+      - package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart
+      - package:gallery/demos/cupertino/cupertino_slider_demo.dart
+      - package:gallery/demos/cupertino/cupertino_switch_demo.dart
+      - package:gallery/demos/cupertino/cupertino_tab_bar_demo.dart
+      - package:gallery/demos/cupertino/cupertino_text_field_demo.dart
+  - id: 82
+    libraries:
+      - package:gallery/demos/material/material_demos.dart
+      - package:gallery/demos/material/app_bar_demo.dart
+      - package:gallery/demos/material/banner_demo.dart
+      - package:gallery/demos/material/bottom_app_bar_demo.dart
+      - package:gallery/demos/material/bottom_navigation_demo.dart
+      - package:gallery/demos/material/bottom_sheet_demo.dart
+      - package:gallery/demos/material/button_demo.dart
+      - package:gallery/demos/material/cards_demo.dart
+      - package:gallery/demos/material/chip_demo.dart
+      - package:gallery/demos/material/data_table_demo.dart
+      - package:gallery/demos/material/dialog_demo.dart
+      - package:gallery/demos/material/divider_demo.dart
+      - package:gallery/demos/material/grid_list_demo.dart
+      - package:gallery/demos/material/list_demo.dart
+      - package:gallery/demos/material/menu_demo.dart
+      - package:gallery/demos/material/navigation_drawer.dart
+      - package:gallery/demos/material/navigation_rail_demo.dart
+      - package:gallery/demos/material/picker_demo.dart
+      - package:gallery/demos/material/progress_indicator_demo.dart
+      - package:gallery/demos/material/selection_controls_demo.dart
+      - package:gallery/demos/material/sliders_demo.dart
+      - package:gallery/demos/material/snackbar_demo.dart
+      - package:gallery/demos/material/tabs_demo.dart
+      - package:gallery/demos/material/text_field_demo.dart
+      - package:gallery/demos/material/tooltip_demo.dart
+  - id: 83
+    libraries:
+      - package:gallery/demos/reference/colors_demo.dart
+  - id: 84
+    libraries:
+      - package:gallery/demos/reference/motion_demo_container_transition.dart
+  - id: 85
+    libraries:
+      - package:gallery/demos/reference/transformations_demo.dart
+      - package:gallery/demos/reference/transformations_demo_board.dart
+      - package:gallery/demos/reference/transformations_demo_edit_board_point.dart
+      - package:gallery/demos/reference/transformations_demo_color_picker.dart
+  - id: 86
+    libraries:
+      - package:gallery/demos/reference/typography_demo.dart

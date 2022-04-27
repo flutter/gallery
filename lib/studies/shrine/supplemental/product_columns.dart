@@ -9,15 +9,17 @@ import 'package:gallery/studies/shrine/supplemental/product_card.dart';
 
 class TwoProductCardColumn extends StatelessWidget {
   const TwoProductCardColumn({
-    @required this.bottom,
+    Key? key,
+    required this.bottom,
     this.top,
-    @required this.imageAspectRatio,
-  }) : assert(bottom != null);
+    required this.imageAspectRatio,
+  }) : super(key: key);
 
   static const double spacerHeight = 44;
   static const double horizontalPadding = 28;
 
-  final Product bottom, top;
+  final Product bottom;
+  final Product? top;
   final double imageAspectRatio;
 
   @override
@@ -31,7 +33,7 @@ class TwoProductCardColumn extends StatelessWidget {
             child: top != null
                 ? MobileProductCard(
                     imageAspectRatio: imageAspectRatio,
-                    product: top,
+                    product: top!,
                   )
                 : const SizedBox(
                     height: spacerHeight,
@@ -53,9 +55,10 @@ class TwoProductCardColumn extends StatelessWidget {
 
 class OneProductCardColumn extends StatelessWidget {
   const OneProductCardColumn({
-    this.product,
-    @required this.reverse,
-  });
+    Key? key,
+    required this.product,
+    required this.reverse,
+  }) : super(key: key);
 
   final Product product;
 

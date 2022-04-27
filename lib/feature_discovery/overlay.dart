@@ -38,21 +38,15 @@ class Background extends StatelessWidget {
   static const horizontalShift = 20.0;
   static const padding = 40.0;
 
-  Background({
-    @required this.animations,
-    @required this.center,
-    @required this.color,
-    @required this.deviceSize,
-    @required this.status,
-    @required this.textDirection,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(color != null);
-    assert(deviceSize != null);
-    assert(status != null);
-    assert(textDirection != null);
-  }
+  const Background({
+    Key? key,
+    required this.animations,
+    required this.center,
+    required this.color,
+    required this.deviceSize,
+    required this.status,
+    required this.textDirection,
+  }) : super(key: key);
 
   /// Compute the center position of the background.
   ///
@@ -187,23 +181,16 @@ class Content extends StatelessWidget {
   /// [TextTheme] to use for drawing the [title] and the [description].
   final TextTheme textTheme;
 
-  Content({
-    @required this.animations,
-    @required this.center,
-    @required this.description,
-    @required this.deviceSize,
-    @required this.status,
-    @required this.title,
-    @required this.textTheme,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(description != null);
-    assert(deviceSize != null);
-    assert(status != null);
-    assert(title != null);
-    assert(textTheme != null);
-  }
+  const Content({
+    Key? key,
+    required this.animations,
+    required this.center,
+    required this.description,
+    required this.deviceSize,
+    required this.status,
+    required this.title,
+    required this.textTheme,
+  }) : super(key: key);
 
   double get opacity => animations.contentOpacity(status).value;
 
@@ -235,7 +222,7 @@ class Content extends StatelessWidget {
       title,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: theme.headline6.copyWith(color: Colors.white),
+      style: theme.headline6?.copyWith(color: Colors.white),
     );
   }
 
@@ -244,7 +231,7 @@ class Content extends StatelessWidget {
       description,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
-      style: theme.subtitle1.copyWith(color: Colors.white70),
+      style: theme.subtitle1?.copyWith(color: Colors.white70),
     );
   }
 }
@@ -260,15 +247,12 @@ class Ripple extends StatelessWidget {
   /// Status of the parent overlay.
   final FeatureDiscoveryStatus status;
 
-  Ripple({
-    @required this.animations,
-    @required this.center,
-    @required this.status,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(status != null);
-  }
+  const Ripple({
+    Key? key,
+    required this.animations,
+    required this.center,
+    required this.status,
+  }) : super(key: key);
 
   double get radius => animations.rippleRadius(status).value;
   double get opacity => animations.rippleOpacity(status).value;
@@ -313,19 +297,14 @@ class TapTarget extends StatelessWidget {
   /// Child widget that will be promoted by the overlay.
   final Icon child;
 
-  TapTarget({
-    @required this.animations,
-    @required this.center,
-    @required this.status,
-    @required this.onTap,
-    @required this.child,
-  }) {
-    assert(animations != null);
-    assert(center != null);
-    assert(status != null);
-    assert(onTap != null);
-    assert(child != null);
-  }
+  const TapTarget({
+    Key? key,
+    required this.animations,
+    required this.center,
+    required this.status,
+    required this.onTap,
+    required this.child,
+  }) : super(key: key);
 
   double get radius => animations.tapTargetRadius(status).value;
   double get opacity => animations.tapTargetOpacity(status).value;

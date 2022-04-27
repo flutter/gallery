@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/rally/tabs/accounts.dart';
@@ -18,22 +18,22 @@ const int turnsToRotateRight = 1;
 const int turnsToRotateLeft = 3;
 
 class HomePage extends StatefulWidget {
-  const HomePage();
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin, RestorationMixin {
-  TabController _tabController;
+  late TabController _tabController;
   RestorableInt tabIndex = RestorableInt(0);
 
   @override
   String get restorationId => 'home_page';
 
   @override
-  void restoreState(RestorationBucket oldBucket, bool initialRestore) {
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(tabIndex, 'tab_index');
     _tabController.index = tabIndex.value;
   }
@@ -172,12 +172,15 @@ class _HomePageState extends State<HomePage>
   }
 
   List<Widget> _buildTabs(
-      {BuildContext context, ThemeData theme, bool isVertical = false}) {
+      {required BuildContext context,
+      required ThemeData theme,
+      bool isVertical = false}) {
+    final localizations = GalleryLocalizations.of(context)!;
     return [
       _RallyTab(
         theme: theme,
         iconData: Icons.pie_chart,
-        title: GalleryLocalizations.of(context).rallyTitleOverview,
+        title: localizations.rallyTitleOverview,
         tabIndex: 0,
         tabController: _tabController,
         isVertical: isVertical,
@@ -185,7 +188,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.attach_money,
-        title: GalleryLocalizations.of(context).rallyTitleAccounts,
+        title: localizations.rallyTitleAccounts,
         tabIndex: 1,
         tabController: _tabController,
         isVertical: isVertical,
@@ -193,7 +196,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.money_off,
-        title: GalleryLocalizations.of(context).rallyTitleBills,
+        title: localizations.rallyTitleBills,
         tabIndex: 2,
         tabController: _tabController,
         isVertical: isVertical,
@@ -201,7 +204,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.table_chart,
-        title: GalleryLocalizations.of(context).rallyTitleBudgets,
+        title: localizations.rallyTitleBudgets,
         tabIndex: 3,
         tabController: _tabController,
         isVertical: isVertical,
@@ -209,7 +212,7 @@ class _HomePageState extends State<HomePage>
       _RallyTab(
         theme: theme,
         iconData: Icons.settings,
-        title: GalleryLocalizations.of(context).rallyTitleSettings,
+        title: localizations.rallyTitleSettings,
         tabIndex: 4,
         tabController: _tabController,
         isVertical: isVertical,
@@ -218,7 +221,7 @@ class _HomePageState extends State<HomePage>
   }
 
   List<Widget> _buildTabViews() {
-    return [
+    return const [
       OverviewView(),
       AccountsView(),
       BillsView(),
@@ -229,11 +232,14 @@ class _HomePageState extends State<HomePage>
 }
 
 class _RallyTabBar extends StatelessWidget {
-  const _RallyTabBar({Key key, this.tabs, this.tabController})
-      : super(key: key);
+  const _RallyTabBar({
+    Key? key,
+    required this.tabs,
+    this.tabController,
+  }) : super(key: key);
 
   final List<Widget> tabs;
-  final TabController tabController;
+  final TabController? tabController;
 
   @override
   Widget build(BuildContext context) {
@@ -256,12 +262,12 @@ class _RallyTabBar extends StatelessWidget {
 
 class _RallyTab extends StatefulWidget {
   _RallyTab({
-    ThemeData theme,
-    IconData iconData,
-    String title,
-    int tabIndex,
-    TabController tabController,
-    this.isVertical,
+    required ThemeData theme,
+    IconData? iconData,
+    required String title,
+    int? tabIndex,
+    required TabController tabController,
+    required this.isVertical,
   })  : titleText = Text(title, style: theme.textTheme.button),
         isExpanded = tabController.index == tabIndex,
         icon = Icon(iconData, semanticLabel: title);
@@ -277,10 +283,10 @@ class _RallyTab extends StatefulWidget {
 
 class _RallyTabState extends State<_RallyTab>
     with SingleTickerProviderStateMixin {
-  Animation<double> _titleSizeAnimation;
-  Animation<double> _titleFadeAnimation;
-  Animation<double> _iconFadeAnimation;
-  AnimationController _controller;
+  late Animation<double> _titleSizeAnimation;
+  late Animation<double> _titleFadeAnimation;
+  late Animation<double> _iconFadeAnimation;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -314,18 +320,18 @@ class _RallyTabState extends State<_RallyTab>
         children: [
           const SizedBox(height: 18),
           FadeTransition(
-            child: widget.icon,
             opacity: _iconFadeAnimation,
+            child: widget.icon,
           ),
           const SizedBox(height: 12),
           FadeTransition(
+            opacity: _titleFadeAnimation,
             child: SizeTransition(
-              child: Center(child: ExcludeSemantics(child: widget.titleText)),
               axis: Axis.vertical,
               axisAlignment: -1,
               sizeFactor: _titleSizeAnimation,
+              child: Center(child: ExcludeSemantics(child: widget.titleText)),
             ),
-            opacity: _titleFadeAnimation,
           ),
           const SizedBox(height: 18),
         ],
@@ -345,25 +351,25 @@ class _RallyTabState extends State<_RallyTab>
       child: Row(
         children: [
           FadeTransition(
+            opacity: _iconFadeAnimation,
             child: SizedBox(
               width: unitWidth,
               child: widget.icon,
             ),
-            opacity: _iconFadeAnimation,
           ),
           FadeTransition(
+            opacity: _titleFadeAnimation,
             child: SizeTransition(
+              axis: Axis.horizontal,
+              axisAlignment: -1,
+              sizeFactor: _titleSizeAnimation,
               child: SizedBox(
                 width: unitWidth * expandedTitleWidthMultiplier,
                 child: Center(
                   child: ExcludeSemantics(child: widget.titleText),
                 ),
               ),
-              axis: Axis.horizontal,
-              axisAlignment: -1,
-              sizeFactor: _titleSizeAnimation,
             ),
-            opacity: _titleFadeAnimation,
           ),
         ],
       ),

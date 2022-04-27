@@ -4,7 +4,6 @@
 
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
@@ -28,30 +27,32 @@ const List<String> rtlLanguages = <String>[
 // Fake locale to represent the system Locale option.
 const systemLocaleOption = Locale('system');
 
-Locale _deviceLocale;
-Locale get deviceLocale => _deviceLocale;
-set deviceLocale(Locale locale) {
+Locale? _deviceLocale;
+
+Locale? get deviceLocale => _deviceLocale;
+
+set deviceLocale(Locale? locale) {
   _deviceLocale ??= locale;
 }
 
 class GalleryOptions {
   const GalleryOptions({
     this.themeMode,
-    double textScaleFactor,
+    double? textScaleFactor,
     this.customTextDirection,
-    Locale locale,
+    Locale? locale,
     this.timeDilation,
     this.platform,
-    this.isTestMode,
-  })  : _textScaleFactor = textScaleFactor,
+    this.isTestMode = false,
+  })  : _textScaleFactor = textScaleFactor ?? 1.0,
         _locale = locale;
 
-  final ThemeMode themeMode;
+  final ThemeMode? themeMode;
   final double _textScaleFactor;
-  final CustomTextDirection customTextDirection;
-  final Locale _locale;
-  final double timeDilation;
-  final TargetPlatform platform;
+  final CustomTextDirection? customTextDirection;
+  final Locale? _locale;
+  final double? timeDilation;
+  final TargetPlatform? platform;
   final bool isTestMode; // True for integration tests.
 
   // We use a sentinel value to indicate the system text scale option. By
@@ -67,15 +68,15 @@ class GalleryOptions {
     }
   }
 
-  Locale get locale => _locale ?? deviceLocale;
+  Locale? get locale => _locale ?? deviceLocale;
 
   /// Returns a text direction based on the [CustomTextDirection] setting.
   /// If it is based on locale and the locale cannot be determined, returns
   /// null.
-  TextDirection resolvedTextDirection() {
+  TextDirection? resolvedTextDirection() {
     switch (customTextDirection) {
       case CustomTextDirection.localeBased:
-        final language = locale?.languageCode?.toLowerCase();
+        final language = locale?.languageCode.toLowerCase();
         if (language == null) return null;
         return rtlLanguages.contains(language)
             ? TextDirection.rtl
@@ -111,13 +112,13 @@ class GalleryOptions {
   }
 
   GalleryOptions copyWith({
-    ThemeMode themeMode,
-    double textScaleFactor,
-    CustomTextDirection customTextDirection,
-    Locale locale,
-    double timeDilation,
-    TargetPlatform platform,
-    bool isTestMode,
+    ThemeMode? themeMode,
+    double? textScaleFactor,
+    CustomTextDirection? customTextDirection,
+    Locale? locale,
+    double? timeDilation,
+    TargetPlatform? platform,
+    bool? isTestMode,
   }) {
     return GalleryOptions(
       themeMode: themeMode ?? this.themeMode,
@@ -142,7 +143,7 @@ class GalleryOptions {
       isTestMode == other.isTestMode;
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
         themeMode,
         _textScaleFactor,
         customTextDirection,
@@ -154,20 +155,23 @@ class GalleryOptions {
 
   static GalleryOptions of(BuildContext context) {
     final scope =
-        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
+        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>()!;
     return scope.modelBindingState.currentModel;
   }
 
   static void update(BuildContext context, GalleryOptions newModel) {
     final scope =
-        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>();
+        context.dependOnInheritedWidgetOfExactType<_ModelBindingScope>()!;
     scope.modelBindingState.updateModel(newModel);
   }
 }
 
 // Applies text GalleryOptions to a widget
 class ApplyTextOptions extends StatelessWidget {
-  const ApplyTextOptions({@required this.child});
+  const ApplyTextOptions({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   final Widget child;
 
@@ -196,12 +200,11 @@ class ApplyTextOptions extends StatelessWidget {
 // See https://medium.com/flutter/managing-flutter-application-state-with-inheritedwidgets-1140452befe1
 
 class _ModelBindingScope extends InheritedWidget {
-  _ModelBindingScope({
-    Key key,
-    @required this.modelBindingState,
-    Widget child,
-  })  : assert(modelBindingState != null),
-        super(key: key, child: child);
+  const _ModelBindingScope({
+    Key? key,
+    required this.modelBindingState,
+    required Widget child,
+  }) : super(key: key, child: child);
 
   final _ModelBindingState modelBindingState;
 
@@ -210,23 +213,22 @@ class _ModelBindingScope extends InheritedWidget {
 }
 
 class ModelBinding extends StatefulWidget {
-  ModelBinding({
-    Key key,
+  const ModelBinding({
+    Key? key,
     this.initialModel = const GalleryOptions(),
-    this.child,
-  })  : assert(initialModel != null),
-        super(key: key);
+    required this.child,
+  }) : super(key: key);
 
   final GalleryOptions initialModel;
   final Widget child;
 
   @override
-  _ModelBindingState createState() => _ModelBindingState();
+  State<ModelBinding> createState() => _ModelBindingState();
 }
 
 class _ModelBindingState extends State<ModelBinding> {
-  GalleryOptions currentModel;
-  Timer _timeDilationTimer;
+  late GalleryOptions currentModel;
+  Timer? _timeDilationTimer;
 
   @override
   void initState() {
@@ -245,15 +247,15 @@ class _ModelBindingState extends State<ModelBinding> {
     if (currentModel.timeDilation != newModel.timeDilation) {
       _timeDilationTimer?.cancel();
       _timeDilationTimer = null;
-      if (newModel.timeDilation > 1) {
+      if (newModel.timeDilation! > 1) {
         // We delay the time dilation change long enough that the user can see
         // that UI has started reacting and then we slam on the brakes so that
         // they see that the time is in fact now dilated.
         _timeDilationTimer = Timer(const Duration(milliseconds: 150), () {
-          timeDilation = newModel.timeDilation;
+          timeDilation = newModel.timeDilation!;
         });
       } else {
-        timeDilation = newModel.timeDilation;
+        timeDilation = newModel.timeDilation!;
       }
     }
   }

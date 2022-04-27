@@ -4,18 +4,18 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-import 'package:gallery/studies/fortnightly/shared.dart';
 import 'package:gallery/studies/fortnightly/routes.dart' as routes;
+import 'package:gallery/studies/fortnightly/shared.dart';
 
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  const FortnightlyApp();
+  const FortnightlyApp({Key? key}) : super(key: key);
 
   static const String defaultRoute = routes.defaultRoute;
 
@@ -50,7 +50,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
+      drawer: const Drawer(
         child: SafeArea(
           child: NavigationMenu(isCloseable: true),
         ),
@@ -71,7 +71,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            tooltip: GalleryLocalizations.of(context).shrineTooltipSearch,
+            tooltip: GalleryLocalizations.of(context)!.shrineTooltipSearch,
             onPressed: () {},
           ),
         ],
@@ -80,7 +80,7 @@ class _FortnightlyHomeMobile extends StatelessWidget {
         child: ListView(
           restorationId: 'list_view',
           children: [
-            HashtagBar(),
+            const HashtagBar(),
             for (final item in buildArticlePreviewItems(context))
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -98,8 +98,8 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final menuWidth = 200.0;
-    final spacer = const SizedBox(width: 20);
+    const menuWidth = 200.0;
+    const spacer = SizedBox(width: 20);
     final headerHeight = 40 * reducedTextScale(context);
 
     return Scaffold(
@@ -125,7 +125,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                     ),
                   ),
                   spacer,
-                  Flexible(
+                  const Flexible(
                     flex: 2,
                     child: HashtagBar(),
                   ),
@@ -136,7 +136,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
                       alignment: AlignmentDirectional.centerEnd,
                       child: IconButton(
                         icon: const Icon(Icons.search),
-                        tooltip: GalleryLocalizations.of(context)
+                        tooltip: GalleryLocalizations.of(context)!
                             .shrineTooltipSearch,
                         onPressed: () {},
                       ),
@@ -148,7 +148,7 @@ class _FortnightlyHomeDesktop extends StatelessWidget {
             Flexible(
               child: Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: menuWidth,
                     child: NavigationMenu(),
                   ),

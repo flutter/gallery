@@ -5,7 +5,6 @@
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CutCornersBorder extends OutlineInputBorder {
   const CutCornersBorder({
@@ -21,10 +20,10 @@ class CutCornersBorder extends OutlineInputBorder {
 
   @override
   CutCornersBorder copyWith({
-    BorderSide borderSide,
-    BorderRadius borderRadius,
-    double gapPadding,
-    double cut,
+    BorderSide? borderSide,
+    BorderRadius? borderRadius,
+    double? gapPadding,
+    double? cut,
   }) {
     return CutCornersBorder(
       borderSide: borderSide ?? this.borderSide,
@@ -37,11 +36,11 @@ class CutCornersBorder extends OutlineInputBorder {
   final double cut;
 
   @override
-  ShapeBorder lerpFrom(ShapeBorder a, double t) {
+  ShapeBorder? lerpFrom(ShapeBorder? a, double t) {
     if (a is CutCornersBorder) {
       final outline = a;
       return CutCornersBorder(
-        borderRadius: BorderRadius.lerp(outline.borderRadius, borderRadius, t),
+        borderRadius: BorderRadius.lerp(outline.borderRadius, borderRadius, t)!,
         borderSide: BorderSide.lerp(outline.borderSide, borderSide, t),
         cut: cut,
         gapPadding: outline.gapPadding,
@@ -51,11 +50,11 @@ class CutCornersBorder extends OutlineInputBorder {
   }
 
   @override
-  ShapeBorder lerpTo(ShapeBorder b, double t) {
+  ShapeBorder? lerpTo(ShapeBorder? b, double t) {
     if (b is CutCornersBorder) {
       final outline = b;
       return CutCornersBorder(
-        borderRadius: BorderRadius.lerp(borderRadius, outline.borderRadius, t),
+        borderRadius: BorderRadius.lerp(borderRadius, outline.borderRadius, t)!,
         borderSide: BorderSide.lerp(borderSide, outline.borderSide, t),
         cut: cut,
         gapPadding: outline.gapPadding,
@@ -69,7 +68,9 @@ class CutCornersBorder extends OutlineInputBorder {
     if (start > 0 || extent > 0) {
       path.relativeMoveTo(extent + start, center.top);
       _notchedSidesAndBottom(center, path);
-      path..lineTo(center.left + cut, center.top)..lineTo(start, center.top);
+      path
+        ..lineTo(center.left + cut, center.top)
+        ..lineTo(start, center.top);
     } else {
       path.moveTo(center.left + cut, center.top);
       _notchedSidesAndBottom(center, path);
@@ -93,12 +94,11 @@ class CutCornersBorder extends OutlineInputBorder {
   void paint(
     Canvas canvas,
     Rect rect, {
-    double gapStart,
+    double? gapStart,
     double gapExtent = 0,
     double gapPercentage = 0,
-    TextDirection textDirection,
+    TextDirection? textDirection,
   }) {
-    assert(gapExtent != null);
     assert(gapPercentage >= 0 && gapPercentage <= 1);
 
     final paint = borderSide.toPaint();
@@ -107,18 +107,18 @@ class CutCornersBorder extends OutlineInputBorder {
       canvas.drawPath(_notchedCornerPath(outer.middleRect), paint);
     } else {
       final extent = lerpDouble(0.0, gapExtent + gapPadding * 2, gapPercentage);
-      switch (textDirection) {
+      switch (textDirection!) {
         case TextDirection.rtl:
           {
             final path = _notchedCornerPath(
-                outer.middleRect, gapStart + gapPadding - extent, extent);
+                outer.middleRect, gapStart + gapPadding - extent!, extent);
             canvas.drawPath(path, paint);
             break;
           }
         case TextDirection.ltr:
           {
             final path = _notchedCornerPath(
-                outer.middleRect, gapStart - gapPadding, extent);
+                outer.middleRect, gapStart - gapPadding, extent!);
             canvas.drawPath(path, paint);
             break;
           }

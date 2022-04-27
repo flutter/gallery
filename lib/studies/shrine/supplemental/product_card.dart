@@ -3,19 +3,21 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:intl/intl.dart';
-import 'package:scoped_model/scoped_model.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
+import 'package:intl/intl.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class MobileProductCard extends StatelessWidget {
-  const MobileProductCard({this.imageAspectRatio = 33 / 49, this.product})
-      : assert(imageAspectRatio == null || imageAspectRatio > 0);
+  const MobileProductCard({
+    Key? key,
+    this.imageAspectRatio = 33 / 49,
+    required this.product,
+  })  : assert(imageAspectRatio > 0),
+        super(key: key);
 
   final double imageAspectRatio;
   final Product product;
@@ -38,7 +40,11 @@ class MobileProductCard extends StatelessWidget {
 }
 
 class DesktopProductCard extends StatelessWidget {
-  const DesktopProductCard({@required this.product, @required this.imageWidth});
+  const DesktopProductCard({
+    Key? key,
+    required this.product,
+    required this.imageWidth,
+  }) : super(key: key);
 
   final Product product;
   final double imageWidth;
@@ -54,12 +60,18 @@ class DesktopProductCard extends StatelessWidget {
 }
 
 Widget _buildProductCard({
-  BuildContext context,
-  Product product,
-  double imageWidth,
-  double imageAspectRatio,
+  required BuildContext context,
+  required Product product,
+  double? imageWidth,
+  double? imageAspectRatio,
 }) {
   final isDesktop = isDisplayDesktop(context);
+  // In case of desktop , imageWidth is passed through [DesktopProductCard] in
+  // case of mobile imageAspectRatio is passed through [MobileProductCard].
+  // Below assert is so that correct combination should always be present.
+  assert(isDesktop && imageWidth != null ||
+      !isDesktop && imageAspectRatio != null);
+
   final formatter = NumberFormat.simpleCurrency(
     decimalDigits: 0,
     locale: Localizations.localeOf(context).toString(),
@@ -81,13 +93,16 @@ Widget _buildProductCard({
   return ScopedModelDescendant<AppStateModel>(
     builder: (context, child, model) {
       return Semantics(
-        hint:
-            GalleryLocalizations.of(context).shrineScreenReaderProductAddToCart,
-        child: GestureDetector(
-          onTap: () {
-            model.addProductToCart(product.id);
-          },
-          child: child,
+        hint: GalleryLocalizations.of(context)!
+            .shrineScreenReaderProductAddToCart,
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              model.addProductToCart(product.id);
+            },
+            child: child,
+          ),
         ),
       );
     },
@@ -100,7 +115,7 @@ Widget _buildProductCard({
             isDesktop
                 ? imageWidget
                 : AspectRatio(
-                    aspectRatio: imageAspectRatio,
+                    aspectRatio: imageAspectRatio!,
                     child: imageWidget,
                   ),
             SizedBox(
@@ -109,10 +124,10 @@ Widget _buildProductCard({
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 23),
-                  Container(
+                  SizedBox(
                     width: imageWidth,
                     child: Text(
-                      product == null ? '' : product.name(context),
+                      product.name(context),
                       style: theme.textTheme.button,
                       softWrap: true,
                       textAlign: TextAlign.center,
@@ -120,7 +135,7 @@ Widget _buildProductCard({
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    product == null ? '' : formatter.format(product.price),
+                    formatter.format(product.price),
                     style: theme.textTheme.caption,
                   ),
                 ],

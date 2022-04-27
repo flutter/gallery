@@ -17,17 +17,17 @@ class HeaderFormField {
   final TextEditingController textController;
 
   const HeaderFormField({
-    this.index,
-    this.iconData,
-    this.title,
-    this.textController,
+    required this.index,
+    required this.iconData,
+    required this.title,
+    required this.textController,
   });
 }
 
 class HeaderForm extends StatelessWidget {
   final List<HeaderFormField> fields;
 
-  const HeaderForm({Key key, this.fields}) : super(key: key);
+  const HeaderForm({Key? key, required this.fields}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class HeaderForm extends StatelessWidget {
 class _HeaderTextField extends StatelessWidget {
   final HeaderFormField field;
 
-  _HeaderTextField({this.field});
+  const _HeaderTextField({required this.field});
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,7 @@ class _HeaderTextField extends StatelessWidget {
       controller: field.textController,
       cursorColor: Theme.of(context).colorScheme.secondary,
       style:
-          Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
+          Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.white),
       onTap: () {},
       decoration: InputDecoration(
         border: OutlineInputBorder(

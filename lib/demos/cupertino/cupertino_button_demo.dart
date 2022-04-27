@@ -9,32 +9,32 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoButtonDemo
 
 class CupertinoButtonDemo extends StatelessWidget {
-  const CupertinoButtonDemo();
+  const CupertinoButtonDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final localizations = GalleryLocalizations.of(context)!;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle:
-            Text(GalleryLocalizations.of(context).demoCupertinoButtonsTitle),
+        middle: Text(localizations.demoCupertinoButtonsTitle),
       ),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CupertinoButton(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoButton,
-              ),
               onPressed: () {},
+              child: Text(
+                localizations.cupertinoButton,
+              ),
             ),
             const SizedBox(height: 16),
             CupertinoButton.filled(
-              child: Text(
-                GalleryLocalizations.of(context).cupertinoButtonWithBackground,
-              ),
               onPressed: () {},
+              child: Text(
+                localizations.cupertinoButtonWithBackground,
+              ),
             ),
           ],
         ),

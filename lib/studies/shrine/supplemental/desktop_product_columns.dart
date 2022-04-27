@@ -20,13 +20,14 @@ const columnTopSpace = 84.0;
 
 class DesktopProductCardColumn extends StatelessWidget {
   const DesktopProductCardColumn({
-    @required this.alignToEnd,
-    @required this.startLarge,
-    @required this.lowerStart,
-    @required this.products,
-    @required this.largeImageWidth,
-    @required this.smallImageWidth,
-  });
+    Key? key,
+    required this.alignToEnd,
+    required this.startLarge,
+    required this.lowerStart,
+    required this.products,
+    required this.largeImageWidth,
+    required this.smallImageWidth,
+  }) : super(key: key);
 
   final List<Product> products;
 
@@ -44,7 +45,7 @@ class DesktopProductCardColumn extends StatelessWidget {
       final currentColumnWidgetCount =
           max(2 * currentColumnProductCount - 1, 0);
 
-      return Container(
+      return SizedBox(
         width: largeImageWidth,
         child: Column(
           crossAxisAlignment:

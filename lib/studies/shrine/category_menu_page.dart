@@ -3,10 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
-
-import 'package:gallery/data/gallery_options.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/shrine/app.dart';
@@ -15,20 +13,21 @@ import 'package:gallery/studies/shrine/model/app_state_model.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 import 'package:gallery/studies/shrine/page_status.dart';
 import 'package:gallery/studies/shrine/triangle_category_indicator.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 double desktopCategoryMenuPageWidth({
-  BuildContext context,
+  required BuildContext context,
 }) {
   return 232 * reducedTextScale(context);
 }
 
 class CategoryMenuPage extends StatelessWidget {
   const CategoryMenuPage({
-    Key key,
+    Key? key,
     this.onCategoryTap,
   }) : super(key: key);
 
-  final VoidCallback onCategoryTap;
+  final VoidCallback? onCategoryTap;
 
   Widget _buttonText(String caption, TextStyle style) {
     return Padding(
@@ -41,7 +40,7 @@ class CategoryMenuPage extends StatelessWidget {
     );
   }
 
-  Widget _divider({BuildContext context}) {
+  Widget _divider({required BuildContext context}) {
     return Container(
       width: 56 * GalleryOptions.of(context).textScaleFactor(context),
       height: 1,
@@ -56,7 +55,7 @@ class CategoryMenuPage extends StatelessWidget {
 
     final selectedCategoryTextStyle = Theme.of(context)
         .textTheme
-        .bodyText1
+        .bodyText1!
         .copyWith(fontSize: isDesktop ? 17 : 19);
 
     final unselectedCategoryTextStyle = selectedCategoryTextStyle.copyWith(
@@ -71,22 +70,26 @@ class CategoryMenuPage extends StatelessWidget {
         selected: model.selectedCategory == category,
         button: true,
         enabled: true,
-        child: GestureDetector(
-          onTap: () {
-            model.setCategory(category);
-            if (onCategoryTap != null) {
-              onCategoryTap();
-            }
-          },
-          child: model.selectedCategory == category
-              ? CustomPaint(
-                  painter: TriangleCategoryIndicator(
-                    indicatorWidth,
-                    indicatorHeight,
-                  ),
-                  child: _buttonText(categoryString, selectedCategoryTextStyle),
-                )
-              : _buttonText(categoryString, unselectedCategoryTextStyle),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              model.setCategory(category);
+              if (onCategoryTap != null) {
+                onCategoryTap!();
+              }
+            },
+            child: model.selectedCategory == category
+                ? CustomPaint(
+                    painter: TriangleCategoryIndicator(
+                      indicatorWidth,
+                      indicatorHeight,
+                    ),
+                    child:
+                        _buttonText(categoryString, selectedCategoryTextStyle),
+                  )
+                : _buttonText(categoryString, unselectedCategoryTextStyle),
+          ),
         ),
       ),
     );
@@ -96,14 +99,14 @@ class CategoryMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    final logoutTextStyle = Theme.of(context).textTheme.bodyText1.copyWith(
+    final logoutTextStyle = Theme.of(context).textTheme.bodyText1!.copyWith(
           fontSize: isDesktop ? 17 : 19,
           color: shrineBrown900.withOpacity(0.6),
         );
 
     if (isDesktop) {
       return AnimatedBuilder(
-        animation: PageStatus.of(context).cartController,
+        animation: PageStatus.of(context)!.cartController,
         builder: (context, child) => ExcludeSemantics(
           excluding: !menuPageIsVisible(context),
           child: Material(
@@ -132,15 +135,18 @@ class CategoryMenuPage extends StatelessWidget {
                   Semantics(
                     button: true,
                     enabled: true,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .restorablePushNamed(ShrineApp.loginRoute);
-                      },
-                      child: _buttonText(
-                        GalleryLocalizations.of(context)
-                            .shrineLogoutButtonCaption,
-                        logoutTextStyle,
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .restorablePushNamed(ShrineApp.loginRoute);
+                        },
+                        child: _buttonText(
+                          GalleryLocalizations.of(context)!
+                              .shrineLogoutButtonCaption,
+                          logoutTextStyle,
+                        ),
                       ),
                     ),
                   ),
@@ -148,7 +154,7 @@ class CategoryMenuPage extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.search),
                     tooltip:
-                        GalleryLocalizations.of(context).shrineTooltipSearch,
+                        GalleryLocalizations.of(context)!.shrineTooltipSearch,
                     onPressed: () {},
                   ),
                   const SizedBox(height: 72),
@@ -160,9 +166,9 @@ class CategoryMenuPage extends StatelessWidget {
       );
     } else {
       return AnimatedBuilder(
-        animation: PageStatus.of(context).cartController,
+        animation: PageStatus.of(context)!.cartController,
         builder: (context, child) => AnimatedBuilder(
-          animation: PageStatus.of(context).menuController,
+          animation: PageStatus.of(context)!.menuController,
           builder: (context, child) => ExcludeSemantics(
             excluding: !menuPageIsVisible(context),
             child: Center(
@@ -179,18 +185,21 @@ class CategoryMenuPage extends StatelessWidget {
                     Semantics(
                       button: true,
                       enabled: true,
-                      child: GestureDetector(
-                        onTap: () {
-                          if (onCategoryTap != null) {
-                            onCategoryTap();
-                          }
-                          Navigator.of(context)
-                              .restorablePushNamed(ShrineApp.loginRoute);
-                        },
-                        child: _buttonText(
-                          GalleryLocalizations.of(context)
-                              .shrineLogoutButtonCaption,
-                          logoutTextStyle,
+                      child: MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (onCategoryTap != null) {
+                              onCategoryTap!();
+                            }
+                            Navigator.of(context)
+                                .restorablePushNamed(ShrineApp.loginRoute);
+                          },
+                          child: _buttonText(
+                            GalleryLocalizations.of(context)!
+                                .shrineLogoutButtonCaption,
+                            logoutTextStyle,
+                          ),
                         ),
                       ),
                     ),
