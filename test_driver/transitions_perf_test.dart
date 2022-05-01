@@ -12,7 +12,7 @@ import 'package:test/test.dart' hide TypeMatcher, isInstanceOf;
 //    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device>
 // To run this test for just Crane, with scrolling:
 //    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyCrane=true
-// To run this test for just Crane, with animations:
+// To run this test for just Reply, with animations:
 //    flutter drive --profile --trace-startup -t test_driver/transitions_perf.dart -d <device> --dart-define=onlyReply=true
 // Enable semantics with the --with_semantics flag
 // Note: The number of tests executed with timeline collection enabled
