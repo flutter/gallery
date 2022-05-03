@@ -8,12 +8,15 @@ import '../tool/codeviewer_cli/segment_generator.dart';
 import 'utils.dart';
 
 void main() {
+  bool _compareCodeSegments(String a, String b) {
+    return standardizeLineEndings(a) == standardizeLineEndings(b);
+  }
+
   test('verify code segments are up to date', () async {
     final currentCodeSegments = readCodeSegments();
     var newCodeSegments = await getCodeSegments();
 
-    expect(standardizeLineEndings(newCodeSegments),
-        standardizeLineEndings(currentCodeSegments),
+    expect(_compareCodeSegments(currentCodeSegments, newCodeSegments), true,
         reason: 'code_segments.dart is not up to date. '
             'Did you forget to run `flutter pub run grinder update-code-segments`?');
   });

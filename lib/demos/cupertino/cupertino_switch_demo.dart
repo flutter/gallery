@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoSwitchDemo
@@ -41,13 +40,22 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
         child: Semantics(
           container: true,
           label: localizations.demoSelectionControlsSwitchTitle,
-          child: CupertinoSwitch(
-            value: _switchValue.value,
-            onChanged: (value) {
-              setState(() {
-                _switchValue.value = value;
-              });
-            },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CupertinoSwitch(
+                value: _switchValue.value,
+                onChanged: (value) {
+                  setState(() {
+                    _switchValue.value = value;
+                  });
+                },
+              ),
+              CupertinoSwitch(
+                value: _switchValue.value,
+                onChanged: null,
+              ),
+            ],
           ),
         ),
       ),
