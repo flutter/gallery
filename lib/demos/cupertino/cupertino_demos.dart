@@ -4,7 +4,6 @@ export 'package:gallery/demos/cupertino/cupertino_button_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_context_menu_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_picker_demo.dart';
-export 'package:gallery/demos/cupertino/cupertino_refresh_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_slider_demo.dart';
 export 'package:gallery/demos/cupertino/cupertino_switch_demo.dart';
