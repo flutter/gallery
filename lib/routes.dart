@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/deferred_widget.dart';
-import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
 import 'package:gallery/pages/home.dart';
