@@ -63,13 +63,15 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
             ),
           );
         },
-        child: _Menu(children: [
-          Text(GalleryLocalizations.of(context)!.demoCupertinoPickerDate),
-          Text(
-            DateFormat.yMMMMd().format(date),
-            style: const TextStyle(color: CupertinoColors.inactiveGray),
-          ),
-        ]),
+        child: _Menu(
+          children: [
+            Text(GalleryLocalizations.of(context)!.demoCupertinoPickerDate),
+            Text(
+              DateFormat.yMMMMd().format(date),
+              style: const TextStyle(color: CupertinoColors.inactiveGray),
+            ),
+          ],
+        ),
       ),
     );
   }

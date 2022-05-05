@@ -1113,26 +1113,6 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
       category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
-      title: localizations.demoCupertinoPullToRefreshTitle,
-      icon: GalleryIcons.cupertinoPullToRefresh,
-      slug: 'cupertino-pull-to-refresh',
-      subtitle: localizations.demoCupertinoPullToRefreshSubtitle,
-      configurations: [
-        GalleryDemoConfiguration(
-          title: localizations.demoCupertinoPullToRefreshTitle,
-          description: localizations.demoCupertinoPullToRefreshDescription,
-          documentationUrl:
-              '$_docsBaseUrl/cupertino/CupertinoSliverRefreshControl-class.html',
-          buildRoute: (_) => DeferredWidget(
-              cupertinoLoader,
-              // ignore: prefer_const_constructors
-              () => cupertino_demos.CupertinoRefreshControlDemo()),
-          code: CodeSegments.cupertinoRefreshDemo,
-        ),
-      ],
-      category: GalleryDemoCategory.cupertino,
-    ),
-    GalleryDemo(
       title: localizations.demoCupertinoSegmentedControlTitle,
       icon: GalleryIcons.tabs,
       slug: 'cupertino-segmented-control',

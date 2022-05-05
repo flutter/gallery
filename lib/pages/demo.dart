@@ -793,7 +793,7 @@ class CodeDisplayPage extends StatelessWidget {
     final richTextCode = code(context);
     final plainTextCode = richTextCode.toPlainText();
 
-    void _showSnackBarOnCopySuccess(dynamic result) {
+    void showSnackBarOnCopySuccess(dynamic result) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -804,7 +804,7 @@ class CodeDisplayPage extends StatelessWidget {
       );
     }
 
-    void _showSnackBarOnCopyFailure(Object exception) {
+    void showSnackBarOnCopyFailure(Object exception) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -832,8 +832,8 @@ class CodeDisplayPage extends StatelessWidget {
             ),
             onPressed: () async {
               await Clipboard.setData(ClipboardData(text: plainTextCode))
-                  .then(_showSnackBarOnCopySuccess)
-                  .catchError(_showSnackBarOnCopyFailure);
+                  .then(showSnackBarOnCopySuccess)
+                  .catchError(showSnackBarOnCopyFailure);
             },
             child: Text(
               GalleryLocalizations.of(context)!.demoCodeViewerCopyAll,

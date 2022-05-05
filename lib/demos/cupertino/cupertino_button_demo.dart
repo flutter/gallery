@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoButtonDemo
@@ -32,6 +31,21 @@ class CupertinoButtonDemo extends StatelessWidget {
             const SizedBox(height: 16),
             CupertinoButton.filled(
               onPressed: () {},
+              child: Text(
+                localizations.cupertinoButtonWithBackground,
+              ),
+            ),
+            const SizedBox(height: 30),
+            // Disabled buttons
+            CupertinoButton(
+              onPressed: null,
+              child: Text(
+                localizations.cupertinoButton,
+              ),
+            ),
+            const SizedBox(height: 16),
+            CupertinoButton.filled(
+              onPressed: null,
               child: Text(
                 localizations.cupertinoButtonWithBackground,
               ),
