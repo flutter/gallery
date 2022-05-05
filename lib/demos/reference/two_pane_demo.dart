@@ -26,10 +26,10 @@ class TwoPaneDemo extends StatefulWidget {
   final TwoPaneDemoType type;
 
   @override
-  _TwoPaneDemoState createState() => _TwoPaneDemoState();
+  TwoPaneDemoState createState() => TwoPaneDemoState();
 }
 
-class _TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
+class TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
   final RestorableInt _currentIndex = RestorableInt(-1);
 
   @override
@@ -95,7 +95,7 @@ class ListPane extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('List'),
+        title: const Text('List'),
       ),
       body: Scrollbar(
         child: ListView(
@@ -138,10 +138,10 @@ class DetailsPane extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: onClose == null ? null : IconButton(icon: const Icon(Icons.close), onPressed: onClose),
-        title: Text('Details'),
+        title: const Text('Details'),
       ),
       body: Container(
-        color: Color(0xfffafafa),
+        color: const Color(0xfffafafa),
         child: Center(
           child: Text(selectedIndex == -1
               ? 'Select an item'

@@ -331,10 +331,9 @@ class SettingsFeedback extends StatelessWidget {
       icon: Icons.feedback,
       onTap: () async {
         const url = 'https://github.com/flutter/gallery/issues/new/choose/';
-        if (await canLaunch(url)) {
-          await launch(
-            url,
-            forceSafariVC: false,
+        if (await canLaunchUrl(Uri.parse(url))) {
+          await launchUrl(
+            Uri.parse(url),
           );
         }
       },

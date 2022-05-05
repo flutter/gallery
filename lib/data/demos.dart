@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
-
 import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/demos/cupertino/cupertino_demos.dart'
     deferred as cupertino_demos;
@@ -28,10 +28,10 @@ import 'package:gallery/demos/reference/motion_demo_fade_through_transition.dart
 import 'package:gallery/demos/reference/motion_demo_shared_x_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dart';
 import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dart';
-import 'package:gallery/demos/reference/two_pane_demo.dart'
-    deferred as twopane_demo;
 import 'package:gallery/demos/reference/transformations_demo.dart'
     deferred as transformations_demo;
+import 'package:gallery/demos/reference/two_pane_demo.dart'
+    deferred as twopane_demo;
 import 'package:gallery/demos/reference/typography_demo.dart'
     deferred as typography;
 
@@ -1235,7 +1235,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
               restorationId: 'two_pane_dual_pane',
             ),
           ),
-          code: CodeSegments.colorsDemo, // TODO: Generate and use new code
+          code: CodeSegments.twoPaneDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoTwoPaneTabletLabel,
@@ -1249,7 +1249,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
               restorationId: 'two_pane_tablet',
             ),
           ),
-          code: CodeSegments.colorsDemo, // TODO: Generate and use new code
+          code: CodeSegments.twoPaneDemo,
         ),
         GalleryDemoConfiguration(
           title: localizations.demoTwoPaneSingleScreenLabel,
@@ -1263,7 +1263,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
               restorationId: 'two_pane_single',
             ),
           ),
-          code: CodeSegments.colorsDemo, // TODO: Generate and use new code
+          code: CodeSegments.twoPaneDemo,
         ),
       ],
       category: GalleryDemoCategory.other,

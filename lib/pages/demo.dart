@@ -192,8 +192,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   Future<void> _showDocumentation(BuildContext context) async {
     final url = _currentConfig.documentationUrl;
 
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
     } else {
       await showDialog<void>(
         context: context,
@@ -730,7 +730,7 @@ class DemoWrapper extends StatelessWidget {
       height: height,
       child: Material(
         clipBehavior: Clip.antiAlias,
-        color: Color(0x00000000),
+        color: const Color(0x00000000),
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(10.0),
           bottom: Radius.circular(2.0),
