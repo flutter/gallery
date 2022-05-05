@@ -160,9 +160,7 @@ class _SplashPageState extends State<SplashPage>
                     }
                   },
                   child: _SplashBackLayer(
-                    isSplashCollapsed: !_isSplashVisible,
-                    effect: _effect
-                  ),
+                      isSplashCollapsed: !_isSplashVisible, effect: _effect),
                 ),
               );
             } else {
@@ -265,7 +263,11 @@ class _SplashBackLayer extends StatelessWidget {
         color: const Color(0xFF030303),
         child: Padding(
           padding: EdgeInsets.only(
-            bottom: isDisplayDesktop(context) ? homePeekDesktop : isDisplayFoldable(context) ? 0 : homePeekMobile,
+            bottom: isDisplayDesktop(context)
+                ? homePeekDesktop
+                : isDisplayFoldable(context)
+                    ? 0
+                    : homePeekMobile,
           ),
           child: child,
         ),

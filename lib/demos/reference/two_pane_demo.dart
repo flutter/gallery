@@ -50,7 +50,9 @@ class TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
   Widget build(BuildContext context) {
     var panePriority = TwoPanePriority.both;
     if (widget.type == TwoPaneDemoType.singleScreen) {
-      panePriority = _currentIndex.value == -1 ? TwoPanePriority.start : TwoPanePriority.end;
+      panePriority = _currentIndex.value == -1
+          ? TwoPanePriority.start
+          : TwoPanePriority.end;
     }
     return SimulateScreen(
       type: widget.type,
@@ -137,7 +139,9 @@ class DetailsPane extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: onClose == null ? null : IconButton(icon: const Icon(Icons.close), onPressed: onClose),
+        leading: onClose == null
+            ? null
+            : IconButton(icon: const Icon(Icons.close), onPressed: onClose),
         title: const Text('Details'),
       ),
       body: Container(

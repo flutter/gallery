@@ -1183,8 +1183,8 @@ class _StudyWrapperState extends State<StudyWrapper> {
                       ),
                       label: Text(
                         MaterialLocalizations.of(context).backButtonTooltip,
-                        style:
-                            textTheme.button!.apply(color: colorScheme.onPrimary),
+                        style: textTheme.button!
+                            .apply(color: colorScheme.onPrimary),
                       ),
                     ),
                   ),

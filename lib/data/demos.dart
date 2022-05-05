@@ -1226,7 +1226,8 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
         GalleryDemoConfiguration(
           title: localizations.demoTwoPaneDualScreenLabel,
           description: localizations.demoTwoPaneDualScreenDescription,
-          documentationUrl: '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+          documentationUrl:
+              '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
@@ -1240,11 +1241,12 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
         GalleryDemoConfiguration(
           title: localizations.demoTwoPaneTabletLabel,
           description: localizations.demoTwoPaneTabletDescription,
-          documentationUrl: '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+          documentationUrl:
+              '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
-                () => twopane_demo.TwoPaneDemo(
+            () => twopane_demo.TwoPaneDemo(
               type: twopane_demo.TwoPaneDemoType.tablet,
               restorationId: 'two_pane_tablet',
             ),
@@ -1254,11 +1256,12 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
         GalleryDemoConfiguration(
           title: localizations.demoTwoPaneSingleScreenLabel,
           description: localizations.demoTwoPaneSingleScreenDescription,
-          documentationUrl: '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+          documentationUrl:
+              '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
-                () => twopane_demo.TwoPaneDemo(
+            () => twopane_demo.TwoPaneDemo(
               type: twopane_demo.TwoPaneDemoType.singleScreen,
               restorationId: 'two_pane_single',
             ),

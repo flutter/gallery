@@ -93,11 +93,11 @@ class RouteConfiguration {
       true,
     ),
     Path(
-        r'^' + reply_routes.homeRoute,
-        // ignore: prefer_const_constructors
-        (context, match) =>
-            const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true),
-        true,
+      r'^' + reply_routes.homeRoute,
+      // ignore: prefer_const_constructors
+      (context, match) =>
+          const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true),
+      true,
     ),
     Path(
       r'^' + starter_app_routes.defaultRoute,
@@ -185,8 +185,7 @@ class TwoPanePageRoute<T> extends OverlayRoute<T> {
             left: hinge.right,
             right: 0,
             bottom: 0,
-            child: builder.call(context)
-        );
+            child: builder.call(context));
       }
     });
   }

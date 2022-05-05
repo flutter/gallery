@@ -220,7 +220,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       // Do not allow fullscreen state for mobile.
       _demoStateIndex.value = _DemoState.normal.index;
     } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal &&
-        (isDesktop || isFoldable )) {
+        (isDesktop || isFoldable)) {
       // Do not allow normal state for desktop.
       _demoStateIndex.value =
           _hasOptions ? _DemoState.options.index : _DemoState.info.index;
