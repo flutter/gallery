@@ -3097,4 +3097,28 @@
     name="replyDraftsLabel"
     description="Text label for Drafts destination."
     >Drafts</string>
+  <string
+    name="demoTwoPaneDualScreenLabel"
+    description="Option title for TwoPane demo in dual screen mode."
+    >Dual Screen</string>
+  <string
+    name="demoTwoPaneDualScreenDescription"
+    description="Description for the dual screen option configuration on the TwoPane demo"
+    >This is how it behaves on a dual screen device.</string>
+  <string
+    name="demoTwoPaneSingleScreenLabel"
+    description="Option title for TwoPane demo in single screen mode."
+    >Single Screen</string>
+  <string
+    name="demoTwoPaneSingleScreenDescription"
+    description="Description for the single screen option configuration on the TwoPane demo"
+    >This is how it behaves on a single screen device.</string>
+  <string
+    name="demoTwoPaneTabletLabel"
+    description="Option title for TwoPane demo in tablet or desktop mode."
+    >Tablet / Desktop</string>
+  <string
+    name="demoTwoPaneTabletDescription"
+    description="Description for the tablet / desktop option configuration on the TwoPane demo"
+    >This is how it behaves on a larger screen like a tablet or desktop.</string>
 </resources>
