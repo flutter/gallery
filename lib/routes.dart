@@ -25,7 +25,7 @@ import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 typedef PathWidgetBuilder = Widget Function(BuildContext, String?);
 
 class Path {
-  const Path(this.pattern, this.builder, this.openInSecondScreen);
+  const Path(this.pattern, this.builder, {this.openInSecondScreen = false});
 
   /// A RegEx string for route matching.
   final String pattern;
@@ -42,6 +42,7 @@ class Path {
   /// ```
   final PathWidgetBuilder builder;
 
+  /// If the route should open on the second screen on foldables.
   final bool openInSecondScreen;
 }
 
@@ -55,7 +56,7 @@ class RouteConfiguration {
     Path(
       r'^' + DemoPage.baseRoute + r'/([\w-]+)$',
       (context, match) => DemoPage(slug: match),
-      false,
+      openInSecondScreen: false,
     ),
     Path(
       r'^' + rally_routes.homeRoute,
@@ -63,7 +64,7 @@ class RouteConfiguration {
         study: DeferredWidget(rally.loadLibrary,
             () => rally.RallyApp()), // ignore: prefer_const_constructors
       ),
-      true,
+      openInSecondScreen: true,
     ),
     Path(
       r'^' + shrine_routes.homeRoute,
@@ -71,7 +72,7 @@ class RouteConfiguration {
         study: DeferredWidget(shrine.loadLibrary,
             () => shrine.ShrineApp()), // ignore: prefer_const_constructors
       ),
-      true,
+      openInSecondScreen: true,
     ),
     Path(
       r'^' + crane_routes.defaultRoute,
@@ -80,7 +81,7 @@ class RouteConfiguration {
             () => crane.CraneApp(), // ignore: prefer_const_constructors
             placeholder: const DeferredLoadingPlaceholder(name: 'Crane')),
       ),
-      true,
+      openInSecondScreen: true,
     ),
     Path(
       r'^' + fortnightly_routes.defaultRoute,
@@ -90,26 +91,26 @@ class RouteConfiguration {
             // ignore: prefer_const_constructors
             () => fortnightly.FortnightlyApp()),
       ),
-      true,
+      openInSecondScreen: true,
     ),
     Path(
       r'^' + reply_routes.homeRoute,
       // ignore: prefer_const_constructors
       (context, match) =>
           const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true),
-      true,
+      openInSecondScreen: true,
     ),
     Path(
       r'^' + starter_app_routes.defaultRoute,
       (context, match) => const StudyWrapper(
         study: starter_app.StarterApp(),
       ),
-      true,
+      openInSecondScreen: true,
     ),
     Path(
       r'^/',
       (context, match) => const RootPage(),
-      false,
+      openInSecondScreen: false,
     ),
   ];
 
