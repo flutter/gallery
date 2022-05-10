@@ -3107,7 +3107,7 @@
     >This is how it behaves on a foldable device.</string>
   <string
     name="demoTwoPaneSingleScreenLabel"
-    description="Option title for TwoPane demo in single screen mode."
+    description="Option title for TwoPane demo in single screen mode. Counterpart of the foldable option."
     >Single Screen</string>
   <string
     name="demoTwoPaneSingleScreenDescription"
