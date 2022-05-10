@@ -231,10 +231,7 @@ class _SplashBackLayer extends StatelessWidget {
           child: Stack(
             children: [
               Center(
-                child: Image.asset(
-                  'assets/logo/flutter_logo_color.png',
-                  package: 'flutter_gallery_assets',
-                ),
+                child: flutterLogo,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 100.0),
