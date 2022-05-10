@@ -811,11 +811,11 @@
     >Alert With Title</string>
   <string
     name="demoSimpleDialogTitle"
-    description="Title for the simple dialog component demo."
+    description="Title for the foldable dialog component demo."
     >Simple</string>
   <string
     name="demoSimpleDialogDescription"
-    description="Description for the simple dialog component demo."
+    description="Description for the foldable dialog component demo."
     >A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.</string>
   <string
     name="demoDividerTitle"

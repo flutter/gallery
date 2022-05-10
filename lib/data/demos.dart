@@ -479,6 +479,16 @@ List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
               () => material_demos.DialogDemo(type: DialogDemoType.fullscreen)),
           code: CodeSegments.dialogDemo,
         ),
+        GalleryDemoConfiguration(
+          title: localizations.demoFoldableDialogTitle,
+          description: localizations.demoFoldableDialogDescription,
+          documentationUrl: '$_docsBaseUrl/material/AlertDialog-class.html',
+          buildRoute: (context) => DeferredWidget(
+              materialDemosLibrary,
+              // ignore: prefer_const_constructors
+              () => material_demos.DialogDemo(type: DialogDemoType.foldable)),
+          code: CodeSegments.dialogDemo,
+        ),
       ],
       category: GalleryDemoCategory.material,
     ),
