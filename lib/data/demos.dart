@@ -1218,14 +1218,14 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
 List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
     GalleryDemo(
-      title: 'TwoPane',
+      title: localizations.demoTwoPaneTitle,
       icon: GalleryIcons.bottomSheetPersistent,
       slug: 'two-pane',
-      subtitle: 'Responsive on dual, single or larger screens',
+      subtitle: localizations.demoTwoPaneSubtitle,
       configurations: [
         GalleryDemoConfiguration(
-          title: localizations.demoTwoPaneDualScreenLabel,
-          description: localizations.demoTwoPaneDualScreenDescription,
+          title: localizations.demoTwoPaneFoldableLabel,
+          description: localizations.demoTwoPaneFoldableDescription,
           documentationUrl:
               'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
           buildRoute: (_) => DeferredWidget(
@@ -1233,7 +1233,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
             // ignore: prefer_const_constructors
             () => twopane_demo.TwoPaneDemo(
               type: twopane_demo.TwoPaneDemoType.dualScreen,
-              restorationId: 'two_pane_dual_pane',
+              restorationId: 'two_pane_foldable',
             ),
           ),
           code: CodeSegments.twoPaneDemo,

@@ -97,7 +97,7 @@ class ListPane extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('List'),
+        title: Text(GalleryLocalizations.of(context)!.demoTwoPaneList),
       ),
       body: Scrollbar(
         child: ListView(
@@ -114,7 +114,7 @@ class ListPane extends StatelessWidget {
                   child: CircleAvatar(child: Text('$index')),
                 ),
                 title: Text(
-                  GalleryLocalizations.of(context)!.demoBottomSheetItem(index),
+                  GalleryLocalizations.of(context)!.demoTwoPaneItem(index),
                 ),
               ),
           ],
@@ -142,14 +142,19 @@ class DetailsPane extends StatelessWidget {
         leading: onClose == null
             ? null
             : IconButton(icon: const Icon(Icons.close), onPressed: onClose),
-        title: const Text('Details'),
+        title: Text(
+          GalleryLocalizations.of(context)!.demoTwoPaneDetails,
+        ),
       ),
       body: Container(
         color: const Color(0xfffafafa),
         child: Center(
-          child: Text(selectedIndex == -1
-              ? 'Select an item'
-              : 'Item $selectedIndex Details'),
+          child: Text(
+            selectedIndex == -1
+                ? GalleryLocalizations.of(context)!.demoTwoPaneSelectItem
+                : GalleryLocalizations.of(context)!
+                    .demoTwoPaneItemDetails(selectedIndex),
+          ),
         ),
       ),
     );

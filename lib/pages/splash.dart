@@ -6,6 +6,7 @@ import 'dart:math';
 
 import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
@@ -235,9 +236,13 @@ class _SplashBackLayer extends StatelessWidget {
                   package: 'flutter_gallery_assets',
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 100.0),
-                child: Center(child: Text('Select a demo')),
+              Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: Center(
+                  child: Text(
+                    GalleryLocalizations.of(context)!.splashSelectDemo,
+                  ),
+                ),
               )
             ],
           ),

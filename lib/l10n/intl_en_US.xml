@@ -3098,27 +3098,55 @@
     description="Text label for Drafts destination."
     >Drafts</string>
   <string
-    name="demoTwoPaneDualScreenLabel"
-    description="Option title for TwoPane demo in dual screen mode."
-    >Dual Screen</string>
+    name="demoTwoPaneFoldableLabel"
+    description="Option title for TwoPane demo in foldable mode."
+    >Foldable</string>
   <string
-    name="demoTwoPaneDualScreenDescription"
-    description="Description for the dual screen option configuration on the TwoPane demo"
-    >This is how it behaves on a dual screen device.</string>
+    name="demoTwoPaneFoldableDescription"
+    description="Description for the foldable option configuration on the TwoPane demo."
+    >This is how it behaves on a foldable device.</string>
   <string
     name="demoTwoPaneSingleScreenLabel"
     description="Option title for TwoPane demo in single screen mode."
     >Single Screen</string>
   <string
     name="demoTwoPaneSingleScreenDescription"
-    description="Description for the single screen option configuration on the TwoPane demo"
-    >This is how it behaves on a single screen device.</string>
+    description="Description for the single screen option configuration on the TwoPane demo."
+    >This is how TwoPane behaves on a single screen device.</string>
   <string
     name="demoTwoPaneTabletLabel"
     description="Option title for TwoPane demo in tablet or desktop mode."
     >Tablet / Desktop</string>
   <string
     name="demoTwoPaneTabletDescription"
-    description="Description for the tablet / desktop option configuration on the TwoPane demo"
-    >This is how it behaves on a larger screen like a tablet or desktop.</string>
+    description="Description for the tablet / desktop option configuration on the TwoPane demo."
+    >This is how TwoPane behaves on a larger screen like a tablet or desktop.</string>
+  <string
+    name="demoTwoPaneTitle"
+    description="Title for the TwoPane widget demo."
+    >TwoPane</string>
+  <string
+    name="demoTwoPaneSubtitle"
+    description="Subtitle for the TwoPane widget demo."
+    >Responsive on foldable and large screens</string>
+  <string
+    name="splashSelectDemo"
+    description="Tip for user, visible on the right side of the splash screen when Gallery runs on a foldable device."
+    >Select a demo</string>
+  <string
+    name="demoTwoPaneList"
+    description="Title of one of the panes in the TwoPane demo. It sits on top of a list of items."
+    >List</string>
+  <string
+    name="demoTwoPaneDetails"
+    description="Tip for user, visible on the right side of the TwoPane widget demo in the foldable configuration."
+    >Details</string>
+  <string
+    name="demoTwoPaneItem"
+    description="Generic item placeholder visible in the TwoPane widget demo."
+    >Item {value}</string>
+  <string
+    name="demoTwoPaneItemDetails"
+    description="Generic item description or details visible in the TwoPane widget demo."
+    >Item {value} details</string>
 </resources>
