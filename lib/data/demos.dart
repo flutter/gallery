@@ -1227,7 +1227,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demoTwoPaneDualScreenLabel,
           description: localizations.demoTwoPaneDualScreenDescription,
           documentationUrl:
-              '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+              'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
@@ -1242,7 +1242,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demoTwoPaneTabletLabel,
           description: localizations.demoTwoPaneTabletDescription,
           documentationUrl:
-              '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+              'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
@@ -1257,7 +1257,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           title: localizations.demoTwoPaneSingleScreenLabel,
           description: localizations.demoTwoPaneSingleScreenDescription,
           documentationUrl:
-              '$_docsBaseUrl/todo-add-link-to-two-pane-documentation.html',
+              'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
