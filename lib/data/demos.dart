@@ -1242,7 +1242,7 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
             () => twopane_demo.TwoPaneDemo(
-              type: twopane_demo.TwoPaneDemoType.dualScreen,
+              type: twopane_demo.TwoPaneDemoType.foldable,
               restorationId: 'two_pane_foldable',
             ),
           ),

@@ -10,7 +10,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN twoPaneDemo
 
 enum TwoPaneDemoType {
-  dualScreen,
+  foldable,
   singleScreen,
   tablet,
 }
@@ -171,37 +171,52 @@ class SimulateScreen extends StatelessWidget {
   final TwoPaneDemoType type;
   final TwoPane child;
 
+  // An approximation of a real foldable
+  static const double foldableAspectRatio = 20 / 18;
+  // 16x9 candy bar phone
+  static const double singleScreenAspectRatio = 9 / 16;
+  // Taller desktop / tablet
+  static const double tabletAspectRatio = 4 / 3;
+  // How wide should the hinge be, as a proportion of total width
+  static const double hingeProportion = 1 / 35;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xff000000),
+          color: Colors.black,
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.all(14),
         child: AspectRatio(
-          aspectRatio: type == TwoPaneDemoType.dualScreen
-              ? 2784.0 / 1800.0
+          aspectRatio: type == TwoPaneDemoType.foldable
+              ? foldableAspectRatio
               : type == TwoPaneDemoType.tablet
-                  ? 1.33
-                  : 9.0 / 16.0,
+                  ? tabletAspectRatio
+                  : singleScreenAspectRatio,
           child: LayoutBuilder(builder: (context, constraints) {
             final size = Size(constraints.maxWidth, constraints.maxHeight);
-            final hingeSize = Size(size.width / 35.0, size.height);
+            final hingeSize = Size(size.width * hingeProportion, size.height);
+            // Position the hinge in the middle of the display
             final hingeBounds = Rect.fromLTWH(
-                (size.width - hingeSize.width) / 2,
-                0,
-                hingeSize.width,
-                hingeSize.height);
+              (size.width - hingeSize.width) / 2,
+              0,
+              hingeSize.width,
+              hingeSize.height,
+            );
             return MediaQuery(
-              data: MediaQueryData(size: size, displayFeatures: [
-                if (type == TwoPaneDemoType.dualScreen)
-                  DisplayFeature(
+              data: MediaQueryData(
+                size: size,
+                displayFeatures: [
+                  if (type == TwoPaneDemoType.foldable)
+                    DisplayFeature(
                       bounds: hingeBounds,
                       type: DisplayFeatureType.hinge,
-                      state: DisplayFeatureState.postureFlat),
-              ]),
+                      state: DisplayFeatureState.postureFlat,
+                    ),
+                ],
+              ),
               child: child,
             );
           }),
