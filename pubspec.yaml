@@ -5,7 +5,7 @@ version: 2.9.3+020903
 
 environment:
   flutter: ^2.13.0-0 # Kept relatively close to master channel version
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
