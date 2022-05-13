@@ -177,9 +177,7 @@ class _ColorItem extends StatelessWidget {
 }
 
 class _PaletteTabView extends StatelessWidget {
-  const _PaletteTabView({
-    required this.colors,
-  });
+  const _PaletteTabView({required this.colors});
 
   final _Palette colors;
   static const primaryKeys = <int>[

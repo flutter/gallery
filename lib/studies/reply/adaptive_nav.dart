@@ -1007,9 +1007,7 @@ class _Destination {
 }
 
 class _BottomDrawerFolderSection extends StatelessWidget {
-  const _BottomDrawerFolderSection({
-    required this.folders,
-  });
+  const _BottomDrawerFolderSection({required this.folders});
 
   final Map<String, String> folders;
 
@@ -1268,9 +1266,7 @@ class _FadeThroughTransitionSwitcher extends StatelessWidget {
 }
 
 class _SharedAxisTransitionSwitcher extends StatelessWidget {
-  const _SharedAxisTransitionSwitcher({
-    required this.defaultChild,
-  });
+  const _SharedAxisTransitionSwitcher({required this.defaultChild});
 
   final Widget defaultChild;
 

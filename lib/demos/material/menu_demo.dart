@@ -188,9 +188,7 @@ class _SectionedMenuDemo extends StatelessWidget {
 // a menu whose current value is highlighted and aligned over the
 // list item's center line.
 class _SimpleMenuDemo extends StatefulWidget {
-  const _SimpleMenuDemo({
-    required this.showInSnackBar,
-  });
+  const _SimpleMenuDemo({required this.showInSnackBar});
 
   final void Function(String value) showInSnackBar;
 

@@ -144,9 +144,7 @@ class _SubjectRowState extends State<_SubjectRow> {
 }
 
 class _SenderAddressRow extends StatefulWidget {
-  const _SenderAddressRow({
-    required this.senderEmail,
-  });
+  const _SenderAddressRow({required this.senderEmail});
 
   final String senderEmail;
 

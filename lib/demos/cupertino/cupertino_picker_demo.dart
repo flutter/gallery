@@ -235,9 +235,7 @@ class _BottomPicker extends StatelessWidget {
 }
 
 class _Menu extends StatelessWidget {
-  const _Menu({
-    required this.children,
-  });
+  const _Menu({required this.children});
 
   final List<Widget> children;
 
