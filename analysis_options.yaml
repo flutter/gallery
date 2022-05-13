@@ -27,3 +27,4 @@ linter:
     - unawaited_futures
     - unnecessary_statements
     - unsafe_html
+    - use_super_parameters

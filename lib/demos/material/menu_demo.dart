@@ -21,7 +21,7 @@ enum CheckedValue {
 }
 
 class MenuDemo extends StatefulWidget {
-  const MenuDemo({Key? key, required this.type}) : super(key: key);
+  const MenuDemo({super.key, required this.type});
 
   final MenuDemoType type;
 
@@ -76,10 +76,7 @@ class _MenuDemoState extends State<MenuDemo> {
 // a simple menu with one disabled item. Typically the contents
 // of this "contextual menu" would reflect the app's state.
 class _ContextMenuDemo extends StatelessWidget {
-  const _ContextMenuDemo({
-    Key? key,
-    required this.showInSnackBar,
-  }) : super(key: key);
+  const _ContextMenuDemo({required this.showInSnackBar});
 
   final void Function(String value) showInSnackBar;
 
@@ -126,8 +123,7 @@ class _ContextMenuDemo extends StatelessWidget {
 // a menu whose items have text labels and icons and a divider
 // That separates the first three items from the last one.
 class _SectionedMenuDemo extends StatelessWidget {
-  const _SectionedMenuDemo({Key? key, required this.showInSnackBar})
-      : super(key: key);
+  const _SectionedMenuDemo({required this.showInSnackBar});
 
   final void Function(String value) showInSnackBar;
 
@@ -193,9 +189,8 @@ class _SectionedMenuDemo extends StatelessWidget {
 // list item's center line.
 class _SimpleMenuDemo extends StatefulWidget {
   const _SimpleMenuDemo({
-    Key? key,
     required this.showInSnackBar,
-  }) : super(key: key);
+  });
 
   final void Function(String value) showInSnackBar;
 
@@ -276,10 +271,7 @@ class _SimpleMenuDemoState extends State<_SimpleMenuDemo> {
 // Pressing the PopupMenuButton on the right of this item shows a menu
 // whose items have checked icons that reflect this app's state.
 class _ChecklistMenuDemo extends StatefulWidget {
-  const _ChecklistMenuDemo({
-    Key? key,
-    required this.showInSnackBar,
-  }) : super(key: key);
+  const _ChecklistMenuDemo({required this.showInSnackBar});
 
   final void Function(String value) showInSnackBar;
 

@@ -6,10 +6,10 @@ import 'package:provider/provider.dart';
 
 class MailViewPage extends StatelessWidget {
   const MailViewPage({
-    Key? key,
+    super.key,
     required this.id,
     required this.email,
-  }) : super(key: key);
+  });
 
   final int id;
   final Email email;
@@ -51,10 +51,7 @@ class MailViewPage extends StatelessWidget {
 }
 
 class _MailViewHeader extends StatelessWidget {
-  const _MailViewHeader({
-    Key? key,
-    required this.email,
-  }) : super(key: key);
+  const _MailViewHeader({required this.email});
 
   final Email email;
 
@@ -121,10 +118,7 @@ class _MailViewHeader extends StatelessWidget {
 }
 
 class _MailViewBody extends StatelessWidget {
-  const _MailViewBody({
-    Key? key,
-    required this.message,
-  }) : super(key: key);
+  const _MailViewBody({required this.message});
 
   final String message;
 

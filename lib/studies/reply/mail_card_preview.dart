@@ -13,14 +13,14 @@ const _iconAssetLocation = 'reply/icons';
 
 class MailPreviewCard extends StatelessWidget {
   const MailPreviewCard({
-    Key? key,
+    super.key,
     required this.id,
     required this.email,
     required this.onDelete,
     required this.onStar,
     required this.isStarred,
     required this.onStarredMailbox,
-  }) : super(key: key);
+  });
 
   final int id;
   final Email email;
@@ -116,13 +116,12 @@ class MailPreviewCard extends StatelessWidget {
 
 class _DismissibleContainer extends StatelessWidget {
   const _DismissibleContainer({
-    Key? key,
     required this.icon,
     required this.backgroundColor,
     required this.iconColor,
     required this.alignment,
     required this.padding,
-  }) : super(key: key);
+  });
 
   final String icon;
   final Color backgroundColor;
@@ -155,13 +154,12 @@ class _DismissibleContainer extends StatelessWidget {
 
 class _MailPreview extends StatelessWidget {
   const _MailPreview({
-    Key? key,
     required this.id,
     required this.email,
     required this.onTap,
     this.onStar,
     this.onDelete,
-  }) : super(key: key);
+  });
 
   final int id;
   final Email email;
@@ -281,12 +279,11 @@ class _PicturePreview extends StatelessWidget {
 
 class _MailPreviewActionBar extends StatelessWidget {
   const _MailPreviewActionBar({
-    Key? key,
     required this.avatar,
     required this.isStarred,
     this.onStar,
     this.onDelete,
-  }) : super(key: key);
+  });
 
   final String avatar;
   final bool isStarred;

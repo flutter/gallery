@@ -35,9 +35,9 @@ enum _DemoState {
 
 class DemoPage extends StatefulWidget {
   const DemoPage({
-    Key? key,
+    super.key,
     required this.slug,
-  }) : super(key: key);
+  });
 
   static const String baseRoute = '/demo';
   final String? slug;
@@ -75,10 +75,10 @@ class _DemoPageState extends State<DemoPage> {
 
 class GalleryDemoPage extends StatefulWidget {
   const GalleryDemoPage({
-    Key? key,
+    super.key,
     required this.restorationId,
     required this.demo,
-  }) : super(key: key);
+  });
 
   final String restorationId;
   final GalleryDemo demo;
@@ -539,13 +539,12 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
 class _DemoSectionOptions extends StatelessWidget {
   const _DemoSectionOptions({
-    Key? key,
     required this.maxHeight,
     required this.maxWidth,
     required this.configurations,
     required this.configIndex,
     required this.onConfigChanged,
-  }) : super(key: key);
+  });
 
   final double maxHeight;
   final double maxWidth;
@@ -611,11 +610,10 @@ class _DemoSectionOptions extends StatelessWidget {
 
 class _DemoSectionOptionsItem extends StatelessWidget {
   const _DemoSectionOptionsItem({
-    Key? key,
     required this.title,
     required this.isSelected,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final String title;
   final bool isSelected;
@@ -647,12 +645,11 @@ class _DemoSectionOptionsItem extends StatelessWidget {
 
 class _DemoSectionInfo extends StatelessWidget {
   const _DemoSectionInfo({
-    Key? key,
     required this.maxHeight,
     required this.maxWidth,
     required this.title,
     required this.description,
-  }) : super(key: key);
+  });
 
   final double maxHeight;
   final double maxWidth;
@@ -702,10 +699,10 @@ class _DemoSectionInfo extends StatelessWidget {
 
 class DemoWrapper extends StatelessWidget {
   const DemoWrapper({
-    Key? key,
+    super.key,
     required this.height,
     required this.buildRoute,
-  }) : super(key: key);
+  });
 
   final double height;
   final WidgetBuilder buildRoute;
@@ -740,10 +737,9 @@ class DemoWrapper extends StatelessWidget {
 
 class _DemoSectionCode extends StatelessWidget {
   const _DemoSectionCode({
-    Key? key,
     this.maxHeight,
     this.codeWidget,
-  }) : super(key: key);
+  });
 
   final double? maxHeight;
   final Widget? codeWidget;
@@ -768,7 +764,7 @@ class _DemoSectionCode extends StatelessWidget {
 }
 
 class CodeDisplayPage extends StatelessWidget {
-  const CodeDisplayPage(this.code, {Key? key}) : super(key: key);
+  const CodeDisplayPage(this.code, {super.key});
 
   final CodeDisplayer code;
 

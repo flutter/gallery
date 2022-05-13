@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoTextFieldDemo
 
 class CupertinoTextFieldDemo extends StatelessWidget {
-  const CupertinoTextFieldDemo({Key? key}) : super(key: key);
+  const CupertinoTextFieldDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

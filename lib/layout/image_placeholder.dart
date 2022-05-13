@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 /// the image with another widget, for example an [Ink.image].
 class FadeInImagePlaceholder extends StatelessWidget {
   const FadeInImagePlaceholder({
-    Key? key,
+    super.key,
     required this.image,
     required this.placeholder,
     this.child,
@@ -21,7 +21,7 @@ class FadeInImagePlaceholder extends StatelessWidget {
     this.width,
     this.height,
     this.fit,
-  }) : super(key: key);
+  });
 
   /// The target image that we are loading into memory.
   final ImageProvider image;

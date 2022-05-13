@@ -12,7 +12,7 @@ import 'package:gallery/studies/rally/tabs/sidebar.dart';
 
 /// A page that shows a summary of accounts.
 class AccountsView extends StatelessWidget {
-  const AccountsView({Key? key}) : super(key: key);
+  const AccountsView({super.key});
 
   @override
   Widget build(BuildContext context) {

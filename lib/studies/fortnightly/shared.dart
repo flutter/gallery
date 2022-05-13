@@ -30,10 +30,10 @@ class ArticleData {
 
 class HorizontalArticlePreview extends StatelessWidget {
   const HorizontalArticlePreview({
-    Key? key,
+    super.key,
     required this.data,
     this.minutes,
-  }) : super(key: key);
+  });
 
   final ArticleData data;
   final int? minutes;
@@ -85,12 +85,12 @@ class HorizontalArticlePreview extends StatelessWidget {
 
 class VerticalArticlePreview extends StatelessWidget {
   const VerticalArticlePreview({
-    Key? key,
+    super.key,
     required this.data,
     this.width,
     this.headlineTextStyle,
     this.showSnippet = false,
-  }) : super(key: key);
+  });
 
   final ArticleData data;
   final double? width;
@@ -230,7 +230,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
 }
 
 class HashtagBar extends StatelessWidget {
-  const HashtagBar({Key? key}) : super(key: key);
+  const HashtagBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +293,7 @@ class HashtagBar extends StatelessWidget {
 }
 
 class NavigationMenu extends StatelessWidget {
-  const NavigationMenu({Key? key, this.isCloseable = false}) : super(key: key);
+  const NavigationMenu({super.key, this.isCloseable = false});
 
   final bool isCloseable;
 
@@ -337,7 +337,7 @@ class NavigationMenu extends StatelessWidget {
 }
 
 class MenuItem extends StatelessWidget {
-  const MenuItem(this.title, {Key? key, this.header = false}) : super(key: key);
+  const MenuItem(this.title, {super.key, this.header = false});
 
   final String title;
   final bool header;
@@ -370,11 +370,11 @@ class MenuItem extends StatelessWidget {
 
 class StockItem extends StatelessWidget {
   const StockItem({
-    Key? key,
+    super.key,
     required this.ticker,
     required this.price,
     required this.percent,
-  }) : super(key: key);
+  });
 
   final String ticker;
   final String price;
@@ -491,10 +491,10 @@ List<Widget> buildStockItems(BuildContext context) {
 
 class VideoPreview extends StatelessWidget {
   const VideoPreview({
-    Key? key,
+    super.key,
     required this.data,
     required this.time,
-  }) : super(key: key);
+  });
 
   final ArticleData data;
   final String time;

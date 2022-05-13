@@ -3,7 +3,7 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class ComposePage extends StatelessWidget {
-  const ComposePage({Key? key}) : super(key: key);
+  const ComposePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +69,7 @@ class ComposePage extends StatelessWidget {
 }
 
 class _SubjectRow extends StatefulWidget {
-  const _SubjectRow({
-    Key? key,
-    required this.subject,
-  }) : super(key: key);
+  const _SubjectRow({required this.subject});
 
   final String subject;
 
@@ -148,9 +145,8 @@ class _SubjectRowState extends State<_SubjectRow> {
 
 class _SenderAddressRow extends StatefulWidget {
   const _SenderAddressRow({
-    Key? key,
     required this.senderEmail,
-  }) : super(key: key);
+  });
 
   final String senderEmail;
 
@@ -228,10 +224,9 @@ class __SenderAddressRowState extends State<_SenderAddressRow> {
 
 class _RecipientsRow extends StatelessWidget {
   const _RecipientsRow({
-    Key? key,
     required this.recipients,
     required this.avatar,
-  }) : super(key: key);
+  });
 
   final String recipients;
   final String avatar;
