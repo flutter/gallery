@@ -9,11 +9,11 @@ import 'package:gallery/studies/shrine/supplemental/product_card.dart';
 
 class TwoProductCardColumn extends StatelessWidget {
   const TwoProductCardColumn({
-    Key? key,
+    super.key,
     required this.bottom,
     this.top,
     required this.imageAspectRatio,
-  }) : super(key: key);
+  });
 
   static const double spacerHeight = 44;
   static const double horizontalPadding = 28;
@@ -55,10 +55,10 @@ class TwoProductCardColumn extends StatelessWidget {
 
 class OneProductCardColumn extends StatelessWidget {
   const OneProductCardColumn({
-    Key? key,
+    super.key,
     required this.product,
     required this.reverse,
-  }) : super(key: key);
+  });
 
   final Product product;
 

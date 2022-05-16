@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN cupertinoActivityIndicatorDemo
 
 class CupertinoProgressIndicatorDemo extends StatelessWidget {
-  const CupertinoProgressIndicatorDemo({Key? key}) : super(key: key);
+  const CupertinoProgressIndicatorDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

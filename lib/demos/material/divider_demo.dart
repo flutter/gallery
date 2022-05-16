@@ -7,7 +7,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
 class DividerDemo extends StatelessWidget {
-  const DividerDemo({Key? key, required this.type}) : super(key: key);
+  const DividerDemo({super.key, required this.type});
 
   final DividerDemoType type;
 

@@ -3,12 +3,12 @@ import 'package:gallery/studies/reply/colors.dart';
 
 class BottomDrawer extends StatelessWidget {
   const BottomDrawer({
-    Key? key,
+    super.key,
     this.onVerticalDragUpdate,
     this.onVerticalDragEnd,
     required this.leading,
     required this.trailing,
-  }) : super(key: key);
+  });
 
   final GestureDragUpdateCallback? onVerticalDragUpdate;
   final GestureDragEndCallback? onVerticalDragEnd;

@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 
 class VerticalFractionBar extends StatelessWidget {
   const VerticalFractionBar({
-    Key? key,
+    super.key,
     this.color,
     required this.fraction,
-  }) : super(key: key);
+  });
 
   final Color? color;
   final double fraction;

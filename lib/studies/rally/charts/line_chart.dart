@@ -15,9 +15,9 @@ import 'package:intl/intl.dart' as intl;
 
 class RallyLineChart extends StatelessWidget {
   const RallyLineChart({
-    Key? key,
+    super.key,
     this.events = const <DetailedEventData>[],
-  }) : super(key: key);
+  });
 
   final List<DetailedEventData> events;
 

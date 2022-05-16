@@ -27,7 +27,7 @@ class HeaderFormField {
 class HeaderForm extends StatelessWidget {
   final List<HeaderFormField> fields;
 
-  const HeaderForm({Key? key, required this.fields}) : super(key: key);
+  const HeaderForm({super.key, required this.fields});
 
   @override
   Widget build(BuildContext context) {

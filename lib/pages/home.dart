@@ -35,7 +35,7 @@ const _desktopCardsPerPage = 4;
 class ToggleSplashNotification extends Notification {}
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -283,8 +283,7 @@ class _CategoriesHeader extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
-  const Header({Key? key, required this.color, required this.text})
-      : super(key: key);
+  const Header({super.key, required this.color, required this.text});
 
   final Color color;
   final String text;
@@ -310,11 +309,10 @@ class Header extends StatelessWidget {
 
 class _AnimatedHomePage extends StatefulWidget {
   const _AnimatedHomePage({
-    Key? key,
     required this.restorationId,
     required this.carouselCards,
     required this.isSplashPageAnimationFinished,
-  }) : super(key: key);
+  });
 
   final String restorationId;
   final List<Widget> carouselCards;
@@ -586,11 +584,10 @@ class _DesktopCategoryHeader extends StatelessWidget {
 /// which is defined in [_AnimatedHomePageState].
 class _AnimatedCategoryItem extends StatelessWidget {
   _AnimatedCategoryItem({
-    Key? key,
     required double startDelayFraction,
     required this.controller,
     required this.child,
-  })  : topPaddingAnimation = Tween(
+  }) : topPaddingAnimation = Tween(
           begin: 60.0,
           end: 0.0,
         ).animate(
@@ -602,8 +599,7 @@ class _AnimatedCategoryItem extends StatelessWidget {
               curve: Curves.ease,
             ),
           ),
-        ),
-        super(key: key);
+        );
 
   final Widget child;
   final AnimationController controller;
@@ -627,10 +623,9 @@ class _AnimatedCategoryItem extends StatelessWidget {
 /// Animates the carousel to come in from the right.
 class _AnimatedCarousel extends StatelessWidget {
   _AnimatedCarousel({
-    Key? key,
     required this.child,
     required this.controller,
-  })  : startPositionAnimation = Tween(
+  }) : startPositionAnimation = Tween(
           begin: 1.0,
           end: 0.0,
         ).animate(
@@ -642,8 +637,7 @@ class _AnimatedCarousel extends StatelessWidget {
               curve: Curves.ease,
             ),
           ),
-        ),
-        super(key: key);
+        );
 
   final Widget child;
   final AnimationController controller;
@@ -678,10 +672,9 @@ class _AnimatedCarousel extends StatelessWidget {
 /// Animates a carousel card to come in from the right.
 class _AnimatedCarouselCard extends StatelessWidget {
   _AnimatedCarouselCard({
-    Key? key,
     required this.child,
     required this.controller,
-  })  : startPaddingAnimation = Tween(
+  }) : startPaddingAnimation = Tween(
           begin: _horizontalPadding,
           end: 0.0,
         ).animate(
@@ -693,8 +686,7 @@ class _AnimatedCarouselCard extends StatelessWidget {
               curve: Curves.ease,
             ),
           ),
-        ),
-        super(key: key);
+        );
 
   final Widget child;
   final AnimationController controller;
@@ -719,11 +711,10 @@ class _AnimatedCarouselCard extends StatelessWidget {
 
 class _Carousel extends StatefulWidget {
   const _Carousel({
-    Key? key,
     required this.animationController,
     this.restorationId,
     required this.children,
-  }) : super(key: key);
+  });
 
   final AnimationController animationController;
   final String? restorationId;
@@ -834,7 +825,7 @@ class _CarouselState extends State<_Carousel>
 /// snapping behavior. A [PageView] was considered but does not allow for
 /// multiple pages visible without centering the first page.
 class _DesktopCarousel extends StatefulWidget {
-  const _DesktopCarousel({Key? key, required this.children}) : super(key: key);
+  const _DesktopCarousel({required this.children});
 
   final List<Widget> children;
 
@@ -928,7 +919,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
 
 /// Scrolling physics that snaps to the new item in the [_DesktopCarousel].
 class _SnappingScrollPhysics extends ScrollPhysics {
-  const _SnappingScrollPhysics({ScrollPhysics? parent}) : super(parent: parent);
+  const _SnappingScrollPhysics({super.parent});
 
   @override
   _SnappingScrollPhysics applyTo(ScrollPhysics? ancestor) {
@@ -982,10 +973,9 @@ class _SnappingScrollPhysics extends ScrollPhysics {
 
 class _DesktopPageButton extends StatelessWidget {
   const _DesktopPageButton({
-    Key? key,
     this.isEnd = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final bool isEnd;
   final GestureTapCallback? onTap;
@@ -1031,7 +1021,6 @@ class _DesktopPageButton extends StatelessWidget {
 
 class _CarouselCard extends StatelessWidget {
   const _CarouselCard({
-    Key? key,
     required this.demo,
     this.asset,
     this.assetDark,
@@ -1039,7 +1028,7 @@ class _CarouselCard extends StatelessWidget {
     this.assetDarkColor,
     this.textColor,
     required this.studyRoute,
-  }) : super(key: key);
+  });
 
   final GalleryDemo? demo;
   final ImageProvider? asset;
@@ -1125,11 +1114,11 @@ double _carouselHeight(double scaleFactor, BuildContext context) => math.max(
 /// exit them at any time.
 class StudyWrapper extends StatefulWidget {
   const StudyWrapper({
-    Key? key,
+    super.key,
     required this.study,
     this.alignment = AlignmentDirectional.bottomStart,
     this.hasBottomNavBar = false,
-  }) : super(key: key);
+  });
 
   final Widget study;
   final bool hasBottomNavBar;

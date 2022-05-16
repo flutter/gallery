@@ -8,11 +8,11 @@ import 'package:gallery/layout/adaptive.dart';
 
 class PageStatus extends InheritedWidget {
   const PageStatus({
-    Key? key,
+    super.key,
     required this.cartController,
     required this.menuController,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   final AnimationController cartController;
   final AnimationController menuController;

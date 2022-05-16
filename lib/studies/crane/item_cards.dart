@@ -14,9 +14,9 @@ const mobileThumbnailSize = 60.0;
 
 class DestinationCard extends StatelessWidget {
   const DestinationCard({
-    Key? key,
+    super.key,
     required this.destination,
-  }) : super(key: key);
+  });
 
   final Destination destination;
 
@@ -89,9 +89,8 @@ class DestinationCard extends StatelessWidget {
 
 class _DestinationImage extends StatelessWidget {
   const _DestinationImage({
-    Key? key,
     required this.destination,
-  }) : super(key: key);
+  });
 
   final Destination destination;
 
