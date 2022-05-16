@@ -169,8 +169,8 @@ class NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
 class TwoPanePageRoute<T> extends OverlayRoute<T> {
   TwoPanePageRoute({
     required this.builder,
-    RouteSettings? settings,
-  }) : super(settings: settings);
+    super.settings,
+  });
 
   final WidgetBuilder builder;
 

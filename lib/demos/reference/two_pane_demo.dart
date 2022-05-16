@@ -17,10 +17,10 @@ enum TwoPaneDemoType {
 
 class TwoPaneDemo extends StatefulWidget {
   const TwoPaneDemo({
-    Key? key,
+    super.key,
     required this.restorationId,
     required this.type,
-  }) : super(key: key);
+  });
 
   final String restorationId;
   final TwoPaneDemoType type;
@@ -87,10 +87,10 @@ class ListPane extends StatelessWidget {
   final int selectedIndex;
 
   const ListPane({
-    Key? key,
+    super.key,
     required this.onSelect,
     required this.selectedIndex,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -129,10 +129,10 @@ class DetailsPane extends StatelessWidget {
   final int selectedIndex;
 
   const DetailsPane({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     this.onClose,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -163,10 +163,10 @@ class DetailsPane extends StatelessWidget {
 
 class SimulateScreen extends StatelessWidget {
   const SimulateScreen({
-    Key? key,
+    super.key,
     required this.type,
     required this.child,
-  }) : super(key: key);
+  });
 
   final TwoPaneDemoType type;
   final TwoPane child;
