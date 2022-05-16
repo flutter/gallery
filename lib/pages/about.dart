@@ -73,12 +73,10 @@ class _AboutDialog extends StatelessWidget {
                     text: repoText,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async {
-                        const url = 'https://github.com/flutter/gallery/';
-                        if (await canLaunch(url)) {
-                          await launch(
-                            url,
-                            forceSafariVC: false,
-                          );
+                        final url =
+                            Uri.parse('https://github.com/flutter/gallery/');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
                         }
                       },
                   ),

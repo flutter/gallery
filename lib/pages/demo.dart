@@ -21,7 +21,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 const _demoViewedCountKey = 'demoViewedCountKey';
 
@@ -191,8 +191,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   Future<void> _showDocumentation(BuildContext context) async {
     final url = _currentConfig.documentationUrl;
 
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
     } else {
       await showDialog<void>(
         context: context,
