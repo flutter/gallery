@@ -19,10 +19,10 @@ const double _settingsButtonHeightMobile = 40;
 
 class Backdrop extends StatefulWidget {
   const Backdrop({
-    Key? key,
+    super.key,
     this.settingsPage,
     this.homePage,
-  }) : super(key: key);
+  });
 
   final Widget? settingsPage;
   final Widget? homePage;

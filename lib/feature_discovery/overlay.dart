@@ -39,14 +39,14 @@ class Background extends StatelessWidget {
   static const padding = 40.0;
 
   const Background({
-    Key? key,
+    super.key,
     required this.animations,
     required this.center,
     required this.color,
     required this.deviceSize,
     required this.status,
     required this.textDirection,
-  }) : super(key: key);
+  });
 
   /// Compute the center position of the background.
   ///
@@ -182,7 +182,7 @@ class Content extends StatelessWidget {
   final TextTheme textTheme;
 
   const Content({
-    Key? key,
+    super.key,
     required this.animations,
     required this.center,
     required this.description,
@@ -190,7 +190,7 @@ class Content extends StatelessWidget {
     required this.status,
     required this.title,
     required this.textTheme,
-  }) : super(key: key);
+  });
 
   double get opacity => animations.contentOpacity(status).value;
 
@@ -248,11 +248,11 @@ class Ripple extends StatelessWidget {
   final FeatureDiscoveryStatus status;
 
   const Ripple({
-    Key? key,
+    super.key,
     required this.animations,
     required this.center,
     required this.status,
-  }) : super(key: key);
+  });
 
   double get radius => animations.rippleRadius(status).value;
   double get opacity => animations.rippleOpacity(status).value;
@@ -298,13 +298,13 @@ class TapTarget extends StatelessWidget {
   final Icon child;
 
   const TapTarget({
-    Key? key,
+    super.key,
     required this.animations,
     required this.center,
     required this.status,
     required this.onTap,
     required this.child,
-  }) : super(key: key);
+  });
 
   double get radius => animations.tapTargetRadius(status).value;
   double get opacity => animations.tapTargetOpacity(status).value;

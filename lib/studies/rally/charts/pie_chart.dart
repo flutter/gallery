@@ -69,12 +69,12 @@ List<RallyPieChartSegment> buildSegmentsFromBudgetItems(
 /// have empty space.
 class RallyPieChart extends StatefulWidget {
   const RallyPieChart({
-    Key? key,
+    super.key,
     required this.heroLabel,
     required this.heroAmount,
     required this.wholeAmount,
     required this.segments,
-  }) : super(key: key);
+  });
 
   final String heroLabel;
   final double heroAmount;
@@ -134,13 +134,12 @@ class _RallyPieChartState extends State<RallyPieChart>
 
 class _AnimatedRallyPieChart extends AnimatedWidget {
   const _AnimatedRallyPieChart({
-    Key? key,
     required this.animation,
     required this.centerLabel,
     required this.centerAmount,
     required this.total,
     required this.segments,
-  }) : super(key: key, listenable: animation);
+  }) : super(listenable: animation);
 
   final Animation<double> animation;
   final String centerLabel;

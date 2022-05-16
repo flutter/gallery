@@ -11,10 +11,10 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 
 class BottomNavigationDemo extends StatefulWidget {
   const BottomNavigationDemo({
-    Key? key,
+    super.key,
     required this.restorationId,
     required this.type,
-  }) : super(key: key);
+  });
 
   final String restorationId;
   final BottomNavigationDemoType type;
@@ -132,9 +132,9 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
 
 class _NavigationDestinationView extends StatelessWidget {
   const _NavigationDestinationView({
-    Key? key,
+    super.key,
     required this.item,
-  }) : super(key: key);
+  });
 
   final BottomNavigationBarItem item;
 

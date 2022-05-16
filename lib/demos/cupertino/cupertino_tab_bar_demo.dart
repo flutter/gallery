@@ -16,7 +16,7 @@ class _TabInfo {
 }
 
 class CupertinoTabBarDemo extends StatelessWidget {
-  const CupertinoTabBarDemo({Key? key}) : super(key: key);
+  const CupertinoTabBarDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +66,9 @@ class CupertinoTabBarDemo extends StatelessWidget {
 
 class _CupertinoDemoTab extends StatelessWidget {
   const _CupertinoDemoTab({
-    Key? key,
     required this.title,
     required this.icon,
-  }) : super(key: key);
+  });
 
   final String title;
   final IconData icon;

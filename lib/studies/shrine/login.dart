@@ -26,7 +26,7 @@ double desktopLoginScreenMainAreaWidth({required BuildContext context}) {
 }
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -221,10 +221,10 @@ class _CancelAndNextButtons extends StatelessWidget {
 
 class PrimaryColorOverride extends StatelessWidget {
   const PrimaryColorOverride({
-    Key? key,
+    super.key,
     this.color,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Color? color;
   final Widget child;

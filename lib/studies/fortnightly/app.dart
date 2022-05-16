@@ -15,7 +15,7 @@ import 'package:gallery/studies/fortnightly/shared.dart';
 const _fortnightlyTitle = 'Fortnightly';
 
 class FortnightlyApp extends StatelessWidget {
-  const FortnightlyApp({Key? key}) : super(key: key);
+  const FortnightlyApp({super.key});
 
   static const String defaultRoute = routes.defaultRoute;
 

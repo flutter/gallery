@@ -10,7 +10,7 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 // BEGIN listDemo
 
 class ListDemo extends StatelessWidget {
-  const ListDemo({Key? key, required this.type}) : super(key: key);
+  const ListDemo({super.key, required this.type});
 
   final ListDemoType type;
 

@@ -11,7 +11,7 @@ import 'transformations_demo_edit_board_point.dart';
 // BEGIN transformationsDemo#1
 
 class TransformationsDemo extends StatefulWidget {
-  const TransformationsDemo({Key? key}) : super(key: key);
+  const TransformationsDemo({super.key});
 
   @override
   State<TransformationsDemo> createState() => _TransformationsDemoState();
@@ -218,9 +218,7 @@ class _TransformationsDemoState extends State<TransformationsDemo>
 // CustomPainter is what is passed to CustomPaint and actually draws the scene
 // when its `paint` method is called.
 class _BoardPainter extends CustomPainter {
-  const _BoardPainter({
-    required this.board,
-  });
+  const _BoardPainter({required this.board});
 
   final Board board;
 

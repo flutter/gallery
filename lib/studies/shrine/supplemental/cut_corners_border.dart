@@ -8,15 +8,11 @@ import 'package:flutter/material.dart';
 
 class CutCornersBorder extends OutlineInputBorder {
   const CutCornersBorder({
-    BorderSide borderSide = const BorderSide(),
-    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(2)),
+    super.borderSide,
+    super.borderRadius = const BorderRadius.all(Radius.circular(2)),
     this.cut = 7,
-    double gapPadding = 2,
-  }) : super(
-          borderSide: borderSide,
-          borderRadius: borderRadius,
-          gapPadding: gapPadding,
-        );
+    super.gapPadding = 2,
+  });
 
   @override
   CutCornersBorder copyWith({

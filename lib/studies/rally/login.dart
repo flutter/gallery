@@ -14,7 +14,7 @@ import 'package:gallery/studies/rally/app.dart';
 import 'package:gallery/studies/rally/colors.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -59,10 +59,9 @@ class _LoginPageState extends State<LoginPage> with RestorationMixin {
 
 class _MainView extends StatelessWidget {
   const _MainView({
-    Key? key,
     this.usernameController,
     this.passwordController,
-  }) : super(key: key);
+  });
 
   final TextEditingController? usernameController;
   final TextEditingController? passwordController;
@@ -133,9 +132,7 @@ class _MainView extends StatelessWidget {
 }
 
 class _TopBar extends StatelessWidget {
-  const _TopBar({
-    Key? key,
-  }) : super(key: key);
+  const _TopBar();
 
   @override
   Widget build(BuildContext context) {
@@ -196,9 +193,7 @@ class _TopBar extends StatelessWidget {
 }
 
 class _SmallLogo extends StatelessWidget {
-  const _SmallLogo({
-    Key? key,
-  }) : super(key: key);
+  const _SmallLogo();
 
   @override
   Widget build(BuildContext context) {
@@ -219,10 +214,9 @@ class _SmallLogo extends StatelessWidget {
 
 class _UsernameInput extends StatelessWidget {
   const _UsernameInput({
-    Key? key,
     this.maxWidth,
     this.usernameController,
-  }) : super(key: key);
+  });
 
   final double? maxWidth;
   final TextEditingController? usernameController;
@@ -247,10 +241,9 @@ class _UsernameInput extends StatelessWidget {
 
 class _PasswordInput extends StatelessWidget {
   const _PasswordInput({
-    Key? key,
     this.maxWidth,
     this.passwordController,
-  }) : super(key: key);
+  });
 
   final double? maxWidth;
   final TextEditingController? passwordController;
@@ -343,10 +336,9 @@ class _ThumbButtonState extends State<_ThumbButton> {
 
 class _LoginButton extends StatelessWidget {
   const _LoginButton({
-    Key? key,
     required this.onTap,
     this.maxWidth,
-  }) : super(key: key);
+  });
 
   final double? maxWidth;
   final VoidCallback onTap;
@@ -377,7 +369,7 @@ class _LoginButton extends StatelessWidget {
 }
 
 class _BorderButton extends StatelessWidget {
-  const _BorderButton({Key? key, required this.text}) : super(key: key);
+  const _BorderButton({required this.text});
 
   final String text;
 
@@ -401,8 +393,7 @@ class _BorderButton extends StatelessWidget {
 }
 
 class _FilledButton extends StatelessWidget {
-  const _FilledButton({Key? key, required this.text, required this.onTap})
-      : super(key: key);
+  const _FilledButton({required this.text, required this.onTap});
 
   final String text;
   final VoidCallback onTap;
