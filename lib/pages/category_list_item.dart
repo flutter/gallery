@@ -12,14 +12,14 @@ typedef CategoryHeaderTapCallback = Function(bool shouldOpenList);
 
 class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
-    Key? key,
+    super.key,
     this.restorationId,
     required this.category,
     required this.imageString,
     this.demos = const [],
     this.initiallyExpanded = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final GalleryDemoCategory category;
   final String? restorationId;
@@ -158,7 +158,6 @@ class _CategoryListItemState extends State<CategoryListItem>
 
 class _CategoryHeader extends StatelessWidget {
   const _CategoryHeader({
-    Key? key,
     this.margin,
     required this.imagePadding,
     required this.borderRadius,
@@ -167,7 +166,7 @@ class _CategoryHeader extends StatelessWidget {
     required this.imageString,
     required this.category,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry imagePadding;
@@ -250,10 +249,9 @@ class _CategoryHeader extends StatelessWidget {
 
 class _ExpandedCategoryDemos extends StatelessWidget {
   const _ExpandedCategoryDemos({
-    Key? key,
     required this.category,
     required this.demos,
-  }) : super(key: key);
+  });
 
   final GalleryDemoCategory category;
   final List<GalleryDemo> demos;
@@ -275,7 +273,7 @@ class _ExpandedCategoryDemos extends StatelessWidget {
 }
 
 class CategoryDemoItem extends StatelessWidget {
-  const CategoryDemoItem({Key? key, required this.demo}) : super(key: key);
+  const CategoryDemoItem({super.key, required this.demo});
 
   final GalleryDemo demo;
 

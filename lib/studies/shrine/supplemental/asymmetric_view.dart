@@ -23,9 +23,9 @@ const _cardToScreenWidthRatio = 0.59;
 
 class MobileAsymmetricView extends StatelessWidget {
   const MobileAsymmetricView({
-    Key? key,
+    super.key,
     required this.products,
-  }) : super(key: key);
+  });
 
   final List<Product> products;
 
@@ -166,9 +166,9 @@ class MobileAsymmetricView extends StatelessWidget {
 
 class DesktopAsymmetricView extends StatelessWidget {
   const DesktopAsymmetricView({
-    Key? key,
+    super.key,
     required this.products,
-  }) : super(key: key);
+  });
 
   final List<Product> products;
 
@@ -228,12 +228,12 @@ class DesktopAsymmetricView extends StatelessWidget {
 
 class DesktopColumns extends StatelessWidget {
   const DesktopColumns({
-    Key? key,
+    super.key,
     required this.columnCount,
     required this.products,
     required this.largeImageWidth,
     required this.smallImageWidth,
-  }) : super(key: key);
+  });
 
   final int columnCount;
   final List<Product> products;

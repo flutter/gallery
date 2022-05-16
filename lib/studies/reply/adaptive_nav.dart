@@ -28,7 +28,7 @@ const double _kFlingVelocity = 2.0;
 const _kAnimationDuration = Duration(milliseconds: 300);
 
 class AdaptiveNav extends StatefulWidget {
-  const AdaptiveNav({Key? key}) : super(key: key);
+  const AdaptiveNav({super.key});
 
   @override
   State<AdaptiveNav> createState() => _AdaptiveNavState();
@@ -139,13 +139,12 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
 class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
-    Key? key,
     this.inboxKey,
     required this.extended,
     required this.destinations,
     required this.folders,
     required this.onItemTapped,
-  }) : super(key: key);
+  });
 
   final bool extended;
   final UniqueKey? inboxKey;
@@ -258,10 +257,7 @@ class _DesktopNavState extends State<_DesktopNav>
 }
 
 class _NavigationRailHeader extends StatelessWidget {
-  const _NavigationRailHeader({
-    Key? key,
-    required this.extended,
-  }) : super(key: key);
+  const _NavigationRailHeader({required this.extended});
 
   final ValueNotifier<bool> extended;
 
@@ -357,10 +353,8 @@ class _NavigationRailHeader extends StatelessWidget {
 }
 
 class _NavigationRailFolderSection extends StatelessWidget {
-  const _NavigationRailFolderSection({
-    Key? key,
-    required this.folders,
-  }) : super(key: key);
+  const _NavigationRailFolderSection({required this.folders});
+
   final Map<String, String> folders;
 
   @override
@@ -927,13 +921,12 @@ class _BottomAppBarActionItems extends StatelessWidget {
 
 class _BottomDrawerDestinations extends StatelessWidget {
   const _BottomDrawerDestinations({
-    Key? key,
     required this.destinations,
     required this.drawerController,
     required this.dropArrowController,
     required this.selectedMailbox,
     required this.onItemTapped,
-  }) : super(key: key);
+  });
 
   final List<_Destination> destinations;
   final AnimationController drawerController;
@@ -1014,10 +1007,7 @@ class _Destination {
 }
 
 class _BottomDrawerFolderSection extends StatelessWidget {
-  const _BottomDrawerFolderSection({
-    Key? key,
-    required this.folders,
-  }) : super(key: key);
+  const _BottomDrawerFolderSection({required this.folders});
 
   final Map<String, String> folders;
 
@@ -1055,9 +1045,8 @@ class _BottomDrawerFolderSection extends StatelessWidget {
 
 class _MailNavigator extends StatefulWidget {
   const _MailNavigator({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 
@@ -1098,7 +1087,7 @@ class _MailNavigatorState extends State<_MailNavigator> {
 }
 
 class _ReplyLogo extends StatelessWidget {
-  const _ReplyLogo({Key? key}) : super(key: key);
+  const _ReplyLogo();
 
   @override
   Widget build(BuildContext context) {
@@ -1253,10 +1242,9 @@ class _ReplyFabState extends State<_ReplyFab>
 
 class _FadeThroughTransitionSwitcher extends StatelessWidget {
   const _FadeThroughTransitionSwitcher({
-    Key? key,
     required this.fillColor,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Color fillColor;
@@ -1278,10 +1266,7 @@ class _FadeThroughTransitionSwitcher extends StatelessWidget {
 }
 
 class _SharedAxisTransitionSwitcher extends StatelessWidget {
-  const _SharedAxisTransitionSwitcher({
-    Key? key,
-    required this.defaultChild,
-  }) : super(key: key);
+  const _SharedAxisTransitionSwitcher({required this.defaultChild});
 
   final Widget defaultChild;
 

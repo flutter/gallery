@@ -18,7 +18,7 @@ import 'package:gallery/feature_discovery/overlay.dart';
 class FeatureDiscoveryController extends StatefulWidget {
   final Widget child;
 
-  const FeatureDiscoveryController(this.child, {Key? key}) : super(key: key);
+  const FeatureDiscoveryController(this.child, {super.key});
 
   static _FeatureDiscoveryControllerState _of(BuildContext context) {
     final matchResult =
@@ -110,7 +110,7 @@ class FeatureDiscovery extends StatefulWidget {
   static const gestureDetectorKey = Key('gesture detector key');
 
   const FeatureDiscovery({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.child,
@@ -118,7 +118,7 @@ class FeatureDiscovery extends StatefulWidget {
     this.onDismiss,
     this.onTap,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<FeatureDiscovery> createState() => _FeatureDiscoveryState();

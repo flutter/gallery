@@ -20,7 +20,7 @@ class DisplayOption {
 }
 
 class SlowMotionSetting extends StatelessWidget {
-  const SlowMotionSetting({Key? key}) : super(key: key);
+  const SlowMotionSetting({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,14 +77,14 @@ class SlowMotionSetting extends StatelessWidget {
 
 class SettingsListItem<T> extends StatefulWidget {
   const SettingsListItem({
-    Key? key,
+    super.key,
     required this.optionsMap,
     required this.title,
     required this.selectedOption,
     required this.onOptionChanged,
     required this.onTapSetting,
     required this.isExpanded,
-  }) : super(key: key);
+  });
 
   final LinkedHashMap<T, DisplayOption> optionsMap;
   final String title;
@@ -256,7 +256,6 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
 
 class _CategoryHeader extends StatelessWidget {
   const _CategoryHeader({
-    Key? key,
     this.margin,
     required this.padding,
     required this.borderRadius,
@@ -265,7 +264,7 @@ class _CategoryHeader extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry padding;

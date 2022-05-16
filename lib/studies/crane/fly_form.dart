@@ -9,7 +9,7 @@ import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
 class FlyForm extends BackLayerItem {
-  const FlyForm({Key? key}) : super(key: key, index: 0);
+  const FlyForm({super.key}) : super(index: 0);
 
   @override
   State<FlyForm> createState() => _FlyFormState();

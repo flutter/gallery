@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN snackbarsDemo
 
 class SnackbarsDemo extends StatelessWidget {
-  const SnackbarsDemo({Key? key}) : super(key: key);
+  const SnackbarsDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

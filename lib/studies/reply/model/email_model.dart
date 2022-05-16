@@ -22,25 +22,16 @@ class Email {
 
 class InboxEmail extends Email {
   InboxEmail({
-    required int id,
-    required String sender,
-    String? time,
-    String? subject,
-    String? message,
-    required String avatar,
-    String? recipients,
-    bool? containsPictures,
+    required super.id,
+    required super.sender,
+    super.time,
+    super.subject,
+    super.message,
+    required super.avatar,
+    super.recipients,
+    super.containsPictures,
     this.inboxType = InboxType.normal,
-  }) : super(
-          id: id,
-          sender: sender,
-          time: time ?? '',
-          subject: subject ?? '',
-          message: message ?? '',
-          avatar: avatar,
-          recipients: recipients ?? '',
-          containsPictures: containsPictures ?? false,
-        );
+  });
 
   InboxType inboxType;
 }

@@ -20,14 +20,13 @@ import 'package:gallery/studies/rally/formatters.dart';
 
 class FinancialEntityView extends StatelessWidget {
   const FinancialEntityView({
-    Key? key,
+    super.key,
     required this.heroLabel,
     required this.heroAmount,
     required this.wholeAmount,
     required this.segments,
     required this.financialEntityCards,
-  })  : assert(segments.length == financialEntityCards.length),
-        super(key: key);
+  }) : assert(segments.length == financialEntityCards.length);
 
   /// The amounts to assign each item.
   final List<RallyPieChartSegment> segments;
@@ -81,7 +80,7 @@ class FinancialEntityView extends StatelessWidget {
 /// A reusable widget to show balance information of a single entity as a card.
 class FinancialEntityCategoryView extends StatelessWidget {
   const FinancialEntityCategoryView({
-    Key? key,
+    super.key,
     required this.indicatorColor,
     required this.indicatorFraction,
     required this.title,
@@ -89,7 +88,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
     required this.semanticsLabel,
     required this.amount,
     required this.suffix,
-  }) : super(key: key);
+  });
 
   final Color indicatorColor;
   final double indicatorFraction;
@@ -317,7 +316,7 @@ List<FinancialEntityCategoryView> buildBudgetDataListViews(
 }
 
 class FinancialEntityCategoryDetailsPage extends StatelessWidget {
-  FinancialEntityCategoryDetailsPage({Key? key}) : super(key: key);
+  FinancialEntityCategoryDetailsPage({super.key});
 
   final List<DetailedEventData> items =
       DummyDataService.getDetailedEventItems();
@@ -437,7 +436,7 @@ class _DetailedEventCard extends StatelessWidget {
 }
 
 class _EventAmount extends StatelessWidget {
-  const _EventAmount({Key? key, required this.amount}) : super(key: key);
+  const _EventAmount({required this.amount});
 
   final double amount;
 
@@ -455,7 +454,7 @@ class _EventAmount extends StatelessWidget {
 }
 
 class _EventDate extends StatelessWidget {
-  const _EventDate({Key? key, required this.date}) : super(key: key);
+  const _EventDate({required this.date});
 
   final DateTime date;
 
@@ -471,7 +470,7 @@ class _EventDate extends StatelessWidget {
 }
 
 class _EventTitle extends StatelessWidget {
-  const _EventTitle({Key? key, required this.title}) : super(key: key);
+  const _EventTitle({required this.title});
 
   final String title;
 
