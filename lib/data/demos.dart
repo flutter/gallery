@@ -47,9 +47,7 @@ enum GalleryDemoCategory {
   String toString() {
     return name.toUpperCase();
   }
-}
 
-extension GalleryDemoExtension on GalleryDemoCategory {
   String? displayTitle(GalleryLocalizations localizations) {
     switch (this) {
       case GalleryDemoCategory.other:
