@@ -30,6 +30,7 @@ dependencies:
   url_launcher: ^6.1.2
   vector_math: ^2.1.2
   shared_preferences: ^2.0.15
+  dual_screen: ^1.0.3
 
 dev_dependencies:
   flutter_test:

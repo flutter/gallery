@@ -4,7 +4,9 @@
 
 import 'dart:math';
 
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/home.dart';
@@ -147,21 +149,38 @@ class _SplashPageState extends State<SplashPage>
               );
             }
 
-            return Stack(
-              children: [
-                _SplashBackLayer(
-                  isSplashCollapsed: !_isSplashVisible,
-                  effect: _effect,
+            if (isDisplayFoldable(context)) {
+              return TwoPane(
+                startPane: frontLayer,
+                endPane: GestureDetector(
                   onTap: () {
-                    _controller.forward();
+                    if (_isSplashVisible) {
+                      _controller.reverse();
+                    } else {
+                      _controller.forward();
+                    }
                   },
+                  child: _SplashBackLayer(
+                      isSplashCollapsed: !_isSplashVisible, effect: _effect),
                 ),
-                PositionedTransition(
-                  rect: animation,
-                  child: frontLayer,
-                ),
-              ],
-            );
+              );
+            } else {
+              return Stack(
+                children: [
+                  _SplashBackLayer(
+                    isSplashCollapsed: !_isSplashVisible,
+                    effect: _effect,
+                    onTap: () {
+                      _controller.forward();
+                    },
+                  ),
+                  PositionedTransition(
+                    rect: animation,
+                    child: frontLayer,
+                  ),
+                ],
+              );
+            }
           },
         ),
       ),
@@ -190,21 +209,41 @@ class _SplashBackLayer extends StatelessWidget {
 
     Widget? child;
     if (isSplashCollapsed) {
-      child = isDisplayDesktop(context)
-          ? Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: onTap,
-                    child: flutterLogo,
+      if (isDisplayDesktop(context)) {
+        child = Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: onTap,
+                child: flutterLogo,
+              ),
+            ),
+          ),
+        );
+      }
+      if (isDisplayFoldable(context)) {
+        child = Container(
+          color: Theme.of(context).colorScheme.background,
+          child: Stack(
+            children: [
+              Center(
+                child: flutterLogo,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: Center(
+                  child: Text(
+                    GalleryLocalizations.of(context)!.splashSelectDemo,
                   ),
                 ),
-              ),
-            )
-          : null;
+              )
+            ],
+          ),
+        );
+      }
     } else {
       child = Stack(
         children: [
@@ -220,13 +259,19 @@ class _SplashBackLayer extends StatelessWidget {
     }
 
     return ExcludeSemantics(
-      child: Container(
+      child: Material(
         // This is the background color of the gifs.
         color: const Color(0xFF030303),
-        padding: EdgeInsets.only(
-          bottom: isDisplayDesktop(context) ? homePeekDesktop : homePeekMobile,
+        child: Padding(
+          padding: EdgeInsets.only(
+            bottom: isDisplayDesktop(context)
+                ? homePeekDesktop
+                : isDisplayFoldable(context)
+                    ? 0
+                    : homePeekMobile,
+          ),
+          child: child,
         ),
-        child: child,
       ),
     );
   }
