@@ -23,7 +23,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
   late RestorableRouteFuture<String> _alertDialogRoute;
   late RestorableRouteFuture<String> _alertDialogWithTitleRoute;
   late RestorableRouteFuture<String> _simpleDialogRoute;
-  late RestorableRouteFuture<String> _foldableDialogRoute;
 
   @override
   String get restorationId => 'dialog_demo';
@@ -41,10 +40,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     registerForRestoration(
       _simpleDialogRoute,
       'simple_dialog_route',
-    );
-    registerForRestoration(
-      _foldableDialogRoute,
-      'foldable_dialog_route',
     );
   }
 
@@ -82,12 +77,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
       },
       onComplete: _showInSnackBar,
     );
-    _foldableDialogRoute = RestorableRouteFuture<String>(
-      onPresent: (navigator, arguments) {
-        return navigator.restorablePush(_foldableDialogDemoRoute);
-      },
-      onComplete: _showInSnackBar,
-    );
   }
 
   String _title(BuildContext context) {
@@ -101,8 +90,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
         return localizations.demoSimpleDialogTitle;
       case DialogDemoType.fullscreen:
         return localizations.demoFullscreenDialogTitle;
-      case DialogDemoType.foldable:
-        return localizations.demoFoldableDialogTitle;
     }
   }
 
@@ -195,57 +182,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     );
   }
 
-  static Route<String> _foldableDialogDemoRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
-    final theme = Theme.of(context);
-    final dialogTextStyle = theme.textTheme.subtitle1!
-        .copyWith(color: theme.textTheme.caption!.color);
-
-    Offset anchorPoint;
-    // On foldable devices with display features that split the display,
-    // dialogs use the "first" screen to render. "First" means left-most screen
-    // on ltr configurations and right-most screen for rtl configurations.
-    //
-    // The anchorPoint is like a target for selecting the screen
-    // that contains it. The purpose of this demo is to show how to pick the
-    // screen the dialog shows up by showing it on a different screen, not the
-    // default one.
-    switch (Directionality.of(context)) {
-      case TextDirection.ltr:
-        // Offset.zero is the top-left corner of the available screen space. For a
-        // vertically split dual-screen device, this is the top-left corner of the
-        // left screen.
-        anchorPoint = Offset.infinite;
-        break;
-      case TextDirection.rtl:
-        // Offset.infinite in this context means the right-most screen. If the
-        // display is split horizontally, it means the bottom-most screen.
-        anchorPoint = Offset.zero;
-        break;
-    }
-
-    return DialogRoute<String>(
-      anchorPoint: anchorPoint,
-      context: context,
-      builder: (context) {
-        final localizations = GalleryLocalizations.of(context)!;
-        return ApplyTextOptions(
-            child: AlertDialog(
-          content: Text(
-            localizations.dialogDiscardTitle,
-            style: dialogTextStyle,
-          ),
-          actions: [
-            _DialogButton(text: localizations.dialogCancel),
-            _DialogButton(text: localizations.dialogDiscard),
-          ],
-        ));
-      },
-    );
-  }
-
   static Route<void> _fullscreenDialogRoute(
     BuildContext context,
     Object? arguments,
@@ -283,9 +219,6 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
                       break;
                     case DialogDemoType.simple:
                       _simpleDialogRoute.present();
-                      break;
-                    case DialogDemoType.foldable:
-                      _foldableDialogRoute.present();
                       break;
                     case DialogDemoType.fullscreen:
                       Navigator.restorablePush<void>(

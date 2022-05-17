@@ -28,7 +28,6 @@ enum DialogDemoType {
   alertTitle,
   simple,
   fullscreen,
-  foldable,
 }
 
 enum GridListDemoType {

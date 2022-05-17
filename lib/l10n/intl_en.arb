@@ -907,14 +907,6 @@
   "@demoSimpleDialogDescription": {
     "description": "Description for the simple dialog component demo."
   },
-  "demoFoldableDialogTitle": "Choose screen on foldables",
-  "@demoSimpleDialogTitle": {
-    "description": "Title for the foldable dialog component demo."
-  },
-  "demoFoldableDialogDescription": "On foldable devices with display features that split the display, dialogs use the 'first' screen to render. 'First' means left-most screen on ltr configurations and right-most screen for rtl configurations. Displaying dialogs on a particular screen can be done through the 'anchorPoint' parameter.",
-  "@demoSimpleDialogDescription": {
-    "description": "Description for the foldable dialog component demo."
-  },
   "demoDividerTitle": "Divider",
   "@demoDividerTitle": {
     "description": "Title for the divider component demo."
