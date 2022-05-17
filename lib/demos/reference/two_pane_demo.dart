@@ -11,8 +11,8 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 enum TwoPaneDemoType {
   foldable,
-  singleScreen,
   tablet,
+  smallScreen,
 }
 
 class TwoPaneDemo extends StatefulWidget {
@@ -49,7 +49,7 @@ class TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
   @override
   Widget build(BuildContext context) {
     var panePriority = TwoPanePriority.both;
-    if (widget.type == TwoPaneDemoType.singleScreen) {
+    if (widget.type == TwoPaneDemoType.smallScreen) {
       panePriority = _currentIndex.value == -1
           ? TwoPanePriority.start
           : TwoPanePriority.end;
@@ -69,7 +69,7 @@ class TwoPaneDemoState extends State<TwoPaneDemo> with RestorationMixin {
         ),
         endPane: DetailsPane(
           selectedIndex: _currentIndex.value,
-          onClose: widget.type == TwoPaneDemoType.singleScreen
+          onClose: widget.type == TwoPaneDemoType.smallScreen
               ? () {
                   setState(() {
                     _currentIndex.value = -1;

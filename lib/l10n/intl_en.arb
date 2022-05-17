@@ -3299,19 +3299,19 @@
   },
   "demoTwoPaneFoldableLabel": "Foldable",
   "@demoTwoPaneFoldableLabel": {
-    "description": "Option title for TwoPane demo in foldable mode."
+    "description": "Option title for TwoPane demo on foldable devices."
   },
-  "demoTwoPaneFoldableDescription": "This is how it behaves on a foldable device.",
+  "demoTwoPaneFoldableDescription": "This is how TwoPane behaves on a foldable device.",
   "@demoTwoPaneFoldableDescription": {
     "description": "Description for the foldable option configuration on the TwoPane demo."
   },
-  "demoTwoPaneSingleScreenLabel": "Single Screen",
-  "@demoTwoPaneSingleScreenLabel": {
-    "description": "Option title for TwoPane demo in single screen mode. Counterpart of the foldable option."
+  "demoTwoPaneSmallScreenLabel": "Small Screen",
+  "@demoTwoPaneSmallScreenLabel": {
+    "description": "Option title for TwoPane demo in small screen mode. Counterpart of the foldable option."
   },
-  "demoTwoPaneSingleScreenDescription": "This is how TwoPane behaves on a single screen device.",
-  "@demoTwoPaneSingleScreenDescription": {
-    "description": "Description for the single screen option configuration on the TwoPane demo."
+  "demoTwoPaneSmallScreenDescription": "This is how TwoPane behaves on a small screen device.",
+  "@demoTwoPaneSmallScreenDescription": {
+    "description": "Description for the small screen option configuration on the TwoPane demo."
   },
   "demoTwoPaneTabletLabel": "Tablet / Desktop",
   "@demoTwoPaneTabletLabel": {
@@ -3325,7 +3325,7 @@
   "@demoTwoPaneTitle": {
     "description": "Title for the TwoPane widget demo."
   },
-  "demoTwoPaneSubtitle": "Responsive on foldable and large screens",
+  "demoTwoPaneSubtitle": "Responsive layouts on foldable, large, and small screens",
   "@demoTwoPaneSubtitle": {
     "description": "Subtitle for the TwoPane widget demo."
   },
@@ -3342,7 +3342,7 @@
     "description": "Title of one of the panes in the TwoPane demo, which shows details of the currently selected item."
   },
   "demoTwoPaneSelectItem": "Select an item",
-  "@demoTwoPaneDetails": {
+  "@demoTwoPaneSelectItem": {
     "description": "Tip for user, visible on the right side of the TwoPane widget demo in the foldable configuration."
   },
   "demoTwoPaneItem": "Item {value}",

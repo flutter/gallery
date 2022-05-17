@@ -1254,15 +1254,15 @@ List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
           code: CodeSegments.twoPaneDemo,
         ),
         GalleryDemoConfiguration(
-          title: localizations.demoTwoPaneSingleScreenLabel,
-          description: localizations.demoTwoPaneSingleScreenDescription,
+          title: localizations.demoTwoPaneSmallScreenLabel,
+          description: localizations.demoTwoPaneSmallScreenDescription,
           documentationUrl:
               'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
           buildRoute: (_) => DeferredWidget(
             twopane_demo.loadLibrary,
             // ignore: prefer_const_constructors
             () => twopane_demo.TwoPaneDemo(
-              type: twopane_demo.TwoPaneDemoType.singleScreen,
+              type: twopane_demo.TwoPaneDemoType.smallScreen,
               restorationId: 'two_pane_single',
             ),
           ),
