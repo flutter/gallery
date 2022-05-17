@@ -3296,5 +3296,71 @@
   "replyDraftsLabel": "Drafts",
   "@replyDraftsLabel": {
     "description": "Text label for Drafts destination."
+  },
+  "demoTwoPaneFoldableLabel": "Foldable",
+  "@demoTwoPaneFoldableLabel": {
+    "description": "Option title for TwoPane demo on foldable devices."
+  },
+  "demoTwoPaneFoldableDescription": "This is how TwoPane behaves on a foldable device.",
+  "@demoTwoPaneFoldableDescription": {
+    "description": "Description for the foldable option configuration on the TwoPane demo."
+  },
+  "demoTwoPaneSmallScreenLabel": "Small Screen",
+  "@demoTwoPaneSmallScreenLabel": {
+    "description": "Option title for TwoPane demo in small screen mode. Counterpart of the foldable option."
+  },
+  "demoTwoPaneSmallScreenDescription": "This is how TwoPane behaves on a small screen device.",
+  "@demoTwoPaneSmallScreenDescription": {
+    "description": "Description for the small screen option configuration on the TwoPane demo."
+  },
+  "demoTwoPaneTabletLabel": "Tablet / Desktop",
+  "@demoTwoPaneTabletLabel": {
+    "description": "Option title for TwoPane demo in tablet or desktop mode."
+  },
+  "demoTwoPaneTabletDescription": "This is how TwoPane behaves on a larger screen like a tablet or desktop.",
+  "@demoTwoPaneTabletDescription": {
+    "description": "Description for the tablet / desktop option configuration on the TwoPane demo."
+  },
+  "demoTwoPaneTitle": "TwoPane",
+  "@demoTwoPaneTitle": {
+    "description": "Title for the TwoPane widget demo."
+  },
+  "demoTwoPaneSubtitle": "Responsive layouts on foldable, large, and small screens",
+  "@demoTwoPaneSubtitle": {
+    "description": "Subtitle for the TwoPane widget demo."
+  },
+  "splashSelectDemo": "Select a demo",
+  "@splashSelectDemo": {
+    "description": "Tip for user, visible on the right side of the splash screen when Gallery runs on a foldable device."
+  },
+  "demoTwoPaneList": "List",
+  "@demoTwoPaneList": {
+    "description": "Title of one of the panes in the TwoPane demo. It sits on top of a list of items."
+  },
+  "demoTwoPaneDetails": "Details",
+  "@demoTwoPaneDetails": {
+    "description": "Title of one of the panes in the TwoPane demo, which shows details of the currently selected item."
+  },
+  "demoTwoPaneSelectItem": "Select an item",
+  "@demoTwoPaneSelectItem": {
+    "description": "Tip for user, visible on the right side of the TwoPane widget demo in the foldable configuration."
+  },
+  "demoTwoPaneItem": "Item {value}",
+  "@demoTwoPaneItem": {
+    "description": "Generic item placeholder visible in the TwoPane widget demo.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
+  },
+  "demoTwoPaneItemDetails": "Item {value} details",
+  "@demoTwoPaneItemDetails": {
+    "description": "Generic item description or details visible in the TwoPane widget demo.",
+    "placeholders": {
+      "value": {
+        "example": "1"
+      }
+    }
   }
 }

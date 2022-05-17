@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 abstract class BackLayerItem extends StatefulWidget {
   final int index;
 
-  const BackLayerItem({Key? key, required this.index}) : super(key: key);
+  const BackLayerItem({super.key, required this.index});
 }
 
 class BackLayer extends StatefulWidget {
@@ -15,10 +15,10 @@ class BackLayer extends StatefulWidget {
   final TabController tabController;
 
   const BackLayer({
-    Key? key,
+    super.key,
     required this.backLayerItems,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   State<BackLayer> createState() => _BackLayerState();

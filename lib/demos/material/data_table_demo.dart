@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 // BEGIN dataTableDemo
 
 class DataTableDemo extends StatefulWidget {
-  const DataTableDemo({Key? key}) : super(key: key);
+  const DataTableDemo({super.key});
 
   @override
   State<DataTableDemo> createState() => _DataTableDemoState();

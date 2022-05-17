@@ -69,8 +69,8 @@ List<TravelDestination> destinations(BuildContext context) {
 }
 
 class TravelDestinationItem extends StatelessWidget {
-  const TravelDestinationItem({Key? key, required this.destination, this.shape})
-      : super(key: key);
+  const TravelDestinationItem(
+      {super.key, required this.destination, this.shape});
 
   // This height will allow for all the Card's content to fit comfortably within the card.
   static const height = 360.0;
@@ -107,10 +107,10 @@ class TravelDestinationItem extends StatelessWidget {
 
 class TappableTravelDestinationItem extends StatelessWidget {
   const TappableTravelDestinationItem({
-    Key? key,
+    super.key,
     required this.destination,
     this.shape,
-  }) : super(key: key);
+  });
 
   // This height will allow for all the Card's content to fit comfortably within the card.
   static const height = 298.0;
@@ -154,12 +154,12 @@ class TappableTravelDestinationItem extends StatelessWidget {
 
 class SelectableTravelDestinationItem extends StatelessWidget {
   const SelectableTravelDestinationItem({
-    Key? key,
+    super.key,
     required this.destination,
     required this.isSelected,
     required this.onSelected,
     this.shape,
-  }) : super(key: key);
+  });
 
   final TravelDestination destination;
   final ShapeBorder? shape;
@@ -232,9 +232,9 @@ class SelectableTravelDestinationItem extends StatelessWidget {
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String title;
 
@@ -251,8 +251,7 @@ class SectionTitle extends StatelessWidget {
 }
 
 class TravelDestinationContent extends StatelessWidget {
-  const TravelDestinationContent({Key? key, required this.destination})
-      : super(key: key);
+  const TravelDestinationContent({super.key, required this.destination});
 
   final TravelDestination destination;
 
@@ -354,7 +353,7 @@ class TravelDestinationContent extends StatelessWidget {
 }
 
 class CardsDemo extends StatefulWidget {
-  const CardsDemo({Key? key}) : super(key: key);
+  const CardsDemo({super.key});
 
   @override
   State<CardsDemo> createState() => _CardsDemoState();

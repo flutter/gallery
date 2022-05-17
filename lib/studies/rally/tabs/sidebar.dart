@@ -8,11 +8,11 @@ import 'package:gallery/studies/rally/colors.dart';
 
 class TabWithSidebar extends StatelessWidget {
   const TabWithSidebar({
-    Key? key,
+    super.key,
     this.restorationId,
     required this.mainView,
     required this.sidebarItems,
-  }) : super(key: key);
+  });
 
   final Widget mainView;
   final List<Widget> sidebarItems;
@@ -58,10 +58,10 @@ class TabWithSidebar extends StatelessWidget {
 
 class SidebarItem extends StatelessWidget {
   const SidebarItem({
-    Key? key,
+    super.key,
     required this.value,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String value;
   final String title;

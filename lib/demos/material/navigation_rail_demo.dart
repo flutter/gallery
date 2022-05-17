@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN navRailDemo
 
 class NavRailDemo extends StatefulWidget {
-  const NavRailDemo({Key? key}) : super(key: key);
+  const NavRailDemo({super.key});
 
   @override
   State<NavRailDemo> createState() => _NavRailDemoState();

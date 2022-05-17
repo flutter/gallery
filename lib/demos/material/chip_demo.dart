@@ -8,9 +8,9 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 
 class ChipDemo extends StatelessWidget {
   const ChipDemo({
-    Key? key,
+    super.key,
     required this.type,
-  }) : super(key: key);
+  });
 
   final ChipDemoType type;
 

@@ -4,6 +4,7 @@
 
 import 'dart:io' show Platform;
 
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 const _demoViewedCountKey = 'demoViewedCountKey';
 
@@ -35,9 +36,9 @@ enum _DemoState {
 
 class DemoPage extends StatefulWidget {
   const DemoPage({
-    Key? key,
+    super.key,
     required this.slug,
-  }) : super(key: key);
+  });
 
   static const String baseRoute = '/demo';
   final String? slug;
@@ -75,10 +76,10 @@ class _DemoPageState extends State<DemoPage> {
 
 class GalleryDemoPage extends StatefulWidget {
   const GalleryDemoPage({
-    Key? key,
+    super.key,
     required this.restorationId,
     required this.demo,
-  }) : super(key: key);
+  });
 
   final String restorationId;
   final GalleryDemo demo;
@@ -191,8 +192,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   Future<void> _showDocumentation(BuildContext context) async {
     final url = _currentConfig.documentationUrl;
 
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
     } else {
       await showDialog<void>(
         context: context,
@@ -213,12 +214,13 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   void _resolveState(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
+    final isFoldable = isDisplayFoldable(context);
     if (_DemoState.values[_demoStateIndex.value] == _DemoState.fullscreen &&
         !isDesktop) {
       // Do not allow fullscreen state for mobile.
       _demoStateIndex.value = _DemoState.normal.index;
     } else if (_DemoState.values[_demoStateIndex.value] == _DemoState.normal &&
-        isDesktop) {
+        (isDesktop || isFoldable)) {
       // Do not allow normal state for desktop.
       _demoStateIndex.value =
           _hasOptions ? _DemoState.options.index : _DemoState.info.index;
@@ -233,6 +235,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   @override
   Widget build(BuildContext context) {
+    final isFoldable = isDisplayFoldable(context);
     final isDesktop = isDisplayDesktop(context);
     _resolveState(context);
 
@@ -406,6 +409,14 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
           child: sectionAndDemo,
         ),
       );
+    } else if (isFoldable) {
+      body = Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: TwoPane(
+          startPane: demoContent,
+          endPane: section,
+        ),
+      );
     } else {
       section = AnimatedSize(
         duration: const Duration(milliseconds: 200),
@@ -454,7 +465,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
     Widget page;
 
-    if (isDesktop) {
+    if (isDesktop || isFoldable) {
       page = AnimatedBuilder(
           animation: _codeBackgroundColorController,
           builder: (context, child) {
@@ -486,13 +497,15 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             if (themeBrightness == Brightness.light) {
               // If it is currently in light mode, add a
               // dark background for code.
-              Widget codeBackground = Container(
-                padding: const EdgeInsets.only(top: 56),
+              Widget codeBackground = SafeArea(
                 child: Container(
-                  color: ColorTween(
-                    begin: Colors.transparent,
-                    end: GalleryThemeData.darkThemeData.canvasColor,
-                  ).animate(_codeBackgroundColorController).value,
+                  padding: const EdgeInsets.only(top: 56),
+                  child: Container(
+                    color: ColorTween(
+                      begin: Colors.transparent,
+                      end: GalleryThemeData.darkThemeData.canvasColor,
+                    ).animate(_codeBackgroundColorController).value,
+                  ),
                 ),
               );
 
@@ -539,13 +552,12 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
 class _DemoSectionOptions extends StatelessWidget {
   const _DemoSectionOptions({
-    Key? key,
     required this.maxHeight,
     required this.maxWidth,
     required this.configurations,
     required this.configIndex,
     required this.onConfigChanged,
-  }) : super(key: key);
+  });
 
   final double maxHeight;
   final double maxWidth;
@@ -611,11 +623,10 @@ class _DemoSectionOptions extends StatelessWidget {
 
 class _DemoSectionOptionsItem extends StatelessWidget {
   const _DemoSectionOptionsItem({
-    Key? key,
     required this.title,
     required this.isSelected,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final String title;
   final bool isSelected;
@@ -647,12 +658,11 @@ class _DemoSectionOptionsItem extends StatelessWidget {
 
 class _DemoSectionInfo extends StatelessWidget {
   const _DemoSectionInfo({
-    Key? key,
     required this.maxHeight,
     required this.maxWidth,
     required this.title,
     required this.description,
-  }) : super(key: key);
+  });
 
   final double maxHeight;
   final double maxWidth;
@@ -702,10 +712,10 @@ class _DemoSectionInfo extends StatelessWidget {
 
 class DemoWrapper extends StatelessWidget {
   const DemoWrapper({
-    Key? key,
+    super.key,
     required this.height,
     required this.buildRoute,
-  }) : super(key: key);
+  });
 
   final double height;
   final WidgetBuilder buildRoute;
@@ -717,6 +727,7 @@ class DemoWrapper extends StatelessWidget {
       height: height,
       child: Material(
         clipBehavior: Clip.antiAlias,
+        color: const Color(0x00000000),
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(10.0),
           bottom: Radius.circular(2.0),
@@ -740,10 +751,9 @@ class DemoWrapper extends StatelessWidget {
 
 class _DemoSectionCode extends StatelessWidget {
   const _DemoSectionCode({
-    Key? key,
     this.maxHeight,
     this.codeWidget,
-  }) : super(key: key);
+  });
 
   final double? maxHeight;
   final Widget? codeWidget;
@@ -768,7 +778,7 @@ class _DemoSectionCode extends StatelessWidget {
 }
 
 class CodeDisplayPage extends StatelessWidget {
-  const CodeDisplayPage(this.code, {Key? key}) : super(key: key);
+  const CodeDisplayPage(this.code, {super.key});
 
   final CodeDisplayer code;
 

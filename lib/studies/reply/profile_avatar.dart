@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({
-    Key? key,
+    super.key,
     required this.avatar,
     this.radius = 20,
-  }) : super(key: key);
+  });
 
   final String avatar;
   final double radius;

@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 // BEGIN sharedYAxisTransitionDemo
 
 class SharedYAxisTransitionDemo extends StatefulWidget {
-  const SharedYAxisTransitionDemo({Key? key}) : super(key: key);
+  const SharedYAxisTransitionDemo({super.key});
 
   @override
   State<SharedYAxisTransitionDemo> createState() =>

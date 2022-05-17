@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
-
 import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/demos/cupertino/cupertino_demos.dart'
     deferred as cupertino_demos;
@@ -30,6 +30,8 @@ import 'package:gallery/demos/reference/motion_demo_shared_y_axis_transition.dar
 import 'package:gallery/demos/reference/motion_demo_shared_z_axis_transition.dart';
 import 'package:gallery/demos/reference/transformations_demo.dart'
     deferred as transformations_demo;
+import 'package:gallery/demos/reference/two_pane_demo.dart'
+    deferred as twopane_demo;
 import 'package:gallery/demos/reference/typography_demo.dart'
     deferred as typography;
 
@@ -1111,26 +1113,6 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
       category: GalleryDemoCategory.cupertino,
     ),
     GalleryDemo(
-      title: localizations.demoCupertinoPullToRefreshTitle,
-      icon: GalleryIcons.cupertinoPullToRefresh,
-      slug: 'cupertino-pull-to-refresh',
-      subtitle: localizations.demoCupertinoPullToRefreshSubtitle,
-      configurations: [
-        GalleryDemoConfiguration(
-          title: localizations.demoCupertinoPullToRefreshTitle,
-          description: localizations.demoCupertinoPullToRefreshDescription,
-          documentationUrl:
-              '$_docsBaseUrl/cupertino/CupertinoSliverRefreshControl-class.html',
-          buildRoute: (_) => DeferredWidget(
-              cupertinoLoader,
-              // ignore: prefer_const_constructors
-              () => cupertino_demos.CupertinoRefreshControlDemo()),
-          code: CodeSegments.cupertinoRefreshDemo,
-        ),
-      ],
-      category: GalleryDemoCategory.cupertino,
-    ),
-    GalleryDemo(
       title: localizations.demoCupertinoSegmentedControlTitle,
       icon: GalleryIcons.tabs,
       slug: 'cupertino-segmented-control',
@@ -1235,6 +1217,60 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
 
 List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
   return [
+    GalleryDemo(
+      title: localizations.demoTwoPaneTitle,
+      icon: GalleryIcons.bottomSheetPersistent,
+      slug: 'two-pane',
+      subtitle: localizations.demoTwoPaneSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoTwoPaneFoldableLabel,
+          description: localizations.demoTwoPaneFoldableDescription,
+          documentationUrl:
+              'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
+          buildRoute: (_) => DeferredWidget(
+            twopane_demo.loadLibrary,
+            // ignore: prefer_const_constructors
+            () => twopane_demo.TwoPaneDemo(
+              type: twopane_demo.TwoPaneDemoType.foldable,
+              restorationId: 'two_pane_foldable',
+            ),
+          ),
+          code: CodeSegments.twoPaneDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoTwoPaneTabletLabel,
+          description: localizations.demoTwoPaneTabletDescription,
+          documentationUrl:
+              'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
+          buildRoute: (_) => DeferredWidget(
+            twopane_demo.loadLibrary,
+            // ignore: prefer_const_constructors
+            () => twopane_demo.TwoPaneDemo(
+              type: twopane_demo.TwoPaneDemoType.tablet,
+              restorationId: 'two_pane_tablet',
+            ),
+          ),
+          code: CodeSegments.twoPaneDemo,
+        ),
+        GalleryDemoConfiguration(
+          title: localizations.demoTwoPaneSmallScreenLabel,
+          description: localizations.demoTwoPaneSmallScreenDescription,
+          documentationUrl:
+              'https://pub.dev/documentation/dual_screen/latest/dual_screen/TwoPane-class.html',
+          buildRoute: (_) => DeferredWidget(
+            twopane_demo.loadLibrary,
+            // ignore: prefer_const_constructors
+            () => twopane_demo.TwoPaneDemo(
+              type: twopane_demo.TwoPaneDemoType.smallScreen,
+              restorationId: 'two_pane_single',
+            ),
+          ),
+          code: CodeSegments.twoPaneDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.other,
+    ),
     GalleryDemo(
       title: localizations.demoMotionTitle,
       icon: GalleryIcons.animation,

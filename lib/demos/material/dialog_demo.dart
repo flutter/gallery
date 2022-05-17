@@ -11,7 +11,7 @@ import 'package:gallery/demos/material/material_demo_types.dart';
 // BEGIN dialogDemo
 
 class DialogDemo extends StatefulWidget {
-  const DialogDemo({Key? key, required this.type}) : super(key: key);
+  const DialogDemo({super.key, required this.type});
 
   final DialogDemoType type;
 
@@ -239,16 +239,11 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
 /// A MaterialPageRoute without any transition animations.
 class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
   _NoAnimationMaterialPageRoute({
-    required WidgetBuilder builder,
-    RouteSettings? settings,
-    bool maintainState = true,
-    bool fullscreenDialog = false,
-  }) : super(
-          builder: builder,
-          maintainState: maintainState,
-          settings: settings,
-          fullscreenDialog: fullscreenDialog,
-        );
+    required super.builder,
+    super.settings,
+    super.maintainState,
+    super.fullscreenDialog,
+  });
 
   @override
   Widget buildTransitions(
@@ -262,7 +257,7 @@ class _NoAnimationMaterialPageRoute<T> extends MaterialPageRoute<T> {
 }
 
 class _DialogButton extends StatelessWidget {
-  const _DialogButton({Key? key, required this.text}) : super(key: key);
+  const _DialogButton({required this.text});
 
   final String text;
 
@@ -279,11 +274,10 @@ class _DialogButton extends StatelessWidget {
 
 class _DialogDemoItem extends StatelessWidget {
   const _DialogDemoItem({
-    Key? key,
     this.icon,
     this.color,
     required this.text,
-  }) : super(key: key);
+  });
 
   final IconData? icon;
   final Color? color;

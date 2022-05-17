@@ -19,7 +19,7 @@ void main() {
         await setUpBinding(tester, size: mobileSize);
         await pumpWidgetWithImages(
           tester,
-          const GalleryApp(initialRoute: '/shrine/login'),
+          const GalleryApp(initialRoute: '/shrine'),
           shrineAssets,
         );
         await tester.pumpAndSettle();
@@ -50,7 +50,7 @@ void main() {
         await setUpBinding(tester, size: desktopSize);
         await pumpWidgetWithImages(
           tester,
-          const GalleryApp(initialRoute: '/shrine/login'),
+          const GalleryApp(initialRoute: '/shrine'),
           shrineAssets,
         );
         await tester.pumpAndSettle();

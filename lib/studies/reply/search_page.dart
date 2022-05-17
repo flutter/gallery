@@ -3,7 +3,7 @@ import 'package:gallery/studies/reply/model/email_store.dart';
 import 'package:provider/provider.dart';
 
 class SearchPage extends StatelessWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +84,8 @@ class SearchPage extends StatelessWidget {
 }
 
 class _SectionHeader extends StatelessWidget {
-  const _SectionHeader({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  const _SectionHeader({required this.title});
+
   final String title;
 
   @override
@@ -108,11 +106,10 @@ class _SectionHeader extends StatelessWidget {
 
 class _SearchHistoryTile extends StatelessWidget {
   const _SearchHistoryTile({
-    Key? key,
     this.icon = Icons.access_time,
     required this.search,
     required this.address,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String search;

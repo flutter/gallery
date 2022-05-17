@@ -9,7 +9,7 @@ import 'package:gallery/studies/crane/backlayer.dart';
 import 'package:gallery/studies/crane/header_form.dart';
 
 class SleepForm extends BackLayerItem {
-  const SleepForm({Key? key}) : super(key: key, index: 1);
+  const SleepForm({super.key}) : super(index: 1);
 
   @override
   State<SleepForm> createState() => _SleepFormState();

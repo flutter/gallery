@@ -169,9 +169,9 @@ class GalleryOptions {
 // Applies text GalleryOptions to a widget
 class ApplyTextOptions extends StatelessWidget {
   const ApplyTextOptions({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 
@@ -201,10 +201,9 @@ class ApplyTextOptions extends StatelessWidget {
 
 class _ModelBindingScope extends InheritedWidget {
   const _ModelBindingScope({
-    Key? key,
     required this.modelBindingState,
-    required Widget child,
-  }) : super(key: key, child: child);
+    required super.child,
+  });
 
   final _ModelBindingState modelBindingState;
 
@@ -214,10 +213,10 @@ class _ModelBindingScope extends InheritedWidget {
 
 class ModelBinding extends StatefulWidget {
   const ModelBinding({
-    Key? key,
+    super.key,
     this.initialModel = const GalleryOptions(),
     required this.child,
-  }) : super(key: key);
+  });
 
   final GalleryOptions initialModel;
   final Widget child;

@@ -143,11 +143,10 @@ List<_Palette> _allPalettes(BuildContext context) {
 
 class _ColorItem extends StatelessWidget {
   const _ColorItem({
-    Key? key,
     required this.index,
     required this.color,
     this.prefix = '',
-  }) : super(key: key);
+  });
 
   final int index;
   final Color color;
@@ -178,10 +177,7 @@ class _ColorItem extends StatelessWidget {
 }
 
 class _PaletteTabView extends StatelessWidget {
-  const _PaletteTabView({
-    Key? key,
-    required this.colors,
-  }) : super(key: key);
+  const _PaletteTabView({required this.colors});
 
   final _Palette colors;
   static const primaryKeys = <int>[
@@ -233,7 +229,7 @@ class _PaletteTabView extends StatelessWidget {
 }
 
 class ColorsDemo extends StatelessWidget {
-  const ColorsDemo({Key? key}) : super(key: key);
+  const ColorsDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
