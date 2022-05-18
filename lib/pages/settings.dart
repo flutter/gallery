@@ -254,7 +254,14 @@ class _SettingsPageState extends State<SettingsPage> {
         onTapSetting: () => onTapSetting(_ExpandableSetting.theme),
         isExpanded: _expandedSettingId == _ExpandableSetting.theme,
       ),
-      const SlowMotionSetting(),
+      ToggleSetting(
+        text: GalleryLocalizations.of(context)!.settingsSlowMotion,
+        value: options.timeDilation != 1.0,
+        onChanged: (isOn) => GalleryOptions.update(
+          context,
+          options.copyWith(timeDilation: isOn ? 5.0 : 1.0),
+        ),
+      ),
     ];
 
     return Material(

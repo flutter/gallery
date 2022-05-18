@@ -950,7 +950,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
             Future.delayed(
               Duration(
                 milliseconds: (drawerController.value == 1 ? 300 : 120) *
-                    GalleryOptions.of(context).timeDilation!.toInt(),
+                    GalleryOptions.of(context).timeDilation.toInt(),
               ),
               () {
                 // Wait until animations are complete to reload the state.

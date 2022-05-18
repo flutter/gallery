@@ -29,8 +29,8 @@ class GalleryApp extends StatelessWidget {
     this.isTestMode = false,
   });
 
-  final bool isTestMode;
   final String? initialRoute;
+  final bool isTestMode;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,7 @@ class GalleryApp extends StatelessWidget {
       ),
       child: Builder(
         builder: (context) {
+          final options = GalleryOptions.of(context);
           return MaterialApp(
             // By default on desktop, scrollbars are applied by the
             // ScrollBehavior. This overrides that. All vertical scrollables in
@@ -56,12 +57,12 @@ class GalleryApp extends StatelessWidget {
             restorationScopeId: 'rootGallery',
             title: 'Flutter Gallery',
             debugShowCheckedModeBanner: false,
-            themeMode: GalleryOptions.of(context).themeMode,
+            themeMode: options.themeMode,
             theme: GalleryThemeData.lightThemeData.copyWith(
-              platform: GalleryOptions.of(context).platform,
+              platform: options.platform,
             ),
             darkTheme: GalleryThemeData.darkThemeData.copyWith(
-              platform: GalleryOptions.of(context).platform,
+              platform: options.platform,
             ),
             localizationsDelegates: const [
               ...GalleryLocalizations.localizationsDelegates,
@@ -69,7 +70,7 @@ class GalleryApp extends StatelessWidget {
             ],
             initialRoute: initialRoute,
             supportedLocales: GalleryLocalizations.supportedLocales,
-            locale: GalleryOptions.of(context).locale,
+            locale: options.locale,
             localeListResolutionCallback: (locales, supportedLocales) {
               deviceLocale = locales?.first;
               return basicLocaleListResolution(locales, supportedLocales);
