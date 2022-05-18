@@ -41,7 +41,7 @@ These include:
 - Linux ([.tar.gz][latest release])
 - Windows ([.zip][latest release])
 
-One can run the gallery locally for any of these platforms. For desktop platforms, 
+One can run the gallery locally for any of these platforms. For desktop platforms,
 please see the [Flutter docs](https://docs.flutter.dev/desktop) for the latest
 requirements.
 
@@ -113,15 +113,15 @@ more details.
    which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
    with a patch should become `1.2.4+010204`.
 
-2. **Staging**: After the version bump PR is merged, push a new version tag to master.
+2. **Staging**: After the version bump PR is merged, push a new version tag to main.
 
 ```bash
-git pull upstream master
+git pull upstream main
 git tag v1.2.4  # note the v
 git push upstream v1.2.4
 ```
 
-This will trigger a set of GitHub Actions [workflows](https://github.com/flutter/gallery/tree/master/.github/workflows) that will:
+This will trigger a set of GitHub Actions [workflows](https://github.com/flutter/gallery/tree/main/.github/workflows) that will:
 
 - Draft a [GitHub release](<(https://github.com/flutter/gallery/releases)>) with automatically generated release notes and packaged builds (.apk, macOS, Windows, and Linux)
 - Deploy the gallery to the Firebase hosted [staging site](https://gallery-staging-flutter-dev.web.app/)
@@ -142,6 +142,5 @@ The gallery has its own set of unit and integration tests. Flutter itself also u
 
 - `flutter analyze`: https://github.com/flutter/tests/blob/master/registry/flutter_gallery.test
 - DeviceLab tests: https://github.com/flutter/flutter/blob/master/dev/devicelab/lib/versions/gallery.dart
-
 
 [latest release]: https://github.com/flutter/gallery/releases/latest
