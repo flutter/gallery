@@ -34,13 +34,10 @@
   </style>
   <link rel="manifest" href="manifest.json">
   <script>
-    let query = window.location.search;
-    if (query) {
-      let searchParams = new URLSearchParams(query);
-      if (searchParams.has('renderer')) {
-        window.flutterWebRenderer = searchParams.get('renderer');
-        console.log(searchParams.get('renderer') + ' renderer requested in the URL');
-      }
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('renderer')) {
+      window.flutterWebRenderer = searchParams.get('renderer');
+      console.log(searchParams.get('renderer') + ' renderer requested in the URL');
     }
 
     // The value below is injected by flutter build, do not touch.
