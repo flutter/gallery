@@ -5,8 +5,6 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-import 'package:gallery/data/gallery_options.dart';
 
 // Common constants between SlowMotionSetting and SettingsListItem.
 final settingItemBorderRadius = BorderRadius.circular(10);
@@ -19,14 +17,22 @@ class DisplayOption {
   DisplayOption(this.title, {this.subtitle});
 }
 
-class SlowMotionSetting extends StatelessWidget {
-  const SlowMotionSetting({super.key});
+class ToggleSetting extends StatelessWidget {
+  final String text;
+  final bool value;
+  final Function(bool) onChanged;
+
+  const ToggleSetting({
+    super.key,
+    required this.text,
+    required this.value,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final options = GalleryOptions.of(context);
 
     return Semantics(
       container: true,
@@ -47,7 +53,7 @@ class SlowMotionSetting extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SelectableText(
-                        GalleryLocalizations.of(context)!.settingsSlowMotion,
+                        text,
                         style: textTheme.subtitle1!.apply(
                           color: colorScheme.onSurface,
                         ),
@@ -60,11 +66,8 @@ class SlowMotionSetting extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.only(end: 8),
                 child: Switch(
                   activeColor: colorScheme.primary,
-                  value: options.timeDilation != 1.0,
-                  onChanged: (isOn) => GalleryOptions.update(
-                    context,
-                    options.copyWith(timeDilation: isOn ? 5.0 : 1.0),
-                  ),
+                  value: value,
+                  onChanged: onChanged,
                 ),
               ),
             ],
