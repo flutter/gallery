@@ -43,18 +43,20 @@ enum GalleryDemoCategory {
   study,
   material,
   cupertino,
-  other,
-}
+  other;
 
-extension GalleryDemoExtension on GalleryDemoCategory {
+  @override
+  String toString() {
+    return name.toUpperCase();
+  }
+
   String? displayTitle(GalleryLocalizations localizations) {
     switch (this) {
-      case GalleryDemoCategory.material:
-        return 'MATERIAL';
-      case GalleryDemoCategory.cupertino:
-        return 'CUPERTINO';
       case GalleryDemoCategory.other:
         return localizations.homeCategoryReference;
+      case GalleryDemoCategory.material:
+      case GalleryDemoCategory.cupertino:
+        return toString();
       case GalleryDemoCategory.study:
     }
     return null;
