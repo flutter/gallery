@@ -34,6 +34,17 @@
   </style>
   <link rel="manifest" href="manifest.json">
   <script>
+    let query = window.location.search;
+    if (query && query.indexOf('renderer=') !== -1) {
+      if (query.indexOf('renderer=html') !== -1) {
+        console.log('HTML renderer requested in the URL');
+        window.flutterWebRenderer = 'html';
+      } else {
+        console.log('CanvasKit renderer requested in the URL');
+        window.flutterWebRenderer = 'canvaskit';
+      }
+    }
+
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
   </script>
