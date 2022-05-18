@@ -35,13 +35,11 @@
   <link rel="manifest" href="manifest.json">
   <script>
     let query = window.location.search;
-    if (query && query.indexOf('renderer=') !== -1) {
-      if (query.indexOf('renderer=html') !== -1) {
-        console.log('HTML renderer requested in the URL');
-        window.flutterWebRenderer = 'html';
-      } else {
-        console.log('CanvasKit renderer requested in the URL');
-        window.flutterWebRenderer = 'canvaskit';
+    if (query) {
+      let searchParams = new URLSearchParams(query);
+      if (searchParams.has('renderer')) {
+        window.flutterWebRenderer = searchParams.get('renderer');
+        console.log(searchParams.get('renderer') + ' renderer requested in the URL');
       }
     }
 
