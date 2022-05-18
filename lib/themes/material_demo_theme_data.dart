@@ -28,6 +28,7 @@ class MaterialDemoThemeData {
     typography: Typography.material2018(
       platform: defaultTargetPlatform,
     ),
+    visualDensity: VisualDensity.standard,
   );
 
   static const _colorScheme = ColorScheme(
