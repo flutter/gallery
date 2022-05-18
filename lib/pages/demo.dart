@@ -471,7 +471,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
           builder: (context, child) {
             Brightness themeBrightness;
 
-            switch (GalleryOptions.of(context).themeMode!) {
+            switch (GalleryOptions.of(context).themeMode) {
               case ThemeMode.system:
                 themeBrightness = MediaQuery.of(context).platformBrightness;
                 break;
