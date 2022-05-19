@@ -12,16 +12,16 @@ void main() {
     final ThemeData themeData = MaterialDemoThemeData.themeData;
 
     expect(
-        themeData.checkboxTheme.fillColor!.resolve({MaterialState.selected}),
-        primaryColor,
+      themeData.checkboxTheme.fillColor!.resolve({MaterialState.selected}),
+      primaryColor,
     );
     expect(
-        themeData.radioTheme.fillColor!.resolve({MaterialState.selected}),
-        primaryColor,
+      themeData.radioTheme.fillColor!.resolve({MaterialState.selected}),
+      primaryColor,
     );
     expect(
-        themeData.switchTheme.thumbColor!.resolve({MaterialState.selected}),
-        primaryColor,
+      themeData.switchTheme.thumbColor!.resolve({MaterialState.selected}),
+      primaryColor,
     );
     expect(
       themeData.switchTheme.trackColor!.resolve({MaterialState.selected}),
