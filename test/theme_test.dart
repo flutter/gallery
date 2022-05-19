@@ -7,7 +7,7 @@ import 'package:gallery/themes/material_demo_theme_data.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('verify code segments are up to date', () async {
+  test('verify former toggleableActiveColor themes are set', () async {
     const Color primaryColor = Color(0xFF6200EE);
     final ThemeData themeData = MaterialDemoThemeData.themeData;
 
