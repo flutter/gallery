@@ -30,20 +30,20 @@ class MaterialDemoThemeData {
     visualDensity: VisualDensity.standard,
     checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
-        return states.contains(MaterialState.selected) ? Colors.black : null;
+        return states.contains(MaterialState.selected) ? _colorScheme.primary : null;
       }),
     ),
     radioTheme: RadioThemeData(
       fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
-        return states.contains(MaterialState.selected) ? Colors.black : null;
+        return states.contains(MaterialState.selected) ? _colorScheme.primary : null;
       }),
     ),
     switchTheme: SwitchThemeData(
       thumbColor: MaterialStateProperty.resolveWith<Color?>((states) {
-        return states.contains(MaterialState.selected) ? Colors.black : null;
+        return states.contains(MaterialState.selected) ? _colorScheme.primary : null;
       }),
       trackColor: MaterialStateProperty.resolveWith<Color?>((states) {
-        return states.contains(MaterialState.selected) ? Colors.black : null;
+        return states.contains(MaterialState.selected) ? _colorScheme.primary : null;
       }),
     )
   );
