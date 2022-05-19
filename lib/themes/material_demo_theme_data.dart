@@ -16,7 +16,6 @@ class MaterialDemoThemeData {
       color: _colorScheme.primary,
     ),
     canvasColor: _colorScheme.background,
-    toggleableActiveColor: _colorScheme.primary,
     highlightColor: Colors.transparent,
     indicatorColor: _colorScheme.onPrimary,
     primaryColor: _colorScheme.primary,
