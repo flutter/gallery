@@ -28,6 +28,24 @@ class MaterialDemoThemeData {
       platform: defaultTargetPlatform,
     ),
     visualDensity: VisualDensity.standard,
+    checkboxTheme: CheckboxThemeData(
+      fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
+        return states.contains(MaterialState.selected) ? Colors.black : null;
+      }),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
+        return states.contains(MaterialState.selected) ? Colors.black : null;
+      }),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.resolveWith<Color?>((states) {
+        return states.contains(MaterialState.selected) ? Colors.black : null;
+      }),
+      trackColor: MaterialStateProperty.resolveWith<Color?>((states) {
+        return states.contains(MaterialState.selected) ? Colors.black : null;
+      }),
+    )
   );
 
   static const _colorScheme = ColorScheme(
