@@ -29,6 +29,17 @@ flutter channel stable
 flutter upgrade
 ```
 
+## Features
+- Showcase for `material`, `cupertino`, and other widgets
+- [Adpative layout](lib/layout/adaptive.dart) for mobile and desktop
+- Restoration support
+- Settings to text scaling, text direction, locale, theme, and more...
+- Demo for `animations`
+- Foldable support and demo with `dual_screen`
+- Deferred loading
+- CI/CD
+- ...and much more!
+
 ## Supported Platforms
 
 Flutter Gallery has been built to support multiple platforms.
@@ -50,10 +61,6 @@ cd gallery/
 flutter pub get
 flutter run
 ```
-
-Additionally, the UI adapts between mobile and desktop layouts regardless of the
-platform it runs on. This is determined based on window size as outlined in
-[adaptive.dart](lib/layout/adaptive.dart).
 
 ## Development
 
