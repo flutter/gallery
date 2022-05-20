@@ -30,6 +30,7 @@ flutter upgrade
 ```
 
 ## Features
+
 - Showcase for `material`, `cupertino`, and other widgets
 - [Adpative layout](lib/layout/adaptive.dart) for mobile and desktop
 - State restoration support
