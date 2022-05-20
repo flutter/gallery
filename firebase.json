@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "prod",
+      "target": "staging",
       "public": "build/web",
       "ignore": [
         "firebase.json",
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "target": "staging",
+      "target": "prod",
       "public": "build/web",
       "ignore": [
         "firebase.json",

@@ -25,6 +25,7 @@ import 'package:gallery/studies/reply/routes.dart' as reply_routes;
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
+import 'package:url_launcher/url_launcher.dart';
 
 const _horizontalPadding = 32.0;
 const _carouselItemMargin = 8.0;
@@ -207,19 +208,30 @@ class HomePage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  FadeInImagePlaceholder(
-                    image: Theme.of(context).colorScheme.brightness ==
-                            Brightness.dark
-                        ? const AssetImage(
-                            'assets/logo/flutter_logo.png',
-                            package: 'flutter_gallery_assets',
-                          )
-                        : const AssetImage(
-                            'assets/logo/flutter_logo_color.png',
-                            package: 'flutter_gallery_assets',
-                          ),
-                    placeholder: const SizedBox.shrink(),
-                    excludeFromSemantics: true,
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () async {
+                        final url = Uri.parse('https://flutter.dev');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        }
+                      },
+                      child: FadeInImagePlaceholder(
+                        image: Theme.of(context).colorScheme.brightness ==
+                                Brightness.dark
+                            ? const AssetImage(
+                                'assets/logo/flutter_logo.png',
+                                package: 'flutter_gallery_assets',
+                              )
+                            : const AssetImage(
+                                'assets/logo/flutter_logo_color.png',
+                                package: 'flutter_gallery_assets',
+                              ),
+                        placeholder: const SizedBox.shrink(),
+                        excludeFromSemantics: true,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Wrap(

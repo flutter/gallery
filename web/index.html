@@ -34,6 +34,12 @@
   </style>
   <link rel="manifest" href="manifest.json">
   <script>
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('renderer')) {
+      window.flutterWebRenderer = searchParams.get('renderer');
+      console.log(searchParams.get('renderer') + ' renderer requested in the URL');
+    }
+
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
   </script>
