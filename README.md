@@ -32,10 +32,10 @@ flutter upgrade
 ## Features
 - Showcase for `material`, `cupertino`, and other widgets
 - [Adpative layout](lib/layout/adaptive.dart) for mobile and desktop
-- Restoration support
+- State restoration support
 - Settings to text scaling, text direction, locale, theme, and more...
 - Demo for `animations`
-- Foldable support and demo with `dual_screen`
+- Foldable support and demo for `dual_screen`
 - Deferred loading
 - CI/CD
 - ...and much more!
