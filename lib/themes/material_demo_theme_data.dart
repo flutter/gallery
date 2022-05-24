@@ -8,6 +8,17 @@ import 'package:flutter/material.dart';
 class MaterialDemoThemeData {
   static final themeData = ThemeData(
       colorScheme: _colorScheme,
+      canvasColor: _colorScheme.background,
+      highlightColor: Colors.transparent,
+      indicatorColor: _colorScheme.onPrimary,
+      primaryColor: _colorScheme.primary,
+      backgroundColor: Colors.white,
+      scaffoldBackgroundColor: _colorScheme.background,
+      typography: Typography.material2018(
+        platform: defaultTargetPlatform,
+      ),
+      visualDensity: VisualDensity.standard,
+      // Component themes
       appBarTheme: AppBarTheme(
         color: _colorScheme.primary,
         iconTheme: IconThemeData(color: _colorScheme.onPrimary),
@@ -15,19 +26,6 @@ class MaterialDemoThemeData {
       bottomAppBarTheme: BottomAppBarTheme(
         color: _colorScheme.primary,
       ),
-      canvasColor: _colorScheme.background,
-      highlightColor: Colors.transparent,
-      indicatorColor: _colorScheme.onPrimary,
-      primaryColor: _colorScheme.primary,
-      backgroundColor: Colors.white,
-      scaffoldBackgroundColor: _colorScheme.background,
-      snackBarTheme: const SnackBarThemeData(
-        behavior: SnackBarBehavior.floating,
-      ),
-      typography: Typography.material2018(
-        platform: defaultTargetPlatform,
-      ),
-      visualDensity: VisualDensity.standard,
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
           return states.contains(MaterialState.selected)
@@ -41,6 +39,9 @@ class MaterialDemoThemeData {
               ? _colorScheme.primary
               : null;
         }),
+      ),
+      snackBarTheme: const SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
       ),
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith<Color?>((states) {
