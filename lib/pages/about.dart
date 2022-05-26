@@ -53,44 +53,50 @@ class _AboutDialog extends StatelessWidget {
           children: [
             FutureBuilder(
               future: getVersionNumber(),
-              builder: (context, snapshot) => SelectableText(
-                snapshot.hasData ? '$name ${snapshot.data}' : name,
-                style: textTheme.headline4!.apply(color: colorScheme.onPrimary),
+              builder: (context, snapshot) => SelectionArea(
+                child: Text(
+                  snapshot.hasData ? '$name ${snapshot.data}' : name,
+                  style: textTheme.headline4!.apply(color: colorScheme.onPrimary),
+                ),
               ),
             ),
             const SizedBox(height: 24),
-            SelectableText.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    style: bodyTextStyle,
-                    text: seeSourceFirst,
-                  ),
-                  TextSpan(
-                    style: bodyTextStyle.copyWith(
-                      color: colorScheme.primary,
+            SelectionArea(
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      style: bodyTextStyle,
+                      text: seeSourceFirst,
                     ),
-                    text: repoText,
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () async {
-                        final url =
-                            Uri.parse('https://github.com/flutter/gallery/');
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        }
-                      },
-                  ),
-                  TextSpan(
-                    style: bodyTextStyle,
-                    text: seeSourceSecond,
-                  ),
-                ],
+                    TextSpan(
+                      style: bodyTextStyle.copyWith(
+                        color: colorScheme.primary,
+                      ),
+                      text: repoText,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          final url =
+                              Uri.parse('https://github.com/flutter/gallery/');
+                          if (await canLaunchUrl(url)) {
+                            await launchUrl(url);
+                          }
+                        },
+                    ),
+                    TextSpan(
+                      style: bodyTextStyle,
+                      text: seeSourceSecond,
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 18),
-            SelectableText(
-              legalese,
-              style: bodyTextStyle,
+            SelectionArea(
+              child: Text(
+                legalese,
+                style: bodyTextStyle,
+              ),
             ),
           ],
         ),

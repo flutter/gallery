@@ -168,14 +168,18 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SelectableText(
-                        localizations.shrineCartTotalCaption,
+                      SelectionArea(
+                        child: Text(
+                          localizations.shrineCartTotalCaption,
+                        ),
                       ),
                       Expanded(
-                        child: SelectableText(
-                          formatter.format(model.totalCost),
-                          style: largeAmountStyle,
-                          textAlign: TextAlign.end,
+                        child: SelectionArea(
+                          child: Text(
+                            formatter.format(model.totalCost),
+                            style: largeAmountStyle,
+                            textAlign: TextAlign.end,
+                          ),
                         ),
                       ),
                     ],
@@ -185,14 +189,19 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      SelectableText(
-                        localizations.shrineCartSubtotalCaption,
+                      SelectionArea(
+                        child: Text(
+                          localizations.shrineCartSubtotalCaption,
+
+                        ),
                       ),
                       Expanded(
-                        child: SelectableText(
-                          formatter.format(model.subtotalCost),
-                          style: smallAmountStyle,
-                          textAlign: TextAlign.end,
+                        child: SelectionArea(
+                          child: Text(
+                            formatter.format(model.subtotalCost),
+                            style: smallAmountStyle,
+                            textAlign: TextAlign.end,
+                          ),
                         ),
                       ),
                     ],
@@ -202,14 +211,18 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      SelectableText(
-                        localizations.shrineCartShippingCaption,
+                      SelectionArea(
+                        child: Text(
+                          localizations.shrineCartShippingCaption,
+                        ),
                       ),
                       Expanded(
-                        child: SelectableText(
-                          formatter.format(model.shippingCost),
-                          style: smallAmountStyle,
-                          textAlign: TextAlign.end,
+                        child: SelectionArea(
+                          child: Text(
+                            formatter.format(model.shippingCost),
+                            style: smallAmountStyle,
+                            textAlign: TextAlign.end,
+                          ),
                         ),
                       ),
                     ],
@@ -219,14 +232,18 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      SelectableText(
-                        localizations.shrineCartTaxCaption,
+                      SelectionArea(
+                        child: Text(
+                          localizations.shrineCartTaxCaption,
+                        ),
                       ),
                       Expanded(
-                        child: SelectableText(
-                          formatter.format(model.tax),
-                          style: smallAmountStyle,
-                          textAlign: TextAlign.end,
+                        child: SelectionArea(
+                          child: Text(
+                            formatter.format(model.tax),
+                            style: smallAmountStyle,
+                            textAlign: TextAlign.end,
+                          ),
                         ),
                       ),
                     ],
@@ -312,23 +329,29 @@ class ShoppingCartRow extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: SelectableText(
-                                        localizations
-                                            .shrineProductQuantity(quantity!),
+                                      child: SelectionArea(
+                                        child: Text(
+                                          localizations
+                                              .shrineProductQuantity(quantity!),
+                                        ),
                                       ),
                                     ),
-                                    SelectableText(
-                                      localizations.shrineProductPrice(
-                                        formatter.format(product.price),
+                                    SelectionArea(
+                                      child: Text(
+                                        localizations.shrineProductPrice(
+                                          formatter.format(product.price),
+                                        ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              SelectableText(
-                                product.name(context),
-                                style: localTheme.textTheme.subtitle1!
-                                    .copyWith(fontWeight: FontWeight.w600),
+                              SelectionArea(
+                                child: Text(
+                                  product.name(context),
+                                  style: localTheme.textTheme.subtitle1!
+                                      .copyWith(fontWeight: FontWeight.w600),
+                                ),
                               ),
                             ],
                           ),
