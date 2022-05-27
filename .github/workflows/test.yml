@@ -5,6 +5,9 @@ on:
       - main
   pull_request:
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   unit-test:
     name: Unit tests on ${{ matrix.os }}
@@ -22,7 +25,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       # Analyze, check formatting, and run unit tests.
@@ -46,7 +49,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       - run: flutter test test_benchmarks
@@ -64,13 +67,13 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       # Run the golden tests and upload failed test artifacts.
       - run: flutter test test_goldens
       - name: Upload goldens if tests fail
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@34622df80861c3ed63eb2bff892de2f1fbf4c9da
         if: failure()
         with:
           name: goldens
