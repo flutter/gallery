@@ -12,6 +12,9 @@ on:
     tags:
       - "v*"
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-18.04
@@ -24,14 +27,14 @@ jobs:
       - run: flutter doctor -v
 
       - name: Install web dependencies
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e
         with:
           node-version: "14"
       - run: npm install -g firebase-tools
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get
 
       # Build and deploy (by default, to staging).
