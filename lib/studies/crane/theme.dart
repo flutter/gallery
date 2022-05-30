@@ -29,6 +29,9 @@ ThemeData _buildCraneTheme() {
     errorColor: craneErrorOrange,
     highlightColor: Colors.transparent,
     textTheme: _buildCraneTextTheme(base.textTheme),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: cranePurple700,
+    ),
     primaryTextTheme: _buildCraneTextTheme(base.primaryTextTheme),
     iconTheme: _customIconTheme(base.iconTheme, craneWhite60),
     primaryIconTheme: _customIconTheme(base.iconTheme, cranePrimaryWhite),

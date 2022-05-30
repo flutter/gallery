@@ -26,27 +26,21 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SelectionArea(
-              child: Text(
-                localizations.starterAppGenericHeadline,
-                style: textTheme.headline3!.copyWith(
-                  color: colorScheme.onSecondary,
-                ),
+            SelectableText(
+              localizations.starterAppGenericHeadline,
+              style: textTheme.headline3!.copyWith(
+                color: colorScheme.onSecondary,
               ),
             ),
             const SizedBox(height: 10),
-            SelectionArea(
-              child: Text(
-                localizations.starterAppGenericSubtitle,
-                style: textTheme.subtitle1,
-              ),
+            SelectableText(
+              localizations.starterAppGenericSubtitle,
+              style: textTheme.subtitle1,
             ),
             const SizedBox(height: 48),
-            SelectionArea(
-              child: Text(
-                localizations.starterAppGenericBody,
-                style: textTheme.bodyText1,
-              ),
+            SelectableText(
+              localizations.starterAppGenericBody,
+              style: textTheme.bodyText1,
             ),
           ],
         ),
@@ -118,19 +112,17 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
-          : SelectionArea(child: Text(localizations.starterAppGenericTitle)),
+          : SelectableText(localizations.starterAppGenericTitle),
       bottom: isDesktop
           ? PreferredSize(
               preferredSize: const Size.fromHeight(26),
               child: Container(
                 alignment: AlignmentDirectional.centerStart,
                 margin: const EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
-                child: SelectionArea(
-                  child: Text(
-                    localizations.starterAppGenericTitle,
-                    style: themeData.textTheme.headline6!.copyWith(
-                      color: themeData.colorScheme.onPrimary,
-                    ),
+                child: SelectableText(
+                  localizations.starterAppGenericTitle,
+                  style: themeData.textTheme.headline6!.copyWith(
+                    color: themeData.colorScheme.onPrimary,
                   ),
                 ),
               ),
@@ -178,17 +170,13 @@ class _ListDrawerState extends State<ListDrawer> {
         child: ListView(
           children: [
             ListTile(
-              title: SelectionArea(
-                child: Text(
-                  localizations.starterAppTitle,
-                  style: textTheme.headline6,
-                ),
+              title: SelectableText(
+                localizations.starterAppTitle,
+                style: textTheme.headline6,
               ),
-              subtitle: SelectionArea(
-                child: Text(
-                  localizations.starterAppGenericSubtitle,
-                  style: textTheme.bodyText2,
-                ),
+              subtitle: SelectableText(
+                localizations.starterAppGenericSubtitle,
+                style: textTheme.bodyText2,
               ),
             ),
             const Divider(),
@@ -197,10 +185,8 @@ class _ListDrawerState extends State<ListDrawer> {
                 enabled: true,
                 selected: i == selectedItem,
                 leading: const Icon(Icons.favorite),
-                title: SelectionArea(
-                  child: Text(
-                    localizations.starterAppDrawerItem(i + 1),
-                  ),
+                title: Text(
+                  localizations.starterAppDrawerItem(i + 1),
                 ),
                 onTap: () {
                   setState(() {

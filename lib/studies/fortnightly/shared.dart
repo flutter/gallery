@@ -49,28 +49,22 @@ class HorizontalArticlePreview extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SelectionArea(
-                child: Text(
-                  data.category,
-                  style: textTheme.subtitle1,
-                ),
+              SelectableText(
+                data.category,
+                style: textTheme.subtitle1,
               ),
               const SizedBox(height: 12),
-              SelectionArea(
-                child: Text(
-                  data.title,
-                  style: textTheme.headline5!.copyWith(fontSize: 16),
-                ),
+              SelectableText(
+                data.title,
+                style: textTheme.headline5!.copyWith(fontSize: 16),
               ),
             ],
           ),
         ),
         if (minutes != null) ...[
-          SelectionArea(
-            child: Text(
-              GalleryLocalizations.of(context)!.craneMinutes(minutes!),
-              style: textTheme.bodyText1,
-            ),
+          SelectableText(
+            GalleryLocalizations.of(context)!.craneMinutes(minutes!),
+            style: textTheme.bodyText1,
           ),
           const SizedBox(width: 8),
         ],
@@ -132,26 +126,20 @@ class VerticalArticlePreview extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          SelectionArea(
-            child: Text(
-              data.category,
-              style: textTheme.subtitle1,
-            ),
+          SelectableText(
+            data.category,
+            style: textTheme.subtitle1,
           ),
           const SizedBox(height: 12),
-          SelectionArea(
-            child: Text(
-              data.title,
-              style: headlineTextStyle ?? textTheme.headline5,
-            ),
+          SelectableText(
+            data.title,
+            style: headlineTextStyle ?? textTheme.headline5,
           ),
           if (showSnippet) ...[
             const SizedBox(height: 4),
-            SelectionArea(
-              child: Text(
-                data.snippet!,
-                style: textTheme.bodyText2,
-              ),
+            SelectableText(
+              data.snippet!,
+              style: textTheme.bodyText2,
             ),
           ],
         ],
@@ -203,11 +191,9 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
       ),
     ),
     sectionDivider,
-    SelectionArea(
-      child: Text(
-        localizations.fortnightlyLatestUpdates,
-        style: textTheme.headline6,
-      ),
+    SelectableText(
+      localizations.fortnightlyLatestUpdates,
+      style: textTheme.headline6,
     ),
     articleDivider,
     HorizontalArticlePreview(
@@ -266,47 +252,37 @@ class HashtagBar extends StatelessWidget {
         children: [
           const SizedBox(width: 16),
           Center(
-            child: SelectionArea(
-              child: Text(
-                '#${localizations.fortnightlyTrendingTechDesign}',
-                style: textTheme.subtitle2,
-              ),
+            child: SelectableText(
+              '#${localizations.fortnightlyTrendingTechDesign}',
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
-            child: SelectionArea(
-              child: Text(
-                '#${localizations.fortnightlyTrendingReform}',
-                style: textTheme.subtitle2,
-              ),
+            child: SelectableText(
+              '#${localizations.fortnightlyTrendingReform}',
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
-            child: SelectionArea(
-              child: Text(
-                '#${localizations.fortnightlyTrendingHealthcareRevolution}',
-                style: textTheme.subtitle2,
-              ),
+            child: SelectableText(
+              '#${localizations.fortnightlyTrendingHealthcareRevolution}',
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
-            child: SelectionArea(
-              child: Text(
-                '#${localizations.fortnightlyTrendingGreenArmy}',
-                style: textTheme.subtitle2,
-              ),
+            child: SelectableText(
+              '#${localizations.fortnightlyTrendingGreenArmy}',
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
           Center(
-            child: SelectionArea(
-              child: Text(
-                '#${localizations.fortnightlyTrendingStocks}',
-                style: textTheme.subtitle2,
-              ),
+            child: SelectableText(
+              '#${localizations.fortnightlyTrendingStocks}',
+              style: textTheme.subtitle2,
             ),
           ),
           verticalDivider,
@@ -378,14 +354,12 @@ class MenuItem extends StatelessWidget {
             child: header ? null : const Icon(Icons.arrow_drop_down),
           ),
           Expanded(
-            child: SelectionArea(
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                      fontWeight: header ? FontWeight.w700 : FontWeight.w600,
-                      fontSize: 16,
-                    ),
-              ),
+            child: SelectableText(
+              title,
+              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    fontWeight: header ? FontWeight.w700 : FontWeight.w600,
+                    fontSize: 16,
+                  ),
             ),
           ),
         ],
@@ -417,39 +391,33 @@ class StockItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectionArea(child: Text(ticker, style: textTheme.subtitle1)),
+        SelectableText(ticker, style: textTheme.subtitle1),
         const SizedBox(height: 2),
         Row(
           children: [
             Expanded(
-              child: SelectionArea(
-                child: Text(
-                  price,
-                  style: textTheme.subtitle2!.copyWith(
-                    color: textTheme.subtitle2!.color!.withOpacity(0.75),
-                  ),
+              child: SelectableText(
+                price,
+                style: textTheme.subtitle2!.copyWith(
+                  color: textTheme.subtitle2!.color!.withOpacity(0.75),
                 ),
               ),
             ),
-            SelectionArea(
-              child: Text(
-                percent > 0 ? '+' : '-',
-                style: textTheme.subtitle2!.copyWith(
-                  fontSize: 12,
-                  color: percent > 0
-                      ? const Color(0xff20CF63)
-                      : const Color(0xff661FFF),
-                ),
+            SelectableText(
+              percent > 0 ? '+' : '-',
+              style: textTheme.subtitle2!.copyWith(
+                fontSize: 12,
+                color: percent > 0
+                    ? const Color(0xff20CF63)
+                    : const Color(0xff661FFF),
               ),
             ),
             const SizedBox(width: 4),
-            SelectionArea(
-              child: Text(
-                percentFormat.format(percent.abs() / 100),
-                style: textTheme.caption!.copyWith(
-                  fontSize: 12,
-                  color: textTheme.subtitle2!.color!.withOpacity(0.75),
-                ),
+            SelectableText(
+              percentFormat.format(percent.abs() / 100),
+              style: textTheme.caption!.copyWith(
+                fontSize: 12,
+                color: textTheme.subtitle2!.color!.withOpacity(0.75),
               ),
             ),
           ],
@@ -561,13 +529,14 @@ class VideoPreview extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: SelectionArea(child: Text(data.category, style: textTheme.subtitle1)),
+              child: SelectableText(data.category, style: textTheme.subtitle1),
             ),
-            SelectionArea(child: Text(time, style: textTheme.bodyText1))
+            SelectableText(time, style: textTheme.bodyText1)
           ],
         ),
         const SizedBox(height: 4),
-        SelectionArea(child: Text(data.title, style: textTheme.headline5!.copyWith(fontSize: 16))),
+        SelectableText(data.title,
+            style: textTheme.headline5!.copyWith(fontSize: 16)),
       ],
     );
   }

@@ -39,6 +39,9 @@ ThemeData _buildShrineTheme() {
       contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
     ),
     textTheme: _buildShrineTextTheme(base.textTheme),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: shrinePink100,
+    ),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
     iconTheme: _customIconTheme(base.iconTheme),
   );

@@ -39,19 +39,15 @@ class DestinationCard extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 10),
-                    child: SelectionArea(
-                      child: Text(
-                        destination.destination,
-                        style: textTheme.subtitle1,
-                      ),
+                    child: SelectableText(
+                      destination.destination,
+                      style: textTheme.subtitle1,
                     ),
                   ),
-                  SelectionArea(
-                    child: Text(
-                      destination.subtitle(context),
-                      semanticsLabel: destination.subtitleSemantics(context),
-                      style: textTheme.subtitle2,
-                    ),
+                  SelectableText(
+                    destination.subtitle(context),
+                    semanticsLabel: destination.subtitleSemantics(context),
+                    style: textTheme.subtitle2,
                   ),
                 ],
               ),
@@ -70,16 +66,12 @@ class DestinationCard extends StatelessWidget {
                     child: _DestinationImage(destination: destination),
                   ),
                 ),
-                title: SelectionArea(
-                  child: Text(destination.destination,
-                      style: textTheme.subtitle1),
-                ),
-                subtitle: SelectionArea(
-                  child: Text(
-                    destination.subtitle(context),
-                    semanticsLabel: destination.subtitleSemantics(context),
-                    style: textTheme.subtitle2,
-                  ),
+                title: SelectableText(destination.destination,
+                    style: textTheme.subtitle1),
+                subtitle: SelectableText(
+                  destination.subtitle(context),
+                  semanticsLabel: destination.subtitleSemantics(context),
+                  style: textTheme.subtitle2,
                 ),
               ),
               const Divider(thickness: 1),

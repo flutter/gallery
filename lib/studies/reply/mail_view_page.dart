@@ -65,11 +65,9 @@ class _MailViewHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: SelectionArea(
-                child: Text(
-                  email.subject,
-                  style: textTheme.headline4!.copyWith(height: 1.1),
-                ),
+              child: SelectableText(
+                email.subject,
+                style: textTheme.headline4!.copyWith(height: 1.1),
               ),
             ),
             IconButton(
@@ -95,17 +93,15 @@ class _MailViewHeader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SelectionArea(child: Text('${email.sender} - ${email.time}')),
+                SelectableText('${email.sender} - ${email.time}'),
                 const SizedBox(height: 4),
-                SelectionArea(
-                  child: Text(
-                    'To ${email.recipients},',
-                    style: textTheme.caption!.copyWith(
-                      color: Theme.of(context)
-                          .navigationRailTheme
-                          .unselectedLabelTextStyle!
-                          .color,
-                    ),
+                SelectableText(
+                  'To ${email.recipients},',
+                  style: textTheme.caption!.copyWith(
+                    color: Theme.of(context)
+                        .navigationRailTheme
+                        .unselectedLabelTextStyle!
+                        .color,
                   ),
                 ),
               ],
@@ -128,11 +124,9 @@ class _MailViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SelectionArea(
-      child: Text(
-        message,
-        style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16),
-      ),
+    return SelectableText(
+      message,
+      style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16),
     );
   }
 }
