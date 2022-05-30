@@ -73,24 +73,6 @@ flutter upgrade
 ## Development
 
 <details>
-  <summary>Including a new splash animation</summary>
-
-1. Convert your animation to a `.gif` file.
-   Ideally, use a background color of `0xFF030303` to ensure the animation
-   blends into the background of the app.
-
-2. Add your new `.gif` file to the assets directory under
-   `assets/splash_effects`. Ensure the name follows the format
-   `splash_effect_$num.gif`. The number should be the next number after the
-   current largest number in the repository.
-
-3. Update the map `_effectDurations` in
-[splash.dart](lib/pages/splash.dart) to include the number of the
-new `.gif` as well as its estimated duration. The duration is used to
-determine how long to display the splash animation at launch.
-</details>
-
-<details>
   <summary>Generating localizations</summary>
 
 If this is the first time building the Flutter Gallery, the localized
@@ -121,6 +103,24 @@ more details.
 
 </details>
 
+<details>
+  <summary>Including a new splash animation</summary>
+
+1. Convert your animation to a `.gif` file.
+   Ideally, use a background color of `0xFF030303` to ensure the animation
+   blends into the background of the app.
+
+2. Add your new `.gif` file to the assets directory under
+   `assets/splash_effects`. Ensure the name follows the format
+   `splash_effect_$num.gif`. The number should be the next number after the
+   current largest number in the repository.
+
+3. Update the map `_effectDurations` in
+[splash.dart](lib/pages/splash.dart) to include the number of the
+new `.gif` as well as its estimated duration. The duration is used to
+determine how long to display the splash animation at launch.
+</details>
+
 ## Releasing
 
 <details>
@@ -133,13 +133,15 @@ Use [semantic versioning](https://semver.org/) to determine
 which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
 with a patch should become `1.2.4+010204`.
 
-Then, use the following workflows. It is strongly recommended to run a workflow using the staging/beta environment before deploying to production.
+Then, use the following workflows. It is strongly recommended to use the staging/beta environments when available, before deploying to production.
 
 - [Deploy to Play Store](https://github.com/flutter/gallery/actions/workflows/release_deploy_play_store.yml): Uses Fastlane to create a [beta](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/open-testing) (freely available on the [Play Store](https://play.google.com/apps/testing/io.flutter.demo.gallery)), promote an existing beta to production, or publish straight to [production](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/production) ([Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery)).
   > **Note**
   > Once an .aab is released with a particular version number, it can't be replaced. The version number must be incremented again.
 - [Deploy to web](https://github.com/flutter/gallery/actions/workflows/release_deploy_web.yml): Deploys a web build to the Firebase-hosted [staging](https://gallery-flutter-staging.web.app) or [production](https://gallery.flutter.dev) site.
-- [Draft GitHub release](https://github.com/flutter/gallery/actions/workflows/release_draft_github_release.yml): Drafts a GitHub release, including automatically generated release notes and packaged builds for Android, macOS, Linux, and Windows. Upon being published, the specified version tag will be created.
+- [Draft GitHub release](https://github.com/flutter/gallery/actions/workflows/release_draft_github_release.yml): Drafts a GitHub release, including automatically generated release notes and packaged builds for Android, macOS, Linux, and Windows.
+  > **Note**
+  > The release draft is private until published. Upon being published, the specified version tag will be created.
 
 For posterity, information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
 
@@ -147,7 +149,9 @@ For posterity, information about doing these things locally is available at [go/
 
 ## Tests
 
-The gallery has its own set of unit and integration tests. Flutter itself also uses it in tests. To enable breaking changes, the gallery version is pinned in two places:
+The gallery has its own set of unit, golden, and integration tests.
+
+In addition, Flutter itself uses the gallery in tests. To enable breaking changes, the gallery version is pinned in two places:
 
 - `flutter analyze`: https://github.com/flutter/tests/blob/master/registry/flutter_gallery.test
 - DeviceLab tests: https://github.com/flutter/flutter/blob/master/dev/devicelab/lib/versions/gallery.dart
