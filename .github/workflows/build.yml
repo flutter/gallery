@@ -5,6 +5,9 @@ on:
       - main
   pull_request:
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   build:
     name: Build ${{ matrix.target }}
@@ -24,7 +27,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       - run: flutter build ${{ matrix.target }}

@@ -7,6 +7,9 @@ on:
     tags:
       - "v*"
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   generate-changelog:
     name: Generate changelog
@@ -25,7 +28,7 @@ jobs:
           future_release: ${{ github.ref }}
           since_tag: ${{ steps.get_latest_release.outputs.release }}
       - name: Upload changelog
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: changelog
           path: CHANGELOG.md
@@ -38,12 +41,12 @@ jobs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
       - name: Download changelog
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869
         with:
           name: changelog
       - name: Draft release with changelog
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
@@ -101,7 +104,7 @@ jobs:
           sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
       - name: Install Android dependencies
         if: matrix.target == 'Android'
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@e54a62b3df9364d4b4c1c29c7225e57fe605d7dd
         with:
           java-version: "12.x"
       - name: Enable desktop support
@@ -113,7 +116,7 @@ jobs:
       - run: flutter doctor -v
       # Checkout gallery code, recreate missing files, and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter create .
       - run: flutter pub get
 
@@ -163,7 +166,7 @@ jobs:
       # Upload the build.
       - name: Add packaged build to release draft
         id: upload_release_asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
