@@ -52,7 +52,7 @@ class ToggleSetting extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SelectableText(
+                      Text(
                         text,
                         style: textTheme.subtitle1!.apply(
                           color: colorScheme.onSurface,

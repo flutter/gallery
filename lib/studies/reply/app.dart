@@ -87,7 +87,7 @@ class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
           switch (settings.name) {
             case ReplyApp.homeRoute:
               return MaterialPageRoute<void>(
-                builder: (context) => const AdaptiveNav(),
+                builder: (context) => const SelectionArea(child: AdaptiveNav()),
                 settings: settings,
               );
             case ReplyApp.composeRoute:

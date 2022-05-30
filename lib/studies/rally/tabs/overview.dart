@@ -206,7 +206,7 @@ class _Alert extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: SelectableText(alert.message!),
+              child: Text(alert.message!),
             ),
             SizedBox(
               width: 100,
@@ -260,11 +260,11 @@ class _FinancialView extends StatelessWidget {
                       left: 16,
                       right: 16,
                     ),
-                    child: SelectableText(title!),
+                    child: Text(title!),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: SelectableText(
+                    child: Text(
                       usdWithSignFormat(context).format(total),
                       style: theme.textTheme.bodyText1!.copyWith(
                         fontSize: 44 / reducedTextScale(context),

@@ -26,7 +26,7 @@ class StarterApp extends StatelessWidget {
       locale: GalleryOptions.of(context).locale,
       initialRoute: StarterApp.defaultRoute,
       routes: {
-        StarterApp.defaultRoute: (context) => const _Home(),
+        StarterApp.defaultRoute: (context) => const SelectionArea(child: _Home()),
       },
       theme: ThemeData(
         primaryColor: _primaryColor,

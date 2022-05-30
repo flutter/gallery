@@ -26,19 +26,19 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SelectableText(
+            Text(
               localizations.starterAppGenericHeadline,
               style: textTheme.headline3!.copyWith(
                 color: colorScheme.onSecondary,
               ),
             ),
             const SizedBox(height: 10),
-            SelectableText(
+            Text(
               localizations.starterAppGenericSubtitle,
               style: textTheme.subtitle1,
             ),
             const SizedBox(height: 48),
-            SelectableText(
+            Text(
               localizations.starterAppGenericBody,
               style: textTheme.bodyText1,
             ),
@@ -112,14 +112,14 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: !isDesktop,
       title: isDesktop
           ? null
-          : SelectableText(localizations.starterAppGenericTitle),
+          : Text(localizations.starterAppGenericTitle),
       bottom: isDesktop
           ? PreferredSize(
               preferredSize: const Size.fromHeight(26),
               child: Container(
                 alignment: AlignmentDirectional.centerStart,
                 margin: const EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
-                child: SelectableText(
+                child: Text(
                   localizations.starterAppGenericTitle,
                   style: themeData.textTheme.headline6!.copyWith(
                     color: themeData.colorScheme.onPrimary,
@@ -170,11 +170,11 @@ class _ListDrawerState extends State<ListDrawer> {
         child: ListView(
           children: [
             ListTile(
-              title: SelectableText(
+              title: Text(
                 localizations.starterAppTitle,
                 style: textTheme.headline6,
               ),
-              subtitle: SelectableText(
+              subtitle: Text(
                 localizations.starterAppGenericSubtitle,
                 style: textTheme.bodyText2,
               ),

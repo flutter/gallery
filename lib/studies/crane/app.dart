@@ -43,15 +43,17 @@ class _Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ApplyTextOptions(
-      child: Backdrop(
-        frontLayer: SizedBox(),
-        backLayerItems: [
-          FlyForm(),
-          SleepForm(),
-          EatForm(),
-        ],
-        frontTitle: Text('CRANE'),
-        backTitle: Text('MENU'),
+      child: SelectionArea(
+        child: Backdrop(
+          frontLayer: SizedBox(),
+          backLayerItems: [
+            FlyForm(),
+            SleepForm(),
+            EatForm(),
+          ],
+          frontTitle: Text('CRANE'),
+          backTitle: Text('MENU'),
+        ),
       ),
     );
   }

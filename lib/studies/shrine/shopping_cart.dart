@@ -168,11 +168,11 @@ class ShoppingCartSummary extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SelectableText(
+                      Text(
                         localizations.shrineCartTotalCaption,
                       ),
                       Expanded(
-                        child: SelectableText(
+                        child: Text(
                           formatter.format(model.totalCost),
                           style: largeAmountStyle,
                           textAlign: TextAlign.end,
@@ -185,11 +185,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      SelectableText(
+                      Text(
                         localizations.shrineCartSubtotalCaption,
                       ),
                       Expanded(
-                        child: SelectableText(
+                        child: Text(
                           formatter.format(model.subtotalCost),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -202,11 +202,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      SelectableText(
+                      Text(
                         localizations.shrineCartShippingCaption,
                       ),
                       Expanded(
-                        child: SelectableText(
+                        child: Text(
                           formatter.format(model.shippingCost),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -219,11 +219,11 @@ class ShoppingCartSummary extends StatelessWidget {
                 MergeSemantics(
                   child: Row(
                     children: [
-                      SelectableText(
+                      Text(
                         localizations.shrineCartTaxCaption,
                       ),
                       Expanded(
-                        child: SelectableText(
+                        child: Text(
                           formatter.format(model.tax),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
@@ -312,12 +312,12 @@ class ShoppingCartRow extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: SelectableText(
+                                      child: Text(
                                         localizations
                                             .shrineProductQuantity(quantity!),
                                       ),
                                     ),
-                                    SelectableText(
+                                    Text(
                                       localizations.shrineProductPrice(
                                         formatter.format(product.price),
                                       ),
@@ -325,7 +325,7 @@ class ShoppingCartRow extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              SelectableText(
+                              Text(
                                 product.name(context),
                                 style: localTheme.textTheme.subtitle1!
                                     .copyWith(fontWeight: FontWeight.w600),

@@ -276,36 +276,38 @@ class _SettingsPageState extends State<SettingsPage> {
         child: MediaQuery.removePadding(
           removeTop: isDesktop,
           context: context,
-          child: ListView(
-            children: [
-              if (isDesktop)
-                const SizedBox(height: firstHeaderDesktopTopPadding),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: ExcludeSemantics(
-                  child: Header(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    text: localizations.settingsTitle,
+          child: SelectionArea(
+            child: ListView(
+              children: [
+                if (isDesktop)
+                  const SizedBox(height: firstHeaderDesktopTopPadding),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: ExcludeSemantics(
+                    child: Header(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      text: localizations.settingsTitle,
+                    ),
                   ),
                 ),
-              ),
-              if (isDesktop)
-                ...settingsListItems
-              else ...[
-                _AnimateSettingsListItems(
-                  animation: _staggerSettingsItemsAnimation,
-                  children: settingsListItems,
-                ),
-                const SizedBox(height: 16),
-                Divider(thickness: 2, height: 0, color: colorScheme.background),
-                const SizedBox(height: 12),
-                const SettingsAbout(),
-                const SettingsFeedback(),
-                const SizedBox(height: 12),
-                Divider(thickness: 2, height: 0, color: colorScheme.background),
-                const SettingsAttribution(),
+                if (isDesktop)
+                  ...settingsListItems
+                else ...[
+                  _AnimateSettingsListItems(
+                    animation: _staggerSettingsItemsAnimation,
+                    children: settingsListItems,
+                  ),
+                  const SizedBox(height: 16),
+                  Divider(thickness: 2, height: 0, color: colorScheme.background),
+                  const SizedBox(height: 12),
+                  const SettingsAbout(),
+                  const SettingsFeedback(),
+                  const SizedBox(height: 12),
+                  Divider(thickness: 2, height: 0, color: colorScheme.background),
+                  const SettingsAttribution(),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),
@@ -362,7 +364,7 @@ class SettingsAttribution extends StatelessWidget {
           top: verticalPadding,
           bottom: verticalPadding,
         ),
-        child: SelectableText(
+        child: Text(
           GalleryLocalizations.of(context)!.settingsAttribution,
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
                 fontSize: 12,

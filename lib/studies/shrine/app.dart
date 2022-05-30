@@ -164,7 +164,7 @@ class _ShrineAppState extends State<ShrineApp>
           initialRoute: ShrineApp.loginRoute,
           routes: {
             ShrineApp.loginRoute: (context) => const LoginPage(),
-            ShrineApp.homeRoute: (context) => home,
+            ShrineApp.homeRoute: (context) => SelectionArea(child: home),
           },
           theme: shrineTheme.copyWith(
             platform: GalleryOptions.of(context).platform,
