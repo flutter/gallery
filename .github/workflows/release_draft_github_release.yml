@@ -3,14 +3,14 @@ on:
   # Enable manual run
   workflow_dispatch:
     inputs:
-    environment:
-      description: "Tag to create (e.g. v2.9.2). Must match pubspec."
-      required: true
-      default: "v2.9.3"
-  # # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  # push:
-  #   tags:
-  #     - "v*"
+      version:
+        description: "Tag to create (e.g. v2.10.0). Must match pubspec."
+        required: true
+        type: string
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        required: true
 
 # Declare default permissions as read only.
 permissions: read-all
@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
-          tag_name: v2.9.3
+          tag_name: ${{ github.event.inputs.version }}
           draft: true
           prerelease: false
           generate_release_notes: true
