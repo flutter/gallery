@@ -2,59 +2,33 @@ name: Draft Github Release
 on:
   # Enable manual run
   workflow_dispatch:
-  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  push:
-    tags:
-      - "v*"
+    inputs:
+      version:
+        description: "Tag to create (e.g. v2.10.0). Must include 'v' and must match pubspec"
+        required: true
+        default: "v2.10.0"
+        type: string
 
 # Declare default permissions as read only.
 permissions: read-all
 
 jobs:
-  generate-changelog:
-    name: Generate changelog
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get latest published release tag
-        id: get_latest_release
-        uses: pozetroninc/github-action-get-latest-release@2b51d48e904071035d6632715d41966f516711dd
-        with:
-          repository: ${{ github.repository }}
-          excludes: prerelease, draft
-      - name: Generate changelog since last published release
-        uses: charmixer/auto-changelog-action@5c6320ae4dedc8743e4439a3c56294c294553fb9
-        with:
-          token: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
-          future_release: ${{ github.ref }}
-          since_tag: ${{ steps.get_latest_release.outputs.release }}
-      - name: Upload changelog
-        uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
-        with:
-          name: changelog
-          path: CHANGELOG.md
-
   draft-release:
     name: Draft Github release
-    needs: generate-changelog
     runs-on: ubuntu-20.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-      - name: Download changelog
-        uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869
-        with:
-          name: changelog
-      - name: Draft release with changelog
+      - name: Draft release with release notes
         id: create_release
-        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e
+        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Flutter Gallery ${{ github.ref }}
-          body_path: CHANGELOG.md
+          tag_name: ${{ github.event.inputs.version }}
           draft: true
           prerelease: false
+          generate_release_notes: true
 
   create-build:
     name: Create ${{ matrix.target }} build
@@ -174,3 +148,4 @@ jobs:
           asset_path: ./flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_name: flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_content_type: ${{ matrix.asset_content_type }}
+          overwrite: true
