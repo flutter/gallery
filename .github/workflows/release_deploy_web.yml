@@ -5,6 +5,7 @@ on:
     inputs:
       environment:
         description: "Environment to deploy web build"
+        required: true
         default: "staging"
         type: choice
         options:
