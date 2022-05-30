@@ -264,19 +264,19 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     ];
 
-    return Material(
-      color: colorScheme.secondaryContainer,
-      child: Padding(
-        padding: isDesktop
-            ? EdgeInsets.zero
-            : const EdgeInsets.only(
-                bottom: galleryHeaderHeight,
-              ),
-        // Remove ListView top padding as it is already accounted for.
-        child: MediaQuery.removePadding(
-          removeTop: isDesktop,
-          context: context,
-          child: SelectionArea(
+    return SelectionArea(
+      child: Material(
+        color: colorScheme.secondaryContainer,
+        child: Padding(
+          padding: isDesktop
+              ? EdgeInsets.zero
+              : const EdgeInsets.only(
+                  bottom: galleryHeaderHeight,
+                ),
+          // Remove ListView top padding as it is already accounted for.
+          child: MediaQuery.removePadding(
+            removeTop: isDesktop,
+            context: context,
             child: ListView(
               children: [
                 if (isDesktop)
