@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       lane:
-        description: "Fastlane lane to use (beta OR promote_to_production OR production)"
+        description: "Fastlane lane"
         required: true
         default: "beta"
         type: choice
