@@ -92,10 +92,10 @@ BEGIN
             VALUE "CompanyName", "io.flutter.demo" "\0"
             VALUE "FileDescription", "A new Flutter project." "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "gallery" "\0"
+            VALUE "InternalName", "Flutter Gallery" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2021 io.flutter.demo. All rights reserved." "\0"
-            VALUE "OriginalFilename", "gallery.exe" "\0"
-            VALUE "ProductName", "gallery" "\0"
+            VALUE "OriginalFilename", "Flutter Gallery.exe" "\0"
+            VALUE "ProductName", "Flutter Gallery" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

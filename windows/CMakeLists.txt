@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(gallery LANGUAGES CXX)
 
-set(BINARY_NAME "gallery")
+set(BINARY_NAME "Flutter Gallery")
 
 cmake_policy(SET CMP0063 NEW)
 
