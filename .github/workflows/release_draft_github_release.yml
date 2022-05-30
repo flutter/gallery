@@ -6,7 +6,7 @@ on:
     environment:
       description: "Tag to create (e.g. v2.9.2). Must match pubspec."
       required: true
-      default: "v.2.9.3"
+      default: "v2.9.3"
   # # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
   # push:
   #   tags:
@@ -28,6 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
+          tag_name: v2.9.3
           draft: true
           prerelease: false
           generate_release_notes: true
