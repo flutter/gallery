@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Tag to create (e.g. v2.10.0). Must include 'v' and must match pubspec."
+        description: "Tag to create (e.g. v2.10.0). Must include 'v' and must match pubspec"
         required: true
         type: string
 

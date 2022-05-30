@@ -8,28 +8,8 @@ wild.
 
 ![Flutter Gallery](https://user-images.githubusercontent.com/6655696/73928238-0d7fcc80-48d3-11ea-8a7e-ea7dc5d6e713.png)
 
-## Running Flutter Gallery on Flutter's master channel
-
-The Flutter Gallery targets Flutter's master channel. As such, it can take advantage
-of new SDK features that haven't landed in the stable channel.
-
-If you'd like to run the Flutter Gallery, make sure to switch to the master channel
-first:
-
-```bash
-flutter channel master
-flutter upgrade
-```
-
-When you're done, use this command to return to the safety of the stable
-channel:
-
-```bash
-flutter channel stable
-flutter upgrade
-```
-
 ## Features
+
 - Showcase for `material`, `cupertino`, and other widgets
 - [Adpative layout](lib/layout/adaptive.dart) for mobile and desktop
 - State restoration support
@@ -52,6 +32,8 @@ These include:
 - Linux ([.tar.gz][latest release])
 - Windows ([.zip][latest release])
 
+## Running
+
 One can run the gallery locally for any of these platforms. For desktop platforms,
 please see the [Flutter docs](https://docs.flutter.dev/desktop) for the latest
 requirements.
@@ -61,6 +43,32 @@ cd gallery/
 flutter pub get
 flutter run
 ```
+
+<details>
+<summary>Troubleshooting</summary>
+
+### Flutter `master` channel
+
+The Flutter Gallery targets Flutter's `master` channel. As such, it can take advantage
+of new SDK features that haven't landed in the stable channel.
+
+If you'd like to run the Flutter Gallery, you may have to switch to the `master` channel
+first:
+
+```bash
+flutter channel master
+flutter upgrade
+```
+
+When you're done, use this command to return to the safety of the `stable`
+channel:
+
+```bash
+flutter channel stable
+flutter upgrade
+```
+
+</details>
 
 ## Development
 
@@ -113,35 +121,29 @@ more details.
 
 </details>
 
-## Creating a new release (for Flutter org members)
+## Releasing
 
-1. **Version bump**: Bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
-   Use [semantic versioning](https://semver.org/) to determine
-   which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
-   with a patch should become `1.2.4+010204`.
+<details>
+  <summary>for flutter-hackers members</summary>
 
-2. **Staging**: After the version bump PR is merged, push a new version tag to main.
+The process is largely automated and easy to set in motion.
 
-```bash
-git pull upstream main
-git tag v1.2.4  # note the v
-git push upstream v1.2.4
-```
+First things first, bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
+Use [semantic versioning](https://semver.org/) to determine
+which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
+with a patch should become `1.2.4+010204`.
 
-This will trigger a set of GitHub Actions [workflows](https://github.com/flutter/gallery/tree/main/.github/workflows) that will:
+Then, use the following workflows. It is strongly recommended to run a workflow using the staging/beta environment before deploying to production.
 
-- Draft a [GitHub release](<(https://github.com/flutter/gallery/releases)>) with automatically generated release notes and packaged builds (.apk, macOS, Windows, and Linux)
-- Deploy the gallery to the Firebase hosted [staging site](https://gallery-staging-flutter-dev.web.app/)
-- Deploy a new Android build to the Play Store [beta track](https://play.google.com/apps/testing/io.flutter.demo.gallery)
+- [Deploy to Play Store](https://github.com/flutter/gallery/actions/workflows/release_deploy_play_store.yml): Uses Fastlane to create a [beta](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/open-testing) (freely available on the [Play Store](https://play.google.com/apps/testing/io.flutter.demo.gallery)), promote an existing beta to production, or publish straight to [production](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/production) ([Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery)).
+  > **Note**
+  > Once an .aab is released with a particular version number, it can't be replaced. The version number must be incremented again.
+- [Deploy to web](https://github.com/flutter/gallery/actions/workflows/release_deploy_web.yml): Deploys a web build to the Firebase-hosted [staging](https://gallery-flutter-staging.web.app) or [production](https://gallery.flutter.dev) site.
+- [Draft GitHub release](https://github.com/flutter/gallery/actions/workflows/release_draft_github_release.yml): Drafts a GitHub release, including automatically generated release notes and packaged builds for Android, macOS, Linux, and Windows. Upon being published, the specified version tag will be created.
 
-Note: all GitHub Action workflows can also be [run manually](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow)
+For posterity, information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
 
-3. **Production**: Once satisfied,
-   - Publish the drafted [GitHub release](https://github.com/flutter/gallery/releases) (`Edit draft` -> `Publish release`).
-   - Deploy the gallery to the Firebase hosted [production site](https://gallery.flutter.dev) by running [this workflow](https://github.com/flutter/gallery/actions/workflows/deploy_web.yml) with `prod` using GitHub's UI.
-   - Promote the Play Store beta to production by running [this workflow](https://github.com/flutter/gallery/actions/workflows/deploy_play_store.yml) with `promote_to_production` using GitHub's UI.
-
-More information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
+</details>
 
 ## Tests
 
