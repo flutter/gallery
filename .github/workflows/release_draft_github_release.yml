@@ -4,13 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Tag to create (e.g. v2.10.0). Must match pubspec."
+        description: "Tag to create (e.g. v2.10.0). Must include 'v' and must match pubspec."
         required: true
         type: string
-      environment:
-        description: "Environment to run tests against"
-        type: environment
-        required: true
 
 # Declare default permissions as read only.
 permissions: read-all

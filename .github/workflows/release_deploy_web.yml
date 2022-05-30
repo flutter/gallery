@@ -4,13 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Environment to deploy to (staging OR prod)"
-        required: true
+        description: "Environment to deploy web build"
         default: "staging"
-  # # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  # push:
-  #   tags:
-  #     - "v*"
+        type: choice
+        options:
+          - staging
+          - prod
 
 # Declare default permissions as read only.
 permissions: read-all
