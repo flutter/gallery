@@ -37,13 +37,11 @@ class _LoginPageState extends State<LoginPage> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ApplyTextOptions(
-      child: Scaffold(
-        body: SafeArea(
-          child: _MainView(
-            usernameController: _usernameController.value,
-            passwordController: _passwordController.value,
-          ),
+    return Scaffold(
+      body: SafeArea(
+        child: _MainView(
+          usernameController: _usernameController.value,
+          passwordController: _passwordController.value,
         ),
       ),
     );

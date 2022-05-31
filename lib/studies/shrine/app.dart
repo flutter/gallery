@@ -163,8 +163,8 @@ class _ShrineAppState extends State<ShrineApp>
           debugShowCheckedModeBanner: false,
           initialRoute: ShrineApp.loginRoute,
           routes: {
-            ShrineApp.loginRoute: (context) => const SelectionArea(
-                  child: ApplyTextOptions(
+            ShrineApp.loginRoute: (context) => const ApplyTextOptions(
+                  child: SelectionArea(
                     child: LoginPage(),
                   ),
                 ),
