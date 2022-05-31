@@ -165,89 +165,94 @@ class HomePage extends StatelessWidget {
       ];
 
       return Scaffold(
-        body: ListView(
-          // Makes integration tests possible.
-          key: const ValueKey('HomeListView'),
-          padding: EdgeInsetsDirectional.only(
-            top: isDesktop ? firstHeaderDesktopTopPadding : 21,
-          ),
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: _horizontalDesktopPadding,
+        body: Center(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: maxHomeWidth),
+            child: ListView(
+              // Makes integration tests possible.
+              key: const ValueKey('HomeListView'),
+              padding: EdgeInsetsDirectional.only(
+                top: isDesktop ? firstHeaderDesktopTopPadding : 21,
               ),
-              child: _GalleryHeader(),
-            ),
-            SizedBox(
-              height: carouselHeight,
-              child: _DesktopCarousel(children: carouselCards),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: _horizontalDesktopPadding,
-              ),
-              child: _CategoriesHeader(),
-            ),
-            Container(
-              height: 585,
-              padding: const EdgeInsets.symmetric(
-                horizontal: _horizontalDesktopPadding,
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: spaceBetween(28, desktopCategoryItems),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: _horizontalDesktopPadding,
-                bottom: 81,
-                end: _horizontalDesktopPadding,
-                top: 109,
-              ),
-              child: Row(
-                children: [
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () async {
-                        final url = Uri.parse('https://flutter.dev');
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        }
-                      },
-                      child: FadeInImagePlaceholder(
-                        image: Theme.of(context).colorScheme.brightness ==
-                                Brightness.dark
-                            ? const AssetImage(
-                                'assets/logo/flutter_logo.png',
-                                package: 'flutter_gallery_assets',
-                              )
-                            : const AssetImage(
-                                'assets/logo/flutter_logo_color.png',
-                                package: 'flutter_gallery_assets',
-                              ),
-                        placeholder: const SizedBox.shrink(),
-                        excludeFromSemantics: true,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: _horizontalDesktopPadding,
+                  ),
+                  child: _GalleryHeader(),
+                ),
+                SizedBox(
+                  height: carouselHeight,
+                  child: _DesktopCarousel(children: carouselCards),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: _horizontalDesktopPadding,
+                  ),
+                  child: _CategoriesHeader(),
+                ),
+                Container(
+                  height: 585,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: _horizontalDesktopPadding,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: spaceBetween(28, desktopCategoryItems),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: _horizontalDesktopPadding,
+                    bottom: 81,
+                    end: _horizontalDesktopPadding,
+                    top: 109,
+                  ),
+                  child: Row(
+                    children: [
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () async {
+                            final url = Uri.parse('https://flutter.dev');
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(url);
+                            }
+                          },
+                          child: FadeInImagePlaceholder(
+                            image: Theme.of(context).colorScheme.brightness ==
+                                    Brightness.dark
+                                ? const AssetImage(
+                                    'assets/logo/flutter_logo.png',
+                                    package: 'flutter_gallery_assets',
+                                  )
+                                : const AssetImage(
+                                    'assets/logo/flutter_logo_color.png',
+                                    package: 'flutter_gallery_assets',
+                                  ),
+                            placeholder: const SizedBox.shrink(),
+                            excludeFromSemantics: true,
+                          ),
+                        ),
                       ),
-                    ),
+                      Expanded(
+                        child: Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          alignment: WrapAlignment.end,
+                          children: const [
+                            SettingsAbout(),
+                            SettingsFeedback(),
+                            SettingsAttribution(),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      alignment: WrapAlignment.end,
-                      children: const [
-                        SettingsAbout(),
-                        SettingsFeedback(),
-                        SettingsAttribution(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       );
     } else {
