@@ -32,53 +32,51 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    return ApplyTextOptions(
-      child: isDesktop
-          ? LayoutBuilder(
-              builder: (context, constraints) => Scaffold(
-                body: SafeArea(
-                  child: Center(
-                    child: SizedBox(
-                      width: desktopLoginScreenMainAreaWidth(context: context),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          _ShrineLogo(),
-                          SizedBox(height: 40),
-                          _UsernameTextField(),
-                          SizedBox(height: 16),
-                          _PasswordTextField(),
-                          SizedBox(height: 24),
-                          _CancelAndNextButtons(),
-                          SizedBox(height: 62),
-                        ],
-                      ),
+    return isDesktop
+        ? LayoutBuilder(
+            builder: (context, constraints) => Scaffold(
+              body: SafeArea(
+                child: Center(
+                  child: SizedBox(
+                    width: desktopLoginScreenMainAreaWidth(context: context),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        _ShrineLogo(),
+                        SizedBox(height: 40),
+                        _UsernameTextField(),
+                        SizedBox(height: 16),
+                        _PasswordTextField(),
+                        SizedBox(height: 24),
+                        _CancelAndNextButtons(),
+                        SizedBox(height: 62),
+                      ],
                     ),
                   ),
                 ),
               ),
-            )
-          : Scaffold(
-              body: SafeArea(
-                child: ListView(
-                  restorationId: 'login_list_view',
-                  physics: const ClampingScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: _horizontalPadding,
-                  ),
-                  children: const [
-                    SizedBox(height: 80),
-                    _ShrineLogo(),
-                    SizedBox(height: 120),
-                    _UsernameTextField(),
-                    SizedBox(height: 12),
-                    _PasswordTextField(),
-                    _CancelAndNextButtons(),
-                  ],
+            ),
+          )
+        : Scaffold(
+            body: SafeArea(
+              child: ListView(
+                restorationId: 'login_list_view',
+                physics: const ClampingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: _horizontalPadding,
                 ),
+                children: const [
+                  SizedBox(height: 80),
+                  _ShrineLogo(),
+                  SizedBox(height: 120),
+                  _UsernameTextField(),
+                  SizedBox(height: 12),
+                  _PasswordTextField(),
+                  _CancelAndNextButtons(),
+                ],
               ),
             ),
-    );
+          );
   }
 }
 
