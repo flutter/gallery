@@ -10,4 +10,4 @@ updates:
   - package-ecosystem: "bundler"
     directory: "/android"
     schedule:
-      interval: "daily"
+      interval: "weekly"
