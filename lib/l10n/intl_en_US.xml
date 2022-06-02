@@ -1298,6 +1298,22 @@
     description="The placeholder for a text field where a user would enter their PIN number."
     >PIN</string>
   <string
+    name="demoCupertinoSearchTextFieldTitle"
+    description="Title for the cupertino search text field demo."
+    >Search text field</string>
+  <string
+    name="demoCupertinoSearchTextFieldSubtitle"
+    description="Subtitle for the cupertino search text field demo."
+    >iOS-style search text field</string>
+  <string
+    name="demoCupertinoSearchTextFieldDescription"
+    description="Description for the cupertino search text field demo."
+    >A search text field lets the user to searching by entered text, either with a hardware keyboard or with an onscreen keyboard.</string>
+  <string
+    name="demoCupertinoSearchTextFieldPlaceholder"
+    description="The placeholder for a search text field demo."
+    >Start typing a text</string>
+  <string
     name="demoMotionTitle"
     description="Title for the motion demo."
     >Motion</string>
