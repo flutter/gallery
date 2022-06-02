@@ -18,7 +18,6 @@ class CupertinoSearchTextFieldDemo extends StatefulWidget {
 
 class _CupertinoSearchTextFieldDemoState
     extends State<CupertinoSearchTextFieldDemo> {
-
   final List<String> platforms = [
     'Android',
     'iOS',

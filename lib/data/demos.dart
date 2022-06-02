@@ -1224,11 +1224,11 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
           title: localizations.demoCupertinoSearchTextFieldTitle,
           description: localizations.demoCupertinoSearchTextFieldDescription,
           documentationUrl:
-          '$_docsBaseUrl/cupertino/CupertinoSearchTextField-class.html',
+              '$_docsBaseUrl/cupertino/CupertinoSearchTextField-class.html',
           buildRoute: (_) => DeferredWidget(
               cupertinoLoader,
               // ignore: prefer_const_constructors
-                  () => cupertino_demos.CupertinoSearchTextFieldDemo()),
+              () => cupertino_demos.CupertinoSearchTextFieldDemo()),
           code: CodeSegments.cupertinoTextFieldDemo,
         ),
       ],
