@@ -1415,7 +1415,7 @@
   "@demoCupertinoSearchTextFieldSubtitle": {
     "description": "Subtitle for the cupertino search text field demo."
   },
-  "demoCupertinoSearchTextFieldDescription": "A search text field lets the user to searching by entered text, either with a hardware keyboard or with an onscreen keyboard.",
+  "demoCupertinoSearchTextFieldDescription": "A search text field that lets the user search by entering text, and that can offer and filter suggestions.",
   "@demoCupertinoSearchTextFieldDescription": {
     "description": "Description for the cupertino search text field demo."
   },
