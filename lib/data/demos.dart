@@ -1214,6 +1214,26 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
       ],
       category: GalleryDemoCategory.cupertino,
     ),
+    GalleryDemo(
+      title: localizations.demoCupertinoSearchTextFieldTitle,
+      icon: GalleryIcons.search,
+      slug: 'cupertino-search-text-field',
+      subtitle: localizations.demoCupertinoSearchTextFieldSubtitle,
+      configurations: [
+        GalleryDemoConfiguration(
+          title: localizations.demoCupertinoSearchTextFieldTitle,
+          description: localizations.demoCupertinoSearchTextFieldDescription,
+          documentationUrl:
+          '$_docsBaseUrl/cupertino/CupertinoSearchTextField-class.html',
+          buildRoute: (_) => DeferredWidget(
+              cupertinoLoader,
+              // ignore: prefer_const_constructors
+                  () => cupertino_demos.CupertinoSearchTextFieldDemo()),
+          code: CodeSegments.cupertinoTextFieldDemo,
+        ),
+      ],
+      category: GalleryDemoCategory.cupertino,
+    ),
   ];
 }
 

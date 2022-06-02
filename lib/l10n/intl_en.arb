@@ -1407,6 +1407,22 @@
   "@demoCupertinoTextFieldPIN": {
     "description": "The placeholder for a text field where a user would enter their PIN number."
   },
+  "demoCupertinoSearchTextFieldTitle": "Search text field",
+  "@demoCupertinoSearchTextFieldTitle": {
+    "description": "Title for the cupertino search text field demo."
+  },
+  "demoCupertinoSearchTextFieldSubtitle": "iOS-style search text field",
+  "@demoCupertinoSearchTextFieldSubtitle": {
+    "description": "Subtitle for the cupertino search text field demo."
+  },
+  "demoCupertinoSearchTextFieldDescription": "A search text field lets the user to searching by entered text, either with a hardware keyboard or with an onscreen keyboard.",
+  "@demoCupertinoSearchTextFieldDescription": {
+    "description": "Description for the cupertino search text field demo."
+  },
+  "demoCupertinoSearchTextFieldPlaceholder": "Start typing a text",
+  "@demoCupertinoSearchTextFieldPlaceholder": {
+    "description": "The placeholder for a search text field demo."
+  },
   "demoMotionTitle": "Motion",
   "@demoMotionTitle": {
     "description": "Title for the motion demo."
