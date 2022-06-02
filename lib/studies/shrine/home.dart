@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/shrine/expanding_bottom_sheet.dart';
 import 'package:gallery/studies/shrine/model/app_state_model.dart';
