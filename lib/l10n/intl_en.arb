@@ -1419,7 +1419,7 @@
   "@demoCupertinoSearchTextFieldDescription": {
     "description": "Description for the cupertino search text field demo."
   },
-  "demoCupertinoSearchTextFieldPlaceholder": "Start typing a text",
+  "demoCupertinoSearchTextFieldPlaceholder": "Enter some text",
   "@demoCupertinoSearchTextFieldPlaceholder": {
     "description": "The placeholder for a search text field demo."
   },
