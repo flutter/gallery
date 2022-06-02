@@ -6,8 +6,8 @@ import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
 import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
 
-/// The maximum width taken up by the home screen contents.
-const maxHomeWidth = 1400.0;
+/// The maximum width taken up by each item on the home screen.
+const maxHomeItemWidth = 1400.0;
 
 /// Returns a boolean value whether the window is considered medium or large size.
 ///
