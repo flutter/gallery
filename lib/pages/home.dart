@@ -291,7 +291,7 @@ class Header extends StatelessWidget {
           top: isDisplayDesktop(context) ? 63 : 15,
           bottom: isDisplayDesktop(context) ? 21 : 11,
         ),
-        child: SelectableText(
+        child: Text(
           text,
           style: Theme.of(context).textTheme.headline4!.apply(
                 color: color,
@@ -1196,8 +1196,9 @@ class _StudyWrapperState extends State<StudyWrapper> {
                     ),
                     label: Text(
                       MaterialLocalizations.of(context).backButtonTooltip,
-                      style: textTheme.button!
-                          .apply(color: colorScheme.onPrimary),
+                      style: textTheme.button!.apply(
+                        color: colorScheme.onPrimary,
+                      ),
                     ),
                   ),
                 ),
