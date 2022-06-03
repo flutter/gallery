@@ -5,6 +5,9 @@ on:
       - main
   pull_request:
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   unit-test:
     name: Unit tests on ${{ matrix.os }}
@@ -15,14 +18,14 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: master
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       # Analyze, check formatting, and run unit tests.
@@ -38,7 +41,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: master
       - run: flutter doctor -v
@@ -46,7 +49,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       - run: flutter test test_benchmarks
@@ -57,20 +60,20 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: master
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get -v
 
       # Run the golden tests and upload failed test artifacts.
       - run: flutter test test_goldens
       - name: Upload goldens if tests fail
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
         if: failure()
         with:
           name: goldens

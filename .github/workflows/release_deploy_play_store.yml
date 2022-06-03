@@ -4,13 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       lane:
-        description: "Fastlane lane to use (beta OR promote_to_production OR production)"
+        description: "Fastlane lane"
         required: true
         default: "beta"
-  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  push:
-    tags:
-      - "v*"
+        type: choice
+        options:
+          - beta
+          - promote_to_production
+          - production
+
+# Declare default permissions as read only.
+permissions: read-all
 
 jobs:
   fastlane-deploy:
@@ -18,19 +22,19 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: master
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter pub get
 
       # Setup Ruby, Bundler, and Gemfile dependencies
       - name: Setup Fastlane
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@8029ebd6e5bd8f4e0d6f7623ea76a01ec5b1010d
         with:
           ruby-version: "2.6"
           bundler-cache: true

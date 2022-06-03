@@ -2,56 +2,33 @@ name: Draft Github Release
 on:
   # Enable manual run
   workflow_dispatch:
-  # Refs/tags push events to matching v*, i.e. v1.0, v20.15.10
-  push:
-    tags:
-      - "v*"
+    inputs:
+      version:
+        description: "Tag to create (e.g. v2.10.0). Must include 'v' and must match pubspec"
+        required: true
+        default: "v2.10.0"
+        type: string
+
+# Declare default permissions as read only.
+permissions: read-all
 
 jobs:
-  generate-changelog:
-    name: Generate changelog
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get latest published release tag
-        id: get_latest_release
-        uses: pozetroninc/github-action-get-latest-release@2b51d48e904071035d6632715d41966f516711dd
-        with:
-          repository: ${{ github.repository }}
-          excludes: prerelease, draft
-      - name: Generate changelog since last published release
-        uses: charmixer/auto-changelog-action@5c6320ae4dedc8743e4439a3c56294c294553fb9
-        with:
-          token: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
-          future_release: ${{ github.ref }}
-          since_tag: ${{ steps.get_latest_release.outputs.release }}
-      - name: Upload changelog
-        uses: actions/upload-artifact@v2
-        with:
-          name: changelog
-          path: CHANGELOG.md
-
   draft-release:
     name: Draft Github release
-    needs: generate-changelog
     runs-on: ubuntu-20.04
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-      - name: Download changelog
-        uses: actions/download-artifact@v2
-        with:
-          name: changelog
-      - name: Draft release with changelog
+      - name: Draft release with release notes
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@1e07f4398721186383de40550babbdf2b84acfc5
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Flutter Gallery ${{ github.ref }}
-          body_path: CHANGELOG.md
+          tag_name: ${{ github.event.inputs.version }}
           draft: true
           prerelease: false
+          generate_release_notes: true
 
   create-build:
     name: Create ${{ matrix.target }} build
@@ -90,7 +67,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
+        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
         with:
           channel: master
 
@@ -101,7 +78,7 @@ jobs:
           sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
       - name: Install Android dependencies
         if: matrix.target == 'Android'
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@e54a62b3df9364d4b4c1c29c7225e57fe605d7dd
         with:
           java-version: "12.x"
       - name: Enable desktop support
@@ -113,7 +90,7 @@ jobs:
       - run: flutter doctor -v
       # Checkout gallery code, recreate missing files, and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@v2
+        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
       - run: flutter create .
       - run: flutter pub get
 
@@ -163,7 +140,7 @@ jobs:
       # Upload the build.
       - name: Add packaged build to release draft
         id: upload_release_asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
@@ -171,3 +148,4 @@ jobs:
           asset_path: ./flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_name: flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_content_type: ${{ matrix.asset_content_type }}
+          overwrite: true

@@ -168,44 +168,25 @@ class HomePage extends StatelessWidget {
         body: ListView(
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
-          padding: EdgeInsetsDirectional.only(
-            top: isDesktop ? firstHeaderDesktopTopPadding : 21,
+          padding: const EdgeInsetsDirectional.only(
+            top: firstHeaderDesktopTopPadding,
           ),
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: _horizontalDesktopPadding,
-              ),
-              child: _GalleryHeader(),
-            ),
+            _DesktopHomeItem(child: _GalleryHeader()),
+            _DesktopCarousel(height: carouselHeight, children: carouselCards),
+            _DesktopHomeItem(child: _CategoriesHeader()),
             SizedBox(
-              height: carouselHeight,
-              child: _DesktopCarousel(children: carouselCards),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: _horizontalDesktopPadding,
-              ),
-              child: _CategoriesHeader(),
-            ),
-            Container(
               height: 585,
-              padding: const EdgeInsets.symmetric(
-                horizontal: _horizontalDesktopPadding,
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: spaceBetween(28, desktopCategoryItems),
+              child: _DesktopHomeItem(
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: spaceBetween(28, desktopCategoryItems),
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: _horizontalDesktopPadding,
-                bottom: 81,
-                end: _horizontalDesktopPadding,
-                top: 109,
-              ),
+            const SizedBox(height: 81),
+            _DesktopHomeItem(
               child: Row(
                 children: [
                   MouseRegion(
@@ -247,6 +228,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 109),
           ],
         ),
       );
@@ -302,18 +284,21 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: isDisplayDesktop(context) ? 63 : 15,
-        bottom: isDisplayDesktop(context) ? 21 : 11,
-      ),
-      child: Text(
-        text,
-        style: Theme.of(context).textTheme.headline4!.apply(
-              color: color,
-              fontSizeDelta:
-                  isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
-            ),
+    return Align(
+      alignment: AlignmentDirectional.centerStart,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: isDisplayDesktop(context) ? 63 : 15,
+          bottom: isDisplayDesktop(context) ? 21 : 11,
+        ),
+        child: SelectableText(
+          text,
+          style: Theme.of(context).textTheme.headline4!.apply(
+                color: color,
+                fontSizeDelta:
+                    isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+              ),
+        ),
       ),
     );
   }
@@ -486,6 +471,26 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
           ),
         ),
       ],
+    );
+  }
+}
+
+class _DesktopHomeItem extends StatelessWidget {
+  const _DesktopHomeItem({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: maxHomeItemWidth),
+        padding: const EdgeInsets.symmetric(
+          horizontal: _horizontalDesktopPadding,
+        ),
+        child: child,
+      ),
     );
   }
 }
@@ -837,8 +842,9 @@ class _CarouselState extends State<_Carousel>
 /// snapping behavior. A [PageView] was considered but does not allow for
 /// multiple pages visible without centering the first page.
 class _DesktopCarousel extends StatefulWidget {
-  const _DesktopCarousel({required this.children});
+  const _DesktopCarousel({required this.height, required this.children});
 
+  final double height;
   final List<Widget> children;
 
   @override
@@ -888,43 +894,50 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
         (_horizontalDesktopPadding - cardPadding) * 2;
     final itemWidth = totalWidth / _desktopCardsPerPage;
 
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: _horizontalDesktopPadding - cardPadding,
-          ),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: const _SnappingScrollPhysics(),
-            controller: _controller,
-            itemExtent: itemWidth,
-            itemCount: widget.children.length,
-            itemBuilder: (context, index) => _builder(index),
-          ),
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        height: widget.height,
+        constraints: const BoxConstraints(maxWidth: maxHomeItemWidth),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: _horizontalDesktopPadding - cardPadding,
+              ),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                physics: const _SnappingScrollPhysics(),
+                controller: _controller,
+                itemExtent: itemWidth,
+                itemCount: widget.children.length,
+                itemBuilder: (context, index) => _builder(index),
+              ),
+            ),
+            if (showPreviousButton)
+              _DesktopPageButton(
+                onTap: () {
+                  _controller.animateTo(
+                    _controller.offset - itemWidth,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                  );
+                },
+              ),
+            if (showNextButton)
+              _DesktopPageButton(
+                isEnd: true,
+                onTap: () {
+                  _controller.animateTo(
+                    _controller.offset + itemWidth,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                  );
+                },
+              ),
+          ],
         ),
-        if (showPreviousButton)
-          _DesktopPageButton(
-            onTap: () {
-              _controller.animateTo(
-                _controller.offset - itemWidth,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut,
-              );
-            },
-          ),
-        if (showNextButton)
-          _DesktopPageButton(
-            isEnd: true,
-            onTap: () {
-              _controller.animateTo(
-                _controller.offset + itemWidth,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut,
-              );
-            },
-          ),
-      ],
+      ),
     );
   }
 }
