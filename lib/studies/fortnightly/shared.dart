@@ -535,8 +535,7 @@ class VideoPreview extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 4),
-        Text(data.title,
-            style: textTheme.headline5!.copyWith(fontSize: 16)),
+        Text(data.title, style: textTheme.headline5!.copyWith(fontSize: 16)),
       ],
     );
   }

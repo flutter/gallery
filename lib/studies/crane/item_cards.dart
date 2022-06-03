@@ -66,8 +66,10 @@ class DestinationCard extends StatelessWidget {
                     child: _DestinationImage(destination: destination),
                   ),
                 ),
-                title: Text(destination.destination,
-                    style: textTheme.subtitle1),
+                title: Text(
+                  destination.destination,
+                  style: textTheme.subtitle1,
+                ),
                 subtitle: Text(
                   destination.subtitle(context),
                   semanticsLabel: destination.subtitleSemantics(context),
