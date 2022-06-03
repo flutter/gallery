@@ -67,10 +67,13 @@ class _DemoPageState extends State<DemoPage> {
       Navigator.of(context).pop();
     }
     return ScaffoldMessenger(
+      child: SelectionArea(
         child: GalleryDemoPage(
-      restorationId: widget.slug!,
-      demo: slugToDemoMap[widget.slug]!,
-    ));
+          restorationId: widget.slug!,
+          demo: slugToDemoMap[widget.slug]!,
+        ),
+      ),
+    );
   }
 }
 
