@@ -1279,19 +1279,23 @@
   },
   "demoCupertinoPickerTitle": "Pickers",
   "@demoCupertinoPickerTitle": {
-    "description": "Title for the cupertino date and time pickers component demo."
+    "description": "Title for the cupertino pickers component demo."
   },
-  "demoCupertinoPickerSubtitle": "iOS-style date and time pickers",
+  "demoCupertinoPickerSubtitle": "iOS-style pickers",
   "@demoCupertinoPickerSubtitle": {
     "description": "Subtitle for the cupertino pickers component demo."
   },
-  "demoCupertinoPickerDescription": "An iOS-style picker widget that can be used to select dates, times, or both date and time.",
+  "demoCupertinoPickerDescription": "An iOS-style picker widget that can be used to select strings, dates, times, or both date and time.",
   "@demoCupertinoPickerDescription": {
     "description": "Description for the cupertino pickers component demo."
   },
   "demoCupertinoPickerTimer": "Timer",
   "@demoCupertinoPickerTimer": {
     "description": "Label to open a countdown timer picker."
+  },
+  "demoCupertinoPicker": "Picker",
+  "@demoCupertinoPicker": {
+    "description": "Label to open a picker."
   },
   "demoCupertinoPickerDate": "Date",
   "@demoCupertinoPickerDate": {
