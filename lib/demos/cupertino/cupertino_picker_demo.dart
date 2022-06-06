@@ -227,7 +227,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
           children: [
             Text(GalleryLocalizations.of(context)!.demoCupertinoPicker),
             Text(
-              DateFormat(DateFormat.WEEKDAY, locale).format(DateTime.now()),
+              daysOfWeek[_selectedWeekday],
               style: const TextStyle(color: CupertinoColors.inactiveGray),
             ),
           ],
