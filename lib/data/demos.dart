@@ -1096,7 +1096,7 @@ List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
     ),
     GalleryDemo(
       title: localizations.demoCupertinoPickerTitle,
-      icon: GalleryIcons.event,
+      icon: GalleryIcons.listAlt,
       slug: 'cupertino-picker',
       subtitle: localizations.demoCupertinoPickerSubtitle,
       configurations: [
