@@ -11,7 +11,7 @@ wild.
 ## Features
 
 - Showcase for `material`, `cupertino`, and other widgets
-- [Adpative layout](lib/layout/adaptive.dart) for mobile and desktop
+- [Adaptive layout](lib/layout/adaptive.dart) for mobile and desktop
 - State restoration support
 - Settings to text scaling, text direction, locale, theme, and more...
 - Demo for `animations`
