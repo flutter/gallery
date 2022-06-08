@@ -1195,7 +1195,7 @@
     >Timer</string>
   <string
     name="demoCupertinoPicker"
-    description="Label to open a picker."
+    description="Label to open an iOS picker."
     >Picker</string>
   <string
     name="demoCupertinoPickerDate"
