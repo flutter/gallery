@@ -1295,7 +1295,7 @@
   },
   "demoCupertinoPicker": "Picker",
   "@demoCupertinoPicker": {
-    "description": "Label to open a picker."
+    "description": "Label to open an iOS picker."
   },
   "demoCupertinoPickerDate": "Date",
   "@demoCupertinoPickerDate": {
