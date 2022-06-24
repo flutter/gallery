@@ -5,7 +5,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
@@ -377,7 +376,7 @@ class _BorderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        primary: Colors.white,
+        foregroundColor: Colors.white,
         side: const BorderSide(color: RallyColors.buttonColor),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         shape: RoundedRectangleBorder(
@@ -402,8 +401,8 @@ class _FilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
+        foregroundColor: Colors.black,
         backgroundColor: RallyColors.buttonColor,
-        primary: Colors.black,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
