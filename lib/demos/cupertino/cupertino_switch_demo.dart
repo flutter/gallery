@@ -16,14 +16,16 @@ class CupertinoSwitchDemo extends StatefulWidget {
 
 class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
     with RestorationMixin {
-  final RestorableBool _switchValue = RestorableBool(false);
+  final RestorableBool _switchValueA = RestorableBool(false);
+  final RestorableBool _switchValueB = RestorableBool(true);
 
   @override
   String get restorationId => 'cupertino_switch_demo';
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_switchValue, 'switch_value');
+    registerForRestoration(_switchValueA, 'switch_valueA');
+    registerForRestoration(_switchValueB, 'switch_valueB');
   }
 
   @override
@@ -40,20 +42,43 @@ class _CupertinoSwitchDemoState extends State<CupertinoSwitchDemo>
         child: Semantics(
           container: true,
           label: localizations.demoSelectionControlsSwitchTitle,
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CupertinoSwitch(
-                value: _switchValue.value,
-                onChanged: (value) {
-                  setState(() {
-                    _switchValue.value = value;
-                  });
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CupertinoSwitch(
+                    value: _switchValueA.value,
+                    onChanged: (value) {
+                      setState(() {
+                        _switchValueA.value = value;
+                      });
+                    },
+                  ),
+                  CupertinoSwitch(
+                    value: _switchValueB.value,
+                    onChanged: (value) {
+                      setState(() {
+                        _switchValueB.value = value;
+                      });
+                    },
+                  ),
+                ],
               ),
-              CupertinoSwitch(
-                value: _switchValue.value,
-                onChanged: null,
+              // Disabled switches
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CupertinoSwitch(
+                    value: _switchValueA.value,
+                    onChanged: null,
+                  ),
+                  CupertinoSwitch(
+                    value: _switchValueB.value,
+                    onChanged: null,
+                  ),
+                ],
               ),
             ],
           ),

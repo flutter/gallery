@@ -45,6 +45,19 @@ class CupertinoTextFieldDemo extends StatelessWidget {
                 autocorrect: false,
               ),
             ),
+            // Disabled text field
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: CupertinoTextField(
+                enabled: false,
+                textInputAction: TextInputAction.next,
+                restorationId: 'login_password_text_field_disabled',
+                placeholder: localizations.rallyLoginPassword,
+                clearButtonMode: OverlayVisibilityMode.editing,
+                obscureText: true,
+                autocorrect: false,
+              ),
+            ),
             CupertinoTextField(
               textInputAction: TextInputAction.done,
               restorationId: 'pin_number_text_field',
