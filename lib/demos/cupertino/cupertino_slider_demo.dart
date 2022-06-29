@@ -71,7 +71,7 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
                 ],
               ),
               // Disabled sliders
-              // TODO(x): See https://github.com/flutter/flutter/issues/106691
+              // TODO(guidezpl): See https://github.com/flutter/flutter/issues/106691
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
