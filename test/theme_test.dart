@@ -25,7 +25,7 @@ void main() {
     );
     expect(
       themeData.switchTheme.trackColor!.resolve({MaterialState.selected}),
-      primaryColor,
+      primaryColor.withOpacity(0.5),
     );
   });
 }

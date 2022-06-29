@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
@@ -83,37 +82,59 @@ class _CheckboxDemoState extends State<_CheckboxDemo> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Checkbox(
-            value: checkboxValueA.value,
-            onChanged: (value) {
-              setState(() {
-                checkboxValueA.value = value;
-              });
-            },
-          ),
-          Checkbox(
-            value: checkboxValueB.value,
-            onChanged: (value) {
-              setState(() {
-                checkboxValueB.value = value;
-              });
-            },
-          ),
-          Checkbox(
-            value: checkboxValueC.value,
-            tristate: true,
-            onChanged: (value) {
-              setState(() {
-                checkboxValueC.value = value;
-              });
-            },
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Checkbox(
+              value: checkboxValueA.value,
+              onChanged: (value) {
+                setState(() {
+                  checkboxValueA.value = value;
+                });
+              },
+            ),
+            Checkbox(
+              value: checkboxValueB.value,
+              onChanged: (value) {
+                setState(() {
+                  checkboxValueB.value = value;
+                });
+              },
+            ),
+            Checkbox(
+              value: checkboxValueC.value,
+              tristate: true,
+              onChanged: (value) {
+                setState(() {
+                  checkboxValueC.value = value;
+                });
+              },
+            ),
+          ],
+        ),
+        // Disabled checkboxes
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Checkbox(
+              value: checkboxValueA.value,
+              onChanged: null,
+            ),
+            Checkbox(
+              value: checkboxValueB.value,
+              onChanged: null,
+            ),
+            Checkbox(
+              value: checkboxValueC.value,
+              tristate: true,
+              onChanged: null,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -152,18 +173,33 @@ class _RadioDemoState extends State<_RadioDemo> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (int index = 0; index < 3; ++index)
-            Radio<int>(
-              value: index,
-              groupValue: radioValue.value,
-              onChanged: handleRadioValueChanged,
-            ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            for (int index = 0; index < 2; ++index)
+              Radio<int>(
+                value: index,
+                groupValue: radioValue.value,
+                onChanged: handleRadioValueChanged,
+              ),
+          ],
+        ),
+        // Disabled radio buttons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            for (int index = 0; index < 2; ++index)
+              Radio<int>(
+                value: index,
+                groupValue: radioValue.value,
+                onChanged: null,
+              ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -178,38 +214,66 @@ class _SwitchDemo extends StatefulWidget {
 }
 
 class _SwitchDemoState extends State<_SwitchDemo> with RestorationMixin {
-  RestorableBool switchValue = RestorableBool(false);
+  RestorableBool switchValueA = RestorableBool(true);
+  RestorableBool switchValueB = RestorableBool(false);
 
   @override
   String get restorationId => 'switch_demo';
 
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(switchValue, 'switch_value');
+    registerForRestoration(switchValueA, 'switch_value1');
+    registerForRestoration(switchValueB, 'switch_value2');
   }
 
   @override
   void dispose() {
-    switchValue.dispose();
+    switchValueA.dispose();
+    switchValueB.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Semantics(
-        container: true,
-        label:
-            GalleryLocalizations.of(context)!.demoSelectionControlsSwitchTitle,
-        child: Switch(
-          value: switchValue.value,
-          onChanged: (value) {
-            setState(() {
-              switchValue.value = value;
-            });
-          },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Switch(
+              value: switchValueA.value,
+              onChanged: (value) {
+                setState(() {
+                  switchValueA.value = value;
+                });
+              },
+            ),
+            Switch(
+              value: switchValueB.value,
+              onChanged: (value) {
+                setState(() {
+                  switchValueB.value = value;
+                });
+              },
+            ),
+          ],
         ),
-      ),
+        // Disabled switches
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Switch(
+              value: switchValueA.value,
+              onChanged: null,
+            ),
+            Switch(
+              value: switchValueB.value,
+              onChanged: null,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
