@@ -26,7 +26,11 @@ class StarterApp extends StatelessWidget {
       locale: GalleryOptions.of(context).locale,
       initialRoute: StarterApp.defaultRoute,
       routes: {
-        StarterApp.defaultRoute: (context) => const _Home(),
+        StarterApp.defaultRoute: (context) => const ApplyTextOptions(
+              child: SelectionArea(
+                child: _Home(),
+              ),
+            ),
       },
       theme: ThemeData(
         primaryColor: _primaryColor,
@@ -61,8 +65,6 @@ class _Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ApplyTextOptions(
-      child: HomePage(),
-    );
+    return const HomePage();
   }
 }

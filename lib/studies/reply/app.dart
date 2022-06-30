@@ -23,7 +23,7 @@ class ReplyApp extends StatefulWidget {
   static Route createComposeRoute(RouteSettings settings) {
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) =>
-          const ComposePage(),
+          const ApplyTextOptions(child: ComposePage()),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeThroughTransition(
           fillColor: Theme.of(context).cardColor,
@@ -87,7 +87,11 @@ class _ReplyAppState extends State<ReplyApp> with RestorationMixin {
           switch (settings.name) {
             case ReplyApp.homeRoute:
               return MaterialPageRoute<void>(
-                builder: (context) => const AdaptiveNav(),
+                builder: (context) => const ApplyTextOptions(
+                  child: SelectionArea(
+                    child: AdaptiveNav(),
+                  ),
+                ),
                 settings: settings,
               );
             case ReplyApp.composeRoute:

@@ -61,7 +61,7 @@ class _FrontLayerState extends State<_FrontLayer> {
           top: 20,
           bottom: 22,
         ),
-        child: SelectableText(
+        child: Text(
           widget.title,
           style: Theme.of(context).textTheme.subtitle2,
         ),

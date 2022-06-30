@@ -163,8 +163,14 @@ class _ShrineAppState extends State<ShrineApp>
           debugShowCheckedModeBanner: false,
           initialRoute: ShrineApp.loginRoute,
           routes: {
-            ShrineApp.loginRoute: (context) => const LoginPage(),
-            ShrineApp.homeRoute: (context) => home,
+            ShrineApp.loginRoute: (context) => const ApplyTextOptions(
+                  child: SelectionArea(
+                    child: LoginPage(),
+                  ),
+                ),
+            ShrineApp.homeRoute: (context) => ApplyTextOptions(
+                  child: SelectionArea(child: home),
+                ),
           },
           theme: shrineTheme.copyWith(
             platform: GalleryOptions.of(context).platform,

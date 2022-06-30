@@ -53,13 +53,13 @@ class _AboutDialog extends StatelessWidget {
           children: [
             FutureBuilder(
               future: getVersionNumber(),
-              builder: (context, snapshot) => SelectableText(
+              builder: (context, snapshot) => Text(
                 snapshot.hasData ? '$name ${snapshot.data}' : name,
                 style: textTheme.headline4!.apply(color: colorScheme.onPrimary),
               ),
             ),
             const SizedBox(height: 24),
-            SelectableText.rich(
+            Text.rich(
               TextSpan(
                 children: [
                   TextSpan(
@@ -88,7 +88,7 @@ class _AboutDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 18),
-            SelectableText(
+            Text(
               legalese,
               style: bodyTextStyle,
             ),

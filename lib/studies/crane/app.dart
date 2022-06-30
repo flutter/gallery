@@ -28,7 +28,11 @@ class CraneApp extends StatelessWidget {
       locale: GalleryOptions.of(context).locale,
       initialRoute: CraneApp.defaultRoute,
       routes: {
-        CraneApp.defaultRoute: (context) => const _Home(),
+        CraneApp.defaultRoute: (context) => const ApplyTextOptions(
+              child: SelectionArea(
+                child: _Home(),
+              ),
+            ),
       },
       theme: craneTheme.copyWith(
         platform: GalleryOptions.of(context).platform,
@@ -42,17 +46,15 @@ class _Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ApplyTextOptions(
-      child: Backdrop(
-        frontLayer: SizedBox(),
-        backLayerItems: [
-          FlyForm(),
-          SleepForm(),
-          EatForm(),
-        ],
-        frontTitle: Text('CRANE'),
-        backTitle: Text('MENU'),
-      ),
+    return const Backdrop(
+      frontLayer: SizedBox(),
+      backLayerItems: [
+        FlyForm(),
+        SleepForm(),
+        EatForm(),
+      ],
+      frontTitle: Text('CRANE'),
+      backTitle: Text('MENU'),
     );
   }
 }

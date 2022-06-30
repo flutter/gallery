@@ -5,8 +5,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
-import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
@@ -37,13 +35,11 @@ class _LoginPageState extends State<LoginPage> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    return ApplyTextOptions(
-      child: Scaffold(
-        body: SafeArea(
-          child: _MainView(
-            usernameController: _usernameController.value,
-            passwordController: _passwordController.value,
-          ),
+    return Scaffold(
+      body: SafeArea(
+        child: _MainView(
+          usernameController: _usernameController.value,
+          passwordController: _passwordController.value,
         ),
       ),
     );

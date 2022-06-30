@@ -326,40 +326,43 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
 
     return ApplyTextOptions(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            GalleryLocalizations.of(context)!.rallyAccountDataChecking,
-            style:
-                Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
-          ),
-        ),
-        body: Column(
-          children: [
-            SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: RallyLineChart(events: items),
+      child: SelectionArea(
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            centerTitle: true,
+            title: Text(
+              GalleryLocalizations.of(context)!.rallyAccountDataChecking,
+              style:
+                  Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
             ),
-            Expanded(
-              child: Padding(
-                padding: isDesktop ? const EdgeInsets.all(40) : EdgeInsets.zero,
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    for (DetailedEventData detailedEventData in items)
-                      _DetailedEventCard(
-                        title: detailedEventData.title,
-                        date: detailedEventData.date,
-                        amount: detailedEventData.amount,
-                      ),
-                  ],
+          ),
+          body: Column(
+            children: [
+              SizedBox(
+                height: 200,
+                width: double.infinity,
+                child: RallyLineChart(events: items),
+              ),
+              Expanded(
+                child: Padding(
+                  padding:
+                      isDesktop ? const EdgeInsets.all(40) : EdgeInsets.zero,
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      for (DetailedEventData detailedEventData in items)
+                        _DetailedEventCard(
+                          title: detailedEventData.title,
+                          date: detailedEventData.date,
+                          amount: detailedEventData.amount,
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

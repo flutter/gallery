@@ -184,7 +184,7 @@ class _AnimatedRallyPieChart extends AnimatedWidget {
                 centerLabel,
                 style: labelTextStyle,
               ),
-              SelectableText(
+              Text(
                 usdWithSignFormat(context).format(centerAmount),
                 style: headlineStyle,
               ),

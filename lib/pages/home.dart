@@ -291,7 +291,7 @@ class Header extends StatelessWidget {
           top: isDisplayDesktop(context) ? 63 : 15,
           bottom: isDisplayDesktop(context) ? 21 : 11,
         ),
-        child: SelectableText(
+        child: Text(
           text,
           style: Theme.of(context).textTheme.headline4!.apply(
                 color: color,
@@ -581,7 +581,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 8),
               child: Semantics(
                 header: true,
-                child: SelectableText(
+                child: Text(
                   category.displayTitle(GalleryLocalizations.of(context)!)!,
                   style: Theme.of(context).textTheme.headline5!.apply(
                         color: colorScheme.onSurface,
@@ -1158,55 +1158,54 @@ class _StudyWrapperState extends State<StudyWrapper> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    return ApplyTextOptions(
-      child: Stack(
-        children: [
-          Semantics(
-            sortKey: const OrdinalSortKey(1),
-            child: RestorationScope(
-              restorationId: 'study_wrapper',
-              child: widget.study,
-            ),
+    return Stack(
+      children: [
+        Semantics(
+          sortKey: const OrdinalSortKey(1),
+          child: RestorationScope(
+            restorationId: 'study_wrapper',
+            child: widget.study,
           ),
-          if (!isDisplayFoldable(context))
-            SafeArea(
-              child: Align(
-                alignment: widget.alignment,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: widget.hasBottomNavBar
-                          ? kBottomNavigationBarHeight + 16.0
-                          : 16.0),
-                  child: Semantics(
-                    sortKey: const OrdinalSortKey(0),
-                    label: GalleryLocalizations.of(context)!.backToGallery,
-                    button: true,
-                    enabled: true,
-                    excludeSemantics: true,
-                    child: FloatingActionButton.extended(
-                      heroTag: _BackButtonHeroTag(),
-                      key: const ValueKey('Back'),
-                      onPressed: () {
-                        Navigator.of(context)
-                            .popUntil((route) => route.settings.name == '/');
-                      },
-                      icon: IconTheme(
-                        data: IconThemeData(color: colorScheme.onPrimary),
-                        child: const BackButtonIcon(),
-                      ),
-                      label: Text(
-                        MaterialLocalizations.of(context).backButtonTooltip,
-                        style: textTheme.button!
-                            .apply(color: colorScheme.onPrimary),
+        ),
+        if (!isDisplayFoldable(context))
+          SafeArea(
+            child: Align(
+              alignment: widget.alignment,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: widget.hasBottomNavBar
+                        ? kBottomNavigationBarHeight + 16.0
+                        : 16.0),
+                child: Semantics(
+                  sortKey: const OrdinalSortKey(0),
+                  label: GalleryLocalizations.of(context)!.backToGallery,
+                  button: true,
+                  enabled: true,
+                  excludeSemantics: true,
+                  child: FloatingActionButton.extended(
+                    heroTag: _BackButtonHeroTag(),
+                    key: const ValueKey('Back'),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .popUntil((route) => route.settings.name == '/');
+                    },
+                    icon: IconTheme(
+                      data: IconThemeData(color: colorScheme.onPrimary),
+                      child: const BackButtonIcon(),
+                    ),
+                    label: Text(
+                      MaterialLocalizations.of(context).backButtonTooltip,
+                      style: textTheme.button!.apply(
+                        color: colorScheme.onPrimary,
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

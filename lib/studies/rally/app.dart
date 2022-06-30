@@ -49,8 +49,16 @@ class RallyApp extends StatelessWidget {
       locale: GalleryOptions.of(context).locale,
       initialRoute: loginRoute,
       routes: <String, WidgetBuilder>{
-        homeRoute: (context) => const HomePage(),
-        loginRoute: (context) => const LoginPage(),
+        homeRoute: (context) => const ApplyTextOptions(
+              child: SelectionArea(
+                child: HomePage(),
+              ),
+            ),
+        loginRoute: (context) => const ApplyTextOptions(
+              child: SelectionArea(
+                child: LoginPage(),
+              ),
+            ),
       },
     );
   }

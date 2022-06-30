@@ -91,8 +91,10 @@ class RootPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ApplyTextOptions(
-      child: SplashPage(
-        child: Backdrop(),
+      child: SelectionArea(
+        child: SplashPage(
+          child: Backdrop(),
+        ),
       ),
     );
   }

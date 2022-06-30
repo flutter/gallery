@@ -31,9 +31,10 @@ class FortnightlyApp extends StatelessWidget {
       theme: buildTheme(context).copyWith(
         platform: GalleryOptions.of(context).platform,
       ),
-      home: ApplyTextOptions(child: home),
       routes: {
-        FortnightlyApp.defaultRoute: (context) => ApplyTextOptions(child: home),
+        FortnightlyApp.defaultRoute: (context) => ApplyTextOptions(
+              child: SelectionArea(child: home),
+            ),
       },
       initialRoute: FortnightlyApp.defaultRoute,
       // L10n settings.

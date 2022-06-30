@@ -67,10 +67,13 @@ class _DemoPageState extends State<DemoPage> {
       Navigator.of(context).pop();
     }
     return ScaffoldMessenger(
+      child: SelectionArea(
         child: GalleryDemoPage(
-      restorationId: widget.slug!,
-      demo: slugToDemoMap[widget.slug]!,
-    ));
+          restorationId: widget.slug!,
+          demo: slugToDemoMap[widget.slug]!,
+        ),
+      ),
+    );
   }
 }
 
@@ -689,7 +692,7 @@ class _DemoSectionInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              SelectableText(
+              Text(
                 title,
                 style: textTheme.headline4!.apply(
                   color: colorScheme.onSurface,
@@ -698,7 +701,7 @@ class _DemoSectionInfo extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              SelectableText(
+              Text(
                 description,
                 style: textTheme.bodyText2!.apply(color: colorScheme.onSurface),
               ),
@@ -844,7 +847,7 @@ class CodeDisplayPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: SelectableText.rich(
+              child: Text.rich(
                 richTextCode,
                 textDirection: TextDirection.ltr,
               ),

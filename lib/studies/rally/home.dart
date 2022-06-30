@@ -146,25 +146,23 @@ class _HomePageState extends State<HomePage>
         ],
       );
     }
-    return ApplyTextOptions(
-      child: Scaffold(
-        body: SafeArea(
-          // For desktop layout we do not want to have SafeArea at the top and
-          // bottom to display 100% height content on the accounts view.
-          top: !isDesktop,
-          bottom: !isDesktop,
-          child: Theme(
-            // This theme effectively removes the default visual touch
-            // feedback for tapping a tab, which is replaced with a custom
-            // animation.
-            data: theme.copyWith(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-            ),
-            child: FocusTraversalGroup(
-              policy: OrderedTraversalPolicy(),
-              child: tabBarView,
-            ),
+    return Scaffold(
+      body: SafeArea(
+        // For desktop layout we do not want to have SafeArea at the top and
+        // bottom to display 100% height content on the accounts view.
+        top: !isDesktop,
+        bottom: !isDesktop,
+        child: Theme(
+          // This theme effectively removes the default visual touch
+          // feedback for tapping a tab, which is replaced with a custom
+          // animation.
+          data: theme.copyWith(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+          ),
+          child: FocusTraversalGroup(
+            policy: OrderedTraversalPolicy(),
+            child: tabBarView,
           ),
         ),
       ),
