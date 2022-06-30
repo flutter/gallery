@@ -119,7 +119,7 @@ class FinancialEntityCategoryView extends StatelessWidget {
         closedElevation: 0,
         closedBuilder: (context, openContainer) {
           return TextButton(
-            style: TextButton.styleFrom(primary: Colors.black),
+            style: TextButton.styleFrom(foregroundColor: Colors.black),
             onPressed: openContainer,
             child: Column(
               children: [
@@ -385,7 +385,7 @@ class _DetailedEventCard extends StatelessWidget {
     final isDesktop = isDisplayDesktop(context);
     return TextButton(
       style: TextButton.styleFrom(
-        primary: Colors.black,
+        foregroundColor: Colors.black,
         padding: const EdgeInsets.symmetric(horizontal: 16),
       ),
       onPressed: () {},

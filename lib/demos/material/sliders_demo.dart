@@ -119,6 +119,13 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                   });
                 },
               ),
+              // Disabled slider
+              Slider(
+                value: _continuousValue.value,
+                min: 0,
+                max: 100,
+                onChanged: null,
+              ),
               Text(localizations
                   .demoSlidersContinuousWithEditableNumericalValue),
             ],
@@ -138,6 +145,15 @@ class _SlidersState extends State<_Sliders> with RestorationMixin {
                     _discreteValue.value = value;
                   });
                 },
+              ),
+              // Disabled slider
+              Slider(
+                value: _discreteValue.value,
+                min: 0,
+                max: 200,
+                divisions: 5,
+                label: _discreteValue.value.round().toString(),
+                onChanged: null,
               ),
               Text(localizations.demoSlidersDiscrete),
             ],
@@ -213,6 +229,13 @@ class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
                   });
                 },
               ),
+              // Disabled range slider
+              RangeSlider(
+                values: continuousValues,
+                min: 0,
+                max: 100,
+                onChanged: null,
+              ),
               Text(GalleryLocalizations.of(context)!.demoSlidersContinuous),
             ],
           ),
@@ -235,6 +258,18 @@ class _RangeSlidersState extends State<_RangeSliders> with RestorationMixin {
                     _discreteEndValue.value = values.end;
                   });
                 },
+              ),
+              // Disabled range slider
+              RangeSlider(
+                values: discreteValues,
+                min: 0,
+                max: 200,
+                divisions: 5,
+                labels: RangeLabels(
+                  discreteValues.start.round().toString(),
+                  discreteValues.end.round().toString(),
+                ),
+                onChanged: null,
               ),
               Text(GalleryLocalizations.of(context)!.demoSlidersDiscrete),
             ],

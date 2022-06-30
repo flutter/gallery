@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
 
@@ -65,22 +64,42 @@ class _TextButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context)!;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TextButton(
-            onPressed: () {},
-            child: Text(localizations.buttonText),
-          ),
-          const SizedBox(height: 12),
-          TextButton.icon(
-            icon: const Icon(Icons.add, size: 18),
-            label: Text(localizations.buttonText),
-            onPressed: () {},
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {},
+              child: Text(localizations.buttonText),
+            ),
+            const SizedBox(width: 12),
+            TextButton.icon(
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(localizations.buttonText),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        // Disabled buttons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: null,
+              child: Text(localizations.buttonText),
+            ),
+            const SizedBox(width: 12),
+            TextButton.icon(
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(localizations.buttonText),
+              onPressed: null,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -93,22 +112,42 @@ class _ElevatedButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context)!;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ElevatedButton(
-            onPressed: () {},
-            child: Text(localizations.buttonText),
-          ),
-          const SizedBox(height: 12),
-          ElevatedButton.icon(
-            icon: const Icon(Icons.add, size: 18),
-            label: Text(localizations.buttonText),
-            onPressed: () {},
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(localizations.buttonText),
+            ),
+            const SizedBox(width: 12),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(localizations.buttonText),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        // Disabled buttons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: null,
+              child: Text(localizations.buttonText),
+            ),
+            const SizedBox(width: 12),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(localizations.buttonText),
+              onPressed: null,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -121,22 +160,42 @@ class _OutlinedButtonDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context)!;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          OutlinedButton(
-            onPressed: () {},
-            child: Text(localizations.buttonText),
-          ),
-          const SizedBox(height: 12),
-          OutlinedButton.icon(
-            icon: const Icon(Icons.add, size: 18),
-            label: Text(localizations.buttonText),
-            onPressed: () {},
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OutlinedButton(
+              onPressed: () {},
+              child: Text(localizations.buttonText),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton.icon(
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(localizations.buttonText),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        // Disabled buttons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OutlinedButton(
+              onPressed: null,
+              child: Text(localizations.buttonText),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton.icon(
+              icon: const Icon(Icons.add, size: 18),
+              label: Text(localizations.buttonText),
+              onPressed: null,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -179,17 +238,33 @@ class _ToggleButtonsDemoState extends State<_ToggleButtonsDemo>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ToggleButtons(
-        onPressed: (index) {
-          setState(() {
-            isSelected[index].value = !isSelected[index].value;
-          });
-        },
-        isSelected: isSelected.map((element) => element.value).toList(),
-        children: const [
-          Icon(Icons.ac_unit),
-          Icon(Icons.call),
-          Icon(Icons.cake),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ToggleButtons(
+            onPressed: (index) {
+              setState(() {
+                isSelected[index].value = !isSelected[index].value;
+              });
+            },
+            isSelected: isSelected.map((element) => element.value).toList(),
+            children: const [
+              Icon(Icons.format_bold),
+              Icon(Icons.format_italic),
+              Icon(Icons.format_underline),
+            ],
+          ),
+          const SizedBox(height: 12),
+          // Disabled toggle buttons
+          ToggleButtons(
+            onPressed: null,
+            isSelected: isSelected.map((element) => element.value).toList(),
+            children: const [
+              Icon(Icons.format_bold),
+              Icon(Icons.format_italic),
+              Icon(Icons.format_underline),
+            ],
+          ),
         ],
       ),
     );
@@ -205,15 +280,15 @@ class _FloatingActionButtonDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context)!;
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton(
             onPressed: () {},
             tooltip: localizations.buttonTextCreate,
             child: const Icon(Icons.add),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(width: 12),
           FloatingActionButton.extended(
             icon: const Icon(Icons.add),
             label: Text(localizations.buttonTextCreate),
