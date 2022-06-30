@@ -14,6 +14,7 @@ class MaterialDemoThemeData {
       primaryColor: _colorScheme.primary,
       backgroundColor: Colors.white,
       scaffoldBackgroundColor: _colorScheme.background,
+      secondaryHeaderColor: _colorScheme.background,
       typography: Typography.material2018(
         platform: defaultTargetPlatform,
       ),
@@ -28,6 +29,9 @@ class MaterialDemoThemeData {
       ),
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
           return states.contains(MaterialState.selected)
               ? _colorScheme.primary
               : null;
@@ -35,6 +39,9 @@ class MaterialDemoThemeData {
       ),
       radioTheme: RadioThemeData(
         fillColor: MaterialStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
           return states.contains(MaterialState.selected)
               ? _colorScheme.primary
               : null;
@@ -45,13 +52,19 @@ class MaterialDemoThemeData {
       ),
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
           return states.contains(MaterialState.selected)
               ? _colorScheme.primary
               : null;
         }),
         trackColor: MaterialStateProperty.resolveWith<Color?>((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return null;
+          }
           return states.contains(MaterialState.selected)
-              ? _colorScheme.primary
+              ? _colorScheme.primary.withAlpha(0x80)
               : null;
         }),
       ));

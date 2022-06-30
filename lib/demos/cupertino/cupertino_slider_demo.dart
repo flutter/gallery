@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN cupertinoSliderDemo
@@ -40,24 +39,27 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
       child: DefaultTextStyle(
         style: CupertinoTheme.of(context).textTheme.textStyle,
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Wrap(
             children: [
               Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: CupertinoSlider(
-                      value: _value.value,
-                      min: 0.0,
-                      max: 100.0,
-                      onChanged: (value) {
-                        setState(() {
-                          _value.value = value;
-                        });
-                      },
-                    ),
+                  const SizedBox(height: 32),
+                  CupertinoSlider(
+                    value: _value.value,
+                    min: 0.0,
+                    max: 100.0,
+                    onChanged: (value) {
+                      setState(() {
+                        _value.value = value;
+                      });
+                    },
+                  ),
+                  CupertinoSlider(
+                    value: _value.value,
+                    min: 0.0,
+                    max: 100.0,
+                    onChanged: null,
                   ),
                   MergeSemantics(
                     child: Text(
@@ -68,22 +70,29 @@ class _CupertinoSliderDemoState extends State<CupertinoSliderDemo>
                   ),
                 ],
               ),
+              // Disabled sliders
+              // TODO(guidezpl): See https://github.com/flutter/flutter/issues/106691
               Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: CupertinoSlider(
-                      value: _discreteValue.value,
-                      min: 0.0,
-                      max: 100.0,
-                      divisions: 5,
-                      onChanged: (value) {
-                        setState(() {
-                          _discreteValue.value = value;
-                        });
-                      },
-                    ),
+                  const SizedBox(height: 32),
+                  CupertinoSlider(
+                    value: _discreteValue.value,
+                    min: 0.0,
+                    max: 100.0,
+                    divisions: 5,
+                    onChanged: (value) {
+                      setState(() {
+                        _discreteValue.value = value;
+                      });
+                    },
+                  ),
+                  CupertinoSlider(
+                    value: _discreteValue.value,
+                    min: 0.0,
+                    max: 100.0,
+                    divisions: 5,
+                    onChanged: null,
                   ),
                   MergeSemantics(
                     child: Text(
