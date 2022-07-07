@@ -250,26 +250,38 @@ loading-units:
       - package:flutter_gen/gen_l10n/gallery_localizations_zu.dart
   - id: 77
     libraries:
-      - package:flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart
-      - package:flutter_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart
-      - package:flutter_staggered_grid_view/src/rendering/tile_container_render_object_mixin.dart
-      - package:flutter_staggered_grid_view/src/widgets/sliver.dart
-      - package:flutter_staggered_grid_view/src/widgets/staggered_grid_view.dart
-      - package:flutter_staggered_grid_view/src/widgets/staggered_tile.dart
-      - package:gallery/layout/highlight_focus.dart
       - package:gallery/studies/crane/app.dart
       - package:gallery/studies/crane/backdrop.dart
       - package:gallery/studies/crane/eat_form.dart
       - package:gallery/studies/crane/fly_form.dart
       - package:gallery/studies/crane/sleep_form.dart
       - package:gallery/studies/crane/theme.dart
+      - package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart
       - package:gallery/studies/crane/backlayer.dart
       - package:gallery/studies/crane/border_tab_indicator.dart
       - package:gallery/studies/crane/header_form.dart
       - package:gallery/studies/crane/item_cards.dart
       - package:gallery/studies/crane/model/data.dart
       - package:gallery/studies/crane/model/destination.dart
+      - package:flutter_staggered_grid_view/src/layouts/quilted.dart
+      - package:flutter_staggered_grid_view/src/layouts/staired.dart
+      - package:flutter_staggered_grid_view/src/layouts/woven.dart
+      - package:flutter_staggered_grid_view/src/rendering/sliver_masonry_grid.dart
+      - package:flutter_staggered_grid_view/src/rendering/sliver_simple_grid_delegate.dart
+      - package:flutter_staggered_grid_view/src/widgets/aligned_grid_view.dart
+      - package:flutter_staggered_grid_view/src/widgets/masonry_grid_view.dart
+      - package:flutter_staggered_grid_view/src/widgets/sliver_aligned_grid.dart
+      - package:flutter_staggered_grid_view/src/widgets/sliver_masonry_grid.dart
+      - package:flutter_staggered_grid_view/src/widgets/staggered_grid.dart
+      - package:flutter_staggered_grid_view/src/widgets/staggered_grid_tile.dart
+      - package:gallery/layout/highlight_focus.dart
       - package:gallery/studies/crane/model/formatters.dart
+      - package:flutter_staggered_grid_view/src/foundation/extensions.dart
+      - package:flutter_staggered_grid_view/src/foundation/constants.dart
+      - package:flutter_staggered_grid_view/src/layouts/sliver_patterned_grid_delegate.dart
+      - package:flutter_staggered_grid_view/src/widgets/uniform_track.dart
+      - package:flutter_staggered_grid_view/src/rendering/staggered_grid.dart
+      - package:flutter_staggered_grid_view/src/rendering/uniform_track.dart
   - id: 78
     libraries:
       - package:gallery/studies/fortnightly/app.dart
@@ -279,18 +291,18 @@ loading-units:
       - package:gallery/studies/rally/app.dart
       - package:gallery/studies/rally/home.dart
       - package:gallery/studies/rally/login.dart
-      - package:gallery/studies/rally/charts/line_chart.dart
-      - package:gallery/studies/rally/data.dart
-      - package:gallery/studies/rally/formatters.dart
-      - package:gallery/studies/rally/charts/pie_chart.dart
-      - package:gallery/studies/rally/charts/vertical_fraction_bar.dart
-      - package:gallery/studies/rally/finance.dart
       - package:gallery/studies/rally/tabs/accounts.dart
       - package:gallery/studies/rally/tabs/bills.dart
       - package:gallery/studies/rally/tabs/budgets.dart
       - package:gallery/studies/rally/tabs/overview.dart
       - package:gallery/studies/rally/tabs/settings.dart
+      - package:gallery/studies/rally/charts/pie_chart.dart
+      - package:gallery/studies/rally/data.dart
+      - package:gallery/studies/rally/finance.dart
       - package:gallery/studies/rally/tabs/sidebar.dart
+      - package:gallery/studies/rally/formatters.dart
+      - package:gallery/studies/rally/charts/line_chart.dart
+      - package:gallery/studies/rally/charts/vertical_fraction_bar.dart
   - id: 80
     libraries:
       - package:gallery/studies/shrine/app.dart
@@ -310,11 +322,11 @@ loading-units:
       - package:gallery/studies/shrine/shopping_cart.dart
       - package:gallery/studies/shrine/supplemental/asymmetric_view.dart
       - package:gallery/studies/shrine/model/products_repository.dart
+      - package:gallery/studies/shrine/supplemental/cut_corners_border.dart
       - package:gallery/studies/shrine/supplemental/balanced_layout.dart
       - package:gallery/studies/shrine/supplemental/desktop_product_columns.dart
       - package:gallery/studies/shrine/supplemental/product_card.dart
       - package:gallery/studies/shrine/supplemental/product_columns.dart
-      - package:gallery/studies/shrine/supplemental/cut_corners_border.dart
   - id: 81
     libraries:
       - package:gallery/demos/cupertino/cupertino_demos.dart
@@ -324,7 +336,7 @@ loading-units:
       - package:gallery/demos/cupertino/cupertino_context_menu_demo.dart
       - package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart
       - package:gallery/demos/cupertino/cupertino_picker_demo.dart
-      - package:gallery/demos/cupertino/cupertino_refresh_demo.dart
+      - package:gallery/demos/cupertino/cupertino_search_text_field_demo.dart
       - package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart
       - package:gallery/demos/cupertino/cupertino_slider_demo.dart
       - package:gallery/demos/cupertino/cupertino_switch_demo.dart
@@ -370,5 +382,8 @@ loading-units:
       - package:gallery/demos/reference/transformations_demo_edit_board_point.dart
       - package:gallery/demos/reference/transformations_demo_color_picker.dart
   - id: 86
+    libraries:
+      - package:gallery/demos/reference/two_pane_demo.dart
+  - id: 87
     libraries:
       - package:gallery/demos/reference/typography_demo.dart
