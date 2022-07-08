@@ -90,7 +90,14 @@ class MailboxBody extends StatelessWidget {
                             email: email,
                             isStarred: model.isEmailStarred(email.id),
                             onDelete: () => model.deleteEmail(email.id),
-                            onStar: () => model.starEmail(email.id),
+                            onStar: () {
+                              int emailId = email.id;
+                              if (model.isEmailStarred(emailId)) {
+                                model.unstarEmail(emailId);
+                              } else {
+                                model.starEmail(emailId);
+                              }
+                            },
                             onStarredMailbox: model.selectedMailboxPage ==
                                 MailboxPageType.starred,
                           );
