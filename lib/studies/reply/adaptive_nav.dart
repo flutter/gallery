@@ -271,7 +271,6 @@ class _NavigationRailHeader extends StatelessWidget {
       builder: (context, child) {
         return Align(
           alignment: AlignmentDirectional.centerStart,
-          widthFactor: animation.value,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
