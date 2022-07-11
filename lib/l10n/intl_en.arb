@@ -1427,6 +1427,18 @@
   "@demoCupertinoSearchTextFieldPlaceholder": {
     "description": "The placeholder for a search text field demo."
   },
+  "demoCupertinoScrollbarTitle": "Scrollbar",
+  "@demoCupertinoScrollbarTitle": {
+    "description": "Title for the cupertino scrollbar demo."
+  },
+  "demoCupertinoScrollbarSubtitle": "iOS style scrollbar",
+  "@demoCupertinoScrollbarSubtitle": {
+    "description": "Subtitle for the cupertino scrollbar demo."
+  },
+  "demoCupertinoScrollbarDescription": "A scrollbar that wraps the given child",
+  "@demoCupertinoScrollbarDescription": {
+    "description": "Description for the cupertino scrollbar demo."
+  },
   "demoMotionTitle": "Motion",
   "@demoMotionTitle": {
     "description": "Title for the motion demo."
