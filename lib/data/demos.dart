@@ -1073,10 +1073,30 @@ class Demos {
             documentationUrl:
                 '$_docsBaseUrl/cupertino/CupertinoDatePicker-class.html',
             buildRoute: (_) => DeferredWidget(
-              cupertinoLoader,
-              () => cupertino_demos.CupertinoPickerDemo(),
-            ),
+                cupertinoLoader,
+                // ignore: prefer_const_constructors
+                () => cupertino_demos.CupertinoPickerDemo()),
             code: CodeSegments.cupertinoPickersDemo,
+          ),
+        ],
+        category: GalleryDemoCategory.cupertino,
+      ),
+      GalleryDemo(
+        title: localizations.demoCupertinoScrollbarTitle,
+        icon: GalleryIcons.listAlt,
+        slug: 'cupertino-scrollbar',
+        subtitle: localizations.demoCupertinoScrollbarSubtitle,
+        configurations: [
+          GalleryDemoConfiguration(
+            title: localizations.demoCupertinoScrollbarTitle,
+            description: localizations.demoCupertinoScrollbarDescription,
+            documentationUrl:
+                '$_docsBaseUrl/cupertino/CupertinoScrollbar-class.html',
+            buildRoute: (_) => DeferredWidget(
+                cupertinoLoader,
+                // ignore: prefer_const_constructors
+                () => cupertino_demos.CupertinoScrollbarDemo()),
+            code: CodeSegments.cupertinoScrollbarDemo,
           ),
         ],
         category: GalleryDemoCategory.cupertino,
