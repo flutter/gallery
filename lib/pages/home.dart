@@ -908,6 +908,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
               ),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+                primary: false,
                 physics: const _SnappingScrollPhysics(),
                 controller: _controller,
                 itemExtent: itemWidth,
