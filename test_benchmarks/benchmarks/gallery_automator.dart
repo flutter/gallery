@@ -8,7 +8,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/main.dart';
 
@@ -70,7 +69,7 @@ class GalleryAutomator {
   LiveWidgetController controller;
 
   /// An iterable that generates all demo names.
-  Iterable<String> get demoNames => allGalleryDemoDescriptions();
+  Iterable<String> get demoNames => Demos.allDescriptions();
 
   /// The gallery widget, with automation.
   Widget createWidget() {
