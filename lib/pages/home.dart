@@ -532,6 +532,7 @@ class _DesktopCategoryItem extends StatelessWidget {
                 child: ListView.builder(
                   // Makes integration tests possible.
                   key: ValueKey('${category.name}DemoList'),
+                  primary: false,
                   itemBuilder: (context, index) =>
                       CategoryDemoItem(demo: demos[index]),
                   itemCount: demos.length,
@@ -907,6 +908,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
               ),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+                primary: false,
                 physics: const _SnappingScrollPhysics(),
                 controller: _controller,
                 itemExtent: itemWidth,
