@@ -1318,6 +1318,18 @@
     description="The placeholder for a search text field demo."
     >Enter some text</string>
   <string
+    name="demoCupertinoScrollbarTitle"
+    description="Title for the cupertino scrollbar demo."
+    >Scrollbar</string>
+  <string
+    name="demoCupertinoScrollbarSubtitle"
+    description="Subtitle for the cupertino scrollbar demo."
+    >iOS style scrollbar</string>
+  <string
+    name="demoCupertinoScrollbarDescription"
+    description="Description for the cupertino scrollbar demo."
+    >A scrollbar that wraps the given child</string>
+  <string
     name="demoMotionTitle"
     description="Title for the motion demo."
     >Motion</string>
