@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
     final localizations = GalleryLocalizations.of(context)!;
-    final studyDemos = studies(localizations);
+    final studyDemos = Demos.studies(localizations);
     final carouselCards = <Widget>[
       _CarouselCard(
         demo: studyDemos['reply'],
@@ -144,7 +144,7 @@ class HomePage extends StatelessWidget {
             'assets/icons/material/material.png',
             package: 'flutter_gallery_assets',
           ),
-          demos: materialDemos(localizations),
+          demos: Demos.materialDemos(localizations),
         ),
         _DesktopCategoryItem(
           category: GalleryDemoCategory.cupertino,
@@ -152,7 +152,7 @@ class HomePage extends StatelessWidget {
             'assets/icons/cupertino/cupertino.png',
             package: 'flutter_gallery_assets',
           ),
-          demos: cupertinoDemos(localizations),
+          demos: Demos.cupertinoDemos(localizations),
         ),
         _DesktopCategoryItem(
           category: GalleryDemoCategory.other,
@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
             'assets/icons/reference/reference.png',
             package: 'flutter_gallery_assets',
           ),
-          demos: otherDemos(localizations),
+          demos: Demos.otherDemos(localizations),
         ),
       ];
 
@@ -411,7 +411,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                   restorationId: 'home_material_category_list',
                   category: GalleryDemoCategory.material,
                   imageString: 'assets/icons/material/material.png',
-                  demos: materialDemos(localizations),
+                  demos: Demos.materialDemos(localizations),
                   initiallyExpanded:
                       _isMaterialListExpanded.value || isTestMode,
                   onTap: (shouldOpenList) {
@@ -428,7 +428,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                   restorationId: 'home_cupertino_category_list',
                   category: GalleryDemoCategory.cupertino,
                   imageString: 'assets/icons/cupertino/cupertino.png',
-                  demos: cupertinoDemos(localizations),
+                  demos: Demos.cupertinoDemos(localizations),
                   initiallyExpanded:
                       _isCupertinoListExpanded.value || isTestMode,
                   onTap: (shouldOpenList) {
@@ -445,7 +445,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                   restorationId: 'home_other_category_list',
                   category: GalleryDemoCategory.other,
                   imageString: 'assets/icons/reference/reference.png',
-                  demos: otherDemos(localizations),
+                  demos: Demos.otherDemos(localizations),
                   initiallyExpanded: _isOtherListExpanded.value || isTestMode,
                   onTap: (shouldOpenList) {
                     _isOtherListExpanded.value = shouldOpenList;
