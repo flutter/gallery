@@ -49,7 +49,7 @@ class _SettingsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        foregroundColor: Colors.white,
+        primary: Colors.white,
         padding: EdgeInsets.zero,
       ),
       onPressed: () {

@@ -107,7 +107,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                         shape: const BeveledRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(7)),
                         ),
-                        backgroundColor: shrinePink100,
+                        onSurface: shrinePink100,
                       ),
                       onPressed: () {
                         model.clearCart();

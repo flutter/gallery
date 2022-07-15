@@ -172,7 +172,7 @@ class _AlertsView extends StatelessWidget {
                   if (!isDesktop)
                     TextButton(
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.white,
+                        primary: Colors.white,
                       ),
                       onPressed: () {},
                       child: Text(localizations.rallySeeAll),
@@ -279,7 +279,7 @@ class _FinancialView extends StatelessWidget {
             ...financialItemViews!
                 .sublist(0, math.min(financialItemViews!.length, 3)),
             TextButton(
-              style: TextButton.styleFrom(foregroundColor: Colors.white),
+              style: TextButton.styleFrom(onSurface: Colors.white),
               onPressed: () {},
               child: Text(
                 GalleryLocalizations.of(context)!.rallySeeAll,

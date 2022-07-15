@@ -376,7 +376,7 @@ class _BorderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        foregroundColor: Colors.white,
+        primary: Colors.white,
         side: const BorderSide(color: RallyColors.buttonColor),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         shape: RoundedRectangleBorder(
@@ -401,7 +401,7 @@ class _FilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        foregroundColor: Colors.black,
+        primary: Colors.black,
         backgroundColor: RallyColors.buttonColor,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
         shape: RoundedRectangleBorder(
