@@ -143,13 +143,16 @@ class _GridDemoPhotoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget image = Material(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-      clipBehavior: Clip.antiAlias,
-      child: Image.asset(
-        photo.assetName,
-        package: 'flutter_gallery_assets',
-        fit: BoxFit.cover,
+    final Widget image = Semantics(
+      label: '${photo.title} ${photo.subtitle}',
+      child: Material(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        clipBehavior: Clip.antiAlias,
+        child: Image.asset(
+          photo.assetName,
+          package: 'flutter_gallery_assets',
+          fit: BoxFit.cover,
+        ),
       ),
     );
 
