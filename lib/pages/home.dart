@@ -166,6 +166,7 @@ class HomePage extends StatelessWidget {
 
       return Scaffold(
         body: ListView(
+          primary: true,
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
           padding: const EdgeInsetsDirectional.only(
@@ -381,6 +382,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
     return Stack(
       children: [
         ListView(
+          primary: true,
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
           restorationId: 'home_list_view',
