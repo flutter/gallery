@@ -55,7 +55,9 @@ class _AboutDialog extends StatelessWidget {
               future: getVersionNumber(),
               builder: (context, snapshot) => SelectableText(
                 snapshot.hasData ? '$name ${snapshot.data}' : name,
-                style: textTheme.headlineMedium!.apply(color: colorScheme.onPrimary),
+                style: textTheme.headlineMedium!.apply(
+                  color: colorScheme.onPrimary,
+                ),
               ),
             ),
             const SizedBox(height: 24),

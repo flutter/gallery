@@ -215,9 +215,10 @@ class _CategoryHeader extends StatelessWidget {
                           category.displayTitle(
                             GalleryLocalizations.of(context)!,
                           )!,
-                          style: Theme.of(context).textTheme.headlineSmall!.apply(
-                                color: colorScheme.onSurface,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.headlineSmall!.apply(
+                                    color: colorScheme.onSurface,
+                                  ),
                         ),
                       ),
                     ],

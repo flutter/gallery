@@ -700,7 +700,9 @@ class _DemoSectionInfo extends StatelessWidget {
               const SizedBox(height: 12),
               SelectableText(
                 description,
-                style: textTheme.bodyMedium!.apply(color: colorScheme.onSurface),
+                style: textTheme.bodyMedium!.apply(
+                  color: colorScheme.onSurface,
+                ),
               ),
             ],
           ),

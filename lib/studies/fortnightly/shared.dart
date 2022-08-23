@@ -4,11 +4,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
@@ -529,7 +527,10 @@ class VideoPreview extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: SelectableText(data.category, style: textTheme.titleMedium),
+              child: SelectableText(
+                data.category,
+                style: textTheme.titleMedium,
+              ),
             ),
             SelectableText(time, style: textTheme.bodyLarge)
           ],
