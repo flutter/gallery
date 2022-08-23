@@ -47,7 +47,7 @@ class BottomDrawer extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(start: 18),
               child: Text(
                 'FOLDERS',
-                style: theme.textTheme.caption!.copyWith(
+                style: theme.textTheme.bodySmall!.copyWith(
                   color:
                       theme.navigationRailTheme.unselectedLabelTextStyle!.color,
                 ),

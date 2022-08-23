@@ -115,8 +115,8 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
         items: bottomNavigationBarItems,
         currentIndex: _currentIndex.value,
         type: BottomNavigationBarType.fixed,
-        selectedFontSize: textTheme.caption!.fontSize!,
-        unselectedFontSize: textTheme.caption!.fontSize!,
+        selectedFontSize: textTheme.bodySmall!.fontSize!,
+        unselectedFontSize: textTheme.bodySmall!.fontSize!,
         onTap: (index) {
           setState(() {
             _currentIndex.value = index;

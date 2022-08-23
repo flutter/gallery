@@ -98,8 +98,8 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     Object? arguments,
   ) {
     final theme = Theme.of(context);
-    final dialogTextStyle = theme.textTheme.subtitle1!
-        .copyWith(color: theme.textTheme.caption!.color);
+    final dialogTextStyle = theme.textTheme.titleMedium!
+        .copyWith(color: theme.textTheme.bodySmall!.color);
 
     return DialogRoute<String>(
       context: context,
@@ -125,8 +125,8 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
     Object? arguments,
   ) {
     final theme = Theme.of(context);
-    final dialogTextStyle = theme.textTheme.subtitle1!
-        .copyWith(color: theme.textTheme.caption!.color);
+    final dialogTextStyle = theme.textTheme.titleMedium!
+        .copyWith(color: theme.textTheme.bodySmall!.color);
 
     return DialogRoute<String>(
       context: context,
@@ -329,7 +329,7 @@ class _FullScreenDialogDemo extends StatelessWidget {
                 },
                 child: Text(
                   localizations.dialogFullscreenSave,
-                  style: theme.textTheme.bodyText2!.copyWith(
+                  style: theme.textTheme.bodyMedium!.copyWith(
                     color: theme.colorScheme.onPrimary,
                   ),
                 ),

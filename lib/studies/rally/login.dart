@@ -165,7 +165,7 @@ class _TopBar extends StatelessWidget {
               spacing,
               Text(
                 localizations.rallyLoginLoginToRally,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontSize: 35 / reducedTextScale(context),
                       fontWeight: FontWeight.w600,
                     ),
@@ -177,7 +177,7 @@ class _TopBar extends StatelessWidget {
             children: [
               Text(
                 localizations.rallyLoginNoAccount,
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               spacing,
               _BorderButton(
