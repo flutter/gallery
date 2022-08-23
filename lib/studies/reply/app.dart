@@ -154,12 +154,12 @@ ThemeData _buildReplyLightTheme(BuildContext context) {
       backgroundColor: ReplyColors.blue700,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange500),
       selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5!.copyWith(
+          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                 color: ReplyColors.orange500,
               ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.blue200),
       unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5!.copyWith(
+          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                 color: ReplyColors.blue200,
               ),
     ),
@@ -201,12 +201,12 @@ ThemeData _buildReplyDarkTheme(BuildContext context) {
       backgroundColor: ReplyColors.darkBottomAppBarBackground,
       selectedIconTheme: const IconThemeData(color: ReplyColors.orange300),
       selectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5!.copyWith(
+          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                 color: ReplyColors.orange300,
               ),
       unselectedIconTheme: const IconThemeData(color: ReplyColors.greyLabel),
       unselectedLabelTextStyle:
-          GoogleFonts.workSansTextTheme().headline5!.copyWith(
+          GoogleFonts.workSansTextTheme().headlineSmall!.copyWith(
                 color: ReplyColors.greyLabel,
               ),
     ),
@@ -248,56 +248,56 @@ ChipThemeData _buildChipTheme(
     secondarySelectedColor: chipBackground,
     padding: const EdgeInsets.all(4),
     shape: const StadiumBorder(),
-    labelStyle: GoogleFonts.workSansTextTheme().bodyText2!.copyWith(
+    labelStyle: GoogleFonts.workSansTextTheme().bodyMedium!.copyWith(
           color: brightness == Brightness.dark
               ? ReplyColors.white50
               : ReplyColors.black900,
         ),
-    secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyText2,
+    secondaryLabelStyle: GoogleFonts.workSansTextTheme().bodyMedium,
     brightness: brightness,
   );
 }
 
 TextTheme _buildReplyLightTextTheme(TextTheme base) {
   return base.copyWith(
-    headline4: GoogleFonts.workSans(
+    headlineMedium: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 34,
       letterSpacing: letterSpacingOrNone(0.4),
       height: 0.9,
       color: ReplyColors.black900,
     ),
-    headline5: GoogleFonts.workSans(
+    headlineSmall: GoogleFonts.workSans(
       fontWeight: FontWeight.bold,
       fontSize: 24,
       letterSpacing: letterSpacingOrNone(0.27),
       color: ReplyColors.black900,
     ),
-    headline6: GoogleFonts.workSans(
+    titleLarge: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 20,
       letterSpacing: letterSpacingOrNone(0.18),
       color: ReplyColors.black900,
     ),
-    subtitle2: GoogleFonts.workSans(
+    titleSmall: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.04),
       color: ReplyColors.black900,
     ),
-    bodyText1: GoogleFonts.workSans(
+    bodyLarge: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 18,
       letterSpacing: letterSpacingOrNone(0.2),
       color: ReplyColors.black900,
     ),
-    bodyText2: GoogleFonts.workSans(
+    bodyMedium: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.05),
       color: ReplyColors.black900,
     ),
-    caption: GoogleFonts.workSans(
+    bodySmall: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 12,
       letterSpacing: letterSpacingOrNone(0.2),
@@ -308,44 +308,44 @@ TextTheme _buildReplyLightTextTheme(TextTheme base) {
 
 TextTheme _buildReplyDarkTextTheme(TextTheme base) {
   return base.copyWith(
-    headline4: GoogleFonts.workSans(
+    headlineMedium: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 34,
       letterSpacing: letterSpacingOrNone(0.4),
       height: 0.9,
       color: ReplyColors.white50,
     ),
-    headline5: GoogleFonts.workSans(
+    headlineSmall: GoogleFonts.workSans(
       fontWeight: FontWeight.bold,
       fontSize: 24,
       letterSpacing: letterSpacingOrNone(0.27),
       color: ReplyColors.white50,
     ),
-    headline6: GoogleFonts.workSans(
+    titleLarge: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 20,
       letterSpacing: letterSpacingOrNone(0.18),
       color: ReplyColors.white50,
     ),
-    subtitle2: GoogleFonts.workSans(
+    titleSmall: GoogleFonts.workSans(
       fontWeight: FontWeight.w600,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.04),
       color: ReplyColors.white50,
     ),
-    bodyText1: GoogleFonts.workSans(
+    bodyLarge: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 18,
       letterSpacing: letterSpacingOrNone(0.2),
       color: ReplyColors.white50,
     ),
-    bodyText2: GoogleFonts.workSans(
+    bodyMedium: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 14,
       letterSpacing: letterSpacingOrNone(-0.05),
       color: ReplyColors.white50,
     ),
-    caption: GoogleFonts.workSans(
+    bodySmall: GoogleFonts.workSans(
       fontWeight: FontWeight.normal,
       fontSize: 12,
       letterSpacing: letterSpacingOrNone(0.2),

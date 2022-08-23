@@ -39,7 +39,7 @@ class _FadeThroughTransitionDemoState extends State<FadeThroughTransitionDemo> {
               '(${localizations.demoFadeThroughDemoInstructions})',
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2!
+                  .titleSmall!
                   .copyWith(color: Colors.white),
             ),
           ],
@@ -119,11 +119,11 @@ class _ExampleCard extends StatelessWidget {
                     children: [
                       Text(
                         localizations.demoFadeThroughTextPlaceholder,
-                        style: textTheme.bodyText1,
+                        style: textTheme.bodyLarge,
                       ),
                       Text(
                         localizations.demoFadeThroughTextPlaceholder,
-                        style: textTheme.caption,
+                        style: textTheme.bodySmall,
                       ),
                     ],
                   ),

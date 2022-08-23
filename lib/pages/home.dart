@@ -293,7 +293,7 @@ class Header extends StatelessWidget {
         ),
         child: SelectableText(
           text,
-          style: Theme.of(context).textTheme.headline4!.apply(
+          style: Theme.of(context).textTheme.headlineMedium!.apply(
                 color: color,
                 fontSizeDelta:
                     isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -584,7 +584,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
                 header: true,
                 child: SelectableText(
                   category.displayTitle(GalleryLocalizations.of(context)!)!,
-                  style: Theme.of(context).textTheme.headline5!.apply(
+                  style: Theme.of(context).textTheme.headlineSmall!.apply(
                         color: colorScheme.onSurface,
                       ),
                 ),
@@ -1110,13 +1110,13 @@ class _CarouselCard extends StatelessWidget {
                   children: [
                     Text(
                       demo!.title,
-                      style: textTheme.caption!.apply(color: textColor),
+                      style: textTheme.bodySmall!.apply(color: textColor),
                       maxLines: 3,
                       overflow: TextOverflow.visible,
                     ),
                     Text(
                       demo!.subtitle,
-                      style: textTheme.overline!.apply(color: textColor),
+                      style: textTheme.labelSmall!.apply(color: textColor),
                       maxLines: 5,
                       overflow: TextOverflow.visible,
                     ),
@@ -1199,7 +1199,7 @@ class _StudyWrapperState extends State<StudyWrapper> {
                       ),
                       label: Text(
                         MaterialLocalizations.of(context).backButtonTooltip,
-                        style: textTheme.button!
+                        style: textTheme.labelLarge!
                             .apply(color: colorScheme.onPrimary),
                       ),
                     ),

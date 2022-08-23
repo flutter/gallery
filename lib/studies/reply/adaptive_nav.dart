@@ -304,7 +304,7 @@ class _NavigationRailHeader extends StatelessWidget {
                               opacity: animation.value,
                               child: Text(
                                 'REPLY',
-                                style: textTheme.bodyText1!.copyWith(
+                                style: textTheme.bodyLarge!.copyWith(
                                   color: ReplyColors.white50,
                                 ),
                               ),
@@ -395,7 +395,7 @@ class _NavigationRailFolderSection extends StatelessWidget {
                       ),
                       child: Text(
                         'FOLDERS',
-                        style: textTheme.caption!.copyWith(
+                        style: textTheme.bodySmall!.copyWith(
                           color: navigationRailTheme
                               .unselectedLabelTextStyle!.color,
                         ),
@@ -424,7 +424,7 @@ class _NavigationRailFolderSection extends StatelessWidget {
                                 const SizedBox(width: 24),
                                 Text(
                                   folder,
-                                  style: textTheme.bodyText1!.copyWith(
+                                  style: textTheme.bodyLarge!.copyWith(
                                     color: navigationRailTheme
                                         .unselectedLabelTextStyle!.color,
                                   ),
@@ -788,7 +788,7 @@ class _AnimatedBottomAppBar extends StatelessWidget {
                                       }).textLabel,
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText1!
+                                          .bodyLarge!
                                           .copyWith(color: ReplyColors.white50),
                                     ),
                                   ),
@@ -971,7 +971,7 @@ class _BottomDrawerDestinations extends StatelessWidget {
             ),
             title: Text(
               destination.textLabel,
-              style: theme.textTheme.bodyText2!.copyWith(
+              style: theme.textTheme.bodyMedium!.copyWith(
                 color: destination.type == selectedMailbox
                     ? theme.colorScheme.secondary
                     : theme.navigationRailTheme.unselectedLabelTextStyle!.color,
@@ -1031,7 +1031,7 @@ class _BottomDrawerFolderSection extends StatelessWidget {
               ),
               title: Text(
                 folder,
-                style: theme.textTheme.bodyText2!.copyWith(
+                style: theme.textTheme.bodyMedium!.copyWith(
                   color: navigationRailTheme.unselectedLabelTextStyle!.color,
                 ),
               ),
@@ -1192,7 +1192,7 @@ class _ReplyFabState extends State<_ReplyFab>
                               tooltip.toUpperCase(),
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline5!
+                                  .headlineSmall!
                                   .copyWith(
                                     fontSize: 16,
                                     color: theme.colorScheme.onSecondary,

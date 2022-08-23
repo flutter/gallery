@@ -87,7 +87,7 @@ class _HeaderTextField extends StatelessWidget {
       controller: field.textController,
       cursorColor: Theme.of(context).colorScheme.secondary,
       style:
-          Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.white),
+          Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white),
       onTap: () {},
       decoration: InputDecoration(
         border: OutlineInputBorder(
