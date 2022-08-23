@@ -15,7 +15,7 @@ permissions: read-all
 jobs:
   draft-release:
     name: Draft Github release
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
@@ -43,19 +43,19 @@ jobs:
             build_path: build/macos/Build/Products/Release
             asset_extension: .zip
             asset_content_type: application/zip
-          - os: windows-2019
+          - os: windows-latest
             target: Windows
             build_target: windows
             build_path: build\windows\runner\Release
             asset_extension: .zip
             asset_content_type: application/zip
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             target: Linux
             build_target: linux
             build_path: build/linux/x64/release/bundle
             asset_extension: .tar.gz
             asset_content_type: application/gzip
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             target: Android
             build_target: apk
             build_path: build/app/outputs/flutter-apk
