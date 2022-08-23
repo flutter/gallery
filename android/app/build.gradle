@@ -50,6 +50,8 @@ android {
 
     defaultConfig {
         applicationId "io.flutter.demo.gallery"
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
