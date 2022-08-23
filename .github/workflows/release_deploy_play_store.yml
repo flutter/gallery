@@ -18,7 +18,7 @@ permissions: read-all
 
 jobs:
   fastlane-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel

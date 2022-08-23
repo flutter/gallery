@@ -37,7 +37,7 @@ jobs:
       matrix:
         target: [macOS, Windows, Linux, Android]
         include:
-          - os: macos-10.15 # Catalina
+          - os: macos-latest
             target: macOS
             build_target: macos
             build_path: build/macos/Build/Products/Release
