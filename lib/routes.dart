@@ -5,7 +5,6 @@
 import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:gallery/cookies_aknowledgement.dart';
 import 'package:gallery/deferred_widget.dart';
 import 'package:gallery/main.dart';
 import 'package:gallery/pages/demo.dart';
@@ -62,31 +61,25 @@ class RouteConfiguration {
     Path(
       r'^' + rally_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(
-          rally.loadLibrary,
-          () => rally.RallyApp(),
-        ),
+        study: DeferredWidget(rally.loadLibrary,
+            () => rally.RallyApp()), // ignore: prefer_const_constructors
       ),
       openInSecondScreen: true,
     ),
     Path(
       r'^' + shrine_routes.homeRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(
-          shrine.loadLibrary,
-          () => shrine.ShrineApp(),
-        ),
+        study: DeferredWidget(shrine.loadLibrary,
+            () => shrine.ShrineApp()), // ignore: prefer_const_constructors
       ),
       openInSecondScreen: true,
     ),
     Path(
       r'^' + crane_routes.defaultRoute,
       (context, match) => StudyWrapper(
-        study: DeferredWidget(
-          crane.loadLibrary,
-          () => crane.CraneApp(),
-          placeholder: const DeferredLoadingPlaceholder(name: 'Crane'),
-        ),
+        study: DeferredWidget(crane.loadLibrary,
+            () => crane.CraneApp(), // ignore: prefer_const_constructors
+            placeholder: const DeferredLoadingPlaceholder(name: 'Crane')),
       ),
       openInSecondScreen: true,
     ),
@@ -94,18 +87,17 @@ class RouteConfiguration {
       r'^' + fortnightly_routes.defaultRoute,
       (context, match) => StudyWrapper(
         study: DeferredWidget(
-          fortnightly.loadLibrary,
-          () => fortnightly.FortnightlyApp(),
-        ),
+            fortnightly.loadLibrary,
+            // ignore: prefer_const_constructors
+            () => fortnightly.FortnightlyApp()),
       ),
       openInSecondScreen: true,
     ),
     Path(
       r'^' + reply_routes.homeRoute,
-      (context, match) => const StudyWrapper(
-        study: reply.ReplyApp(),
-        hasBottomNavBar: true,
-      ),
+      // ignore: prefer_const_constructors
+      (context, match) =>
+          const StudyWrapper(study: reply.ReplyApp(), hasBottomNavBar: true),
       openInSecondScreen: true,
     ),
     Path(
@@ -134,11 +126,7 @@ class RouteConfiguration {
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
         if (kIsWeb) {
           return NoAnimationMaterialPageRoute<void>(
-            builder: (context) {
-              WidgetsBinding.instance.addPostFrameCallback(
-                  (_) => CookiesAknowledgement.maybeObtain(context));
-              return path.builder(context, match);
-            },
+            builder: (context) => path.builder(context, match),
             settings: settings,
           );
         }
