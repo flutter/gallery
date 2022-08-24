@@ -749,7 +749,7 @@ packages:
       name: web_benchmarks
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.7+1"
+    version: "0.1.0"
   web_socket_channel:
     dependency: transitive
     description:
