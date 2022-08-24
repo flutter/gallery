@@ -127,7 +127,7 @@ Widget _buildProductCard({
                     width: imageWidth,
                     child: Text(
                       product.name(context),
-                      style: theme.textTheme.button,
+                      style: theme.textTheme.labelLarge,
                       softWrap: true,
                       textAlign: TextAlign.center,
                     ),
@@ -135,7 +135,7 @@ Widget _buildProductCard({
                   const SizedBox(height: 4),
                   Text(
                     formatter.format(product.price),
-                    style: theme.textTheme.caption,
+                    style: theme.textTheme.bodySmall,
                   ),
                 ],
               ),

@@ -204,10 +204,10 @@ class _MailPreview extends StatelessWidget {
                           children: [
                             Text(
                               '${email.sender} - ${email.time}',
-                              style: textTheme.caption,
+                              style: textTheme.bodySmall,
                             ),
                             const SizedBox(height: 4),
-                            Text(email.subject, style: textTheme.headline5),
+                            Text(email.subject, style: textTheme.headlineSmall),
                             const SizedBox(height: 16),
                           ],
                         ),
@@ -228,7 +228,7 @@ class _MailPreview extends StatelessWidget {
                       email.message,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      style: textTheme.bodyText2,
+                      style: textTheme.bodyMedium,
                     ),
                   ),
                   if (email.containsPictures) ...[

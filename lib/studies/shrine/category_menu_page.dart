@@ -55,7 +55,7 @@ class CategoryMenuPage extends StatelessWidget {
 
     final selectedCategoryTextStyle = Theme.of(context)
         .textTheme
-        .bodyText1!
+        .bodyLarge!
         .copyWith(fontSize: isDesktop ? 17 : 19);
 
     final unselectedCategoryTextStyle = selectedCategoryTextStyle.copyWith(
@@ -99,7 +99,7 @@ class CategoryMenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
 
-    final logoutTextStyle = Theme.of(context).textTheme.bodyText1!.copyWith(
+    final logoutTextStyle = Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontSize: isDesktop ? 17 : 19,
           color: shrineBrown900.withOpacity(0.6),
         );
@@ -125,7 +125,7 @@ class CategoryMenuPage extends StatelessWidget {
                     container: true,
                     child: Text(
                       'SHRINE',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
                   const Spacer(),

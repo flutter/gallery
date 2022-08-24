@@ -715,7 +715,7 @@ class ExtraProductsNumber extends StatelessWidget {
         numOverflowProducts <= 99 ? numOverflowProducts : 99;
     return Text(
       '+$displayedOverflowProducts',
-      style: Theme.of(context).primaryTextTheme.button,
+      style: Theme.of(context).primaryTextTheme.labelLarge,
     );
   }
 

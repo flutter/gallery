@@ -215,9 +215,10 @@ class _CategoryHeader extends StatelessWidget {
                           category.displayTitle(
                             GalleryLocalizations.of(context)!,
                           )!,
-                          style: Theme.of(context).textTheme.headline5!.apply(
-                                color: colorScheme.onSurface,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.headlineSmall!.apply(
+                                    color: colorScheme.onSurface,
+                                  ),
                         ),
                       ),
                     ],
@@ -312,12 +313,12 @@ class CategoryDemoItem extends StatelessWidget {
                     children: [
                       Text(
                         demo.title,
-                        style: textTheme.subtitle1!
+                        style: textTheme.titleMedium!
                             .apply(color: colorScheme.onSurface),
                       ),
                       Text(
                         demo.subtitle,
-                        style: textTheme.overline!.apply(
+                        style: textTheme.labelSmall!.apply(
                           color: colorScheme.onSurface.withOpacity(0.5),
                         ),
                       ),

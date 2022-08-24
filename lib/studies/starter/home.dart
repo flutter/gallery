@@ -28,19 +28,19 @@ class HomePage extends StatelessWidget {
           children: [
             SelectableText(
               localizations.starterAppGenericHeadline,
-              style: textTheme.headline3!.copyWith(
+              style: textTheme.displaySmall!.copyWith(
                 color: colorScheme.onSecondary,
               ),
             ),
             const SizedBox(height: 10),
             SelectableText(
               localizations.starterAppGenericSubtitle,
-              style: textTheme.subtitle1,
+              style: textTheme.titleMedium,
             ),
             const SizedBox(height: 48),
             SelectableText(
               localizations.starterAppGenericBody,
-              style: textTheme.bodyText1,
+              style: textTheme.bodyLarge,
             ),
           ],
         ),
@@ -121,7 +121,7 @@ class AdaptiveAppBar extends StatelessWidget implements PreferredSizeWidget {
                 margin: const EdgeInsetsDirectional.fromSTEB(72, 0, 0, 22),
                 child: SelectableText(
                   localizations.starterAppGenericTitle,
-                  style: themeData.textTheme.headline6!.copyWith(
+                  style: themeData.textTheme.titleLarge!.copyWith(
                     color: themeData.colorScheme.onPrimary,
                   ),
                 ),
@@ -172,11 +172,11 @@ class _ListDrawerState extends State<ListDrawer> {
             ListTile(
               title: SelectableText(
                 localizations.starterAppTitle,
-                style: textTheme.headline6,
+                style: textTheme.titleLarge,
               ),
               subtitle: SelectableText(
                 localizations.starterAppGenericSubtitle,
-                style: textTheme.bodyText2,
+                style: textTheme.bodyMedium,
               ),
             ),
             const Divider(),
