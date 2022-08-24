@@ -27,7 +27,7 @@ dependencies:
   path_provider: ^2.0.11
   provider: ^6.0.2
   rally_assets: ^3.0.1
-  scoped_model: ^2.0.0-nullsafety.0
+  scoped_model: ^2.0.0
   shared_preferences: ^2.0.15
   shrine_images: ^2.0.1
   url_launcher: ^6.1.2
