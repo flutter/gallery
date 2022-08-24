@@ -1324,7 +1324,7 @@
   <string
     name="demoCupertinoScrollbarSubtitle"
     description="Subtitle for the cupertino scrollbar demo."
-    >iOS style scrollbar</string>
+    >iOS-style scrollbar</string>
   <string
     name="demoCupertinoScrollbarDescription"
     description="Description for the cupertino scrollbar demo."

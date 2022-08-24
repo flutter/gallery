@@ -18,11 +18,11 @@ permissions: read-all
 
 jobs:
   fastlane-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
+        uses: subosito/flutter-action@6c2e035f2692eeac890d854df95630c72673f130
         with:
           channel: master
       - run: flutter doctor -v
@@ -34,7 +34,7 @@ jobs:
 
       # Setup Ruby, Bundler, and Gemfile dependencies
       - name: Setup Fastlane
-        uses: ruby/setup-ruby@08245253a76fa4d1e459b7809579c62bd9eb718a
+        uses: ruby/setup-ruby@6148f408d35df04b0189be5e64c1458377b8ae13
         with:
           ruby-version: "2.6"
           bundler-cache: true

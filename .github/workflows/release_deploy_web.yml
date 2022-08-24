@@ -17,11 +17,11 @@ permissions: read-all
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
+        uses: subosito/flutter-action@6c2e035f2692eeac890d854df95630c72673f130
         with:
           channel: master
       - run: flutter doctor -v

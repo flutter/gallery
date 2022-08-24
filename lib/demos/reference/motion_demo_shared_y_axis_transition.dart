@@ -76,7 +76,7 @@ class _SharedYAxisTransitionDemoState extends State<SharedYAxisTransitionDemo>
               '(${localizations.demoSharedYAxisDemoInstructions})',
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2!
+                  .titleSmall!
                   .copyWith(color: Colors.white),
             ),
           ],

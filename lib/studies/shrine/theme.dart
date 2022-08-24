@@ -50,34 +50,34 @@ ThemeData _buildShrineTheme() {
 TextTheme _buildShrineTextTheme(TextTheme base) {
   return GoogleFonts.rubikTextTheme(base
       .copyWith(
-        headline5: base.headline5!.copyWith(
+        headlineSmall: base.headlineSmall!.copyWith(
           fontWeight: FontWeight.w500,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        headline6: base.headline6!.copyWith(
+        titleLarge: base.titleLarge!.copyWith(
           fontSize: 18,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        caption: base.caption!.copyWith(
+        bodySmall: base.bodySmall!.copyWith(
           fontWeight: FontWeight.w400,
           fontSize: 14,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        bodyText1: base.bodyText1!.copyWith(
+        bodyLarge: base.bodyLarge!.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 16,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        bodyText2: base.bodyText2!.copyWith(
+        bodyMedium: base.bodyMedium!.copyWith(
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        subtitle1: base.subtitle1!.copyWith(
+        titleMedium: base.titleMedium!.copyWith(
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        headline4: base.headline4!.copyWith(
+        headlineMedium: base.headlineMedium!.copyWith(
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),
         ),
-        button: base.button!.copyWith(
+        labelLarge: base.labelLarge!.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: 14,
           letterSpacing: letterSpacingOrNone(defaultLetterSpacing),

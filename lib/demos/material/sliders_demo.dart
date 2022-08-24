@@ -561,7 +561,7 @@ class _CustomSlidersState extends State<_CustomSliders> with RestorationMixin {
                   valueIndicatorColor: Colors.deepPurpleAccent,
                   thumbShape: const _CustomThumbShape(),
                   valueIndicatorShape: const _CustomValueIndicatorShape(),
-                  valueIndicatorTextStyle: theme.textTheme.bodyText1!
+                  valueIndicatorTextStyle: theme.textTheme.bodyLarge!
                       .copyWith(color: theme.colorScheme.onSurface),
                 ),
                 child: Slider(

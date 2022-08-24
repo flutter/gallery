@@ -28,7 +28,7 @@ class _TextStyleItem extends StatelessWidget {
         children: [
           SizedBox(
             width: 72,
-            child: Text(name, style: Theme.of(context).textTheme.caption),
+            child: Text(name, style: Theme.of(context).textTheme.bodySmall),
           ),
           Expanded(
             child: Text(text, style: style),
@@ -48,67 +48,67 @@ class TypographyDemo extends StatelessWidget {
     final styleItems = [
       _TextStyleItem(
         name: 'Headline 1',
-        style: textTheme.headline1!,
+        style: textTheme.displayLarge!,
         text: 'Light 96sp',
       ),
       _TextStyleItem(
         name: 'Headline 2',
-        style: textTheme.headline2!,
+        style: textTheme.displayMedium!,
         text: 'Light 60sp',
       ),
       _TextStyleItem(
         name: 'Headline 3',
-        style: textTheme.headline3!,
+        style: textTheme.displaySmall!,
         text: 'Regular 48sp',
       ),
       _TextStyleItem(
         name: 'Headline 4',
-        style: textTheme.headline4!,
+        style: textTheme.headlineMedium!,
         text: 'Regular 34sp',
       ),
       _TextStyleItem(
         name: 'Headline 5',
-        style: textTheme.headline5!,
+        style: textTheme.headlineSmall!,
         text: 'Regular 24sp',
       ),
       _TextStyleItem(
         name: 'Headline 6',
-        style: textTheme.headline6!,
+        style: textTheme.titleLarge!,
         text: 'Medium 20sp',
       ),
       _TextStyleItem(
         name: 'Subtitle 1',
-        style: textTheme.subtitle1!,
+        style: textTheme.titleMedium!,
         text: 'Regular 16sp',
       ),
       _TextStyleItem(
         name: 'Subtitle 2',
-        style: textTheme.subtitle2!,
+        style: textTheme.titleSmall!,
         text: 'Medium 14sp',
       ),
       _TextStyleItem(
         name: 'Body Text 1',
-        style: textTheme.bodyText1!,
+        style: textTheme.bodyLarge!,
         text: 'Regular 16sp',
       ),
       _TextStyleItem(
         name: 'Body Text 2',
-        style: textTheme.bodyText2!,
+        style: textTheme.bodyMedium!,
         text: 'Regular 14sp',
       ),
       _TextStyleItem(
         name: 'Button',
-        style: textTheme.button!,
+        style: textTheme.labelLarge!,
         text: 'MEDIUM (ALL CAPS) 14sp',
       ),
       _TextStyleItem(
         name: 'Caption',
-        style: textTheme.caption!,
+        style: textTheme.bodySmall!,
         text: 'Regular 12sp',
       ),
       _TextStyleItem(
         name: 'Overline',
-        style: textTheme.overline!,
+        style: textTheme.labelSmall!,
         text: 'REGULAR (ALL CAPS) 10sp',
       ),
     ];

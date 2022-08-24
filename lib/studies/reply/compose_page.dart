@@ -55,7 +55,7 @@ class ComposePage extends StatelessWidget {
                         hintText: 'New Message...',
                       ),
                       autofocus: false,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 ],
@@ -115,10 +115,10 @@ class _SubjectRowState extends State<_SubjectRow> {
               controller: _subjectController,
               maxLines: 1,
               autofocus: false,
-              style: theme.textTheme.headline6,
+              style: theme.textTheme.titleLarge,
               decoration: InputDecoration.collapsed(
                 hintText: 'Subject',
-                hintStyle: theme.textTheme.headline6!.copyWith(
+                hintStyle: theme.textTheme.titleLarge!.copyWith(
                   color: theme.colorScheme.primary.withOpacity(0.5),
                 ),
               ),
@@ -182,14 +182,14 @@ class __SenderAddressRowState extends State<_SenderAddressRow> {
           value: accounts[0],
           child: Text(
             accounts[0],
-            style: textTheme.bodyText2,
+            style: textTheme.bodyMedium,
           ),
         ),
         PopupMenuItem<String>(
           value: accounts[1],
           child: Text(
             accounts[1],
-            style: textTheme.bodyText2,
+            style: textTheme.bodyMedium,
           ),
         ),
       ],
@@ -206,7 +206,7 @@ class __SenderAddressRowState extends State<_SenderAddressRow> {
             Expanded(
               child: Text(
                 senderEmail,
-                style: textTheme.bodyText2,
+                style: textTheme.bodyMedium,
               ),
             ),
             Icon(
