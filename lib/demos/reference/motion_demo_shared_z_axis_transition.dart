@@ -31,7 +31,7 @@ class SharedZAxisTransitionDemo extends StatelessWidget {
                   '(${localizations.demoSharedZAxisDemoInstructions})',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle2!
+                      .titleSmall!
                       .copyWith(color: Colors.white),
                 ),
               ],

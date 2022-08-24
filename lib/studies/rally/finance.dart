@@ -148,19 +148,19 @@ class FinancialEntityCategoryView extends StatelessWidget {
                               children: [
                                 Text(
                                   title,
-                                  style: textTheme.bodyText2!
+                                  style: textTheme.bodyMedium!
                                       .copyWith(fontSize: 16),
                                 ),
                                 Text(
                                   subtitle,
-                                  style: textTheme.bodyText2!
+                                  style: textTheme.bodyMedium!
                                       .copyWith(color: RallyColors.gray60),
                                 ),
                               ],
                             ),
                             Text(
                               amount,
-                              style: textTheme.bodyText1!.copyWith(
+                              style: textTheme.bodyLarge!.copyWith(
                                 fontSize: 20,
                                 color: RallyColors.gray,
                               ),
@@ -268,7 +268,7 @@ FinancialEntityCategoryView buildFinancialEntityFromBudgetData(
       GalleryLocalizations.of(context)!.rallyFinanceLeft,
       style: Theme.of(context)
           .textTheme
-          .bodyText2!
+          .bodyMedium!
           .copyWith(color: RallyColors.gray60, fontSize: 10),
     ),
     title: model.name,
@@ -333,7 +333,7 @@ class FinancialEntityCategoryDetailsPage extends StatelessWidget {
           title: Text(
             GalleryLocalizations.of(context)!.rallyAccountDataChecking,
             style:
-                Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
+                Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 18),
           ),
         ),
         body: Column(
@@ -445,7 +445,7 @@ class _EventAmount extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Text(
       usdWithSignFormat(context).format(amount),
-      style: textTheme.bodyText1!.copyWith(
+      style: textTheme.bodyLarge!.copyWith(
         fontSize: 20,
         color: RallyColors.gray,
       ),
@@ -464,7 +464,7 @@ class _EventDate extends StatelessWidget {
     return Text(
       shortDateFormat(context).format(date),
       semanticsLabel: longDateFormat(context).format(date),
-      style: textTheme.bodyText2!.copyWith(color: RallyColors.gray60),
+      style: textTheme.bodyMedium!.copyWith(color: RallyColors.gray60),
     );
   }
 }
@@ -479,7 +479,7 @@ class _EventTitle extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Text(
       title,
-      style: textTheme.bodyText2!.copyWith(fontSize: 16),
+      style: textTheme.bodyMedium!.copyWith(fontSize: 16),
     );
   }
 }

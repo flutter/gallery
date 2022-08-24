@@ -744,7 +744,7 @@
   "demoFullscreenDialogTitle": "Pantaila osoa",
   "demoCupertinoButtonsTitle": "Botoiak",
   "demoCupertinoButtonsSubtitle": "iOS estiloko botoiak",
-  "demoCupertinoButtonsDescription": "iOS estiloko botoia. Ukitzean lausotzen eta berriro agertzen den testua edota ikono bat dauka barruan. Atzeko plano bat ere izan dezake.",
+  "demoCupertinoButtonsDescription": "iOS estiloko botoia. Ukitzean lausotzen eta berriro agertzen den testua eta/edo ikono bat dauka barruan. Atzeko plano bat ere izan dezake.",
   "demoCupertinoAlertsTitle": "Alertak",
   "demoCupertinoAlertsSubtitle": "iOS estiloko alerta-leihoak",
   "demoCupertinoAlertTitle": "Alerta",

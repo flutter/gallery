@@ -363,7 +363,7 @@ class TextFormFieldDemoState extends State<TextFormFieldDemo>
               sizedBoxSpace,
               Text(
                 localizations.demoTextFieldRequiredField,
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               sizedBoxSpace,
             ],

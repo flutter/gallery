@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2019, macos-10.15]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
@@ -37,7 +37,7 @@ jobs:
 
   benchmark-test:
     name: Benchmark tests
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
@@ -56,7 +56,7 @@ jobs:
 
   golden-test:
     name: Golden tests
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
