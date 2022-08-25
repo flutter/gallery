@@ -1,59 +1,191 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-  -->
   <base href="/">
-
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <title>Flutter Gallery</title>
   <meta name="description" content="A resource to help developers evaluate and use Flutter.">
+  <link rel="manifest" href="manifest.json">
 
-  <!-- iOS meta tags & icons -->
+  <!-- Browser meta tags & icons -->
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="gallery">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32"/>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" media="all">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:700" rel="stylesheet" media="all">
 
-  <title>Flutter Gallery</title>
-  <style>
-  body {
-    background-color: #030303;
-  }
-  </style>
-  <link rel="manifest" href="manifest.json">
+  <!-- Renderer specifier -->
   <script>
     let searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has('renderer')) {
       window.flutterWebRenderer = searchParams.get('renderer');
       console.log(searchParams.get('renderer') + ' renderer requested in the URL');
     }
-
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
   </script>
+
   <script src="flutter.js" defer></script>
 </head>
-<body>
 
+<body>
+  <style>
+    body {
+      background-color: #030303;
+    }
+  </style>
+
+  <!-- Cookie notice -->
+  <div>
+    <style>
+      #cookie-notice {
+        background-color: #fff;
+        bottom: 0;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, .25);
+        -webkit-box-direction: normal;
+        -webkit-font-smoothing: antialiased;
+        display: none;
+        left: 0;
+        opacity: 0;
+        padding: 40px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 11;
+      }
+
+      #cookie-notice.show {
+        animation-delay: .2s;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-name: fadein;
+        animation-timing-function: cubic-bezier(.27, .89, .39, .95);
+        display: block;
+      }
+
+      @keyframes fadein {
+        0% {
+          opacity: 0
+        }
+
+        to {
+          opacity: 1
+        }
+      }
+
+      .container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 1px;
+        margin: 0 auto;
+        max-width: calc(1280px - 100px);
+        width: calc(100% - 24px*2);
+      }
+
+      .container p {
+        max-width: 1200px;
+        margin: 0;
+        margin-right: 50px;
+        color: #4a4a4a;
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+        line-height: 1.5;
+
+      }
+
+      p a {
+        color: #0468d7;
+        text-decoration: none;
+      }
+
+      button {
+        background-color: #0468d7;
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+        border: 0 solid;
+        border-radius: 24px;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "Google Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        height: 40px;
+        padding: 0 32px;
+        text-align: center;
+        line-height: 1.15;
+      }
+    </style>
+    <section id="cookie-notice">
+      <div class="container">
+        <p>Google uses cookies to deliver its services, to personalize ads, and to analyze traffic. You can
+          adjust your privacy controls anytime in your
+          <a href="https://myaccount.google.com/data-and-personalization" target="_blank" rel="noopener">Google
+            settings</a>.
+          <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a>.
+        </p>
+        <button id="cookie-consent">Okay</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    function _setCookie(name, value) {
+      const expires = "; expires=2147483647"; // ~2038 i.e. until user clears cookies
+      document.cookie = name + "=" + (value || "") + expires + "; SameSite=Strict";
+    }
+
+    function _getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    function initCookieNotice() {
+      const notice = document.getElementById('cookie-notice');
+      const consentBtn = document.getElementById('cookie-consent');
+      const cookieKey = 'cookie-consent';
+      const cookieConsentValue = 'true'
+      const activeClass = 'show';
+      if (_getCookie(cookieKey) === cookieConsentValue) {
+        return;
+      }
+      notice.classList.add(activeClass);
+      consentBtn.classList.add(activeClass);
+      consentBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        _setCookie(cookieKey, cookieConsentValue);
+        notice.classList.remove(activeClass);
+        consentBtn.classList.add(activeClass);
+      });
+    }
+
+    initCookieNotice();
+  </script>
+
+  <!-- Loading indicator -->
   <div id="loading">
     <style>
       body {
-        inset: 0; overflow: hidden;
-        margin: 0; padding: 0;
+        inset: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
         position: fixed;
       }
+
       #loading {
         align-items: center;
         display: flex;
@@ -61,46 +193,68 @@
         justify-content: center;
         width: 100%;
       }
+
       #loading img {
         animation: 1s ease-in-out 0s infinite alternate breathe;
         opacity: .66;
         transition: opacity .4s;
       }
+
       #loading.main_done img {
         opacity: 1;
       }
+
       #loading.init_done img {
         animation: .33s ease-in-out 0s 1 forwards zooooom;
         opacity: .05;
       }
-      @keyframes breathe { from { transform: scale(1) } to { transform: scale(0.95)}}
-      @keyframes zooooom { from { transform: scale(1) } to { transform: scale(10)}}
-      </style>
+
+      @keyframes breathe {
+        from {
+          transform: scale(1)
+        }
+
+        to {
+          transform: scale(0.95)
+        }
+      }
+
+      @keyframes zooooom {
+        from {
+          transform: scale(1)
+        }
+
+        to {
+          transform: scale(10)
+        }
+      }
+    </style>
     <img src="icons/Icon-192.png" alt="Loading indicator..." />
   </div>
-
   <script>
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       var loading = document.querySelector('#loading');
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         }
-      }).then(function(engineInitializer) {
+      }).then(function (engineInitializer) {
         loading.classList.add('main_done');
         return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
+      }).then(function (appRunner) {
         loading.classList.add('init_done');
         return appRunner.runApp();
-      }).then(function(app) {
+      }).then(function (app) {
         // Wait a few milliseconds so users can see the "zoooom" animation
         // before getting rid of the "loading" div.
-        window.setTimeout(function() {
+        window.setTimeout(function () {
           loading.remove();
         }, 200);
       });
     });
   </script>
 
+  <!-- App -->
 </body>
+
 </html>
