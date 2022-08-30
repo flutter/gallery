@@ -81,6 +81,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: "12.x"
+          distribution: temurin
       - name: Enable desktop support
         if: matrix.target != 'Android'
         run: |
