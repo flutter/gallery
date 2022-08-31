@@ -32,7 +32,7 @@ const _minFreeRoomRequirement = 5.0;
 
 /// Whether [small] is a subset of [large] and has sufficient room
 /// inside [large], at the end of [large] specified by [axisDirection].
-bool? _hasSufficientFreeRoom({
+bool _hasSufficientFreeRoom({
   required Rect large,
   required Rect small,
   required AxisDirection axisDirection,
@@ -40,7 +40,7 @@ bool? _hasSufficientFreeRoom({
   if (!_isSuperset(large: large, small: small)) {
     return false;
   } else {
-    bool? result;
+    bool result;
 
     switch (axisDirection) {
       case AxisDirection.down:
@@ -96,7 +96,7 @@ Future<void> scrollUntilVisible({
         large: visibleWindow,
         small: elementRect,
         axisDirection: scrollable!.axisDirection,
-      )!) {
+      )) {
     return;
   }
 
