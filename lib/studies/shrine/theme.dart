@@ -26,11 +26,12 @@ ThemeData _buildShrineTheme() {
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       elevation: 0,
     ),
-    colorScheme: _shrineColorScheme,
+    colorScheme: _shrineColorScheme.copyWith(
+      error: shrineErrorRed,
+    ),
     primaryColor: shrinePink100,
     scaffoldBackgroundColor: shrineBackgroundWhite,
     cardColor: shrineBackgroundWhite,
-    errorColor: shrineErrorRed,
     primaryIconTheme: _customIconTheme(base.iconTheme),
     inputDecorationTheme: const InputDecorationTheme(
       border: CutCornersBorder(
