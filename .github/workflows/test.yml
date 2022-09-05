@@ -18,7 +18,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@6c2e035f2692eeac890d854df95630c72673f130
+        uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
         with:
           channel: master
       - run: flutter doctor -v
@@ -41,7 +41,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@6c2e035f2692eeac890d854df95630c72673f130
+        uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
         with:
           channel: master
       - run: flutter doctor -v
@@ -60,7 +60,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@6c2e035f2692eeac890d854df95630c72673f130
+        uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
         with:
           channel: master
       - run: flutter doctor -v
