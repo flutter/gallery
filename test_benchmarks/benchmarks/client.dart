@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:web_benchmarks/client.dart';
 
 import 'common.dart';

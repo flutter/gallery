@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:convert' show JsonEncoder;
 import 'dart:io';
 
@@ -46,7 +44,7 @@ Future<void> main() async {
       for (final metricName in metricList) {
         for (final valueName in valueList) {
           expect(
-            taskResult.scores[benchmarkName].where(
+            taskResult.scores[benchmarkName]!.where(
               (score) => score.metric == '$metricName.$valueName',
             ),
             hasLength(1),
@@ -55,7 +53,7 @@ Future<void> main() async {
       }
 
       expect(
-        taskResult.scores[benchmarkName].where(
+        taskResult.scores[benchmarkName]!.where(
           (score) => score.metric == 'totalUiFrame.average',
         ),
         hasLength(1),
