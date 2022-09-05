@@ -214,7 +214,7 @@ class GalleryAutomator {
     for (var i = 0; i < 2; ++i) {
       await controller.tap(find.byKey(ValueKey(firstUntestedDemo!)));
 
-      if (typeOfDemo(firstUntestedDemo!) == DemoType.animatedWidget) {
+      if (typeOfDemo(firstUntestedDemo) == DemoType.animatedWidget) {
         await Future<void>.delayed(_defaultWaitingDuration);
       } else {
         await animationStops();

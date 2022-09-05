@@ -96,7 +96,7 @@ Future<void> scrollUntilVisible({
         large: visibleWindow,
         small: elementRect,
         axisDirection: scrollable!.axisDirection,
-      )!) {
+      )) {
     return;
   }
 
