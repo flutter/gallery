@@ -7,12 +7,13 @@ import 'package:flutter/material.dart';
 
 class MaterialDemoThemeData {
   static final themeData = ThemeData(
-      colorScheme: _colorScheme,
+      colorScheme: _colorScheme.copyWith(
+        background: Colors.white,
+      ),
       canvasColor: _colorScheme.background,
       highlightColor: Colors.transparent,
       indicatorColor: _colorScheme.onPrimary,
       primaryColor: _colorScheme.primary,
-      backgroundColor: Colors.white,
       scaffoldBackgroundColor: _colorScheme.background,
       secondaryHeaderColor: _colorScheme.background,
       typography: Typography.material2018(
