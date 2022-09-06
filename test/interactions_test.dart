@@ -6,30 +6,24 @@ import 'package:gallery/main.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('on web', () {
-    testWidgets('pressing spacebar scrolls', (tester) async {
-      final finder = find.text('Gallery');
+  testWidgets('pressing spacebar scrolls', (tester) async {
+    final finder = find.text('Gallery');
 
-      await tester.pumpWidget(const GalleryApp());
-      await tester.pump(const Duration(seconds: 1));
-      final ScrollController controller = PrimaryScrollController.of(
-        tester.element(find.byKey(const ValueKey('HomeListView'))),
-      )!;
-      print(controller.positions.elementAt(0).pixels);
-      print(controller.positions.elementAt(1).pixels);
-      // expect(controller.position.pixels, 0.0);
-      expect(finder, findsOneWidget);
+    await tester.pumpWidget(const GalleryApp());
+    await tester.pump(const Duration(seconds: 1));
+    final ScrollController controller = PrimaryScrollController.of(
+      tester.element(find.byKey(const ValueKey('HomeListView'))),
+    )!;
+    print(controller.positions.elementAt(0).pixels);
+    print(controller.positions.elementAt(1).pixels);
+    // expect(controller.position.pixels, 0.0);
+    expect(finder, findsOneWidget);
 
-      await tester.sendKeyEvent(
-        LogicalKeyboardKey.space,
-        // physicalKey: PhysicalKeyboardKey.space,
-      );
-      // await tester.pump(const Duration(seconds: 1));
-      await tester.pumpAndSettle();
-      print(controller.positions.elementAt(0).pixels);
-      print(controller.positions.elementAt(1).pixels);
+    await tester.sendKeyEvent(LogicalKeyboardKey.space);
+    await tester.pumpAndSettle();
+    print(controller.positions.elementAt(0).pixels);
+    print(controller.positions.elementAt(1).pixels);
 
-      expect(finder, findsNothing);
-    });
+    expect(finder, findsNothing);
   });
 }
