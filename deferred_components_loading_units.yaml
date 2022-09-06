@@ -336,6 +336,7 @@ loading-units:
       - package:gallery/demos/cupertino/cupertino_context_menu_demo.dart
       - package:gallery/demos/cupertino/cupertino_navigation_bar_demo.dart
       - package:gallery/demos/cupertino/cupertino_picker_demo.dart
+      - package:gallery/demos/cupertino/cupertino_scrollbar_demo.dart
       - package:gallery/demos/cupertino/cupertino_search_text_field_demo.dart
       - package:gallery/demos/cupertino/cupertino_segmented_control_demo.dart
       - package:gallery/demos/cupertino/cupertino_slider_demo.dart

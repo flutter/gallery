@@ -41,13 +41,13 @@ class DestinationCard extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 20, bottom: 10),
                     child: Text(
                       destination.destination,
-                      style: textTheme.subtitle1,
+                      style: textTheme.titleMedium,
                     ),
                   ),
                   Text(
                     destination.subtitle(context),
                     semanticsLabel: destination.subtitleSemantics(context),
-                    style: textTheme.subtitle2,
+                    style: textTheme.titleSmall,
                   ),
                 ],
               ),
@@ -68,12 +68,12 @@ class DestinationCard extends StatelessWidget {
                 ),
                 title: Text(
                   destination.destination,
-                  style: textTheme.subtitle1,
+                  style: textTheme.titleMedium,
                 ),
                 subtitle: Text(
                   destination.subtitle(context),
                   semanticsLabel: destination.subtitleSemantics(context),
-                  style: textTheme.subtitle2,
+                  style: textTheme.titleSmall,
                 ),
               ),
               const Divider(thickness: 1),

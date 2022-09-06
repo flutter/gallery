@@ -243,7 +243,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
               status = FeatureDiscoveryStatus.closed;
               openController.forward(from: 0.0);
             });
-            Overlay.of(context)?.insert(entry);
+            Overlay.of(context).insert(entry);
           });
         }
       }

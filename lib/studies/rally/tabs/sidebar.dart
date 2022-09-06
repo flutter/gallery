@@ -75,7 +75,7 @@ class SidebarItem extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           title,
-          style: textTheme.bodyText2!.copyWith(
+          style: textTheme.bodyMedium!.copyWith(
             fontSize: 16,
             color: RallyColors.gray60,
           ),
@@ -83,7 +83,7 @@ class SidebarItem extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           value,
-          style: textTheme.bodyText1!.copyWith(fontSize: 20),
+          style: textTheme.bodyLarge!.copyWith(fontSize: 20),
         ),
         const SizedBox(height: 8),
         Container(

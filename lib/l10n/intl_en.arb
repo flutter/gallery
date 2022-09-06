@@ -1431,7 +1431,7 @@
   "@demoCupertinoScrollbarTitle": {
     "description": "Title for the cupertino scrollbar demo."
   },
-  "demoCupertinoScrollbarSubtitle": "iOS style scrollbar",
+  "demoCupertinoScrollbarSubtitle": "iOS-style scrollbar",
   "@demoCupertinoScrollbarSubtitle": {
     "description": "Subtitle for the cupertino scrollbar demo."
   },

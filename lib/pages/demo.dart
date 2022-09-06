@@ -57,7 +57,7 @@ class _DemoPageState extends State<DemoPage> {
     // page, we save it in a variable. The cost of running `slugToDemo` is
     // still only close to constant, as it's just iterating over all of the
     // demos.
-    slugToDemoMap = slugToDemo(context);
+    slugToDemoMap = Demos.asSlugToDemoMap(context);
   }
 
   @override
@@ -589,7 +589,7 @@ class _DemoSectionOptions extends StatelessWidget {
               ),
               child: Text(
                 GalleryLocalizations.of(context)!.demoOptionsTooltip,
-                style: textTheme.headline4!.apply(
+                style: textTheme.headlineMedium!.apply(
                   color: colorScheme.onSurface,
                   fontSizeDelta:
                       isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -648,7 +648,7 @@ class _DemoSectionOptionsItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           child: Text(
             title,
-            style: Theme.of(context).textTheme.bodyText2!.apply(
+            style: Theme.of(context).textTheme.bodyMedium!.apply(
                   color:
                       isSelected ? colorScheme.primary : colorScheme.onSurface,
                 ),
@@ -694,7 +694,7 @@ class _DemoSectionInfo extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: textTheme.headline4!.apply(
+                style: textTheme.headlineMedium!.apply(
                   color: colorScheme.onSurface,
                   fontSizeDelta:
                       isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -703,7 +703,9 @@ class _DemoSectionInfo extends StatelessWidget {
               const SizedBox(height: 12),
               Text(
                 description,
-                style: textTheme.bodyText2!.apply(color: colorScheme.onSurface),
+                style: textTheme.bodyMedium!.apply(
+                  color: colorScheme.onSurface,
+                ),
               ),
             ],
           ),
@@ -836,7 +838,7 @@ class CodeDisplayPage extends StatelessWidget {
             },
             child: Text(
               GalleryLocalizations.of(context)!.demoCodeViewerCopyAll,
-              style: Theme.of(context).textTheme.button!.copyWith(
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),

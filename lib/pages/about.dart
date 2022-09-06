@@ -30,7 +30,7 @@ class _AboutDialog extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final bodyTextStyle =
-        textTheme.bodyText1!.apply(color: colorScheme.onPrimary);
+        textTheme.bodyLarge!.apply(color: colorScheme.onPrimary);
     final localizations = GalleryLocalizations.of(context)!;
 
     const name = 'Flutter Gallery'; // Don't need to localize.
@@ -55,7 +55,9 @@ class _AboutDialog extends StatelessWidget {
               future: getVersionNumber(),
               builder: (context, snapshot) => Text(
                 snapshot.hasData ? '$name ${snapshot.data}' : name,
-                style: textTheme.headline4!.apply(color: colorScheme.onPrimary),
+                style: textTheme.headlineMedium!.apply(
+                  color: colorScheme.onPrimary,
+                ),
               ),
             ),
             const SizedBox(height: 24),

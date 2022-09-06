@@ -39,7 +39,7 @@ class _SharedXAxisTransitionDemoState extends State<SharedXAxisTransitionDemo> {
               '(${localizations.demoSharedXAxisDemoInstructions})',
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2!
+                  .titleSmall!
                   .copyWith(color: Colors.white),
             ),
           ],
@@ -102,7 +102,7 @@ class _CoursePage extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           localizations.demoSharedXAxisCoursePageTitle,
-          style: Theme.of(context).textTheme.headline5,
+          style: Theme.of(context).textTheme.headlineSmall,
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10),
@@ -190,7 +190,7 @@ class _SignInPage extends StatelessWidget {
               spacing,
               Text(
                 localizations!.demoSharedXAxisSignInWelcomeText,
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               spacing,
               Text(

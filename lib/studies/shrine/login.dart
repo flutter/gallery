@@ -96,7 +96,7 @@ class _ShrineLogo extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             'SHRINE',
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ],
       ),

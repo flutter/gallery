@@ -70,7 +70,7 @@ class _OpenContainerTransformDemoState
                 children: [
                   Text(
                     localizations!.demoContainerTransformModalBottomSheetTitle,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(
                     height: 12,
@@ -138,7 +138,7 @@ class _OpenContainerTransformDemoState
                     '(${localizations.demoContainerTransformDemoInstructions})',
                     style: Theme.of(context)
                         .textTheme
-                        .subtitle2!
+                        .titleSmall!
                         .copyWith(color: Colors.white),
                   ),
                 ],
@@ -378,7 +378,7 @@ class _DetailsCard extends StatelessWidget {
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur '
               'adipiscing elit, sed do eiusmod tempor.',
-              style: Theme.of(context).textTheme.bodyText2!.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Colors.black54,
                     inherit: false,
                   ),
@@ -430,14 +430,14 @@ class _SmallDetailsCard extends StatelessWidget {
                   Text(
                     GalleryLocalizations.of(context)!
                         .demoMotionPlaceholderTitle,
-                    style: textTheme.headline6,
+                    style: textTheme.titleLarge,
                   ),
                   const SizedBox(
                     height: 4,
                   ),
                   Text(
                     subtitle,
-                    style: textTheme.caption,
+                    style: textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -485,7 +485,7 @@ class _DetailsListTile extends StatelessWidget {
                   Text(
                     GalleryLocalizations.of(context)!
                         .demoMotionPlaceholderTitle,
-                    style: textTheme.subtitle1,
+                    style: textTheme.titleMedium,
                   ),
                   const SizedBox(
                     height: 8,
@@ -493,7 +493,7 @@ class _DetailsListTile extends StatelessWidget {
                   Text(
                     'Lorem ipsum dolor sit amet, consectetur '
                     'adipiscing elit,',
-                    style: textTheme.caption,
+                    style: textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -562,7 +562,7 @@ class _DetailsPage extends StatelessWidget {
               children: [
                 Text(
                   localizations.demoMotionPlaceholderTitle,
-                  style: textTheme.headline5!.copyWith(
+                  style: textTheme.headlineSmall!.copyWith(
                     color: Colors.black54,
                     fontSize: 30,
                   ),
@@ -572,7 +572,7 @@ class _DetailsPage extends StatelessWidget {
                 ),
                 Text(
                   _loremIpsumParagraph,
-                  style: textTheme.bodyText2!.copyWith(
+                  style: textTheme.bodyMedium!.copyWith(
                     color: Colors.black54,
                     height: 1.5,
                     fontSize: 16,

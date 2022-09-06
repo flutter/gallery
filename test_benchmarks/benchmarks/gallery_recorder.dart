@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:web_benchmarks/client.dart';
 
@@ -12,7 +10,7 @@ import 'gallery_automator.dart';
 /// A recorder that measures frame building durations for the Gallery.
 class GalleryRecorder extends WidgetRecorder {
   GalleryRecorder({
-    @required this.benchmarkName,
+    required this.benchmarkName,
     this.shouldRunPredicate,
     this.testScrollingOnly = false,
   })  : assert(testScrollingOnly || shouldRunPredicate != null),
@@ -32,12 +30,12 @@ class GalleryRecorder extends WidgetRecorder {
   /// `progress-indicator@material`.
   /// A list of all demo names can be obtained using
   /// [allGalleryDemoDescriptions].
-  final bool Function(String) shouldRunPredicate;
+  final bool Function(String)? shouldRunPredicate;
 
   /// Whether this benchmark only tests scrolling.
   final bool testScrollingOnly;
 
-  GalleryAutomator _galleryAutomator;
+  GalleryAutomator? _galleryAutomator;
   bool get _finished => _galleryAutomator?.finished ?? false;
 
   /// Whether we should continue recording.
@@ -53,6 +51,6 @@ class GalleryRecorder extends WidgetRecorder {
       testScrollsOnly: testScrollingOnly,
       stopWarmingUpCallback: profile.stopWarmingUp,
     );
-    return _galleryAutomator.createWidget();
+    return _galleryAutomator!.createWidget();
   }
 }

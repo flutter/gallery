@@ -67,7 +67,7 @@ class _MailViewHeader extends StatelessWidget {
             Expanded(
               child: Text(
                 email.subject,
-                style: textTheme.headline4!.copyWith(height: 1.1),
+                style: textTheme.headlineMedium!.copyWith(height: 1.1),
               ),
             ),
             IconButton(
@@ -97,7 +97,7 @@ class _MailViewHeader extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   'To ${email.recipients},',
-                  style: textTheme.caption!.copyWith(
+                  style: textTheme.bodySmall!.copyWith(
                     color: Theme.of(context)
                         .navigationRailTheme
                         .unselectedLabelTextStyle!
@@ -126,7 +126,7 @@ class _MailViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       message,
-      style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16),
+      style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16),
     );
   }
 }

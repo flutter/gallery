@@ -5,7 +5,7 @@ version: 2.10.0+021000
 
 environment:
   flutter: ^3.1.0-0 # Kept relatively close to master channel version
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,21 +16,22 @@ dependencies:
   animations: ^2.0.2
   collection: ^1.16.0
   cupertino_icons: ^1.0.4
+  dual_screen: ^1.0.3
   flutter_gallery_assets: ^1.0.2
   flutter_localized_locales: ^2.0.3
   flutter_staggered_grid_view: ^0.6.1
-  google_fonts: ^2.3.2
+  google_fonts: ^3.0.1
   intl: ^0.17.0
   meta: ^1.7.0
   package_info_plus: ^1.4.2
+  path_provider: ^2.0.11
   provider: ^6.0.2
   rally_assets: ^3.0.1
-  scoped_model: ^2.0.0-nullsafety.0
+  scoped_model: ^2.0.0
+  shared_preferences: ^2.0.15
   shrine_images: ^2.0.1
   url_launcher: ^6.1.2
   vector_math: ^2.1.2
-  shared_preferences: ^2.0.15
-  dual_screen: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -43,7 +44,7 @@ dev_dependencies:
   path: ^1.8.1
   string_scanner: ^1.1.0
   test: ^1.21.1
-  web_benchmarks: ^0.0.7
+  web_benchmarks: ^0.1.0
 
 flutter:
   deferred-components:

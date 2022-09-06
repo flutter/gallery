@@ -63,7 +63,7 @@ class _FrontLayerState extends State<_FrontLayer> {
         ),
         child: Text(
           widget.title,
-          style: Theme.of(context).textTheme.subtitle2,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
       ),
     );
@@ -361,7 +361,7 @@ class _CraneAppBarState extends State<CraneAppBar> {
                         : EdgeInsets.zero,
                     isScrollable: isDesktop,
                     // left-align tabs on desktop
-                    labelStyle: Theme.of(context).textTheme.button,
+                    labelStyle: Theme.of(context).textTheme.labelLarge,
                     labelColor: cranePrimaryWhite,
                     unselectedLabelColor: cranePrimaryWhite.withOpacity(.6),
                     onTap: (index) => widget.tabController.animateTo(

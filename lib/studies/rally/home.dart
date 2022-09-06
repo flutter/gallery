@@ -265,7 +265,7 @@ class _RallyTab extends StatefulWidget {
     int? tabIndex,
     required TabController tabController,
     required this.isVertical,
-  })  : titleText = Text(title, style: theme.textTheme.button),
+  })  : titleText = Text(title, style: theme.textTheme.labelLarge),
         isExpanded = tabController.index == tabIndex,
         icon = Icon(iconData, semanticLabel: title);
 

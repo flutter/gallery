@@ -4,11 +4,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/text_scale.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
@@ -51,12 +49,12 @@ class HorizontalArticlePreview extends StatelessWidget {
             children: [
               Text(
                 data.category,
-                style: textTheme.subtitle1,
+                style: textTheme.titleMedium,
               ),
               const SizedBox(height: 12),
               Text(
                 data.title,
-                style: textTheme.headline5!.copyWith(fontSize: 16),
+                style: textTheme.headlineSmall!.copyWith(fontSize: 16),
               ),
             ],
           ),
@@ -64,7 +62,7 @@ class HorizontalArticlePreview extends StatelessWidget {
         if (minutes != null) ...[
           Text(
             GalleryLocalizations.of(context)!.craneMinutes(minutes!),
-            style: textTheme.bodyText1,
+            style: textTheme.bodyLarge,
           ),
           const SizedBox(width: 8),
         ],
@@ -128,18 +126,18 @@ class VerticalArticlePreview extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             data.category,
-            style: textTheme.subtitle1,
+            style: textTheme.titleMedium,
           ),
           const SizedBox(height: 12),
           Text(
             data.title,
-            style: headlineTextStyle ?? textTheme.headline5,
+            style: headlineTextStyle ?? textTheme.headlineSmall,
           ),
           if (showSnippet) ...[
             const SizedBox(height: 4),
             Text(
               data.snippet!,
-              style: textTheme.bodyText2,
+              style: textTheme.bodyMedium,
             ),
           ],
         ],
@@ -170,7 +168,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
         category: localizations.fortnightlyMenuWorld.toUpperCase(),
         title: localizations.fortnightlyHeadlineHealthcare,
       ),
-      headlineTextStyle: textTheme.headline5!.copyWith(fontSize: 20),
+      headlineTextStyle: textTheme.headlineSmall!.copyWith(fontSize: 20),
     ),
     articleDivider,
     HorizontalArticlePreview(
@@ -193,7 +191,7 @@ List<Widget> buildArticlePreviewItems(BuildContext context) {
     sectionDivider,
     Text(
       localizations.fortnightlyLatestUpdates,
-      style: textTheme.headline6,
+      style: textTheme.titleLarge,
     ),
     articleDivider,
     HorizontalArticlePreview(
@@ -254,35 +252,35 @@ class HashtagBar extends StatelessWidget {
           Center(
             child: Text(
               '#${localizations.fortnightlyTrendingTechDesign}',
-              style: textTheme.subtitle2,
+              style: textTheme.titleSmall,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${localizations.fortnightlyTrendingReform}',
-              style: textTheme.subtitle2,
+              style: textTheme.titleSmall,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${localizations.fortnightlyTrendingHealthcareRevolution}',
-              style: textTheme.subtitle2,
+              style: textTheme.titleSmall,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${localizations.fortnightlyTrendingGreenArmy}',
-              style: textTheme.subtitle2,
+              style: textTheme.titleSmall,
             ),
           ),
           verticalDivider,
           Center(
             child: Text(
               '#${localizations.fortnightlyTrendingStocks}',
-              style: textTheme.subtitle2,
+              style: textTheme.titleSmall,
             ),
           ),
           verticalDivider,
@@ -356,7 +354,7 @@ class MenuItem extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: header ? FontWeight.w700 : FontWeight.w600,
                     fontSize: 16,
                   ),
@@ -391,21 +389,21 @@ class StockItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(ticker, style: textTheme.subtitle1),
+        Text(ticker, style: textTheme.titleMedium),
         const SizedBox(height: 2),
         Row(
           children: [
             Expanded(
               child: Text(
                 price,
-                style: textTheme.subtitle2!.copyWith(
-                  color: textTheme.subtitle2!.color!.withOpacity(0.75),
+                style: textTheme.titleSmall!.copyWith(
+                  color: textTheme.titleSmall!.color!.withOpacity(0.75),
                 ),
               ),
             ),
             Text(
               percent > 0 ? '+' : '-',
-              style: textTheme.subtitle2!.copyWith(
+              style: textTheme.titleSmall!.copyWith(
                 fontSize: 12,
                 color: percent > 0
                     ? const Color(0xff20CF63)
@@ -415,9 +413,9 @@ class StockItem extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               percentFormat.format(percent.abs() / 100),
-              style: textTheme.caption!.copyWith(
+              style: textTheme.bodySmall!.copyWith(
                 fontSize: 12,
-                color: textTheme.subtitle2!.color!.withOpacity(0.75),
+                color: textTheme.titleSmall!.color!.withOpacity(0.75),
               ),
             ),
           ],
@@ -529,13 +527,14 @@ class VideoPreview extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: Text(data.category, style: textTheme.subtitle1),
+              child: Text(data.category, style: textTheme.titleMedium),
             ),
             Text(time, style: textTheme.bodyText1)
           ],
         ),
         const SizedBox(height: 4),
-        Text(data.title, style: textTheme.headline5!.copyWith(fontSize: 16)),
+        Text(data.title,
+            style: textTheme.headlineSmall!.copyWith(fontSize: 16)),
       ],
     );
   }
@@ -578,40 +577,40 @@ ThemeData buildTheme(BuildContext context) {
     highlightColor: Colors.transparent,
     textTheme: TextTheme(
       // preview snippet
-      bodyText2: GoogleFonts.merriweather(
+      bodyMedium: GoogleFonts.merriweather(
         fontWeight: FontWeight.w300,
         fontSize: 16,
-        textStyle: lightTextTheme.bodyText2,
+        textStyle: lightTextTheme.bodyMedium,
       ),
       // time in latest updates
-      bodyText1: GoogleFonts.libreFranklin(
+      bodyLarge: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 11,
         color: Colors.black.withOpacity(0.5),
-        textStyle: lightTextTheme.bodyText1,
+        textStyle: lightTextTheme.bodyLarge,
       ),
       // preview headlines
-      headline5: GoogleFonts.libreFranklin(
+      headlineSmall: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w500,
         fontSize: 16,
-        textStyle: lightTextTheme.headline5,
+        textStyle: lightTextTheme.headlineSmall,
       ),
       // (caption 2), preview category, stock ticker
-      subtitle1: GoogleFonts.robotoCondensed(
+      titleMedium: GoogleFonts.robotoCondensed(
         fontWeight: FontWeight.w700,
         fontSize: 16,
       ),
-      subtitle2: GoogleFonts.libreFranklin(
+      titleSmall: GoogleFonts.libreFranklin(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        textStyle: lightTextTheme.subtitle2,
+        textStyle: lightTextTheme.titleSmall,
       ),
       // section titles: Top Highlights, Last Updated...
-      headline6: GoogleFonts.merriweather(
+      titleLarge: GoogleFonts.merriweather(
         fontWeight: FontWeight.w700,
         fontStyle: FontStyle.italic,
         fontSize: 14,
-        textStyle: lightTextTheme.headline6,
+        textStyle: lightTextTheme.titleLarge,
       ),
     ),
   );

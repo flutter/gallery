@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
     var carouselHeight = _carouselHeight(.7, context);
     final isDesktop = isDisplayDesktop(context);
     final localizations = GalleryLocalizations.of(context)!;
-    final studyDemos = studies(localizations);
+    final studyDemos = Demos.studies(localizations);
     final carouselCards = <Widget>[
       _CarouselCard(
         demo: studyDemos['reply'],
@@ -144,7 +144,7 @@ class HomePage extends StatelessWidget {
             'assets/icons/material/material.png',
             package: 'flutter_gallery_assets',
           ),
-          demos: materialDemos(localizations),
+          demos: Demos.materialDemos(localizations),
         ),
         _DesktopCategoryItem(
           category: GalleryDemoCategory.cupertino,
@@ -152,7 +152,7 @@ class HomePage extends StatelessWidget {
             'assets/icons/cupertino/cupertino.png',
             package: 'flutter_gallery_assets',
           ),
-          demos: cupertinoDemos(localizations),
+          demos: Demos.cupertinoDemos(localizations),
         ),
         _DesktopCategoryItem(
           category: GalleryDemoCategory.other,
@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
             'assets/icons/reference/reference.png',
             package: 'flutter_gallery_assets',
           ),
-          demos: otherDemos(localizations),
+          demos: Demos.otherDemos(localizations),
         ),
       ];
 
@@ -293,7 +293,7 @@ class Header extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: Theme.of(context).textTheme.headline4!.apply(
+          style: Theme.of(context).textTheme.headlineMedium!.apply(
                 color: color,
                 fontSizeDelta:
                     isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
@@ -411,7 +411,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                   restorationId: 'home_material_category_list',
                   category: GalleryDemoCategory.material,
                   imageString: 'assets/icons/material/material.png',
-                  demos: materialDemos(localizations),
+                  demos: Demos.materialDemos(localizations),
                   initiallyExpanded:
                       _isMaterialListExpanded.value || isTestMode,
                   onTap: (shouldOpenList) {
@@ -428,7 +428,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                   restorationId: 'home_cupertino_category_list',
                   category: GalleryDemoCategory.cupertino,
                   imageString: 'assets/icons/cupertino/cupertino.png',
-                  demos: cupertinoDemos(localizations),
+                  demos: Demos.cupertinoDemos(localizations),
                   initiallyExpanded:
                       _isCupertinoListExpanded.value || isTestMode,
                   onTap: (shouldOpenList) {
@@ -445,7 +445,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                   restorationId: 'home_other_category_list',
                   category: GalleryDemoCategory.other,
                   imageString: 'assets/icons/reference/reference.png',
-                  demos: otherDemos(localizations),
+                  demos: Demos.otherDemos(localizations),
                   initiallyExpanded: _isOtherListExpanded.value || isTestMode,
                   onTap: (shouldOpenList) {
                     _isOtherListExpanded.value = shouldOpenList;
@@ -532,6 +532,7 @@ class _DesktopCategoryItem extends StatelessWidget {
                 child: ListView.builder(
                   // Makes integration tests possible.
                   key: ValueKey('${category.name}DemoList'),
+                  primary: false,
                   itemBuilder: (context, index) =>
                       CategoryDemoItem(demo: demos[index]),
                   itemCount: demos.length,
@@ -583,7 +584,7 @@ class _DesktopCategoryHeader extends StatelessWidget {
                 header: true,
                 child: Text(
                   category.displayTitle(GalleryLocalizations.of(context)!)!,
-                  style: Theme.of(context).textTheme.headline5!.apply(
+                  style: Theme.of(context).textTheme.headlineSmall!.apply(
                         color: colorScheme.onSurface,
                       ),
                 ),
@@ -907,6 +908,7 @@ class _DesktopCarouselState extends State<_DesktopCarousel> {
               ),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+                primary: false,
                 physics: const _SnappingScrollPhysics(),
                 controller: _controller,
                 itemExtent: itemWidth,
@@ -1108,13 +1110,13 @@ class _CarouselCard extends StatelessWidget {
                   children: [
                     Text(
                       demo!.title,
-                      style: textTheme.caption!.apply(color: textColor),
+                      style: textTheme.bodySmall!.apply(color: textColor),
                       maxLines: 3,
                       overflow: TextOverflow.visible,
                     ),
                     Text(
                       demo!.subtitle,
-                      style: textTheme.overline!.apply(color: textColor),
+                      style: textTheme.labelSmall!.apply(color: textColor),
                       maxLines: 5,
                       overflow: TextOverflow.visible,
                     ),
@@ -1158,54 +1160,55 @@ class _StudyWrapperState extends State<StudyWrapper> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    return Stack(
-      children: [
-        Semantics(
-          sortKey: const OrdinalSortKey(1),
-          child: RestorationScope(
-            restorationId: 'study_wrapper',
-            child: widget.study,
+    return ApplyTextOptions(
+      child: Stack(
+        children: [
+          Semantics(
+            sortKey: const OrdinalSortKey(1),
+            child: RestorationScope(
+              restorationId: 'study_wrapper',
+              child: widget.study,
+            ),
           ),
-        ),
-        if (!isDisplayFoldable(context))
-          SafeArea(
-            child: Align(
-              alignment: widget.alignment,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: widget.hasBottomNavBar
-                        ? kBottomNavigationBarHeight + 16.0
-                        : 16.0),
-                child: Semantics(
-                  sortKey: const OrdinalSortKey(0),
-                  label: GalleryLocalizations.of(context)!.backToGallery,
-                  button: true,
-                  enabled: true,
-                  excludeSemantics: true,
-                  child: FloatingActionButton.extended(
-                    heroTag: _BackButtonHeroTag(),
-                    key: const ValueKey('Back'),
-                    onPressed: () {
-                      Navigator.of(context)
-                          .popUntil((route) => route.settings.name == '/');
-                    },
-                    icon: IconTheme(
-                      data: IconThemeData(color: colorScheme.onPrimary),
-                      child: const BackButtonIcon(),
-                    ),
-                    label: Text(
-                      MaterialLocalizations.of(context).backButtonTooltip,
-                      style: textTheme.button!.apply(
-                        color: colorScheme.onPrimary,
+          if (!isDisplayFoldable(context))
+            SafeArea(
+              child: Align(
+                alignment: widget.alignment,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: widget.hasBottomNavBar
+                          ? kBottomNavigationBarHeight + 16.0
+                          : 16.0),
+                  child: Semantics(
+                    sortKey: const OrdinalSortKey(0),
+                    label: GalleryLocalizations.of(context)!.backToGallery,
+                    button: true,
+                    enabled: true,
+                    excludeSemantics: true,
+                    child: FloatingActionButton.extended(
+                      heroTag: _BackButtonHeroTag(),
+                      key: const ValueKey('Back'),
+                      onPressed: () {
+                        Navigator.of(context)
+                            .popUntil((route) => route.settings.name == '/');
+                      },
+                      icon: IconTheme(
+                        data: IconThemeData(color: colorScheme.onPrimary),
+                        child: const BackButtonIcon(),
+                      ),
+                      label: Text(
+                        MaterialLocalizations.of(context).backButtonTooltip,
+                        style: textTheme.labelLarge!
+                            .apply(color: colorScheme.onPrimary),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

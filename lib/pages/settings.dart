@@ -374,7 +374,7 @@ class SettingsAttribution extends StatelessWidget {
         ),
         child: Text(
           GalleryLocalizations.of(context)!.settingsAttribution,
-          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 fontSize: 12,
                 color: Theme.of(context).colorScheme.onSecondary,
               ),
@@ -425,7 +425,7 @@ class _SettingsLink extends StatelessWidget {
                 ),
                 child: Text(
                   title,
-                  style: textTheme.subtitle2!.apply(
+                  style: textTheme.titleSmall!.apply(
                     color: colorScheme.onSecondary,
                   ),
                   textAlign: isDesktop ? TextAlign.end : TextAlign.start,

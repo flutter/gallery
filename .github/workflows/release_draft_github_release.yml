@@ -15,7 +15,7 @@ permissions: read-all
 jobs:
   draft-release:
     name: Draft Github release
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
@@ -37,25 +37,25 @@ jobs:
       matrix:
         target: [macOS, Windows, Linux, Android]
         include:
-          - os: macos-10.15 # Catalina
+          - os: macos-latest
             target: macOS
             build_target: macos
             build_path: build/macos/Build/Products/Release
             asset_extension: .zip
             asset_content_type: application/zip
-          - os: windows-2019
+          - os: windows-latest
             target: Windows
             build_target: windows
             build_path: build\windows\runner\Release
             asset_extension: .zip
             asset_content_type: application/zip
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             target: Linux
             build_target: linux
             build_path: build/linux/x64/release/bundle
             asset_extension: .tar.gz
             asset_content_type: application/gzip
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             target: Android
             build_target: apk
             build_path: build/app/outputs/flutter-apk
@@ -67,7 +67,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@d8687e6979e8ef66d2b2970e2c92c1d8e801d7bf
+        uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
         with:
           channel: master
 
@@ -78,9 +78,10 @@ jobs:
           sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev
       - name: Install Android dependencies
         if: matrix.target == 'Android'
-        uses: actions/setup-java@e54a62b3df9364d4b4c1c29c7225e57fe605d7dd
+        uses: actions/setup-java@v3
         with:
           java-version: "12.x"
+          distribution: temurin
       - name: Enable desktop support
         if: matrix.target != 'Android'
         run: |
@@ -90,7 +91,7 @@ jobs:
       - run: flutter doctor -v
       # Checkout gallery code, recreate missing files, and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@d171c3b028d844f2bf14e9fdec0c58114451e4bf
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
       - run: flutter create .
       - run: flutter pub get
 

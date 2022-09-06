@@ -54,7 +54,7 @@ class ToggleSetting extends StatelessWidget {
                     children: [
                       Text(
                         text,
-                        style: textTheme.subtitle1!.apply(
+                        style: textTheme.titleMedium!.apply(
                           color: colorScheme.onSurface,
                         ),
                       ),
@@ -228,14 +228,14 @@ class _SettingsListItemState<T> extends State<SettingsListItem<T?>>
                 children: [
                   Text(
                     displayOption.title,
-                    style: theme.textTheme.bodyText1!.copyWith(
+                    style: theme.textTheme.bodyLarge!.copyWith(
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   ),
                   if (displayOption.subtitle != null)
                     Text(
                       displayOption.subtitle!,
-                      style: theme.textTheme.bodyText1!.copyWith(
+                      style: theme.textTheme.bodyLarge!.copyWith(
                         fontSize: 12,
                         color: Theme.of(context)
                             .colorScheme
@@ -302,7 +302,7 @@ class _CategoryHeader extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: textTheme.subtitle1!.apply(
+                        style: textTheme.titleMedium!.apply(
                           color: colorScheme.onSurface,
                         ),
                       ),
@@ -312,7 +312,7 @@ class _CategoryHeader extends StatelessWidget {
                           subtitle,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: textTheme.overline!.apply(
+                          style: textTheme.labelSmall!.apply(
                             color: colorScheme.primary,
                           ),
                         ),
