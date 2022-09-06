@@ -529,7 +529,7 @@ class VideoPreview extends StatelessWidget {
             Expanded(
               child: Text(data.category, style: textTheme.titleMedium),
             ),
-            Text(time, style: textTheme.bodyText1)
+            Text(time, style: textTheme.bodyLarge)
           ],
         ),
         const SizedBox(height: 4),
