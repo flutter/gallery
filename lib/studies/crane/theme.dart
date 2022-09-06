@@ -20,13 +20,13 @@ ThemeData _buildCraneTheme() {
     colorScheme: const ColorScheme.light().copyWith(
       primary: cranePurple800,
       secondary: craneRed700,
+      error: craneErrorOrange,
     ),
     primaryColor: cranePurple800,
     hintColor: craneWhite60,
     indicatorColor: cranePrimaryWhite,
     scaffoldBackgroundColor: cranePrimaryWhite,
     cardColor: cranePrimaryWhite,
-    errorColor: craneErrorOrange,
     highlightColor: Colors.transparent,
     textTheme: _buildCraneTextTheme(base.textTheme),
     textSelectionTheme: const TextSelectionThemeData(
