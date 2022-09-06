@@ -382,7 +382,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
     return Stack(
       children: [
         ListView(
-          primary: true,
+          // primary: true,
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
           restorationId: 'home_list_view',
