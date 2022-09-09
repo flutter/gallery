@@ -13,7 +13,6 @@ class MaterialDemoThemeData {
       canvasColor: _colorScheme.background,
       highlightColor: Colors.transparent,
       indicatorColor: _colorScheme.onPrimary,
-      primaryColor: _colorScheme.primary,
       scaffoldBackgroundColor: _colorScheme.background,
       secondaryHeaderColor: _colorScheme.background,
       typography: Typography.material2018(

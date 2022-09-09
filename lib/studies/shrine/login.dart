@@ -6,14 +6,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-
 import 'package:gallery/data/gallery_options.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/image_placeholder.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/layout/text_scale.dart';
 import 'package:gallery/studies/shrine/app.dart';
-import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/theme.dart';
 
 const _horizontalPadding = 24.0;
@@ -115,16 +113,14 @@ class _UsernameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return PrimaryColorOverride(
-      color: shrineBrown900,
-      child: TextField(
-        textInputAction: TextInputAction.next,
-        restorationId: 'username_text_field',
-        cursorColor: colorScheme.onSurface,
-        decoration: InputDecoration(
-          labelText: GalleryLocalizations.of(context)!.shrineLoginUsernameLabel,
-          labelStyle: TextStyle(
-              letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
+    return TextField(
+      textInputAction: TextInputAction.next,
+      restorationId: 'username_text_field',
+      cursorColor: colorScheme.onSurface,
+      decoration: InputDecoration(
+        labelText: GalleryLocalizations.of(context)!.shrineLoginUsernameLabel,
+        labelStyle: TextStyle(
+          letterSpacing: letterSpacingOrNone(mediumLetterSpacing),
         ),
       ),
     );
@@ -138,16 +134,14 @@ class _PasswordTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return PrimaryColorOverride(
-      color: shrineBrown900,
-      child: TextField(
-        restorationId: 'password_text_field',
-        cursorColor: colorScheme.onSurface,
-        obscureText: true,
-        decoration: InputDecoration(
-          labelText: GalleryLocalizations.of(context)!.shrineLoginPasswordLabel,
-          labelStyle: TextStyle(
-              letterSpacing: letterSpacingOrNone(mediumLetterSpacing)),
+    return TextField(
+      restorationId: 'password_text_field',
+      cursorColor: colorScheme.onSurface,
+      obscureText: true,
+      decoration: InputDecoration(
+        labelText: GalleryLocalizations.of(context)!.shrineLoginPasswordLabel,
+        labelStyle: TextStyle(
+          letterSpacing: letterSpacingOrNone(mediumLetterSpacing),
         ),
       ),
     );
@@ -215,25 +209,6 @@ class _CancelAndNextButtons extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class PrimaryColorOverride extends StatelessWidget {
-  const PrimaryColorOverride({
-    super.key,
-    this.color,
-    required this.child,
-  });
-
-  final Color? color;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context).copyWith(primaryColor: color),
-      child: child,
     );
   }
 }
