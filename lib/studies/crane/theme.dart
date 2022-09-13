@@ -22,7 +22,6 @@ ThemeData _buildCraneTheme() {
       secondary: craneRed700,
       error: craneErrorOrange,
     ),
-    primaryColor: cranePurple800,
     hintColor: craneWhite60,
     indicatorColor: cranePrimaryWhite,
     scaffoldBackgroundColor: cranePrimaryWhite,
