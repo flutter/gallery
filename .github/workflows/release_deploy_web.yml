@@ -21,7 +21,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
+        uses: subosito/flutter-action@de3cdb9a4b2f535dc0fa0da445a46b10b1bfefc7
         with:
           channel: master
       - run: flutter doctor -v
