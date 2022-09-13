@@ -142,7 +142,7 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
     debugCheckHasDirectionality(ctx);
 
     final deviceSize = MediaQuery.of(ctx).size;
-    final color = widget.color ?? Theme.of(ctx).primaryColor;
+    final color = widget.color ?? Theme.of(ctx).colorScheme.primary;
 
     // Wrap in transparent [Material] to enable widgets that require one.
     return Material(
