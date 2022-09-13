@@ -29,7 +29,6 @@ class StarterApp extends StatelessWidget {
         StarterApp.defaultRoute: (context) => const _Home(),
       },
       theme: ThemeData(
-        primaryColor: _primaryColor,
         highlightColor: Colors.transparent,
         colorScheme: const ColorScheme(
           primary: _primaryColor,
