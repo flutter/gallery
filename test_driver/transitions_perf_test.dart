@@ -169,7 +169,7 @@ Future<void> runDemos(
     await driver.scrollUntilVisible(
       demoList,
       demoItem,
-      dxScroll: -500,
+      dxScroll: -800,
       dyScroll: -50,
       alignment: 0.5,
       timeout: const Duration(seconds: 10),
