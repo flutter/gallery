@@ -27,7 +27,7 @@ jobs:
       - run: flutter doctor -v
 
       - name: Install web dependencies
-        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93
+        uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
         with:
           node-version: "14"
       - run: npm install -g firebase-tools@11.0.1
