@@ -207,51 +207,51 @@
     >Amount Left</string>
   <string
     name="rallySettingsManageAccounts"
-    description="Link to go to the page &apos;Manage Accounts."
+    description="Link to go to the page &apos;&apos;Manage Accounts."
     >Manage Accounts</string>
   <string
     name="rallySettingsTaxDocuments"
-    description="Link to go to the page &apos;Tax Documents&apos;."
+    description="Link to go to the page &apos;&apos;Tax Documents&apos;&apos;."
     >Tax Documents</string>
   <string
     name="rallySettingsPasscodeAndTouchId"
-    description="Link to go to the page &apos;Passcode and Touch ID&apos;."
+    description="Link to go to the page &apos;&apos;Passcode and Touch ID&apos;&apos;."
     >Passcode and Touch ID</string>
   <string
     name="rallySettingsNotifications"
-    description="Link to go to the page &apos;Notifications&apos;."
+    description="Link to go to the page &apos;&apos;Notifications&apos;&apos;."
     >Notifications</string>
   <string
     name="rallySettingsPersonalInformation"
-    description="Link to go to the page &apos;Personal Information&apos;."
+    description="Link to go to the page &apos;&apos;Personal Information&apos;&apos;."
     >Personal Information</string>
   <string
     name="rallySettingsPaperlessSettings"
-    description="Link to go to the page &apos;Paperless Settings&apos;."
+    description="Link to go to the page &apos;&apos;Paperless Settings&apos;&apos;."
     >Paperless Settings</string>
   <string
     name="rallySettingsFindAtms"
-    description="Link to go to the page &apos;Find ATMs&apos;."
+    description="Link to go to the page &apos;&apos;Find ATMs&apos;&apos;."
     >Find ATMs</string>
   <string
     name="rallySettingsHelp"
-    description="Link to go to the page &apos;Help&apos;."
+    description="Link to go to the page &apos;&apos;Help&apos;&apos;."
     >Help</string>
   <string
     name="rallySettingsSignOut"
-    description="Link to go to the page &apos;Sign out&apos;."
+    description="Link to go to the page &apos;&apos;Sign out&apos;&apos;."
     >Sign out</string>
   <string
     name="rallyAccountTotal"
-    description="Title for &apos;total account value&apos; overview page, a dollar value is displayed next to it."
+    description="Title for &apos;&apos;total account value&apos;&apos; overview page, a dollar value is displayed next to it."
     >Total</string>
   <string
     name="rallyBillsDue"
-    description="Title for &apos;bills due&apos; page, a dollar value is displayed next to it."
+    description="Title for &apos;&apos;bills due&apos;&apos; page, a dollar value is displayed next to it."
     >Due</string>
   <string
     name="rallyBudgetLeft"
-    description="Title for &apos;budget left&apos; page, a dollar value is displayed next to it."
+    description="Title for &apos;&apos;budget left&apos;&apos; page, a dollar value is displayed next to it."
     >Left</string>
   <string
     name="rallyAccounts"
@@ -275,7 +275,7 @@
     >SEE ALL</string>
   <string
     name="rallyFinanceLeft"
-    description="Displayed as &apos;dollar amount left&apos;, for example $46.70 LEFT, for a budget category."
+    description="Displayed as &apos;&apos;dollar amount left&apos;&apos;, for example $46.70 LEFT, for a budget category."
     > LEFT</string>
   <string
     name="rallyTitleOverview"
@@ -304,7 +304,7 @@
   <string
     name="rallyLoginNoAccount"
     description="Prompt for signing up for an account."
-    >Don&apos;t have an account?</string>
+    >Don&apos;&apos;t have an account?</string>
   <string
     name="rallyLoginSignUp"
     description="Button text to sign up for an account."
@@ -332,15 +332,15 @@
   <string
     name="rallyAlertsMessageHeadsUpShopping"
     description="Alert message shown when for example, user has used more than 90% of their shopping budget."
-    >Heads up, you&apos;ve used up {percent} of your Shopping budget for this month.</string>
+    >Heads up, you&apos;&apos;ve used up {percent} of your Shopping budget for this month.</string>
   <string
     name="rallyAlertsMessageSpentOnRestaurants"
     description="Alert message shown when for example, user has spent $120 on Restaurants this week."
-    >You&apos;ve spent {amount} on Restaurants this week.</string>
+    >You&apos;&apos;ve spent {amount} on Restaurants this week.</string>
   <string
     name="rallyAlertsMessageATMFees"
     description="Alert message shown when for example, the user has spent $24 in ATM fees this month."
-    >You&apos;ve spent {amount} in ATM fees this month</string>
+    >You&apos;&apos;ve spent {amount} in ATM fees this month</string>
   <string
     name="rallyAlertsMessageCheckingAccount"
     description="Alert message shown when for example, the checking account is 1% higher than last month."
@@ -384,7 +384,7 @@
   <string
     name="demoInvalidURL"
     description="Error message when opening the URL for a demo."
-    >Couldn&apos;t display URL:</string>
+    >Couldn&apos;&apos;t display URL:</string>
   <string
     name="demoOptionsTooltip"
     description="Tooltip for options button in a demo."
@@ -524,7 +524,7 @@
   <string
     name="demoAppBarDescription"
     description="Description for the material App bar component demo."
-    >The App bar provides content and actions related to the current screen. It&apos;s used for branding, screen titles, navigation, and actions</string>
+    >The App bar provides content and actions related to the current screen. It&apos;&apos;s used for branding, screen titles, navigation, and actions</string>
   <string
     name="demoBottomAppBarTitle"
     description="Title for the material bottom app bar component demo."
@@ -704,7 +704,7 @@
   <string
     name="demoDataTableDescription"
     description="Description for the material data table component demo."
-    >Data tables display information in a grid-like format of rows and columns. They organize information in a way that&apos;s easy to scan, so that users can look for patterns and insights.</string>
+    >Data tables display information in a grid-like format of rows and columns. They organize information in a way that&apos;&apos;s easy to scan, so that users can look for patterns and insights.</string>
   <string
     name="dataTableHeader"
     description="Header for the data table component demo about nutrition."
@@ -1644,7 +1644,7 @@
   <string
     name="demoColorsDescription"
     description="Description for the colors demo. Material Design should remain capitalized."
-    >Color and color swatch constants which represent Material Design&apos;s color palette.</string>
+    >Color and color swatch constants which represent Material Design&apos;&apos;s color palette.</string>
   <string
     name="demoTypographyTitle"
     description="Title for the typography demo."
@@ -1815,7 +1815,7 @@
     >Scrolling</string>
   <string
     name="demoTabsNonScrollingTitle"
-    description="Title for tabs demo with a tab bar that doesn&apos;t scroll."
+    description="Title for tabs demo with a tab bar that doesn&apos;&apos;t scroll."
     >Non-scrolling</string>
   <string
     name="demoTabsSubtitle"
@@ -1836,7 +1836,7 @@
   <string
     name="demoSnackbarsDescription"
     description="Description for snackbars demo."
-    >Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn&apos;t interrupt the user experience, and they don&apos;t require user input to disappear.</string>
+    >Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn&apos;&apos;t interrupt the user experience, and they don&apos;&apos;t require user input to disappear.</string>
   <string
     name="demoSnackbarsButtonLabel"
     description="Label for button to show a snackbar."
@@ -1851,7 +1851,7 @@
     >ACTION</string>
   <string
     name="demoSnackbarsAction"
-    description="Text that appears when you press on a snackbars&apos; action."
+    description="Text that appears when you press on a snackbars&apos;&apos; action."
     >You pressed the snackbar action.</string>
   <string
     name="demoSelectionControlsTitle"
@@ -1868,7 +1868,7 @@
   <string
     name="demoSelectionControlsCheckboxDescription"
     description="Description for the checkbox (selection controls) demo."
-    >Checkboxes allow the user to select multiple options from a set. A normal checkbox&apos;s value is true or false and a tristate checkbox&apos;s value can also be null.</string>
+    >Checkboxes allow the user to select multiple options from a set. A normal checkbox&apos;&apos;s value is true or false and a tristate checkbox&apos;&apos;s value can also be null.</string>
   <string
     name="demoSelectionControlsRadioTitle"
     description="Title for the radio button (selection controls) demo."
@@ -1884,7 +1884,7 @@
   <string
     name="demoSelectionControlsSwitchDescription"
     description="Description for the switches (selection controls) demo."
-    >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it&apos;s in, should be made clear from the corresponding inline label.</string>
+    >On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it&apos;&apos;s in, should be made clear from the corresponding inline label.</string>
   <string
     name="demoBottomTextFieldsTitle"
     description="Title for text fields demo."
@@ -1932,7 +1932,7 @@
   <string
     name="demoTextFieldPasswordsDoNotMatch"
     description="Error that shows up, if the re-typed password does not match the already given password."
-    >The passwords don&apos;t match</string>
+    >The passwords don&apos;&apos;t match</string>
   <string
     name="demoTextFieldWhatDoPeopleCallYou"
     description="Placeholder for name field in form."
@@ -2088,7 +2088,7 @@
   <string
     name="dialogLocationTitle"
     description="Alert dialog title to use location services."
-    >Use Google&apos;s location service?</string>
+    >Use Google&apos;&apos;s location service?</string>
   <string
     name="dialogLocationDescription"
     description="Alert dialog description to use location services."
@@ -2163,8 +2163,8 @@
     >Allow</string>
   <string
     name="cupertinoAlertDontAllow"
-    description="iOS-style alert don&apos;t allow option."
-    >Don&apos;t Allow</string>
+    description="iOS-style alert don&apos;&apos;t allow option."
+    >Don&apos;&apos;t Allow</string>
   <string
     name="cupertinoAlertFavoriteDessert"
     description="iOS-style alert title for selecting favorite dessert."
@@ -2423,7 +2423,7 @@
     >Quantity: {quantity}</string>
   <string
     name="shrineProductPrice"
-    description="A text showing the unit price of each product. Used as: &apos;Quantity: 3 x $129&apos;. The currency will be handled by the formatter."
+    description="A text showing the unit price of each product. Used as: &apos;&apos;Quantity: 3 x $129&apos;&apos;. The currency will be handled by the formatter."
     >x {price}</string>
   <string
     name="shrineCartItemCount"
@@ -2451,151 +2451,151 @@
     >Tax:</string>
   <string
     name="shrineProductVagabondSack"
-    description="Name of the product &apos;Vagabond sack&apos;."
+    description="Name of the product &apos;&apos;Vagabond sack&apos;&apos;."
     >Vagabond sack</string>
   <string
     name="shrineProductStellaSunglasses"
-    description="Name of the product &apos;Stella sunglasses&apos;."
+    description="Name of the product &apos;&apos;Stella sunglasses&apos;&apos;."
     >Stella sunglasses</string>
   <string
     name="shrineProductWhitneyBelt"
-    description="Name of the product &apos;Whitney belt&apos;."
+    description="Name of the product &apos;&apos;Whitney belt&apos;&apos;."
     >Whitney belt</string>
   <string
     name="shrineProductGardenStrand"
-    description="Name of the product &apos;Garden strand&apos;."
+    description="Name of the product &apos;&apos;Garden strand&apos;&apos;."
     >Garden strand</string>
   <string
     name="shrineProductStrutEarrings"
-    description="Name of the product &apos;Strut earrings&apos;."
+    description="Name of the product &apos;&apos;Strut earrings&apos;&apos;."
     >Strut earrings</string>
   <string
     name="shrineProductVarsitySocks"
-    description="Name of the product &apos;Varsity socks&apos;."
+    description="Name of the product &apos;&apos;Varsity socks&apos;&apos;."
     >Varsity socks</string>
   <string
     name="shrineProductWeaveKeyring"
-    description="Name of the product &apos;Weave keyring&apos;."
+    description="Name of the product &apos;&apos;Weave keyring&apos;&apos;."
     >Weave keyring</string>
   <string
     name="shrineProductGatsbyHat"
-    description="Name of the product &apos;Gatsby hat&apos;."
+    description="Name of the product &apos;&apos;Gatsby hat&apos;&apos;."
     >Gatsby hat</string>
   <string
     name="shrineProductShrugBag"
-    description="Name of the product &apos;Shrug bag&apos;."
+    description="Name of the product &apos;&apos;Shrug bag&apos;&apos;."
     >Shrug bag</string>
   <string
     name="shrineProductGiltDeskTrio"
-    description="Name of the product &apos;Gilt desk trio&apos;."
+    description="Name of the product &apos;&apos;Gilt desk trio&apos;&apos;."
     >Gilt desk trio</string>
   <string
     name="shrineProductCopperWireRack"
-    description="Name of the product &apos;Copper wire rack&apos;."
+    description="Name of the product &apos;&apos;Copper wire rack&apos;&apos;."
     >Copper wire rack</string>
   <string
     name="shrineProductSootheCeramicSet"
-    description="Name of the product &apos;Soothe ceramic set&apos;."
+    description="Name of the product &apos;&apos;Soothe ceramic set&apos;&apos;."
     >Soothe ceramic set</string>
   <string
     name="shrineProductHurrahsTeaSet"
-    description="Name of the product &apos;Hurrahs tea set&apos;."
+    description="Name of the product &apos;&apos;Hurrahs tea set&apos;&apos;."
     >Hurrahs tea set</string>
   <string
     name="shrineProductBlueStoneMug"
-    description="Name of the product &apos;Blue stone mug&apos;."
+    description="Name of the product &apos;&apos;Blue stone mug&apos;&apos;."
     >Blue stone mug</string>
   <string
     name="shrineProductRainwaterTray"
-    description="Name of the product &apos;Rainwater tray&apos;."
+    description="Name of the product &apos;&apos;Rainwater tray&apos;&apos;."
     >Rainwater tray</string>
   <string
     name="shrineProductChambrayNapkins"
-    description="Name of the product &apos;Chambray napkins&apos;."
+    description="Name of the product &apos;&apos;Chambray napkins&apos;&apos;."
     >Chambray napkins</string>
   <string
     name="shrineProductSucculentPlanters"
-    description="Name of the product &apos;Succulent planters&apos;."
+    description="Name of the product &apos;&apos;Succulent planters&apos;&apos;."
     >Succulent planters</string>
   <string
     name="shrineProductQuartetTable"
-    description="Name of the product &apos;Quartet table&apos;."
+    description="Name of the product &apos;&apos;Quartet table&apos;&apos;."
     >Quartet table</string>
   <string
     name="shrineProductKitchenQuattro"
-    description="Name of the product &apos;Kitchen quattro&apos;."
+    description="Name of the product &apos;&apos;Kitchen quattro&apos;&apos;."
     >Kitchen quattro</string>
   <string
     name="shrineProductClaySweater"
-    description="Name of the product &apos;Clay sweater&apos;."
+    description="Name of the product &apos;&apos;Clay sweater&apos;&apos;."
     >Clay sweater</string>
   <string
     name="shrineProductSeaTunic"
-    description="Name of the product &apos;Sea tunic&apos;."
+    description="Name of the product &apos;&apos;Sea tunic&apos;&apos;."
     >Sea tunic</string>
   <string
     name="shrineProductPlasterTunic"
-    description="Name of the product &apos;Plaster tunic&apos;."
+    description="Name of the product &apos;&apos;Plaster tunic&apos;&apos;."
     >Plaster tunic</string>
   <string
     name="shrineProductWhitePinstripeShirt"
-    description="Name of the product &apos;White pinstripe shirt&apos;."
+    description="Name of the product &apos;&apos;White pinstripe shirt&apos;&apos;."
     >White pinstripe shirt</string>
   <string
     name="shrineProductChambrayShirt"
-    description="Name of the product &apos;Chambray shirt&apos;."
+    description="Name of the product &apos;&apos;Chambray shirt&apos;&apos;."
     >Chambray shirt</string>
   <string
     name="shrineProductSeabreezeSweater"
-    description="Name of the product &apos;Seabreeze sweater&apos;."
+    description="Name of the product &apos;&apos;Seabreeze sweater&apos;&apos;."
     >Seabreeze sweater</string>
   <string
     name="shrineProductGentryJacket"
-    description="Name of the product &apos;Gentry jacket&apos;."
+    description="Name of the product &apos;&apos;Gentry jacket&apos;&apos;."
     >Gentry jacket</string>
   <string
     name="shrineProductNavyTrousers"
-    description="Name of the product &apos;Navy trousers&apos;."
+    description="Name of the product &apos;&apos;Navy trousers&apos;&apos;."
     >Navy trousers</string>
   <string
     name="shrineProductWalterHenleyWhite"
-    description="Name of the product &apos;Walter henley (white)&apos;."
+    description="Name of the product &apos;&apos;Walter henley (white)&apos;&apos;."
     >Walter henley (white)</string>
   <string
     name="shrineProductSurfAndPerfShirt"
-    description="Name of the product &apos;Surf and perf shirt&apos;."
+    description="Name of the product &apos;&apos;Surf and perf shirt&apos;&apos;."
     >Surf and perf shirt</string>
   <string
     name="shrineProductGingerScarf"
-    description="Name of the product &apos;Ginger scarf&apos;."
+    description="Name of the product &apos;&apos;Ginger scarf&apos;&apos;."
     >Ginger scarf</string>
   <string
     name="shrineProductRamonaCrossover"
-    description="Name of the product &apos;Ramona crossover&apos;."
+    description="Name of the product &apos;&apos;Ramona crossover&apos;&apos;."
     >Ramona crossover</string>
   <string
     name="shrineProductClassicWhiteCollar"
-    description="Name of the product &apos;Classic white collar&apos;."
+    description="Name of the product &apos;&apos;Classic white collar&apos;&apos;."
     >Classic white collar</string>
   <string
     name="shrineProductCeriseScallopTee"
-    description="Name of the product &apos;Cerise scallop tee&apos;."
+    description="Name of the product &apos;&apos;Cerise scallop tee&apos;&apos;."
     >Cerise scallop tee</string>
   <string
     name="shrineProductShoulderRollsTee"
-    description="Name of the product &apos;Shoulder rolls tee&apos;."
+    description="Name of the product &apos;&apos;Shoulder rolls tee&apos;&apos;."
     >Shoulder rolls tee</string>
   <string
     name="shrineProductGreySlouchTank"
-    description="Name of the product &apos;Grey slouch tank&apos;."
+    description="Name of the product &apos;&apos;Grey slouch tank&apos;&apos;."
     >Grey slouch tank</string>
   <string
     name="shrineProductSunshirtDress"
-    description="Name of the product &apos;Sunshirt dress&apos;."
+    description="Name of the product &apos;&apos;Sunshirt dress&apos;&apos;."
     >Sunshirt dress</string>
   <string
     name="shrineProductFineLinesTee"
-    description="Name of the product &apos;Fine lines tee&apos;."
+    description="Name of the product &apos;&apos;Fine lines tee&apos;&apos;."
     >Fine lines tee</string>
   <string
     name="shrineTooltipSearch"
