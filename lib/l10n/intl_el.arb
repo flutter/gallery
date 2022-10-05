@@ -593,7 +593,7 @@
   "rallyLoginLabelLogin": "Σύνδεση",
   "rallyLoginRememberMe": "Απομνημόνευση των στοιχείων μου",
   "rallyLoginButtonLogin": "ΣΥΝΔΕΣΗ",
-  "rallyAlertsMessageHeadsUpShopping": "Έχετε υπόψη ότι χρησιμοποιήσατε το {percent} του προϋπολογισμού αγορών σας γι' αυτόν τον μήνα.",
+  "rallyAlertsMessageHeadsUpShopping": "Έχετε υπόψη ότι χρησιμοποιήσατε το {percent} του προϋπολογισμού αγορών σας γι'' αυτόν τον μήνα.",
   "rallyAlertsMessageSpentOnRestaurants": "Δαπανήσατε {amount} σε εστιατόρια αυτήν την εβδομάδα.",
   "rallyAlertsMessageATMFees": "Δαπανήσατε {amount} σε προμήθειες ATM αυτόν τον μήνα.",
   "rallyAlertsMessageCheckingAccount": "Συγχαρητήρια! Ο τρεχούμενος λογαριασμός σας παρουσιάζει αύξηση {percent} συγκριτικά με τον προηγούμενο μήνα.",
