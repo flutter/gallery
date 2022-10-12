@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gallery/main.dart';
 
@@ -21,5 +22,15 @@ void main() {
     // are excluded when settings mode is activated.
     expect(find.bySemanticsLabel('Settings'), findsNothing);
     expect(find.bySemanticsLabel('Close settings'), findsOneWidget);
+  });
+
+  testWidgets('Home page list view is the primary list view', (tester) async {
+    await tester.pumpWidget(const GalleryApp());
+    await tester.pumpAndSettle();
+
+    ListView listview =
+        tester.widget(find.byKey(const ValueKey('HomeListView')));
+
+    expect(listview.primary, true);
   });
 }

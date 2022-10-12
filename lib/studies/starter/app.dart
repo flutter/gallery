@@ -33,7 +33,6 @@ class StarterApp extends StatelessWidget {
             ),
       },
       theme: ThemeData(
-        primaryColor: _primaryColor,
         highlightColor: Colors.transparent,
         colorScheme: const ColorScheme(
           primary: _primaryColor,

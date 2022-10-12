@@ -21,20 +21,20 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@9d48f4efd5460d7013af812069d08b23f37aed20
+        uses: subosito/flutter-action@1e6ee87cb840500837bcd50a667fb28815d8e310
         with:
           channel: master
       - run: flutter doctor -v
 
       - name: Install web dependencies
-        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93
+        uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
         with:
           node-version: "14"
       - run: npm install -g firebase-tools@11.0.1
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       - run: flutter pub get
 
       # Build and deploy (by default, to staging).

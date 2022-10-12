@@ -26,10 +26,6 @@ ThemeData _buildShrineTheme() {
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       elevation: 0,
     ),
-    colorScheme: _shrineColorScheme.copyWith(
-      error: shrineErrorRed,
-    ),
-    primaryColor: shrinePink100,
     scaffoldBackgroundColor: shrineBackgroundWhite,
     cardColor: shrineBackgroundWhite,
     primaryIconTheme: _customIconTheme(base.iconTheme),
@@ -42,6 +38,10 @@ ThemeData _buildShrineTheme() {
     textTheme: _buildShrineTextTheme(base.textTheme),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
     iconTheme: _customIconTheme(base.iconTheme),
+    colorScheme: _shrineColorScheme.copyWith(
+      error: shrineErrorRed,
+      primary: shrinePink100,
+    ),
   );
 }
 

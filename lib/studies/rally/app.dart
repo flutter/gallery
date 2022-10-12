@@ -72,7 +72,6 @@ class RallyApp extends StatelessWidget {
         elevation: 0,
       ),
       scaffoldBackgroundColor: RallyColors.primaryBackground,
-      primaryColor: RallyColors.primaryBackground,
       focusColor: RallyColors.focusColor,
       textTheme: _buildRallyTextTheme(base.textTheme),
       inputDecorationTheme: const InputDecorationTheme(
@@ -85,6 +84,9 @@ class RallyApp extends StatelessWidget {
         focusedBorder: InputBorder.none,
       ),
       visualDensity: VisualDensity.standard,
+      colorScheme: base.colorScheme.copyWith(
+        primary: RallyColors.primaryBackground,
+      ),
     );
   }
 

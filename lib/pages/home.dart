@@ -168,6 +168,7 @@ class HomePage extends StatelessWidget {
         body: ListView(
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
+          primary: true,
           padding: const EdgeInsetsDirectional.only(
             top: firstHeaderDesktopTopPadding,
           ),
@@ -383,6 +384,7 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
         ListView(
           // Makes integration tests possible.
           key: const ValueKey('HomeListView'),
+          primary: true,
           restorationId: 'home_list_view',
           children: [
             const SizedBox(height: 8),
