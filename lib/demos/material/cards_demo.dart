@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 const String _kGalleryAssetsPackage = 'flutter_gallery_assets';
@@ -196,29 +197,34 @@ class SelectableTravelDestinationItem extends StatelessWidget {
                   splashColor: colorScheme.onSurface.withOpacity(0.12),
                   // Generally, material cards do not have a highlight overlay.
                   highlightColor: Colors.transparent,
-                  child: Stack(
-                    children: [
-                      Container(
-                        color: isSelected
-                            // Generally, material cards use primary with 8% opacity for the selected state.
-                            // See: https://material.io/design/interaction/states.html#anatomy
-                            ? colorScheme.primary.withOpacity(0.08)
-                            : Colors.transparent,
-                      ),
-                      TravelDestinationContent(destination: destination),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Icon(
-                            Icons.check_circle,
-                            color: isSelected
-                                ? colorScheme.primary
-                                : Colors.transparent,
+                  child: Semantics(
+                    label: isSelected
+                        ? GalleryLocalizations.of(context)!.demoMenuSelected('')
+                        : '',
+                    child: Stack(
+                      children: [
+                        Container(
+                          color: isSelected
+                              // Generally, material cards use primary with 8% opacity for the selected state.
+                              // See: https://material.io/design/interaction/states.html#anatomy
+                              ? colorScheme.primary.withOpacity(0.08)
+                              : Colors.transparent,
+                        ),
+                        TravelDestinationContent(destination: destination),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Icon(
+                              Icons.check_circle,
+                              color: isSelected
+                                  ? colorScheme.primary
+                                  : Colors.transparent,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -264,92 +270,103 @@ class TravelDestinationContent extends StatelessWidget {
     final descriptionStyle = theme.textTheme.titleMedium!;
     final localizations = GalleryLocalizations.of(context)!;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: 184,
-          child: Stack(
-            children: [
-              Positioned.fill(
-                // In order to have the ink splash appear above the image, you
-                // must use Ink.image. This allows the image to be painted as
-                // part of the Material and display ink effects above it. Using
-                // a standard Image will obscure the ink splash.
-                child: Ink.image(
-                  image: AssetImage(
-                    destination.assetName,
-                    package: destination.assetPackage,
-                  ),
-                  fit: BoxFit.cover,
-                  child: Container(),
-                ),
-              ),
-              Positioned(
-                bottom: 16,
-                left: 16,
-                right: 16,
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    destination.title,
-                    style: titleStyle,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        // Description and share/explore buttons.
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: DefaultTextStyle(
-            softWrap: false,
-            overflow: TextOverflow.ellipsis,
-            style: descriptionStyle,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return Semantics(
+      label: destination.title,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 184,
+            child: Stack(
               children: [
-                // This array contains the three line description on each card
-                // demo.
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    destination.description,
-                    style: descriptionStyle.copyWith(color: Colors.black54),
+                Positioned.fill(
+                  // In order to have the ink splash appear above the image, you
+                  // must use Ink.image. This allows the image to be painted as
+                  // part of the Material and display ink effects above it. Using
+                  // a standard Image will obscure the ink splash.
+                  child: Ink.image(
+                    image: AssetImage(
+                      destination.assetName,
+                      package: destination.assetPackage,
+                    ),
+                    fit: BoxFit.cover,
+                    child: Container(),
                   ),
                 ),
-                Text(destination.city),
-                Text(destination.location),
-              ],
-            ),
-          ),
-        ),
-        if (destination.cardType == CardType.standard)
-          // share, explore buttons
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: OverflowBar(
-              alignment: MainAxisAlignment.start,
-              spacing: 8,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: Text(localizations.demoMenuShare,
-                      semanticsLabel: localizations
-                          .cardsDemoShareSemantics(destination.title)),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(localizations.cardsDemoExplore,
-                      semanticsLabel: localizations
-                          .cardsDemoExploreSemantics(destination.title)),
+                Positioned(
+                  bottom: 16,
+                  left: 16,
+                  right: 16,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: Semantics(
+                      container: true,
+                      // namesRoute: true,
+                      header: true,
+                      child: Text(
+                        destination.title,
+                        style: titleStyle,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-      ],
+          // Description and share/explore buttons.
+          Semantics(
+            container: true,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              child: DefaultTextStyle(
+                softWrap: false,
+                overflow: TextOverflow.ellipsis,
+                style: descriptionStyle,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // This array contains the three line description on each card
+                    // demo.
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        destination.description,
+                        style: descriptionStyle.copyWith(color: Colors.black54),
+                      ),
+                    ),
+                    Text(destination.city),
+                    Text(destination.location),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (destination.cardType == CardType.standard)
+            // share, explore buttons
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: OverflowBar(
+                alignment: MainAxisAlignment.start,
+                spacing: 8,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(localizations.demoMenuShare,
+                        semanticsLabel: localizations
+                            .cardsDemoShareSemantics(destination.title)),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(localizations.cardsDemoExplore,
+                        semanticsLabel: localizations
+                            .cardsDemoExploreSemantics(destination.title)),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
