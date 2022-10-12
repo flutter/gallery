@@ -23,7 +23,7 @@ dependencies:
   google_fonts: ^3.0.1
   intl: ^0.17.0
   meta: ^1.7.0
-  package_info_plus: ^1.4.2
+  package_info_plus: ^2.0.0
   path_provider: ^2.0.11
   provider: ^6.0.2
   rally_assets: ^3.0.1
