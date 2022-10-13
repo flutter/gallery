@@ -221,51 +221,51 @@
   },
   "rallySettingsManageAccounts": "Manage Accounts",
   "@rallySettingsManageAccounts": {
-    "description": "Link to go to the page ''Manage Accounts."
+    "description": "Link to go to the page 'Manage Accounts."
   },
   "rallySettingsTaxDocuments": "Tax Documents",
   "@rallySettingsTaxDocuments": {
-    "description": "Link to go to the page ''Tax Documents''."
+    "description": "Link to go to the page 'Tax Documents'."
   },
   "rallySettingsPasscodeAndTouchId": "Passcode and Touch ID",
   "@rallySettingsPasscodeAndTouchId": {
-    "description": "Link to go to the page ''Passcode and Touch ID''."
+    "description": "Link to go to the page 'Passcode and Touch ID'."
   },
   "rallySettingsNotifications": "Notifications",
   "@rallySettingsNotifications": {
-    "description": "Link to go to the page ''Notifications''."
+    "description": "Link to go to the page 'Notifications'."
   },
   "rallySettingsPersonalInformation": "Personal Information",
   "@rallySettingsPersonalInformation": {
-    "description": "Link to go to the page ''Personal Information''."
+    "description": "Link to go to the page 'Personal Information'."
   },
   "rallySettingsPaperlessSettings": "Paperless Settings",
   "@rallySettingsPaperlessSettings": {
-    "description": "Link to go to the page ''Paperless Settings''."
+    "description": "Link to go to the page 'Paperless Settings'."
   },
   "rallySettingsFindAtms": "Find ATMs",
   "@rallySettingsFindAtms": {
-    "description": "Link to go to the page ''Find ATMs''."
+    "description": "Link to go to the page 'Find ATMs'."
   },
   "rallySettingsHelp": "Help",
   "@rallySettingsHelp": {
-    "description": "Link to go to the page ''Help''."
+    "description": "Link to go to the page 'Help'."
   },
   "rallySettingsSignOut": "Sign out",
   "@rallySettingsSignOut": {
-    "description": "Link to go to the page ''Sign out''."
+    "description": "Link to go to the page 'Sign out'."
   },
   "rallyAccountTotal": "Total",
   "@rallyAccountTotal": {
-    "description": "Title for ''total account value'' overview page, a dollar value is displayed next to it."
+    "description": "Title for 'total account value' overview page, a dollar value is displayed next to it."
   },
   "rallyBillsDue": "Due",
   "@rallyBillsDue": {
-    "description": "Title for ''bills due'' page, a dollar value is displayed next to it."
+    "description": "Title for 'bills due' page, a dollar value is displayed next to it."
   },
   "rallyBudgetLeft": "Left",
   "@rallyBudgetLeft": {
-    "description": "Title for ''budget left'' page, a dollar value is displayed next to it."
+    "description": "Title for 'budget left' page, a dollar value is displayed next to it."
   },
   "rallyAccounts": "Accounts",
   "@rallyAccounts": {
@@ -289,7 +289,7 @@
   },
   "rallyFinanceLeft": " LEFT",
   "@rallyFinanceLeft": {
-    "description": "Displayed as ''dollar amount left'', for example $46.70 LEFT, for a budget category."
+    "description": "Displayed as 'dollar amount left', for example $46.70 LEFT, for a budget category."
   },
   "rallyTitleOverview": "OVERVIEW",
   "@rallyTitleOverview": {
@@ -315,7 +315,7 @@
   "@rallyLoginLoginToRally": {
     "description": "Title for login page for the Rally app (Rally does not need to be translated as it is a product name)."
   },
-  "rallyLoginNoAccount": "Don''t have an account?",
+  "rallyLoginNoAccount": "Don't have an account?",
   "@rallyLoginNoAccount": {
     "description": "Prompt for signing up for an account."
   },
@@ -343,7 +343,7 @@
   "@rallyLoginButtonLogin": {
     "description": "Text for login button."
   },
-  "rallyAlertsMessageHeadsUpShopping": "Heads up, you''ve used up {percent} of your Shopping budget for this month.",
+  "rallyAlertsMessageHeadsUpShopping": "Heads up, you've used up {percent} of your Shopping budget for this month.",
   "@rallyAlertsMessageHeadsUpShopping": {
     "description": "Alert message shown when for example, user has used more than 90% of their shopping budget.",
     "placeholders": {
@@ -352,7 +352,7 @@
       }
     }
   },
-  "rallyAlertsMessageSpentOnRestaurants": "You''ve spent {amount} on Restaurants this week.",
+  "rallyAlertsMessageSpentOnRestaurants": "You've spent {amount} on Restaurants this week.",
   "@rallyAlertsMessageSpentOnRestaurants": {
     "description": "Alert message shown when for example, user has spent $120 on Restaurants this week.",
     "placeholders": {
@@ -361,7 +361,7 @@
        }
     }
   },
-  "rallyAlertsMessageATMFees": "You''ve spent {amount} in ATM fees this month",
+  "rallyAlertsMessageATMFees": "You've spent {amount} in ATM fees this month",
   "@rallyAlertsMessageATMFees": {
     "description": "Alert message shown when for example, the user has spent $24 in ATM fees this month.",
     "placeholders": {
@@ -456,7 +456,7 @@
   "@homeCategoryReference": {
     "description": "Category title on home screen for styles & other demos (for context, the styles demos consist of a color demo and a typography demo)."
   },
-  "demoInvalidURL": "Couldn''t display URL:",
+  "demoInvalidURL": "Couldn't display URL:",
   "@demoInvalidURL": {
     "description": "Error message when opening the URL for a demo."
   },
@@ -601,7 +601,7 @@
   "@demoAppBarSubtitle": {
     "description": "Subtitle for the material App bar component demo."
   },
-  "demoAppBarDescription": "The App bar provides content and actions related to the current screen. It''s used for branding, screen titles, navigation, and actions",
+  "demoAppBarDescription": "The App bar provides content and actions related to the current screen. It's used for branding, screen titles, navigation, and actions",
   "@demoAppBarDescription": {
     "description": "Description for the material App bar component demo."
   },
@@ -781,7 +781,7 @@
   "@demoDataTableSubtitle": {
     "description": "Subtitle for the material data table component demo."
   },
-  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way that''s easy to scan, so that users can look for patterns and insights.",
+  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way that's easy to scan, so that users can look for patterns and insights.",
   "@demoDataTableDescription": {
     "description": "Description for the material data table component demo."
   },
@@ -1751,7 +1751,7 @@
   "@demoColorsSubtitle": {
     "description": "Subtitle for the colors demo."
   },
-  "demoColorsDescription": "Color and color swatch constants which represent Material Design''s color palette.",
+  "demoColorsDescription": "Color and color swatch constants which represent Material Design's color palette.",
   "@demoColorsDescription": {
     "description": "Description for the colors demo. Material Design should remain capitalized."
   },
@@ -1930,7 +1930,7 @@
   },
   "demoTabsNonScrollingTitle": "Non-scrolling",
   "@demoTabsNonScrollingTitle": {
-    "description": "Title for tabs demo with a tab bar that doesn''t scroll."
+    "description": "Title for tabs demo with a tab bar that doesn't scroll."
   },
   "demoTabsSubtitle": "Tabs with independently scrollable views",
   "@demoTabsSubtitle": {
@@ -1948,7 +1948,7 @@
   "@demoSnackbarsSubtitle": {
     "description": "Subtitle for snackbars demo."
   },
-  "demoSnackbarsDescription": "Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn''t interrupt the user experience, and they don''t require user input to disappear.",
+  "demoSnackbarsDescription": "Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn't interrupt the user experience, and they don't require user input to disappear.",
   "@demoSnackbarsDescription": {
     "description": "Description for snackbars demo."
   },
@@ -1966,7 +1966,7 @@
   },
   "demoSnackbarsAction": "You pressed the snackbar action.",
   "@demoSnackbarsAction": {
-    "description": "Text that appears when you press on a snackbars'' action."
+    "description": "Text that appears when you press on a snackbars' action."
   },
   "demoSelectionControlsTitle": "Selection controls",
   "@demoSelectionControlsTitle": {
@@ -1980,7 +1980,7 @@
   "@demoSelectionControlsCheckboxTitle": {
     "description": "Title for the checkbox (selection controls) demo."
   },
-  "demoSelectionControlsCheckboxDescription": "Checkboxes allow the user to select multiple options from a set. A normal checkbox''s value is true or false and a tristate checkbox''s value can also be null.",
+  "demoSelectionControlsCheckboxDescription": "Checkboxes allow the user to select multiple options from a set. A normal checkbox's value is true or false and a tristate checkbox's value can also be null.",
   "@demoSelectionControlsCheckboxDescription": {
     "description": "Description for the checkbox (selection controls) demo."
   },
@@ -1996,7 +1996,7 @@
   "@demoSelectionControlsSwitchTitle": {
     "description": "Title for the switches (selection controls) demo."
   },
-  "demoSelectionControlsSwitchDescription": "On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it''s in, should be made clear from the corresponding inline label.",
+  "demoSelectionControlsSwitchDescription": "On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the state it's in, should be made clear from the corresponding inline label.",
   "@demoSelectionControlsSwitchDescription": {
     "description": "Description for the switches (selection controls) demo."
   },
@@ -2044,7 +2044,7 @@
   "@demoTextFieldEnterPassword": {
     "description": "Error that shows up if password is not given."
   },
-  "demoTextFieldPasswordsDoNotMatch": "The passwords don''t match",
+  "demoTextFieldPasswordsDoNotMatch": "The passwords don't match",
   "@demoTextFieldPasswordsDoNotMatch": {
     "description": "Error that shows up, if the re-typed password does not match the already given password."
   },
@@ -2218,7 +2218,7 @@
   "@dialogDiscardTitle": {
     "description": "Alert dialog message to discard draft."
   },
-  "dialogLocationTitle": "Use Google''s location service?",
+  "dialogLocationTitle": "Use Google's location service?",
   "@dialogLocationTitle": {
     "description": "Alert dialog title to use location services."
   },
@@ -2294,9 +2294,9 @@
   "@cupertinoAlertAllow": {
     "description": "iOS-style alert allow option."
   },
-  "cupertinoAlertDontAllow": "Don''t Allow",
+  "cupertinoAlertDontAllow": "Don't Allow",
   "@cupertinoAlertDontAllow": {
-    "description": "iOS-style alert don''t allow option."
+    "description": "iOS-style alert don't allow option."
   },
   "cupertinoAlertFavoriteDessert": "Select Favorite Dessert",
   "@cupertinoAlertFavoriteDessert": {
@@ -2566,7 +2566,7 @@
   },
   "shrineProductPrice": "x {price}",
   "@shrineProductPrice": {
-    "description": "A text showing the unit price of each product. Used as: ''Quantity: 3 x $129''. The currency will be handled by the formatter.",
+    "description": "A text showing the unit price of each product. Used as: 'Quantity: 3 x $129'. The currency will be handled by the formatter.",
     "placeholders": {
       "price": {
         "example": "$129"
@@ -2604,155 +2604,155 @@
   },
   "shrineProductVagabondSack": "Vagabond sack",
   "@shrineProductVagabondSack": {
-    "description": "Name of the product ''Vagabond sack''."
+    "description": "Name of the product 'Vagabond sack'."
   },
   "shrineProductStellaSunglasses": "Stella sunglasses",
   "@shrineProductStellaSunglasses": {
-    "description": "Name of the product ''Stella sunglasses''."
+    "description": "Name of the product 'Stella sunglasses'."
   },
   "shrineProductWhitneyBelt": "Whitney belt",
   "@shrineProductWhitneyBelt": {
-    "description": "Name of the product ''Whitney belt''."
+    "description": "Name of the product 'Whitney belt'."
   },
   "shrineProductGardenStrand": "Garden strand",
   "@shrineProductGardenStrand": {
-    "description": "Name of the product ''Garden strand''."
+    "description": "Name of the product 'Garden strand'."
   },
   "shrineProductStrutEarrings": "Strut earrings",
   "@shrineProductStrutEarrings": {
-    "description": "Name of the product ''Strut earrings''."
+    "description": "Name of the product 'Strut earrings'."
   },
   "shrineProductVarsitySocks": "Varsity socks",
   "@shrineProductVarsitySocks": {
-    "description": "Name of the product ''Varsity socks''."
+    "description": "Name of the product 'Varsity socks'."
   },
   "shrineProductWeaveKeyring": "Weave keyring",
   "@shrineProductWeaveKeyring": {
-    "description": "Name of the product ''Weave keyring''."
+    "description": "Name of the product 'Weave keyring'."
   },
   "shrineProductGatsbyHat": "Gatsby hat",
   "@shrineProductGatsbyHat": {
-    "description": "Name of the product ''Gatsby hat''."
+    "description": "Name of the product 'Gatsby hat'."
   },
   "shrineProductShrugBag": "Shrug bag",
   "@shrineProductShrugBag": {
-    "description": "Name of the product ''Shrug bag''."
+    "description": "Name of the product 'Shrug bag'."
   },
   "shrineProductGiltDeskTrio": "Gilt desk trio",
   "@shrineProductGiltDeskTrio": {
-    "description": "Name of the product ''Gilt desk trio''."
+    "description": "Name of the product 'Gilt desk trio'."
   },
   "shrineProductCopperWireRack": "Copper wire rack",
   "@shrineProductCopperWireRack": {
-    "description": "Name of the product ''Copper wire rack''."
+    "description": "Name of the product 'Copper wire rack'."
   },
   "shrineProductSootheCeramicSet": "Soothe ceramic set",
   "@shrineProductSootheCeramicSet": {
-    "description": "Name of the product ''Soothe ceramic set''."
+    "description": "Name of the product 'Soothe ceramic set'."
   },
   "shrineProductHurrahsTeaSet": "Hurrahs tea set",
   "@shrineProductHurrahsTeaSet": {
-    "description": "Name of the product ''Hurrahs tea set''."
+    "description": "Name of the product 'Hurrahs tea set'."
   },
   "shrineProductBlueStoneMug": "Blue stone mug",
   "@shrineProductBlueStoneMug": {
-    "description": "Name of the product ''Blue stone mug''."
+    "description": "Name of the product 'Blue stone mug'."
   },
   "shrineProductRainwaterTray": "Rainwater tray",
   "@shrineProductRainwaterTray": {
-    "description": "Name of the product ''Rainwater tray''."
+    "description": "Name of the product 'Rainwater tray'."
   },
   "shrineProductChambrayNapkins": "Chambray napkins",
   "@shrineProductChambrayNapkins": {
-    "description": "Name of the product ''Chambray napkins''."
+    "description": "Name of the product 'Chambray napkins'."
   },
   "shrineProductSucculentPlanters": "Succulent planters",
   "@shrineProductSucculentPlanters": {
-    "description": "Name of the product ''Succulent planters''."
+    "description": "Name of the product 'Succulent planters'."
   },
   "shrineProductQuartetTable": "Quartet table",
   "@shrineProductQuartetTable": {
-    "description": "Name of the product ''Quartet table''."
+    "description": "Name of the product 'Quartet table'."
   },
   "shrineProductKitchenQuattro": "Kitchen quattro",
   "@shrineProductKitchenQuattro": {
-    "description": "Name of the product ''Kitchen quattro''."
+    "description": "Name of the product 'Kitchen quattro'."
   },
   "shrineProductClaySweater": "Clay sweater",
   "@shrineProductClaySweater": {
-    "description": "Name of the product ''Clay sweater''."
+    "description": "Name of the product 'Clay sweater'."
   },
   "shrineProductSeaTunic": "Sea tunic",
   "@shrineProductSeaTunic": {
-    "description": "Name of the product ''Sea tunic''."
+    "description": "Name of the product 'Sea tunic'."
   },
   "shrineProductPlasterTunic": "Plaster tunic",
   "@shrineProductPlasterTunic": {
-    "description": "Name of the product ''Plaster tunic''."
+    "description": "Name of the product 'Plaster tunic'."
   },
   "shrineProductWhitePinstripeShirt": "White pinstripe shirt",
   "@shrineProductWhitePinstripeShirt": {
-    "description": "Name of the product ''White pinstripe shirt''."
+    "description": "Name of the product 'White pinstripe shirt'."
   },
   "shrineProductChambrayShirt": "Chambray shirt",
   "@shrineProductChambrayShirt": {
-    "description": "Name of the product ''Chambray shirt''."
+    "description": "Name of the product 'Chambray shirt'."
   },
   "shrineProductSeabreezeSweater": "Seabreeze sweater",
   "@shrineProductSeabreezeSweater": {
-    "description": "Name of the product ''Seabreeze sweater''."
+    "description": "Name of the product 'Seabreeze sweater'."
   },
   "shrineProductGentryJacket": "Gentry jacket",
   "@shrineProductGentryJacket": {
-    "description": "Name of the product ''Gentry jacket''."
+    "description": "Name of the product 'Gentry jacket'."
   },
   "shrineProductNavyTrousers": "Navy trousers",
   "@shrineProductNavyTrousers": {
-    "description": "Name of the product ''Navy trousers''."
+    "description": "Name of the product 'Navy trousers'."
   },
   "shrineProductWalterHenleyWhite": "Walter henley (white)",
   "@shrineProductWalterHenleyWhite": {
-    "description": "Name of the product ''Walter henley (white)''."
+    "description": "Name of the product 'Walter henley (white)'."
   },
   "shrineProductSurfAndPerfShirt": "Surf and perf shirt",
   "@shrineProductSurfAndPerfShirt": {
-    "description": "Name of the product ''Surf and perf shirt''."
+    "description": "Name of the product 'Surf and perf shirt'."
   },
   "shrineProductGingerScarf": "Ginger scarf",
   "@shrineProductGingerScarf": {
-    "description": "Name of the product ''Ginger scarf''."
+    "description": "Name of the product 'Ginger scarf'."
   },
   "shrineProductRamonaCrossover": "Ramona crossover",
   "@shrineProductRamonaCrossover": {
-    "description": "Name of the product ''Ramona crossover''."
+    "description": "Name of the product 'Ramona crossover'."
   },
   "shrineProductChambrayShirt": "Chambray shirt",
   "@shrineProductChambrayShirt": {
-    "description": "Name of the product ''Chambray shirt''."
+    "description": "Name of the product 'Chambray shirt'."
   },
   "shrineProductClassicWhiteCollar": "Classic white collar",
   "@shrineProductClassicWhiteCollar": {
-    "description": "Name of the product ''Classic white collar''."
+    "description": "Name of the product 'Classic white collar'."
   },
   "shrineProductCeriseScallopTee": "Cerise scallop tee",
   "@shrineProductCeriseScallopTee": {
-    "description": "Name of the product ''Cerise scallop tee''."
+    "description": "Name of the product 'Cerise scallop tee'."
   },
   "shrineProductShoulderRollsTee": "Shoulder rolls tee",
   "@shrineProductShoulderRollsTee": {
-    "description": "Name of the product ''Shoulder rolls tee''."
+    "description": "Name of the product 'Shoulder rolls tee'."
   },
   "shrineProductGreySlouchTank": "Grey slouch tank",
   "@shrineProductGreySlouchTank": {
-    "description": "Name of the product ''Grey slouch tank''."
+    "description": "Name of the product 'Grey slouch tank'."
   },
   "shrineProductSunshirtDress": "Sunshirt dress",
   "@shrineProductSunshirtDress": {
-    "description": "Name of the product ''Sunshirt dress''."
+    "description": "Name of the product 'Sunshirt dress'."
   },
   "shrineProductFineLinesTee": "Fine lines tee",
   "@shrineProductFineLinesTee": {
-    "description": "Name of the product ''Fine lines tee''."
+    "description": "Name of the product 'Fine lines tee'."
   },
   "shrineTooltipSearch": "Search",
   "@shrineTooltipSearch": {

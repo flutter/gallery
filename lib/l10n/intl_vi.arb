@@ -764,7 +764,7 @@
   "demoCupertinoActionSheetDescription": "Trang tính hành động là một kiểu cảnh báo cụ thể cung cấp cho người dùng 2 hoặc nhiều lựa chọn liên quan đến ngữ cảnh hiện tại. Trang tính hành động có thể có một tiêu đề, thông báo bổ sung và danh sách các hành động.",
   "demoColorsTitle": "Màu",
   "demoColorsSubtitle": "Tất cả các màu xác định trước",
-  "demoColorsDescription": "Color and color swatch constants which represent Material design''s color palette.",
+  "demoColorsDescription": "Color and color swatch constants which represent Material design's color palette.",
   "buttonTextEnabled": "ENABLED",
   "buttonTextDisabled": "DISABLED",
   "buttonTextCreate": "Tạo",
