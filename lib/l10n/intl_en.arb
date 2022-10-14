@@ -45,13 +45,9 @@
   "@backToGallery": {
     "description": "Semantic label for back button to exit a study and return to the gallery home page."
   },
-  "cardsDemoTappable": "Tappable",
-  "@cardsDemoTappable": {
-    "description": "The user can tap this button"
-  },
-  "cardsDemoSelectable": "Selectable (long press)",
-  "@cardsDemoSelectable": {
-    "description": "If the user taps and hold this card. The card will toggled between on and off."
+  "cardsDemoDeselect": "Deselect",
+  "@cardsDemoUnselect": {
+    "description": "Deselect a (selectable) card"
   },
   "cardsDemoExplore": "Explore",
   "@cardsDemoExplore": {
@@ -66,6 +62,22 @@
       }
     }
   },
+  "cardsDemoNotSelected": "Not selected",
+  "@cardsDemoNotSelected": {
+    "description": "Indicates the status of a (selectable) card being not selected"
+  },
+  "cardsDemoSelect": "Select",
+  "@cardsDemoSelect": {
+    "description": "Select a (selectable) card"
+  },
+  "cardsDemoSelectable": "Selectable (long press)",
+  "@cardsDemoSelectable": {
+    "description": "If the user taps and hold this card. The card will toggled between on and off."
+  },
+  "cardsDemoSelected": "Selected",
+  "@cardsDemoSelected": {
+    "description": "Indicates selected status of a (selectable) card"
+  },
   "cardsDemoShareSemantics": "Share {destinationName}",
   "@cardsDemoShareSemantics": {
     "description": "Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil",
@@ -74,6 +86,10 @@
         "example": "Tamil"
       }
     }
+  },
+  "cardsDemoTappable": "Tappable",
+  "@cardsDemoTappable": {
+    "description": "The user can tap this button"
   },
   "cardsDemoTravelDestinationTitle1": "Top 10 Cities to Visit in Tamil Nadu",
   "@cardsDemoTravelDestinationTitle1": {
