@@ -46,7 +46,7 @@
     "description": "Semantic label for back button to exit a study and return to the gallery home page."
   },
   "cardsDemoDeselect": "Deselect",
-  "@cardsDemoUnselect": {
+  "@cardsDemoDeselect": {
     "description": "Deselect a (selectable) card"
   },
   "cardsDemoExplore": "Explore",
