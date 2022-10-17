@@ -42,13 +42,9 @@
     description="Semantic label for back button to exit a study and return to the gallery home page."
     >Back to Gallery</string>
   <string
-    name="cardsDemoTappable"
-    description="The user can tap this button"
-    >Tappable</string>
-  <string
-    name="cardsDemoSelectable"
-    description="If the user taps and hold this card. The card will toggled between on and off."
-    >Selectable (long press)</string>
+    name="cardsDemoDeselect"
+    description="Deselect a (selectable) card"
+    >Deselect</string>
   <string
     name="cardsDemoExplore"
     description="Click to see more about the content in the cards demo."
@@ -58,9 +54,29 @@
     description="Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil"
     >Explore {destinationName}</string>
   <string
+    name="cardsDemoNotSelected"
+    description="Indicates the status of a (selectable) card being not selected"
+    >Not selected</string>
+  <string
+    name="cardsDemoSelect"
+    description="Select a (selectable) card"
+    >Select</string>
+  <string
+    name="cardsDemoSelectable"
+    description="If the user taps and hold this card. The card will toggled between on and off."
+    >Selectable (long press)</string>
+  <string
+    name="cardsDemoSelected"
+    description="Indicates selected status of a (selectable) card"
+    >Selected</string>
+  <string
     name="cardsDemoShareSemantics"
     description="Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil"
     >Share {destinationName}</string>
+  <string
+    name="cardsDemoTappable"
+    description="The user can tap this button"
+    >Tappable</string>
   <string
     name="cardsDemoTravelDestinationTitle1"
     description="The top 10 cities that you can visit in Tamil Nadu"
