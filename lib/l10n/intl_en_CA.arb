@@ -593,7 +593,7 @@
   "rallyLoginLabelLogin": "Log in",
   "rallyLoginRememberMe": "Remember me",
   "rallyLoginButtonLogin": "LOGIN",
-  "rallyAlertsMessageHeadsUpShopping": "Heads up: you've used up {per cent} of your shopping budget for this month.",
+  "rallyAlertsMessageHeadsUpShopping": "Heads up: you've used up {percent} of your shopping budget for this month.",
   "rallyAlertsMessageSpentOnRestaurants": "You've spent {amount} on restaurants this week.",
   "rallyAlertsMessageATMFees": "You've spent {amount} in ATM fees this month",
   "rallyAlertsMessageCheckingAccount": "Good work! Your current account is {percent} higher than last month.",
