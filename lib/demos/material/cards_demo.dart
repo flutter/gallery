@@ -95,7 +95,10 @@ class TravelDestinationItem extends StatelessWidget {
                 // This ensures that the Card's children are clipped correctly.
                 clipBehavior: Clip.antiAlias,
                 shape: shape,
-                child: TravelDestinationContent(destination: destination),
+                child: Semantics(
+                  label: destination.title,
+                  child: TravelDestinationContent(destination: destination),
+                ),
               ),
             ),
           ],
@@ -141,7 +144,10 @@ class TappableTravelDestinationItem extends StatelessWidget {
                       Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
                   // Generally, material cards do not have a highlight overlay.
                   highlightColor: Colors.transparent,
-                  child: TravelDestinationContent(destination: destination),
+                  child: Semantics(
+                    label: destination.title,
+                    child: TravelDestinationContent(destination: destination),
+                  ),
                 ),
               ),
             ),
@@ -172,6 +178,9 @@ class SelectableTravelDestinationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final String selectedStatus = isSelected
+        ? GalleryLocalizations.of(context)!.cardsDemoSelected
+        : GalleryLocalizations.of(context)!.cardsDemoNotSelected;
 
     return SafeArea(
       top: false,
@@ -205,7 +214,15 @@ class SelectableTravelDestinationItem extends StatelessWidget {
                             ? colorScheme.primary.withOpacity(0.08)
                             : Colors.transparent,
                       ),
-                      TravelDestinationContent(destination: destination),
+                      Semantics(
+                        label: '${destination.title} $selectedStatus',
+                        onLongPressHint: isSelected
+                            ? GalleryLocalizations.of(context)!
+                                .cardsDemoDeselect
+                            : GalleryLocalizations.of(context)!.cardsDemoSelect,
+                        child:
+                            TravelDestinationContent(destination: destination),
+                      ),
                       Align(
                         alignment: Alignment.topRight,
                         child: Padding(
@@ -220,6 +237,7 @@ class SelectableTravelDestinationItem extends StatelessWidget {
                       ),
                     ],
                   ),
+                  //),
                 ),
               ),
             ),
@@ -292,9 +310,13 @@ class TravelDestinationContent extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    destination.title,
-                    style: titleStyle,
+                  child: Semantics(
+                    container: true,
+                    header: true,
+                    child: Text(
+                      destination.title,
+                      style: titleStyle,
+                    ),
                   ),
                 ),
               ),
@@ -302,27 +324,30 @@ class TravelDestinationContent extends StatelessWidget {
           ),
         ),
         // Description and share/explore buttons.
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: DefaultTextStyle(
-            softWrap: false,
-            overflow: TextOverflow.ellipsis,
-            style: descriptionStyle,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // This array contains the three line description on each card
-                // demo.
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    destination.description,
-                    style: descriptionStyle.copyWith(color: Colors.black54),
+        Semantics(
+          container: true,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: DefaultTextStyle(
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+              style: descriptionStyle,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // This array contains the three line description on each card
+                  // demo.
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                      destination.description,
+                      style: descriptionStyle.copyWith(color: Colors.black54),
+                    ),
                   ),
-                ),
-                Text(destination.city),
-                Text(destination.location),
-              ],
+                  Text(destination.city),
+                  Text(destination.location),
+                ],
+              ),
             ),
           ),
         ),
