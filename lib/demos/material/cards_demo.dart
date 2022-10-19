@@ -179,8 +179,8 @@ class SelectableTravelDestinationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final String selectedStatus = isSelected
-        ? GalleryLocalizations.of(context)!.cardsDemoSelected
-        : GalleryLocalizations.of(context)!.cardsDemoNotSelected;
+        ? GalleryLocalizations.of(context)!.selected
+        : GalleryLocalizations.of(context)!.notSelected;
 
     return SafeArea(
       top: false,
@@ -189,8 +189,7 @@ class SelectableTravelDestinationItem extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            SectionTitle(
-                title: GalleryLocalizations.of(context)!.cardsDemoSelectable),
+            SectionTitle(title: GalleryLocalizations.of(context)!.selectable),
             SizedBox(
               height: height,
               child: Card(
@@ -215,11 +214,10 @@ class SelectableTravelDestinationItem extends StatelessWidget {
                             : Colors.transparent,
                       ),
                       Semantics(
-                        label: '${destination.title} $selectedStatus',
+                        label: '${destination.title}, $selectedStatus',
                         onLongPressHint: isSelected
-                            ? GalleryLocalizations.of(context)!
-                                .cardsDemoDeselect
-                            : GalleryLocalizations.of(context)!.cardsDemoSelect,
+                            ? GalleryLocalizations.of(context)!.deselect
+                            : GalleryLocalizations.of(context)!.select,
                         child:
                             TravelDestinationContent(destination: destination),
                       ),

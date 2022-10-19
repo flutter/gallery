@@ -17,6 +17,26 @@
       }
     }
   },
+  "deselect": "Deselect",
+  "@deselect": {
+    "description": "Deselect a (selectable) item"
+  },
+  "notSelected": "Not selected",
+  "@notSelected": {
+    "description": "Indicates the status of a (selectable) item not being selected"
+  },
+  "select": "Select",
+  "@select": {
+    "description": "Select a (selectable) item"
+  },
+  "selectable": "Selectable (long press)",
+  "@selectable": {
+    "description": "Indicates the associated piece of UI is selectable by long pressing it"
+  },
+  "selected": "Selected",
+  "@selected": {
+    "description": "Indicates status of a (selectable) item being selected"
+  },
   "signIn": "SIGN IN",
   "@signIn": {
     "description": "Sign in label to sign into website."
@@ -45,10 +65,6 @@
   "@backToGallery": {
     "description": "Semantic label for back button to exit a study and return to the gallery home page."
   },
-  "cardsDemoDeselect": "Deselect",
-  "@cardsDemoDeselect": {
-    "description": "Deselect a (selectable) card"
-  },
   "cardsDemoExplore": "Explore",
   "@cardsDemoExplore": {
     "description": "Click to see more about the content in the cards demo."
@@ -61,22 +77,6 @@
        "example": "Tamil"
       }
     }
-  },
-  "cardsDemoNotSelected": "Not selected",
-  "@cardsDemoNotSelected": {
-    "description": "Indicates the status of a (selectable) card being not selected"
-  },
-  "cardsDemoSelect": "Select",
-  "@cardsDemoSelect": {
-    "description": "Select a (selectable) card"
-  },
-  "cardsDemoSelectable": "Selectable (long press)",
-  "@cardsDemoSelectable": {
-    "description": "If the user taps and hold this card. The card will toggled between on and off."
-  },
-  "cardsDemoSelected": "Selected",
-  "@cardsDemoSelected": {
-    "description": "Indicates selected status of a (selectable) card"
   },
   "cardsDemoShareSemantics": "Share {destinationName}",
   "@cardsDemoShareSemantics": {
