@@ -17,6 +17,26 @@
       }
     }
   },
+  "deselect": "Deselect",
+  "@deselect": {
+    "description": "Deselect a (selectable) item"
+  },
+  "notSelected": "Not selected",
+  "@notSelected": {
+    "description": "Indicates the status of a (selectable) item not being selected"
+  },
+  "select": "Select",
+  "@select": {
+    "description": "Select a (selectable) item"
+  },
+  "selectable": "Selectable (long press)",
+  "@selectable": {
+    "description": "Indicates the associated piece of UI is selectable by long pressing it"
+  },
+  "selected": "Selected",
+  "@selected": {
+    "description": "Indicates status of a (selectable) item being selected"
+  },
   "signIn": "SIGN IN",
   "@signIn": {
     "description": "Sign in label to sign into website."
@@ -45,14 +65,6 @@
   "@backToGallery": {
     "description": "Semantic label for back button to exit a study and return to the gallery home page."
   },
-  "cardsDemoTappable": "Tappable",
-  "@cardsDemoTappable": {
-    "description": "The user can tap this button"
-  },
-  "cardsDemoSelectable": "Selectable (long press)",
-  "@cardsDemoSelectable": {
-    "description": "If the user taps and hold this card. The card will toggled between on and off."
-  },
   "cardsDemoExplore": "Explore",
   "@cardsDemoExplore": {
     "description": "Click to see more about the content in the cards demo."
@@ -74,6 +86,10 @@
         "example": "Tamil"
       }
     }
+  },
+  "cardsDemoTappable": "Tappable",
+  "@cardsDemoTappable": {
+    "description": "The user can tap this button"
   },
   "cardsDemoTravelDestinationTitle1": "Top 10 Cities to Visit in Tamil Nadu",
   "@cardsDemoTravelDestinationTitle1": {

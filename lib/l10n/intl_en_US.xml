@@ -14,6 +14,26 @@
     description="A description about how to view the source code for this app."
     >To see the source code for this app, please visit the {repoLink}.</string>
   <string
+    name="deselect"
+    description="Deselect a (selectable) item"
+    >Deselect</string>
+  <string
+    name="notSelected"
+    description="Indicates the status of a (selectable) item not being selected"
+    >Not selected</string>
+  <string
+    name="select"
+    description="Select a (selectable) item"
+    >Select</string>
+  <string
+    name="selectable"
+    description="Indicates the associated piece of UI is selectable by long pressing it"
+    >Selectable (long press)</string>
+  <string
+    name="selected"
+    description="Indicates status of a (selectable) item being selected"
+    >Selected</string>
+  <string
     name="signIn"
     description="Sign in label to sign into website."
     >SIGN IN</string>
@@ -42,14 +62,6 @@
     description="Semantic label for back button to exit a study and return to the gallery home page."
     >Back to Gallery</string>
   <string
-    name="cardsDemoTappable"
-    description="The user can tap this button"
-    >Tappable</string>
-  <string
-    name="cardsDemoSelectable"
-    description="If the user taps and hold this card. The card will toggled between on and off."
-    >Selectable (long press)</string>
-  <string
     name="cardsDemoExplore"
     description="Click to see more about the content in the cards demo."
     >Explore</string>
@@ -61,6 +73,10 @@
     name="cardsDemoShareSemantics"
     description="Semantics label for Share. Label tells user to share the destinationName to the user. Example Share Tamil"
     >Share {destinationName}</string>
+  <string
+    name="cardsDemoTappable"
+    description="The user can tap this button"
+    >Tappable</string>
   <string
     name="cardsDemoTravelDestinationTitle1"
     description="The top 10 cities that you can visit in Tamil Nadu"
