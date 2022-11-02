@@ -85,7 +85,7 @@ Future<void> scrollUntilVisible({
   final elementRect = _absoluteRect(elementRenderObject);
 
   final scrollable = Scrollable.of(element);
-  final viewport = RenderAbstractViewport.of(elementRenderObject)!;
+  final viewport = RenderAbstractViewport.of(elementRenderObject);
 
   final visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
@@ -95,13 +95,13 @@ Future<void> scrollUntilVisible({
       _hasSufficientFreeRoom(
         large: visibleWindow,
         small: elementRect,
-        axisDirection: scrollable!.axisDirection,
+        axisDirection: scrollable.axisDirection,
       )) {
     return;
   }
 
   late double pixelsToBeMoved;
-  switch (scrollable!.axisDirection) {
+  switch (scrollable.axisDirection) {
     case AxisDirection.down:
       pixelsToBeMoved = elementRect.top - visibleWindow.top;
       break;
