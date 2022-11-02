@@ -84,8 +84,8 @@ Future<void> scrollUntilVisible({
   final elementRenderObject = element.renderObject!;
   final elementRect = _absoluteRect(elementRenderObject);
 
-  final scrollable = Scrollable.of(element)!;
-  final viewport = RenderAbstractViewport.of(elementRenderObject)!;
+  final scrollable = Scrollable.of(element);
+  final viewport = RenderAbstractViewport.of(elementRenderObject);
 
   final visibleWindow = _absoluteRect(viewport).intersect(_windowRect(element));
 
