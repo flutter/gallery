@@ -166,11 +166,27 @@ Future<void> runDemos(
     demoItem = find.byValueKey(demo);
 
     stdout.writeln('scrolling to demo');
+
+    // demoList below may be either the horizontally-scrolling Studies carousel
+    // or vertically scrolling Material/Cupertino/Other demo lists.
+    //
+    // The Studies carousel has scroll physics that snap items to the starting
+    // edge of the widget. TestDriver.scrollUntilVisible scrolls in increments
+    // along the x and y axes; if the distance is too small, the list snaps
+    // back to its previous position, if it's too large, it may scroll too far.
+    // To resolve this, we scroll 75% of the list width/height dimensions on
+    // each increment.
+    final DriverOffset topLeft =
+        await driver.getTopLeft(demoList, timeout: const Duration(seconds: 10));
+    final DriverOffset bottomRight = await driver.getBottomRight(demoList,
+        timeout: const Duration(seconds: 10));
+    final double listWidth = bottomRight.dx - topLeft.dx;
+    final double listHeight = bottomRight.dy - topLeft.dy;
     await driver.scrollUntilVisible(
       demoList,
       demoItem,
-      dxScroll: -800,
-      dyScroll: -50,
+      dxScroll: -listWidth * 0.75,
+      dyScroll: -listHeight * 0.75,
       alignment: 0.5,
       timeout: const Duration(seconds: 10),
     );
