@@ -2098,6 +2098,10 @@
     description="A chip component to that indicates a biking selection."
     >Biking</string>
   <string
+    name="demo"
+    description="Used in the title of the demos."
+    >Demo</string>
+  <string
     name="dialogDiscardTitle"
     description="Alert dialog message to discard draft."
     >Discard draft?</string>
