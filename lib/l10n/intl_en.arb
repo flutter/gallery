@@ -2230,6 +2230,10 @@
   "@chipBiking": {
     "description": "A chip component to that indicates a biking selection."
   },
+  "demo": "Demo",
+  "@demo": {
+    "description": "Used in the title of the demos."
+  },
   "dialogDiscardTitle": "Discard draft?",
   "@dialogDiscardTitle": {
     "description": "Alert dialog message to discard draft."
