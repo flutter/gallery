@@ -129,19 +129,21 @@ class _ShrineAppState extends State<ShrineApp>
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = isDisplayDesktop(context);
-    final backdrop = isDesktop ? desktopBackdrop() : mobileBackdrop();
     final Widget home = LayoutCache(
       layouts: _layouts,
       child: PageStatus(
         menuController: _controller,
         cartController: _expandingController,
-        child: HomePage(
-          backdrop: backdrop,
-          scrim: Scrim(controller: _expandingController),
-          expandingBottomSheet: ExpandingBottomSheet(
-            hideController: _controller,
-            expandingController: _expandingController,
+        child: LayoutBuilder(
+          builder: (context, constraints) => HomePage(
+            backdrop: isDisplayDesktop(context)
+                ? desktopBackdrop()
+                : mobileBackdrop(),
+            scrim: Scrim(controller: _expandingController),
+            expandingBottomSheet: ExpandingBottomSheet(
+              hideController: _controller,
+              expandingController: _expandingController,
+            ),
           ),
         ),
       ),
