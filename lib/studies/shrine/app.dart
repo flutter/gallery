@@ -135,8 +135,7 @@ class _ShrineAppState extends State<ShrineApp>
         menuController: _controller,
         cartController: _expandingController,
         child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) =>
-              HomePage(
+          builder: (context, constraints) => HomePage(
             backdrop: isDisplayDesktop(context)
                 ? desktopBackdrop()
                 : mobileBackdrop(),
