@@ -55,11 +55,14 @@ class NavDrawerDemo extends StatelessWidget {
           localization.demoNavigationDrawerTitle,
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(50.0),
-          child: Text(
-            localization.demoNavigationDrawerText,
+      body: Semantics(
+        container: true,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: Text(
+              localization.demoNavigationDrawerText,
+            ),
           ),
         ),
       ),
