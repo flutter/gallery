@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN bottomAppBarDemo
@@ -127,11 +128,15 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
         ],
       ),
       floatingActionButton: _showFab.value
-          ? FloatingActionButton(
-              onPressed: () {},
-              tooltip: localizations.buttonTextCreate,
-              child: const Icon(Icons.add),
-            )
+          ? Semantics(
+            container: true,
+            sortKey: const OrdinalSortKey(0),
+            child: FloatingActionButton(
+                onPressed: () {},
+                tooltip: localizations.buttonTextCreate,
+                child: const Icon(Icons.add),
+              ),
+          )
           : null,
       floatingActionButtonLocation: _fabLocations[_currentFabLocation.value],
       bottomNavigationBar: _DemoBottomAppBar(
@@ -165,21 +170,30 @@ class _DemoBottomAppBar extends StatelessWidget {
         data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
         child: Row(
           children: [
-            IconButton(
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              icon: const Icon(Icons.menu),
-              onPressed: () {},
+            Semantics(
+              sortKey: const OrdinalSortKey(1),
+              child: IconButton(
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                icon: const Icon(Icons.menu),
+                onPressed: () {},
+              ),
             ),
             if (centerLocations.contains(fabLocation)) const Spacer(),
-            IconButton(
-              tooltip: localizations.starterAppTooltipSearch,
-              icon: const Icon(Icons.search),
-              onPressed: () {},
+            Semantics(
+              sortKey: const OrdinalSortKey(2),
+              child: IconButton(
+                tooltip: localizations.starterAppTooltipSearch,
+                icon: const Icon(Icons.search),
+                onPressed: () {},
+              ),
             ),
-            IconButton(
-              tooltip: localizations.starterAppTooltipFavorite,
-              icon: const Icon(Icons.favorite),
-              onPressed: () {},
+            Semantics(
+              sortKey: const OrdinalSortKey(3),
+              child: IconButton(
+                tooltip: localizations.starterAppTooltipFavorite,
+                icon: const Icon(Icons.favorite),
+                onPressed: () {},
+              ),
             ),
           ],
         ),
