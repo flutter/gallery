@@ -129,14 +129,14 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
       ),
       floatingActionButton: _showFab.value
           ? Semantics(
-            container: true,
-            sortKey: const OrdinalSortKey(0),
-            child: FloatingActionButton(
+              container: true,
+              sortKey: const OrdinalSortKey(0),
+              child: FloatingActionButton(
                 onPressed: () {},
                 tooltip: localizations.buttonTextCreate,
                 child: const Icon(Icons.add),
               ),
-          )
+            )
           : null,
       floatingActionButtonLocation: _fabLocations[_currentFabLocation.value],
       bottomNavigationBar: _DemoBottomAppBar(
