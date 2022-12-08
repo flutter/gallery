@@ -2102,6 +2102,10 @@
     description="Used in the title of the demos."
     >Demo</string>
   <string
+    name="loading"
+    description="Indicates the loading process."
+    >Loading</string>
+  <string
     name="dialogDiscardTitle"
     description="Alert dialog message to discard draft."
     >Discard draft?</string>

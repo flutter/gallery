@@ -66,7 +66,9 @@ class _ProgressIndicatorDemoState extends State<ProgressIndicatorDemo>
       case ProgressIndicatorDemoType.circular:
         return Column(
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(
+              semanticsLabel: GalleryLocalizations.of(context)!.loading,
+            ),
             const SizedBox(height: 32),
             CircularProgressIndicator(value: _animation.value),
           ],
