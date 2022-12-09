@@ -2234,6 +2234,10 @@
   "@demo": {
     "description": "Used in the title of the demos."
   },
+  "bottomAppBar": "Bottom app bar",
+  "@bottomAppBar": {
+    "description": "Used as semantic label for a BottomAppBar."
+  },
   "dialogDiscardTitle": "Discard draft?",
   "@dialogDiscardTitle": {
     "description": "Alert dialog message to discard draft."

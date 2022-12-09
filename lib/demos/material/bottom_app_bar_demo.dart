@@ -164,38 +164,34 @@ class _DemoBottomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context)!;
-    return BottomAppBar(
-      shape: shape,
-      child: IconTheme(
-        data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-        child: Row(
-          children: [
-            Semantics(
-              sortKey: const OrdinalSortKey(1),
-              child: IconButton(
+    return Semantics(
+      sortKey: const OrdinalSortKey(1),
+      container: true,
+      label: localizations.bottomAppBar,
+      child: BottomAppBar(
+        shape: shape,
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            children: [
+              IconButton(
                 tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
                 icon: const Icon(Icons.menu),
                 onPressed: () {},
               ),
-            ),
-            if (centerLocations.contains(fabLocation)) const Spacer(),
-            Semantics(
-              sortKey: const OrdinalSortKey(2),
-              child: IconButton(
+              if (centerLocations.contains(fabLocation)) const Spacer(),
+              IconButton(
                 tooltip: localizations.starterAppTooltipSearch,
                 icon: const Icon(Icons.search),
                 onPressed: () {},
               ),
-            ),
-            Semantics(
-              sortKey: const OrdinalSortKey(3),
-              child: IconButton(
+              IconButton(
                 tooltip: localizations.starterAppTooltipFavorite,
                 icon: const Icon(Icons.favorite),
                 onPressed: () {},
-              ),
-            ),
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
