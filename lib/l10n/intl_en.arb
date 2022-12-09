@@ -2238,6 +2238,10 @@
   "@bottomAppBar": {
     "description": "Used as semantic label for a BottomAppBar."
   },
+  "loading": "Loading",
+  "@loading": {
+    "description": "Indicates the loading process."
+  },
   "dialogDiscardTitle": "Discard draft?",
   "@dialogDiscardTitle": {
     "description": "Alert dialog message to discard draft."

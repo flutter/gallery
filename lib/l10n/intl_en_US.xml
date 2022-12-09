@@ -2106,6 +2106,10 @@
     description="Used as semantic label for a BottomAppBar."
     >Bottom app bar</string>
   <string
+    name="loading"
+    description="Indicates the loading process."
+    >Loading</string>
+  <string
     name="dialogDiscardTitle"
     description="Alert dialog message to discard draft."
     >Discard draft?</string>
