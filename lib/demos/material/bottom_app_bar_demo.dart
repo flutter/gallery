@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 
 // BEGIN bottomAppBarDemo
@@ -127,10 +128,14 @@ class _BottomAppBarDemoState extends State<BottomAppBarDemo>
         ],
       ),
       floatingActionButton: _showFab.value
-          ? FloatingActionButton(
-              onPressed: () {},
-              tooltip: localizations.buttonTextCreate,
-              child: const Icon(Icons.add),
+          ? Semantics(
+              container: true,
+              sortKey: const OrdinalSortKey(0),
+              child: FloatingActionButton(
+                onPressed: () {},
+                tooltip: localizations.buttonTextCreate,
+                child: const Icon(Icons.add),
+              ),
             )
           : null,
       floatingActionButtonLocation: _fabLocations[_currentFabLocation.value],
@@ -159,29 +164,34 @@ class _DemoBottomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localizations = GalleryLocalizations.of(context)!;
-    return BottomAppBar(
-      shape: shape,
-      child: IconTheme(
-        data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-        child: Row(
-          children: [
-            IconButton(
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              icon: const Icon(Icons.menu),
-              onPressed: () {},
-            ),
-            if (centerLocations.contains(fabLocation)) const Spacer(),
-            IconButton(
-              tooltip: localizations.starterAppTooltipSearch,
-              icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
-            IconButton(
-              tooltip: localizations.starterAppTooltipFavorite,
-              icon: const Icon(Icons.favorite),
-              onPressed: () {},
-            ),
-          ],
+    return Semantics(
+      sortKey: const OrdinalSortKey(1),
+      container: true,
+      label: localizations.bottomAppBar,
+      child: BottomAppBar(
+        shape: shape,
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            children: [
+              IconButton(
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                icon: const Icon(Icons.menu),
+                onPressed: () {},
+              ),
+              if (centerLocations.contains(fabLocation)) const Spacer(),
+              IconButton(
+                tooltip: localizations.starterAppTooltipSearch,
+                icon: const Icon(Icons.search),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: localizations.starterAppTooltipFavorite,
+                icon: const Icon(Icons.favorite),
+                onPressed: () {},
+              )
+            ],
+          ),
         ),
       ),
     );
