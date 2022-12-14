@@ -1,10 +1,5 @@
 include: package:flutter_lints/flutter.yaml
 
-analyzer:
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
-
 linter:
   # In addition to the flutter_lints
   rules:
