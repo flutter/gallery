@@ -25,7 +25,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
       - run: flutter pub get -v
 
       # Analyze, check formatting, and run unit tests.
@@ -49,7 +49,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
       - run: flutter pub get -v
 
       - run: flutter test test_benchmarks
@@ -67,7 +67,7 @@ jobs:
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
       - run: flutter pub get -v
 
       # Run the golden tests and upload failed test artifacts.
