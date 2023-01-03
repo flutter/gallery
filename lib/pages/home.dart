@@ -982,7 +982,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
         (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
       return super.createBallisticSimulation(position, velocity);
     }
-    final tolerance = this.tolerance;
+    final tolerance = toleranceFor(position);
     final target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels) {
       return ScrollSpringSimulation(
