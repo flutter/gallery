@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "gallery" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "gallery" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 io.flutter.demo. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 io.flutter.demo. All rights reserved." "\0"
             VALUE "OriginalFilename", "gallery.exe" "\0"
             VALUE "ProductName", "gallery" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
