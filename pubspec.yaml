@@ -53,6 +53,7 @@ flutter:
         # Only one library from the loading unit is necessary.
         - package:gallery/studies/crane/app.dart
       assets:
+        - packages/flutter_gallery_assets/crane/destinations/eat_0.jpg
         - packages/flutter_gallery_assets/crane/destinations/eat_1.jpg
         - packages/flutter_gallery_assets/crane/destinations/eat_2.jpg
         - packages/flutter_gallery_assets/crane/destinations/eat_3.jpg
