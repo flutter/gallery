@@ -4,7 +4,7 @@ repository: https://github.com/flutter/gallery
 version: 2.10.0+021000
 
 environment:
-  flutter: ^3.1.0-0 # Kept relatively close to master channel version
+  flutter: ^3.7.0-1.4.pre # Keep relatively close to master channel version
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
@@ -18,12 +18,13 @@ dependencies:
   cupertino_icons: ^1.0.4
   dual_screen: ^1.0.3
   flutter_gallery_assets: ^1.0.2
-  flutter_localized_locales: ^2.0.3
+  flutter_localized_locales: ^2.0.4
   flutter_staggered_grid_view: ^0.6.1
   google_fonts: ^3.0.1
-  intl: ^0.17.0
+  # An exact version pin will be provided by the Flutter SDK
+  intl: any
   meta: ^1.7.0
-  package_info_plus: ^2.0.0
+  package_info_plus: ^3.0.2
   path_provider: ^2.0.11
   provider: ^6.0.2
   rally_assets: ^3.0.1
