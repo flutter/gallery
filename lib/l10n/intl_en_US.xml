@@ -1983,7 +1983,7 @@
     >Keep it short, this is just a demo.</string>
   <string
     name="demoTextFieldLifeStory"
-    description="The label for for biography/life story input field."
+    description="The label for biography/life story input field."
     >Life story</string>
   <string
     name="demoTextFieldSalary"

@@ -119,7 +119,7 @@ Future<bool> isPresent(SerializableFinder finder, FlutterDriver driver,
   }
 }
 
-/// Scrolls each each demo into view, launches it, then returns to the
+/// Scrolls each demo into view, launches it, then returns to the
 /// home screen, twice.
 ///
 /// Optionally specify a callback to perform further actions for each demo.

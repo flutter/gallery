@@ -2098,7 +2098,7 @@
   },
   "demoTextFieldLifeStory": "Life story",
   "@demoTextFieldLifeStory": {
-    "description": "The label for for biography/life story input field."
+    "description": "The label for biography/life story input field."
   },
   "demoTextFieldSalary": "Salary",
   "@demoTextFieldSalary": {
