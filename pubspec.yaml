@@ -1,7 +1,7 @@
 name: gallery
 description: A resource to help developers evaluate and use Flutter.
 repository: https://github.com/flutter/gallery
-version: 2.10.0+021001
+version: 2.10.0+021000
 
 environment:
   flutter: ^3.7.0-1.4.pre # Keep relatively close to master channel version
