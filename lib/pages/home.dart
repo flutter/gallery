@@ -215,11 +215,11 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.end,
-                      children: const [
+                      children: [
                         SettingsAbout(),
                         SettingsFeedback(),
                         SettingsAttribution(),
