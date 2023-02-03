@@ -85,10 +85,10 @@ packages:
     dependency: "direct main"
     description:
       name: collection
-      sha256: cfc915e6923fe5ce6e153b0723c753045de46de1b4d63771530504004a45fae0
+      sha256: "4a07be6cb69c84d677a6c3096fcf960cc3285a8330b4603e0d463d15d9bd934c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.0"
+    version: "1.17.1"
   convert:
     dependency: transitive
     description:
@@ -291,10 +291,10 @@ packages:
     dependency: transitive
     description:
       name: js
-      sha256: "323b7c70073cccf6b9b8d8b334be418a3293cfb612a560dc2737160a37bf61bd"
+      sha256: f2c445dce49627136094980615a031419f7f3eb393237e4ecd97ac15dea343f3
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.6"
+    version: "0.6.7"
   lints:
     dependency: transitive
     description:
@@ -331,10 +331,10 @@ packages:
     dependency: "direct main"
     description:
       name: meta
-      sha256: "6c268b42ed578a53088d834796959e4a1814b5e9e164f147f580a386e5decf42"
+      sha256: "12307e7f0605ce3da64cf0db90e5fcab0869f3ca03f76be6bb2991ce0a55e82b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.8.0"
+    version: "1.9.0"
   mime:
     dependency: transitive
     description:
@@ -784,10 +784,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: e7fb6c2282f7631712b69c19d1bff82f3767eea33a2321c14fa59ad67ea391c7
+      sha256: "2277c73618916ae3c2082b6df67b6ebb64b4c69d9bf23b23700707952ac30e60"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.0"
+    version: "10.1.2"
   watcher:
     dependency: transitive
     description:
@@ -853,5 +853,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.0-345.0.dev <4.0.0"
+  dart: ">=2.19.0 <4.0.0"
   flutter: ">=3.7.0-1.4.pre"
