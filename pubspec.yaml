@@ -24,7 +24,7 @@ dependencies:
   # An exact version pin will be provided by the Flutter SDK
   intl: any
   meta: ^1.7.0
-  package_info_plus: ^3.0.2
+  package_info_plus: ^3.0.3
   path_provider: ^2.0.11
   provider: ^6.0.2
   rally_assets: ^3.0.1
