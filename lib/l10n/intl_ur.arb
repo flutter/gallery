@@ -1,4 +1,12 @@
 {
+  "loading": "لوڈ ہو رہا ہے",
+  "deselect": "غیر منتخب کریں",
+  "select": "منتخب کریں",
+  "selectable": "منتخب کرنے کے قابل (دیر تک دبائیں)",
+  "selected": "منتخب کردہ",
+  "demo": "ڈیمو",
+  "bottomAppBar": "نیچے کا ایپ بار",
+  "notSelected": "منتخب نہیں کیا گیا",
   "demoCupertinoSearchTextFieldTitle": "ٹیکسٹ تلاش کرنے کا فیلڈ",
   "demoCupertinoPicker": "منتخب کنندہ",
   "demoCupertinoSearchTextFieldSubtitle": "iOS طرز کا ٹیکسٹ تلاش کرنے کا فیلڈ",

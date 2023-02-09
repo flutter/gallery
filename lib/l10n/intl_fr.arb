@@ -1,4 +1,12 @@
 {
+  "loading": "Chargement…",
+  "deselect": "Désélectionner",
+  "select": "Sélectionner",
+  "selectable": "Sélectionnable (appui de manière prolongée)",
+  "selected": "Sélectionné",
+  "demo": "Version de démonstration",
+  "bottomAppBar": "Barre d'application inférieure",
+  "notSelected": "Non sélectionné",
   "demoCupertinoSearchTextFieldTitle": "Champ de recherche de texte",
   "demoCupertinoPicker": "Sélecteur",
   "demoCupertinoSearchTextFieldSubtitle": "Champ de recherche de texte de style iOS",

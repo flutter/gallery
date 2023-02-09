@@ -1,4 +1,12 @@
 {
+  "loading": "Ladataan",
+  "deselect": "Poista valinta",
+  "select": "Valitse",
+  "selectable": "Valittavissa (pitkä painallus)",
+  "selected": "Valittu",
+  "demo": "Esittely",
+  "bottomAppBar": "Alaosan sovelluspalkki",
+  "notSelected": "Ei valittu",
   "demoCupertinoSearchTextFieldTitle": "Hakutekstikenttä",
   "demoCupertinoPicker": "Valitsija",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-tyylinen hakutekstikenttä",

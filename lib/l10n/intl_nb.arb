@@ -1,4 +1,12 @@
 {
+  "loading": "Laster inn",
+  "deselect": "Velg bort",
+  "select": "Velg",
+  "selectable": "Kan velges (langt trykk)",
+  "selected": "Valgt",
+  "demo": "Demonstrasjon",
+  "bottomAppBar": "Nederste apprad",
+  "notSelected": "Ikke valgt",
   "demoCupertinoSearchTextFieldTitle": "Søketekstfelt",
   "demoCupertinoPicker": "Velger",
   "demoCupertinoSearchTextFieldSubtitle": "Søketekstfelt i iOS-stil",

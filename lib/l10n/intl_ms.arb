@@ -1,4 +1,12 @@
 {
+  "loading": "Memuatkan",
+  "deselect": "Nyahpilih",
+  "select": "Pilih",
+  "selectable": "Boleh pilih (tekan lama)",
+  "selected": "Dipilih",
+  "demo": "Demo",
+  "bottomAppBar": "Bar apl sebelah bawah",
+  "notSelected": "Tidak dipilih",
   "demoCupertinoSearchTextFieldTitle": "Medan teks carian",
   "demoCupertinoPicker": "Pemilih",
   "demoCupertinoSearchTextFieldSubtitle": "Medan teks carian gaya iOS",

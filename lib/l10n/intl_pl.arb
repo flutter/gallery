@@ -1,4 +1,12 @@
 {
+  "loading": "Wczytuję",
+  "deselect": "Odznacz",
+  "select": "Zaznacz",
+  "selectable": "Możliwość zaznaczenia (przez przytrzymanie)",
+  "selected": "Zaznaczono",
+  "demo": "Wersja demonstracyjna",
+  "bottomAppBar": "Dolny pasek aplikacji",
+  "notSelected": "Nie zaznaczono",
   "demoCupertinoSearchTextFieldTitle": "Pole tekstowe wyszukiwania",
   "demoCupertinoPicker": "Selektor",
   "demoCupertinoSearchTextFieldSubtitle": "Pole tekstowe wyszukiwania w stylu iOS",

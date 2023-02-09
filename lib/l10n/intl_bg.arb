@@ -1,4 +1,12 @@
 {
+  "loading": "Зарежда се",
+  "deselect": "Премахване на избора",
+  "select": "Избиране",
+  "selectable": "Може да се избере (при продължително натискане)",
+  "selected": "Избрано",
+  "demo": "Демонстрация",
+  "bottomAppBar": "Лента в долната част на приложението",
+  "notSelected": "Не е избрано",
   "demoCupertinoSearchTextFieldTitle": "Текстово поле за търсене",
   "demoCupertinoPicker": "Инструмент за избор",
   "demoCupertinoSearchTextFieldSubtitle": "Текстово поле за търсене в стил iOS",

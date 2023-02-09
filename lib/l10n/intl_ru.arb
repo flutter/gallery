@@ -1,4 +1,12 @@
 {
+  "loading": "Загрузка",
+  "deselect": "Отменить выбор",
+  "select": "Выбрать",
+  "selectable": "Можно выбрать (нажмите и удерживайте)",
+  "selected": "Выбрано",
+  "demo": "Демоверсия",
+  "bottomAppBar": "Нижняя панель приложения",
+  "notSelected": "Не выбрано",
   "demoCupertinoSearchTextFieldTitle": "Поле поиска",
   "demoCupertinoPicker": "Окно выбора",
   "demoCupertinoSearchTextFieldSubtitle": "Поле поиска в стиле iOS",

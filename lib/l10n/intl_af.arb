@@ -1,4 +1,12 @@
 {
+  "loading": "Laai tans",
+  "deselect": "Ontkies",
+  "select": "Kies",
+  "selectable": "Kiesbaar (langdruk)",
+  "selected": "Gekies",
+  "demo": "Demonstrasie",
+  "bottomAppBar": "Onderste appbalk",
+  "notSelected": "Nie gekies nie",
   "demoCupertinoSearchTextFieldTitle": "Soekteksveld",
   "demoCupertinoPicker": "Kieser",
   "demoCupertinoSearchTextFieldSubtitle": "Soekteksveld in iOS-styl",

@@ -1,4 +1,12 @@
 {
+  "loading": "Įkeliama",
+  "deselect": "Panaikinti pasirinkimą",
+  "select": "Pasirinkti",
+  "selectable": "Pasirenkama (ilgai paspaudus)",
+  "selected": "Pasirinkta",
+  "demo": "Demonstracinė versija",
+  "bottomAppBar": "Apatinė programų juosta",
+  "notSelected": "Nepasirinkta",
   "demoCupertinoSearchTextFieldTitle": "Paieškos teksto laukas",
   "demoCupertinoPicker": "Rinkiklis",
   "demoCupertinoSearchTextFieldSubtitle": "„iOS“ stiliaus paieškos teksto laukas",

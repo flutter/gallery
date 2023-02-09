@@ -1,4 +1,12 @@
 {
+  "loading": "Բեռնում",
+  "deselect": "Ապընտրել",
+  "select": "Ընտրել",
+  "selectable": "Կարելի է ընտրել (երկար սեղմել)",
+  "selected": "Ընտրված է",
+  "demo": "Դեմո",
+  "bottomAppBar": "Հավելվածների ստորին գոտի",
+  "notSelected": "Ընտրված չէ",
   "demoCupertinoSearchTextFieldTitle": "Որոնման տեքստի վանդակ",
   "demoCupertinoPicker": "Ընտրիչ",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-ի ոճով որոնման տեքստի վանդակ",

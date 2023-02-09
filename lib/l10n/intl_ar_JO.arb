@@ -1,4 +1,12 @@
 {
+  "loading": "جارٍ التحميل",
+  "deselect": "إلغاء الاختيار",
+  "select": "اختيار",
+  "selectable": "قابل للاختيار (بالضغط مع الاستمرار)",
+  "selected": "محدَّد",
+  "demo": "إصدار تجريبي",
+  "bottomAppBar": "شريط التطبيق السفلي",
+  "notSelected": "غير محدَّد",
   "demoCupertinoSearchTextFieldTitle": "الحقل النصي للبحث",
   "demoCupertinoPicker": "أداة الاختيار",
   "demoCupertinoSearchTextFieldSubtitle": "الحقل النصي للبحث بنمط iOS",

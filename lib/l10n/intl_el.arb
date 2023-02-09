@@ -1,4 +1,12 @@
 {
+  "loading": "Φόρτωση",
+  "deselect": "Αποεπιλογή",
+  "select": "Επιλογή",
+  "selectable": "Με δυνατότητα επιλογής (παρατεταμένο πάτημα)",
+  "selected": "Επιλεγμένο",
+  "demo": "Επίδειξη",
+  "bottomAppBar": "Γραμμή εφαρμογής στο κάτω μέρος",
+  "notSelected": "Δεν έχει επιλεχθεί",
   "demoCupertinoSearchTextFieldTitle": "Πεδίο κειμένου αναζήτησης",
   "demoCupertinoPicker": "Εργαλείο επιλογής",
   "demoCupertinoSearchTextFieldSubtitle": "Πεδίο κειμένου αναζήτησης τύπου iOS",

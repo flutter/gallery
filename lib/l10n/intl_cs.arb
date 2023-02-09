@@ -1,4 +1,12 @@
 {
+  "loading": "Načítání",
+  "deselect": "Zrušit výběr",
+  "select": "Vybrat",
+  "selectable": "Vybratelné (dlouhé stisknutí)",
+  "selected": "Vybráno",
+  "demo": "Ukázka",
+  "bottomAppBar": "Dolní panel aplikace",
+  "notSelected": "Nevybráno",
   "demoCupertinoSearchTextFieldTitle": "Textové pole pro vyhledávání",
   "demoCupertinoPicker": "Výběr",
   "demoCupertinoSearchTextFieldSubtitle": "Textové pole pro vyhledávání ve stylu iOS",

@@ -1,4 +1,12 @@
 {
+  "loading": "පූරණය වේ",
+  "deselect": "නොතෝරන්න",
+  "select": "තෝරන්න",
+  "selectable": "තේරිය හැකි (දිගු එබීම)",
+  "selected": "තෝරන ලදි",
+  "demo": "ආදර්ශනය",
+  "bottomAppBar": "පහළ යෙදුම් තීරුව",
+  "notSelected": "තෝරා නැත",
   "demoCupertinoSearchTextFieldTitle": "පෙළ ක්ෂේත්‍රය සොයන්න",
   "demoCupertinoPicker": "තෝරකය",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-විලාසයේ සෙවීම් පෙළ ක්ෂේත්‍රය",

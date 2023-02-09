@@ -1,4 +1,12 @@
 {
+  "loading": "ஏற்றுகிறது",
+  "deselect": "தேர்வு நீக்கு",
+  "select": "தேர்ந்தெடு",
+  "selectable": "தேர்ந்தெடுக்கக்கூடியது (நீண்ட நேரம் அழுத்தவும்)",
+  "selected": "தேர்ந்தெடுக்கப்பட்டது",
+  "demo": "டெமோ",
+  "bottomAppBar": "ஆப்ஸின் அடிப்பகுதியிலுள்ள பட்டி",
+  "notSelected": "தேர்ந்தெடுக்கப்படவில்லை",
   "demoCupertinoSearchTextFieldTitle": "தேடல் வார்த்தையை உள்ளிடுவதற்கான புலம்",
   "demoCupertinoPicker": "தேர்வுக் கருவி",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-ஸ்டைல் தேடல் வார்த்தையை உள்ளிடுவதற்கான புலம்",
