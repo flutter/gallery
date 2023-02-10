@@ -20,10 +20,12 @@ const double _settingsButtonHeightMobile = 40;
 class Backdrop extends StatefulWidget {
   const Backdrop({
     super.key,
+    required this.isDesktop,
     this.settingsPage,
     this.homePage,
   });
 
+  final bool isDesktop;
   final Widget? settingsPage;
   final Widget? homePage;
 
@@ -44,7 +46,9 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
     super.initState();
     _settingsPanelController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 200),
+      duration: widget.isDesktop
+          ? const Duration(milliseconds: 200)
+          : const Duration(milliseconds: 600),
     );
     _iconController = AnimationController(
       vsync: this,
@@ -196,8 +200,7 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
                     : Alignment.topLeft,
                 scale: CurvedAnimation(
                   parent: _settingsPanelController,
-                  curve: Curves.easeIn,
-                  reverseCurve: Curves.easeOut,
+                  curve: Curves.fastOutSlowIn,
                 ),
                 child: Align(
                   alignment: AlignmentDirectional.topEnd,

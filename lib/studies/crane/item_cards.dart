@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/layout/highlight_focus.dart';
 import 'package:gallery/layout/image_placeholder.dart';
@@ -80,7 +79,7 @@ class DestinationCard extends StatelessWidget {
 
     return HighlightFocus(
       debugLabel: 'DestinationCard: ${destination.destination}',
-      highlightColor: Colors.red.withOpacity(0.5),
+      highlightColor: Colors.red.withOpacity(0.1),
       onPressed: () {},
       child: card,
     );

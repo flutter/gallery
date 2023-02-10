@@ -17,7 +17,13 @@ const double desktopSettingsWidth = 520;
 const double systemTextScaleFactorOption = -1;
 
 // The splash page animation duration.
-const splashPageAnimationDurationInMilliseconds = 300;
+const Duration splashPageAnimationDuration = Duration(milliseconds: 300);
+
+// Half the splash page animation duration.
+const Duration halfSplashPageAnimationDuration = Duration(milliseconds: 150);
+
+// Duration for home page elements to fade in.
+const Duration entranceAnimationDuration = Duration(milliseconds: 200);
 
 // The desktop top padding for a page's first header (e.g. Gallery, Settings)
-const firstHeaderDesktopTopPadding = 5.0;
+const double firstHeaderDesktopTopPadding = 5.0;

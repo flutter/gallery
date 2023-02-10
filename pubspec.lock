@@ -275,10 +275,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
       url: "https://pub.dev"
     source: hosted
-    version: "0.17.0"
+    version: "0.18.0"
   io:
     dependency: transitive
     description:
@@ -672,10 +672,10 @@ packages:
     dependency: "direct dev"
     description:
       name: test
-      sha256: fad866af0eab867e2c96623e25fe9f7e4d598a1f19e3da3a70b52fe4083cb145
+      sha256: "5301f54eb6fe945daa99bc8df6ece3f88b5ceaa6f996f250efdaaf63e22886be"
       url: "https://pub.dev"
     source: hosted
-    version: "1.23.0"
+    version: "1.23.1"
   test_api:
     dependency: transitive
     description:
@@ -688,10 +688,18 @@ packages:
     dependency: transitive
     description:
       name: test_core
-      sha256: d345256d1f4a63c8193ba40e4657dea57c2f92a6b7501657ec7f3f57dd26769d
+      sha256: d2e9240594b409565524802b84b7b39341da36dd6fd8e1660b53ad928ec3e9af
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.23"
+    version: "0.4.24"
+  transparent_image:
+    dependency: "direct main"
+    description:
+      name: transparent_image
+      sha256: e566a616922a781489f4d91cc939b1b3203b6e4a093317805f2f82f0bb0f8dec
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   typed_data:
     dependency: transitive
     description:
