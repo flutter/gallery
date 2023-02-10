@@ -7,7 +7,7 @@ body:
     attributes:
       label: Existing issue?
       options:
-        - label: I checked the [existing issues](https://github.com/material-foundation/flutter-packages/issues)
+        - label: I checked the [existing issues](https://github.com/flutter/gallery/issues)
           required: true
   - type: textarea
     id: what-happened
