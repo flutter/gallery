@@ -728,9 +728,8 @@ class DemoWrapper extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       height: height,
-      child: Material(
-        clipBehavior: Clip.antiAlias,
-        color: const Color(0x00000000),
+      child: ClipRRect(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(10.0),
           bottom: Radius.circular(2.0),
