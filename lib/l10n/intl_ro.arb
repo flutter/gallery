@@ -1,4 +1,12 @@
 {
+  "loading": "Se încarcă",
+  "deselect": "Debifați",
+  "select": "Selectați",
+  "selectable": "Se poate selecta (apăsare lungă)",
+  "selected": "Selectat",
+  "demo": "Versiune demonstrativă",
+  "bottomAppBar": "Bara de aplicații din partea de jos",
+  "notSelected": "Neselectat",
   "demoCupertinoSearchTextFieldTitle": "Câmp pentru căutarea textului",
   "demoCupertinoPicker": "Selector",
   "demoCupertinoSearchTextFieldSubtitle": "Câmp pentru textul de căutare în stil iOS",

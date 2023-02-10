@@ -1,4 +1,12 @@
 {
+  "loading": "Yükleniyor",
+  "deselect": "Seçimi kaldır",
+  "select": "Seç",
+  "selectable": "Seçilebilir (uzun basma)",
+  "selected": "Seçili",
+  "demo": "Demo",
+  "bottomAppBar": "Alt uygulama çubuğu",
+  "notSelected": "Seçili değil",
   "demoCupertinoSearchTextFieldTitle": "Arama metni alanı",
   "demoCupertinoPicker": "Seçici",
   "demoCupertinoSearchTextFieldSubtitle": "iOS stili arama metin alanı",

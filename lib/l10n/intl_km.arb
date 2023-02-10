@@ -1,4 +1,12 @@
 {
+  "loading": "កំពុងផ្ទុក",
+  "deselect": "ដក​ការជ្រើសរើស",
+  "select": "ជ្រើសរើស",
+  "selectable": "អាចជ្រើសរើសបាន (ចុចឱ្យយូរ)",
+  "selected": "បានជ្រើសរើស",
+  "demo": "គំរូបង្ហាញ",
+  "bottomAppBar": "របារកម្មវិធី​ផ្នែកខាងក្រោម",
+  "notSelected": "មិនបាន​ជ្រើសរើស",
   "demoCupertinoSearchTextFieldTitle": "កន្លែងបញ្ចូល​ពាក្យស្វែងរក",
   "demoCupertinoPicker": "ផ្ទាំងជ្រើសរើស",
   "demoCupertinoSearchTextFieldSubtitle": "កន្លែងបញ្ចូល​ពាក្យស្វែងរក​ដែលមានរចនាប័ទ្ម iOS",

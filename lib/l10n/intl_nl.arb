@@ -1,4 +1,12 @@
 {
+  "loading": "Laden",
+  "deselect": "Deselecteren",
+  "select": "Selecteren",
+  "selectable": "Selecteerbaar (lang indrukken)",
+  "selected": "Geselecteerd",
+  "demo": "Demo",
+  "bottomAppBar": "App-balk onderaan",
+  "notSelected": "Niet geselecteerd",
   "demoCupertinoSearchTextFieldTitle": "Zoektekstveld",
   "demoCupertinoPicker": "Kiezer",
   "demoCupertinoSearchTextFieldSubtitle": "Zoektekstveld in iOS-stijl",

@@ -1,4 +1,12 @@
 {
+  "loading": "로드 중",
+  "deselect": "선택 해제",
+  "select": "선택",
+  "selectable": "선택 가능(길게 누르기)",
+  "selected": "선택됨",
+  "demo": "데모",
+  "bottomAppBar": "하단 앱 바",
+  "notSelected": "선택되지 않음",
   "demoCupertinoSearchTextFieldTitle": "검색 텍스트 입력란",
   "demoCupertinoPicker": "선택 도구",
   "demoCupertinoSearchTextFieldSubtitle": "iOS 스타일 검색 텍스트 입력란",

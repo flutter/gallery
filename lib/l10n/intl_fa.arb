@@ -1,4 +1,12 @@
 {
+  "loading": "درحال بار کردن",
+  "deselect": "لغو انتخاب",
+  "select": "انتخاب",
+  "selectable": "قابل انتخاب (فشار طولانی)",
+  "selected": "انتخاب‌شده",
+  "demo": "نسخه نمونه",
+  "bottomAppBar": "نوار برنامه پایین صفحه",
+  "notSelected": "انتخاب‌نشده",
   "demoCupertinoSearchTextFieldTitle": "فیلد نوشتاری جستجو",
   "demoCupertinoPicker": "انتخاب‌گر",
   "demoCupertinoSearchTextFieldSubtitle": "فیلد نوشتاری جستجو به‌سبک iOS",

@@ -1,4 +1,12 @@
 {
+  "loading": "ဖွင့်နေသည်",
+  "deselect": "မရွေးပါနှင့်",
+  "select": "ရွေးရန်",
+  "selectable": "ရွေးနိုင်သည် (ကြာရှည်နှိပ်ထားရန်)",
+  "selected": "ရွေးထားသည်",
+  "demo": "သရုပ်ပြ",
+  "bottomAppBar": "အောက်ခြေရှိ အက်ပ်ဘား",
+  "notSelected": "ရွေးမထားပါ",
   "demoCupertinoSearchTextFieldTitle": "ရှာဖွေရေး စာသားအကွက်",
   "demoCupertinoPicker": "ရွေးချယ်ရေးစနစ်",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-ပုံစံ ရှာဖွေရေး စာသားအကွက်",

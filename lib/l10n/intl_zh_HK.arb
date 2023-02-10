@@ -1,4 +1,12 @@
 {
+  "loading": "正在載入",
+  "deselect": "取消選取",
+  "select": "選取",
+  "selectable": "可選擇 (長按)",
+  "selected": "已選取",
+  "demo": "示範",
+  "bottomAppBar": "底部應用程式列",
+  "notSelected": "未選取",
   "demoCupertinoSearchTextFieldTitle": "搜尋文字欄位",
   "demoCupertinoPicker": "點選器",
   "demoCupertinoSearchTextFieldSubtitle": "iOS 樣式的搜尋文字欄位",

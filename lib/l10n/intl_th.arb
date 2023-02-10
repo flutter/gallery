@@ -1,4 +1,12 @@
 {
+  "loading": "กำลังโหลด",
+  "deselect": "ยกเลิกการเลือก",
+  "select": "เลือก",
+  "selectable": "เลือกได้ (กดค้าง)",
+  "selected": "เลือกแล้ว",
+  "demo": "เดโม",
+  "bottomAppBar": "แถบด้านล่างของแอป",
+  "notSelected": "ไม่ได้เลือก",
   "demoCupertinoSearchTextFieldTitle": "ช่องข้อความค้นหา",
   "demoCupertinoPicker": "เครื่องมือเลือก",
   "demoCupertinoSearchTextFieldSubtitle": "ช่องข้อความค้นหารูปแบบ iOS",

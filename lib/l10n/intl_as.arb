@@ -1,4 +1,12 @@
 {
+  "loading": "ল’ড হৈ আছে",
+  "deselect": "বাছনিৰ পৰা আঁতৰাওক",
+  "select": "বাছনি কৰক",
+  "selectable": "বাছনি কৰিব পৰা (দীঘলীয়াকৈ টিপক)",
+  "selected": "বাছনি কৰা হৈছে",
+  "demo": "ডেম’",
+  "bottomAppBar": "তলত অৱস্থিত এপৰ বাৰ",
+  "notSelected": "বাছনি কৰা হোৱা নাই",
   "demoCupertinoSearchTextFieldTitle": "সন্ধান কৰিবলগীয়া পাঠৰ ক্ষেত্ৰ",
   "demoCupertinoPicker": "বাছনি কৰোঁতা",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-শৈলীৰ সন্ধান কৰিবলগীয়া পাঠৰ ক্ষেত্ৰ",

@@ -1,4 +1,12 @@
 {
+  "loading": "ଲୋଡ ହେଉଛି",
+  "deselect": "ଅଚୟନ କରନ୍ତୁ",
+  "select": "ଚୟନ କରନ୍ତୁ",
+  "selectable": "ଚୟନ କରିବା ଯୋଗ୍ୟ (ଅଧିକ ସମୟ ଦବାନ୍ତୁ)",
+  "selected": "ଚୟନ କରାଯାଇଛି",
+  "demo": "ଡେମୋ",
+  "bottomAppBar": "ନିମ୍ନ ଆପ ବାର",
+  "notSelected": "ଚୟନ କରାଯାଇନାହିଁ",
   "demoCupertinoSearchTextFieldTitle": "ସନ୍ଧାନ ଟେକ୍ସଟ ଫିଲ୍ଡ",
   "demoCupertinoPicker": "ପିକର",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-ଷ୍ଟାଇଲର ସନ୍ଧାନ ଟେକ୍ସଟ ଫିଲ୍ଡ",

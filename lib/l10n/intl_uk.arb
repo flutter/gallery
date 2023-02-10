@@ -1,4 +1,12 @@
 {
+  "loading": "Завантаження",
+  "deselect": "Не вибирати",
+  "select": "Вибрати",
+  "selectable": "Можна вибрати (утримуванням)",
+  "selected": "Вибрано",
+  "demo": "Демоверсія",
+  "bottomAppBar": "Нижня панель додатків",
+  "notSelected": "Не вибрано",
   "demoCupertinoSearchTextFieldTitle": "Текстове поле пошуку",
   "demoCupertinoPicker": "Засіб вибору",
   "demoCupertinoSearchTextFieldSubtitle": "Текстове поле пошуку в стилі iOS",

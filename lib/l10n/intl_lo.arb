@@ -1,4 +1,12 @@
 {
+  "loading": "ກຳລັງໂຫຼດ",
+  "deselect": "ເຊົາເລືອກ",
+  "select": "ເລືອກ",
+  "selectable": "ສາມາດເລືອກໄດ້ (ກົດຄ້າງໄວ້)",
+  "selected": "ເລືອກແລ້ວ",
+  "demo": "ເດໂມ",
+  "bottomAppBar": "ແຖບທາງລຸ່ມຂອງແອັບ",
+  "notSelected": "ບໍ່ໄດ້ເລືອກ",
   "demoCupertinoSearchTextFieldTitle": "ຫ້ອງປ້ອນຂໍ້ຄວາມການຄົ້ນຫາ",
   "demoCupertinoPicker": "ຕົວເລືອກ",
   "demoCupertinoSearchTextFieldSubtitle": "ຫ້ອງປ້ອນຂໍ້ຄວາມການຄົ້ນຫາຮູບແບບ iOS",

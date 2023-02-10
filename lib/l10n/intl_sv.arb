@@ -1,4 +1,12 @@
 {
+  "loading": "Läser in",
+  "deselect": "Avmarkera",
+  "select": "Välj",
+  "selectable": "Valbar (tryck länge)",
+  "selected": "Markerad",
+  "demo": "Demo",
+  "bottomAppBar": "Nedre appfält",
+  "notSelected": "Inte markerad",
   "demoCupertinoSearchTextFieldTitle": "Söktextfält",
   "demoCupertinoPicker": "Väljare",
   "demoCupertinoSearchTextFieldSubtitle": "Söktextfält i iOS-stil",

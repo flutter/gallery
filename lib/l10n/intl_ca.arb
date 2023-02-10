@@ -1,4 +1,12 @@
 {
+  "loading": "S'està carregant",
+  "deselect": "Desselecciona",
+  "select": "Selecciona",
+  "selectable": "Es pot seleccionar (en mantenir premut)",
+  "selected": "Seleccionat",
+  "demo": "Demostració",
+  "bottomAppBar": "Barra d'aplicacions inferior",
+  "notSelected": "No seleccionat",
   "demoCupertinoSearchTextFieldTitle": "Camp de text de cerca",
   "demoCupertinoPicker": "Selector",
   "demoCupertinoSearchTextFieldSubtitle": "Camp de text de cerca d'estil iOS",

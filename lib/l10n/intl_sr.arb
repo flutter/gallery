@@ -1,4 +1,12 @@
 {
+  "loading": "Учитава се",
+  "deselect": "Опозови избор",
+  "select": "Изабери",
+  "selectable": "Може да се изабере (дуги притисак)",
+  "selected": "Изабрано је",
+  "demo": "Демо верзија",
+  "bottomAppBar": "Доња трака са апликацијама",
+  "notSelected": "Није изабрано",
   "demoCupertinoSearchTextFieldTitle": "Поље за текст претраге",
   "demoCupertinoPicker": "Бирач",
   "demoCupertinoSearchTextFieldSubtitle": "Поље за текст претраге у iOS стилу",

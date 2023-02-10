@@ -1,4 +1,12 @@
 {
+  "loading": "Betöltés…",
+  "deselect": "Kiválasztás megszüntetése",
+  "select": "Kiválasztás",
+  "selectable": "Kiválasztható (hosszú megnyomással)",
+  "selected": "Kiválasztva",
+  "demo": "Demó",
+  "bottomAppBar": "Alsó alkalmazássáv",
+  "notSelected": "Nincs kiválasztva",
   "demoCupertinoSearchTextFieldTitle": "Keresési szövegmező",
   "demoCupertinoPicker": "Választó",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-stílusú keresési szövegmező",

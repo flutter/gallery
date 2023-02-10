@@ -1,4 +1,12 @@
 {
+  "loading": "लोड हुँदै छ",
+  "deselect": "चयन रद्द गर्नुहोस्",
+  "select": "चयन गर्नुहोस्",
+  "selectable": "चयन गर्न मिल्ने (केही बेरसम्म थिच्नुहोस्)",
+  "selected": "चयन गरिएको छ",
+  "demo": "डेमो",
+  "bottomAppBar": "एपको फेदमा रहेको बार",
+  "notSelected": "चयन गरिएको छैन",
   "demoCupertinoSearchTextFieldTitle": "सर्च टेक्स्ट फिल्ड",
   "demoCupertinoPicker": "पिकर",
   "demoCupertinoSearchTextFieldSubtitle": "iOS शैलीको सर्च टेक्स्ट फिल्ड",

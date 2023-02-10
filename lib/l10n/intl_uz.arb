@@ -1,4 +1,12 @@
 {
+  "loading": "Yuklanmoqda",
+  "deselect": "Tanlovni bekor qilish",
+  "select": "Tanlash",
+  "selectable": "Bosib turib tanlang",
+  "selected": "Tanlandi",
+  "demo": "Demo versiyalar",
+  "bottomAppBar": "Quyi ilovalar paneli",
+  "notSelected": "Tanlanmagan",
   "demoCupertinoSearchTextFieldTitle": "Qidiruv maydoni",
   "demoCupertinoPicker": "Tanlash oynasi",
   "demoCupertinoSearchTextFieldSubtitle": "iOS uslubidagi matn qidirish maydoni",
