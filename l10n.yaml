@@ -4,3 +4,4 @@ output-class: GalleryLocalizations
 preferred-supported-locales:
   - en
 use-deferred-loading: true
+suppress-warnings: true
