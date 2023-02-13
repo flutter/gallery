@@ -45,11 +45,10 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _settingsPanelController = AnimationController(
-      vsync: this,
-      duration: widget.isDesktop
-          ? const Duration(milliseconds: 200)
-          : const Duration(milliseconds: 600),
-    );
+        vsync: this,
+        duration: widget.isDesktop
+            ? settingsPanelMobileAnimationDuration
+            : settingsPanelDesktopAnimationDuration);
     _iconController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),

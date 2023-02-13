@@ -22,6 +22,14 @@ const Duration splashPageAnimationDuration = Duration(milliseconds: 300);
 // Half the splash page animation duration.
 const Duration halfSplashPageAnimationDuration = Duration(milliseconds: 150);
 
+// Duration for settings panel to open on mobile.
+const Duration settingsPanelMobileAnimationDuration =
+    Duration(milliseconds: 600);
+
+// Duration for settings panel to open on desktop.
+const Duration settingsPanelDesktopAnimationDuration =
+    Duration(milliseconds: 200);
+
 // Duration for home page elements to fade in.
 const Duration entranceAnimationDuration = Duration(milliseconds: 200);
 

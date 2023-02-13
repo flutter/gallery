@@ -791,8 +791,7 @@ class _MobileCarouselState extends State<_MobileCarousel>
           // If haveDimensions is false, use _currentPage to calculate value.
           value = (_currentPage.value - index).toDouble();
         }
-        // We want the peeking cards to be 160 in height and 0.38 helps
-        // achieve that.
+        // .3 is an approximation of the curve used in the design.
         value = (1 - (value.abs() * .3)).clamp(0, 1).toDouble();
         value = Curves.easeOut.transform(value);
 
