@@ -1,4 +1,12 @@
 {
+  "loading": "Notiek ielāde…",
+  "deselect": "Noņemt atlasi",
+  "select": "Atlasīt",
+  "selectable": "Var atlasīt (nospiest un turēt)",
+  "selected": "Atlasīts",
+  "demo": "Demonstrācija",
+  "bottomAppBar": "Apakšējā lietotņu josla",
+  "notSelected": "Nav atlasīts",
   "demoCupertinoSearchTextFieldTitle": "Meklēšanas teksta lauks",
   "demoCupertinoPicker": "Atlasītājs",
   "demoCupertinoSearchTextFieldSubtitle": "iOS stila meklēšanas teksta lauks",

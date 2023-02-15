@@ -1,0 +1,33 @@
+name: Bug report
+description: File a bug report.
+labels: ["bug", "triage"]
+body:
+  - type: checkboxes
+    id: is-duplicate
+    attributes:
+      label: Existing issue?
+      options:
+        - label: I checked the [existing issues](https://github.com/flutter/gallery/issues)
+          required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect to happen? What actually happened? How can we reproduce the issue?
+      value: |
+        ## Expected vs actual result:
+
+
+        ## Steps to reproduce:
+        1.
+        1.
+        1.
+
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste output of `flutter doctor -v` and other relevant logs.
+      render: shell

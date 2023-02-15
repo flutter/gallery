@@ -1,4 +1,12 @@
 {
+  "loading": "লোড হচ্ছে",
+  "deselect": "টিক চিহ্ন সরিয়ে দিন",
+  "select": "বেছে নিন",
+  "selectable": "বেছে নিতে পারেন (বেশিক্ষণ প্রেস করুন)",
+  "selected": "বেছে নেওয়া আইটেম",
+  "demo": "ডেমো",
+  "bottomAppBar": "স্ক্রিনের নিচের দিকে থাকা অ্যাপ বার",
+  "notSelected": "বেছে নেওয়া হয়নি",
   "demoCupertinoSearchTextFieldTitle": "সার্চ টেক্সট ফিল্ড",
   "demoCupertinoPicker": "বাছাইকারী",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-স্টাইল সার্চ টেক্সট ফিল্ড",

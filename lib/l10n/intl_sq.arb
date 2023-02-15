@@ -1,4 +1,12 @@
 {
+  "loading": "Po ngarkohet",
+  "deselect": "Hiq përzgjedhjen",
+  "select": "Zgjidh",
+  "selectable": "Mund të zgjidhet (shtypje e gjatë)",
+  "selected": "Zgjedhur",
+  "demo": "Demonstrim",
+  "bottomAppBar": "Shiriti i aplikacioneve në fund",
+  "notSelected": "Nuk është zgjedhur",
   "demoCupertinoSearchTextFieldTitle": "Fusha e kërkimit të tekstit",
   "demoCupertinoPicker": "Zgjedhësi",
   "demoCupertinoSearchTextFieldSubtitle": "Fusha e kërkimit të tekstit në stilin e iOS",

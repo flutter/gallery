@@ -1,4 +1,12 @@
 {
+  "loading": "Memuat",
+  "deselect": "Batalkan pilihan",
+  "select": "Pilih",
+  "selectable": "Dapat dipilih (tekan lama)",
+  "selected": "Dipilih",
+  "demo": "Demo",
+  "bottomAppBar": "Panel aplikasi bawah",
+  "notSelected": "Tidak dipilih",
   "demoCupertinoSearchTextFieldTitle": "Kolom teks penelusuran",
   "demoCupertinoPicker": "Alat pilih",
   "demoCupertinoSearchTextFieldSubtitle": "Kolom teks penelusuran bergaya iOS",

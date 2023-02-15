@@ -1,4 +1,12 @@
 {
+  "loading": "લોડ થઈ રહ્યું છે",
+  "deselect": "નાપસંદ કરો",
+  "select": "પસંદ કરો",
+  "selectable": "પસંદ કરવા યોગ્ય (થોડીવાર દબાવી રાખો)",
+  "selected": "પસંદ કરી",
+  "demo": "ડેમો",
+  "bottomAppBar": "ઍપનો સૌથી નીચેનો બાર",
+  "notSelected": "પસંદ કરી નથી",
   "demoCupertinoSearchTextFieldTitle": "શોધ ટેક્સ્ટનું ફીલ્ડ",
   "demoCupertinoPicker": "પિકર",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-શૈલીનું શોધ ટેક્સ્ટનું ફીલ્ડ",

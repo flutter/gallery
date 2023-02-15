@@ -1,4 +1,12 @@
 {
+  "notSelected": "തിരഞ്ഞെടുത്തില്ല",
+  "deselect": "തിരഞ്ഞെടുത്തത് മാറ്റുക",
+  "select": "തിരഞ്ഞെടുക്കുക",
+  "selectable": "തിരഞ്ഞെടുക്കാവുന്നത് (ദീർഘനേരം അമർത്തുക)",
+  "selected": "തിരഞ്ഞെടുത്തു",
+  "demo": "ഡെമോ",
+  "bottomAppBar": "ചുവടെയുള്ള ആപ്പ് ബാർ",
+  "loading": "ലോഡ് ചെയ്യുന്നു",
   "demoCupertinoScrollbarDescription": "നൽകിയിരിക്കുന്ന ചൈൽഡിനെ റാപ്പ് ചെയ്യുന്ന സ്ക്രോൾ ബാർ",
   "demoCupertinoPicker": "പിക്കർ",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-സ്റ്റൈൽ തിരയൽ ടെക്‌സ്റ്റ് ഫീൽഡ്",

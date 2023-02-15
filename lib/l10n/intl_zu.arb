@@ -1,4 +1,12 @@
 {
+  "loading": "Iyalayisha",
+  "deselect": "Susa ukukhetha",
+  "select": "Khetha",
+  "selectable": "Iyakhetheka (cindezela isikhathi eside)",
+  "selected": "Okukhethiwe",
+  "demo": "Idemo",
+  "bottomAppBar": "Ibha yaphansi ye-app",
+  "notSelected": "Ayikhethiwe",
   "demoCupertinoSearchTextFieldTitle": "Inkambu yombhalo wosesho",
   "demoCupertinoPicker": "Isikhi",
   "demoCupertinoSearchTextFieldSubtitle": "Inkambu yombhalo wosesho wesitayela se-iOS",

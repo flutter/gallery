@@ -1,4 +1,12 @@
 {
+  "loading": "მიმდინარეობს ჩატვირთვა",
+  "deselect": "არჩევის გაუქმება",
+  "select": "არჩევა",
+  "selectable": "არჩევადი (ხანგრძლივი დაჭერა)",
+  "selected": "არჩეულია",
+  "demo": "დემო",
+  "bottomAppBar": "აპების ქვედა ზოლი",
+  "notSelected": "არ არის არჩეული",
   "demoCupertinoSearchTextFieldTitle": "ძიების ტექსტური ველი",
   "demoCupertinoPicker": "ამომრჩევი",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-სტილის ძიების ტექსტური ველი",

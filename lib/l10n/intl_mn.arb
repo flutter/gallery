@@ -1,4 +1,12 @@
 {
+  "loading": "Ачаалж байна",
+  "deselect": "Сонголтыг цуцлах",
+  "select": "Сонгох",
+  "selectable": "Сонгох боломжтой (удаан дарах)",
+  "selected": "Сонгосон",
+  "demo": "Демо",
+  "bottomAppBar": "Доод талын аппын талбар",
+  "notSelected": "Сонгоогүй",
   "demoCupertinoSearchTextFieldTitle": "Хайлтын текстийн талбар",
   "demoCupertinoPicker": "Сонгогч",
   "demoCupertinoSearchTextFieldSubtitle": "iOS загварын хайлтын текстийн талбар",

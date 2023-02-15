@@ -1,4 +1,12 @@
 {
+  "loading": "लोड हो रहा है",
+  "deselect": "चुने हुए का निशान हटाएं",
+  "select": "चुनें",
+  "selectable": "चुना जा सकने वाला (देर तक दबाने पर)",
+  "selected": "चुना गया",
+  "demo": "डेमो",
+  "bottomAppBar": "बॉटम ऐप्लिकेशन बार",
+  "notSelected": "नहीं चुना गया",
   "demoCupertinoSearchTextFieldTitle": "सर्च टेक्स्ट फ़ील्ड",
   "demoCupertinoPicker": "पिकर",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-स्टाइल का सर्च टेक्स्ट फ़ील्ड",

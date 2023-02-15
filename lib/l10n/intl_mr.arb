@@ -1,4 +1,12 @@
 {
+  "loading": "लोड करत आहे",
+  "deselect": "निवड रद्द करा",
+  "select": "निवडा",
+  "selectable": "निवडण्यायोग्य (प्रेस करून ठेवा)",
+  "selected": "निवडला",
+  "demo": "डेमो",
+  "bottomAppBar": "तळाशी असलेला ॲप बार",
+  "notSelected": "निवडलेला नाही",
   "demoCupertinoSearchTextFieldTitle": "शोध फील्ड दर्शवा",
   "demoCupertinoPicker": "पिकर",
   "demoCupertinoSearchTextFieldSubtitle": "iOS च्या शैलीतील शोध मजकूर फील्ड",

@@ -1,4 +1,12 @@
 {
+  "loading": "Laadimine",
+  "deselect": "Tühista valik",
+  "select": "Vali",
+  "selectable": "Valitav (pikk vajutus)",
+  "selected": "Valitud",
+  "demo": "Demo",
+  "bottomAppBar": "Alumine rakenduseriba",
+  "notSelected": "Pole valitud",
   "demoCupertinoSearchTextFieldTitle": "Otsinguteksti väli",
   "demoCupertinoPicker": "Valikuvidin",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-stiilis otsinguteksti väli",

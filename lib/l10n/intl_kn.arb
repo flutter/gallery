@@ -1,4 +1,12 @@
 {
+  "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ",
+  "deselect": "ಆಯ್ಕೆ ರದ್ದುಮಾಡಿ",
+  "select": "ಆಯ್ಕೆಮಾಡಿ",
+  "selectable": "ಆಯ್ಕೆ ಮಾಡಬಹುದಾದ (ದೀರ್ಘಕಾಲ ಒತ್ತಿಹಿಡಿಯುವುದು)",
+  "selected": "ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ",
+  "demo": "ಡೆಮೋ",
+  "bottomAppBar": "ಬಾಟಮ್ ಆ್ಯಪ್ ಬಾರ್",
+  "notSelected": "ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ",
   "demoCupertinoSearchTextFieldTitle": "ಪಠ್ಯ ಹುಡುಕಾಟದ ಫೀಲ್ಡ್",
   "demoCupertinoPicker": "ಪಿಕರ್",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-ಶೈಲಿಯ ಹುಡುಕಾಟ ಪಠ್ಯ ಕ್ಷೇತ್ರ",

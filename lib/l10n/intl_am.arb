@@ -1,4 +1,12 @@
 {
+  "loading": "በመጫን ላይ",
+  "deselect": "አትምረጥ",
+  "select": "ምረጥ",
+  "selectable": "ሊመረጥ የሚችል (ረዥም መጫን)",
+  "selected": "ተመርጧል",
+  "demo": "ቅንጭብ ማሳያ",
+  "bottomAppBar": "የግርጌ መተግበሪያ አሞሌ",
+  "notSelected": "አልተመረጠም",
   "demoCupertinoSearchTextFieldTitle": "የፍለጋ ጽሑፍ መስክ",
   "demoCupertinoPicker": "መራጮች",
   "demoCupertinoSearchTextFieldSubtitle": "የiOS-ቅጥ የፍለጋ ጽሑፍ መስክ",

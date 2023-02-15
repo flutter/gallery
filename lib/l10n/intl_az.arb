@@ -1,4 +1,12 @@
 {
+  "loading": "Yüklənir",
+  "deselect": "Seçimi ləğv edin",
+  "select": "Seçin",
+  "selectable": "Seçilə bilən (basıb saxlayın)",
+  "selected": "Seçilib",
+  "demo": "Demo",
+  "bottomAppBar": "Alt tətbiq paneli",
+  "notSelected": "Seçilməyib",
   "demoCupertinoSearchTextFieldTitle": "Axtarış mətni sahəsi",
   "demoCupertinoPicker": "Seçici",
   "demoCupertinoSearchTextFieldSubtitle": "iOS üslubunda axtarış mətni sahəsi",

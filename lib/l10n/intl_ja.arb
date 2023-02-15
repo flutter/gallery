@@ -1,4 +1,12 @@
 {
+  "loading": "読み込み中",
+  "deselect": "選択を解除",
+  "select": "選択",
+  "selectable": "選択可能（長押し）",
+  "selected": "選択中",
+  "demo": "デモ",
+  "bottomAppBar": "ボトム アプリバー",
+  "notSelected": "未選択",
   "demoCupertinoSearchTextFieldTitle": "検索テキスト フィールド",
   "demoCupertinoPicker": "選択ツール",
   "demoCupertinoSearchTextFieldSubtitle": "iOS スタイルの検索テキスト フィールド",

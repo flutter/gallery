@@ -1,4 +1,12 @@
 {
+  "loading": "Inapakia",
+  "deselect": "Acha kuchagua",
+  "select": "Chagua",
+  "selectable": "Inayoweza kuchaguliwa (bonyeza kwa muda mrefu)",
+  "selected": "Imechaguliwa",
+  "demo": "Toleo la kujaribu",
+  "bottomAppBar": "Upau wa chini wa programu",
+  "notSelected": "Hujachagua",
   "demoCupertinoSearchTextFieldTitle": "Sehemu ya kutafuta maandishi",
   "demoCupertinoPicker": "Kiteua muundo",
   "demoCupertinoSearchTextFieldSubtitle": "Sehemu ya kutafuta maandishi ya muundo wa iOS",

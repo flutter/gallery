@@ -1,4 +1,12 @@
 {
+  "loading": "Carregando",
+  "deselect": "Desmarcar",
+  "select": "Selecionar",
+  "selectable": "Selecionável (tocar e manter pressionado)",
+  "selected": "Selecionado",
+  "demo": "Demonstração",
+  "bottomAppBar": "Barra de apps da parte de baixo",
+  "notSelected": "Não selecionado",
   "demoCupertinoSearchTextFieldTitle": "Campo de texto da pesquisa",
   "demoCupertinoPicker": "Seletor",
   "demoCupertinoSearchTextFieldSubtitle": "Campo de texto da pesquisa no estilo do iOS",

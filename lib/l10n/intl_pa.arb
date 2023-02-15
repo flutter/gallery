@@ -1,4 +1,12 @@
 {
+  "loading": "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ",
+  "deselect": "ਅਣ-ਚੁਣਿਆ ਕਰੋ",
+  "select": "ਚੁਣੋ",
+  "selectable": "ਚੁਣਨਯੋਗ (ਦਬਾਈ ਰੱਖਣਾ)",
+  "selected": "ਚੁਣੀ ਗਈ",
+  "demo": "ਡੈਮੋ",
+  "bottomAppBar": "ਹੇਠਲੀ ਐਪ ਬਾਰ",
+  "notSelected": "ਚੁਣੀ ਨਹੀਂ ਗਈ",
   "demoCupertinoSearchTextFieldTitle": "ਖੋਜ ਲਿਖਤ ਖੇਤਰ",
   "demoCupertinoPicker": "ਚੋਣਕਾਰ",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-ਸਟਾਈਲ ਖੋਜ ਲਿਖਤ ਖੇਤਰ",

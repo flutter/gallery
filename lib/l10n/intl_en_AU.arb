@@ -1,4 +1,12 @@
 {
+  "loading": "Loading",
+  "deselect": "Deselect",
+  "select": "Select",
+  "selectable": "Selectable (long press)",
+  "selected": "Selected",
+  "demo": "Demo",
+  "bottomAppBar": "Bottom app bar",
+  "notSelected": "Not selected",
   "demoCupertinoSearchTextFieldTitle": "Search text field",
   "demoCupertinoPicker": "Picker",
   "demoCupertinoSearchTextFieldSubtitle": "iOS-style search text field",

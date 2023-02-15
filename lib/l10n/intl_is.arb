@@ -1,4 +1,12 @@
 {
+  "loading": "Hleður",
+  "deselect": "Afvelja",
+  "select": "Velja",
+  "selectable": "Hægt að velja (haldið inni)",
+  "selected": "Valið",
+  "demo": "Prufuútgáfa",
+  "bottomAppBar": "Forritastika neðst",
+  "notSelected": "Ekki valið",
   "demoCupertinoSearchTextFieldTitle": "Textareitur fyrir leit",
   "demoCupertinoPicker": "Val",
   "demoCupertinoSearchTextFieldSubtitle": "Textareitur fyrir leit iOS-stíla",

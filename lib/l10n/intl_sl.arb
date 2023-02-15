@@ -1,4 +1,12 @@
 {
+  "loading": "Nalaganje",
+  "deselect": "Počisti izbiro",
+  "select": "Izberi",
+  "selectable": "Omogoča izbiro (dolg pritisk)",
+  "selected": "Izbrano",
+  "demo": "Predstavitvena različica",
+  "bottomAppBar": "Spodnja vrstica aplikacije",
+  "notSelected": "Ni izbrano",
   "demoCupertinoSearchTextFieldTitle": "Besedilno polje za iskanje",
   "demoCupertinoPicker": "Izbirnik",
   "demoCupertinoSearchTextFieldSubtitle": "Besedilno polje za iskanje v slogu iOSa.",

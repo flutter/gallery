@@ -1,4 +1,12 @@
 {
+  "loading": "Naglo-load",
+  "deselect": "I-deselect",
+  "select": "Piliin",
+  "selectable": "Napipili (matagal na pagpindot)",
+  "selected": "Napili",
+  "demo": "Demo",
+  "bottomAppBar": "Bar ng app sa ibaba",
+  "notSelected": "Hindi napili",
   "demoCupertinoSearchTextFieldTitle": "Field ng text ng paghahanap",
   "demoCupertinoPicker": "Picker",
   "demoCupertinoSearchTextFieldSubtitle": "Field ng text ng paghahanap na may istilong pang-iOS",

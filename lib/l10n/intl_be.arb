@@ -1,4 +1,12 @@
 {
+  "loading": "Загрузка",
+  "deselect": "Скасаваць выбар",
+  "select": "Выбраць",
+  "selectable": "Магчымасць выбару (доўгім націсканнем)",
+  "selected": "Выбрана",
+  "demo": "Дэмаверсія",
+  "bottomAppBar": "Ніжняя панэль праграм",
+  "notSelected": "Не выбрана",
   "demoCupertinoSearchTextFieldTitle": "Поле крытэрыю пошуку",
   "demoCupertinoPicker": "Інструмент выбару",
   "demoCupertinoSearchTextFieldSubtitle": "Поле крытэрыю пошуку ў стылі iOS",
