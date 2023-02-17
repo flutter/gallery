@@ -8,7 +8,6 @@ import 'package:gallery/constants.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/demo.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 typedef CategoryHeaderTapCallback = Function(bool shouldOpenList);
 

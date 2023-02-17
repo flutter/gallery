@@ -24,7 +24,7 @@ import 'package:gallery/studies/reply/routes.dart' as reply_routes;
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
-import 'package:transparent_image/transparent_image.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 const _horizontalPadding = 32.0;
