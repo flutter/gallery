@@ -38,9 +38,9 @@ class LoginPage extends StatelessWidget {
                   child: Center(
                     child: SizedBox(
                       width: desktopLoginScreenMainAreaWidth(context: context),
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           _ShrineLogo(),
                           SizedBox(height: 40),
                           _UsernameTextField(),

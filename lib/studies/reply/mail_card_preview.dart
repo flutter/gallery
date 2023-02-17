@@ -232,10 +232,10 @@ class _MailPreview extends StatelessWidget {
                     ),
                   ),
                   if (email.containsPictures) ...[
-                    const Flexible(
+                    Flexible(
                       fit: FlexFit.loose,
                       child: Column(
-                        children: [
+                        children: const [
                           SizedBox(height: 20),
                           _PicturePreview(),
                         ],

@@ -215,11 +215,11 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       alignment: WrapAlignment.end,
-                      children: [
+                      children: const [
                         SettingsAbout(),
                         SettingsFeedback(),
                         SettingsAttribution(),
@@ -982,7 +982,7 @@ class _SnappingScrollPhysics extends ScrollPhysics {
         (velocity >= 0.0 && position.pixels >= position.maxScrollExtent)) {
       return super.createBallisticSimulation(position, velocity);
     }
-    final tolerance = toleranceFor(position);
+    final tolerance = this.tolerance;
     final target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels) {
       return ScrollSpringSimulation(

@@ -317,8 +317,8 @@ class _NavigationRailHeader extends StatelessWidget {
                     if (animation.value > 0)
                       Opacity(
                         opacity: animation.value,
-                        child: const Row(
-                          children: [
+                        child: Row(
+                          children: const [
                             SizedBox(width: 18),
                             ProfileAvatar(
                               avatar: 'reply/avatars/avatar_2.jpg',
