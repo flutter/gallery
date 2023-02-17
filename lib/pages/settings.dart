@@ -68,9 +68,9 @@ class _SettingsPageState extends State<SettingsPage> {
     _staggerSettingsItemsAnimation = CurvedAnimation(
       parent: widget.animationController,
       curve: const Interval(
-        0.5,
+        0.4,
         1.0,
-        curve: Curves.easeIn,
+        curve: Curves.ease,
       ),
     );
   }
@@ -297,12 +297,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   children: settingsListItems,
                 ),
                 const SizedBox(height: 16),
-                Divider(thickness: 2, height: 0, color: colorScheme.background),
+                Divider(thickness: 2, height: 0, color: colorScheme.outline),
                 const SizedBox(height: 12),
                 const SettingsAbout(),
                 const SettingsFeedback(),
                 const SizedBox(height: 12),
-                Divider(thickness: 2, height: 0, color: colorScheme.background),
+                Divider(thickness: 2, height: 0, color: colorScheme.outline),
                 const SettingsAttribution(),
               ],
             ],
@@ -442,17 +442,13 @@ class _AnimateSettingsListItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const dividingPadding = 4.0;
-    final topPaddingTween = Tween<double>(
-      begin: 0,
-      end: children.length * dividingPadding,
-    );
     final dividerTween = Tween<double>(
       begin: 0,
       end: dividingPadding,
     );
 
     return Padding(
-      padding: EdgeInsets.only(top: topPaddingTween.animate(animation).value),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Column(
         children: [
           for (Widget child in children)

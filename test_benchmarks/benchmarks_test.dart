@@ -68,5 +68,8 @@ Future<void> main() async {
       const JsonEncoder.withIndent('  ').convert(taskResult.toJson()),
       isA<String>(),
     );
-  }, timeout: Timeout.none);
+  },
+      timeout: Timeout.none,
+      skip:
+          true); // TODO(guidezpl): re-enable these benchmarks https://github.com/flutter/gallery/issues/903
 }

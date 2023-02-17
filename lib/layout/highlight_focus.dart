@@ -66,6 +66,7 @@ class _HighlightFocusState extends State<HighlightFocus> {
       border: Border.all(
         color: borderColor,
         width: 2,
+        strokeAlign: BorderSide.strokeAlignOutside,
       ),
     );
 

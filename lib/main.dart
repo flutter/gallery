@@ -15,6 +15,8 @@ import 'package:gallery/routes.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'layout/adaptive.dart';
+
 export 'package:gallery/data/demos.dart' show pumpDeferredLibraries;
 
 void main() {
@@ -84,9 +86,11 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ApplyTextOptions(
+    return ApplyTextOptions(
       child: SplashPage(
-        child: Backdrop(),
+        child: Backdrop(
+          isDesktop: isDisplayDesktop(context),
+        ),
       ),
     );
   }

@@ -78,14 +78,11 @@ class _SplashPageState extends State<SplashPage>
     // If the number of included effects changes, this number should be changed.
     _effect = _random.nextInt(_effectDurations.length) + 1;
 
-    _controller = AnimationController(
-        duration: const Duration(
-          milliseconds: splashPageAnimationDurationInMilliseconds,
-        ),
-        vsync: this)
-      ..addListener(() {
-        setState(() {});
-      });
+    _controller =
+        AnimationController(duration: splashPageAnimationDuration, vsync: this)
+          ..addListener(() {
+            setState(() {});
+          });
   }
 
   @override
