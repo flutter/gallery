@@ -38,6 +38,9 @@ const Duration entranceAnimationDuration = Duration(milliseconds: 200);
 // The desktop top padding for a page's first header (e.g. Gallery, Settings)
 const double firstHeaderDesktopTopPadding = 5.0;
 
+// A transparent image used to avoid loading images when they are not needed.
+// TODO(guidezpl): Replace with transparent_image when
+//https://github.com/brianegan/transparent_image/pull/13 is merged.
 final Uint8List kTransparentImage = Uint8List.fromList(<int>[
   0x89,
   0x50,
