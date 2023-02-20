@@ -1,10 +1,10 @@
 name: gallery
 description: A resource to help developers evaluate and use Flutter.
 repository: https://github.com/flutter/gallery
-version: 2.10.0+021000
+version: 2.10.0+021000 # See README.md for details on versioning.
 
 environment:
-  flutter: ^3.7.0-1.4.pre # Keep relatively close to master channel version
+  flutter: ^3.8.0-14.0.pre.14 # Keep relatively close to master channel version
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
@@ -31,6 +31,7 @@ dependencies:
   scoped_model: ^2.0.0
   shared_preferences: ^2.0.15
   shrine_images: ^2.0.1
+  transparent_image: ^2.0.1
   url_launcher: ^6.1.2
   vector_math: ^2.1.2
 
@@ -48,6 +49,8 @@ dev_dependencies:
   web_benchmarks: ^0.1.0
 
 flutter:
+  generate: true # Enables generation of localized strings from arb files
+  uses-material-design: true
   deferred-components:
     - name: crane
       libraries:
@@ -96,7 +99,10 @@ flutter:
         - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-SemiBold.ttf
         - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Regular.ttf
         - packages/flutter_gallery_assets/fonts/google_fonts/Raleway-Light.ttf
-
+  fonts:
+    - family: GalleryIcons
+      fonts:
+        - asset: packages/flutter_gallery_assets/fonts/GalleryIcons.ttf
   assets:
     - packages/flutter_gallery_assets/assets/studies/shrine_card_dark.png
     - packages/flutter_gallery_assets/assets/studies/starter_card.png
@@ -249,10 +255,3 @@ flutter:
     - packages/shrine_images/35-0.jpg
     - packages/shrine_images/36-0.jpg
     - packages/shrine_images/37-0.jpg
-
-  generate: true
-  uses-material-design: true
-  fonts:
-    - family: GalleryIcons
-      fonts:
-        - asset: packages/flutter_gallery_assets/fonts/GalleryIcons.ttf
