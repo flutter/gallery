@@ -43,11 +43,11 @@ class SearchPage extends StatelessWidget {
                 ),
               ),
               const Divider(thickness: 1),
-              const Expanded(
+              Expanded(
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       _SectionHeader(title: 'YESTERDAY'),
                       _SearchHistoryTile(
                         search: '481 Van Brunt Street',
