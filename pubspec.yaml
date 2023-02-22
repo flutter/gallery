@@ -33,6 +33,9 @@ dependencies:
   shrine_images: ^2.0.1
   url_launcher: ^6.1.2
   vector_math: ^2.1.2
+  firebase_crashlytics: ^3.0.15
+  firebase_core: ^2.7.0
+  firebase_performance: ^0.9.0+14
 
 dev_dependencies:
   flutter_test:
