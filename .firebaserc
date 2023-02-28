@@ -1,6 +1,6 @@
 {
   "projects": {
-    "gallery": "gallery-flutter-dev"
+    "default": "gallery-flutter-dev"
   },
   "targets": {
     "gallery-flutter-dev": {

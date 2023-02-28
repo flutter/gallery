@@ -4,7 +4,11 @@
 
 // Only put constants shared between files here.
 
-// height of the 'Gallery' header
+import 'dart:typed_data';
+
+import 'package:transparent_image/transparent_image.dart' as transparent_image;
+
+// Height of the 'Gallery' header
 const double galleryHeaderHeight = 64;
 
 // The font size delta for headline4 font.
@@ -17,7 +21,24 @@ const double desktopSettingsWidth = 520;
 const double systemTextScaleFactorOption = -1;
 
 // The splash page animation duration.
-const splashPageAnimationDurationInMilliseconds = 300;
+const Duration splashPageAnimationDuration = Duration(milliseconds: 300);
+
+// Half the splash page animation duration.
+const Duration halfSplashPageAnimationDuration = Duration(milliseconds: 150);
+
+// Duration for settings panel to open on mobile.
+const Duration settingsPanelMobileAnimationDuration =
+    Duration(milliseconds: 200);
+
+// Duration for settings panel to open on desktop.
+const Duration settingsPanelDesktopAnimationDuration =
+    Duration(milliseconds: 600);
+
+// Duration for home page elements to fade in.
+const Duration entranceAnimationDuration = Duration(milliseconds: 200);
 
 // The desktop top padding for a page's first header (e.g. Gallery, Settings)
-const firstHeaderDesktopTopPadding = 5.0;
+const double firstHeaderDesktopTopPadding = 5.0;
+
+// A transparent image used to avoid loading images when they are not needed.
+final Uint8List kTransparentImage = transparent_image.kTransparentImage;

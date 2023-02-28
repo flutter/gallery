@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:dual_screen/dual_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
@@ -16,10 +18,30 @@ import 'package:gallery/routes.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'firebase_options.dart';
+import 'layout/adaptive.dart';
+
 export 'package:gallery/data/demos.dart' show pumpDeferredLibraries;
 
-void main() {
+void main() async {
   GoogleFonts.config.allowRuntimeFetching = false;
+
+  if (defaultTargetPlatform != TargetPlatform.linux &&
+      defaultTargetPlatform != TargetPlatform.windows) {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    FlutterError.onError = (errorDetails) {
+      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+    };
+    // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
+  }
+
   runApp(const GalleryApp());
 }
 
@@ -87,9 +109,11 @@ class RootPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ApplyTextOptions(
+    return ApplyTextOptions(
       child: SplashPage(
-        child: Backdrop(),
+        child: Backdrop(
+          isDesktop: isDisplayDesktop(context),
+        ),
       ),
     );
   }
