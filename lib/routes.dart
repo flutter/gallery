@@ -118,7 +118,10 @@ class RouteConfiguration {
   /// route. Set it on the [MaterialApp.onGenerateRoute] or
   /// [WidgetsApp.onGenerateRoute] to make use of the [paths] for route
   /// matching.
-  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+  static Route<dynamic>? onGenerateRoute(
+    RouteSettings settings,
+    bool hasHinge,
+  ) {
     for (final path in paths) {
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name!)) {
@@ -130,7 +133,7 @@ class RouteConfiguration {
             settings: settings,
           );
         }
-        if (path.openInSecondScreen) {
+        if (path.openInSecondScreen && hasHinge) {
           return TwoPanePageRoute<void>(
             builder: (context) => path.builder(context, match),
             settings: settings,
