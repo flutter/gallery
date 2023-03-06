@@ -119,7 +119,9 @@ class RouteConfiguration {
   /// [WidgetsApp.onGenerateRoute] to make use of the [paths] for route
   /// matching.
   static Route<dynamic>? onGenerateRoute(
-      RouteSettings settings, bool hasHinge) {
+    RouteSettings settings,
+    bool hasHinge,
+  ) {
     for (final path in paths) {
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name!)) {
