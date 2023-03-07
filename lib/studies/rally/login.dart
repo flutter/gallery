@@ -227,6 +227,7 @@ class _UsernameInput extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(maxWidth: maxWidth ?? double.infinity),
         child: TextField(
+          autofillHints: const [AutofillHints.username],
           textInputAction: TextInputAction.next,
           controller: usernameController,
           decoration: InputDecoration(
