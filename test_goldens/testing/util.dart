@@ -116,9 +116,8 @@ Future<void> setUpBinding(
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1.0;
-  tester.view.platformDispatcher.textScaleFactorTestValue = 1.0;
-  tester.view.platformDispatcher.platformBrightnessTestValue =
-      brightness;
+  tester.platformDispatcher.textScaleFactorTestValue = 1.0;
+  tester.platformDispatcher.platformBrightnessTestValue = brightness;
   addTearDown(tester.view.reset);
-  addTearDown(tester.view.platformDispatcher.clearAllTestValues);
+  addTearDown(tester.platformDispatcher.clearAllTestValues);
 }
