@@ -22,19 +22,19 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: master
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
       - run: flutter pub get
 
       # Setup Ruby, Bundler, and Gemfile dependencies
       - name: Setup Fastlane
-        uses: ruby/setup-ruby@92aece5fc9c784ab66851c1e702b1bd5885a51f2
+        uses: ruby/setup-ruby@904f3fef85a9c80a3750cbe7d5159268fd5caa9f
         with:
           ruby-version: "2.6"
           bundler-cache: true
