@@ -24,5 +24,6 @@ jobs:
       - name: Create MSIX package
         run: msstore package .
       
-      - name: MS publish
+      - name: Publish MSIX to the Microsoft Store
+
         run: msstore publish -v
