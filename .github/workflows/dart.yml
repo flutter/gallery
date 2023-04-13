@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: dart pub get
       
-      - name: MS package
+      - name: Create MSIX package
         run: msstore package .
       
       - name: MS publish
