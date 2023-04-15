@@ -356,13 +356,12 @@ class _CraneAppBarState extends State<CraneAppBar> {
                       textScaleFactor: textScaleFactor,
                     ),
                     controller: widget.tabController,
-                    labelPadding: isDesktop
-                        ? const EdgeInsets.symmetric(horizontal: 32)
-                        : EdgeInsets.zero,
-                    isScrollable: isDesktop,
+                    labelPadding: const EdgeInsets.symmetric(horizontal: 32),
+                    isScrollable: true,
                     // left-align tabs on desktop
                     labelStyle: Theme.of(context).textTheme.labelLarge,
                     labelColor: cranePrimaryWhite,
+                    physics: BouncingScrollPhysics(),
                     unselectedLabelColor: cranePrimaryWhite.withOpacity(.6),
                     onTap: (index) => widget.tabController.animateTo(
                       index,
