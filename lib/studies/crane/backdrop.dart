@@ -361,7 +361,7 @@ class _CraneAppBarState extends State<CraneAppBar> {
                     // left-align tabs on desktop
                     labelStyle: Theme.of(context).textTheme.labelLarge,
                     labelColor: cranePrimaryWhite,
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     unselectedLabelColor: cranePrimaryWhite.withOpacity(.6),
                     onTap: (index) => widget.tabController.animateTo(
                       index,
