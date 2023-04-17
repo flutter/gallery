@@ -3,5 +3,5 @@ import 'package:gallery/main.dart';
 import 'package:flutter/foundation.dart';
 
 Future<void> startAppTest(PatrolTester $) async {
-  await $.pumpWidget(const GalleryApp());
+  await $.pumpWidgetAndSettle(const GalleryApp());
 }
