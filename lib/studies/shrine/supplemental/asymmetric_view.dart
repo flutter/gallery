@@ -153,7 +153,7 @@ class MobileAsymmetricView extends StatelessWidget {
                   16,
                   _bottomPadding,
                 ),
-                physics: const AlwaysScrollableScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: _buildColumns(context, constraints),
               );
             },
