@@ -1,0 +1,27 @@
+name: Publish MSIX to Microsoft Store
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+
+      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      - uses: microsoft/setup-msstore-cli@v1
+      
+      # Instructions on obtaining these secrets can be found at https://github.com/marketplace/actions/windows-store-publish#obtaining-your-credentials
+      - name: Configure MS CLI
+        run: msstore reconfigure --tenantId ${{ secrets.AZURE_AD_TENANT_ID }} --clientId ${{ secrets.AZURE_AD_ClIENT_ID }} --clientSecret ${{ secrets.AZURE_AD_CLIENT_SECRET }} --sellerId ${{ secrets.SELLER_ID }}
+
+      - name: Install dependencies
+        run: dart pub get
+      
+      - name: Create MSIX package
+        run: msstore package .
+      
+      - name: Publish MSIX to the Microsoft Store
+        run: msstore publish -v
