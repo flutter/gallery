@@ -4,8 +4,8 @@ repository: https://github.com/flutter/gallery
 version: 2.10.0+021000 # See README.md for details on versioning.
 
 environment:
-  flutter: ^3.8.0-14.0.pre.2 # Keep relatively close to master channel version
-  sdk: ">=2.17.0 <3.0.0"
+  flutter: ^3.10.0-10.0.pre.17 # Keep relatively close to master channel version
+  sdk: ">=2.17.0"
 
 dependencies:
   flutter:
@@ -24,8 +24,7 @@ dependencies:
   firebase_crashlytics: ^3.0.15
   firebase_performance: ^0.9.0+14
   google_fonts: ^4.0.1
-  # An exact version pin will be provided by the Flutter SDK
-  intl: any
+  intl: any # An exact version pin will be provided by the Flutter SDK
   meta: ^1.7.0
   package_info_plus: ^3.0.3
   path_provider: ^2.0.11
