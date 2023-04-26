@@ -220,6 +220,8 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     final localizations = GalleryLocalizations.of(context)!;
 
     final appBar = AppBar(
+      systemOverlayStyle:
+          GalleryOptions.of(context).resolvedSystemUiOverlayStyle(),
       backgroundColor: Colors.transparent,
       leading: Padding(
         padding: EdgeInsetsDirectional.only(start: appBarPadding),
