@@ -16,12 +16,12 @@ dependencies:
   animations: ^2.0.2
   collection: ^1.16.0
   cupertino_icons: ^1.0.4
-  dual_screen: ^1.0.3
+  dual_screen: ^1.0.4
   flutter_gallery_assets: ^1.0.2
   flutter_localized_locales: ^2.0.4
   flutter_staggered_grid_view: ^0.6.1
   firebase_core: ^2.7.0
-  firebase_crashlytics: ^3.0.15
+  firebase_crashlytics: ^3.1.1
   firebase_performance: ^0.9.0+14
   google_fonts: ^4.0.1
   intl: any # An exact version pin will be provided by the Flutter SDK
