@@ -1,72 +1,84 @@
 PODS:
-  - Firebase/CoreOnly (10.3.0):
-    - FirebaseCore (= 10.3.0)
-  - Firebase/Crashlytics (10.3.0):
+  - Firebase/CoreOnly (10.7.0):
+    - FirebaseCore (= 10.7.0)
+  - Firebase/Crashlytics (10.7.0):
     - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 10.3.0)
-  - Firebase/Performance (10.3.0):
+    - FirebaseCrashlytics (~> 10.7.0)
+  - Firebase/Performance (10.7.0):
     - Firebase/CoreOnly
-    - FirebasePerformance (~> 10.3.0)
-  - firebase_core (2.7.0):
-    - Firebase/CoreOnly (= 10.3.0)
+    - FirebasePerformance (~> 10.7.0)
+  - firebase_core (2.10.0):
+    - Firebase/CoreOnly (= 10.7.0)
     - Flutter
-  - firebase_crashlytics (3.0.15):
-    - Firebase/Crashlytics (= 10.3.0)
+  - firebase_crashlytics (3.1.1):
+    - Firebase/Crashlytics (= 10.7.0)
     - firebase_core
     - Flutter
-  - firebase_performance (0.9.0-14):
-    - Firebase/Performance (= 10.3.0)
+  - firebase_performance (0.9.1-1):
+    - Firebase/Performance (= 10.7.0)
     - firebase_core
     - Flutter
-  - FirebaseABTesting (10.5.0):
+  - FirebaseABTesting (10.9.0):
     - FirebaseCore (~> 10.0)
-  - FirebaseCore (10.3.0):
+  - FirebaseCore (10.7.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreInternal (10.5.0):
-    - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseCrashlytics (10.3.0):
+  - FirebaseCoreExtension (10.9.0):
     - FirebaseCore (~> 10.0)
+  - FirebaseCoreInternal (10.9.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseCrashlytics (10.7.0):
+    - FirebaseCore (~> 10.5)
     - FirebaseInstallations (~> 10.0)
+    - FirebaseSessions (~> 10.5)
     - GoogleDataTransport (~> 9.2)
     - GoogleUtilities/Environment (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (~> 2.1)
-  - FirebaseInstallations (10.5.0):
+  - FirebaseInstallations (10.9.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
-  - FirebasePerformance (10.3.0):
-    - FirebaseCore (~> 10.0)
+  - FirebasePerformance (10.7.0):
+    - FirebaseCore (~> 10.5)
     - FirebaseInstallations (~> 10.0)
     - FirebaseRemoteConfig (~> 10.0)
+    - FirebaseSessions (~> 10.5)
     - GoogleDataTransport (~> 9.2)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/ISASwizzler (~> 7.8)
     - GoogleUtilities/MethodSwizzler (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseRemoteConfig (10.5.0):
+  - FirebaseRemoteConfig (10.9.0):
     - FirebaseABTesting (~> 10.0)
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseSessions (10.9.0):
+    - FirebaseCore (~> 10.5)
+    - FirebaseCoreExtension (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.10)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesSwift (~> 2.1)
   - Flutter (1.0.0)
-  - GoogleDataTransport (9.2.1):
+  - GoogleDataTransport (9.2.2):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Environment (7.11.0):
+  - GoogleUtilities/Environment (7.11.1):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/ISASwizzler (7.11.0)
-  - GoogleUtilities/Logger (7.11.0):
+  - GoogleUtilities/ISASwizzler (7.11.1)
+  - GoogleUtilities/Logger (7.11.1):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.11.0):
+  - GoogleUtilities/MethodSwizzler (7.11.1):
     - GoogleUtilities/Logger
-  - "GoogleUtilities/NSData+zlib (7.11.0)"
-  - GoogleUtilities/UserDefaults (7.11.0):
+  - "GoogleUtilities/NSData+zlib (7.11.1)"
+  - GoogleUtilities/UserDefaults (7.11.1):
     - GoogleUtilities/Logger
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -79,6 +91,8 @@ PODS:
     - Flutter
     - FlutterMacOS
   - PromisesObjC (2.2.0)
+  - PromisesSwift (2.2.0):
+    - PromisesObjC (= 2.2.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -100,15 +114,18 @@ SPEC REPOS:
     - Firebase
     - FirebaseABTesting
     - FirebaseCore
+    - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseCrashlytics
     - FirebaseInstallations
     - FirebasePerformance
     - FirebaseRemoteConfig
+    - FirebaseSessions
     - GoogleDataTransport
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - PromisesSwift
 
 EXTERNAL SOURCES:
   firebase_core:
@@ -129,27 +146,30 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  Firebase: f92fc551ead69c94168d36c2b26188263860acd9
-  firebase_core: 128d8c43c3a453a4a67463314fc3761bedff860b
-  firebase_crashlytics: 0a99d06e38030d769021340b551d8ac4b27345fc
-  firebase_performance: 3c1458dca5341be250ed91b704c9e424690ca46e
-  FirebaseABTesting: 8cb5cc4e395c8dce8a2820a6a329020ead56fe2f
-  FirebaseCore: 988754646ab3bd4bdcb740f1bfe26b9f6c0d5f2a
-  FirebaseCoreInternal: e463f41bb935cd049505bf7e9a5bdd7dcea90df6
-  FirebaseCrashlytics: f20d956f8229010b645e534693c39e0b7843c268
-  FirebaseInstallations: 935bc4abb6f7a035cab7a0c31cb777b2be3dd254
-  FirebasePerformance: 8f1c8e5a4fcc5a68400835518ee63a6d63dbff0c
-  FirebaseRemoteConfig: acc04f51d74adfd9d5439d32126e01b520983737
+  Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
+  firebase_core: 18d44f087248303a4a8f05d0099a000c46e3c77a
+  firebase_crashlytics: 6c15c2f507d82746dd62214964acf56146eab53f
+  firebase_performance: 7dd98298ea2f19f480efd59ccbfcad3972ced984
+  FirebaseABTesting: 005b70969e2817e2a1e631e8dba29134a04c0622
+  FirebaseCore: e317665b9d744727a97e623edbbed009320afdd7
+  FirebaseCoreExtension: d3e9bba2930a8033042112397cd9f006a1bb203d
+  FirebaseCoreInternal: d2b4acb827908e72eca47a9fd896767c3053921e
+  FirebaseCrashlytics: 35fdd1a433b31e28adcf5c8933f4c526691a1e0b
+  FirebaseInstallations: c58489c9caacdbf27d1da60891a87318e20218e0
+  FirebasePerformance: 8281bbaf08aad194001018b932115b7d58a6f00b
+  FirebaseRemoteConfig: 5ea5834e8c518f377bf1af2d97ebd611914ebf2d
+  FirebaseSessions: 44a6782502eb279a214d4adca20891353278760c
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
-  GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
+  GoogleDataTransport: 8378d1fa8ac49753ea6ce70d65a7cb70ce5f66e6
+  GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
-  path_provider_foundation: 37748e03f12783f9de2cb2c4eadfaa25fe6d4852
+  path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
-  url_launcher_ios: fb12c43172927bb5cf75aeebd073f883801f1993
+  PromisesSwift: cf9eb58666a43bbe007302226e510b16c1e10959
+  shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
+  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 
-PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
