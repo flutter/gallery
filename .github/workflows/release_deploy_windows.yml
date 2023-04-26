@@ -15,13 +15,13 @@ jobs:
       
       # Instructions on obtaining these secrets can be found at https://github.com/marketplace/actions/windows-store-publish#obtaining-your-credentials
       - name: Configure MS CLI
-        run: msstore reconfigure --tenantId ${{ secrets.AZURE_AD_TENANT_ID }} --clientId ${{ secrets.AZURE_AD_ClIENT_ID }} --clientSecret ${{ secrets.AZURE_AD_CLIENT_SECRET }} --sellerId ${{ secrets.SELLER_ID }}
+        run: msstore reconfigure --tenantId ${{ secrets.AZURE_AD_TENANT_ID }} --clientId ${{ secrets.AZURE_AD_CLIENT_ID }} --clientSecret ${{ secrets.AZURE_AD_CLIENT_SECRET }} --sellerId ${{ secrets.SELLER_ID }}
 
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
       
       - name: Create MSIX package
-        run: msstore package .
+        run: msstore package
       
       - name: Publish MSIX to the Microsoft Store
         run: msstore publish -v
