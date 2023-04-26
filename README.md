@@ -30,7 +30,7 @@ These include:
 - web ([gallery.flutter.dev](https://gallery.flutter.dev/))
 - macOS ([.zip][latest release])
 - Linux ([.tar.gz][latest release])
-- Windows ([.zip][latest release])
+- Windows ([.zip][latest release], [.msix](https://www.microsoft.com/store/productId/9PDWCTDFC7QQ))
 
 ## Running
 
@@ -142,6 +142,8 @@ Then, use the following workflows. It is strongly recommended to use the staging
 - [Draft GitHub release](https://github.com/flutter/gallery/actions/workflows/release_draft_github_release.yml): Drafts a GitHub release, including automatically generated release notes and packaged builds for Android, macOS, Linux, and Windows.
   > **Note**
   > The release draft is private until published. Upon being published, the specified version tag will be created.
+- [Publish on Windows Store](): A workflow file for releasing to the Windows Store. This repository is not currently set up to publish new versions of [the current Windows Store listing](https://www.microsoft.com/store/productId/9PDWCTDFC7QQ). Requires running `msstore init` within the repository and setting repository/environment secrets .
+  > See the instructions in the [documentation](https://docs.flutter.dev/deployment/windows#github-actions-cicd) for more information.
 
 For posterity, information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
 
