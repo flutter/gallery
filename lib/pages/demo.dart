@@ -2,11 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:io' show Platform;
-
 import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
@@ -21,10 +18,7 @@ import 'package:gallery/pages/splash.dart';
 import 'package:gallery/themes/gallery_theme_data.dart';
 import 'package:gallery/themes/material_demo_theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
-const _demoViewedCountKey = 'demoViewedCountKey';
 
 enum _DemoState {
   normal,
@@ -94,8 +88,6 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
   final RestorableInt _configIndex = RestorableInt(0);
 
   bool? _isDesktop;
-  bool _showFeatureHighlight = true;
-  late int _demoViewedCount;
 
   late AnimationController _codeBackgroundColorController;
 
@@ -114,19 +106,6 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
   bool get _hasOptions => widget.demo.configurations.length > 1;
 
-  bool get _isSupportedSharedPreferencesPlatform =>
-      !kIsWeb && (Platform.isAndroid || Platform.isIOS);
-
-  // Only show the feature highlight on Android/iOS, in mobile layout, non-test
-  // mode, and only on the first and fourth time the demo page is viewed.
-  bool _showFeatureHighlightForPlatform(BuildContext context) {
-    return _showFeatureHighlight &&
-        _isSupportedSharedPreferencesPlatform &&
-        !isDisplayDesktop(context) &&
-        !GalleryOptions.of(context).isTestMode &&
-        (_demoViewedCount == 0 || _demoViewedCount == 3);
-  }
-
   @override
   void initState() {
     super.initState();
@@ -134,12 +113,6 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    SharedPreferences.getInstance().then((preferences) {
-      setState(() {
-        _demoViewedCount = preferences.getInt(_demoViewedCountKey) ?? 0;
-        preferences.setInt(_demoViewedCountKey, _demoViewedCount + 1);
-      });
-    });
   }
 
   @override
@@ -265,22 +238,13 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             icon: FeatureDiscovery(
               title: localizations.demoOptionsFeatureTitle,
               description: localizations.demoOptionsFeatureDescription,
-              showOverlay: _showFeatureHighlightForPlatform(context),
+              showOverlay: !isDisplayDesktop(context) &&
+                  !GalleryOptions.of(context).isTestMode,
               color: colorScheme.primary,
-              onDismiss: () {
-                setState(() {
-                  _showFeatureHighlight = false;
-                });
-              },
-              onTap: () {
-                setState(() {
-                  _showFeatureHighlight = false;
-                });
-              },
+              onTap: () => _handleTap(_DemoState.options),
               child: Icon(
                 Icons.tune,
-                color: currentDemoState == _DemoState.options ||
-                        _showFeatureHighlightForPlatform(context)
+                color: currentDemoState == _DemoState.options
                     ? selectedIconColor
                     : iconColor,
               ),

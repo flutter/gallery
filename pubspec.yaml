@@ -23,6 +23,7 @@ dependencies:
   firebase_core: ^2.7.0
   firebase_crashlytics: ^3.1.1
   firebase_performance: ^0.9.0+14
+  get_storage: ^2.1.1
   google_fonts: ^4.0.1
   intl: any # An exact version pin will be provided by the Flutter SDK
   meta: ^1.7.0
@@ -31,7 +32,6 @@ dependencies:
   provider: ^6.0.2
   rally_assets: ^3.0.1
   scoped_model: ^2.0.0
-  shared_preferences: ^2.0.15
   shrine_images: ^2.0.1
   transparent_image: ^2.0.1
   url_launcher: ^6.1.2

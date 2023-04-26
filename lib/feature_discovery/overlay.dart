@@ -5,7 +5,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-
 import 'package:gallery/feature_discovery/animation.dart';
 
 const contentHeight = 80.0;
@@ -323,8 +322,10 @@ class TapTarget extends StatelessWidget {
             child: Container(
               height: radius * 2,
               width: radius * 2,
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.white,
                 shape: BoxShape.circle,
               ),
               child: child,
