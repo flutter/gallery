@@ -2,6 +2,9 @@ name: Publish MSIX to Microsoft Store
 
 on: workflow_dispatch
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   build:
     runs-on: windows-latest
