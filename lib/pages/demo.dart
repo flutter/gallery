@@ -218,10 +218,10 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
     final appBarPadding = isDesktop ? 20.0 : 0.0;
     final currentDemoState = _DemoState.values[_demoStateIndex.value];
     final localizations = GalleryLocalizations.of(context)!;
+    final options = GalleryOptions.of(context);
 
     final appBar = AppBar(
-      systemOverlayStyle:
-          GalleryOptions.of(context).resolvedSystemUiOverlayStyle(),
+      systemOverlayStyle: options.resolvedSystemUiOverlayStyle(),
       backgroundColor: Colors.transparent,
       leading: Padding(
         padding: EdgeInsetsDirectional.only(start: appBarPadding),
@@ -240,8 +240,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
             icon: FeatureDiscovery(
               title: localizations.demoOptionsFeatureTitle,
               description: localizations.demoOptionsFeatureDescription,
-              showOverlay: !isDisplayDesktop(context) &&
-                  !GalleryOptions.of(context).isTestMode,
+              showOverlay: !isDisplayDesktop(context) && !options.isTestMode,
               color: colorScheme.primary,
               onTap: () => _handleTap(_DemoState.options),
               child: Icon(
@@ -327,7 +326,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         break;
       case _DemoState.code:
         final codeTheme = GoogleFonts.robotoMono(
-          fontSize: 12 * GalleryOptions.of(context).textScaleFactor(context),
+          fontSize: 12 * options.textScaleFactor(context),
         );
         section = CodeStyle(
           baseStyle: codeTheme.copyWith(color: const Color(0xFFFAFBFB)),

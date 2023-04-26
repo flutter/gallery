@@ -310,6 +310,7 @@ class TapTarget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Positioned(
       left: center.dx,
       top: center.dy,
@@ -323,8 +324,8 @@ class TapTarget extends StatelessWidget {
               height: radius * 2,
               width: radius * 2,
               decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Theme.of(context).colorScheme.primary
+                color: theme.brightness == Brightness.dark
+                    ? theme.colorScheme.primary
                     : Colors.white,
                 shape: BoxShape.circle,
               ),
