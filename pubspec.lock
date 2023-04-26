@@ -133,10 +133,10 @@ packages:
     dependency: "direct main"
     description:
       name: dual_screen
-      sha256: b7954fc5056448e4bb95c0b91df3adf268956141f81603d76d156db221fd8135
+      sha256: e109446340715856924a2da3af351f6946143861f58edeb455e55aa5a972b593
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   fake_async:
     dependency: transitive
     description:
