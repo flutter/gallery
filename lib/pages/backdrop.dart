@@ -221,12 +221,10 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
               ),
             ),
           ],
-          SafeArea(
-            child: _SettingsIcon(
-              animationController: _iconController,
-              toggleSettings: _toggleSettings,
-              isSettingsOpenNotifier: _isSettingsOpenNotifier,
-            ),
+          _SettingsIcon(
+            animationController: _iconController,
+            toggleSettings: _toggleSettings,
+            isSettingsOpenNotifier: _isSettingsOpenNotifier,
           ),
         ],
       ),
