@@ -1,0 +1,47 @@
+!! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
+
+Dart Code extension: 3.62.0
+Flutter extension: 3.62.0 (activated)
+
+App: Visual Studio Code
+Version: 1.77.3
+Platform: mac
+
+HTTP_PROXY: undefined
+NO_PROXY: undefined
+
+Logging Categories:
+    FlutterDaemon
+
+Wed Apr 26 2023 [22:55:07 GMT+0200 (Central European Summer Time)] Log file started
+[10:55:07 PM] [FlutterDaemon] [Info] Spawning /Users/plg/Developer/flutter-dev/bin/flutter with args ["daemon"]
+[10:55:07 PM] [FlutterDaemon] [Info] ..  in /Users/plg/Developer/flutter-dev
+[10:55:07 PM] [FlutterDaemon] [Info] ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[10:55:07 PM] [FlutterDaemon] [Info]     PID: 70941
+[10:55:07 PM] [FlutterDaemon] [Info] ==> [{"id":"1","method":"emulator.getEmulators"}]
+[10:55:07 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":34634}}]
+[10:55:07 PM] [FlutterDaemon] [Info] ==> [{"id":"2","method":"device.enable"}]
+[10:55:07 PM] [FlutterDaemon] [Info] <== [{"event":"daemon.logMessage","params":{"level":"status","message":"Starting device daemon..."}}]
+[10:55:08 PM] [FlutterDaemon] [Info] <== [{"id":"2"}]
+[10:55:08 PM] [FlutterDaemon] [Info] <== [{"id":"1","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_6_Pro_API_U","name":"Pixel 6 Pro API U","category":"mobile","platformType":"android"}]}]
+[10:55:12 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"macos","name":"macOS","platform":"darwin","emulator":false,"category":"desktop","platformType":"macos","ephemeral":false,"emulatorId":null,"sdk":"macOS 13.4 22F5037d darwin-arm64","capabilities":{"hotReload":true,"hotRestart":true,"screenshot":false,"fastStart":false,"flutterExit":true,"hardwareRendering":true,"startPaused":true}}}]
+[10:55:12 PM] [FlutterDaemon] [Info] ==> [{"id":"3","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/plg/Developer/gallery"}}]
+[10:55:12 PM] [FlutterDaemon] [Info] <== [{"id":"3","result":{"platforms":["linux","macos","windows","ios","android","web"]}}]
+[10:55:12 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"chrome","name":"Chrome","platform":"web-javascript","emulator":false,"category":"web","platformType":"web","ephemeral":false,"emulatorId":null,"sdk":"Google Chrome 112.0.5615.137","capabilities":{"hotReload":true,"hotRestart":true,"screenshot":false,"fastStart":false,"flutterExit":false,"hardwareRendering":true,"startPaused":true}}}]
+[11:53:01 PM] [FlutterDaemon] [Info] ==> [{"id":"4","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/plg/Developer/gallery"}}]
+[11:53:01 PM] [FlutterDaemon] [Info] <== [{"id":"4","result":{"platforms":["linux","macos","windows","ios","android","web"]}}]
+[11:53:01 PM] [FlutterDaemon] [Info] ==> [{"id":"5","method":"emulator.getEmulators"}]
+[11:53:01 PM] [FlutterDaemon] [Info] <== [{"id":"5","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_6_Pro_API_U","name":"Pixel 6 Pro API U","category":"mobile","platformType":"android"}]}]
+[11:53:02 PM] [FlutterDaemon] [Info] ==> [{"id":"6","method":"emulator.launch","params":{"emulatorId":"apple_ios_simulator","coldBoot":false}}]
+[11:53:02 PM] [FlutterDaemon] [Info] <== [{"id":"6"}]
+[11:53:05 PM] [FlutterDaemon] [Info] <== [{"event":"device.added","params":{"id":"C7F9E9E6-423E-4407-94E4-C3E191FE08E1","name":"iPhone 14 Pro Max","platform":"ios","emulator":true,"category":"mobile","platformType":"ios","ephemeral":true,"emulatorId":"apple_ios_simulator","sdk":"com.apple.CoreSimulator.SimRuntime.iOS-16-4","capabilities":{"hotReload":true,"hotRestart":true,"screenshot":true,"fastStart":false,"flutterExit":true,"hardwareRendering":false,"startPaused":true}}}]
+[11:53:25 PM] [FlutterDaemon] [Info] ==> [{"id":"7","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/plg/Developer/gallery"}}]
+[11:53:25 PM] [FlutterDaemon] [Info] <== [{"id":"7","result":{"platforms":["linux","macos","windows","ios","android","web"]}}]
+[11:53:25 PM] [FlutterDaemon] [Info] ==> [{"id":"8","method":"emulator.getEmulators"}]
+[11:53:25 PM] [FlutterDaemon] [Info] <== [{"id":"8","result":[{"id":"apple_ios_simulator","name":"iOS Simulator","category":"mobile","platformType":"ios"},{"id":"Pixel_6_Pro_API_U","name":"Pixel 6 Pro API U","category":"mobile","platformType":"android"}]}]
+[11:53:54 PM] [FlutterDaemon] [Info] <== [{"event":"device.removed","params":{"id":"C7F9E9E6-423E-4407-94E4-C3E191FE08E1","name":"iPhone 14 Pro Max","platform":"ios","emulator":true,"category":"mobile","platformType":"ios","ephemeral":true,"emulatorId":"apple_ios_simulator","sdk":"com.apple.CoreSimulator.SimRuntime.iOS-16-4","capabilities":{"hotReload":true,"hotRestart":true,"screenshot":true,"fastStart":false,"flutterExit":true,"hardwareRendering":false,"startPaused":true}}}]
+[11:53:54 PM] [FlutterDaemon] [Info] ==> [{"id":"9","method":"daemon.getSupportedPlatforms","params":{"projectRoot":"/Users/plg/Developer/gallery"}}]
+[11:53:54 PM] [FlutterDaemon] [Info] <== [{"id":"9","result":{"platforms":["linux","macos","windows","ios","android","web"]}}]
+[12:03:55 AM] [FlutterDaemon] [Info] ==> [{"id":"10","method":"daemon.shutdown"}]
+[12:03:55 AM] [FlutterDaemon] [Info] <== [{"id":"10"}]
+Thu Apr 27 2023 [00:03:55 GMT+0200 (Central European Summer Time)] Log file ended
