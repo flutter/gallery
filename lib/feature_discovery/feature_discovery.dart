@@ -4,9 +4,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-
 import 'package:gallery/feature_discovery/animation.dart';
 import 'package:gallery/feature_discovery/overlay.dart';
+import 'package:get_storage/get_storage.dart';
+
+const _featureHighlightShownKey = 'feature_highlight_shown';
 
 /// [Widget] to enforce a global lock system for [FeatureDiscovery] widgets.
 ///
@@ -269,7 +271,15 @@ class _FeatureDiscoveryState extends State<FeatureDiscovery>
 
     initAnimationControllers();
     initAnimations();
-    showOverlay = widget.showOverlay;
+
+    final localStorage = GetStorage();
+    final featureHiglightShown =
+        localStorage.read<bool>(_featureHighlightShownKey) ?? false;
+    localStorage.write(_featureHighlightShownKey, true);
+    showOverlay = widget.showOverlay && !featureHiglightShown;
+    if (showOverlay) {
+      localStorage.write(_featureHighlightShownKey, true);
+    }
   }
 
   void initAnimationControllers() {
