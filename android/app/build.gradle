@@ -66,10 +66,11 @@ android {
 
     buildTypes {
         release {
-            // Uncomment to run flutter build apk or flutter run --release locally
-            // signingConfig signingConfigs.debug
-
-            signingConfig signingConfigs.release
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
+            }
         }
     }
 }
