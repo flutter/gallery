@@ -35,8 +35,6 @@ class AdaptiveNav extends StatefulWidget {
 }
 
 class _AdaptiveNavState extends State<AdaptiveNav> {
-  UniqueKey _inboxKey = UniqueKey();
-
   @override
   void initState() {
     super.initState();
@@ -91,7 +89,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
     if (isDesktop) {
       return _DesktopNav(
-        inboxKey: _inboxKey,
         extended: !isTablet,
         destinations: navigationDestinations,
         folders: folders,
@@ -99,7 +96,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
       );
     } else {
       return _MobileNav(
-        inboxKey: _inboxKey,
         destinations: navigationDestinations,
         folders: folders,
         onItemTapped: _onDestinationSelected,
@@ -114,10 +110,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
     );
 
     final isDesktop = isDisplayDesktop(context);
-
-    if (emailStore.selectedMailboxPage != destination) {
-      _inboxKey = UniqueKey();
-    }
 
     emailStore.selectedMailboxPage = destination;
 
@@ -139,7 +131,6 @@ class _AdaptiveNavState extends State<AdaptiveNav> {
 
 class _DesktopNav extends StatefulWidget {
   const _DesktopNav({
-    this.inboxKey,
     required this.extended,
     required this.destinations,
     required this.folders,
@@ -147,7 +138,6 @@ class _DesktopNav extends StatefulWidget {
   });
 
   final bool extended;
-  final UniqueKey? inboxKey;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int, MailboxPageType) onItemTapped;
@@ -242,9 +232,9 @@ class _DesktopNavState extends State<_DesktopNav>
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 1340),
-                child: _SharedAxisTransitionSwitcher(
+                child: const _SharedAxisTransitionSwitcher(
                   defaultChild: _MailNavigator(
-                    child: MailboxBody(key: widget.inboxKey),
+                    child: MailboxBody(),
                   ),
                 ),
               ),
@@ -448,13 +438,11 @@ class _NavigationRailFolderSection extends StatelessWidget {
 
 class _MobileNav extends StatefulWidget {
   const _MobileNav({
-    this.inboxKey,
     required this.destinations,
     required this.folders,
     required this.onItemTapped,
   });
 
-  final UniqueKey? inboxKey;
   final List<_Destination> destinations;
   final Map<String, String> folders;
   final void Function(int, MailboxPageType) onItemTapped;
@@ -618,10 +606,8 @@ class _MobileNavState extends State<_MobileNav> with TickerProviderStateMixin {
       children: [
         NotificationListener<ScrollNotification>(
           onNotification: _handleScrollNotification,
-          child: _MailNavigator(
-            child: MailboxBody(
-              key: widget.inboxKey,
-            ),
+          child: const _MailNavigator(
+            child: MailboxBody(),
           ),
         ),
         MouseRegion(
