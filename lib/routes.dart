@@ -122,7 +122,8 @@ class RouteConfiguration {
     RouteSettings settings,
     bool hasHinge,
   ) {
-    for (final path in paths) {
+    for (int i = 0; i < paths.length; i++) {
+      final path = paths[i];
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name!)) {
         final firstMatch = regExpPattern.firstMatch(settings.name!)!;

@@ -196,9 +196,12 @@ class _RestorableAppStateModel extends RestorableListenable<AppStateModel> {
 
     // Reset cart items.
     final cartItems = appData['cart_data'] as Map<dynamic, dynamic>;
-    cartItems.forEach((dynamic id, dynamic quantity) {
+    final cartEntries = cartItems.entries.toList();
+    for (int i = 0; i < cartEntries.length; i++) {
+      dynamic id = cartEntries[i].key;
+      dynamic quantity = cartEntries[i].value;
       appState.addMultipleProductsToCart(id as int, quantity as int);
-    });
+    }
 
     return appState;
   }

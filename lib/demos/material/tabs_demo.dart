@@ -171,6 +171,14 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
       localizations.colorsGreen,
     ];
 
+    List<Tab> tabWidgets = [];
+    List<Text> tabCenters = [];
+
+    for (int i = 0; i < tabs.length; i++) {
+      tabWidgets.add(Tab(text: tabs[i]));
+      tabCenters.add(Text(tabs[i]));
+    }
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -180,19 +188,12 @@ class __TabsNonScrollableDemoState extends State<_TabsNonScrollableDemo>
         bottom: TabBar(
           controller: _tabController,
           isScrollable: false,
-          tabs: [
-            for (final tab in tabs) Tab(text: tab),
-          ],
+          tabs: tabWidgets,
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          for (final tab in tabs)
-            Center(
-              child: Text(tab),
-            ),
-        ],
+        children: tabCenters,
       ),
     );
   }
