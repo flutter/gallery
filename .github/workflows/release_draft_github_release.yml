@@ -149,4 +149,3 @@ jobs:
           asset_path: ./flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_name: flutter_gallery_${{ matrix.target }}${{ matrix.asset_extension }}
           asset_content_type: ${{ matrix.asset_content_type }}
-          overwrite: true
