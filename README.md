@@ -127,12 +127,13 @@ determine how long to display the splash animation at launch.
 
 A set of GitHub workflows are available to help with releasing the Flutter Gallery, one per releasing platform.
 
+1. For Android, download the relevant [Firebase configuration file](https://firebase.corp.google.com/u/0/project/gallery-flutter-dev/settings/general) (e.g. `google-services.json`).
 1. Bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
 Use [semantic versioning](https://semver.org/) to determine
 which part to increment. **The version number after the `+` should also be incremented**. For example `1.2.3+010203`
 with a patch should become `1.2.4+010204`.
 
-2. Run GitHub workflow.
+1. Run GitHub workflow.
 - [Deploy to web](https://github.com/flutter/gallery/actions/workflows/release_deploy_web.yml): Deploys a web build to the Firebase-hosted [staging](https://gallery-flutter-staging.web.app) or [production](https://gallery.flutter.dev) site.
 - [Deploy to Play Store](https://github.com/flutter/gallery/actions/workflows/release_deploy_play_store.yml): Uses Fastlane to create a [beta](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/open-testing) (freely available on the [Play Store](https://play.google.com/apps/testing/io.flutter.demo.gallery)) or promote an existing beta to [production](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/production) ([Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery)).
   > **Note**
