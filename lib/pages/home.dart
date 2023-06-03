@@ -774,7 +774,7 @@ class _MobileCarouselState extends State<_MobileCarousel>
 
   @override
   void dispose() {
-    _controller!.dispose();
+    _controller.dispose();
     _currentPage.dispose();
     super.dispose();
   }
@@ -785,7 +785,7 @@ class _MobileCarouselState extends State<_MobileCarousel>
       builder: (context, child) {
         double value;
         if (_controller.position.haveDimensions) {
-          value = _controller!.page! - index;
+          value = _controller.page! - index;
         } else {
           // If haveDimensions is false, use _currentPage to calculate value.
           value = (_currentPage.value - index).toDouble();
