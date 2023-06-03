@@ -29,7 +29,8 @@ void main() async {
   await GetStorage.init();
 
   if (defaultTargetPlatform != TargetPlatform.linux &&
-      defaultTargetPlatform != TargetPlatform.windows) {
+      defaultTargetPlatform != TargetPlatform.windows &&
+      defaultTargetPlatform != TargetPlatform.macOS) {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
