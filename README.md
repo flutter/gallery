@@ -123,29 +123,32 @@ determine how long to display the splash animation at launch.
 
 ## Releasing
 
-<details>
-  <summary>for flutter-hackers members</summary>
+*must be a `flutter-hackers` member*
 
-The process is largely automated and easy to set in motion.
+A set of GitHub workflows are available to help with releasing the Flutter Gallery, one per releasing platform.
 
-First things first, bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
+1. Bump the `pubspec.yaml` version number. This can be in a PR making a change or a separate PR.
 Use [semantic versioning](https://semver.org/) to determine
-which part to increment. The version number after the `+` should also be incremented. For example `1.2.3+010203`
+which part to increment. **The version number after the `+` should also be incremented**. For example `1.2.3+010203`
 with a patch should become `1.2.4+010204`.
 
-Then, use the following workflows. It is strongly recommended to use the staging/beta environments when available, before deploying to production.
-
-- [Deploy to Play Store](https://github.com/flutter/gallery/actions/workflows/release_deploy_play_store.yml): Uses Fastlane to create a [beta](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/open-testing) (freely available on the [Play Store](https://play.google.com/apps/testing/io.flutter.demo.gallery)), promote an existing beta to production, or publish straight to [production](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/production) ([Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery)).
-  > **Note**
-  > Once an .aab is released with a particular version number, it can't be replaced. The version number must be incremented again.
+2. Run GitHub workflow.
 - [Deploy to web](https://github.com/flutter/gallery/actions/workflows/release_deploy_web.yml): Deploys a web build to the Firebase-hosted [staging](https://gallery-flutter-staging.web.app) or [production](https://gallery.flutter.dev) site.
-- [Draft GitHub release](https://github.com/flutter/gallery/actions/workflows/release_draft_github_release.yml): Drafts a GitHub release, including automatically generated release notes and packaged builds for Android, macOS, Linux, and Windows.
+- [Deploy to Play Store](https://github.com/flutter/gallery/actions/workflows/release_deploy_play_store.yml): Uses Fastlane to create a [beta](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/open-testing) (freely available on the [Play Store](https://play.google.com/apps/testing/io.flutter.demo.gallery)) or promote an existing beta to [production](https://play.google.com/console/u/0/developers/7661132837216938445/app/4974617875198505129/tracks/production) ([Play Store](https://play.google.com/store/apps/details?id=io.flutter.demo.gallery)).
   > **Note**
-  > The release draft is private until published. Upon being published, the specified version tag will be created.
-- [Publish on Windows Store](): A workflow file for releasing to the Windows Store. This repository is not currently set up to publish new versions of [the current Windows Store listing](https://www.microsoft.com/store/productId/9PDWCTDFC7QQ). Requires running `msstore init` within the repository and setting repository/environment secrets .
+  > Once an .aab is created with a particular version number, it can't be replaced. The pubspec version number must be incremented again.
+
+- [Draft GitHub release](https://github.com/flutter/gallery/actions/workflows/release_draft_github_release.yml): Drafts a GitHub release, including packaged builds for Android, macOS, Linux, and Windows. Release notes can be automatically generated. The release draft is private until published. Upon being published, the specified version tag will be created.
+- [Publish on Windows Store](): Releasing to the Windows Store.
+  > **Note**
+  > This repository is not currently set up to publish new versions of [the current Windows Store listing](https://www.microsoft.com/store/productId/9PDWCTDFC7QQ). Requires running `msstore init` within the repository and setting repository/environment secrets .
   > See the instructions in the [documentation](https://docs.flutter.dev/deployment/windows#github-actions-cicd) for more information.
 
-For posterity, information about doing these things locally is available at [go/flutter-gallery-manual-deployment](http://go/flutter-gallery-manual-deployment).
+<details>
+  <summary>Escape hatch</summary>
+
+If the above GitHub workflows aren't functional (#759), releasing can be done semi-manually. Since this requires obtaining environment secrets, this can only be done by a Googler. See go/flutter-gallery-manual-deployment.
+
 
 </details>
 
