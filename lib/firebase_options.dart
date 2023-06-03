@@ -59,7 +59,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCX61HWVIf6k2XZYk43DxWAqE2tp9kwmEY',
-    appId: '1:934901241041:android:d4698fe26714717fe621f0',
+    appId: '1:934901241041:android:d393674f33a48678e621f0',
     messagingSenderId: '934901241041',
     projectId: 'gallery-flutter-dev',
     databaseURL: 'https://gallery-flutter-dev.firebaseio.com',
