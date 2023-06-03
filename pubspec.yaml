@@ -1,7 +1,7 @@
 name: gallery
 description: A resource to help developers evaluate and use Flutter.
 repository: https://github.com/flutter/gallery
-version: 2.10.2+021002 # See README.md for details on versioning.
+version: 2.10.3+021003 # See README.md for details on versioning.
 
 environment:
   flutter: ^3.10.0-10.0.pre.17 # Keep relatively close to master channel version
@@ -25,10 +25,10 @@ dependencies:
   firebase_crashlytics: ^3.1.1
   firebase_performance: ^0.9.0+14
   get_storage: ^2.1.1
-  google_fonts: ^4.0.1
+  google_fonts: ^5.0.0
   intl: any # An exact version pin will be provided by the Flutter SDK
   meta: ^1.7.0
-  package_info_plus: ^3.0.3
+  package_info_plus: ^4.0.2
   path_provider: ^2.0.11
   provider: ^6.0.2
   rally_assets: ^3.0.1
