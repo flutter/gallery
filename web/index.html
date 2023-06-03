@@ -185,6 +185,28 @@
     initCookieNotice();
   </script>
 
+  <!-- Background -->
+  <style>
+    body.light {
+      background-color: #E6EBEB;
+    }
+
+    body.dark {
+      background-color: #241E30;
+    }
+  </style>
+  <script>
+    var queryParams = new URLSearchParams(window.location.search);
+
+    // Set the theme from the URL param, with fallback to user preference if no theme is
+    // specified.
+    var theme = queryParams.get("brightness");
+    theme ||= window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.body.classList.add(theme);
+  </script>
+
   <!-- Loading indicator -->
   <div id="loading">
     <style>
@@ -235,7 +257,7 @@
         }
 
         to {
-          transform: scale(10)
+          transform: scale(0.01)
         }
       }
     </style>
