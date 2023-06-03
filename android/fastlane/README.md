@@ -31,11 +31,6 @@ Submit a new beta build to Google Play
 fastlane android promote_to_production
 ```
 Promote beta track to prod
-### android production
-```
-fastlane android production
-```
-Submit a new production build to Google Play
 
 ----
 
