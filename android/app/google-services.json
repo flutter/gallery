@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:934901241041:android:d4698fe26714717fe621f0",
+        "mobilesdk_app_id": "1:934901241041:android:d393674f33a48678e621f0",
         "android_client_info": {
           "package_name": "io.flutter.demo.gallery"
         }
