@@ -23,7 +23,8 @@ platform :android do
 
   desc "Submit a new beta build to Google Play"
   lane :beta do
-    sh "flutter build appbundle -v"
+    # TODO: Re-enable deferred components once https://github.com/flutter/gallery/issues/926 is fixed
+    sh "flutter build appbundle -v --no-deferred-components"
     upload_to_play_store(
       track: 'beta',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
@@ -39,15 +40,5 @@ platform :android do
       skip_upload_changelogs: true,
       json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
       )
-  end
-
-  desc "Submit a new production build to Google Play"
-  lane :production do
-    sh "flutter build appbundle -v"
-    upload_to_play_store(
-      track: 'production',
-      aab: '../build/app/outputs/bundle/release/app-release.aab',
-      json_key_data: ENV['PLAY_STORE_CONFIG_JSON'],
-    )
   end
 end

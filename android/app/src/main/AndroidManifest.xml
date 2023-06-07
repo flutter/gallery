@@ -1,51 +1,51 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- io.flutter.app.FlutterApplication is an android.app.Application that
+  <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
-    <application
-        android:label="Flutter Gallery"
-        android:name="io.flutter.embedding.android.FlutterPlayStoreSplitApplication"
-        android:icon="@mipmap/ic_launcher">
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-            android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
-            android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true">
-            <!-- Specifies an Android theme to apply to this Activity as soon as
+  <application
+      android:name="io.flutter.embedding.android.FlutterPlayStoreSplitApplication"
+      android:icon="@mipmap/ic_launcher"
+      android:label="Flutter Gallery">
+    <activity
+        android:name=".MainActivity"
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+        android:exported="true"
+        android:hardwareAccelerated="true"
+        android:launchMode="singleTop"
+        android:theme="@style/LaunchTheme"
+        android:windowSoftInputMode="adjustResize">
+      <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
-            <meta-data
-                android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme"
-                />
-            <!-- Displays an Android View that continues showing the launch screen
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <!-- Displays an Android View that continues showing the launch screen
                  Drawable until Flutter paints its first frame, then this splash
                  screen fades out. A splash screen is useful to avoid any visual
                  gap between the end of Android's launch screen and the painting of
                  Flutter's first frame. -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-            <!-- Don't delete the meta-data below.
+      <meta-data
+          android:name="io.flutter.embedding.android.NormalTheme"
+          android:resource="@style/NormalTheme" />
+      <!-- Don't delete the meta-data below.
                  This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
-            <meta-data
-                android:name="flutterEmbedding"
-                android:value="2"/>
-        </activity>
-        <meta-data android:name="io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager.loadingUnitMapping" android:value="77:crane,2:,3:,4:,5:,6:,7:,8:,9:,10:,11:,12:,13:,14:,15:,16:,17:,18:,19:,20:,21:,22:,23:,24:,25:,26:,27:,28:,29:,30:,31:,32:,33:,34:,35:,36:,37:,38:,39:,40:,41:,42:,43:,44:,45:,46:,47:,48:,49:,50:,51:,52:,53:,54:,55:,56:,57:,58:,59:,60:,61:,62:,63:,64:,65:,66:,67:,68:,69:,70:,71:,72:,73:,74:,75:,76:,78:,79:,80:,81:,82:,83:,84:,85:,86:,87:"/>
-    </application>
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.VIEW" />
-            <data android:scheme="https" />
-        </intent>
-    </queries>
+      <meta-data
+          android:name="flutterEmbedding"
+          android:value="2" />
+    </activity>
+    <meta-data
+        android:name="io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager.loadingUnitMapping"
+        android:value="78:crane,2:,3:,4:,5:,6:,7:,8:,9:,10:,11:,12:,13:,14:,15:,16:,17:,18:,19:,20:,21:,22:,23:,24:,25:,26:,27:,28:,29:,30:,31:,32:,33:,34:,35:,36:,37:,38:,39:,40:,41:,42:,43:,44:,45:,46:,47:,48:,49:,50:,51:,52:,53:,54:,55:,56:,57:,58:,59:,60:,61:,62:,63:,64:,65:,66:,67:,68:,69:,70:,71:,72:,73:,74:,75:,76:,77:,79:,80:,81:,82:,83:,84:,85:,86:,87:,88:" />
+  </application>
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.VIEW" />
+      <data android:scheme="https" />
+    </intent>
+  </queries>
 </manifest>

@@ -25,7 +25,20 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
+      case TargetPlatform.windows:
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
+      case TargetPlatform.linux:
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for linux - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -46,7 +59,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCX61HWVIf6k2XZYk43DxWAqE2tp9kwmEY',
-    appId: '1:934901241041:android:d4698fe26714717fe621f0',
+    appId: '1:934901241041:android:d393674f33a48678e621f0',
     messagingSenderId: '934901241041',
     projectId: 'gallery-flutter-dev',
     databaseURL: 'https://gallery-flutter-dev.firebaseio.com',
@@ -55,17 +68,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDMJsEYAcKIwBUajVyLlaQ1Z7xAQabZTjo',
-    appId: '1:934901241041:ios:7d98f83e5614cfa7e621f0',
-    messagingSenderId: '934901241041',
-    projectId: 'gallery-flutter-dev',
-    databaseURL: 'https://gallery-flutter-dev.firebaseio.com',
-    storageBucket: 'gallery-flutter-dev.appspot.com',
-    iosBundleId: 'io.flutter.demo.gallery',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDMJsEYAcKIwBUajVyLlaQ1Z7xAQabZTjo',
-    appId: '1:934901241041:ios:7d98f83e5614cfa7e621f0',
+    appId: '1:934901241041:ios:8d4c8bde3db3391fe621f0',
     messagingSenderId: '934901241041',
     projectId: 'gallery-flutter-dev',
     databaseURL: 'https://gallery-flutter-dev.firebaseio.com',

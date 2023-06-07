@@ -24,7 +24,6 @@ import 'package:gallery/studies/reply/routes.dart' as reply_routes;
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
 import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
-
 import 'package:url_launcher/url_launcher.dart';
 
 const _horizontalPadding = 32.0;
@@ -748,7 +747,7 @@ class _MobileCarousel extends StatefulWidget {
 
 class _MobileCarouselState extends State<_MobileCarousel>
     with RestorationMixin, SingleTickerProviderStateMixin {
-  PageController? _controller;
+  late PageController _controller;
 
   final RestorableInt _currentPage = RestorableInt(0);
 
@@ -775,18 +774,18 @@ class _MobileCarouselState extends State<_MobileCarousel>
 
   @override
   void dispose() {
-    _controller!.dispose();
+    _controller.dispose();
     _currentPage.dispose();
     super.dispose();
   }
 
   Widget builder(int index) {
     final carouselCard = AnimatedBuilder(
-      animation: _controller!,
+      animation: _controller,
       builder: (context, child) {
         double value;
-        if (_controller!.position.haveDimensions) {
-          value = _controller!.page! - index;
+        if (_controller.position.haveDimensions) {
+          value = _controller.page! - index;
         } else {
           // If haveDimensions is false, use _currentPage to calculate value.
           value = (_currentPage.value - index).toDouble();
