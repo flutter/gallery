@@ -56,3 +56,8 @@ console to generate messages in the different locales.
 > unless necessary.
 
 See `/third_party/dart/flutter_gallery/README.md` for how to import this file and export translations.
+
+## Updating Existing Locale Messages
+
+Modify the message in `intl_en.arb`, then run `flutter pub run grinder l10n`.
+This will update `intl_en_US.xml` for the translation console.

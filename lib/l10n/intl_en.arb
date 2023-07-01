@@ -1787,11 +1787,11 @@
   "@demo2dTransformationsTitle": {
     "description": "Title for the 2D transformations demo."
   },
-  "demo2dTransformationsSubtitle": "Pan, zoom, rotate",
+  "demo2dTransformationsSubtitle": "Pan and zoom",
   "@demo2dTransformationsSubtitle": {
     "description": "Subtitle for the 2D transformations demo."
   },
-  "demo2dTransformationsDescription": "Tap to edit tiles, and use gestures to move around the scene. Drag to pan, pinch to zoom, rotate with two fingers. Press the reset button to return to the starting orientation.",
+  "demo2dTransformationsDescription": "Tap to edit tiles, and use gestures to move around the scene. Drag to pan and pinch with two fingers to zoom. Press the reset button to return to the starting orientation.",
   "@demo2dTransformationsDescription": {
     "description": "Description for the 2D transformations demo."
   },
