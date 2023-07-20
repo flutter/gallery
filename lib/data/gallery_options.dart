@@ -62,6 +62,7 @@ class GalleryOptions {
     if (_textScaleFactor == systemTextScaleFactorOption) {
       return useSentinel
           ? systemTextScaleFactorOption
+          // ignore: deprecated_member_use
           : MediaQuery.of(context).textScaleFactor;
     } else {
       return _textScaleFactor;
@@ -184,6 +185,7 @@ class ApplyTextOptions extends StatelessWidget {
 
     Widget widget = MediaQuery(
       data: MediaQuery.of(context).copyWith(
+        // ignore: deprecated_member_use
         textScaleFactor: textScaleFactor,
       ),
       child: child,
