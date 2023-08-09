@@ -45,7 +45,6 @@ jobs:
         with:
           channel: master
       - run: flutter doctor -v
-      - run: flutter config --enable-web
 
       # Checkout gallery code and get packages.
       - name: Checkout gallery code

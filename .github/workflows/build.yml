@@ -27,7 +27,6 @@ jobs:
         uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
         with:
           channel: master
-      - run: flutter config --enable-macos-desktop
       - run: flutter doctor -v
 
       # Checkout gallery code and get packages.
