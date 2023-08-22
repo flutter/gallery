@@ -132,7 +132,6 @@ class _MailViewBody extends StatelessWidget {
   }
 }
 
-
 class _PictureGrid extends StatelessWidget {
   const _PictureGrid();
 

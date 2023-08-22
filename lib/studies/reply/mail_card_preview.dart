@@ -253,7 +253,6 @@ class _MailPreview extends StatelessWidget {
   }
 }
 
-
 class _PicturePreview extends StatelessWidget {
   const _PicturePreview();
 
