@@ -151,6 +151,7 @@ class _PictureGrid extends StatelessWidget {
           gaplessPlayback: true,
           package: 'flutter_gallery_assets',
           fit: BoxFit.fill,
+          cacheWidth: 500,
         );
       },
     );
