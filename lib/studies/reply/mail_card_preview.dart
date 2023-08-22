@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
@@ -252,6 +253,16 @@ class _MailPreview extends StatelessWidget {
   }
 }
 
+bool _shouldShrinkImage() {
+  switch (defaultTargetPlatform) {
+    case TargetPlatform.iOS:
+    case TargetPlatform.android:
+      return true;
+    default:
+      return false;
+  }
+}
+
 class _PicturePreview extends StatelessWidget {
   const _PicturePreview();
 
@@ -269,7 +280,7 @@ class _PicturePreview extends StatelessWidget {
               'reply/attachments/paris_${index + 1}.jpg',
               gaplessPlayback: true,
               package: 'flutter_gallery_assets',
-              cacheWidth: 200,
+              cacheWidth: _shouldShrinkImage() ? 200 : null,
             ),
           );
         },
