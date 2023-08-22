@@ -136,9 +136,6 @@ class _PictureGrid extends StatelessWidget {
   const _PictureGrid();
 
   bool _shouldShrinkImage() {
-    if (kDebugMode) {
-      return false;
-    }
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
       case TargetPlatform.android:

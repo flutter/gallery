@@ -257,9 +257,6 @@ class _PicturePreview extends StatelessWidget {
   const _PicturePreview();
 
   bool _shouldShrinkImage() {
-    if (kDebugMode) {
-      return false;
-    }
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
       case TargetPlatform.android:
