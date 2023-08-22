@@ -269,6 +269,7 @@ class _PicturePreview extends StatelessWidget {
               'reply/attachments/paris_${index + 1}.jpg',
               gaplessPlayback: true,
               package: 'flutter_gallery_assets',
+              cacheWidth: 200,
             ),
           );
         },
