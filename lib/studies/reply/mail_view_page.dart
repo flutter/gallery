@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/studies/reply/model/email_model.dart';
 import 'package:gallery/studies/reply/model/email_store.dart';
@@ -134,6 +135,16 @@ class _MailViewBody extends StatelessWidget {
 class _PictureGrid extends StatelessWidget {
   const _PictureGrid();
 
+  bool _shouldShrinkImage() {
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.iOS:
+      case TargetPlatform.android:
+        return true;
+      default:
+        return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -151,6 +162,7 @@ class _PictureGrid extends StatelessWidget {
           gaplessPlayback: true,
           package: 'flutter_gallery_assets',
           fit: BoxFit.fill,
+          cacheWidth: _shouldShrinkImage() ? 500 : null,
         );
       },
     );

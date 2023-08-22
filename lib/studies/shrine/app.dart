@@ -151,6 +151,7 @@ class _ShrineAppState extends State<ShrineApp>
 
     return ScopedModel<AppStateModel>(
       model: _model.value,
+      // ignore: deprecated_member_use
       child: WillPopScope(
         onWillPop: _onWillPop,
         child: MaterialApp(

@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/studies/reply/colors.dart';
@@ -255,6 +256,16 @@ class _MailPreview extends StatelessWidget {
 class _PicturePreview extends StatelessWidget {
   const _PicturePreview();
 
+  bool _shouldShrinkImage() {
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.iOS:
+      case TargetPlatform.android:
+        return true;
+      default:
+        return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -269,6 +280,7 @@ class _PicturePreview extends StatelessWidget {
               'reply/attachments/paris_${index + 1}.jpg',
               gaplessPlayback: true,
               package: 'flutter_gallery_assets',
+              cacheWidth: _shouldShrinkImage() ? 200 : null,
             ),
           );
         },
