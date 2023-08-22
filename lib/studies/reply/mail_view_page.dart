@@ -132,18 +132,22 @@ class _MailViewBody extends StatelessWidget {
   }
 }
 
-bool _shouldShrinkImage() {
-  switch (defaultTargetPlatform) {
-    case TargetPlatform.iOS:
-    case TargetPlatform.android:
-      return true;
-    default:
-      return false;
-  }
-}
 
 class _PictureGrid extends StatelessWidget {
   const _PictureGrid();
+
+  bool _shouldShrinkImage() {
+    if (kDebugMode) {
+      return false;
+    }
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.iOS:
+      case TargetPlatform.android:
+        return true;
+      default:
+        return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

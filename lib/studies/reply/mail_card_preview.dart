@@ -253,18 +253,22 @@ class _MailPreview extends StatelessWidget {
   }
 }
 
-bool _shouldShrinkImage() {
-  switch (defaultTargetPlatform) {
-    case TargetPlatform.iOS:
-    case TargetPlatform.android:
-      return true;
-    default:
-      return false;
-  }
-}
 
 class _PicturePreview extends StatelessWidget {
   const _PicturePreview();
+
+  bool _shouldShrinkImage() {
+    if (kDebugMode) {
+      return false;
+    }
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.iOS:
+      case TargetPlatform.android:
+        return true;
+      default:
+        return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
