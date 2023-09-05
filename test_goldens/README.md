@@ -23,11 +23,11 @@ on a Linux or Windows machine the golden tests will not pass on Github Actions.
 Instead you are recommended to download the goldens directly from the failed
 Github Actions job, and use those inside of your branch.
 
-You can find the goldens under Artifacts in the top menu inside of the failed
-Github Actions job. It will include the golden image, your test image and the
+You can find the goldens from a given test run (e.g. https://github.com/flutter/gallery/actions/runs/6070588209) at 
+the bottom of the Summary page, under "Artifacts". The `goldens` folder includes the golden image, your test image and the
 difference.
 
-![Where to download the golden artifacts](https://user-images.githubusercontent.com/1770678/80202787-70f1de80-8626-11ea-9d98-58ac72f67479.png)
+![Where to download the golden artifacts](https://github.com/flutter/gallery/assets/6655696/f53cab57-7b43-4f62-9594-5df5343a6cac)>
 
 ## Loading fonts in golden tests
 
