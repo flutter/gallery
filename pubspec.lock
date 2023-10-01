@@ -284,10 +284,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_localized_locales
-      sha256: f219350dffcfd56692b4e41953710c2975888dd9c507d977ec6853d7ea140336
+      sha256: "478d10535edf07292e34cb4c757882edeeaf96d5e3dbb04b42733038bd41dd3f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.5"
   flutter_staggered_grid_view:
     dependency: "direct main"
     description:
