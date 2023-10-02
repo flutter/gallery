@@ -245,6 +245,7 @@ class ColorsDemo extends StatelessWidget {
             tabs: [
               for (final palette in palettes) Tab(text: palette.name),
             ],
+            labelColor: Colors.white,
           ),
         ),
         body: TabBarView(
