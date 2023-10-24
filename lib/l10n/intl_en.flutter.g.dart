@@ -7,7 +7,7 @@ import 'package:flutter_messages/flutter_messages.dart';
 
 import 'intl_en.g.dart';
 
-class GalleryLocalizations {
+class MessagesLocalizations {
   static Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates = [
     delegate,
     GlobalMaterialLocalizations.delegate,
@@ -18,8 +18,13 @@ class GalleryLocalizations {
   static LocalizationsDelegate<Messages> delegate =
       MessagesLocalizationsDelegate();
 
-  static List<Locale> get supportedLocales =>
-      Messages.knownLocales.map((e) => Locale(e)).toList();
+  static List<Locale> get supportedLocales {
+    return Messages.knownLocales.map((e) {
+      var split = e.split('_');
+      var code = split.length > 1 ? split[1] : null;
+      return Locale(split.first, code);
+    }).toList();
+  }
 
   static Messages? of(BuildContext context) =>
       Localizations.of<Messages>(context, Messages);
@@ -28,11 +33,11 @@ class GalleryLocalizations {
 class MessagesLocalizationsDelegate extends LocalizationsDelegate<Messages> {
   @override
   bool isSupported(Locale locale) =>
-      Messages.knownLocales.contains(locale.toLanguageTag());
+      Messages.knownLocales.contains(locale.toString());
 
   @override
   Future<Messages> load(Locale locale) async {
-    await messages.loadLocale(locale.toLanguageTag());
+    await messages.loadLocale(locale.toString());
     return messages;
   }
 
