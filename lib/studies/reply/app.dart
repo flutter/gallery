@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/data/gallery_options.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 import 'package:gallery/layout/letter_spacing.dart';
 import 'package:gallery/studies/reply/adaptive_nav.dart';
 import 'package:gallery/studies/reply/colors.dart';

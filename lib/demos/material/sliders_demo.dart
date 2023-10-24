@@ -5,8 +5,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 
 class SlidersDemo extends StatelessWidget {
   const SlidersDemo({super.key, required this.type});

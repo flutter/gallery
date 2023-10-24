@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:gallery/demos/material/material_demo_types.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 
 class SelectionControlsDemo extends StatelessWidget {
   const SelectionControlsDemo({super.key, required this.type});

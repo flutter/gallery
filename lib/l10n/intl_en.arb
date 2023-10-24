@@ -400,7 +400,8 @@
     "description": "Alert message shown when you have unassigned transactions.",
     "placeholders": {
        "count": {
-         "example": "2"
+         "example": "2",
+         "type": "int"
        }
     }
   },
@@ -454,10 +455,12 @@
         "example": "Groceries"
       },
       "amountUsed": {
-        "example": "$5"
+        "example": "$5",
+        "type": "double"
       },
       "amountTotal": {
-        "example": "$100"
+        "example": "$100",
+        "type": "double"
       },
       "amountLeft": {
         "example": "$95"
@@ -509,7 +512,8 @@
     "description": "A message displayed to the user after clicking the COPY ALL button, if the text CANNOT be copied to the clipboard.",
     "placeholders": {
       "error": {
-        "example": "Your browser does not have clipboard support."
+        "example": "Your browser does not have clipboard support.",
+        "type": "Object"
       }
     }
   },
@@ -1121,7 +1125,8 @@
     "description": "A text to show what value was checked.",
     "placeholders": {
       "value": {
-        "example": "1"
+        "example": "1",
+        "type": "Iterable<String>"
       }
     }
   },
@@ -1848,7 +1853,8 @@
     "description": "Generic item placeholder.",
     "placeholders": {
       "value": {
-        "example": "1"
+        "example": "1",
+        "type": "int"
       }
     }
   },
@@ -2535,7 +2541,8 @@
     "description": "Generic placeholder drawer item.",
     "placeholders": {
       "value": {
-        "example": "1"
+        "example": "1",
+        "type": "int"
       }
     }
   },
@@ -2588,7 +2595,8 @@
     "description": "A text showing the number of items for a specific product.",
     "placeholders": {
       "quantity": {
-        "example": "3"
+        "example": "3",
+        "type": "int"
       }
     }
   },
@@ -2606,7 +2614,8 @@
     "description": "A text showing the total number of items in the cart.",
     "placeholders": {
       "quantity": {
-        "example": "3"
+        "example": "3",
+        "type": "int"
       }
     }
   },
@@ -2807,7 +2816,8 @@
     "description": "The description of a shopping cart button containing some products. Used by screen readers, such as TalkBack and VoiceOver.",
     "placeholders": {
       "quantity": {
-        "example": "3"
+        "example": "3",
+        "type": "int"
       }
     }
   },
@@ -2865,7 +2875,8 @@
     "description": "Generic text for an amount of hours, abbreviated to the shortest form. For example 1h. {hours} should remain untranslated.",
     "placeholders": {
       "hours": {
-        "example": "1"
+        "example": "1",
+        "type": "int"
       }
     }
   },
@@ -2874,7 +2885,8 @@
     "description": "Generic text for an amount of minutes, abbreviated to the shortest form. For example 15m. {minutes} should remain untranslated.",
     "placeholders": {
       "minutes": {
-        "example": "15"
+        "example": "15",
+        "type": "int"
       }
     }
   },
@@ -2919,7 +2931,8 @@
     "description": "Label indicating if a flight is nonstop or how many layovers it includes.",
     "placeholders": {
       "numberOfStops": {
-        "example": "2"
+        "example": "2",
+        "type": "int"
       }
     }
   },
@@ -2928,7 +2941,8 @@
     "description": "Text indicating the number of available properties (temporary rentals). Always plural.",
     "placeholders": {
       "totalProperties": {
-        "example": "100"
+        "example": "100",
+        "type": "int"
       }
     }
   },
@@ -2937,7 +2951,8 @@
     "description": "Text indicating the number of restaurants. Always plural.",
     "placeholders": {
       "totalRestaurants": {
-        "example": "100"
+        "example": "100",
+        "type": "int"
       }
     }
   },
@@ -3410,7 +3425,8 @@
     "description": "Generic item placeholder visible in the TwoPane widget demo.",
     "placeholders": {
       "value": {
-        "example": "1"
+        "example": "1",
+        "type": "int"
       }
     }
   },
@@ -3419,7 +3435,8 @@
     "description": "Generic item description or details visible in the TwoPane widget demo.",
     "placeholders": {
       "value": {
-        "example": "1"
+        "example": "1",
+        "type": "int"
       }
     }
   }

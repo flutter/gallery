@@ -3,11 +3,11 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:messages/package_intl_object.dart';
+import 'package:flutter_messages/flutter_messages.dart';
 
-import 'intl_zu.g.dart';
+import 'intl_en.g.dart';
 
-class MessagesLocalizations {
+class GalleryLocalizations {
   static Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates = [
     delegate,
     GlobalMaterialLocalizations.delegate,

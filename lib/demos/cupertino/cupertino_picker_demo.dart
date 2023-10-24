@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 import 'package:intl/intl.dart';
 
 // BEGIN cupertinoPickersDemo
@@ -190,7 +190,7 @@ class _CupertinoPickerDemoState extends State<CupertinoPickerDemo> {
   }
 
   Widget _buildPicker(BuildContext context) {
-    final locale = GalleryLocalizations.of(context)?.localeName;
+    final locale = GalleryLocalizations.of(context)?.currentLocale;
     final daysOfWeek = getDaysOfWeek(locale);
     return MouseRegion(
       cursor: SystemMouseCursors.click,

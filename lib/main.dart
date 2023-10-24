@@ -11,7 +11,7 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
-import 'package:gallery/l10n/intl_zu.flutter.g.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 import 'package:gallery/pages/backdrop.dart';
 import 'package:gallery/pages/splash.dart';
 import 'package:gallery/routes.dart';
@@ -86,11 +86,11 @@ class GalleryApp extends StatelessWidget {
               platform: options.platform,
             ),
             localizationsDelegates: [
-              ...MessagesLocalizations.localizationsDelegates,
+              ...GalleryLocalizations.localizationsDelegates,
               const LocaleNamesLocalizationsDelegate()
             ],
             initialRoute: initialRoute,
-            supportedLocales: MessagesLocalizations.supportedLocales,
+            supportedLocales: GalleryLocalizations.supportedLocales,
             locale: options.locale,
             localeListResolutionCallback: (locales, supportedLocales) {
               deviceLocale = locales?.first;

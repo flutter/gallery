@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 import 'package:gallery/studies/shrine/model/product.dart';
 
 class ProductsRepository {

@@ -6,9 +6,6 @@ import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations_en.dart'
-    show GalleryLocalizationsEn;
 import 'package:gallery/codeviewer/code_displayer.dart';
 import 'package:gallery/codeviewer/code_segments.dart';
 import 'package:gallery/data/icons.dart';
@@ -34,6 +31,8 @@ import 'package:gallery/demos/reference/two_pane_demo.dart'
     deferred as twopane_demo;
 import 'package:gallery/demos/reference/typography_demo.dart'
     deferred as typography;
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
+import 'package:gallery/l10n/intl_en.g.dart';
 
 const _docsBaseUrl = 'https://api.flutter.dev/flutter';
 const _docsAnimationsUrl =
@@ -50,7 +49,7 @@ enum GalleryDemoCategory {
     return name.toUpperCase();
   }
 
-  String? displayTitle(GalleryLocalizations localizations) {
+  String? displayTitle(Messages localizations) {
     switch (this) {
       case GalleryDemoCategory.other:
         return localizations.homeCategoryReference;
@@ -127,16 +126,16 @@ class Demos {
     );
   }
 
-  static List<GalleryDemo> all(GalleryLocalizations localizations) =>
+  static List<GalleryDemo> all(Messages localizations) =>
       studies(localizations).values.toList() +
       materialDemos(localizations) +
       cupertinoDemos(localizations) +
       otherDemos(localizations);
 
   static List<String> allDescriptions() =>
-      all(GalleryLocalizationsEn()).map((demo) => demo.describe).toList();
+      all(messages).map((demo) => demo.describe).toList();
 
-  static Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
+  static Map<String, GalleryDemo> studies(Messages localizations) {
     return <String, GalleryDemo>{
       'shrine': GalleryDemo(
         title: 'Shrine',
@@ -177,7 +176,7 @@ class Demos {
     };
   }
 
-  static List<GalleryDemo> materialDemos(GalleryLocalizations localizations) {
+  static List<GalleryDemo> materialDemos(Messages localizations) {
     LibraryLoader materialDemosLibrary = material_demos.loadLibrary;
     return [
       GalleryDemo(
@@ -913,7 +912,7 @@ class Demos {
     ];
   }
 
-  static List<GalleryDemo> cupertinoDemos(GalleryLocalizations localizations) {
+  static List<GalleryDemo> cupertinoDemos(Messages localizations) {
     LibraryLoader cupertinoLoader = cupertino_demos.loadLibrary;
     return [
       GalleryDemo(
@@ -1224,7 +1223,7 @@ class Demos {
     ];
   }
 
-  static List<GalleryDemo> otherDemos(GalleryLocalizations localizations) {
+  static List<GalleryDemo> otherDemos(Messages localizations) {
     return [
       GalleryDemo(
         title: localizations.demoTwoPaneTitle,

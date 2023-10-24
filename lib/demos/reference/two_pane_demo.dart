@@ -5,7 +5,7 @@
 import 'dart:ui';
 import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 
 // BEGIN twoPaneDemo
 

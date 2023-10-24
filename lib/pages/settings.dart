@@ -6,10 +6,10 @@ import 'dart:collection';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/gallery_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:gallery/constants.dart';
 import 'package:gallery/data/gallery_options.dart';
+import 'package:gallery/l10n/intl_en.flutter.g.dart';
 import 'package:gallery/layout/adaptive.dart';
 import 'package:gallery/pages/about.dart' as about;
 import 'package:gallery/pages/home.dart';

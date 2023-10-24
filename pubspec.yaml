@@ -10,8 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
   adaptive_breakpoints: ^0.1.1
   animations: ^2.0.2
   collection: ^1.16.0
@@ -62,7 +60,6 @@ dev_dependencies:
     path: ../i18n/pkgs/messages_builder
 
 flutter:
-  generate: true # Enables generation of localized strings from arb files
   uses-material-design: true
   deferred-components:
     - name: crane
