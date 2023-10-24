@@ -28,11 +28,11 @@ class GalleryLocalizations {
 class MessagesLocalizationsDelegate extends LocalizationsDelegate<Messages> {
   @override
   bool isSupported(Locale locale) =>
-      Messages.knownLocales.contains(locale.languageCode);
+      Messages.knownLocales.contains(locale.toLanguageTag());
 
   @override
   Future<Messages> load(Locale locale) async {
-    await messages.loadLocale(locale.languageCode);
+    await messages.loadLocale(locale.toLanguageTag());
     return messages;
   }
 
@@ -40,4 +40,4 @@ class MessagesLocalizationsDelegate extends LocalizationsDelegate<Messages> {
   bool shouldReload(LocalizationsDelegate<Messages> old) => false;
 }
 
-Messages messages = Messages(rootBundle.loadString, OldIntlObject());
+Messages messages = Messages(rootBundle.loadString, const OldIntlObject());
