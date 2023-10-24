@@ -7,7 +7,7 @@ import 'package:flutter_messages/flutter_messages.dart';
 
 import 'intl_en.g.dart';
 
-class MessagesLocalizations {
+class GalleryLocalizations {
   static Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates = [
     delegate,
     GlobalMaterialLocalizations.delegate,
