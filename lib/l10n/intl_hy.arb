@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Բեռնում",
   "deselect": "Ապընտրել",
   "select": "Ընտրել",

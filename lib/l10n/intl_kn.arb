@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ",
   "deselect": "ಆಯ್ಕೆ ರದ್ದುಮಾಡಿ",
   "select": "ಆಯ್ಕೆಮಾಡಿ",

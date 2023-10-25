@@ -2,8 +2,8 @@
 
 import 'package:messages/messages_json.dart';
 
-class Messages {
-  Messages(
+class GalleryMessages {
+  GalleryMessages(
     this._fileLoader,
     this.intlObject,
   );
@@ -137,125 +137,125 @@ class Messages {
   };
 
   final _messageListHashes = {
-    'lib/l10n/intl_af.json': 'n5rfj9',
-    'lib/l10n/intl_am.json': '21ric2',
-    'lib/l10n/intl_ar.json': 'nctve0',
-    'lib/l10n/intl_ar_EG.json': 'nctve0',
-    'lib/l10n/intl_ar_JO.json': 'nctve0',
-    'lib/l10n/intl_ar_MA.json': 'nctve0',
-    'lib/l10n/intl_ar_SA.json': 'nctve0',
-    'lib/l10n/intl_as.json': '6iofcr',
-    'lib/l10n/intl_az.json': '247j7b',
-    'lib/l10n/intl_be.json': 'n6vcf0',
-    'lib/l10n/intl_bg.json': 'lr4pi9',
-    'lib/l10n/intl_bn.json': 'ncit00',
-    'lib/l10n/intl_bs.json': 'giq6ou',
-    'lib/l10n/intl_ca.json': 'g1t6nk',
-    'lib/l10n/intl_cs.json': 'v4l2tk',
-    'lib/l10n/intl_cy.json': 'l5a4g0',
-    'lib/l10n/intl_da.json': '5dja2h',
-    'lib/l10n/intl_de.json': 'a87bqm',
-    'lib/l10n/intl_de_AT.json': 'a87bqm',
-    'lib/l10n/intl_de_CH.json': 'a87bqm',
-    'lib/l10n/intl_el.json': 'mid7aj',
-    'lib/l10n/intl_en.json': 'reqc9a',
-    'lib/l10n/intl_en_AU.json': '6sjvsn',
-    'lib/l10n/intl_en_CA.json': '33g1gc',
-    'lib/l10n/intl_en_GB.json': '6sjvsn',
-    'lib/l10n/intl_en_IE.json': '6sjvsn',
-    'lib/l10n/intl_en_IN.json': '6sjvsn',
-    'lib/l10n/intl_en_NZ.json': '6sjvsn',
-    'lib/l10n/intl_en_SG.json': '6sjvsn',
-    'lib/l10n/intl_en_ZA.json': '6sjvsn',
-    'lib/l10n/intl_es.json': 'g79nfc',
-    'lib/l10n/intl_es_419.json': '1092a8',
-    'lib/l10n/intl_es_AR.json': '1092a8',
-    'lib/l10n/intl_es_BO.json': '1092a8',
-    'lib/l10n/intl_es_CL.json': '1092a8',
-    'lib/l10n/intl_es_CO.json': '1092a8',
-    'lib/l10n/intl_es_CR.json': '1092a8',
-    'lib/l10n/intl_es_DO.json': '1092a8',
-    'lib/l10n/intl_es_EC.json': '1092a8',
-    'lib/l10n/intl_es_GT.json': '1092a8',
-    'lib/l10n/intl_es_HN.json': '1092a8',
-    'lib/l10n/intl_es_MX.json': '1092a8',
-    'lib/l10n/intl_es_NI.json': '1092a8',
-    'lib/l10n/intl_es_PA.json': '1092a8',
-    'lib/l10n/intl_es_PE.json': '1092a8',
-    'lib/l10n/intl_es_PR.json': '1092a8',
-    'lib/l10n/intl_es_PY.json': '1092a8',
-    'lib/l10n/intl_es_SV.json': '1092a8',
-    'lib/l10n/intl_es_US.json': '1092a8',
-    'lib/l10n/intl_es_UY.json': '1092a8',
-    'lib/l10n/intl_es_VE.json': '1092a8',
-    'lib/l10n/intl_et.json': 't9jps1',
-    'lib/l10n/intl_eu.json': '7embec',
-    'lib/l10n/intl_fa.json': 'ditihf',
-    'lib/l10n/intl_fi.json': '5p6587',
-    'lib/l10n/intl_fil.json': 'mloacv',
-    'lib/l10n/intl_fr.json': 'b1k17h',
-    'lib/l10n/intl_fr_CA.json': 'iot6hs',
-    'lib/l10n/intl_fr_CH.json': 'b1k17h',
-    'lib/l10n/intl_gl.json': 'luq64u',
-    'lib/l10n/intl_gsw.json': 'a87bqm',
-    'lib/l10n/intl_gu.json': '5op0kp',
-    'lib/l10n/intl_he.json': 'e54da1',
-    'lib/l10n/intl_hi.json': '1p4adn',
-    'lib/l10n/intl_hr.json': 'p2abhu',
-    'lib/l10n/intl_hu.json': 't9vobm',
-    'lib/l10n/intl_hy.json': 'k82na',
-    'lib/l10n/intl_id.json': 'on9cpl',
-    'lib/l10n/intl_is.json': 'uaoi8o',
-    'lib/l10n/intl_it.json': 'fefj7v',
-    'lib/l10n/intl_ja.json': '22umnt',
-    'lib/l10n/intl_ka.json': 'mg75qv',
-    'lib/l10n/intl_kk.json': 'ppb08j',
-    'lib/l10n/intl_km.json': 'mop31v',
-    'lib/l10n/intl_kn.json': 'uin39p',
-    'lib/l10n/intl_ko.json': 'n8bjec',
-    'lib/l10n/intl_ky.json': 'oqbsh2',
-    'lib/l10n/intl_lo.json': '1r8b3c',
-    'lib/l10n/intl_lt.json': 'etligh',
-    'lib/l10n/intl_lv.json': '99hbao',
-    'lib/l10n/intl_mk.json': 'pul27t',
-    'lib/l10n/intl_ml.json': 'o8qnlg',
-    'lib/l10n/intl_mn.json': 'mfg0mp',
-    'lib/l10n/intl_mr.json': 's7cc6q',
-    'lib/l10n/intl_ms.json': 'n46qui',
-    'lib/l10n/intl_my.json': 'rt0e4k',
-    'lib/l10n/intl_nb.json': 'g7ccdb',
-    'lib/l10n/intl_ne.json': '4m6b8p',
-    'lib/l10n/intl_nl.json': 'g1hsk',
-    'lib/l10n/intl_or.json': 'b2fr6a',
-    'lib/l10n/intl_pa.json': 'nrm74i',
-    'lib/l10n/intl_pl.json': '41fncl',
-    'lib/l10n/intl_pt.json': '6dl58j',
-    'lib/l10n/intl_pt_BR.json': '6dl58j',
-    'lib/l10n/intl_pt_PT.json': 'h71kk',
-    'lib/l10n/intl_ro.json': 'o2ah1t',
-    'lib/l10n/intl_ru.json': 'hfmgm3',
-    'lib/l10n/intl_si.json': 'j7i9ne',
-    'lib/l10n/intl_sk.json': 'pulpkt',
-    'lib/l10n/intl_sl.json': 'c3b5sv',
-    'lib/l10n/intl_sq.json': 'fp6qka',
-    'lib/l10n/intl_sr.json': '9n0otq',
-    'lib/l10n/intl_sr_Latn.json': '29a8q',
-    'lib/l10n/intl_sv.json': 'h8nb75',
-    'lib/l10n/intl_sw.json': 'q5egr2',
-    'lib/l10n/intl_ta.json': '84g921',
-    'lib/l10n/intl_te.json': 'hpujm9',
-    'lib/l10n/intl_th.json': '832mje',
-    'lib/l10n/intl_tl.json': 'mloacv',
-    'lib/l10n/intl_tr.json': 'q05t2l',
-    'lib/l10n/intl_uk.json': 'u84a23',
-    'lib/l10n/intl_ur.json': 'dqd44t',
-    'lib/l10n/intl_uz.json': '3hh3m3',
-    'lib/l10n/intl_vi.json': 'quq6f',
-    'lib/l10n/intl_zh.json': 'q7cs1o',
-    'lib/l10n/intl_zh_CN.json': 'q7cs1o',
-    'lib/l10n/intl_zh_HK.json': 'eftsei',
-    'lib/l10n/intl_zh_TW.json': '116g0s',
-    'lib/l10n/intl_zu.json': 'men8k9'
+    'lib/l10n/intl_af.json': 'ig1bjo',
+    'lib/l10n/intl_am.json': 'lll4o5',
+    'lib/l10n/intl_ar.json': 'qt9sa5',
+    'lib/l10n/intl_ar_EG.json': 'qt9sa5',
+    'lib/l10n/intl_ar_JO.json': 'qt9sa5',
+    'lib/l10n/intl_ar_MA.json': 'qt9sa5',
+    'lib/l10n/intl_ar_SA.json': 'qt9sa5',
+    'lib/l10n/intl_as.json': 'nep2bp',
+    'lib/l10n/intl_az.json': '7tsh94',
+    'lib/l10n/intl_be.json': 'v0o3ie',
+    'lib/l10n/intl_bg.json': 'j56u88',
+    'lib/l10n/intl_bn.json': '91isgj',
+    'lib/l10n/intl_bs.json': 'q5681s',
+    'lib/l10n/intl_ca.json': 'demp9h',
+    'lib/l10n/intl_cs.json': 'pttm78',
+    'lib/l10n/intl_cy.json': 'fdkh1e',
+    'lib/l10n/intl_da.json': 'm7o2gm',
+    'lib/l10n/intl_de.json': '696v5p',
+    'lib/l10n/intl_de_AT.json': '696v5p',
+    'lib/l10n/intl_de_CH.json': '696v5p',
+    'lib/l10n/intl_el.json': 'sdse34',
+    'lib/l10n/intl_en.json': '5u9flg',
+    'lib/l10n/intl_en_AU.json': 'ee3uqa',
+    'lib/l10n/intl_en_CA.json': '85svqd',
+    'lib/l10n/intl_en_GB.json': 'ee3uqa',
+    'lib/l10n/intl_en_IE.json': 'ee3uqa',
+    'lib/l10n/intl_en_IN.json': 'ee3uqa',
+    'lib/l10n/intl_en_NZ.json': 'ee3uqa',
+    'lib/l10n/intl_en_SG.json': 'ee3uqa',
+    'lib/l10n/intl_en_ZA.json': 'ee3uqa',
+    'lib/l10n/intl_es.json': '7h1fkk',
+    'lib/l10n/intl_es_419.json': 'iedrdr',
+    'lib/l10n/intl_es_AR.json': 'iedrdr',
+    'lib/l10n/intl_es_BO.json': 'iedrdr',
+    'lib/l10n/intl_es_CL.json': 'iedrdr',
+    'lib/l10n/intl_es_CO.json': 'iedrdr',
+    'lib/l10n/intl_es_CR.json': 'iedrdr',
+    'lib/l10n/intl_es_DO.json': 'iedrdr',
+    'lib/l10n/intl_es_EC.json': 'iedrdr',
+    'lib/l10n/intl_es_GT.json': 'iedrdr',
+    'lib/l10n/intl_es_HN.json': 'iedrdr',
+    'lib/l10n/intl_es_MX.json': 'iedrdr',
+    'lib/l10n/intl_es_NI.json': 'iedrdr',
+    'lib/l10n/intl_es_PA.json': 'iedrdr',
+    'lib/l10n/intl_es_PE.json': 'iedrdr',
+    'lib/l10n/intl_es_PR.json': 'iedrdr',
+    'lib/l10n/intl_es_PY.json': 'iedrdr',
+    'lib/l10n/intl_es_SV.json': 'iedrdr',
+    'lib/l10n/intl_es_US.json': 'iedrdr',
+    'lib/l10n/intl_es_UY.json': 'iedrdr',
+    'lib/l10n/intl_es_VE.json': 'iedrdr',
+    'lib/l10n/intl_et.json': 'nmv29c',
+    'lib/l10n/intl_eu.json': 'cri92',
+    'lib/l10n/intl_fa.json': 'p15v52',
+    'lib/l10n/intl_fi.json': 'lpvc0a',
+    'lib/l10n/intl_fil.json': 'jg2uhk',
+    'lib/l10n/intl_fr.json': 'pn44l0',
+    'lib/l10n/intl_fr_CA.json': 'kg602l',
+    'lib/l10n/intl_fr_CH.json': 'pn44l0',
+    'lib/l10n/intl_gl.json': '1kceq2',
+    'lib/l10n/intl_gsw.json': '696v5p',
+    'lib/l10n/intl_gu.json': 'eqfptm',
+    'lib/l10n/intl_he.json': 'o1b7vb',
+    'lib/l10n/intl_hi.json': 'd7d7uq',
+    'lib/l10n/intl_hr.json': 'v6q8ff',
+    'lib/l10n/intl_hu.json': 'pv65d0',
+    'lib/l10n/intl_hy.json': 'guhu8k',
+    'lib/l10n/intl_id.json': 'ufalv',
+    'lib/l10n/intl_is.json': 'h6q9td',
+    'lib/l10n/intl_it.json': '17jnf5',
+    'lib/l10n/intl_ja.json': 'u9srkk',
+    'lib/l10n/intl_ka.json': 'fbirq1',
+    'lib/l10n/intl_kk.json': '5879be',
+    'lib/l10n/intl_km.json': 'vg9k5d',
+    'lib/l10n/intl_kn.json': 'pofu53',
+    'lib/l10n/intl_ko.json': 'hutvje',
+    'lib/l10n/intl_ky.json': 'jd5n8u',
+    'lib/l10n/intl_lo.json': '1dt17g',
+    'lib/l10n/intl_lt.json': 'oacp3u',
+    'lib/l10n/intl_lv.json': 's8jtq4',
+    'lib/l10n/intl_mk.json': '6d22cr',
+    'lib/l10n/intl_ml.json': 'ks06os',
+    'lib/l10n/intl_mn.json': 'a24t43',
+    'lib/l10n/intl_mr.json': '5fkb23',
+    'lib/l10n/intl_ms.json': 'n2fhoe',
+    'lib/l10n/intl_my.json': '5v3tv6',
+    'lib/l10n/intl_nb.json': 'eifn5l',
+    'lib/l10n/intl_ne.json': 'vq6t49',
+    'lib/l10n/intl_nl.json': 'r1816b',
+    'lib/l10n/intl_or.json': 'fgvg78',
+    'lib/l10n/intl_pa.json': '9nodcm',
+    'lib/l10n/intl_pl.json': 'g3s537',
+    'lib/l10n/intl_pt.json': '1abghl',
+    'lib/l10n/intl_pt_BR.json': '1abghl',
+    'lib/l10n/intl_pt_PT.json': 'jabgbs',
+    'lib/l10n/intl_ro.json': 'jlvrj2',
+    'lib/l10n/intl_ru.json': 'o132vt',
+    'lib/l10n/intl_si.json': '4cu5ii',
+    'lib/l10n/intl_sk.json': 't3hnub',
+    'lib/l10n/intl_sl.json': 'dob1a2',
+    'lib/l10n/intl_sq.json': 'eg3dmd',
+    'lib/l10n/intl_sr.json': 'j56pm6',
+    'lib/l10n/intl_sr_Latn.json': 'nf0b9m',
+    'lib/l10n/intl_sv.json': 'qvqmeb',
+    'lib/l10n/intl_sw.json': 'j4304i',
+    'lib/l10n/intl_ta.json': '6n35kg',
+    'lib/l10n/intl_te.json': '5u4phu',
+    'lib/l10n/intl_th.json': '79f7pp',
+    'lib/l10n/intl_tl.json': 'jg2uhk',
+    'lib/l10n/intl_tr.json': 'dvus94',
+    'lib/l10n/intl_uk.json': 'mlnck1',
+    'lib/l10n/intl_ur.json': '3ejqpj',
+    'lib/l10n/intl_uz.json': 'lsvl1',
+    'lib/l10n/intl_vi.json': '8nc2nk',
+    'lib/l10n/intl_zh.json': '9ak04e',
+    'lib/l10n/intl_zh_CN.json': '9ak04e',
+    'lib/l10n/intl_zh_HK.json': 'vc0g2j',
+    'lib/l10n/intl_zh_TW.json': 'e5cabt',
+    'lib/l10n/intl_zu.json': 'qacpoh'
   };
 
   IntlObject intlObject;
@@ -291,2110 +291,2184 @@ class Messages {
 
   String aboutDialogDescription(String repoLink) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.aboutDialogDescription.index, [repoLink]);
+          GalleryMessagesEnum.aboutDialogDescription.index, [repoLink]);
 
   String get backToGallery => _currentMessages
-      .generateStringAtIndex(MessagesEnum.backToGallery.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.backToGallery.index, []);
 
-  String get bannerDemoLeadingText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bannerDemoLeadingText.index, []);
+  String get bannerDemoLeadingText => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.bannerDemoLeadingText.index, []);
 
-  String get bannerDemoMultipleText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bannerDemoMultipleText.index, []);
+  String get bannerDemoMultipleText => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.bannerDemoMultipleText.index, []);
 
   String get bannerDemoResetText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bannerDemoResetText.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.bannerDemoResetText.index, []);
 
   String get bannerDemoText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bannerDemoText.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.bannerDemoText.index, []);
 
   String get bottomAppBar => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bottomAppBar.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.bottomAppBar.index, []);
 
   String get bottomAppBarNotch => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bottomAppBarNotch.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.bottomAppBarNotch.index, []);
 
-  String get bottomAppBarPosition => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bottomAppBarPosition.index, []);
+  String get bottomAppBarPosition => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.bottomAppBarPosition.index, []);
 
   String get bottomAppBarPositionDockedCenter =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomAppBarPositionDockedCenter.index, []);
+          GalleryMessagesEnum.bottomAppBarPositionDockedCenter.index, []);
 
   String get bottomAppBarPositionDockedEnd =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomAppBarPositionDockedEnd.index, []);
+          GalleryMessagesEnum.bottomAppBarPositionDockedEnd.index, []);
 
   String get bottomAppBarPositionFloatingCenter =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomAppBarPositionFloatingCenter.index, []);
+          GalleryMessagesEnum.bottomAppBarPositionFloatingCenter.index, []);
 
   String get bottomAppBarPositionFloatingEnd =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomAppBarPositionFloatingEnd.index, []);
+          GalleryMessagesEnum.bottomAppBarPositionFloatingEnd.index, []);
 
-  String get bottomNavigationAccountTab => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bottomNavigationAccountTab.index, []);
+  String get bottomNavigationAccountTab =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.bottomNavigationAccountTab.index, []);
 
-  String get bottomNavigationAlarmTab => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bottomNavigationAlarmTab.index, []);
+  String get bottomNavigationAlarmTab => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.bottomNavigationAlarmTab.index, []);
 
   String get bottomNavigationCalendarTab =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomNavigationCalendarTab.index, []);
+          GalleryMessagesEnum.bottomNavigationCalendarTab.index, []);
 
-  String get bottomNavigationCameraTab => _currentMessages
-      .generateStringAtIndex(MessagesEnum.bottomNavigationCameraTab.index, []);
+  String get bottomNavigationCameraTab =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.bottomNavigationCameraTab.index, []);
 
   String get bottomNavigationCommentsTab =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomNavigationCommentsTab.index, []);
+          GalleryMessagesEnum.bottomNavigationCommentsTab.index, []);
 
   String bottomNavigationContentPlaceholder(String title) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.bottomNavigationContentPlaceholder.index, [title]);
+          GalleryMessagesEnum.bottomNavigationContentPlaceholder.index,
+          [title]);
 
-  String get buttonText =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.buttonText.index, []);
+  String get buttonText => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.buttonText.index, []);
 
   String get buttonTextCreate => _currentMessages
-      .generateStringAtIndex(MessagesEnum.buttonTextCreate.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.buttonTextCreate.index, []);
 
   String get cardsDemoExplore => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cardsDemoExplore.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.cardsDemoExplore.index, []);
 
   String cardsDemoExploreSemantics(String destinationName) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoExploreSemantics.index, [destinationName]);
+          GalleryMessagesEnum.cardsDemoExploreSemantics.index,
+          [destinationName]);
 
   String cardsDemoShareSemantics(String destinationName) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoShareSemantics.index, [destinationName]);
+          GalleryMessagesEnum.cardsDemoShareSemantics.index, [destinationName]);
 
   String get cardsDemoTappable => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cardsDemoTappable.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.cardsDemoTappable.index, []);
 
   String get cardsDemoTravelDestinationCity1 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationCity1.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationCity1.index, []);
 
   String get cardsDemoTravelDestinationCity2 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationCity2.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationCity2.index, []);
 
   String get cardsDemoTravelDestinationDescription1 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationDescription1.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationDescription1.index, []);
 
   String get cardsDemoTravelDestinationDescription2 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationDescription2.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationDescription2.index, []);
 
   String get cardsDemoTravelDestinationDescription3 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationDescription3.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationDescription3.index, []);
 
   String get cardsDemoTravelDestinationLocation1 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationLocation1.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationLocation1.index, []);
 
   String get cardsDemoTravelDestinationLocation2 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationLocation2.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationLocation2.index, []);
 
   String get cardsDemoTravelDestinationTitle1 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationTitle1.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationTitle1.index, []);
 
   String get cardsDemoTravelDestinationTitle2 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationTitle2.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationTitle2.index, []);
 
   String get cardsDemoTravelDestinationTitle3 =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cardsDemoTravelDestinationTitle3.index, []);
+          GalleryMessagesEnum.cardsDemoTravelDestinationTitle3.index, []);
 
-  String get chipBiking =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.chipBiking.index, []);
+  String get chipBiking => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.chipBiking.index, []);
 
   String get chipElevator => _currentMessages
-      .generateStringAtIndex(MessagesEnum.chipElevator.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.chipElevator.index, []);
 
   String get chipFireplace => _currentMessages
-      .generateStringAtIndex(MessagesEnum.chipFireplace.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.chipFireplace.index, []);
 
-  String get chipLarge =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.chipLarge.index, []);
+  String get chipLarge => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.chipLarge.index, []);
 
-  String get chipMedium =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.chipMedium.index, []);
+  String get chipMedium => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.chipMedium.index, []);
 
-  String get chipSmall =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.chipSmall.index, []);
+  String get chipSmall => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.chipSmall.index, []);
 
   String get chipTurnOnLights => _currentMessages
-      .generateStringAtIndex(MessagesEnum.chipTurnOnLights.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.chipTurnOnLights.index, []);
 
-  String get chipWasher =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.chipWasher.index, []);
+  String get chipWasher => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.chipWasher.index, []);
 
   String get colorsAmber => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsAmber.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsAmber.index, []);
 
-  String get colorsBlue =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsBlue.index, []);
+  String get colorsBlue => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsBlue.index, []);
 
   String get colorsBlueGrey => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsBlueGrey.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsBlueGrey.index, []);
 
   String get colorsBrown => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsBrown.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsBrown.index, []);
 
-  String get colorsCyan =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsCyan.index, []);
+  String get colorsCyan => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsCyan.index, []);
 
   String get colorsDeepOrange => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsDeepOrange.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsDeepOrange.index, []);
 
   String get colorsDeepPurple => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsDeepPurple.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsDeepPurple.index, []);
 
   String get colorsGreen => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsGreen.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsGreen.index, []);
 
-  String get colorsGrey =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsGrey.index, []);
+  String get colorsGrey => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsGrey.index, []);
 
   String get colorsIndigo => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsIndigo.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsIndigo.index, []);
 
   String get colorsLightBlue => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsLightBlue.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsLightBlue.index, []);
 
   String get colorsLightGreen => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsLightGreen.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsLightGreen.index, []);
 
-  String get colorsLime =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsLime.index, []);
+  String get colorsLime => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsLime.index, []);
 
   String get colorsOrange => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsOrange.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsOrange.index, []);
 
-  String get colorsPink =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsPink.index, []);
+  String get colorsPink => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsPink.index, []);
 
   String get colorsPurple => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsPurple.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsPurple.index, []);
 
-  String get colorsRed =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsRed.index, []);
+  String get colorsRed => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsRed.index, []);
 
-  String get colorsTeal =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.colorsTeal.index, []);
+  String get colorsTeal => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.colorsTeal.index, []);
 
   String get colorsYellow => _currentMessages
-      .generateStringAtIndex(MessagesEnum.colorsYellow.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.colorsYellow.index, []);
 
   String get craneDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneDescription.index, []);
 
-  String get craneEat =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat.index, []);
+  String get craneEat => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat.index, []);
 
-  String get craneEat0 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat0.index, []);
+  String get craneEat0 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat0.index, []);
 
-  String get craneEat0SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat0SemanticLabel.index, []);
+  String get craneEat0SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat0SemanticLabel.index, []);
 
-  String get craneEat1 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat1.index, []);
+  String get craneEat1 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat1.index, []);
 
-  String get craneEat10 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat10.index, []);
+  String get craneEat10 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat10.index, []);
 
-  String get craneEat10SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat10SemanticLabel.index, []);
+  String get craneEat10SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat10SemanticLabel.index, []);
 
-  String get craneEat1SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat1SemanticLabel.index, []);
+  String get craneEat1SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat1SemanticLabel.index, []);
 
-  String get craneEat2 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat2.index, []);
+  String get craneEat2 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat2.index, []);
 
-  String get craneEat2SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat2SemanticLabel.index, []);
+  String get craneEat2SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat2SemanticLabel.index, []);
 
-  String get craneEat3 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat3.index, []);
+  String get craneEat3 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat3.index, []);
 
-  String get craneEat3SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat3SemanticLabel.index, []);
+  String get craneEat3SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat3SemanticLabel.index, []);
 
-  String get craneEat4 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat4.index, []);
+  String get craneEat4 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat4.index, []);
 
-  String get craneEat4SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat4SemanticLabel.index, []);
+  String get craneEat4SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat4SemanticLabel.index, []);
 
-  String get craneEat5 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat5.index, []);
+  String get craneEat5 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat5.index, []);
 
-  String get craneEat5SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat5SemanticLabel.index, []);
+  String get craneEat5SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat5SemanticLabel.index, []);
 
-  String get craneEat6 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat6.index, []);
+  String get craneEat6 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat6.index, []);
 
-  String get craneEat6SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat6SemanticLabel.index, []);
+  String get craneEat6SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat6SemanticLabel.index, []);
 
-  String get craneEat7 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat7.index, []);
+  String get craneEat7 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat7.index, []);
 
-  String get craneEat7SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat7SemanticLabel.index, []);
+  String get craneEat7SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat7SemanticLabel.index, []);
 
-  String get craneEat8 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat8.index, []);
+  String get craneEat8 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat8.index, []);
 
-  String get craneEat8SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat8SemanticLabel.index, []);
+  String get craneEat8SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat8SemanticLabel.index, []);
 
-  String get craneEat9 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneEat9.index, []);
+  String get craneEat9 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneEat9.index, []);
 
-  String get craneEat9SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEat9SemanticLabel.index, []);
+  String get craneEat9SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneEat9SemanticLabel.index, []);
 
   String craneEatRestaurants(int totalRestaurants) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.craneEatRestaurants.index, [totalRestaurants]);
+          GalleryMessagesEnum.craneEatRestaurants.index, [totalRestaurants]);
 
   String get craneEatSubhead => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneEatSubhead.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneEatSubhead.index, []);
 
   String craneFlightDuration(
     String hoursShortForm,
     String minutesShortForm,
   ) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.craneFlightDuration.index,
+          GalleryMessagesEnum.craneFlightDuration.index,
           [hoursShortForm, minutesShortForm]);
 
-  String get craneFly =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly.index, []);
+  String get craneFly => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly.index, []);
 
-  String get craneFly0 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly0.index, []);
+  String get craneFly0 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly0.index, []);
 
-  String get craneFly0SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly0SemanticLabel.index, []);
+  String get craneFly0SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly0SemanticLabel.index, []);
 
-  String get craneFly1 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly1.index, []);
+  String get craneFly1 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly1.index, []);
 
-  String get craneFly10 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly10.index, []);
+  String get craneFly10 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly10.index, []);
 
-  String get craneFly10SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly10SemanticLabel.index, []);
+  String get craneFly10SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly10SemanticLabel.index, []);
 
-  String get craneFly11 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly11.index, []);
+  String get craneFly11 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly11.index, []);
 
-  String get craneFly11SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly11SemanticLabel.index, []);
+  String get craneFly11SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly11SemanticLabel.index, []);
 
-  String get craneFly12 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly12.index, []);
+  String get craneFly12 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly12.index, []);
 
-  String get craneFly12SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly12SemanticLabel.index, []);
+  String get craneFly12SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly12SemanticLabel.index, []);
 
-  String get craneFly13 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly13.index, []);
+  String get craneFly13 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly13.index, []);
 
-  String get craneFly13SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly13SemanticLabel.index, []);
+  String get craneFly13SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly13SemanticLabel.index, []);
 
-  String get craneFly1SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly1SemanticLabel.index, []);
+  String get craneFly1SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly1SemanticLabel.index, []);
 
-  String get craneFly2 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly2.index, []);
+  String get craneFly2 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly2.index, []);
 
-  String get craneFly2SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly2SemanticLabel.index, []);
+  String get craneFly2SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly2SemanticLabel.index, []);
 
-  String get craneFly3 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly3.index, []);
+  String get craneFly3 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly3.index, []);
 
-  String get craneFly3SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly3SemanticLabel.index, []);
+  String get craneFly3SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly3SemanticLabel.index, []);
 
-  String get craneFly4 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly4.index, []);
+  String get craneFly4 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly4.index, []);
 
-  String get craneFly4SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly4SemanticLabel.index, []);
+  String get craneFly4SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly4SemanticLabel.index, []);
 
-  String get craneFly5 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly5.index, []);
+  String get craneFly5 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly5.index, []);
 
-  String get craneFly5SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly5SemanticLabel.index, []);
+  String get craneFly5SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly5SemanticLabel.index, []);
 
-  String get craneFly6 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly6.index, []);
+  String get craneFly6 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly6.index, []);
 
-  String get craneFly6SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly6SemanticLabel.index, []);
+  String get craneFly6SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly6SemanticLabel.index, []);
 
-  String get craneFly7 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly7.index, []);
+  String get craneFly7 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly7.index, []);
 
-  String get craneFly7SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly7SemanticLabel.index, []);
+  String get craneFly7SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly7SemanticLabel.index, []);
 
-  String get craneFly8 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly8.index, []);
+  String get craneFly8 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly8.index, []);
 
-  String get craneFly8SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly8SemanticLabel.index, []);
+  String get craneFly8SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly8SemanticLabel.index, []);
 
-  String get craneFly9 =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneFly9.index, []);
+  String get craneFly9 => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneFly9.index, []);
 
-  String get craneFly9SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFly9SemanticLabel.index, []);
+  String get craneFly9SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFly9SemanticLabel.index, []);
 
-  String craneFlyStops(int numberOfStops) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFlyStops.index, [numberOfStops]);
+  String craneFlyStops(int numberOfStops) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.craneFlyStops.index, [numberOfStops]);
 
   String get craneFlySubhead => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFlySubhead.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFlySubhead.index, []);
 
   String get craneFormDate => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormDate.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormDate.index, []);
 
   String get craneFormDates => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormDates.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormDates.index, []);
 
-  String get craneFormDestination => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormDestination.index, []);
+  String get craneFormDestination => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneFormDestination.index, []);
 
   String get craneFormDiners => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormDiners.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormDiners.index, []);
 
   String get craneFormLocation => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormLocation.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormLocation.index, []);
 
   String get craneFormOrigin => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormOrigin.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormOrigin.index, []);
 
   String get craneFormTime => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormTime.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormTime.index, []);
 
   String get craneFormTravelers => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneFormTravelers.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneFormTravelers.index, []);
 
   String craneHours(int hours) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneHours.index, [hours]);
+      .generateStringAtIndex(GalleryMessagesEnum.craneHours.index, [hours]);
 
   String craneMinutes(int minutes) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneMinutes.index, [minutes]);
+      .generateStringAtIndex(GalleryMessagesEnum.craneMinutes.index, [minutes]);
 
-  String get craneSleep =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.craneSleep.index, []);
+  String get craneSleep => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep.index, []);
 
   String get craneSleep0 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep0.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep0.index, []);
 
-  String get craneSleep0SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep0SemanticLabel.index, []);
+  String get craneSleep0SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep0SemanticLabel.index, []);
 
   String get craneSleep1 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep1.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep1.index, []);
 
   String get craneSleep10 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep10.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep10.index, []);
 
-  String get craneSleep10SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep10SemanticLabel.index, []);
+  String get craneSleep10SemanticLabel =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.craneSleep10SemanticLabel.index, []);
 
   String get craneSleep11 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep11.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep11.index, []);
 
-  String get craneSleep11SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep11SemanticLabel.index, []);
+  String get craneSleep11SemanticLabel =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.craneSleep11SemanticLabel.index, []);
 
-  String get craneSleep1SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep1SemanticLabel.index, []);
+  String get craneSleep1SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep1SemanticLabel.index, []);
 
   String get craneSleep2 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep2.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep2.index, []);
 
-  String get craneSleep2SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep2SemanticLabel.index, []);
+  String get craneSleep2SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep2SemanticLabel.index, []);
 
   String get craneSleep3 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep3.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep3.index, []);
 
-  String get craneSleep3SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep3SemanticLabel.index, []);
+  String get craneSleep3SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep3SemanticLabel.index, []);
 
   String get craneSleep4 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep4.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep4.index, []);
 
-  String get craneSleep4SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep4SemanticLabel.index, []);
+  String get craneSleep4SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep4SemanticLabel.index, []);
 
   String get craneSleep5 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep5.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep5.index, []);
 
-  String get craneSleep5SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep5SemanticLabel.index, []);
+  String get craneSleep5SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep5SemanticLabel.index, []);
 
   String get craneSleep6 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep6.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep6.index, []);
 
-  String get craneSleep6SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep6SemanticLabel.index, []);
+  String get craneSleep6SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep6SemanticLabel.index, []);
 
   String get craneSleep7 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep7.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep7.index, []);
 
-  String get craneSleep7SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep7SemanticLabel.index, []);
+  String get craneSleep7SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep7SemanticLabel.index, []);
 
   String get craneSleep8 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep8.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep8.index, []);
 
-  String get craneSleep8SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep8SemanticLabel.index, []);
+  String get craneSleep8SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep8SemanticLabel.index, []);
 
   String get craneSleep9 => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep9.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleep9.index, []);
 
-  String get craneSleep9SemanticLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleep9SemanticLabel.index, []);
+  String get craneSleep9SemanticLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.craneSleep9SemanticLabel.index, []);
 
   String craneSleepProperties(int totalProperties) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.craneSleepProperties.index, [totalProperties]);
+          GalleryMessagesEnum.craneSleepProperties.index, [totalProperties]);
 
   String get craneSleepSubhead => _currentMessages
-      .generateStringAtIndex(MessagesEnum.craneSleepSubhead.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.craneSleepSubhead.index, []);
 
   String get cupertinoAlertAllow => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertAllow.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.cupertinoAlertAllow.index, []);
 
-  String get cupertinoAlertApplePie => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertApplePie.index, []);
+  String get cupertinoAlertApplePie => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoAlertApplePie.index, []);
 
-  String get cupertinoAlertCancel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertCancel.index, []);
+  String get cupertinoAlertCancel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoAlertCancel.index, []);
 
-  String get cupertinoAlertCheesecake => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertCheesecake.index, []);
+  String get cupertinoAlertCheesecake => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoAlertCheesecake.index, []);
 
   String get cupertinoAlertChocolateBrownie =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cupertinoAlertChocolateBrownie.index, []);
+          GalleryMessagesEnum.cupertinoAlertChocolateBrownie.index, []);
 
   String get cupertinoAlertDessertDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cupertinoAlertDessertDescription.index, []);
+          GalleryMessagesEnum.cupertinoAlertDessertDescription.index, []);
 
-  String get cupertinoAlertDiscard => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertDiscard.index, []);
+  String get cupertinoAlertDiscard => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoAlertDiscard.index, []);
 
-  String get cupertinoAlertDontAllow => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertDontAllow.index, []);
+  String get cupertinoAlertDontAllow => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoAlertDontAllow.index, []);
 
   String get cupertinoAlertFavoriteDessert =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cupertinoAlertFavoriteDessert.index, []);
+          GalleryMessagesEnum.cupertinoAlertFavoriteDessert.index, []);
 
   String get cupertinoAlertLocationDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cupertinoAlertLocationDescription.index, []);
+          GalleryMessagesEnum.cupertinoAlertLocationDescription.index, []);
 
   String get cupertinoAlertLocationTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cupertinoAlertLocationTitle.index, []);
+          GalleryMessagesEnum.cupertinoAlertLocationTitle.index, []);
 
-  String get cupertinoAlertTiramisu => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoAlertTiramisu.index, []);
+  String get cupertinoAlertTiramisu => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoAlertTiramisu.index, []);
 
   String get cupertinoButton => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoButton.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.cupertinoButton.index, []);
 
   String get cupertinoButtonWithBackground =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.cupertinoButtonWithBackground.index, []);
+          GalleryMessagesEnum.cupertinoButtonWithBackground.index, []);
 
   String get cupertinoShowAlert => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoShowAlert.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.cupertinoShowAlert.index, []);
 
-  String get cupertinoTabBarChatTab => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoTabBarChatTab.index, []);
+  String get cupertinoTabBarChatTab => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoTabBarChatTab.index, []);
 
-  String get cupertinoTabBarHomeTab => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoTabBarHomeTab.index, []);
+  String get cupertinoTabBarHomeTab => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.cupertinoTabBarHomeTab.index, []);
 
-  String get cupertinoTabBarProfileTab => _currentMessages
-      .generateStringAtIndex(MessagesEnum.cupertinoTabBarProfileTab.index, []);
+  String get cupertinoTabBarProfileTab =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.cupertinoTabBarProfileTab.index, []);
 
-  String get dataTableColumnCalcium => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnCalcium.index, []);
+  String get dataTableColumnCalcium => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableColumnCalcium.index, []);
 
-  String get dataTableColumnCalories => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnCalories.index, []);
+  String get dataTableColumnCalories => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableColumnCalories.index, []);
 
-  String get dataTableColumnCarbs => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnCarbs.index, []);
+  String get dataTableColumnCarbs => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableColumnCarbs.index, []);
 
-  String get dataTableColumnDessert => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnDessert.index, []);
+  String get dataTableColumnDessert => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableColumnDessert.index, []);
 
   String get dataTableColumnFat => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnFat.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dataTableColumnFat.index, []);
 
   String get dataTableColumnIron => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnIron.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dataTableColumnIron.index, []);
 
-  String get dataTableColumnProtein => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnProtein.index, []);
+  String get dataTableColumnProtein => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableColumnProtein.index, []);
 
-  String get dataTableColumnSodium => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableColumnSodium.index, []);
+  String get dataTableColumnSodium => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableColumnSodium.index, []);
 
   String get dataTableHeader => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableHeader.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dataTableHeader.index, []);
 
-  String get dataTableRowApplePie => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowApplePie.index, []);
+  String get dataTableRowApplePie => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableRowApplePie.index, []);
 
   String get dataTableRowCupcake => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowCupcake.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dataTableRowCupcake.index, []);
 
   String get dataTableRowDonut => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowDonut.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dataTableRowDonut.index, []);
 
   String get dataTableRowEclair => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowEclair.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dataTableRowEclair.index, []);
 
-  String get dataTableRowFrozenYogurt => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowFrozenYogurt.index, []);
+  String get dataTableRowFrozenYogurt => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableRowFrozenYogurt.index, []);
 
-  String get dataTableRowGingerbread => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowGingerbread.index, []);
+  String get dataTableRowGingerbread => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableRowGingerbread.index, []);
 
-  String get dataTableRowHoneycomb => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowHoneycomb.index, []);
+  String get dataTableRowHoneycomb => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableRowHoneycomb.index, []);
 
   String get dataTableRowIceCreamSandwich =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.dataTableRowIceCreamSandwich.index, []);
+          GalleryMessagesEnum.dataTableRowIceCreamSandwich.index, []);
 
-  String get dataTableRowJellyBean => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowJellyBean.index, []);
+  String get dataTableRowJellyBean => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableRowJellyBean.index, []);
 
-  String get dataTableRowLollipop => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowLollipop.index, []);
+  String get dataTableRowLollipop => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dataTableRowLollipop.index, []);
 
-  String dataTableRowWithHoney(String value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowWithHoney.index, [value]);
+  String dataTableRowWithHoney(String value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.dataTableRowWithHoney.index, [value]);
 
-  String dataTableRowWithSugar(String value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dataTableRowWithSugar.index, [value]);
+  String dataTableRowWithSugar(String value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.dataTableRowWithSugar.index, [value]);
 
-  String get demo =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.demo.index, []);
+  String get demo => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.demo.index, []);
 
   String get demo2dTransformationsDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demo2dTransformationsDescription.index, []);
+          GalleryMessagesEnum.demo2dTransformationsDescription.index, []);
 
   String get demo2dTransformationsEditTooltip =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demo2dTransformationsEditTooltip.index, []);
+          GalleryMessagesEnum.demo2dTransformationsEditTooltip.index, []);
 
   String get demo2dTransformationsResetTooltip =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demo2dTransformationsResetTooltip.index, []);
+          GalleryMessagesEnum.demo2dTransformationsResetTooltip.index, []);
 
   String get demo2dTransformationsSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demo2dTransformationsSubtitle.index, []);
+          GalleryMessagesEnum.demo2dTransformationsSubtitle.index, []);
 
-  String get demo2dTransformationsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demo2dTransformationsTitle.index, []);
+  String get demo2dTransformationsTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demo2dTransformationsTitle.index, []);
 
-  String get demoActionChipDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoActionChipDescription.index, []);
+  String get demoActionChipDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoActionChipDescription.index, []);
 
   String get demoActionChipTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoActionChipTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoActionChipTitle.index, []);
 
-  String get demoAlertDialogDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoAlertDialogDescription.index, []);
+  String get demoAlertDialogDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoAlertDialogDescription.index, []);
 
-  String get demoAlertDialogTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoAlertDialogTitle.index, []);
+  String get demoAlertDialogTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoAlertDialogTitle.index, []);
 
-  String get demoAlertTitleDialogTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoAlertTitleDialogTitle.index, []);
+  String get demoAlertTitleDialogTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoAlertTitleDialogTitle.index, []);
 
-  String get demoAppBarDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoAppBarDescription.index, []);
+  String get demoAppBarDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoAppBarDescription.index, []);
 
   String get demoAppBarSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoAppBarSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoAppBarSubtitle.index, []);
 
   String get demoAppBarTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoAppBarTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoAppBarTitle.index, []);
 
-  String get demoBannerDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBannerDescription.index, []);
+  String get demoBannerDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBannerDescription.index, []);
 
   String get demoBannerSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBannerSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoBannerSubtitle.index, []);
 
   String get demoBannerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBannerTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoBannerTitle.index, []);
 
   String get demoBottomAppBarDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomAppBarDescription.index, []);
+          GalleryMessagesEnum.demoBottomAppBarDescription.index, []);
 
-  String get demoBottomAppBarSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomAppBarSubtitle.index, []);
+  String get demoBottomAppBarSubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBottomAppBarSubtitle.index, []);
 
-  String get demoBottomAppBarTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomAppBarTitle.index, []);
+  String get demoBottomAppBarTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBottomAppBarTitle.index, []);
 
   String get demoBottomNavigationDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomNavigationDescription.index, []);
+          GalleryMessagesEnum.demoBottomNavigationDescription.index, []);
 
   String get demoBottomNavigationPersistentLabels =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomNavigationPersistentLabels.index, []);
+          GalleryMessagesEnum.demoBottomNavigationPersistentLabels.index, []);
 
   String get demoBottomNavigationSelectedLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomNavigationSelectedLabel.index, []);
+          GalleryMessagesEnum.demoBottomNavigationSelectedLabel.index, []);
 
   String get demoBottomNavigationSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomNavigationSubtitle.index, []);
+          GalleryMessagesEnum.demoBottomNavigationSubtitle.index, []);
 
-  String get demoBottomNavigationTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomNavigationTitle.index, []);
+  String get demoBottomNavigationTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoBottomNavigationTitle.index, []);
 
-  String get demoBottomSheetAddLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetAddLabel.index, []);
+  String get demoBottomSheetAddLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBottomSheetAddLabel.index, []);
 
-  String get demoBottomSheetButtonText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetButtonText.index, []);
+  String get demoBottomSheetButtonText =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoBottomSheetButtonText.index, []);
 
-  String get demoBottomSheetHeader => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetHeader.index, []);
+  String get demoBottomSheetHeader => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBottomSheetHeader.index, []);
 
-  String demoBottomSheetItem(int value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetItem.index, [value]);
+  String demoBottomSheetItem(int value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoBottomSheetItem.index, [value]);
 
   String get demoBottomSheetModalDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomSheetModalDescription.index, []);
+          GalleryMessagesEnum.demoBottomSheetModalDescription.index, []);
 
-  String get demoBottomSheetModalTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetModalTitle.index, []);
+  String get demoBottomSheetModalTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoBottomSheetModalTitle.index, []);
 
   String get demoBottomSheetPersistentDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomSheetPersistentDescription.index, []);
+          GalleryMessagesEnum.demoBottomSheetPersistentDescription.index, []);
 
   String get demoBottomSheetPersistentTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoBottomSheetPersistentTitle.index, []);
+          GalleryMessagesEnum.demoBottomSheetPersistentTitle.index, []);
 
-  String get demoBottomSheetSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetSubtitle.index, []);
+  String get demoBottomSheetSubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBottomSheetSubtitle.index, []);
 
-  String get demoBottomSheetTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomSheetTitle.index, []);
+  String get demoBottomSheetTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoBottomSheetTitle.index, []);
 
-  String get demoBottomTextFieldsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoBottomTextFieldsTitle.index, []);
+  String get demoBottomTextFieldsTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoBottomTextFieldsTitle.index, []);
 
   String get demoButtonSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoButtonSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoButtonSubtitle.index, []);
 
   String get demoButtonTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoButtonTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoButtonTitle.index, []);
 
   String get demoCardDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCardDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoCardDescription.index, []);
 
   String get demoCardSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCardSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoCardSubtitle.index, []);
 
   String get demoCardTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCardTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoCardTitle.index, []);
 
-  String get demoChecklistMenuTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoChecklistMenuTitle.index, []);
+  String get demoChecklistMenuTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoChecklistMenuTitle.index, []);
 
   String get demoChipSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoChipSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoChipSubtitle.index, []);
 
   String get demoChipTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoChipTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoChipTitle.index, []);
 
-  String get demoChoiceChipDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoChoiceChipDescription.index, []);
+  String get demoChoiceChipDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoChoiceChipDescription.index, []);
 
   String get demoChoiceChipTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoChoiceChipTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoChoiceChipTitle.index, []);
 
   String get demoCircularProgressIndicatorDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCircularProgressIndicatorDescription.index, []);
+          GalleryMessagesEnum.demoCircularProgressIndicatorDescription.index,
+          []);
 
   String get demoCircularProgressIndicatorTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCircularProgressIndicatorTitle.index, []);
+          GalleryMessagesEnum.demoCircularProgressIndicatorTitle.index, []);
 
   String get demoCodeTooltip => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCodeTooltip.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoCodeTooltip.index, []);
 
   String get demoCodeViewerCopiedToClipboardMessage =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCodeViewerCopiedToClipboardMessage.index, []);
+          GalleryMessagesEnum.demoCodeViewerCopiedToClipboardMessage.index, []);
 
-  String get demoCodeViewerCopyAll => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCodeViewerCopyAll.index, []);
+  String get demoCodeViewerCopyAll => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCodeViewerCopyAll.index, []);
 
   String demoCodeViewerFailedToCopyToClipboardMessage(Object error) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCodeViewerFailedToCopyToClipboardMessage.index,
+          GalleryMessagesEnum
+              .demoCodeViewerFailedToCopyToClipboardMessage.index,
           [error]);
 
-  String get demoColorsDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoColorsDescription.index, []);
+  String get demoColorsDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoColorsDescription.index, []);
 
   String get demoColorsSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoColorsSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoColorsSubtitle.index, []);
 
   String get demoColorsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoColorsTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoColorsTitle.index, []);
 
   String get demoContainerTransformDemoInstructions =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoContainerTransformDemoInstructions.index, []);
+          GalleryMessagesEnum.demoContainerTransformDemoInstructions.index, []);
 
   String get demoContainerTransformDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoContainerTransformDescription.index, []);
+          GalleryMessagesEnum.demoContainerTransformDescription.index, []);
 
   String get demoContainerTransformModalBottomSheetTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoContainerTransformModalBottomSheetTitle.index, []);
+          GalleryMessagesEnum.demoContainerTransformModalBottomSheetTitle.index,
+          []);
 
   String get demoContainerTransformTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoContainerTransformTitle.index, []);
+          GalleryMessagesEnum.demoContainerTransformTitle.index, []);
 
   String get demoContainerTransformTypeFade =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoContainerTransformTypeFade.index, []);
+          GalleryMessagesEnum.demoContainerTransformTypeFade.index, []);
 
   String get demoContainerTransformTypeFadeThrough =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoContainerTransformTypeFadeThrough.index, []);
+          GalleryMessagesEnum.demoContainerTransformTypeFadeThrough.index, []);
 
-  String get demoContextMenuTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoContextMenuTitle.index, []);
+  String get demoContextMenuTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoContextMenuTitle.index, []);
 
   String get demoCupertinoActionSheetDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoActionSheetDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoActionSheetDescription.index, []);
 
   String get demoCupertinoActionSheetTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoActionSheetTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoActionSheetTitle.index, []);
 
   String get demoCupertinoActivityIndicatorDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoActivityIndicatorDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoActivityIndicatorDescription.index,
+          []);
 
   String get demoCupertinoActivityIndicatorSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoActivityIndicatorSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoActivityIndicatorSubtitle.index, []);
 
   String get demoCupertinoActivityIndicatorTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoActivityIndicatorTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoActivityIndicatorTitle.index, []);
 
   String get demoCupertinoAlertButtonsOnlyTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoAlertButtonsOnlyTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoAlertButtonsOnlyTitle.index, []);
 
   String get demoCupertinoAlertButtonsTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoAlertButtonsTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoAlertButtonsTitle.index, []);
 
   String get demoCupertinoAlertDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoAlertDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoAlertDescription.index, []);
 
-  String get demoCupertinoAlertTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoAlertTitle.index, []);
+  String get demoCupertinoAlertTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoAlertTitle.index, []);
 
   String get demoCupertinoAlertWithTitleTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoAlertWithTitleTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoAlertWithTitleTitle.index, []);
 
   String get demoCupertinoAlertsSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoAlertsSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoAlertsSubtitle.index, []);
 
-  String get demoCupertinoAlertsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoAlertsTitle.index, []);
+  String get demoCupertinoAlertsTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoAlertsTitle.index, []);
 
   String get demoCupertinoButtonsDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoButtonsDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoButtonsDescription.index, []);
 
   String get demoCupertinoButtonsSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoButtonsSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoButtonsSubtitle.index, []);
 
-  String get demoCupertinoButtonsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoButtonsTitle.index, []);
+  String get demoCupertinoButtonsTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoCupertinoButtonsTitle.index, []);
 
   String get demoCupertinoContextMenuActionOne =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoContextMenuActionOne.index, []);
+          GalleryMessagesEnum.demoCupertinoContextMenuActionOne.index, []);
 
   String get demoCupertinoContextMenuActionText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoContextMenuActionText.index, []);
+          GalleryMessagesEnum.demoCupertinoContextMenuActionText.index, []);
 
   String get demoCupertinoContextMenuActionTwo =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoContextMenuActionTwo.index, []);
+          GalleryMessagesEnum.demoCupertinoContextMenuActionTwo.index, []);
 
   String get demoCupertinoContextMenuDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoContextMenuDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoContextMenuDescription.index, []);
 
   String get demoCupertinoContextMenuSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoContextMenuSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoContextMenuSubtitle.index, []);
 
   String get demoCupertinoContextMenuTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoContextMenuTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoContextMenuTitle.index, []);
 
   String get demoCupertinoNavigationBarDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoNavigationBarDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoNavigationBarDescription.index, []);
 
   String get demoCupertinoNavigationBarSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoNavigationBarSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoNavigationBarSubtitle.index, []);
 
   String get demoCupertinoNavigationBarTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoNavigationBarTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoNavigationBarTitle.index, []);
 
   String get demoCupertinoPicker => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoPicker.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoCupertinoPicker.index, []);
 
-  String get demoCupertinoPickerDate => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoPickerDate.index, []);
+  String get demoCupertinoPickerDate => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoPickerDate.index, []);
 
   String get demoCupertinoPickerDateTime =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoPickerDateTime.index, []);
+          GalleryMessagesEnum.demoCupertinoPickerDateTime.index, []);
 
   String get demoCupertinoPickerDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoPickerDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoPickerDescription.index, []);
 
   String get demoCupertinoPickerSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoPickerSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoPickerSubtitle.index, []);
 
-  String get demoCupertinoPickerTime => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoPickerTime.index, []);
+  String get demoCupertinoPickerTime => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoPickerTime.index, []);
 
-  String get demoCupertinoPickerTimer => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoPickerTimer.index, []);
+  String get demoCupertinoPickerTimer => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoPickerTimer.index, []);
 
-  String get demoCupertinoPickerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoPickerTitle.index, []);
+  String get demoCupertinoPickerTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoPickerTitle.index, []);
 
   String get demoCupertinoPullToRefreshDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoPullToRefreshDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoPullToRefreshDescription.index, []);
 
   String get demoCupertinoPullToRefreshSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoPullToRefreshSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoPullToRefreshSubtitle.index, []);
 
   String get demoCupertinoPullToRefreshTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoPullToRefreshTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoPullToRefreshTitle.index, []);
 
   String get demoCupertinoScrollbarDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoScrollbarDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoScrollbarDescription.index, []);
 
   String get demoCupertinoScrollbarSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoScrollbarSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoScrollbarSubtitle.index, []);
 
   String get demoCupertinoScrollbarTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoScrollbarTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoScrollbarTitle.index, []);
 
   String get demoCupertinoSearchTextFieldDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSearchTextFieldDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoSearchTextFieldDescription.index,
+          []);
 
   String get demoCupertinoSearchTextFieldPlaceholder =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSearchTextFieldPlaceholder.index, []);
+          GalleryMessagesEnum.demoCupertinoSearchTextFieldPlaceholder.index,
+          []);
 
   String get demoCupertinoSearchTextFieldSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSearchTextFieldSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoSearchTextFieldSubtitle.index, []);
 
   String get demoCupertinoSearchTextFieldTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSearchTextFieldTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoSearchTextFieldTitle.index, []);
 
   String get demoCupertinoSegmentedControlDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSegmentedControlDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoSegmentedControlDescription.index,
+          []);
 
   String get demoCupertinoSegmentedControlSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSegmentedControlSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoSegmentedControlSubtitle.index, []);
 
   String get demoCupertinoSegmentedControlTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSegmentedControlTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoSegmentedControlTitle.index, []);
 
   String demoCupertinoSliderContinuous(String value) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSliderContinuous.index, [value]);
+          GalleryMessagesEnum.demoCupertinoSliderContinuous.index, [value]);
 
   String get demoCupertinoSliderDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSliderDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoSliderDescription.index, []);
 
   String demoCupertinoSliderDiscrete(String value) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSliderDiscrete.index, [value]);
+          GalleryMessagesEnum.demoCupertinoSliderDiscrete.index, [value]);
 
   String get demoCupertinoSliderSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSliderSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoSliderSubtitle.index, []);
 
-  String get demoCupertinoSliderTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoSliderTitle.index, []);
+  String get demoCupertinoSliderTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoSliderTitle.index, []);
 
   String get demoCupertinoSwitchDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSwitchDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoSwitchDescription.index, []);
 
   String get demoCupertinoSwitchSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoSwitchSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoSwitchSubtitle.index, []);
 
   String get demoCupertinoTabBarDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoTabBarDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoTabBarDescription.index, []);
 
   String get demoCupertinoTabBarSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoTabBarSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoTabBarSubtitle.index, []);
 
-  String get demoCupertinoTabBarTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoTabBarTitle.index, []);
+  String get demoCupertinoTabBarTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCupertinoTabBarTitle.index, []);
 
   String get demoCupertinoTextFieldDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoTextFieldDescription.index, []);
+          GalleryMessagesEnum.demoCupertinoTextFieldDescription.index, []);
 
-  String get demoCupertinoTextFieldPIN => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCupertinoTextFieldPIN.index, []);
+  String get demoCupertinoTextFieldPIN =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoCupertinoTextFieldPIN.index, []);
 
   String get demoCupertinoTextFieldSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoTextFieldSubtitle.index, []);
+          GalleryMessagesEnum.demoCupertinoTextFieldSubtitle.index, []);
 
   String get demoCupertinoTextFieldTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCupertinoTextFieldTitle.index, []);
+          GalleryMessagesEnum.demoCupertinoTextFieldTitle.index, []);
 
   String get demoCustomSlidersDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoCustomSlidersDescription.index, []);
+          GalleryMessagesEnum.demoCustomSlidersDescription.index, []);
 
-  String get demoCustomSlidersTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoCustomSlidersTitle.index, []);
+  String get demoCustomSlidersTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoCustomSlidersTitle.index, []);
 
-  String get demoDataTableDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDataTableDescription.index, []);
+  String get demoDataTableDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoDataTableDescription.index, []);
 
-  String get demoDataTableSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDataTableSubtitle.index, []);
+  String get demoDataTableSubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoDataTableSubtitle.index, []);
 
   String get demoDataTableTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDataTableTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoDataTableTitle.index, []);
 
-  String get demoDatePickerDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDatePickerDescription.index, []);
+  String get demoDatePickerDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoDatePickerDescription.index, []);
 
   String get demoDatePickerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDatePickerTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoDatePickerTitle.index, []);
 
   String get demoDateRangePickerDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoDateRangePickerDescription.index, []);
+          GalleryMessagesEnum.demoDateRangePickerDescription.index, []);
 
-  String get demoDateRangePickerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDateRangePickerTitle.index, []);
+  String get demoDateRangePickerTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoDateRangePickerTitle.index, []);
 
   String get demoDialogSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDialogSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoDialogSubtitle.index, []);
 
   String get demoDialogTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDialogTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoDialogTitle.index, []);
 
-  String get demoDividerDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDividerDescription.index, []);
+  String get demoDividerDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoDividerDescription.index, []);
 
   String get demoDividerSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDividerSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoDividerSubtitle.index, []);
 
   String get demoDividerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDividerTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoDividerTitle.index, []);
 
-  String get demoDocumentationTooltip => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoDocumentationTooltip.index, []);
+  String get demoDocumentationTooltip => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoDocumentationTooltip.index, []);
 
   String get demoElevatedButtonDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoElevatedButtonDescription.index, []);
+          GalleryMessagesEnum.demoElevatedButtonDescription.index, []);
 
-  String get demoElevatedButtonTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoElevatedButtonTitle.index, []);
+  String get demoElevatedButtonTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoElevatedButtonTitle.index, []);
 
   String get demoFadeScaleAlertDialogCancelButton =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeScaleAlertDialogCancelButton.index, []);
+          GalleryMessagesEnum.demoFadeScaleAlertDialogCancelButton.index, []);
 
   String get demoFadeScaleAlertDialogDiscardButton =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeScaleAlertDialogDiscardButton.index, []);
+          GalleryMessagesEnum.demoFadeScaleAlertDialogDiscardButton.index, []);
 
   String get demoFadeScaleAlertDialogHeader =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeScaleAlertDialogHeader.index, []);
+          GalleryMessagesEnum.demoFadeScaleAlertDialogHeader.index, []);
 
   String get demoFadeScaleDemoInstructions =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeScaleDemoInstructions.index, []);
+          GalleryMessagesEnum.demoFadeScaleDemoInstructions.index, []);
 
-  String get demoFadeScaleDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFadeScaleDescription.index, []);
+  String get demoFadeScaleDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoFadeScaleDescription.index, []);
 
-  String get demoFadeScaleHideFabButton => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFadeScaleHideFabButton.index, []);
+  String get demoFadeScaleHideFabButton =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoFadeScaleHideFabButton.index, []);
 
   String get demoFadeScaleShowAlertDialogButton =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeScaleShowAlertDialogButton.index, []);
+          GalleryMessagesEnum.demoFadeScaleShowAlertDialogButton.index, []);
 
-  String get demoFadeScaleShowFabButton => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFadeScaleShowFabButton.index, []);
+  String get demoFadeScaleShowFabButton =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoFadeScaleShowFabButton.index, []);
 
   String get demoFadeScaleTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFadeScaleTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoFadeScaleTitle.index, []);
 
   String get demoFadeThroughAlbumsDestination =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeThroughAlbumsDestination.index, []);
+          GalleryMessagesEnum.demoFadeThroughAlbumsDestination.index, []);
 
   String get demoFadeThroughDemoInstructions =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeThroughDemoInstructions.index, []);
+          GalleryMessagesEnum.demoFadeThroughDemoInstructions.index, []);
 
-  String get demoFadeThroughDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFadeThroughDescription.index, []);
+  String get demoFadeThroughDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoFadeThroughDescription.index, []);
 
   String get demoFadeThroughPhotosDestination =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeThroughPhotosDestination.index, []);
+          GalleryMessagesEnum.demoFadeThroughPhotosDestination.index, []);
 
   String get demoFadeThroughSearchDestination =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeThroughSearchDestination.index, []);
+          GalleryMessagesEnum.demoFadeThroughSearchDestination.index, []);
 
   String get demoFadeThroughTextPlaceholder =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFadeThroughTextPlaceholder.index, []);
+          GalleryMessagesEnum.demoFadeThroughTextPlaceholder.index, []);
 
-  String get demoFadeThroughTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFadeThroughTitle.index, []);
+  String get demoFadeThroughTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoFadeThroughTitle.index, []);
 
-  String get demoFilterChipDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFilterChipDescription.index, []);
+  String get demoFilterChipDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoFilterChipDescription.index, []);
 
   String get demoFilterChipTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFilterChipTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoFilterChipTitle.index, []);
 
   String get demoFloatingButtonDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFloatingButtonDescription.index, []);
+          GalleryMessagesEnum.demoFloatingButtonDescription.index, []);
 
-  String get demoFloatingButtonTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFloatingButtonTitle.index, []);
+  String get demoFloatingButtonTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoFloatingButtonTitle.index, []);
 
   String get demoFullscreenDialogDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoFullscreenDialogDescription.index, []);
+          GalleryMessagesEnum.demoFullscreenDialogDescription.index, []);
 
-  String get demoFullscreenDialogTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFullscreenDialogTitle.index, []);
+  String get demoFullscreenDialogTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoFullscreenDialogTitle.index, []);
 
-  String get demoFullscreenTooltip => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoFullscreenTooltip.index, []);
+  String get demoFullscreenTooltip => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoFullscreenTooltip.index, []);
 
-  String get demoGridListsDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoGridListsDescription.index, []);
+  String get demoGridListsDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoGridListsDescription.index, []);
 
-  String get demoGridListsFooterTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoGridListsFooterTitle.index, []);
+  String get demoGridListsFooterTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoGridListsFooterTitle.index, []);
 
-  String get demoGridListsHeaderTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoGridListsHeaderTitle.index, []);
+  String get demoGridListsHeaderTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoGridListsHeaderTitle.index, []);
 
   String get demoGridListsImageOnlyTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoGridListsImageOnlyTitle.index, []);
+          GalleryMessagesEnum.demoGridListsImageOnlyTitle.index, []);
 
-  String get demoGridListsSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoGridListsSubtitle.index, []);
+  String get demoGridListsSubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoGridListsSubtitle.index, []);
 
   String get demoGridListsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoGridListsTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoGridListsTitle.index, []);
 
   String get demoInfoTooltip => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoInfoTooltip.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoInfoTooltip.index, []);
 
-  String get demoInputChipDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoInputChipDescription.index, []);
+  String get demoInputChipDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoInputChipDescription.index, []);
 
   String get demoInputChipTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoInputChipTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoInputChipTitle.index, []);
 
   String get demoInvalidURL => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoInvalidURL.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoInvalidURL.index, []);
 
   String get demoLinearProgressIndicatorDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoLinearProgressIndicatorDescription.index, []);
+          GalleryMessagesEnum.demoLinearProgressIndicatorDescription.index, []);
 
   String get demoLinearProgressIndicatorTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoLinearProgressIndicatorTitle.index, []);
+          GalleryMessagesEnum.demoLinearProgressIndicatorTitle.index, []);
 
-  String get demoListsDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoListsDescription.index, []);
+  String get demoListsDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoListsDescription.index, []);
 
   String get demoListsSecondary => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoListsSecondary.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoListsSecondary.index, []);
 
   String get demoListsSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoListsSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoListsSubtitle.index, []);
 
   String get demoListsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoListsTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoListsTitle.index, []);
 
-  String get demoMenuADisabledMenuItem => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuADisabledMenuItem.index, []);
+  String get demoMenuADisabledMenuItem =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoMenuADisabledMenuItem.index, []);
 
   String get demoMenuAnItemWithAChecklistMenu =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMenuAnItemWithAChecklistMenu.index, []);
+          GalleryMessagesEnum.demoMenuAnItemWithAChecklistMenu.index, []);
 
   String get demoMenuAnItemWithAContextMenuButton =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMenuAnItemWithAContextMenuButton.index, []);
+          GalleryMessagesEnum.demoMenuAnItemWithAContextMenuButton.index, []);
 
   String get demoMenuAnItemWithASectionedMenu =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMenuAnItemWithASectionedMenu.index, []);
+          GalleryMessagesEnum.demoMenuAnItemWithASectionedMenu.index, []);
 
   String get demoMenuAnItemWithASimpleMenu =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMenuAnItemWithASimpleMenu.index, []);
+          GalleryMessagesEnum.demoMenuAnItemWithASimpleMenu.index, []);
 
-  String demoMenuChecked(Iterable<String> value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuChecked.index, [value]);
+  String demoMenuChecked(Iterable<String> value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoMenuChecked.index, [value]);
 
-  String get demoMenuContextMenuItemOne => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuContextMenuItemOne.index, []);
+  String get demoMenuContextMenuItemOne =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoMenuContextMenuItemOne.index, []);
 
   String get demoMenuContextMenuItemThree =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMenuContextMenuItemThree.index, []);
+          GalleryMessagesEnum.demoMenuContextMenuItemThree.index, []);
 
   String get demoMenuDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuDescription.index, []);
 
   String get demoMenuFour => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuFour.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuFour.index, []);
 
   String get demoMenuGetLink => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuGetLink.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuGetLink.index, []);
 
-  String get demoMenuItemValueOne => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuItemValueOne.index, []);
+  String get demoMenuItemValueOne => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoMenuItemValueOne.index, []);
 
-  String get demoMenuItemValueThree => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuItemValueThree.index, []);
+  String get demoMenuItemValueThree => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoMenuItemValueThree.index, []);
 
-  String get demoMenuItemValueTwo => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuItemValueTwo.index, []);
+  String get demoMenuItemValueTwo => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoMenuItemValueTwo.index, []);
 
   String get demoMenuOne => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuOne.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuOne.index, []);
 
   String get demoMenuPreview => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuPreview.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuPreview.index, []);
 
   String get demoMenuRemove => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuRemove.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuRemove.index, []);
 
-  String demoMenuSelected(String value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuSelected.index, [value]);
+  String demoMenuSelected(String value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoMenuSelected.index, [value]);
 
   String get demoMenuShare => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuShare.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuShare.index, []);
 
   String get demoMenuSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuSubtitle.index, []);
 
   String get demoMenuThree => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuThree.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuThree.index, []);
 
   String get demoMenuTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuTitle.index, []);
 
   String get demoMenuTwo => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMenuTwo.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMenuTwo.index, []);
 
-  String get demoMotionDetailsPageTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMotionDetailsPageTitle.index, []);
+  String get demoMotionDetailsPageTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoMotionDetailsPageTitle.index, []);
 
-  String get demoMotionListTileTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMotionListTileTitle.index, []);
+  String get demoMotionListTileTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoMotionListTileTitle.index, []);
 
   String get demoMotionPlaceholderSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMotionPlaceholderSubtitle.index, []);
+          GalleryMessagesEnum.demoMotionPlaceholderSubtitle.index, []);
 
-  String get demoMotionPlaceholderTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMotionPlaceholderTitle.index, []);
+  String get demoMotionPlaceholderTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoMotionPlaceholderTitle.index, []);
 
   String get demoMotionSmallPlaceholderSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoMotionSmallPlaceholderSubtitle.index, []);
+          GalleryMessagesEnum.demoMotionSmallPlaceholderSubtitle.index, []);
 
   String get demoMotionSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMotionSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMotionSubtitle.index, []);
 
   String get demoMotionTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoMotionTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoMotionTitle.index, []);
 
   String get demoNavigationDrawerDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationDrawerDescription.index, []);
+          GalleryMessagesEnum.demoNavigationDrawerDescription.index, []);
 
   String get demoNavigationDrawerSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationDrawerSubtitle.index, []);
+          GalleryMessagesEnum.demoNavigationDrawerSubtitle.index, []);
 
-  String get demoNavigationDrawerText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationDrawerText.index, []);
+  String get demoNavigationDrawerText => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoNavigationDrawerText.index, []);
 
-  String get demoNavigationDrawerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationDrawerTitle.index, []);
+  String get demoNavigationDrawerTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoNavigationDrawerTitle.index, []);
 
   String get demoNavigationDrawerToPageOne =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationDrawerToPageOne.index, []);
+          GalleryMessagesEnum.demoNavigationDrawerToPageOne.index, []);
 
   String get demoNavigationDrawerToPageTwo =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationDrawerToPageTwo.index, []);
+          GalleryMessagesEnum.demoNavigationDrawerToPageTwo.index, []);
 
   String get demoNavigationDrawerUserEmail =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationDrawerUserEmail.index, []);
+          GalleryMessagesEnum.demoNavigationDrawerUserEmail.index, []);
 
   String get demoNavigationDrawerUserName =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationDrawerUserName.index, []);
+          GalleryMessagesEnum.demoNavigationDrawerUserName.index, []);
 
   String get demoNavigationRailDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoNavigationRailDescription.index, []);
+          GalleryMessagesEnum.demoNavigationRailDescription.index, []);
 
-  String get demoNavigationRailFirst => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationRailFirst.index, []);
+  String get demoNavigationRailFirst => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoNavigationRailFirst.index, []);
 
-  String get demoNavigationRailSecond => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationRailSecond.index, []);
+  String get demoNavigationRailSecond => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoNavigationRailSecond.index, []);
 
-  String get demoNavigationRailSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationRailSubtitle.index, []);
+  String get demoNavigationRailSubtitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoNavigationRailSubtitle.index, []);
 
-  String get demoNavigationRailThird => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationRailThird.index, []);
+  String get demoNavigationRailThird => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoNavigationRailThird.index, []);
 
-  String get demoNavigationRailTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoNavigationRailTitle.index, []);
+  String get demoNavigationRailTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoNavigationRailTitle.index, []);
 
-  String get demoOneLineListsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoOneLineListsTitle.index, []);
+  String get demoOneLineListsTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoOneLineListsTitle.index, []);
 
   String get demoOptionsFeatureDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoOptionsFeatureDescription.index, []);
+          GalleryMessagesEnum.demoOptionsFeatureDescription.index, []);
 
-  String get demoOptionsFeatureTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoOptionsFeatureTitle.index, []);
+  String get demoOptionsFeatureTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoOptionsFeatureTitle.index, []);
 
   String get demoOptionsTooltip => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoOptionsTooltip.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoOptionsTooltip.index, []);
 
   String get demoOutlinedButtonDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoOutlinedButtonDescription.index, []);
+          GalleryMessagesEnum.demoOutlinedButtonDescription.index, []);
 
-  String get demoOutlinedButtonTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoOutlinedButtonTitle.index, []);
+  String get demoOutlinedButtonTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoOutlinedButtonTitle.index, []);
 
-  String get demoPickersShowPicker => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoPickersShowPicker.index, []);
+  String get demoPickersShowPicker => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoPickersShowPicker.index, []);
 
   String get demoPickersSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoPickersSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoPickersSubtitle.index, []);
 
   String get demoPickersTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoPickersTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoPickersTitle.index, []);
 
   String get demoProgressIndicatorSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoProgressIndicatorSubtitle.index, []);
+          GalleryMessagesEnum.demoProgressIndicatorSubtitle.index, []);
 
-  String get demoProgressIndicatorTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoProgressIndicatorTitle.index, []);
+  String get demoProgressIndicatorTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoProgressIndicatorTitle.index, []);
 
   String get demoRangeSlidersDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoRangeSlidersDescription.index, []);
+          GalleryMessagesEnum.demoRangeSlidersDescription.index, []);
 
-  String get demoRangeSlidersTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoRangeSlidersTitle.index, []);
+  String get demoRangeSlidersTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoRangeSlidersTitle.index, []);
 
-  String get demoSectionedMenuTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSectionedMenuTitle.index, []);
+  String get demoSectionedMenuTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSectionedMenuTitle.index, []);
 
   String get demoSelectionControlsCheckboxDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsCheckboxDescription.index, []);
+          GalleryMessagesEnum.demoSelectionControlsCheckboxDescription.index,
+          []);
 
   String get demoSelectionControlsCheckboxTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsCheckboxTitle.index, []);
+          GalleryMessagesEnum.demoSelectionControlsCheckboxTitle.index, []);
 
   String get demoSelectionControlsRadioDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsRadioDescription.index, []);
+          GalleryMessagesEnum.demoSelectionControlsRadioDescription.index, []);
 
   String get demoSelectionControlsRadioTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsRadioTitle.index, []);
+          GalleryMessagesEnum.demoSelectionControlsRadioTitle.index, []);
 
   String get demoSelectionControlsSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsSubtitle.index, []);
+          GalleryMessagesEnum.demoSelectionControlsSubtitle.index, []);
 
   String get demoSelectionControlsSwitchDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsSwitchDescription.index, []);
+          GalleryMessagesEnum.demoSelectionControlsSwitchDescription.index, []);
 
   String get demoSelectionControlsSwitchTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSelectionControlsSwitchTitle.index, []);
+          GalleryMessagesEnum.demoSelectionControlsSwitchTitle.index, []);
 
-  String get demoSelectionControlsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSelectionControlsTitle.index, []);
+  String get demoSelectionControlsTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoSelectionControlsTitle.index, []);
 
-  String get demoSharedAxisDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSharedAxisDescription.index, []);
+  String get demoSharedAxisDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoSharedAxisDescription.index, []);
 
   String get demoSharedXAxisArtsAndCraftsCourseTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisArtsAndCraftsCourseTitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisArtsAndCraftsCourseTitle.index,
+          []);
 
   String get demoSharedXAxisBackButtonText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisBackButtonText.index, []);
+          GalleryMessagesEnum.demoSharedXAxisBackButtonText.index, []);
 
   String get demoSharedXAxisBundledCourseSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisBundledCourseSubtitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisBundledCourseSubtitle.index, []);
 
   String get demoSharedXAxisBusinessCourseTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisBusinessCourseTitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisBusinessCourseTitle.index, []);
 
   String get demoSharedXAxisCoursePageSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisCoursePageSubtitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisCoursePageSubtitle.index, []);
 
   String get demoSharedXAxisCoursePageTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisCoursePageTitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisCoursePageTitle.index, []);
 
   String get demoSharedXAxisCreateAccountButtonText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisCreateAccountButtonText.index, []);
+          GalleryMessagesEnum.demoSharedXAxisCreateAccountButtonText.index, []);
 
   String get demoSharedXAxisCulinaryCourseTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisCulinaryCourseTitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisCulinaryCourseTitle.index, []);
 
   String get demoSharedXAxisDemoInstructions =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisDemoInstructions.index, []);
+          GalleryMessagesEnum.demoSharedXAxisDemoInstructions.index, []);
 
   String get demoSharedXAxisDesignCourseTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisDesignCourseTitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisDesignCourseTitle.index, []);
 
   String get demoSharedXAxisForgotEmailButtonText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisForgotEmailButtonText.index, []);
+          GalleryMessagesEnum.demoSharedXAxisForgotEmailButtonText.index, []);
 
   String get demoSharedXAxisIllustrationCourseTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisIllustrationCourseTitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisIllustrationCourseTitle.index, []);
 
   String get demoSharedXAxisIndividualCourseSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisIndividualCourseSubtitle.index, []);
+          GalleryMessagesEnum.demoSharedXAxisIndividualCourseSubtitle.index,
+          []);
 
   String get demoSharedXAxisNextButtonText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisNextButtonText.index, []);
+          GalleryMessagesEnum.demoSharedXAxisNextButtonText.index, []);
 
   String get demoSharedXAxisSignInSubtitleText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisSignInSubtitleText.index, []);
+          GalleryMessagesEnum.demoSharedXAxisSignInSubtitleText.index, []);
 
   String get demoSharedXAxisSignInTextFieldLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisSignInTextFieldLabel.index, []);
+          GalleryMessagesEnum.demoSharedXAxisSignInTextFieldLabel.index, []);
 
   String get demoSharedXAxisSignInWelcomeText =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedXAxisSignInWelcomeText.index, []);
+          GalleryMessagesEnum.demoSharedXAxisSignInWelcomeText.index, []);
 
-  String get demoSharedXAxisTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSharedXAxisTitle.index, []);
+  String get demoSharedXAxisTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSharedXAxisTitle.index, []);
 
-  String get demoSharedYAxisAlbumCount => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSharedYAxisAlbumCount.index, []);
+  String get demoSharedYAxisAlbumCount =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoSharedYAxisAlbumCount.index, []);
 
   String get demoSharedYAxisAlbumTileDurationUnit =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedYAxisAlbumTileDurationUnit.index, []);
+          GalleryMessagesEnum.demoSharedYAxisAlbumTileDurationUnit.index, []);
 
   String get demoSharedYAxisAlbumTileSubtitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedYAxisAlbumTileSubtitle.index, []);
+          GalleryMessagesEnum.demoSharedYAxisAlbumTileSubtitle.index, []);
 
   String get demoSharedYAxisAlbumTileTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedYAxisAlbumTileTitle.index, []);
+          GalleryMessagesEnum.demoSharedYAxisAlbumTileTitle.index, []);
 
   String get demoSharedYAxisAlphabeticalSortTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedYAxisAlphabeticalSortTitle.index, []);
+          GalleryMessagesEnum.demoSharedYAxisAlphabeticalSortTitle.index, []);
 
   String get demoSharedYAxisDemoInstructions =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedYAxisDemoInstructions.index, []);
+          GalleryMessagesEnum.demoSharedYAxisDemoInstructions.index, []);
 
   String get demoSharedYAxisRecentSortTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedYAxisRecentSortTitle.index, []);
+          GalleryMessagesEnum.demoSharedYAxisRecentSortTitle.index, []);
 
-  String get demoSharedYAxisTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSharedYAxisTitle.index, []);
+  String get demoSharedYAxisTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSharedYAxisTitle.index, []);
 
   String get demoSharedZAxisBeefSandwichRecipeDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisBeefSandwichRecipeDescription.index, []);
+          GalleryMessagesEnum
+              .demoSharedZAxisBeefSandwichRecipeDescription.index,
+          []);
 
   String get demoSharedZAxisBeefSandwichRecipeTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisBeefSandwichRecipeTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisBeefSandwichRecipeTitle.index, []);
 
   String get demoSharedZAxisBurgerRecipeDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisBurgerRecipeDescription.index, []);
+          GalleryMessagesEnum.demoSharedZAxisBurgerRecipeDescription.index, []);
 
   String get demoSharedZAxisBurgerRecipeTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisBurgerRecipeTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisBurgerRecipeTitle.index, []);
 
   String get demoSharedZAxisCrabPlateRecipeDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisCrabPlateRecipeDescription.index, []);
+          GalleryMessagesEnum.demoSharedZAxisCrabPlateRecipeDescription.index,
+          []);
 
   String get demoSharedZAxisCrabPlateRecipeTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisCrabPlateRecipeTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisCrabPlateRecipeTitle.index, []);
 
   String get demoSharedZAxisDemoInstructions =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisDemoInstructions.index, []);
+          GalleryMessagesEnum.demoSharedZAxisDemoInstructions.index, []);
 
   String get demoSharedZAxisDessertRecipeDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisDessertRecipeDescription.index, []);
+          GalleryMessagesEnum.demoSharedZAxisDessertRecipeDescription.index,
+          []);
 
   String get demoSharedZAxisDessertRecipeTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisDessertRecipeTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisDessertRecipeTitle.index, []);
 
   String get demoSharedZAxisHelpSettingLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisHelpSettingLabel.index, []);
+          GalleryMessagesEnum.demoSharedZAxisHelpSettingLabel.index, []);
 
   String get demoSharedZAxisNotificationSettingLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisNotificationSettingLabel.index, []);
+          GalleryMessagesEnum.demoSharedZAxisNotificationSettingLabel.index,
+          []);
 
   String get demoSharedZAxisPrivacySettingLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisPrivacySettingLabel.index, []);
+          GalleryMessagesEnum.demoSharedZAxisPrivacySettingLabel.index, []);
 
   String get demoSharedZAxisProfileSettingLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisProfileSettingLabel.index, []);
+          GalleryMessagesEnum.demoSharedZAxisProfileSettingLabel.index, []);
 
   String get demoSharedZAxisSandwichRecipeDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisSandwichRecipeDescription.index, []);
+          GalleryMessagesEnum.demoSharedZAxisSandwichRecipeDescription.index,
+          []);
 
   String get demoSharedZAxisSandwichRecipeTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisSandwichRecipeTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisSandwichRecipeTitle.index, []);
 
   String get demoSharedZAxisSavedRecipesListTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisSavedRecipesListTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisSavedRecipesListTitle.index, []);
 
   String get demoSharedZAxisSettingsPageTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisSettingsPageTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisSettingsPageTitle.index, []);
 
   String get demoSharedZAxisShrimpPlateRecipeDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisShrimpPlateRecipeDescription.index, []);
+          GalleryMessagesEnum.demoSharedZAxisShrimpPlateRecipeDescription.index,
+          []);
 
   String get demoSharedZAxisShrimpPlateRecipeTitle =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSharedZAxisShrimpPlateRecipeTitle.index, []);
+          GalleryMessagesEnum.demoSharedZAxisShrimpPlateRecipeTitle.index, []);
 
-  String get demoSharedZAxisTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSharedZAxisTitle.index, []);
+  String get demoSharedZAxisTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSharedZAxisTitle.index, []);
 
   String get demoSimpleDialogDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSimpleDialogDescription.index, []);
+          GalleryMessagesEnum.demoSimpleDialogDescription.index, []);
 
-  String get demoSimpleDialogTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSimpleDialogTitle.index, []);
+  String get demoSimpleDialogTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSimpleDialogTitle.index, []);
 
   String get demoSimpleMenuTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSimpleMenuTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSimpleMenuTitle.index, []);
 
-  String get demoSlidersContinuous => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSlidersContinuous.index, []);
+  String get demoSlidersContinuous => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSlidersContinuous.index, []);
 
   String get demoSlidersContinuousRangeSliderWithCustomTheme =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSlidersContinuousRangeSliderWithCustomTheme.index,
+          GalleryMessagesEnum
+              .demoSlidersContinuousRangeSliderWithCustomTheme.index,
           []);
 
   String get demoSlidersContinuousWithEditableNumericalValue =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSlidersContinuousWithEditableNumericalValue.index,
+          GalleryMessagesEnum
+              .demoSlidersContinuousWithEditableNumericalValue.index,
           []);
 
-  String get demoSlidersDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSlidersDescription.index, []);
+  String get demoSlidersDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSlidersDescription.index, []);
 
   String get demoSlidersDiscrete => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSlidersDiscrete.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSlidersDiscrete.index, []);
 
   String get demoSlidersDiscreteSliderWithCustomTheme =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSlidersDiscreteSliderWithCustomTheme.index, []);
+          GalleryMessagesEnum.demoSlidersDiscreteSliderWithCustomTheme.index,
+          []);
 
   String get demoSlidersEditableNumericalValue =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSlidersEditableNumericalValue.index, []);
+          GalleryMessagesEnum.demoSlidersEditableNumericalValue.index, []);
 
   String get demoSlidersSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSlidersSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSlidersSubtitle.index, []);
 
   String get demoSlidersTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSlidersTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSlidersTitle.index, []);
 
   String get demoSnackbarsAction => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSnackbarsAction.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSnackbarsAction.index, []);
 
   String get demoSnackbarsActionButtonLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoSnackbarsActionButtonLabel.index, []);
+          GalleryMessagesEnum.demoSnackbarsActionButtonLabel.index, []);
 
-  String get demoSnackbarsButtonLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSnackbarsButtonLabel.index, []);
+  String get demoSnackbarsButtonLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSnackbarsButtonLabel.index, []);
 
-  String get demoSnackbarsDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSnackbarsDescription.index, []);
+  String get demoSnackbarsDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSnackbarsDescription.index, []);
 
-  String get demoSnackbarsSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSnackbarsSubtitle.index, []);
+  String get demoSnackbarsSubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoSnackbarsSubtitle.index, []);
 
   String get demoSnackbarsText => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSnackbarsText.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSnackbarsText.index, []);
 
   String get demoSnackbarsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoSnackbarsTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoSnackbarsTitle.index, []);
 
   String get demoTabsDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTabsDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTabsDescription.index, []);
 
-  String get demoTabsNonScrollingTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTabsNonScrollingTitle.index, []);
+  String get demoTabsNonScrollingTitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTabsNonScrollingTitle.index, []);
 
-  String get demoTabsScrollingTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTabsScrollingTitle.index, []);
+  String get demoTabsScrollingTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTabsScrollingTitle.index, []);
 
   String get demoTabsSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTabsSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTabsSubtitle.index, []);
 
   String get demoTabsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTabsTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTabsTitle.index, []);
 
-  String get demoTextButtonDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextButtonDescription.index, []);
+  String get demoTextButtonDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTextButtonDescription.index, []);
 
   String get demoTextButtonTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextButtonTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTextButtonTitle.index, []);
 
-  String get demoTextFieldDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldDescription.index, []);
+  String get demoTextFieldDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldDescription.index, []);
 
   String get demoTextFieldEmail => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldEmail.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTextFieldEmail.index, []);
 
-  String get demoTextFieldEnterPassword => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldEnterPassword.index, []);
+  String get demoTextFieldEnterPassword =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTextFieldEnterPassword.index, []);
 
   String get demoTextFieldEnterUSPhoneNumber =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldEnterUSPhoneNumber.index, []);
+          GalleryMessagesEnum.demoTextFieldEnterUSPhoneNumber.index, []);
 
-  String get demoTextFieldFormErrors => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldFormErrors.index, []);
+  String get demoTextFieldFormErrors => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldFormErrors.index, []);
 
   String get demoTextFieldHidePasswordLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldHidePasswordLabel.index, []);
+          GalleryMessagesEnum.demoTextFieldHidePasswordLabel.index, []);
 
-  String get demoTextFieldKeepItShort => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldKeepItShort.index, []);
+  String get demoTextFieldKeepItShort => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldKeepItShort.index, []);
 
-  String get demoTextFieldLifeStory => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldLifeStory.index, []);
+  String get demoTextFieldLifeStory => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldLifeStory.index, []);
 
-  String get demoTextFieldNameField => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldNameField.index, []);
+  String get demoTextFieldNameField => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldNameField.index, []);
 
   String demoTextFieldNameHasPhoneNumber(
     String name,
     String phoneNumber,
   ) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldNameHasPhoneNumber.index,
+          GalleryMessagesEnum.demoTextFieldNameHasPhoneNumber.index,
           [name, phoneNumber]);
 
-  String get demoTextFieldNameRequired => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldNameRequired.index, []);
+  String get demoTextFieldNameRequired =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTextFieldNameRequired.index, []);
 
-  String get demoTextFieldNoMoreThan => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldNoMoreThan.index, []);
+  String get demoTextFieldNoMoreThan => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldNoMoreThan.index, []);
 
   String get demoTextFieldOnlyAlphabeticalChars =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldOnlyAlphabeticalChars.index, []);
+          GalleryMessagesEnum.demoTextFieldOnlyAlphabeticalChars.index, []);
 
-  String get demoTextFieldPassword => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldPassword.index, []);
+  String get demoTextFieldPassword => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldPassword.index, []);
 
   String get demoTextFieldPasswordsDoNotMatch =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldPasswordsDoNotMatch.index, []);
+          GalleryMessagesEnum.demoTextFieldPasswordsDoNotMatch.index, []);
 
-  String get demoTextFieldPhoneNumber => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldPhoneNumber.index, []);
+  String get demoTextFieldPhoneNumber => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldPhoneNumber.index, []);
 
-  String get demoTextFieldRequiredField => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldRequiredField.index, []);
+  String get demoTextFieldRequiredField =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTextFieldRequiredField.index, []);
 
   String get demoTextFieldRetypePassword =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldRetypePassword.index, []);
+          GalleryMessagesEnum.demoTextFieldRetypePassword.index, []);
 
   String get demoTextFieldSalary => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldSalary.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTextFieldSalary.index, []);
 
   String get demoTextFieldShowPasswordLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldShowPasswordLabel.index, []);
+          GalleryMessagesEnum.demoTextFieldShowPasswordLabel.index, []);
 
   String get demoTextFieldSubmit => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldSubmit.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTextFieldSubmit.index, []);
 
-  String get demoTextFieldSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldSubtitle.index, []);
+  String get demoTextFieldSubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTextFieldSubtitle.index, []);
 
   String get demoTextFieldTellUsAboutYourself =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldTellUsAboutYourself.index, []);
+          GalleryMessagesEnum.demoTextFieldTellUsAboutYourself.index, []);
 
   String get demoTextFieldTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTextFieldTitle.index, []);
 
   String get demoTextFieldUSD => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTextFieldUSD.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTextFieldUSD.index, []);
 
   String get demoTextFieldWhatDoPeopleCallYou =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldWhatDoPeopleCallYou.index, []);
+          GalleryMessagesEnum.demoTextFieldWhatDoPeopleCallYou.index, []);
 
   String get demoTextFieldWhereCanWeReachYou =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldWhereCanWeReachYou.index, []);
+          GalleryMessagesEnum.demoTextFieldWhereCanWeReachYou.index, []);
 
   String get demoTextFieldYourEmailAddress =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTextFieldYourEmailAddress.index, []);
+          GalleryMessagesEnum.demoTextFieldYourEmailAddress.index, []);
 
-  String get demoTimePickerDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTimePickerDescription.index, []);
+  String get demoTimePickerDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTimePickerDescription.index, []);
 
   String get demoTimePickerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTimePickerTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTimePickerTitle.index, []);
 
   String get demoToggleButtonDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoToggleButtonDescription.index, []);
+          GalleryMessagesEnum.demoToggleButtonDescription.index, []);
 
-  String get demoToggleButtonTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoToggleButtonTitle.index, []);
+  String get demoToggleButtonTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoToggleButtonTitle.index, []);
 
-  String get demoTooltipDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTooltipDescription.index, []);
+  String get demoTooltipDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTooltipDescription.index, []);
 
-  String get demoTooltipInstructions => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTooltipInstructions.index, []);
+  String get demoTooltipInstructions => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTooltipInstructions.index, []);
 
   String get demoTooltipSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTooltipSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTooltipSubtitle.index, []);
 
   String get demoTooltipTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTooltipTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTooltipTitle.index, []);
 
-  String get demoTwoLineListsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoLineListsTitle.index, []);
+  String get demoTwoLineListsTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTwoLineListsTitle.index, []);
 
   String get demoTwoPaneDetails => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneDetails.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTwoPaneDetails.index, []);
 
   String get demoTwoPaneFoldableDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTwoPaneFoldableDescription.index, []);
+          GalleryMessagesEnum.demoTwoPaneFoldableDescription.index, []);
 
-  String get demoTwoPaneFoldableLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneFoldableLabel.index, []);
+  String get demoTwoPaneFoldableLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTwoPaneFoldableLabel.index, []);
 
-  String demoTwoPaneItem(int value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneItem.index, [value]);
+  String demoTwoPaneItem(int value) => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTwoPaneItem.index, [value]);
 
   String demoTwoPaneItemDetails(int value) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTwoPaneItemDetails.index, [value]);
+          GalleryMessagesEnum.demoTwoPaneItemDetails.index, [value]);
 
   String get demoTwoPaneList => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneList.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTwoPaneList.index, []);
 
-  String get demoTwoPaneSelectItem => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneSelectItem.index, []);
+  String get demoTwoPaneSelectItem => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTwoPaneSelectItem.index, []);
 
   String get demoTwoPaneSmallScreenDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTwoPaneSmallScreenDescription.index, []);
+          GalleryMessagesEnum.demoTwoPaneSmallScreenDescription.index, []);
 
   String get demoTwoPaneSmallScreenLabel =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTwoPaneSmallScreenLabel.index, []);
+          GalleryMessagesEnum.demoTwoPaneSmallScreenLabel.index, []);
 
   String get demoTwoPaneSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneSubtitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTwoPaneSubtitle.index, []);
 
   String get demoTwoPaneTabletDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.demoTwoPaneTabletDescription.index, []);
+          GalleryMessagesEnum.demoTwoPaneTabletDescription.index, []);
 
-  String get demoTwoPaneTabletLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneTabletLabel.index, []);
+  String get demoTwoPaneTabletLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTwoPaneTabletLabel.index, []);
 
   String get demoTwoPaneTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTwoPaneTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTwoPaneTitle.index, []);
 
-  String get demoTypographyDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTypographyDescription.index, []);
+  String get demoTypographyDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.demoTypographyDescription.index, []);
 
-  String get demoTypographySubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTypographySubtitle.index, []);
+  String get demoTypographySubtitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoTypographySubtitle.index, []);
 
   String get demoTypographyTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoTypographyTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.demoTypographyTitle.index, []);
 
-  String get demoVerticalDividerTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.demoVerticalDividerTitle.index, []);
+  String get demoVerticalDividerTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.demoVerticalDividerTitle.index, []);
 
-  String get deselect =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.deselect.index, []);
+  String get deselect => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.deselect.index, []);
 
   String get dialogAddAccount => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogAddAccount.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogAddAccount.index, []);
 
   String get dialogAgree => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogAgree.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogAgree.index, []);
 
   String get dialogCancel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogCancel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogCancel.index, []);
 
   String get dialogDisagree => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogDisagree.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogDisagree.index, []);
 
   String get dialogDiscard => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogDiscard.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogDiscard.index, []);
 
   String get dialogDiscardTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogDiscardTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogDiscardTitle.index, []);
 
   String get dialogFullscreenDescription =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.dialogFullscreenDescription.index, []);
+          GalleryMessagesEnum.dialogFullscreenDescription.index, []);
 
-  String get dialogFullscreenSave => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogFullscreenSave.index, []);
+  String get dialogFullscreenSave => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dialogFullscreenSave.index, []);
 
-  String get dialogFullscreenTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogFullscreenTitle.index, []);
+  String get dialogFullscreenTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.dialogFullscreenTitle.index, []);
 
-  String get dialogLocationDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogLocationDescription.index, []);
+  String get dialogLocationDescription =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.dialogLocationDescription.index, []);
 
   String get dialogLocationTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogLocationTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogLocationTitle.index, []);
 
-  String dialogSelectedOption(String value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogSelectedOption.index, [value]);
+  String dialogSelectedOption(String value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.dialogSelectedOption.index, [value]);
 
   String get dialogSetBackup => _currentMessages
-      .generateStringAtIndex(MessagesEnum.dialogSetBackup.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.dialogSetBackup.index, []);
 
-  String get dialogShow =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.dialogShow.index, []);
+  String get dialogShow => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.dialogShow.index, []);
 
-  String get dismiss =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.dismiss.index, []);
+  String get dismiss => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.dismiss.index, []);
 
-  String get fortnightlyDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyDescription.index, []);
+  String get fortnightlyDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyDescription.index, []);
 
-  String get fortnightlyHeadlineArmy => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyHeadlineArmy.index, []);
+  String get fortnightlyHeadlineArmy => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyHeadlineArmy.index, []);
 
-  String get fortnightlyHeadlineBees => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyHeadlineBees.index, []);
+  String get fortnightlyHeadlineBees => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyHeadlineBees.index, []);
 
-  String get fortnightlyHeadlineFabrics => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyHeadlineFabrics.index, []);
+  String get fortnightlyHeadlineFabrics =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.fortnightlyHeadlineFabrics.index, []);
 
   String get fortnightlyHeadlineFeminists =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.fortnightlyHeadlineFeminists.index, []);
+          GalleryMessagesEnum.fortnightlyHeadlineFeminists.index, []);
 
   String get fortnightlyHeadlineGasoline =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.fortnightlyHeadlineGasoline.index, []);
+          GalleryMessagesEnum.fortnightlyHeadlineGasoline.index, []);
 
   String get fortnightlyHeadlineHealthcare =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.fortnightlyHeadlineHealthcare.index, []);
+          GalleryMessagesEnum.fortnightlyHeadlineHealthcare.index, []);
 
-  String get fortnightlyHeadlineStocks => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyHeadlineStocks.index, []);
+  String get fortnightlyHeadlineStocks =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.fortnightlyHeadlineStocks.index, []);
 
-  String get fortnightlyHeadlineWar => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyHeadlineWar.index, []);
+  String get fortnightlyHeadlineWar => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyHeadlineWar.index, []);
 
-  String get fortnightlyLatestUpdates => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyLatestUpdates.index, []);
+  String get fortnightlyLatestUpdates => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyLatestUpdates.index, []);
 
-  String get fortnightlyMenuBusiness => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuBusiness.index, []);
+  String get fortnightlyMenuBusiness => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuBusiness.index, []);
 
-  String get fortnightlyMenuCulture => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuCulture.index, []);
+  String get fortnightlyMenuCulture => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuCulture.index, []);
 
-  String get fortnightlyMenuFrontPage => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuFrontPage.index, []);
+  String get fortnightlyMenuFrontPage => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuFrontPage.index, []);
 
-  String get fortnightlyMenuPolitics => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuPolitics.index, []);
+  String get fortnightlyMenuPolitics => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuPolitics.index, []);
 
-  String get fortnightlyMenuScience => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuScience.index, []);
+  String get fortnightlyMenuScience => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuScience.index, []);
 
-  String get fortnightlyMenuSports => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuSports.index, []);
+  String get fortnightlyMenuSports => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuSports.index, []);
 
   String get fortnightlyMenuTech => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuTech.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.fortnightlyMenuTech.index, []);
 
-  String get fortnightlyMenuTravel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuTravel.index, []);
+  String get fortnightlyMenuTravel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuTravel.index, []);
 
   String get fortnightlyMenuUS => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuUS.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.fortnightlyMenuUS.index, []);
 
-  String get fortnightlyMenuWorld => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyMenuWorld.index, []);
+  String get fortnightlyMenuWorld => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.fortnightlyMenuWorld.index, []);
 
   String get fortnightlyTrendingGreenArmy =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.fortnightlyTrendingGreenArmy.index, []);
+          GalleryMessagesEnum.fortnightlyTrendingGreenArmy.index, []);
 
   String get fortnightlyTrendingHealthcareRevolution =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.fortnightlyTrendingHealthcareRevolution.index, []);
+          GalleryMessagesEnum.fortnightlyTrendingHealthcareRevolution.index,
+          []);
 
-  String get fortnightlyTrendingReform => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyTrendingReform.index, []);
+  String get fortnightlyTrendingReform =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.fortnightlyTrendingReform.index, []);
 
-  String get fortnightlyTrendingStocks => _currentMessages
-      .generateStringAtIndex(MessagesEnum.fortnightlyTrendingStocks.index, []);
+  String get fortnightlyTrendingStocks =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.fortnightlyTrendingStocks.index, []);
 
   String get fortnightlyTrendingTechDesign =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.fortnightlyTrendingTechDesign.index, []);
+          GalleryMessagesEnum.fortnightlyTrendingTechDesign.index, []);
 
   String githubRepo(String repoName) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.githubRepo.index, [repoName]);
+      .generateStringAtIndex(GalleryMessagesEnum.githubRepo.index, [repoName]);
 
-  String get homeCategoryReference => _currentMessages
-      .generateStringAtIndex(MessagesEnum.homeCategoryReference.index, []);
+  String get homeCategoryReference => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.homeCategoryReference.index, []);
 
-  String get homeHeaderCategories => _currentMessages
-      .generateStringAtIndex(MessagesEnum.homeHeaderCategories.index, []);
+  String get homeHeaderCategories => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.homeHeaderCategories.index, []);
 
   String get homeHeaderGallery => _currentMessages
-      .generateStringAtIndex(MessagesEnum.homeHeaderGallery.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.homeHeaderGallery.index, []);
 
-  String get loading =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.loading.index, []);
+  String get loading => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.loading.index, []);
 
   String get notSelected => _currentMessages
-      .generateStringAtIndex(MessagesEnum.notSelected.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.notSelected.index, []);
 
-  String get placeBeach =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.placeBeach.index, []);
+  String get placeBeach => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.placeBeach.index, []);
 
   String get placeBronzeWorks => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeBronzeWorks.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeBronzeWorks.index, []);
 
   String get placeChennai => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeChennai.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeChennai.index, []);
 
   String get placeChettinad => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeChettinad.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeChettinad.index, []);
 
   String get placeFisherman => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeFisherman.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeFisherman.index, []);
 
   String get placeFlowerMarket => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeFlowerMarket.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeFlowerMarket.index, []);
 
   String get placeLunchPrep => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeLunchPrep.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeLunchPrep.index, []);
 
   String get placeMarket => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeMarket.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeMarket.index, []);
 
   String get placePondicherry => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placePondicherry.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placePondicherry.index, []);
 
   String get placeSaltFarm => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeSaltFarm.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeSaltFarm.index, []);
 
   String get placeScooters => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeScooters.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeScooters.index, []);
 
   String get placeSilkMaker => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeSilkMaker.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeSilkMaker.index, []);
 
   String get placeTanjore => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeTanjore.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.placeTanjore.index, []);
 
-  String get placeThanjavurTemple => _currentMessages
-      .generateStringAtIndex(MessagesEnum.placeThanjavurTemple.index, []);
+  String get placeThanjavurTemple => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.placeThanjavurTemple.index, []);
 
   String rallyAccountAmount(
     String accountName,
@@ -2402,74 +2476,81 @@ class Messages {
     String amount,
   ) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountAmount.index,
+          GalleryMessagesEnum.rallyAccountAmount.index,
           [accountName, accountNumber, amount]);
 
-  String get rallyAccountDataCarSavings => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyAccountDataCarSavings.index, []);
+  String get rallyAccountDataCarSavings =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.rallyAccountDataCarSavings.index, []);
 
-  String get rallyAccountDataChecking => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyAccountDataChecking.index, []);
+  String get rallyAccountDataChecking => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyAccountDataChecking.index, []);
 
   String get rallyAccountDataHomeSavings =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDataHomeSavings.index, []);
+          GalleryMessagesEnum.rallyAccountDataHomeSavings.index, []);
 
-  String get rallyAccountDataVacation => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyAccountDataVacation.index, []);
+  String get rallyAccountDataVacation => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyAccountDataVacation.index, []);
 
   String get rallyAccountDetailDataAccountOwner =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDetailDataAccountOwner.index, []);
+          GalleryMessagesEnum.rallyAccountDetailDataAccountOwner.index, []);
 
   String get rallyAccountDetailDataAnnualPercentageYield =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDetailDataAnnualPercentageYield.index, []);
+          GalleryMessagesEnum.rallyAccountDetailDataAnnualPercentageYield.index,
+          []);
 
   String get rallyAccountDetailDataInterestPaidLastYear =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDetailDataInterestPaidLastYear.index, []);
+          GalleryMessagesEnum.rallyAccountDetailDataInterestPaidLastYear.index,
+          []);
 
   String get rallyAccountDetailDataInterestRate =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDetailDataInterestRate.index, []);
+          GalleryMessagesEnum.rallyAccountDetailDataInterestRate.index, []);
 
   String get rallyAccountDetailDataInterestYtd =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDetailDataInterestYtd.index, []);
+          GalleryMessagesEnum.rallyAccountDetailDataInterestYtd.index, []);
 
   String get rallyAccountDetailDataNextStatement =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAccountDetailDataNextStatement.index, []);
+          GalleryMessagesEnum.rallyAccountDetailDataNextStatement.index, []);
 
   String get rallyAccountTotal => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyAccountTotal.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyAccountTotal.index, []);
 
   String get rallyAccounts => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyAccounts.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyAccounts.index, []);
 
   String get rallyAlerts => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyAlerts.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyAlerts.index, []);
 
   String rallyAlertsMessageATMFees(String amount) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAlertsMessageATMFees.index, [amount]);
+          GalleryMessagesEnum.rallyAlertsMessageATMFees.index, [amount]);
 
   String rallyAlertsMessageCheckingAccount(String percent) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAlertsMessageCheckingAccount.index, [percent]);
+          GalleryMessagesEnum.rallyAlertsMessageCheckingAccount.index,
+          [percent]);
 
   String rallyAlertsMessageHeadsUpShopping(String percent) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAlertsMessageHeadsUpShopping.index, [percent]);
+          GalleryMessagesEnum.rallyAlertsMessageHeadsUpShopping.index,
+          [percent]);
 
   String rallyAlertsMessageSpentOnRestaurants(String amount) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAlertsMessageSpentOnRestaurants.index, [amount]);
+          GalleryMessagesEnum.rallyAlertsMessageSpentOnRestaurants.index,
+          [amount]);
 
   String rallyAlertsMessageUnassignedTransactions(int count) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyAlertsMessageUnassignedTransactions.index, [count]);
+          GalleryMessagesEnum.rallyAlertsMessageUnassignedTransactions.index,
+          [count]);
 
   String rallyBillAmount(
     String billName,
@@ -2477,22 +2558,24 @@ class Messages {
     String amount,
   ) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBillAmount.index, [billName, date, amount]);
+          GalleryMessagesEnum.rallyBillAmount.index, [billName, date, amount]);
 
-  String get rallyBillDetailAmountDue => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBillDetailAmountDue.index, []);
+  String get rallyBillDetailAmountDue => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyBillDetailAmountDue.index, []);
 
-  String get rallyBillDetailAmountPaid => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBillDetailAmountPaid.index, []);
+  String get rallyBillDetailAmountPaid =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.rallyBillDetailAmountPaid.index, []);
 
-  String get rallyBillDetailTotalAmount => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBillDetailTotalAmount.index, []);
+  String get rallyBillDetailTotalAmount =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.rallyBillDetailTotalAmount.index, []);
 
-  String get rallyBills =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.rallyBills.index, []);
+  String get rallyBills => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.rallyBills.index, []);
 
   String get rallyBillsDue => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBillsDue.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyBillsDue.index, []);
 
   String rallyBudgetAmount(
     String budgetName,
@@ -2501,491 +2584,523 @@ class Messages {
     String amountLeft,
   ) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetAmount.index,
+          GalleryMessagesEnum.rallyBudgetAmount.index,
           [budgetName, amountUsed, amountTotal, amountLeft]);
 
   String get rallyBudgetCategoryClothing =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetCategoryClothing.index, []);
+          GalleryMessagesEnum.rallyBudgetCategoryClothing.index, []);
 
   String get rallyBudgetCategoryCoffeeShops =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetCategoryCoffeeShops.index, []);
+          GalleryMessagesEnum.rallyBudgetCategoryCoffeeShops.index, []);
 
   String get rallyBudgetCategoryGroceries =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetCategoryGroceries.index, []);
+          GalleryMessagesEnum.rallyBudgetCategoryGroceries.index, []);
 
   String get rallyBudgetCategoryRestaurants =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetCategoryRestaurants.index, []);
+          GalleryMessagesEnum.rallyBudgetCategoryRestaurants.index, []);
 
   String get rallyBudgetDetailAmountLeft =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetDetailAmountLeft.index, []);
+          GalleryMessagesEnum.rallyBudgetDetailAmountLeft.index, []);
 
   String get rallyBudgetDetailAmountUsed =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallyBudgetDetailAmountUsed.index, []);
+          GalleryMessagesEnum.rallyBudgetDetailAmountUsed.index, []);
 
-  String get rallyBudgetDetailTotalCap => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBudgetDetailTotalCap.index, []);
+  String get rallyBudgetDetailTotalCap =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.rallyBudgetDetailTotalCap.index, []);
 
   String get rallyBudgetLeft => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBudgetLeft.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyBudgetLeft.index, []);
 
   String get rallyBudgets => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyBudgets.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyBudgets.index, []);
 
   String get rallyDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyDescription.index, []);
 
   String get rallyFinanceLeft => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyFinanceLeft.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyFinanceLeft.index, []);
 
-  String get rallyLoginButtonLogin => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginButtonLogin.index, []);
+  String get rallyLoginButtonLogin => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyLoginButtonLogin.index, []);
 
-  String get rallyLoginLabelLogin => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginLabelLogin.index, []);
+  String get rallyLoginLabelLogin => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyLoginLabelLogin.index, []);
 
-  String get rallyLoginLoginToRally => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginLoginToRally.index, []);
+  String get rallyLoginLoginToRally => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyLoginLoginToRally.index, []);
 
   String get rallyLoginNoAccount => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginNoAccount.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyLoginNoAccount.index, []);
 
   String get rallyLoginPassword => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginPassword.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyLoginPassword.index, []);
 
-  String get rallyLoginRememberMe => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginRememberMe.index, []);
+  String get rallyLoginRememberMe => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallyLoginRememberMe.index, []);
 
   String get rallyLoginSignUp => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginSignUp.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyLoginSignUp.index, []);
 
   String get rallyLoginUsername => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyLoginUsername.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyLoginUsername.index, []);
 
   String get rallySeeAll => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySeeAll.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallySeeAll.index, []);
 
   String get rallySeeAllAccounts => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySeeAllAccounts.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallySeeAllAccounts.index, []);
 
   String get rallySeeAllBills => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySeeAllBills.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallySeeAllBills.index, []);
 
   String get rallySeeAllBudgets => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySeeAllBudgets.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallySeeAllBudgets.index, []);
 
-  String get rallySettingsFindAtms => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySettingsFindAtms.index, []);
+  String get rallySettingsFindAtms => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallySettingsFindAtms.index, []);
 
   String get rallySettingsHelp => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySettingsHelp.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallySettingsHelp.index, []);
 
   String get rallySettingsManageAccounts =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallySettingsManageAccounts.index, []);
+          GalleryMessagesEnum.rallySettingsManageAccounts.index, []);
 
-  String get rallySettingsNotifications => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySettingsNotifications.index, []);
+  String get rallySettingsNotifications =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.rallySettingsNotifications.index, []);
 
   String get rallySettingsPaperlessSettings =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallySettingsPaperlessSettings.index, []);
+          GalleryMessagesEnum.rallySettingsPaperlessSettings.index, []);
 
   String get rallySettingsPasscodeAndTouchId =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallySettingsPasscodeAndTouchId.index, []);
+          GalleryMessagesEnum.rallySettingsPasscodeAndTouchId.index, []);
 
   String get rallySettingsPersonalInformation =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.rallySettingsPersonalInformation.index, []);
+          GalleryMessagesEnum.rallySettingsPersonalInformation.index, []);
 
-  String get rallySettingsSignOut => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySettingsSignOut.index, []);
+  String get rallySettingsSignOut => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.rallySettingsSignOut.index, []);
 
-  String get rallySettingsTaxDocuments => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallySettingsTaxDocuments.index, []);
+  String get rallySettingsTaxDocuments =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.rallySettingsTaxDocuments.index, []);
 
   String get rallyTitleAccounts => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyTitleAccounts.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyTitleAccounts.index, []);
 
   String get rallyTitleBills => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyTitleBills.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyTitleBills.index, []);
 
   String get rallyTitleBudgets => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyTitleBudgets.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyTitleBudgets.index, []);
 
   String get rallyTitleOverview => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyTitleOverview.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyTitleOverview.index, []);
 
   String get rallyTitleSettings => _currentMessages
-      .generateStringAtIndex(MessagesEnum.rallyTitleSettings.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.rallyTitleSettings.index, []);
 
   String get replyDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replyDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replyDescription.index, []);
 
   String get replyDraftsLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replyDraftsLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replyDraftsLabel.index, []);
 
   String get replyInboxLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replyInboxLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replyInboxLabel.index, []);
 
   String get replySentLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replySentLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replySentLabel.index, []);
 
   String get replySpamLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replySpamLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replySpamLabel.index, []);
 
   String get replyStarredLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replyStarredLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replyStarredLabel.index, []);
 
   String get replyTrashLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.replyTrashLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.replyTrashLabel.index, []);
 
-  String get select =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.select.index, []);
+  String get select => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.select.index, []);
 
-  String get selectable =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.selectable.index, []);
+  String get selectable => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.selectable.index, []);
 
-  String get selected =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.selected.index, []);
+  String get selected => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.selected.index, []);
 
   String get settingsAbout => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsAbout.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsAbout.index, []);
 
   String get settingsAttribution => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsAttribution.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsAttribution.index, []);
 
-  String get settingsButtonCloseLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsButtonCloseLabel.index, []);
+  String get settingsButtonCloseLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsButtonCloseLabel.index, []);
 
   String get settingsButtonLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsButtonLabel.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsButtonLabel.index, []);
 
   String get settingsDarkTheme => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsDarkTheme.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsDarkTheme.index, []);
 
   String get settingsFeedback => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsFeedback.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsFeedback.index, []);
 
   String get settingsLightTheme => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsLightTheme.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsLightTheme.index, []);
 
   String get settingsLocale => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsLocale.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsLocale.index, []);
 
-  String get settingsPlatformMechanics => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsPlatformMechanics.index, []);
+  String get settingsPlatformMechanics =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.settingsPlatformMechanics.index, []);
 
   String get settingsSlowMotion => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsSlowMotion.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsSlowMotion.index, []);
 
-  String get settingsSystemDefault => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsSystemDefault.index, []);
+  String get settingsSystemDefault => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsSystemDefault.index, []);
 
-  String get settingsTextDirection => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextDirection.index, []);
+  String get settingsTextDirection => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsTextDirection.index, []);
 
-  String get settingsTextDirectionLTR => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextDirectionLTR.index, []);
+  String get settingsTextDirectionLTR => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsTextDirectionLTR.index, []);
 
   String get settingsTextDirectionLocaleBased =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.settingsTextDirectionLocaleBased.index, []);
+          GalleryMessagesEnum.settingsTextDirectionLocaleBased.index, []);
 
-  String get settingsTextDirectionRTL => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextDirectionRTL.index, []);
+  String get settingsTextDirectionRTL => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsTextDirectionRTL.index, []);
 
   String get settingsTextScaling => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextScaling.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsTextScaling.index, []);
 
-  String get settingsTextScalingHuge => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextScalingHuge.index, []);
+  String get settingsTextScalingHuge => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsTextScalingHuge.index, []);
 
-  String get settingsTextScalingLarge => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextScalingLarge.index, []);
+  String get settingsTextScalingLarge => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsTextScalingLarge.index, []);
 
-  String get settingsTextScalingNormal => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextScalingNormal.index, []);
+  String get settingsTextScalingNormal =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.settingsTextScalingNormal.index, []);
 
-  String get settingsTextScalingSmall => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTextScalingSmall.index, []);
+  String get settingsTextScalingSmall => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.settingsTextScalingSmall.index, []);
 
   String get settingsTheme => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTheme.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsTheme.index, []);
 
   String get settingsTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.settingsTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.settingsTitle.index, []);
 
-  String get shrineCancelButtonCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCancelButtonCaption.index, []);
+  String get shrineCancelButtonCaption =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineCancelButtonCaption.index, []);
 
   String get shrineCartClearButtonCaption =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineCartClearButtonCaption.index, []);
+          GalleryMessagesEnum.shrineCartClearButtonCaption.index, []);
 
   String shrineCartItemCount(int quantity) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineCartItemCount.index, [quantity]);
+          GalleryMessagesEnum.shrineCartItemCount.index, [quantity]);
 
-  String get shrineCartPageCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCartPageCaption.index, []);
+  String get shrineCartPageCaption => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineCartPageCaption.index, []);
 
-  String get shrineCartShippingCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCartShippingCaption.index, []);
+  String get shrineCartShippingCaption =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineCartShippingCaption.index, []);
 
-  String get shrineCartSubtotalCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCartSubtotalCaption.index, []);
+  String get shrineCartSubtotalCaption =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineCartSubtotalCaption.index, []);
 
-  String get shrineCartTaxCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCartTaxCaption.index, []);
+  String get shrineCartTaxCaption => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineCartTaxCaption.index, []);
 
-  String get shrineCartTotalCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCartTotalCaption.index, []);
+  String get shrineCartTotalCaption => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineCartTotalCaption.index, []);
 
   String get shrineCategoryNameAccessories =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineCategoryNameAccessories.index, []);
+          GalleryMessagesEnum.shrineCategoryNameAccessories.index, []);
 
-  String get shrineCategoryNameAll => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCategoryNameAll.index, []);
+  String get shrineCategoryNameAll => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineCategoryNameAll.index, []);
 
-  String get shrineCategoryNameClothing => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCategoryNameClothing.index, []);
+  String get shrineCategoryNameClothing =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineCategoryNameClothing.index, []);
 
-  String get shrineCategoryNameHome => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineCategoryNameHome.index, []);
+  String get shrineCategoryNameHome => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineCategoryNameHome.index, []);
 
   String get shrineDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineDescription.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.shrineDescription.index, []);
 
-  String get shrineLoginPasswordLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineLoginPasswordLabel.index, []);
+  String get shrineLoginPasswordLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineLoginPasswordLabel.index, []);
 
-  String get shrineLoginUsernameLabel => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineLoginUsernameLabel.index, []);
+  String get shrineLoginUsernameLabel => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineLoginUsernameLabel.index, []);
 
-  String get shrineLogoutButtonCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineLogoutButtonCaption.index, []);
+  String get shrineLogoutButtonCaption =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineLogoutButtonCaption.index, []);
 
   String get shrineMenuCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineMenuCaption.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.shrineMenuCaption.index, []);
 
-  String get shrineNextButtonCaption => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineNextButtonCaption.index, []);
+  String get shrineNextButtonCaption => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineNextButtonCaption.index, []);
 
-  String get shrineProductBlueStoneMug => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductBlueStoneMug.index, []);
+  String get shrineProductBlueStoneMug =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductBlueStoneMug.index, []);
 
   String get shrineProductCeriseScallopTee =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductCeriseScallopTee.index, []);
+          GalleryMessagesEnum.shrineProductCeriseScallopTee.index, []);
 
   String get shrineProductChambrayNapkins =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductChambrayNapkins.index, []);
+          GalleryMessagesEnum.shrineProductChambrayNapkins.index, []);
 
-  String get shrineProductChambrayShirt => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductChambrayShirt.index, []);
+  String get shrineProductChambrayShirt =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductChambrayShirt.index, []);
 
   String get shrineProductClassicWhiteCollar =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductClassicWhiteCollar.index, []);
+          GalleryMessagesEnum.shrineProductClassicWhiteCollar.index, []);
 
-  String get shrineProductClaySweater => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductClaySweater.index, []);
+  String get shrineProductClaySweater => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineProductClaySweater.index, []);
 
   String get shrineProductCopperWireRack =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductCopperWireRack.index, []);
+          GalleryMessagesEnum.shrineProductCopperWireRack.index, []);
 
-  String get shrineProductFineLinesTee => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductFineLinesTee.index, []);
+  String get shrineProductFineLinesTee =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductFineLinesTee.index, []);
 
-  String get shrineProductGardenStrand => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductGardenStrand.index, []);
+  String get shrineProductGardenStrand =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductGardenStrand.index, []);
 
-  String get shrineProductGatsbyHat => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductGatsbyHat.index, []);
+  String get shrineProductGatsbyHat => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineProductGatsbyHat.index, []);
 
-  String get shrineProductGentryJacket => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductGentryJacket.index, []);
+  String get shrineProductGentryJacket =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductGentryJacket.index, []);
 
-  String get shrineProductGiltDeskTrio => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductGiltDeskTrio.index, []);
+  String get shrineProductGiltDeskTrio =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductGiltDeskTrio.index, []);
 
-  String get shrineProductGingerScarf => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductGingerScarf.index, []);
+  String get shrineProductGingerScarf => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineProductGingerScarf.index, []);
 
   String get shrineProductGreySlouchTank =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductGreySlouchTank.index, []);
+          GalleryMessagesEnum.shrineProductGreySlouchTank.index, []);
 
-  String get shrineProductHurrahsTeaSet => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductHurrahsTeaSet.index, []);
+  String get shrineProductHurrahsTeaSet =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductHurrahsTeaSet.index, []);
 
   String get shrineProductKitchenQuattro =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductKitchenQuattro.index, []);
+          GalleryMessagesEnum.shrineProductKitchenQuattro.index, []);
 
-  String get shrineProductNavyTrousers => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductNavyTrousers.index, []);
+  String get shrineProductNavyTrousers =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductNavyTrousers.index, []);
 
-  String get shrineProductPlasterTunic => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductPlasterTunic.index, []);
+  String get shrineProductPlasterTunic =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductPlasterTunic.index, []);
 
-  String shrineProductPrice(String price) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductPrice.index, [price]);
+  String shrineProductPrice(String price) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductPrice.index, [price]);
 
   String shrineProductQuantity(int quantity) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductQuantity.index, [quantity]);
+          GalleryMessagesEnum.shrineProductQuantity.index, [quantity]);
 
-  String get shrineProductQuartetTable => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductQuartetTable.index, []);
+  String get shrineProductQuartetTable =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductQuartetTable.index, []);
 
-  String get shrineProductRainwaterTray => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductRainwaterTray.index, []);
+  String get shrineProductRainwaterTray =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductRainwaterTray.index, []);
 
   String get shrineProductRamonaCrossover =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductRamonaCrossover.index, []);
+          GalleryMessagesEnum.shrineProductRamonaCrossover.index, []);
 
-  String get shrineProductSeaTunic => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductSeaTunic.index, []);
+  String get shrineProductSeaTunic => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineProductSeaTunic.index, []);
 
   String get shrineProductSeabreezeSweater =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductSeabreezeSweater.index, []);
+          GalleryMessagesEnum.shrineProductSeabreezeSweater.index, []);
 
   String get shrineProductShoulderRollsTee =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductShoulderRollsTee.index, []);
+          GalleryMessagesEnum.shrineProductShoulderRollsTee.index, []);
 
-  String get shrineProductShrugBag => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductShrugBag.index, []);
+  String get shrineProductShrugBag => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineProductShrugBag.index, []);
 
   String get shrineProductSootheCeramicSet =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductSootheCeramicSet.index, []);
+          GalleryMessagesEnum.shrineProductSootheCeramicSet.index, []);
 
   String get shrineProductStellaSunglasses =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductStellaSunglasses.index, []);
+          GalleryMessagesEnum.shrineProductStellaSunglasses.index, []);
 
-  String get shrineProductStrutEarrings => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductStrutEarrings.index, []);
+  String get shrineProductStrutEarrings =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductStrutEarrings.index, []);
 
   String get shrineProductSucculentPlanters =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductSucculentPlanters.index, []);
+          GalleryMessagesEnum.shrineProductSucculentPlanters.index, []);
 
-  String get shrineProductSunshirtDress => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductSunshirtDress.index, []);
+  String get shrineProductSunshirtDress =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductSunshirtDress.index, []);
 
   String get shrineProductSurfAndPerfShirt =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductSurfAndPerfShirt.index, []);
+          GalleryMessagesEnum.shrineProductSurfAndPerfShirt.index, []);
 
-  String get shrineProductVagabondSack => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductVagabondSack.index, []);
+  String get shrineProductVagabondSack =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductVagabondSack.index, []);
 
-  String get shrineProductVarsitySocks => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductVarsitySocks.index, []);
+  String get shrineProductVarsitySocks =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductVarsitySocks.index, []);
 
   String get shrineProductWalterHenleyWhite =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductWalterHenleyWhite.index, []);
+          GalleryMessagesEnum.shrineProductWalterHenleyWhite.index, []);
 
-  String get shrineProductWeaveKeyring => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductWeaveKeyring.index, []);
+  String get shrineProductWeaveKeyring =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.shrineProductWeaveKeyring.index, []);
 
   String get shrineProductWhitePinstripeShirt =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineProductWhitePinstripeShirt.index, []);
+          GalleryMessagesEnum.shrineProductWhitePinstripeShirt.index, []);
 
-  String get shrineProductWhitneyBelt => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineProductWhitneyBelt.index, []);
+  String get shrineProductWhitneyBelt => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineProductWhitneyBelt.index, []);
 
   String shrineScreenReaderCart(int quantity) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineScreenReaderCart.index, [quantity]);
+          GalleryMessagesEnum.shrineScreenReaderCart.index, [quantity]);
 
   String get shrineScreenReaderProductAddToCart =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineScreenReaderProductAddToCart.index, []);
+          GalleryMessagesEnum.shrineScreenReaderProductAddToCart.index, []);
 
   String shrineScreenReaderRemoveProductButton(String product) =>
       _currentMessages.generateStringAtIndex(
-          MessagesEnum.shrineScreenReaderRemoveProductButton.index, [product]);
+          GalleryMessagesEnum.shrineScreenReaderRemoveProductButton.index,
+          [product]);
 
-  String get shrineTooltipCloseCart => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineTooltipCloseCart.index, []);
+  String get shrineTooltipCloseCart => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineTooltipCloseCart.index, []);
 
-  String get shrineTooltipCloseMenu => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineTooltipCloseMenu.index, []);
+  String get shrineTooltipCloseMenu => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineTooltipCloseMenu.index, []);
 
-  String get shrineTooltipOpenMenu => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineTooltipOpenMenu.index, []);
+  String get shrineTooltipOpenMenu => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineTooltipOpenMenu.index, []);
 
-  String get shrineTooltipRemoveItem => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineTooltipRemoveItem.index, []);
+  String get shrineTooltipRemoveItem => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineTooltipRemoveItem.index, []);
 
   String get shrineTooltipSearch => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineTooltipSearch.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.shrineTooltipSearch.index, []);
 
-  String get shrineTooltipSettings => _currentMessages
-      .generateStringAtIndex(MessagesEnum.shrineTooltipSettings.index, []);
+  String get shrineTooltipSettings => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.shrineTooltipSettings.index, []);
 
-  String get signIn =>
-      _currentMessages.generateStringAtIndex(MessagesEnum.signIn.index, []);
+  String get signIn => _currentMessages
+      .generateStringAtIndex(GalleryMessagesEnum.signIn.index, []);
 
   String get splashSelectDemo => _currentMessages
-      .generateStringAtIndex(MessagesEnum.splashSelectDemo.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.splashSelectDemo.index, []);
 
-  String get starterAppDescription => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppDescription.index, []);
+  String get starterAppDescription => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppDescription.index, []);
 
-  String starterAppDrawerItem(int value) => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppDrawerItem.index, [value]);
+  String starterAppDrawerItem(int value) =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.starterAppDrawerItem.index, [value]);
 
-  String get starterAppGenericBody => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppGenericBody.index, []);
+  String get starterAppGenericBody => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppGenericBody.index, []);
 
-  String get starterAppGenericButton => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppGenericButton.index, []);
+  String get starterAppGenericButton => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppGenericButton.index, []);
 
-  String get starterAppGenericHeadline => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppGenericHeadline.index, []);
+  String get starterAppGenericHeadline =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.starterAppGenericHeadline.index, []);
 
-  String get starterAppGenericSubtitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppGenericSubtitle.index, []);
+  String get starterAppGenericSubtitle =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.starterAppGenericSubtitle.index, []);
 
-  String get starterAppGenericTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppGenericTitle.index, []);
+  String get starterAppGenericTitle => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppGenericTitle.index, []);
 
   String get starterAppTitle => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppTitle.index, []);
+      .generateStringAtIndex(GalleryMessagesEnum.starterAppTitle.index, []);
 
-  String get starterAppTooltipAdd => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppTooltipAdd.index, []);
+  String get starterAppTooltipAdd => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppTooltipAdd.index, []);
 
-  String get starterAppTooltipFavorite => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppTooltipFavorite.index, []);
+  String get starterAppTooltipFavorite =>
+      _currentMessages.generateStringAtIndex(
+          GalleryMessagesEnum.starterAppTooltipFavorite.index, []);
 
-  String get starterAppTooltipSearch => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppTooltipSearch.index, []);
+  String get starterAppTooltipSearch => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppTooltipSearch.index, []);
 
-  String get starterAppTooltipShare => _currentMessages
-      .generateStringAtIndex(MessagesEnum.starterAppTooltipShare.index, []);
+  String get starterAppTooltipShare => _currentMessages.generateStringAtIndex(
+      GalleryMessagesEnum.starterAppTooltipShare.index, []);
 }
 
-enum MessagesEnum {
+enum GalleryMessagesEnum {
   aboutDialogDescription,
   backToGallery,
   bannerDemoLeadingText,

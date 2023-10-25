@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Se încarcă",
   "deselect": "Debifați",
   "select": "Selectați",

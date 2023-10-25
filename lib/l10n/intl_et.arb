@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Laadimine",
   "deselect": "Tühista valik",
   "select": "Vali",

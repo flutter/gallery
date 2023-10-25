@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "በመጫን ላይ",
   "deselect": "አትምረጥ",
   "select": "ምረጥ",

@@ -565,24 +565,10 @@ packages:
       relative: true
     source: path
     version: "0.1.0"
-  messages_builder:
-    dependency: "direct dev"
-    description:
-      path: "../i18n/pkgs/messages_builder"
-      relative: true
-    source: path
-    version: "0.1.0"
   messages_deserializer:
     dependency: transitive
     description:
       path: "../i18n/pkgs/messages_deserializer"
-      relative: true
-    source: path
-    version: "0.1.0"
-  messages_serializer:
-    dependency: transitive
-    description:
-      path: "../i18n/pkgs/messages_serializer"
       relative: true
     source: path
     version: "0.1.0"

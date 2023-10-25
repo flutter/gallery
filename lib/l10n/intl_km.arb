@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "កំពុងផ្ទុក",
   "deselect": "ដក​ការជ្រើសរើស",
   "select": "ជ្រើសរើស",

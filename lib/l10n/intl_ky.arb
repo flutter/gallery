@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Жүктөлүүдө",
   "deselect": "Тандоодон чыгаруу",
   "select": "Тандоо",

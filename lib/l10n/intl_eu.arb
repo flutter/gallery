@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Kargatzen",
   "deselect": "Desautatu",
   "select": "Hautatu",

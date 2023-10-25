@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Notiek ielāde…",
   "deselect": "Noņemt atlasi",
   "select": "Atlasīt",

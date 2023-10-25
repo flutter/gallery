@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "正在載入",
   "deselect": "取消選取",
   "select": "選取",

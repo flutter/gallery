@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Зарежда се",
   "deselect": "Премахване на избора",
   "select": "Избиране",

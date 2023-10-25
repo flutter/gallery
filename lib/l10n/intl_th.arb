@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "กำลังโหลด",
   "deselect": "ยกเลิกการเลือก",
   "select": "เลือก",

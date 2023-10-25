@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "ဖွင့်နေသည်",
   "deselect": "မရွေးပါနှင့်",
   "select": "ရွေးရန်",

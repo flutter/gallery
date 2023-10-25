@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "githubRepo": "Storfa {repoName} GitHub",
   "aboutDialogDescription": "I weld y cod ffynhonnell ar gyfer yr ap hwn, ewch i {repoLink}.",
   "deselect": "Dad-ddewis",

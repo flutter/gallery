@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "githubRepo": "{repoName} GitHub repository",
   "@githubRepo": {
     "description": "Represents a link to a GitHub repository.",
@@ -56,7 +57,7 @@
   "bannerDemoLeadingText": "Leading Icon",
   "@bannerDemoLeadingText": {
     "description": "If user clicks this button the leading icon in the Banner will disappear"
-   },
+  },
   "dismiss": "DISMISS",
   "@dismiss": {
     "description": "When text is pressed the banner widget will be removed from the screen."
@@ -74,7 +75,7 @@
     "description": "Semantics label for Explore. Label tells user to explore the destinationName to the user. Example Explore Tamil",
     "placeholders": {
       "destinationName": {
-       "example": "Tamil"
+        "example": "Tamil"
       }
     }
   },
@@ -372,37 +373,37 @@
   "@rallyAlertsMessageSpentOnRestaurants": {
     "description": "Alert message shown when for example, user has spent $120 on Restaurants this week.",
     "placeholders": {
-       "amount": {
-         "example": "$120"
-       }
+      "amount": {
+        "example": "$120"
+      }
     }
   },
   "rallyAlertsMessageATMFees": "You've spent {amount} in ATM fees this month",
   "@rallyAlertsMessageATMFees": {
     "description": "Alert message shown when for example, the user has spent $24 in ATM fees this month.",
     "placeholders": {
-       "amount": {
-         "example": "24"
-       }
+      "amount": {
+        "example": "24"
+      }
     }
   },
   "rallyAlertsMessageCheckingAccount": "Good work! Your checking account is {percent} higher than last month.",
   "@rallyAlertsMessageCheckingAccount": {
     "description": "Alert message shown when for example, the checking account is 1% higher than last month.",
     "placeholders": {
-       "percent": {
-         "example": "1%"
-       }
+      "percent": {
+        "example": "1%"
+      }
     }
   },
   "rallyAlertsMessageUnassignedTransactions": "{count, plural, =1{Increase your potential tax deduction! Assign categories to 1 unassigned transaction.}other{Increase your potential tax deduction! Assign categories to {count} unassigned transactions.}}",
   "@rallyAlertsMessageUnassignedTransactions": {
     "description": "Alert message shown when you have unassigned transactions.",
     "placeholders": {
-       "count": {
-         "example": "2",
-         "type": "int"
-       }
+      "count": {
+        "example": "2",
+        "type": "int"
+      }
     }
   },
   "rallySeeAllAccounts": "See all accounts",

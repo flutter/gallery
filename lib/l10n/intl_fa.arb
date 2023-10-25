@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "درحال بار کردن",
   "deselect": "لغو انتخاب",
   "select": "انتخاب",

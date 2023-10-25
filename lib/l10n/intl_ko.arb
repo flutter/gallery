@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "로드 중",
   "deselect": "선택 해제",
   "select": "선택",

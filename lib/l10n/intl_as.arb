@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "ল’ড হৈ আছে",
   "deselect": "বাছনিৰ পৰা আঁতৰাওক",
   "select": "বাছনি কৰক",

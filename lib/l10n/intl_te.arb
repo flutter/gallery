@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "లోడ్ అవుతోంది",
   "deselect": "ఎంపికను తొలగించండి",
   "select": "ఎంచుకోండి",

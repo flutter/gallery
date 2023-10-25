@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Laster inn",
   "deselect": "Velg bort",
   "select": "Velg",

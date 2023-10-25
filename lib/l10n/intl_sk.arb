@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Načítava sa",
   "deselect": "Zrušiť výber",
   "select": "Vybrať",

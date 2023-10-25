@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "ଲୋଡ ହେଉଛି",
   "deselect": "ଅଚୟନ କରନ୍ତୁ",
   "select": "ଚୟନ କରନ୍ତୁ",

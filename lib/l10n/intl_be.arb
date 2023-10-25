@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Загрузка",
   "deselect": "Скасаваць выбар",
   "select": "Выбраць",

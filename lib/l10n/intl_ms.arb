@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Memuatkan",
   "deselect": "Nyahpilih",
   "select": "Pilih",

@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Ladataan",
   "deselect": "Poista valinta",
   "select": "Valitse",

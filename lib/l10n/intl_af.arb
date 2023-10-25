@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Laai tans",
   "deselect": "Ontkies",
   "select": "Kies",

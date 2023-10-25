@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Завантаження",
   "deselect": "Не вибирати",
   "select": "Вибрати",

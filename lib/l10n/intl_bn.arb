@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "লোড হচ্ছে",
   "deselect": "টিক চিহ্ন সরিয়ে দিন",
   "select": "বেছে নিন",

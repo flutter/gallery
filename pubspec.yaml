@@ -56,8 +56,6 @@ dev_dependencies:
   watcher: 1.1.0
   flutter_messages:
     path: ../flutter_messages
-  messages_builder:
-    path: ../i18n/pkgs/messages_builder
 
 flutter:
   uses-material-design: true

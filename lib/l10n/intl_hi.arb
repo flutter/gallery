@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "लोड हो रहा है",
   "deselect": "चुने हुए का निशान हटाएं",
   "select": "चुनें",

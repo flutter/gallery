@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Hleður",
   "deselect": "Afvelja",
   "select": "Velja",

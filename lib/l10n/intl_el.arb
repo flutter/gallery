@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Φόρτωση",
   "deselect": "Αποεπιλογή",
   "select": "Επιλογή",

@@ -3,7 +3,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_messages/flutter_messages.dart';
+import 'package:messages/package_intl_object.dart';
 
 import 'intl_en.g.dart';
 
@@ -15,34 +15,36 @@ class GalleryLocalizations {
     GlobalWidgetsLocalizations.delegate,
   ];
 
-  static LocalizationsDelegate<Messages> delegate =
-      MessagesLocalizationsDelegate();
+  static LocalizationsDelegate<GalleryMessages> delegate =
+      GalleryLocalizationsDelegate();
 
   static List<Locale> get supportedLocales {
-    return Messages.knownLocales.map((e) {
+    return GalleryMessages.knownLocales.map((e) {
       var split = e.split('_');
       var code = split.length > 1 ? split[1] : null;
       return Locale(split.first, code);
     }).toList();
   }
 
-  static Messages? of(BuildContext context) =>
-      Localizations.of<Messages>(context, Messages);
+  static GalleryMessages? of(BuildContext context) =>
+      Localizations.of<GalleryMessages>(context, GalleryMessages);
 }
 
-class MessagesLocalizationsDelegate extends LocalizationsDelegate<Messages> {
+class GalleryLocalizationsDelegate
+    extends LocalizationsDelegate<GalleryMessages> {
   @override
   bool isSupported(Locale locale) =>
-      Messages.knownLocales.contains(locale.toString());
+      GalleryMessages.knownLocales.contains(locale.toString());
 
   @override
-  Future<Messages> load(Locale locale) async {
+  Future<GalleryMessages> load(Locale locale) async {
     await messages.loadLocale(locale.toString());
     return messages;
   }
 
   @override
-  bool shouldReload(LocalizationsDelegate<Messages> old) => false;
+  bool shouldReload(LocalizationsDelegate<GalleryMessages> old) => false;
 }
 
-Messages messages = Messages(rootBundle.loadString, const OldIntlObject());
+GalleryMessages messages =
+    GalleryMessages(rootBundle.loadString, const OldIntlObject());

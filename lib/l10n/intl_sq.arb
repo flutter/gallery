@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Po ngarkohet",
   "deselect": "Hiq përzgjedhjen",
   "select": "Zgjidh",

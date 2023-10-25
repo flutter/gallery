@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "පූරණය වේ",
   "deselect": "නොතෝරන්න",
   "select": "තෝරන්න",

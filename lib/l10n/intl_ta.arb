@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "ஏற்றுகிறது",
   "deselect": "தேர்வு நீக்கு",
   "select": "தேர்ந்தெடு",

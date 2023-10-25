@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Carregando",
   "deselect": "Desmarcar",
   "select": "Selecionar",

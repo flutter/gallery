@@ -49,7 +49,7 @@ enum GalleryDemoCategory {
     return name.toUpperCase();
   }
 
-  String? displayTitle(Messages localizations) {
+  String? displayTitle(GalleryMessages localizations) {
     switch (this) {
       case GalleryDemoCategory.other:
         return localizations.homeCategoryReference;
@@ -126,7 +126,7 @@ class Demos {
     );
   }
 
-  static List<GalleryDemo> all(Messages localizations) =>
+  static List<GalleryDemo> all(GalleryMessages localizations) =>
       studies(localizations).values.toList() +
       materialDemos(localizations) +
       cupertinoDemos(localizations) +
@@ -135,7 +135,7 @@ class Demos {
   static List<String> allDescriptions() =>
       all(messages).map((demo) => demo.describe).toList();
 
-  static Map<String, GalleryDemo> studies(Messages localizations) {
+  static Map<String, GalleryDemo> studies(GalleryMessages localizations) {
     return <String, GalleryDemo>{
       'shrine': GalleryDemo(
         title: 'Shrine',
@@ -176,7 +176,7 @@ class Demos {
     };
   }
 
-  static List<GalleryDemo> materialDemos(Messages localizations) {
+  static List<GalleryDemo> materialDemos(GalleryMessages localizations) {
     LibraryLoader materialDemosLibrary = material_demos.loadLibrary;
     return [
       GalleryDemo(
@@ -912,7 +912,7 @@ class Demos {
     ];
   }
 
-  static List<GalleryDemo> cupertinoDemos(Messages localizations) {
+  static List<GalleryDemo> cupertinoDemos(GalleryMessages localizations) {
     LibraryLoader cupertinoLoader = cupertino_demos.loadLibrary;
     return [
       GalleryDemo(
@@ -1223,7 +1223,7 @@ class Demos {
     ];
   }
 
-  static List<GalleryDemo> otherDemos(Messages localizations) {
+  static List<GalleryDemo> otherDemos(GalleryMessages localizations) {
     return [
       GalleryDemo(
         title: localizations.demoTwoPaneTitle,

@@ -1,4 +1,5 @@
 {
+  "@@context": "Gallery",
   "loading": "Yüklənir",
   "deselect": "Seçimi ləğv edin",
   "select": "Seçin",
