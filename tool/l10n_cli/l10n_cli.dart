@@ -73,7 +73,7 @@ Future<String> generateXmlFromArb([String arbPath = _englishArbPath]) async {
       continue;
     }
 
-    if (!key.startsWith('@')) {
+    if (!key.startsWith('@') || key.startsWith('@@')) {
       continue;
     }
 

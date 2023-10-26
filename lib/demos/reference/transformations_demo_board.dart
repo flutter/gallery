@@ -217,7 +217,7 @@ class Board extends Object with IterableMixin<BoardPoint?> {
   }
 }
 
-class _BoardIterator extends Iterator<BoardPoint?> {
+class _BoardIterator implements Iterator<BoardPoint?> {
   _BoardIterator(this.boardPoints);
 
   final List<BoardPoint> boardPoints;

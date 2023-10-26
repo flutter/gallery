@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:collection/collection.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gallery/data/demos.dart';
 import 'package:gallery/l10n/intl_en.flutter.g.dart';
@@ -22,6 +23,10 @@ bool _isUnique(List<String> list) {
 const _stringListEquality = ListEquality<String>();
 
 void main() {
+  setUp(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await messages.loadLocale('en');
+  });
   test('_isUnique works correctly', () {
     expect(_isUnique(['a', 'b', 'c']), true);
     expect(_isUnique(['a', 'c', 'a', 'b']), false);
