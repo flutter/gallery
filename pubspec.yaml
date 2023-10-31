@@ -38,7 +38,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   args: ^2.3.1
-  flutter_lints: ^2.0.1
+  flutter_lints: ">=2.0.1 <4.0.0"
   grinder: ^0.9.1
   path: ^1.8.1
   string_scanner: ^1.1.0
