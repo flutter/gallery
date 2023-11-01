@@ -4,7 +4,7 @@ repository: https://github.com/flutter/gallery
 version: 2.10.2+021002 # See README.md for details on versioning.
 
 environment:
-  flutter: ^3.10.0-10.0.pre.17 # Keep relatively close to master channel version
+  flutter: ^3.13.0
   sdk: ">=2.17.0"
 
 dependencies:

@@ -25,3 +25,4 @@ updates:
       interval: "monthly"
     labels:
       - "autosubmit"
+    versioning-strategy: "increase-if-necessary"
