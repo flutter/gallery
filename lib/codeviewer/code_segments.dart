@@ -48156,7 +48156,7 @@ class CodeSegments {
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: '_BoardIterator'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
-      TextSpan(style: codeStyle.keywordStyle, text: 'extends'),
+      TextSpan(style: codeStyle.keywordStyle, text: 'implements'),
       TextSpan(style: codeStyle.baseStyle, text: ' '),
       TextSpan(style: codeStyle.classStyle, text: 'Iterator'),
       TextSpan(style: codeStyle.punctuationStyle, text: '<'),
