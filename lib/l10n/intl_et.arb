@@ -45,7 +45,7 @@
   "demoDateRangePickerDescription": "Kuvatakse dialoog, mis sisaldab materiaalse disaini kuupäevavahemiku valijat.",
   "demoDateRangePickerTitle": "Kuupäevavahemiku valija",
   "demoNavigationDrawerUserName": "Kasutaja nimi",
-  "demoNavigationDrawerUserEmail": "kasutaja.nimi@näide.com",
+  "demoNavigationDrawerUserEmail": "kasutaja.nimi@example.com",
   "demoNavigationDrawerText": "Sahtli nägemiseks pühkige servast või puudutage ülal vasakul olevat ikooni",
   "demoNavigationRailTitle": "Navigeerimisrada",
   "demoNavigationRailSubtitle": "Navigeerimisraja kuvamine rakenduses",
