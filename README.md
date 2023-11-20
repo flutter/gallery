@@ -5,7 +5,7 @@
 Flutter Gallery was a resource to help developers evaluate and use Flutter.
 It is now being used primarily for testing.
 
-We recommend Flutter developers chec out the following resources:
+We recommend Flutter developers check out the following resources:
 
 * **Wonderous**:
 (
