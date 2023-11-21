@@ -9,7 +9,7 @@ We recommend Flutter developers check out the following resources:
 
 * **Wonderous**:
 (
-[web demo](https://wonderous.app/web/#/home),
+[web demo](https://wonderous.app/web/),
 [App Store](https://apps.apple.com/us/app/wonderous/id1612491897),
 [Google Play](https://play.google.com/store/apps/details?id=com.gskinner.flutter.wonders),
 [source code](https://github.com/gskinnerTeam/flutter-wonderous-app)
