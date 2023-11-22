@@ -28,36 +28,42 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
 
   late RestorableRouteFuture<DateTime> _restorableDatePickerRouteFuture;
   late RestorableRouteFuture<DateTimeRange>
-      _restorableDateRangePickerRouteFuture;
+  _restorableDateRangePickerRouteFuture;
   late RestorableRouteFuture<TimeOfDay> _restorableTimePickerRouteFuture;
 
-  void _selectDate(DateTime selectedDate) {
-    if (selectedDate != _fromDate.value) {
+  void _selectDate(DateTime? selectedDate) {
+    if(selectedDate !=null) {
+      if (selectedDate != _fromDate.value) {
+        setState(() {
+          _fromDate.value = selectedDate;
+        });
+      }
+    }
+  }
+
+  void _selectDateRange(DateTimeRange? newSelectedDate) {
+    if(newSelectedDate !=null) {
       setState(() {
-        _fromDate.value = selectedDate;
+        _startDate.value = newSelectedDate.start;
+        _endDate.value = newSelectedDate.end;
       });
     }
   }
 
-  void _selectDateRange(DateTimeRange newSelectedDate) {
-    setState(() {
-      _startDate.value = newSelectedDate.start;
-      _endDate.value = newSelectedDate.end;
-    });
-  }
-
-  void _selectTime(TimeOfDay selectedTime) {
-    if (selectedTime != _fromTime.value) {
-      setState(() {
-        _fromTime.value = selectedTime;
-      });
+  void _selectTime(TimeOfDay? selectedTime) {
+    if(selectedTime !=null) {
+      if (selectedTime != _fromTime.value) {
+        setState(() {
+          _fromTime.value = selectedTime;
+        });
+      }
     }
   }
 
   static Route<DateTime> _datePickerRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     return DialogRoute<DateTime>(
       context: context,
       builder: (context) {
@@ -72,9 +78,9 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   static Route<TimeOfDay> _timePickerRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     final args = arguments as List<Object>;
     final initialTime = TimeOfDay(
       hour: args[0] as int,
@@ -93,9 +99,9 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   }
 
   static Route<DateTimeRange> _dateRangePickerRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     return DialogRoute<DateTimeRange>(
       context: context,
       builder: (context) {
@@ -122,10 +128,10 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
     );
     _restorableDateRangePickerRouteFuture =
         RestorableRouteFuture<DateTimeRange>(
-      onComplete: _selectDateRange,
-      onPresent: (navigator, arguments) =>
-          navigator.restorablePush(_dateRangePickerRoute),
-    );
+          onComplete: _selectDateRange,
+          onPresent: (navigator, arguments) =>
+              navigator.restorablePush(_dateRangePickerRoute),
+        );
 
     _restorableTimePickerRouteFuture = RestorableRouteFuture<TimeOfDay>(
       onComplete: _selectTime,

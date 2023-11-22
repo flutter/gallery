@@ -62,10 +62,12 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     );
   }
 
-  void _setSelectedValue(String value) {
-    setState(() {
-      lastSelectedValue.value = value;
-    });
+  void _setSelectedValue(String? value) {
+    if(value != null) {
+      setState(() {
+        lastSelectedValue.value = value;
+      });
+    }
   }
 
   @override
@@ -120,9 +122,9 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
   }
 
   static Route<String> _alertDemoDialog(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     final localizations = GalleryLocalizations.of(context)!;
     return CupertinoDialogRoute<String>(
       context: context,
@@ -159,9 +161,9 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
   }
 
   static Route<String> _alertWithTitleDialog(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     final localizations = GalleryLocalizations.of(context)!;
     return CupertinoDialogRoute<String>(
       context: context,
@@ -201,9 +203,9 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
   }
 
   static Route<String> _alertWithButtonsDialog(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     final localizations = GalleryLocalizations.of(context)!;
     return CupertinoDialogRoute<String>(
       context: context,
@@ -221,9 +223,9 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
   }
 
   static Route<String> _alertWithButtonsOnlyDialog(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     return CupertinoDialogRoute<String>(
       context: context,
       builder: (context) => const ApplyTextOptions(
@@ -233,9 +235,9 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
   }
 
   static Route<String> _modalRoute(
-    BuildContext context,
-    Object? arguments,
-  ) {
+      BuildContext context,
+      Object? arguments,
+      ) {
     final localizations = GalleryLocalizations.of(context)!;
     return CupertinoModalPopupRoute<String>(
       builder: (context) => ApplyTextOptions(
