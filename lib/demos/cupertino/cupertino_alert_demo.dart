@@ -62,10 +62,12 @@ class _CupertinoAlertDemoState extends State<CupertinoAlertDemo>
     );
   }
 
-  void _setSelectedValue(String value) {
-    setState(() {
-      lastSelectedValue.value = value;
-    });
+  void _setSelectedValue(String? value) {
+    if(value!=null) {
+      setState(() {
+        lastSelectedValue.value = value;
+      });
+    }
   }
 
   @override

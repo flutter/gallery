@@ -31,27 +31,33 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
       _restorableDateRangePickerRouteFuture;
   late RestorableRouteFuture<TimeOfDay> _restorableTimePickerRouteFuture;
 
-  void _selectDate(DateTime selectedDate) {
-    if (selectedDate != _fromDate.value) {
-      setState(() {
-        _fromDate.value = selectedDate;
-      });
+  void _selectDate(DateTime? selectedDate) {
+    if(selectedDate != null) {
+      if (selectedDate != _fromDate.value) {
+        setState(() {
+          _fromDate.value = selectedDate;
+        });
+      }
     }
   }
 
-  void _selectDateRange(DateTimeRange newSelectedDate) {
+  void _selectDateRange(DateTimeRange? newSelectedDate) {
+   if(newSelectedDate!=null){
+     setState(() {
+       _startDate.value = newSelectedDate.start;
+       _endDate.value = newSelectedDate.end;
+     });
+   }
+  }
+
+  void _selectTime(TimeOfDay? selectedTime) {
+if(selectedTime!=null){
+  if (selectedTime != _fromTime.value) {
     setState(() {
-      _startDate.value = newSelectedDate.start;
-      _endDate.value = newSelectedDate.end;
+      _fromTime.value = selectedTime;
     });
   }
-
-  void _selectTime(TimeOfDay selectedTime) {
-    if (selectedTime != _fromTime.value) {
-      setState(() {
-        _fromTime.value = selectedTime;
-      });
-    }
+}
   }
 
   static Route<DateTime> _datePickerRoute(
