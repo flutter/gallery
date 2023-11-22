@@ -44,16 +44,19 @@ class _DialogDemoState extends State<DialogDemo> with RestorationMixin {
   }
 
   // Displays the popped String value in a SnackBar.
-  void _showInSnackBar(String value) {
+  void _showInSnackBar(String? value) {
     // The value passed to Navigator.pop() or null.
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          GalleryLocalizations.of(context)!.dialogSelectedOption(value),
+    if(value != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+
+        SnackBar(
+          content: Text(
+            GalleryLocalizations.of(context)!.dialogSelectedOption(value!),
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 
   @override
