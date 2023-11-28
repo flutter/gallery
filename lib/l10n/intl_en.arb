@@ -802,7 +802,7 @@
   "@demoDataTableSubtitle": {
     "description": "Subtitle for the material data table component demo."
   },
-  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way that's easy to scan, so that users can look for patterns and insights.",
+  "demoDataTableDescription": "Data tables display information in a grid-like format of rows and columns. They organize information in a way thats easy to scan, so that users can look for patterns and insights.",
   "@demoDataTableDescription": {
     "description": "Description for the material data table component demo."
   },

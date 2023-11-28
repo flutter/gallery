@@ -35,11 +35,7 @@ dependencies:
   transparent_image: ^2.0.1
   url_launcher: ^6.1.2
   vector_math: ^2.1.2
-  messages:
-    git:
-      url: git@github.com:dart-lang/i18n.git
-      path: pkgs/messages
-      ref: adaptToFlutterGallery
+  messages: ^0.1.0
 
 dev_dependencies:
   flutter_test:
@@ -56,30 +52,10 @@ dev_dependencies:
   build_runner: 2.4.6
   build_runner_core: 7.2.10
   watcher: 1.1.0
-  flutter_messages:
-    git: git@github.com:mosuem/flutter_messages.git
-
-dependency_overrides:
-  messages:
-    git:
-      url: git@github.com:dart-lang/i18n.git
-      path: pkgs/messages
-      ref: adaptToFlutterGallery
-  messages_serializer:
-    git:
-      url: git@github.com:dart-lang/i18n.git
-      path: pkgs/messages_serializer
-      ref: adaptToFlutterGallery
-  messages_deserializer:
-    git:
-      url: git@github.com:dart-lang/i18n.git
-      path: pkgs/messages_deserializer
-      ref: adaptToFlutterGallery
-  messages_builder:
-    git:
-      url: git@github.com:dart-lang/i18n.git
-      path: pkgs/messages_builder
-      ref: adaptToFlutterGallery
+  flutter_messages: 
+    path: ../flutter_messages
+  messages_serializer: ^0.1.0
+  messages_builder: ^0.1.0
 
 flutter:
   uses-material-design: true
