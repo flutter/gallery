@@ -167,7 +167,7 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
 
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
-    } else if (mounted) {
+    } else if (context.mounted) {
       await showDialog<void>(
         context: context,
         builder: (context) {

@@ -5,7 +5,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery/l10n/intl_en.flutter.g.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void showAboutDialog({
@@ -20,8 +19,7 @@ void showAboutDialog({
 }
 
 Future<String> getVersionNumber() async {
-  final packageInfo = await PackageInfo.fromPlatform();
-  return packageInfo.version;
+  return '2.10.2+021002';
 }
 
 class _AboutDialog extends StatelessWidget {

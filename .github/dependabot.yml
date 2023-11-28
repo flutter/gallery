@@ -9,13 +9,20 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    labels:
+      - "autosubmit"
 
   - package-ecosystem: "bundler"
     directory: "/android"
     schedule:
       interval: "monthly"
+    labels:
+      - "autosubmit"
 
   - package-ecosystem: "pub"
     directory: "/"
     schedule:
       interval: "monthly"
+    labels:
+      - "autosubmit"
+    versioning-strategy: "increase-if-necessary"
