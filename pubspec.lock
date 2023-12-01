@@ -259,10 +259,10 @@ packages:
     dependency: "direct dev"
     description:
       name: grinder
-      sha256: "48495acdb3df702c55c952c6536faf11631b8401a292eb0d182ef332fc568b56"
+      sha256: e1996e485d2b56bb164a8585679758d488fbf567273f51c432c8733fee1f6188
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.4"
+    version: "0.9.5"
   http:
     dependency: transitive
     description:
