@@ -23,7 +23,6 @@ import 'package:gallery/studies/rally/routes.dart' as rally_routes;
 import 'package:gallery/studies/reply/routes.dart' as reply_routes;
 import 'package:gallery/studies/shrine/colors.dart';
 import 'package:gallery/studies/shrine/routes.dart' as shrine_routes;
-import 'package:gallery/studies/starter/routes.dart' as starter_app_routes;
 import 'package:url_launcher/url_launcher.dart';
 
 const _horizontalPadding = 32.0;
@@ -42,10 +41,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     final localizations = GalleryLocalizations.of(context)!;
-    final studyDemos = Demos.studies(localizations);
+    final datasetDemos = Demos.datasets(localizations);
     final carouselCards = <Widget>[
       _CarouselCard(
-        demo: studyDemos['reply'],
+        demo: datasetDemos['rental'],
         asset: const AssetImage(
           'assets/studies/reply_card.png',
           package: 'flutter_gallery_assets',
@@ -60,7 +59,7 @@ class HomePage extends StatelessWidget {
         studyRoute: reply_routes.homeRoute,
       ),
       _CarouselCard(
-        demo: studyDemos['shrine'],
+        demo: datasetDemos['realty'],
         asset: const AssetImage(
           'assets/studies/shrine_card.png',
           package: 'flutter_gallery_assets',
@@ -75,7 +74,7 @@ class HomePage extends StatelessWidget {
         studyRoute: shrine_routes.loginRoute,
       ),
       _CarouselCard(
-        demo: studyDemos['rally'],
+        demo: datasetDemos['food'],
         textColor: RallyColors.accountColors[0],
         asset: const AssetImage(
           'assets/studies/rally_card.png',
@@ -90,7 +89,7 @@ class HomePage extends StatelessWidget {
         studyRoute: rally_routes.loginRoute,
       ),
       _CarouselCard(
-        demo: studyDemos['crane'],
+        demo: datasetDemos['metro'],
         asset: const AssetImage(
           'assets/studies/crane_card.png',
           package: 'flutter_gallery_assets',
@@ -105,7 +104,7 @@ class HomePage extends StatelessWidget {
         studyRoute: crane_routes.defaultRoute,
       ),
       _CarouselCard(
-        demo: studyDemos['fortnightly'],
+        demo: datasetDemos['show'],
         asset: const AssetImage(
           'assets/studies/fortnightly_card.png',
           package: 'flutter_gallery_assets',
@@ -117,21 +116,6 @@ class HomePage extends StatelessWidget {
         ),
         assetDarkColor: const Color(0xFF1F1F1F),
         studyRoute: fortnightly_routes.defaultRoute,
-      ),
-      _CarouselCard(
-        demo: studyDemos['starterApp'],
-        asset: const AssetImage(
-          'assets/studies/starter_card.png',
-          package: 'flutter_gallery_assets',
-        ),
-        assetColor: const Color(0xFFFAF6FE),
-        assetDark: const AssetImage(
-          'assets/studies/starter_card_dark.png',
-          package: 'flutter_gallery_assets',
-        ),
-        assetDarkColor: const Color(0xFF3F3D45),
-        textColor: Colors.black,
-        studyRoute: starter_app_routes.defaultRoute,
       ),
     ];
 
@@ -267,7 +251,7 @@ class _GalleryHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Header(
       color: Theme.of(context).colorScheme.primaryContainer,
-      text: GalleryLocalizations.of(context)!.homeHeaderGallery,
+      text: GalleryLocalizations.of(context)!.homeHeaderDataset,
     );
   }
 }

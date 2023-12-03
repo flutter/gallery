@@ -135,6 +135,11 @@
   "@homeHeaderGallery": {
     "description": "Header title on home screen for Gallery section."
   },
+  "homeHeaderDataset": "Dataset",
+  "@homeHeaderDataset": {
+    "description": "Header title on home screen for Dataset section."
+  },
+
   "homeHeaderCategories": "Categories",
   "@homeHeaderCategories": {
     "description": "Header title on home screen for Categories section."
@@ -154,6 +159,10 @@
   "replyDescription": "An efficient, focused email app",
   "@replyDescription": {
     "description": "Study description for Reply."
+  },
+  "rentalDatasetDescription": "Rental price information of Shanghai",
+  "@rentalDatasetDescription": {
+    "description": "Description of rental dataset."
   },
   "rallyAccountDataChecking": "Checking",
   "@rallyAccountDataChecking": {
@@ -2547,6 +2556,48 @@
   "@shrineCategoryNameAll": {
     "description": "A tab showing products from all categories."
   },
+
+ "realtyDatasetName": "Realty",
+  "@shrineCategoryNameAll": {
+    "description": "Realty deal dataset name."
+  },
+
+ "realtyDatasetDescription": "Realty deal dataset of Shanghai",
+  "@shrineCategoryNameAll": {
+    "description": "Realty deal dataset description."
+  },
+
+ "foodDatasetName": "Food",
+  "@foodDatasetName": {
+    "description": "Food dataset name."
+  },
+
+ "foodDatasetDescription": "Food price dataset of Shanghai",
+  "@foodDatasetDescription": {
+    "description": "Food price dataset description."
+  },
+
+ "metroDatasetName": "Metro",
+  "@metroDatasetName": {
+    "description": "Metro dataset name."
+  },
+
+ "metroDatasetDescription": "Metro price dataset of Shanghai",
+  "@metroDatasetDescription": {
+    "description": "Food price dataset description."
+  },
+
+
+ "showDatasetName": "Show",
+  "@showDatasetName": {
+    "description": "Show dataset name."
+  },
+
+ "showDatasetDescription": "Show price dataset of Shanghai",
+  "@showDatasetDescription": {
+    "description": "Show dataset description."
+  },
+
   "shrineCategoryNameAccessories": "ACCESSORIES",
   "@shrineCategoryNameAccessories": {
     "description": "A category of products consisting of accessories (clothing items)."

@@ -40,7 +40,7 @@ const _docsAnimationsUrl =
     'https://pub.dev/documentation/animations/latest/animations';
 
 enum GalleryDemoCategory {
-  study,
+  dataset,
   material,
   cupertino,
   other;
@@ -57,7 +57,7 @@ enum GalleryDemoCategory {
       case GalleryDemoCategory.material:
       case GalleryDemoCategory.cupertino:
         return toString();
-      case GalleryDemoCategory.study:
+      case GalleryDemoCategory.dataset:
     }
     return null;
   }
@@ -74,7 +74,7 @@ class GalleryDemo {
     this.slug,
     this.icon,
     this.configurations = const [],
-  })  : assert(category == GalleryDemoCategory.study ||
+  })  : assert(category == GalleryDemoCategory.dataset ||
             (slug != null && icon != null)),
         assert(slug != null || studyId != null);
 
@@ -128,7 +128,7 @@ class Demos {
   }
 
   static List<GalleryDemo> all(GalleryLocalizations localizations) =>
-      studies(localizations).values.toList() +
+      datasets(localizations).values.toList() +
       materialDemos(localizations) +
       cupertinoDemos(localizations) +
       otherDemos(localizations);
@@ -136,43 +136,37 @@ class Demos {
   static List<String> allDescriptions() =>
       all(GalleryLocalizationsEn()).map((demo) => demo.describe).toList();
 
-  static Map<String, GalleryDemo> studies(GalleryLocalizations localizations) {
+  static Map<String, GalleryDemo> datasets(GalleryLocalizations localizations) {
     return <String, GalleryDemo>{
-      'shrine': GalleryDemo(
-        title: 'Shrine',
-        subtitle: localizations.shrineDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'shrine',
+      'rental': GalleryDemo(
+        title: 'Rental',
+        subtitle: localizations.rentalDatasetDescription,
+        category: GalleryDemoCategory.dataset,
+        studyId: 'rental',
       ),
-      'rally': GalleryDemo(
-        title: 'Rally',
-        subtitle: localizations.rallyDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'rally',
+      'realty': GalleryDemo(
+        title: 'Realty',
+        subtitle: localizations.realtyDatasetDescription,
+        category: GalleryDemoCategory.dataset,
+        studyId: 'realty',
       ),
-      'crane': GalleryDemo(
-        title: 'Crane',
-        subtitle: localizations.craneDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'crane',
+      'food': GalleryDemo(
+        title: 'Food',
+        subtitle: localizations.foodDatasetDescription,
+        category: GalleryDemoCategory.dataset,
+        studyId: 'food',
       ),
-      'fortnightly': GalleryDemo(
-        title: 'Fortnightly',
-        subtitle: localizations.fortnightlyDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'fortnightly',
+      'metro': GalleryDemo(
+        title: 'Metro',
+        subtitle: localizations.metroDatasetDescription,
+        category: GalleryDemoCategory.dataset,
+        studyId: 'metro',
       ),
-      'reply': GalleryDemo(
-        title: 'Reply',
-        subtitle: localizations.replyDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'reply',
-      ),
-      'starterApp': GalleryDemo(
-        title: localizations.starterAppTitle,
-        subtitle: localizations.starterAppDescription,
-        category: GalleryDemoCategory.study,
-        studyId: 'starter',
+      'show': GalleryDemo(
+        title: 'Show',
+        subtitle: localizations.showDatasetDescription,
+        category: GalleryDemoCategory.dataset,
+        studyId: 'show',
       ),
     };
   }
