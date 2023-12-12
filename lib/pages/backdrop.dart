@@ -131,10 +131,10 @@ class _BackdropState extends State<Backdrop> with TickerProviderStateMixin {
         return ExcludeSemantics(
           excluding: !isSettingsOpen,
           child: isSettingsOpen
-              ? RawKeyboardListener(
+              ? KeyboardListener(
                   includeSemantics: false,
                   focusNode: _settingsPageFocusNode,
-                  onKey: (event) {
+                  onKeyEvent: (event) {
                     if (event.logicalKey == LogicalKeyboardKey.escape) {
                       _toggleSettings();
                     }
