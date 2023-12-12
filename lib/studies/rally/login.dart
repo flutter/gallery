@@ -291,8 +291,8 @@ class _ThumbButtonState extends State<_ThumbButton> {
         child: GestureDetector(
           onTap: widget.onTap,
           child: Focus(
-            onKey: (node, event) {
-              if (event is RawKeyDownEvent) {
+            onKeyEvent: (node, event) {
+              if (event is KeyDownEvent || event is KeyRepeatEvent) {
                 if (event.logicalKey == LogicalKeyboardKey.enter ||
                     event.logicalKey == LogicalKeyboardKey.space) {
                   widget.onTap();
