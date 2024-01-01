@@ -72,7 +72,7 @@ jobs:
       # Run the golden tests and upload failed test artifacts.
       - run: flutter test test_goldens
       - name: Upload goldens if tests fail
-        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32
+        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
         if: failure()
         with:
           name: goldens
