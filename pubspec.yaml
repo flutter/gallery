@@ -43,7 +43,7 @@ dev_dependencies:
   path: ^1.8.1
   string_scanner: ^1.1.0
   test: ^1.21.1
-  web_benchmarks: ^0.1.0
+  web_benchmarks: ^1.1.0
 
 flutter:
   generate: true # Enables generation of localized strings from arb files

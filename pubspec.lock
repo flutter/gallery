@@ -752,10 +752,10 @@ packages:
     dependency: "direct dev"
     description:
       name: web_benchmarks
-      sha256: "8ab21f475dbc7f837a616d36755b864150d70b4ac5df844ffa3f8cacca799f33"
+      sha256: f2ce78673215398df3fcd050d929f1ccdf08c0453f4de0054f267b44356f4da1
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0+8"
+    version: "1.1.0"
   web_socket_channel:
     dependency: transitive
     description:
