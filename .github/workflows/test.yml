@@ -18,7 +18,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@cc97e1648fff6ca5cc647fa67f47e70f7895510b
+        uses: subosito/flutter-action@2783a3f08e1baf891508463f8c6653c258246225
         with:
           channel: master
       - run: flutter doctor -v
@@ -41,7 +41,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@cc97e1648fff6ca5cc647fa67f47e70f7895510b
+        uses: subosito/flutter-action@2783a3f08e1baf891508463f8c6653c258246225
         with:
           channel: master
       - run: flutter doctor -v
@@ -59,7 +59,7 @@ jobs:
     steps:
       # Set up Flutter.
       - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@cc97e1648fff6ca5cc647fa67f47e70f7895510b
+        uses: subosito/flutter-action@2783a3f08e1baf891508463f8c6653c258246225
         with:
           channel: master
       - run: flutter doctor -v
@@ -72,7 +72,7 @@ jobs:
       # Run the golden tests and upload failed test artifacts.
       - run: flutter test test_goldens
       - name: Upload goldens if tests fail
-        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32
+        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
         if: failure()
         with:
           name: goldens
