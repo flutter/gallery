@@ -26,28 +26,30 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   final RestorableDateTime _startDate = RestorableDateTime(DateTime.now());
   final RestorableDateTime _endDate = RestorableDateTime(DateTime.now());
 
-  late RestorableRouteFuture<DateTime> _restorableDatePickerRouteFuture;
-  late RestorableRouteFuture<DateTimeRange>
+  late RestorableRouteFuture<DateTime?> _restorableDatePickerRouteFuture;
+  late RestorableRouteFuture<DateTimeRange?>
       _restorableDateRangePickerRouteFuture;
-  late RestorableRouteFuture<TimeOfDay> _restorableTimePickerRouteFuture;
+  late RestorableRouteFuture<TimeOfDay?> _restorableTimePickerRouteFuture;
 
-  void _selectDate(DateTime selectedDate) {
-    if (selectedDate != _fromDate.value) {
+  void _selectDate(DateTime? selectedDate) {
+    if (selectedDate != null && selectedDate != _fromDate.value) {
       setState(() {
         _fromDate.value = selectedDate;
       });
     }
   }
 
-  void _selectDateRange(DateTimeRange newSelectedDate) {
-    setState(() {
-      _startDate.value = newSelectedDate.start;
-      _endDate.value = newSelectedDate.end;
-    });
+  void _selectDateRange(DateTimeRange? newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _startDate.value = newSelectedDate.start;
+        _endDate.value = newSelectedDate.end;
+      });
+    }
   }
 
-  void _selectTime(TimeOfDay selectedTime) {
-    if (selectedTime != _fromTime.value) {
+  void _selectTime(TimeOfDay? selectedTime) {
+    if (selectedTime != null && selectedTime != _fromTime.value) {
       setState(() {
         _fromTime.value = selectedTime;
       });
@@ -111,7 +113,7 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
   @override
   void initState() {
     super.initState();
-    _restorableDatePickerRouteFuture = RestorableRouteFuture<DateTime>(
+    _restorableDatePickerRouteFuture = RestorableRouteFuture<DateTime?>(
       onComplete: _selectDate,
       onPresent: (navigator, arguments) {
         return navigator.restorablePush(
@@ -121,13 +123,13 @@ class _PickerDemoState extends State<PickerDemo> with RestorationMixin {
       },
     );
     _restorableDateRangePickerRouteFuture =
-        RestorableRouteFuture<DateTimeRange>(
+        RestorableRouteFuture<DateTimeRange?>(
       onComplete: _selectDateRange,
       onPresent: (navigator, arguments) =>
           navigator.restorablePush(_dateRangePickerRoute),
     );
 
-    _restorableTimePickerRouteFuture = RestorableRouteFuture<TimeOfDay>(
+    _restorableTimePickerRouteFuture = RestorableRouteFuture<TimeOfDay?>(
       onComplete: _selectTime,
       onPresent: (navigator, arguments) => navigator.restorablePush(
         _timePickerRoute,
