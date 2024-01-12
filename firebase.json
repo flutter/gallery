@@ -12,6 +12,13 @@
     {
       "target": "prod",
       "public": "build/web",
+      "redirects": [
+        {
+          "source": "/",
+          "destination": "https://docs.flutter.dev/gallery",
+          "type": 301
+        }
+      ],
       "ignore": [
         "firebase.json",
         "**/.*",
