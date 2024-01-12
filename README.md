@@ -20,6 +20,6 @@ A Flutter app that showcases Flutter's support for elegant design and rich anima
 [source code](https://github.com/flutter/samples/tree/main/material_3_demo)):<br>
 A Flutter app that showcases Material 3 features in the Flutter Material library.
 
-* **Flutter Samples**:
+* **Flutter Samples**
 ([samples](https://flutter.github.io/samples), [source code](https://github.com/flutter/samples)):<br>
 A collection of open source samples that illustrate best practices for Flutter.
