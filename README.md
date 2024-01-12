@@ -23,3 +23,7 @@ A Flutter app that showcases Material 3 features in the Flutter Material library
 * **Flutter Samples**
 ([samples](https://flutter.github.io/samples), [source code](https://github.com/flutter/samples)):<br>
 A collection of open source samples that illustrate best practices for Flutter.
+
+* **Widget catalogs**
+([Material](https://docs.flutter.dev/ui/widgets/material), [Cupertino](https://docs.flutter.dev/ui/widgets/cupertino)):<br>
+Catalogs for Material, Cupertino, and other widgets available for use in UI.
