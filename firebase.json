@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "staging",
+      "site": "flutter-gallery-archive",
       "public": "build/web",
       "ignore": [
         "firebase.json",
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "target": "prod",
+      "site": "gallery-flutter-dev",
       "public": "build/web",
       "redirects": [
         {
