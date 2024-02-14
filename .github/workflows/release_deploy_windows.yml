@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: subosito/flutter-action@2783a3f08e1baf891508463f8c6653c258246225 # v2.12.0
 
-      - uses: dart-lang/setup-dart@b64355ae6ca0b5d484f0106a033dd1388965d06d # v1.6.0
+      - uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3 # v1.6.2
       - uses: microsoft/setup-msstore-cli@3b2ec9136230357ce9abc02b9d056626fb248d3f # v1
 
       # Instructions on obtaining these secrets can be found at https://github.com/marketplace/actions/windows-store-publish#obtaining-your-credentials
