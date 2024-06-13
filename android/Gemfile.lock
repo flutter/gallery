@@ -166,7 +166,8 @@ GEM
       trailblazer-option (>= 0.1.1, < 0.2.0)
       uber (< 0.2.0)
     retriable (3.1.2)
-    rexml (3.2.6)
+    rexml (3.2.9)
+      strscan
     rouge (2.0.7)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -179,6 +180,7 @@ GEM
     simctl (1.6.10)
       CFPropertyList
       naturally
+    strscan (3.1.0)
     terminal-notifier (2.0.0)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
