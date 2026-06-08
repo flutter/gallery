@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Draft release with release notes
         id: create_release
-        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda
         env:
           GITHUB_TOKEN: ${{ secrets.FLUTTERGALLERYRELEASEBOT_TOKEN }}
         with:
